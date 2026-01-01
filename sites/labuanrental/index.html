@@ -377,8 +377,9 @@
     }
 
     .armada-card img {
-      height: 180px;
-      object-fit: cover;
+      height: 150px;
+      object-fit: contain;
+      padding: 12px 18px 0;
     }
 
     .armada-content {
@@ -416,6 +417,45 @@
     .price-list span {
       color: var(--gold);
       font-weight: 700;
+    }
+
+    .price-toggle {
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      padding-top: 10px;
+    }
+
+    .price-toggle summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--gold);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .price-toggle summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .price-toggle summary::after {
+      content: "+";
+      font-size: 1.1rem;
+      color: var(--gold);
+    }
+
+    .price-toggle[open] summary::after {
+      content: "–";
+    }
+
+    .price-toggle .price-list {
+      margin-top: 10px;
+    }
+
+    .price-toggle .overtime {
+      margin-top: 10px;
+      color: var(--ash);
+      font-size: 0.85rem;
     }
 
     .armada-cta {
@@ -756,15 +796,18 @@
           <div class="armada-content">
             <h3>Avanza</h3>
             <p>Cocok untuk city tour dan perjalanan keluarga kecil.</p>
-            <ul class="price-list">
-              <li>Transfer only <span>120k</span></li>
-              <li>2 way transfer <span>300k</span></li>
-              <li>Halfday (5 jam) <span>550k</span></li>
-              <li>Self drive (full day) <span>575k</span></li>
-              <li>Fullday (12 jam) <span>800k</span></li>
-              <li>All in <span>975k</span></li>
-            </ul>
-            <p style="color: var(--ash); font-size: 0.85rem;">Overtime charge: 100k/jam</p>
+            <details class="price-toggle">
+              <summary>Price List</summary>
+              <ul class="price-list">
+                <li>Transfer only <span>120k</span></li>
+                <li>2 way transfer <span>300k</span></li>
+                <li>Halfday (5 jam) <span>550k</span></li>
+                <li>Self drive (full day) <span>575k</span></li>
+                <li>Fullday (12 jam) <span>800k</span></li>
+                <li>All in <span>975k</span></li>
+              </ul>
+              <div class="overtime">Overtime charge: 100k/jam</div>
+            </details>
             <div class="armada-cta">
               <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Avanza</a>
             </div>
@@ -776,15 +819,18 @@
           <div class="armada-content">
             <h3>Grand</h3>
             <p>Mobil harian yang stabil dan nyaman untuk perjalanan santai.</p>
-            <ul class="price-list">
-              <li>Transfer only <span>135k</span></li>
-              <li>2 way transfer <span>350k</span></li>
-              <li>Halfday (5 jam) <span>600k</span></li>
-              <li>Self drive (full day) <span>650k</span></li>
-              <li>Fullday (12 jam) <span>900k</span></li>
-              <li>All in <span>1.150k</span></li>
-            </ul>
-            <p style="color: var(--ash); font-size: 0.85rem;">Overtime charge: 150k/jam</p>
+            <details class="price-toggle">
+              <summary>Price List</summary>
+              <ul class="price-list">
+                <li>Transfer only <span>135k</span></li>
+                <li>2 way transfer <span>350k</span></li>
+                <li>Halfday (5 jam) <span>600k</span></li>
+                <li>Self drive (full day) <span>650k</span></li>
+                <li>Fullday (12 jam) <span>900k</span></li>
+                <li>All in <span>1.150k</span></li>
+              </ul>
+              <div class="overtime">Overtime charge: 150k/jam</div>
+            </details>
             <div class="armada-cta">
               <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Grand</a>
             </div>
@@ -796,15 +842,18 @@
           <div class="armada-content">
             <h3>Reborn</h3>
             <p>Ruang lega, nyaman untuk perjalanan panjang dan rombongan kecil.</p>
-            <ul class="price-list">
-              <li>Transfer only <span>150k</span></li>
-              <li>2 way transfer <span>425k</span></li>
-              <li>Halfday (5 jam) <span>650k</span></li>
-              <li>Self drive (full day) <span>750k</span></li>
-              <li>Fullday (12 jam) <span>1.000k</span></li>
-              <li>All in <span>1.350k</span></li>
-            </ul>
-            <p style="color: var(--ash); font-size: 0.85rem;">Overtime charge: 150k/jam</p>
+            <details class="price-toggle">
+              <summary>Price List</summary>
+              <ul class="price-list">
+                <li>Transfer only <span>150k</span></li>
+                <li>2 way transfer <span>425k</span></li>
+                <li>Halfday (5 jam) <span>650k</span></li>
+                <li>Self drive (full day) <span>750k</span></li>
+                <li>Fullday (12 jam) <span>1.000k</span></li>
+                <li>All in <span>1.350k</span></li>
+              </ul>
+              <div class="overtime">Overtime charge: 150k/jam</div>
+            </details>
             <div class="armada-cta">
               <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Reborn</a>
             </div>
@@ -816,14 +865,17 @@
           <div class="armada-content">
             <h3>Hiace</h3>
             <p>Ideal untuk group tour dan kebutuhan acara besar.</p>
-            <ul class="price-list">
-              <li>Transfer only <span>400k</span></li>
-              <li>2 way transfer <span>700k</span></li>
-              <li>Halfday (5 jam) <span>950k</span></li>
-              <li>Fullday (12 jam) <span>1.600k</span></li>
-              <li>All in <span>2.250k</span></li>
-            </ul>
-            <p style="color: var(--ash); font-size: 0.85rem;">Overtime charge: 200k/jam</p>
+            <details class="price-toggle">
+              <summary>Price List</summary>
+              <ul class="price-list">
+                <li>Transfer only <span>400k</span></li>
+                <li>2 way transfer <span>700k</span></li>
+                <li>Halfday (5 jam) <span>950k</span></li>
+                <li>Fullday (12 jam) <span>1.600k</span></li>
+                <li>All in <span>2.250k</span></li>
+              </ul>
+              <div class="overtime">Overtime charge: 200k/jam</div>
+            </details>
             <div class="armada-cta">
               <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Hiace</a>
             </div>
@@ -835,14 +887,17 @@
           <div class="armada-content">
             <h3>Fortuner</h3>
             <p>Performa tangguh dengan gaya premium untuk perjalanan VIP.</p>
-            <ul class="price-list">
-              <li>Transfer only <span>600k</span></li>
-              <li>2 way transfer <span>1.000k</span></li>
-              <li>Halfday (5 jam) <span>1.500k</span></li>
-              <li>Fullday (12 jam) <span>2.250k</span></li>
-              <li>All in <span>2.750k</span></li>
-            </ul>
-            <p style="color: var(--ash); font-size: 0.85rem;">Overtime charge: 300k/jam</p>
+            <details class="price-toggle">
+              <summary>Price List</summary>
+              <ul class="price-list">
+                <li>Transfer only <span>600k</span></li>
+                <li>2 way transfer <span>1.000k</span></li>
+                <li>Halfday (5 jam) <span>1.500k</span></li>
+                <li>Fullday (12 jam) <span>2.250k</span></li>
+                <li>All in <span>2.750k</span></li>
+              </ul>
+              <div class="overtime">Overtime charge: 300k/jam</div>
+            </details>
             <div class="armada-cta">
               <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Fortuner</a>
             </div>
@@ -854,14 +909,17 @@
           <div class="armada-content">
             <h3>Alphard</h3>
             <p>Luxury MPV untuk tamu VIP, wedding, dan event spesial.</p>
-            <ul class="price-list">
-              <li>Transfer only <span>1.750k</span></li>
-              <li>2 way transfer <span>2.750k</span></li>
-              <li>Halfday (5 jam) <span>3.750k</span></li>
-              <li>Fullday (12 jam) <span>4.750k</span></li>
-              <li>All in <span>5.750k</span></li>
-            </ul>
-            <p style="color: var(--ash); font-size: 0.85rem;">Overtime charge: 500k/jam</p>
+            <details class="price-toggle">
+              <summary>Price List</summary>
+              <ul class="price-list">
+                <li>Transfer only <span>1.750k</span></li>
+                <li>2 way transfer <span>2.750k</span></li>
+                <li>Halfday (5 jam) <span>3.750k</span></li>
+                <li>Fullday (12 jam) <span>4.750k</span></li>
+                <li>All in <span>5.750k</span></li>
+              </ul>
+              <div class="overtime">Overtime charge: 500k/jam</div>
+            </details>
             <div class="armada-cta">
               <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Alphard</a>
             </div>
