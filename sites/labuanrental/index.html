@@ -277,6 +277,10 @@
 
     .hero-stats {
       margin-top: 28px;
+      position: relative;
+    }
+
+    .hero-stats-track {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
@@ -662,8 +666,17 @@
       }
 
       .hero-stats {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        overflow: hidden;
+      }
+
+      .hero-stats-track {
+        display: flex;
+        gap: 0;
+        animation: heroSlide 12s infinite;
+      }
+
+      .stat-card {
+        min-width: 100%;
       }
 
       .hero-actions {
@@ -674,6 +687,21 @@
         padding: 10px 16px;
         font-size: 0.85rem;
         white-space: nowrap;
+      }
+    }
+
+    @keyframes heroSlide {
+      0%,
+      28% {
+        transform: translateX(0);
+      }
+      33%,
+      61% {
+        transform: translateX(-100%);
+      }
+      66%,
+      100% {
+        transform: translateX(-200%);
       }
     }
   </style>
@@ -719,26 +747,28 @@
         <a class="btn secondary" href="#kontak">Cek Ketersediaan</a>
       </div>
       <div class="hero-stats">
-        <div class="stat-card reveal" style="animation-delay: 0.4s;">
-          <div class="stat-text">
-            <strong>6+</strong>
-            <span>Armada siap harian & city tour</span>
+        <div class="hero-stats-track">
+          <div class="stat-card reveal" style="animation-delay: 0.4s;">
+            <div class="stat-text">
+              <strong>6+</strong>
+              <span>Armada siap harian & city tour</span>
+            </div>
+            <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
           </div>
-          <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
-        </div>
-        <div class="stat-card reveal" style="animation-delay: 0.5s;">
-          <div class="stat-text">
-            <strong>Harga Jelas</strong>
-            <span>List paket transparan</span>
+          <div class="stat-card reveal" style="animation-delay: 0.5s;">
+            <div class="stat-text">
+              <strong>Harga Jelas</strong>
+              <span>List paket transparan</span>
+            </div>
+            <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
           </div>
-          <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
-        </div>
-        <div class="stat-card reveal" style="animation-delay: 0.6s;">
-          <div class="stat-text">
-            <strong>Booking Mudah</strong>
-            <span>WhatsApp & Telepon</span>
+          <div class="stat-card reveal" style="animation-delay: 0.6s;">
+            <div class="stat-text">
+              <strong>Booking Mudah</strong>
+              <span>WhatsApp & Telepon</span>
+            </div>
+            <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
           </div>
-          <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
         </div>
       </div>
     </div>
@@ -908,7 +938,7 @@
         </article>
 
         <article class="armada-card reveal" style="animation-delay: 0.35s;">
-          <img src="https://w7.pngwing.com/pngs/485/673/png-transparent-toyota-alphard-car-minivan-toyota-vellfire-toyota-compact-car-car-vehicle.png" alt="Toyota Alphard" />
+          <img src="https://img.goodfon.com/original/2000x1333/8/2e/toyota-alphard-ah40-toyota-alphard-2023-toyota-motor-corpo-1.jpg" alt="Toyota Alphard" />
           <div class="armada-content">
             <h3>Alphard</h3>
             <p>Luxury MPV untuk tamu VIP, wedding, dan event spesial.</p>
