@@ -271,7 +271,7 @@
 
     .hero-actions {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 16px;
     }
 
@@ -621,6 +621,16 @@
       .hero-stats {
         grid-template-columns: 1fr;
         gap: 12px;
+      }
+
+      .hero-actions {
+        gap: 10px;
+      }
+
+      .hero-actions .btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+        white-space: nowrap;
       }
     }
   </style>
