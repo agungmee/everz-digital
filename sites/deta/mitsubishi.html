@@ -1,0 +1,322 @@
+<!-- =========================
+   HERO MIMOSA (FULL WIDTH 1 GAMBAR)
+========================= -->
+<section id="beranda" class="mimo-hero-full">
+  <style>
+    /* Buang gap Elementor */
+    .elementor-section,
+    .elementor-top-section,
+    .elementor-widget,
+    .elementor-widget-html,
+    .elementor-widget-container {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .mimo-hero-full {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      background: #000;
+    }
+
+    .mimo-hero-wrap {
+      max-width: 100%;
+      margin: 0 auto;
+      line-height: 0; /* hilangkan celah bawah image */
+      overflow: hidden;
+    }
+
+    .mimo-hero-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+
+  <div class="mimo-hero-wrap">
+    <img 
+      src="https://imgcdn.oto.com/large/gallery/exterior/28/3256/mitsubishi-destinator-front-angle-low-view-880863.jpg"
+      alt="Hero MIMOSA" />
+  </div>
+</section>
+
+
+<!-- =========================
+   SECTION: LIST PRODUK MITSUBISHI (MIMOSA STYLE)
+========================= -->
+<section class="mimo-carlist-full">
+  <style>
+    .mimo-carlist-full {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      background: #f3f4f6;
+      padding: 55px 0 70px;
+    }
+
+    .mimo-carlist-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 4vw;
+    }
+
+    /* GRID BESAR */
+    .mimo-carlist-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 32px;
+    }
+
+    @media (max-width: 1024px) {
+      .mimo-carlist-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .mimo-carlist-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* CARD BESAR */
+    .mimo-car-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f3f4f6 60%, #ffffff 100%);
+      border-radius: 26px;
+      padding: 26px 26px 32px;
+      box-shadow: 0 22px 45px rgba(15, 23, 42, 0.10);
+      transition: 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mimo-car-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 55px rgba(15, 23, 42, 0.14);
+    }
+
+    /* WRAP GAMBAR – SAMAKAN SEMUA */
+    .mimo-car-img-wrap {
+      margin-bottom: 20px;
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .mimo-car-img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    @media (max-width: 600px) {
+      .mimo-car-img-wrap {
+        height: 230px;
+      }
+    }
+
+    /* INFO DI DALAM CARD */
+    .mimo-car-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .mimo-car-name {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      color: #111827;
+      letter-spacing: 0.07em;
+    }
+
+    .mimo-car-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 4px;
+      letter-spacing: 0.13em;
+    }
+
+    .mimo-car-price {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #111827;
+    }
+
+    .mimo-car-otr {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 16px;
+    }
+
+    .mimo-car-btn {
+      display: inline-flex;
+      padding: 10px 26px;
+      background: #111827;
+      color: white;
+      font-size: 13px;
+      border-radius: 999px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      width: fit-content;
+      margin-top: auto;
+    }
+
+    .mimo-car-btn:hover {
+      background: #020617;
+    }
+  </style>
+
+  <div class="mimo-carlist-wrap">
+    <div class="mimo-carlist-grid">
+
+      <!-- 1. DESTINATOR -->
+      <div class="mimo-car-card">
+        <div class="mimo-car-img-wrap">
+          <img src="https://everz-digital.site/wp-content/uploads/2025/12/Destinator.webp"
+               alt="Destinator" class="mimo-car-img">
+        </div>
+        <div class="mimo-car-info">
+          <div class="mimo-car-name">DESTINATOR</div>
+          <div class="mimo-car-label">Mulai Dari</div>
+          <div class="mimo-car-price">Rp395.000.000</div>
+          <div class="mimo-car-otr">*OTR Jakarta</div>
+          <a class="mimo-car-btn"
+             href="https://wa.me/62895608685555?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20Mitsubishi%20Destinator.%20Boleh%20info%20promo%20dan%20simulasi%20kreditnya%3F"
+             target="_blank" rel="nofollow noopener">Selengkapnya</a>
+        </div>
+      </div>
+
+      <!-- 2. PAJERO SPORT -->
+      <div class="mimo-car-card">
+        <div class="mimo-car-img-wrap">
+          <img src="https://everz-digital.site/wp-content/uploads/2025/12/pajero-sport.webp"
+               alt="Pajero Sport" class="mimo-car-img">
+        </div>
+        <div class="mimo-car-info">
+          <div class="mimo-car-name">PAJERO SPORT</div>
+          <div class="mimo-car-label">Mulai Dari</div>
+          <div class="mimo-car-price">Rp572.700.000</div>
+          <div class="mimo-car-otr">*OTR Jakarta</div>
+          <a class="mimo-car-btn"
+             href="https://wa.me/62895608685555?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20Mitsubishi%20Pajero%20Sport.%20Boleh%20info%20promo%20dan%20simulasi%20kreditnya%3F"
+             target="_blank" rel="nofollow noopener">Selengkapnya</a>
+        </div>
+      </div>
+
+      <!-- 3. XFORCE -->
+      <div class="mimo-car-card">
+        <div class="mimo-car-img-wrap">
+          <img src="https://everz-digital.site/wp-content/uploads/2025/12/xforce.webp"
+               alt="Xforce" class="mimo-car-img">
+        </div>
+        <div class="mimo-car-info">
+          <div class="mimo-car-name">XFORCE</div>
+          <div class="mimo-car-label">Mulai Dari</div>
+          <div class="mimo-car-price">Rp388.000.000</div>
+          <div class="mimo-car-otr">*OTR Jakarta</div>
+          <a class="mimo-car-btn"
+             href="https://wa.me/62895608685555?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20Mitsubishi%20Xforce.%20Boleh%20info%20promo%20dan%20simulasi%20kreditnya%3F"
+             target="_blank" rel="nofollow noopener">Selengkapnya</a>
+        </div>
+      </div>
+
+      <!-- 4. XPANDER CROSS -->
+      <div class="mimo-car-card">
+        <div class="mimo-car-img-wrap">
+          <img src="https://everz-digital.site/wp-content/uploads/2025/12/xpander-cross.webp"
+               alt="Xpander Cross" class="mimo-car-img">
+        </div>
+        <div class="mimo-car-info">
+          <div class="mimo-car-name">XPANDER CROSS</div>
+          <div class="mimo-car-label">Mulai Dari</div>
+          <div class="mimo-car-price">Rp338.000.000</div>
+          <div class="mimo-car-otr">*OTR Jakarta</div>
+          <a class="mimo-car-btn"
+             href="https://wa.me/62895608685555?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20Mitsubishi%20Xpander%20Cross.%20Boleh%20info%20promo%20dan%20simulasi%20kreditnya%3F"
+             target="_blank" rel="nofollow noopener">Selengkapnya</a>
+        </div>
+      </div>
+
+      <!-- 5. XPANDER -->
+      <div class="mimo-car-card">
+        <div class="mimo-car-img-wrap">
+          <img src="https://everz-digital.site/wp-content/uploads/2025/12/xpander.webp"
+               alt="Xpander" class="mimo-car-img">
+        </div>
+        <div class="mimo-car-info">
+          <div class="mimo-car-name">XPANDER</div>
+          <div class="mimo-car-label">Mulai Dari</div>
+          <div class="mimo-car-price">Rp270.100.000</div>
+          <div class="mimo-car-otr">*OTR Jakarta</div>
+          <a class="mimo-car-btn"
+             href="https://wa.me/62895608685555?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20Mitsubishi%20Xpander.%20Boleh%20info%20promo%20dan%20simulasi%20kreditnya%3F"
+             target="_blank" rel="nofollow noopener">Selengkapnya</a>
+        </div>
+      </div>
+
+      <!-- 6. TRITON -->
+      <div class="mimo-car-card">
+        <div class="mimo-car-img-wrap">
+          <img src="https://everz-digital.site/wp-content/uploads/2025/12/triton.webp"
+               alt="Triton" class="mimo-car-img">
+        </div>
+        <div class="mimo-car-info">
+          <div class="mimo-car-name">TRITON</div>
+          <div class="mimo-car-label">Mulai Dari</div>
+          <div class="mimo-car-price">Rp313.200.000</div>
+          <div class="mimo-car-otr">*OTR Jakarta</div>
+          <a class="mimo-car-btn"
+             href="https://wa.me/62895608685555?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20Mitsubishi%20Triton.%20Boleh%20info%20promo%20dan%20simulasi%20kreditnya%3F"
+             target="_blank" rel="nofollow noopener">Selengkapnya</a>
+        </div>
+      </div>
+
+      <!-- 7. L100 EV -->
+      <div class="mimo-car-card">
+        <div class="mimo-car-img-wrap">
+          <img src="https://everz-digital.site/wp-content/uploads/2025/11/L100-EV-1.png"
+               alt="L100 EV" class="mimo-car-img">
+        </div>
+        <div class="mimo-car-info">
+          <div class="mimo-car-name">L100 EV</div>
+          <div class="mimo-car-label">Mulai Dari</div>
+          <div class="mimo-car-price">Rp323.300.000</div>
+          <div class="mimo-car-otr">*OTR Jakarta</div>
+          <a class="mimo-car-btn"
+             href="https://wa.me/62895608685555?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20Mitsubishi%20L100%20EV.%20Boleh%20info%20promo%20dan%20simulasi%20kreditnya%3F"
+             target="_blank" rel="nofollow noopener">Selengkapnya</a>
+        </div>
+      </div>
+
+      <!-- 8. L300 -->
+      <div class="mimo-car-card">
+        <div class="mimo-car-img-wrap">
+          <img src="https://everz-digital.site/wp-content/uploads/2025/12/L300.webp"
+               alt="L300" class="mimo-car-img">
+        </div>
+        <div class="mimo-car-info">
+          <div class="mimo-car-name">L300</div>
+          <div class="mimo-car-label">Mulai Dari</div>
+          <div class="mimo-car-price">Rp232.500.000</div>
+          <div class="mimo-car-otr">*OTR Jakarta</div>
+          <a class="mimo-car-btn"
+             href="https://wa.me/62895608685555?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20Mitsubishi%20L300.%20Boleh%20info%20promo%20dan%20simulasi%20kreditnya%3F"
+             target="_blank" rel="nofollow noopener">Selengkapnya</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

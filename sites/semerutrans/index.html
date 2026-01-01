@@ -1,0 +1,178 @@
+<!-- Start Gallery Section -->
+
+<!-- ===== SECTION GALLERY ===== -->
+<style>
+  .elementor-section,
+  .elementor-top-section,
+  .elementor-widget,
+  .elementor-widget-html,
+  .elementor-widget-container {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .vtm-gallery-full {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    background: #ffffff;
+  }
+
+  .vtm-gallery-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 5vw 60px;
+  }
+
+  .vtm-gallery-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 26px;
+  }
+
+  .vtm-gallery-hint {
+    text-align: center;
+    font-size: 12px;
+    color: #6b7280;
+    margin: -14px 0 18px;
+    display: none;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .vtm-gallery-hint i {
+    font-size: 11px;
+    opacity: 0.8;
+    animation: vtm-swipe 1.6s ease-in-out infinite;
+  }
+
+  @keyframes vtm-swipe {
+    0% { transform: translateX(0); opacity: 0.5; }
+    50% { transform: translateX(6px); opacity: 1; }
+    100% { transform: translateX(0); opacity: 0.5; }
+  }
+
+  .vtm-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .vtm-gallery-item {
+    width: 100%;
+    height: 170px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #e5e7eb;
+  }
+
+  .vtm-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* portrait / landscape tetap rapi */
+    display: block;
+  }
+
+  @media (max-width: 1024px) {
+    .vtm-gallery-hint {
+      display: flex;
+    }
+
+    .vtm-gallery-grid {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .vtm-gallery-grid::-webkit-scrollbar {
+      height: 0;
+    }
+
+    .vtm-gallery-grid {
+      scrollbar-width: none;
+    }
+
+    .vtm-gallery-item {
+      min-width: 240px;
+      scroll-snap-align: start;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .vtm-gallery-grid {
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .vtm-gallery-wrap {
+      padding-inline: 16px;
+    }
+    .vtm-gallery-item {
+      height: 150px;
+    }
+  }
+</style>
+
+<div class="vtm-gallery-full" id="galeri">
+  <div class="vtm-gallery-wrap">
+    <h2 class="vtm-gallery-title">Gallery Armada & Kegiatan Semeru Trans</h2>
+    <div class="vtm-gallery-hint">
+      <span>Geser untuk melihat lainnya</span>
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
+
+    <div class="vtm-gallery-grid">
+      <!-- BARIS 1 -->
+      <div class="vtm-gallery-item">
+        <img src="https://everz-digital.site/wp-content/uploads/2025/11/Toyota-Alphard.png"
+             alt="Gallery Toyota Alphard Semeru Trans">
+      </div>
+
+      <div class="vtm-gallery-item">
+        <img src="https://everz-digital.site/wp-content/uploads/2025/11/Elf-Giga-Long.png"
+             alt="Gallery Elf Giga Long Semeru Trans">
+      </div>
+
+      <div class="vtm-gallery-item">
+        <img src="https://everz-digital.site/wp-content/uploads/2025/11/Hiace-Commuter-1.png"
+             alt="Gallery Hiace Commuter Semeru Trans">
+      </div>
+
+      <div class="vtm-gallery-item">
+        <img src="https://everz-digital.site/wp-content/uploads/2025/11/Innova-Reborn-1.png"
+             alt="Gallery Innova Reborn Semeru Trans">
+      </div>
+
+      <!-- BARIS 2 -->
+      <div class="vtm-gallery-item">
+        <img src="https://everz-digital.site/wp-content/uploads/2025/11/Terios-1.png"
+             alt="Gallery Daihatsu Terios Semeru Trans">
+      </div>
+
+      <div class="vtm-gallery-item">
+        <img src="https://everz-digital.site/wp-content/uploads/2025/11/New-Brio-AT.png"
+             alt="Gallery New Brio AT Semeru Trans">
+      </div>
+
+      <div class="vtm-gallery-item">
+        <img src="https://everz-digital.site/wp-content/uploads/2025/11/Xenia.png"
+             alt="Gallery Daihatsu Xenia Semeru Trans">
+      </div>
+
+      <div class="vtm-gallery-item">
+        <img src="https://everz-digital.site/wp-content/uploads/2025/11/brio-satya.png"
+             alt="Gallery Honda Brio Satya Semeru Trans">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End Gallery Section -->

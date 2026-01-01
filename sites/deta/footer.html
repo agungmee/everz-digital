@@ -1,0 +1,292 @@
+<!-- =========================
+      FOOTER DETA PREMIUM + MAP
+========================= -->
+
+<!-- Font Awesome (hapus kalau sudah dipanggil di bagian lain) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<section class="deta-footer-full">
+  <style>
+    .deta-footer-full {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      background: #000000;
+      color: #e5e7eb;
+      position: relative;
+      padding: 60px 0 40px;
+      overflow: hidden;
+    }
+
+    /* Background Wave */
+    .deta-footer-full::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("https://everz-digital.site/wp-content/uploads/2025/11/black-wave-bg.webp");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.25;
+      animation: waveFooter 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes waveFooter {
+      0% { transform: translateX(0px); }
+      100% { transform: translateX(-80px); }
+    }
+
+    /* MAP WRAP DI ATAS FOOTER */
+    .deta-footer-map-wrap {
+      position: relative;
+      z-index: 5;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      padding: 0 5vw;
+    }
+
+    .deta-footer-map-heading {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .deta-footer-map-box {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.5);
+      background: #020617;
+    }
+
+    .deta-footer-map-box iframe {
+      width: 100%;
+      height: 280px;
+      border: 0;
+      display: block;
+      filter: grayscale(0.2) contrast(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .deta-footer-map-box iframe {
+        height: 220px;
+      }
+      .deta-footer-map-heading {
+        text-align: center;
+      }
+    }
+
+    .deta-footer-wrap {
+      position: relative;
+      z-index: 5;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5vw;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    /* LEFT Column */
+    .deta-footer-brand-logo {
+      width: 120px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .deta-footer-title {
+      font-size: 13px;
+      color: #d1d5db;
+      line-height: 1.6;
+      max-width: 360px;
+    }
+
+    /* MIDDLE Column - Contact */
+    .deta-footer-heading {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+
+    .deta-footer-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .deta-footer-list li {
+      font-size: 13px;
+      color: #d1d5db;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .deta-footer-list i {
+      color: #ef4444;
+      font-size: 14px;
+    }
+
+    /* RIGHT Column - Social + Brand */
+    .deta-footer-social {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .deta-footer-social a {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      background: rgba(239, 68, 68, 0.15);
+      border-radius: 8px;
+      color: #ef4444;
+      font-size: 16px;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+
+    .deta-footer-social a:hover {
+      background: #ef4444;
+      color: #ffffff;
+    }
+
+    .deta-footer-brand-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .deta-footer-brand-list li {
+      padding: 4px 0;
+      font-size: 13px;
+      color: #d1d5db;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .deta-footer-brand-list i {
+      font-size: 8px;
+      color: #ef4444;
+    }
+
+    /* COPYRIGHT */
+    .deta-footer-bottom {
+      text-align: center;
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 40px;
+      z-index: 5;
+      position: relative;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .deta-footer-wrap {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .deta-footer-brand-logo {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .deta-footer-title {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+      .deta-footer-social {
+        justify-content: center;
+      }
+
+      .deta-footer-list li {
+        justify-content: center;
+      }
+
+      .deta-footer-brand-list li {
+        justify-content: center;
+      }
+    }
+  </style>
+
+  <!-- MAP SECTION -->
+<div class="deta-footer-map-wrap">
+  <div class="deta-footer-map-heading">Lokasi Kami</div>
+  <div class="deta-footer-map-box">
+    <iframe
+      src="https://www.google.com/maps?q=Jl.+Raya+Bekasi,+RT.1%2FRW.6,+Jatinegara+Kaum,+Kec.+Pulo+Gadung,+Kota+Jakarta+Timur,+Daerah+Khusus+Ibukota+Jakarta+13260&z=18&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+
+  <!-- 3 KOLOM FOOTER -->
+  <div class="deta-footer-wrap">
+
+    <!-- LEFT SECTION -->
+    <div>
+      <img
+        src="https://everz-digital.site/wp-content/uploads/2025/11/WhatsApp_Image_2025-11-24_at_18.57.24-removebg-preview.png"
+        alt="Deta Logo"
+        class="deta-footer-brand-logo"
+      >
+
+      <p class="deta-footer-title">
+        DETA, one of the most trusted privately-owned car dealership in Indonesia,
+        offering premium brands and excellent customer experience.
+      </p>
+    </div>
+
+    <!-- MIDDLE CONTACT -->
+    <div>
+      <div class="deta-footer-heading">Contact Us</div>
+
+      <ul class="deta-footer-list">
+        <li><i class="fa-solid fa-location-dot"></i>Jl. Raya Bekasi, RT.1/RW.6, Jatinegara Kaum, Kec. Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13260</li>
+        <li><i class="fa-brands fa-whatsapp"></i>6289625757504 (WhatsApp Hotline)</li>
+        <li><i class="fa-solid fa-phone"></i>6289625757504 (Direct Call)</li>
+        <li><i class="fa-solid fa-envelope"></i>detagrupdealer@gmail.com</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT SOCIAL + BRAND -->
+    <div>
+      <div class="deta-footer-heading">Follow Us</div>
+
+      <div class="deta-footer-social">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+
+      <div class="deta-footer-heading" style="margin-top: 16px;">Brand</div>
+
+      <ul class="deta-footer-brand-list">
+            <li><i class="fa-solid fa-circle"></i> AION</li>
+            <li><i class="fa-solid fa-circle"></i> Baic</li>
+            <li><i class="fa-solid fa-circle"></i> BYD</li>
+            <li><i class="fa-solid fa-circle"></i> Chery</li>
+            <li><i class="fa-solid fa-circle"></i> Mazda</li>
+            <li><i class="fa-solid fa-circle"></i> Mitsubishi</li>
+            <li><i class="fa-solid fa-circle"></i> Wuling</li>
+          </ul>
+    </div>
+
+  </div>
+
+  <div class="deta-footer-bottom">
+    © 2025 Deta. All Rights Reserved.
+  </div>
+</section>

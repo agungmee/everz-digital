@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Labuan Rental | labuanrental.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --ink: #121212;
+      --night: #0b0b0b;
+      --sand: #f2efe9;
+      --tangerine: #f3a71b;
+      --gold: #f6c15c;
+      --coal: #1e1b18;
+      --ash: #6e6a66;
+      --card: #1a1715;
+      --outline: rgba(255, 255, 255, 0.12);
+      --shadow: 0 20px 60px rgba(7, 7, 7, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--sand);
+      background: radial-gradient(circle at top, #2b221d, #0c0c0c 55%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 70px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.1rem, 3vw, 3.1rem);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--ash);
+      max-width: 680px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--outline);
+      color: var(--gold);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(7, 7, 7, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 20px;
+      flex-wrap: nowrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+    }
+
+    .brand img {
+      height: 44px;
+      width: auto;
+    }
+
+    .brand-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      line-height: 1.1;
+    }
+
+    .brand-title {
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .brand-site {
+      font-size: 0.75rem;
+      color: var(--ash);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--sand);
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 0;
+      color: var(--sand);
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .nav-links a {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 12px;
+      margin-left: auto;
+      flex-wrap: nowrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .nav-cta .btn {
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      min-width: 128px;
+    }
+
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 0;
+      color: var(--sand);
+      padding: 6px;
+      font-size: 1.25rem;
+      line-height: 1;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .icon-link:hover {
+      color: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    .menu-toggle i {
+      font-size: 1.35rem;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, #f6c15c, #f3a71b);
+      color: var(--night);
+      box-shadow: 0 15px 30px rgba(243, 167, 27, 0.35);
+    }
+
+    .btn.secondary {
+      border-color: rgba(255, 255, 255, 0.18);
+      color: var(--sand);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      background: linear-gradient(110deg, rgba(7, 7, 7, 0.55), rgba(7, 7, 7, 0.2)),
+        url("https://awsimages.detik.net.id/community/media/visual/2021/07/05/wisata-super-prioritas-labuan-bajo_169.jpeg") center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.55));
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(246, 193, 92, 0.25), transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 120px 0 80px;
+    }
+
+    .hero h1 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      text-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero p {
+      max-width: 560px;
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 28px;
+      text-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .hero-stats {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: rgba(14, 14, 14, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 16px 18px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 96px;
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .stat-text {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .stat-card strong {
+      font-size: 1.3rem;
+      color: var(--gold);
+    }
+
+    .stat-card span {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .stat-anim {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      filter: brightness(0) invert(1);
+    }
+
+    .about-grid,
+    .contact-grid {
+      display: grid;
+      gap: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: stretch;
+    }
+
+    .about-card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .feature-item {
+      background: rgba(19, 17, 16, 0.85);
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .feature-item h4 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      color: var(--gold);
+    }
+
+    .armada-grid {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .armada-grid::-webkit-scrollbar {
+      height: 0;
+    }
+
+    .armada-card {
+      background: linear-gradient(160deg, rgba(18, 16, 14, 0.95), rgba(10, 9, 8, 0.95));
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .armada-card img {
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .armada-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .armada-content h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .armada-content p {
+      color: var(--ash);
+      font-size: 0.9rem;
+    }
+
+    .price-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      font-size: 0.9rem;
+    }
+
+    .price-list li {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+      padding-bottom: 6px;
+    }
+
+    .price-list span {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .armada-cta {
+      margin-top: auto;
+    }
+
+    .terms-panel {
+      margin-top: 40px;
+      background: rgba(14, 12, 11, 0.9);
+      border-radius: 20px;
+      padding: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .terms-panel h4 {
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .terms-panel ol,
+    .terms-panel ul {
+      padding-left: 18px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.92rem;
+    }
+
+    .testimonial-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      background: rgba(18, 16, 14, 0.95);
+      padding: 22px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .testimonial-card strong {
+      display: block;
+      margin-top: 12px;
+      color: var(--gold);
+    }
+
+    .contact-card {
+      background: rgba(18, 16, 14, 0.9);
+      padding: 24px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-card h4 {
+      font-size: 1.1rem;
+      color: var(--gold);
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .contact-map {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 360px;
+      height: 100%;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--ash);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: reveal 0.9s ease forwards;
+    }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 4%;
+        background: rgba(16, 16, 16, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 16px 18px;
+        flex-direction: column;
+        gap: 12px;
+        min-width: 190px;
+        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        transform: translateY(14px) scale(0.98);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        pointer-events: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      body.nav-open .nav-links {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
+
+      .nav-links::after {
+        content: "";
+        position: absolute;
+        top: -8px;
+        right: 18px;
+        width: 14px;
+        height: 14px;
+        background: rgba(16, 16, 16, 0.96);
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        transform: rotate(45deg);
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+
+      .armada-grid {
+        display: flex;
+        gap: 18px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 12px;
+        padding-right: 12px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .armada-card {
+        min-width: 78%;
+        scroll-snap-align: start;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+      .section {
+        padding: 55px 0;
+      }
+      .hero-content {
+        padding-top: 90px;
+      }
+
+      .nav-cta {
+        margin-left: 0;
+        gap: 8px;
+      }
+
+      .nav-cta .btn {
+        min-width: 0;
+        padding: 0;
+      }
+
+      .icon-link {
+        font-size: 1.15rem;
+      }
+
+      .brand img {
+        height: 36px;
+      }
+
+      .brand-title {
+        font-size: 0.9rem;
+      }
+
+      .brand-site {
+        display: none;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/01/logo_labuanrent-removebg-preview.png" alt="Labuan Rental" />
+        <div class="brand-info">
+          <strong class="brand-title">Labuan Rental</strong>
+          <span class="brand-site">labuanrental.com</span>
+        </div>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#why">Why Us</a>
+        <a href="#armada">Armada</a>
+        <a href="#testimoni">Testimoni</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+      <div class="nav-cta">
+        <a class="icon-link" href="tel:082146116363" aria-label="Call Labuan Rental" title="Call">
+          <i class="fa-solid fa-phone"></i>
+        </a>
+        <a class="icon-link" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer" aria-label="WhatsApp Labuan Rental" title="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <button class="menu-toggle icon-link" type="button" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="tag">Rental Mobil Labuan Bajo</div>
+      <h1 class="reveal" style="animation-delay: 0.1s;">Nyaman & Aman Jelajah Labuan Bajo</h1>
+      <p class="reveal" style="animation-delay: 0.2s;">Labuan Rental menyediakan armada premium, harga transparan, dan layanan 24/7 untuk kebutuhan wisata, dinas, hingga event keluarga. Pilih armada favorit dan booking sekarang.</p>
+      <div class="hero-actions reveal" style="animation-delay: 0.3s;">
+        <a class="btn primary" href="#armada">Lihat Armada</a>
+        <a class="btn secondary" href="#kontak">Cek Ketersediaan</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card reveal" style="animation-delay: 0.4s;">
+          <div class="stat-text">
+            <strong>6+</strong>
+            <span>Armada siap harian & city tour</span>
+          </div>
+          <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
+        </div>
+        <div class="stat-card reveal" style="animation-delay: 0.5s;">
+          <div class="stat-text">
+            <strong>Harga Jelas</strong>
+            <span>List paket transparan</span>
+          </div>
+          <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
+        </div>
+        <div class="stat-card reveal" style="animation-delay: 0.6s;">
+          <div class="stat-text">
+            <strong>Booking Mudah</strong>
+            <span>WhatsApp & Telepon</span>
+          </div>
+          <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div>
+        <div class="tag">About Us</div>
+        <h2 class="section-title">Labuan Rental, Partner Perjalanan Anda</h2>
+        <p class="section-subtitle">Berlokasi di Wae Kasambi, kami hadir memberikan pengalaman sewa mobil yang bersih, rapi, dan tepat waktu. Armada terawat, driver profesional, dan siap mengantar wisata hingga kebutuhan bisnis di Labuan Bajo.</p>
+      </div>
+      <div class="about-card">
+        <h3>Detail Usaha</h3>
+        <p style="color: var(--ash); margin-top: 8px;">Alamat: Wae Kasambi, Jln Kenari No 12</p>
+        <p style="color: var(--ash);">Nomor HP: 082146116363</p>
+        <p style="color: var(--ash);">Email: labuanrental@gmail.com</p>
+        <p style="margin-top: 14px;">Kami melayani rental harian, half day, fullday, transfer bandara, serta paket all in untuk perjalanan wisata.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why">
+    <div class="container">
+      <div class="tag">Why Choose Us</div>
+      <h2 class="section-title">Layanan Premium dengan Sentuhan Lokal</h2>
+      <p class="section-subtitle">Tim lokal yang memahami spot terbaik di Labuan Bajo, armada bersih, serta layanan fleksibel untuk perjalanan yang nyaman.</p>
+      <div class="feature-grid">
+        <div class="feature-item reveal" style="animation-delay: 0.1s;">
+          <h4>Driver Berpengalaman</h4>
+          <p>Driver ramah dan tahu rute wisata, siap bantu itinerary terbaik.</p>
+        </div>
+        <div class="feature-item reveal" style="animation-delay: 0.2s;">
+          <h4>Armada Bersih & Wangi</h4>
+          <p>Interior bersih, AC dingin, dan pengecekan rutin sebelum berangkat.</p>
+        </div>
+        <div class="feature-item reveal" style="animation-delay: 0.3s;">
+          <h4>Harga Transparan</h4>
+          <p>Tidak ada biaya tersembunyi, semua paket jelas di awal.</p>
+        </div>
+        <div class="feature-item reveal" style="animation-delay: 0.4s;">
+          <h4>Booking Cepat</h4>
+          <p>Konfirmasi via WhatsApp dan pilihan paket fleksibel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="armada">
+    <div class="container">
+      <div class="tag">List Armada</div>
+      <h2 class="section-title">Paket Rental Favorit</h2>
+      <p class="section-subtitle">Pilih mobil sesuai kebutuhan perjalanan. Semua harga sudah termasuk layanan terbaik dari Labuan Rental.</p>
+
+      <div class="armada-grid">
+        <article class="armada-card reveal" style="animation-delay: 0.1s;">
+          <img src="https://d1g6w7sntckt92.cloudfront.net/public/images/color_option_images/3JloGadsmWh5OPk36rQe3VxbJXbKbO9SinbBAuL1.png" alt="Toyota Avanza" />
+          <div class="armada-content">
+            <h3>Avanza</h3>
+            <p>Cocok untuk city tour dan perjalanan keluarga kecil.</p>
+            <ul class="price-list">
+              <li>Transfer only <span>120k</span></li>
+              <li>2 way transfer <span>300k</span></li>
+              <li>Halfday (5 jam) <span>550k</span></li>
+              <li>Self drive (full day) <span>575k</span></li>
+              <li>Fullday (12 jam) <span>800k</span></li>
+              <li>All in <span>975k</span></li>
+            </ul>
+            <p style="color: var(--ash); font-size: 0.85rem;">Overtime charge: 100k/jam</p>
+            <div class="armada-cta">
+              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Avanza</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="armada-card reveal" style="animation-delay: 0.15s;">
+          <img src="https://toyotabengkulu.id/wp-content/uploads/2018/08/avz-GBL.png" alt="Toyota Grand" />
+          <div class="armada-content">
+            <h3>Grand</h3>
+            <p>Mobil harian yang stabil dan nyaman untuk perjalanan santai.</p>
+            <ul class="price-list">
+              <li>Transfer only <span>135k</span></li>
+              <li>2 way transfer <span>350k</span></li>
+              <li>Halfday (5 jam) <span>600k</span></li>
+              <li>Self drive (full day) <span>650k</span></li>
+              <li>Fullday (12 jam) <span>900k</span></li>
+              <li>All in <span>1.150k</span></li>
+            </ul>
+            <p style="color: var(--ash); font-size: 0.85rem;">Overtime charge: 150k/jam</p>
+            <div class="armada-cta">
+              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Grand</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="armada-card reveal" style="animation-delay: 0.2s;">
+          <img src="https://res.cloudinary.com/mufautoshow/image/upload/f_auto,f_auto/w_1200/v1608086374/moas/news/1604391565_toyota-innova-reborn-ini-dia-spesifikasi-dan-fitur-barunya.jpg" alt="Innova Reborn" />
+          <div class="armada-content">
+            <h3>Reborn</h3>
+            <p>Ruang lega, nyaman untuk perjalanan panjang dan rombongan kecil.</p>
+            <ul class="price-list">
+              <li>Transfer only <span>150k</span></li>
+              <li>2 way transfer <span>425k</span></li>
+              <li>Halfday (5 jam) <span>650k</span></li>
+              <li>Self drive (full day) <span>750k</span></li>
+              <li>Fullday (12 jam) <span>1.000k</span></li>
+              <li>All in <span>1.350k</span></li>
+            </ul>
+            <p style="color: var(--ash); font-size: 0.85rem;">Overtime charge: 150k/jam</p>
+            <div class="armada-cta">
+              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Reborn</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="armada-card reveal" style="animation-delay: 0.25s;">
+          <img src="https://d1g6w7sntckt92.cloudfront.net/public/images/car_gallery_images/NyAkRE6YcSKvUKH7M8i8PCVoQ4uuqkBFpaG4Piy2.jpg" alt="Toyota Hiace" />
+          <div class="armada-content">
+            <h3>Hiace</h3>
+            <p>Ideal untuk group tour dan kebutuhan acara besar.</p>
+            <ul class="price-list">
+              <li>Transfer only <span>400k</span></li>
+              <li>2 way transfer <span>700k</span></li>
+              <li>Halfday (5 jam) <span>950k</span></li>
+              <li>Fullday (12 jam) <span>1.600k</span></li>
+              <li>All in <span>2.250k</span></li>
+            </ul>
+            <p style="color: var(--ash); font-size: 0.85rem;">Overtime charge: 200k/jam</p>
+            <div class="armada-cta">
+              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Hiace</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="armada-card reveal" style="animation-delay: 0.3s;">
+          <img src="https://imgcdn.oto.com/large/gallery/exterior/38/894/toyota-fortuner-front-angle-low-view-580768.jpg" alt="Toyota Fortuner" />
+          <div class="armada-content">
+            <h3>Fortuner</h3>
+            <p>Performa tangguh dengan gaya premium untuk perjalanan VIP.</p>
+            <ul class="price-list">
+              <li>Transfer only <span>600k</span></li>
+              <li>2 way transfer <span>1.000k</span></li>
+              <li>Halfday (5 jam) <span>1.500k</span></li>
+              <li>Fullday (12 jam) <span>2.250k</span></li>
+              <li>All in <span>2.750k</span></li>
+            </ul>
+            <p style="color: var(--ash); font-size: 0.85rem;">Overtime charge: 300k/jam</p>
+            <div class="armada-cta">
+              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Fortuner</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="armada-card reveal" style="animation-delay: 0.35s;">
+          <img src="https://imgcdn.oto.com/medium/gallery/exterior/38/2789/toyota-alphard-2023-24835.jpg" alt="Toyota Alphard" />
+          <div class="armada-content">
+            <h3>Alphard</h3>
+            <p>Luxury MPV untuk tamu VIP, wedding, dan event spesial.</p>
+            <ul class="price-list">
+              <li>Transfer only <span>1.750k</span></li>
+              <li>2 way transfer <span>2.750k</span></li>
+              <li>Halfday (5 jam) <span>3.750k</span></li>
+              <li>Fullday (12 jam) <span>4.750k</span></li>
+              <li>All in <span>5.750k</span></li>
+            </ul>
+            <p style="color: var(--ash); font-size: 0.85rem;">Overtime charge: 500k/jam</p>
+            <div class="armada-cta">
+              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Alphard</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="terms-panel">
+        <div>
+          <h4>Booking Procedures</h4>
+          <ol>
+            <li>All booking via WhatsApp chat/call.</li>
+            <li>Kami berikan informasi harga dan diskusi kebutuhan Anda.</li>
+            <li>Setelah deal, kami berikan booking code (simpan dengan baik).</li>
+            <li>Booking code berlaku hingga H-7 sebelum pick up date.</li>
+            <li>Lakukan pembayaran atau DP sebelum booking code expired.</li>
+            <li>Jika expired, booking tidak dapat kami jamin.</li>
+            <li>Booking ulang diperlukan jika kode tidak valid.</li>
+            <li>Admin akan kirim detail pembayaran & invoice via WhatsApp.</li>
+            <li>Harga kami belum termasuk pajak pemerintah.</li>
+          </ol>
+        </div>
+        <div>
+          <h4>Refund Policy</h4>
+          <ul>
+            <li>H-7 sebelum pick up date: refund 50%.</li>
+            <li>Setelah H-7 pick up date: no refund.</li>
+            <li>Voucher policy tersedia (hubungi admin).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimoni">
+    <div class="container">
+      <div class="tag">Testimoni</div>
+      <h2 class="section-title">Cerita Pelanggan</h2>
+      <p class="section-subtitle">Pelayanan yang ramah dan armada bersih membuat perjalanan lebih nyaman.</p>
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal" style="animation-delay: 0.1s;">
+          <p>“Driver ramah, mobil bersih, perjalanan ke spot wisata jadi lancar. Recommended!”</p>
+          <strong>- Rina, Jakarta</strong>
+        </div>
+        <div class="testimonial-card reveal" style="animation-delay: 0.2s;">
+          <p>“Harga jelas, komunikasi cepat. Kami sekeluarga puas dengan Labuan Rental.”</p>
+          <strong>- Anwar, Makassar</strong>
+        </div>
+        <div class="testimonial-card reveal" style="animation-delay: 0.3s;">
+          <p>“Hiace nyaman untuk rombongan, driver bantu itinerary dan foto-foto.”</p>
+          <strong>- Diah, Surabaya</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="kontak">
+    <div class="container">
+      <div class="tag">Kontak</div>
+      <h2 class="section-title">Hubungi Kami Sekarang</h2>
+      <p class="section-subtitle">Tim Labuan Rental siap membantu rencana perjalanan Anda.</p>
+      <div class="contact-grid" style="margin-top: 32px;">
+        <div class="contact-card">
+          <h4>Detail Kontak</h4>
+          <div class="contact-details">
+            <div><strong>Alamat:</strong> Wae Kasambi, Jln Kenari No 12</div>
+            <div><strong>Telepon:</strong> 082146116363</div>
+            <div><strong>Email:</strong> labuanrental@gmail.com</div>
+            <div><strong>Website:</strong> labuanrental.com</div>
+          </div>
+          <div style="margin-top: 12px;">
+            <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking via WhatsApp</a>
+          </div>
+        </div>
+        <div class="contact-map">
+          <iframe title="Lokasi Labuan Rental" src="https://www.google.com/maps?q=wae%20kasambi%20jln%20kenari%20no%2012&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>Labuan Rental (c) 2026 · Wae Kasambi, Labuan Bajo · 082146116363</p>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script>
+    const toggle = document.querySelector(".menu-toggle");
+    const body = document.body;
+    const links = document.getElementById("navLinks");
+
+    if (toggle && links) {
+      toggle.addEventListener("click", () => {
+        const open = body.classList.toggle("nav-open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+
+      links.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          body.classList.remove("nav-open");
+          toggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+  </script>
+</body>
+</html>

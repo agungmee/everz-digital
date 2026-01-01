@@ -1,0 +1,3502 @@
+<!-- Start Of Navbar Section -->
+<!-- ====== TOP BAR + NAVBAR + HERO (AUTO SLIDE) - Nusa Penida Happy Trip ====== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+  :root{
+    --brand-yellow:#ffd600;
+    --brand-red:#e12726;
+    --brand-dark:#111827;
+    --brand-gray:#6b7280;
+    --navbar-h:72px;
+    --topbar-h:40px;
+  }
+
+  html,body{margin:0!important;padding:0!important;overflow-x:hidden;}
+  body{font-family:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;}
+
+  /* Breakout full width (biar nembus container Elementor/tema) */
+  .np-header-full,
+  .np-hero-full{
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    margin-right:calc(50% - 50vw);
+    position:relative;
+    z-index:9999;
+  }
+
+  /* ===== TOP BAR ===== */
+  .np-topbar{
+    background:var(--brand-yellow);
+    padding:10px 0;
+  }
+  .np-topbar-inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 5vw;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    font-size:13px;
+  }
+  .np-topbar-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .np-topbar-title{
+    font-weight:700;color:#000;font-size:11px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .np-topbar-phones{display:flex;align-items:center;gap:8px;}
+  .np-topbar-icon{
+    width:20px;height:20px;border-radius:999px;border:2px solid #000;
+    display:flex;align-items:center;justify-content:center;font-size:11px;
+    background:#fff;color:#000;text-decoration:none;
+  }
+  .np-topbar-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .np-topbar-right-label{font-weight:600;color:#000;}
+  .np-topbar-social{display:flex;gap:8px;}
+  .np-topbar-social a{
+    width:26px;height:26px;border-radius:999px;background:#fff;
+    display:flex;align-items:center;justify-content:center;
+    text-decoration:none;color:#000;font-size:14px;
+  }
+
+  /* ===== NAVBAR ===== */
+  .np-navbar{
+    background:#fff;
+    position:relative;z-index:9999;
+    box-shadow:none;
+  }
+  .np-navbar-inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:10px 5vw;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    width:100%;
+  }
+  .np-navbar.is-fixed{
+    position:fixed;top:0;left:50%;transform:translateX(-50%);
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    margin-right:calc(50% - 50vw);
+    box-shadow:0 10px 30px rgba(15,23,42,.08);
+  }
+  .np-nav-left{display:flex;align-items:center;gap:12px;}
+  .np-logo{
+    height:auto;max-height:54px;max-width:220px;width:auto;object-fit:contain;display:block;
+  }
+  .np-brand-text{
+    display:flex;flex-direction:column;line-height:1.1;
+  }
+  .np-brand-text b{font-size:14px;color:var(--brand-dark);}
+  .np-brand-text span{font-size:12px;color:var(--brand-gray);}
+
+  .np-nav-menu{
+    display:flex;align-items:center;gap:22px;
+    list-style:none;margin:0;padding:0;font-size:14px;
+  }
+  .np-nav-item{position:relative;}
+  .np-nav-item > a{
+    display:flex;align-items:center;gap:6px;
+  }
+  .np-nav-caret{
+    font-size:10px;line-height:1;transition:transform .2s ease;color:inherit;
+  }
+  .np-nav-item:hover .np-nav-caret{transform:rotate(180deg);}
+  .np-nav-dropdown{
+    position:absolute;left:0;top:calc(100% + 10px);
+    min-width:220px;background:#fff;border:1px solid #eef2f7;border-radius:14px;
+    box-shadow:0 18px 40px rgba(15,23,42,.12);
+    padding:10px;display:none;z-index:9999;
+  }
+  .np-nav-item:hover .np-nav-dropdown{display:block;}
+  .np-nav-dropdown a{
+    display:block;padding:8px 10px;border-radius:10px;font-weight:600;
+    color:var(--brand-dark);text-decoration:none;white-space:nowrap;
+  }
+  .np-nav-dropdown a:hover{color:var(--brand-red);background:#fef2f2;}
+  .np-nav-menu a{
+    text-decoration:none;color:var(--brand-dark);font-weight:600;
+    padding-bottom:4px;position:relative;transition:.2s;
+  }
+  .np-nav-menu a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:2px;border-radius:999px;
+    background:var(--brand-red);transition:width .2s ease;
+  }
+  .np-nav-menu a:hover{color:var(--brand-red);}
+  .np-nav-menu a:hover::after{width:100%;}
+  .np-nav-right{display:flex;align-items:center;gap:12px;}
+  .np-cta-btn{
+    padding:9px 18px;border-radius:999px;background:var(--brand-red);color:#fff;
+    text-decoration:none;font-size:12px;font-weight:800;text-transform:uppercase;
+    letter-spacing:.05em;white-space:nowrap;
+  }
+
+  /* Burger */
+  .np-burger{
+    display:none;width:36px;height:36px;border-radius:999px;
+    border:1px solid #e5e7eb;background:#fff;cursor:pointer;
+    align-items:center;justify-content:center;flex-direction:column;gap:4px;
+  }
+  .np-burger span{width:18px;height:2px;border-radius:999px;background:#111827;transition:.2s;}
+  .np-burger.is-open span:nth-child(1){transform:translateY(3px) rotate(45deg);}
+  .np-burger.is-open span:nth-child(2){opacity:0;}
+  .np-burger.is-open span:nth-child(3){transform:translateY(-3px) rotate(-45deg);}
+
+  /* Mobile menu */
+  .np-mobile-menu{
+    display:none;position:fixed;left:0;top:0;width:100vw;
+    padding:12px 5vw 16px;background:#fff;z-index:9998;
+    flex-direction:column;gap:10px;border-top:1px solid #f3f4f6;
+    transform:translateY(0);
+  }
+  .np-mobile-menu a{color:var(--brand-dark);text-decoration:none;font-weight:600;font-size:15px;}
+  .np-mobile-menu a:hover{color:var(--brand-red);}
+  .np-mobile-menu.is-open{display:flex!important;}
+
+  /* ===== HERO ===== */
+  .np-hero-full{background:#0b1220; z-index:1;}
+  .np-hero{
+    position:relative;width:100%;overflow:hidden;
+  }
+  .np-hero-inner{
+    position:relative;
+    width:100%;
+    height:calc(100vh - var(--navbar-h)); /* desktop feel */
+    min-height:520px;
+  }
+
+  .np-hero-slide{
+    position:absolute;inset:0;opacity:0;transition:opacity .75s ease;
+  }
+  .np-hero-slide.active{opacity:1;z-index:1;}
+  .np-hero-slide img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    transform:scale(1.03);
+  }
+
+  /* Overlay biar headline "nendang" */
+  .np-hero-overlay{
+    position:absolute;inset:0;z-index:2;
+    background:
+      radial-gradient(900px 380px at 50% 40%, rgba(0,0,0,.25), transparent 60%),
+      linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.35) 45%, rgba(0,0,0,.65));
+  }
+
+  /* Headline center */
+  .np-hero-content{
+    position:absolute;inset:0;z-index:3;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:0 18px;
+    color:#fff;
+  }
+  .np-hero-box{
+    max-width:920px;
+  }
+  .np-hero-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:#fff;opacity:.95;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.20);
+    padding:8px 14px;border-radius:999px;
+    backdrop-filter: blur(6px);
+    margin-bottom:14px;
+  }
+  .np-hero-title{
+    font-size:38px;line-height:1.15;margin:0 0 10px;font-weight:800;
+    text-shadow:0 12px 40px rgba(0,0,0,.45);
+  }
+  .np-hero-subtitle{
+    font-size:15px;line-height:1.7;margin:0 auto 18px;
+    max-width:760px;color:rgba(255,255,255,.92);
+  }
+  .np-hero-actions{
+    display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+  }
+  .np-btn-primary{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:11px 18px;border-radius:999px;
+    background:#22c55e;color:#052e16;font-weight:800;
+    text-decoration:none;
+  }
+  .np-btn-ghost{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:11px 18px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.35);
+    color:#fff;text-decoration:none;font-weight:700;
+    background:rgba(0,0,0,.20);
+    backdrop-filter: blur(6px);
+  }
+
+  /* Dots */
+  .np-hero-dots{
+    position:absolute;left:50%;bottom:18px;transform:translateX(-50%);
+    display:flex;gap:8px;z-index:4;
+  }
+  .np-dot{
+    width:9px;height:9px;border-radius:999px;
+    background:rgba(255,255,255,.35);
+    border:1px solid rgba(255,255,255,.30);
+    cursor:pointer;
+  }
+  .np-dot.active{background:var(--brand-yellow);border-color:rgba(0,0,0,.25);}
+
+  /* Responsive */
+  @media (max-width:1024px){
+    .np-topbar{padding-inline:0;}
+    .np-topbar-inner{padding-inline:16px;flex-direction:column;align-items:flex-start;}
+    .np-navbar-inner{padding-inline:16px;}
+    .np-nav-menu{display:none;}
+    .np-burger{display:flex;}
+    .np-hero-inner{height:72vh;min-height:520px;}
+    .np-hero-title{font-size:30px;}
+  }
+  @media (max-width:640px){
+    .np-hero-title{font-size:26px;}
+    .np-hero-subtitle{font-size:14px;}
+  }
+</style>
+
+<div class="np-header-full">
+  <!-- TOP BAR -->
+  <div class="np-topbar">
+    <div class="np-topbar-inner">
+      <div class="np-topbar-left">
+        <div class="np-topbar-title">Nusa Penida Happy Trip - Tours and Snorkeling</div>
+        <div class="np-topbar-phones" aria-label="Quick contacts">
+          <a class="np-topbar-icon" href="https://wa.me/6287807268256" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a class="np-topbar-icon" href="mailto:muhamadahil01@gmail.com" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="np-topbar-right">
+        <span class="np-topbar-right-label">Follow:</span>
+        <div class="np-topbar-social">
+          <a href="https://www.instagram.com/ahilpenidatour2022?igsh=amJsenRza2ZrbWkx&utm_source=qr" target="_blank" aria-label="Instagram" rel="noopener">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@nanakhil?_r=1&_t=ZS-91yC0YbH5pH" target="_blank" aria-label="TikTok" rel="noopener">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+          <a href="https://g.page/r/Cemxh6cpES9VEBE/review" target="_blank" aria-label="Google Review" rel="noopener">
+            <i class="fa-brands fa-google"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="np-navbar">
+    <div class="np-navbar-inner">
+      <div class="np-nav-left">
+        <!-- Kalau logo belum ada link file-nya, sementara bisa pakai placeholder text -->
+        <img class="np-logo" src="https://everz-digital.site/wp-content/uploads/2025/12/Desain-tanpa-judul-16.png" alt="Nusa Penida Happy Trip Logo">
+      </div>
+
+      <ul class="np-nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#tentang">About Us</a></li>
+        <li><a href="#kenapa">Why Us</a></li>
+        <li class="np-nav-item">
+          <a href="#paket" aria-haspopup="true">Services <i class="fa-solid fa-chevron-down np-nav-caret" aria-hidden="true"></i></a>
+          <div class="np-nav-dropdown" aria-label="Services menu">
+            <a href="#paket">Tour Packages</a>
+            <a href="#wisata-bali">Bali Day Tours</a>
+            <a href="#paket-diving">Diving Packages</a>
+            <a href="#paket-trekking">Trekking Packages</a>
+            <a href="#transportasi">Transportation</a>
+          </div>
+        </li>
+        <li><a href="#testimoni">Testimony</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#kontak">Contact Us</a></li>
+      </ul>
+
+      <div class="np-nav-right">
+        <a class="np-cta-btn" href="https://wa.me/6287807268256?text=Hello%20Nusa%20Penida%20Happy%20Trip%2C%20I%20want%20to%20ask%20about%20tour%20packages." target="_blank" rel="noopener">
+          Book on WhatsApp
+        </a>
+        <button class="np-burger" type="button" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <nav class="np-mobile-menu" aria-label="Mobile menu">
+    <a href="#home">Home</a>
+    <a href="#tentang">About Us</a>
+    <a href="#kenapa">Why Us</a>
+    <a href="#paket">Services · Tour Packages</a>
+    <a href="#wisata-bali">Services · Bali Day Tours</a>
+    <a href="#paket-diving">Services · Diving Packages</a>
+    <a href="#paket-trekking">Services · Trekking Packages</a>
+    <a href="#transportasi">Services · Transportation</a>
+    <a href="#testimoni">Testimony</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#kontak">Contact Us</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<div class="np-hero-full" id="home">
+  <section class="np-hero">
+    <div class="np-hero-inner">
+      <!-- Slides (ambil beberapa gambar paket) -->
+      <div class="np-hero-slide active"><img src="https://everz-digital.site/wp-content/uploads/2025/12/1.4.jpeg" alt="West Side Trip - Kelingking Beach"></div>
+      <div class="np-hero-slide"><img src="https://everz-digital.site/wp-content/uploads/2025/12/2.8.jpeg" alt="East Side Trip - Diamond Beach"></div>
+      <div class="np-hero-slide"><img src="https://everz-digital.site/wp-content/uploads/2025/12/3.12.jpeg" alt="Private Snorkeling - Manta Point"></div>
+      <div class="np-hero-slide"><img src="https://everz-digital.site/wp-content/uploads/2025/12/4.2.jpeg" alt="Nusa Penida Boat Tour"></div>
+
+      <div class="np-hero-overlay"></div>
+
+      <div class="np-hero-content">
+        <div class="np-hero-box">
+          <div class="np-hero-eyebrow">
+            <i class="fa-solid fa-location-dot"></i> Nusa Penida - Bali
+          </div>
+          <h1 class="np-hero-title">Explore Nusa Penida the Most Fun Way</h1>
+          <p class="np-hero-subtitle">
+            Choose West Side, East Side, Private/Shared Snorkeling, or Boat Tour. Clear pricing, photo and video documentation, and a more comfortable trip.
+          </p>
+          <div class="np-hero-actions">
+            <a class="np-btn-primary" href="https://wa.me/6287807268256?text=Hello%20Nusa%20Penida%20Happy%20Trip%2C%20I%20want%20to%20book%20a%20tour%20package." target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i> Chat and Book
+            </a>
+            <a class="np-btn-ghost" href="#paket">
+              <i class="fa-regular fa-compass"></i> View Packages
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="np-hero-dots" aria-label="Hero slider dots"></div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  const navbar     = document.querySelector('.np-navbar');
+  const topbar     = document.querySelector('.np-topbar');
+  const burger     = document.querySelector('.np-burger');
+  const mobileMenu = document.querySelector('.np-mobile-menu');
+  const root       = document.documentElement;
+
+  // ===== Sticky navbar logic (mirip template) =====
+  let navbarOffsetTop = navbar ? navbar.offsetTop : 0;
+
+  function updateHeights(){
+    const navH = navbar ? navbar.offsetHeight : 0;
+    const topH = topbar ? topbar.offsetHeight : 0;
+    root.style.setProperty('--navbar-h', navH + 'px');
+    root.style.setProperty('--topbar-h', topH + 'px');
+  }
+
+  function applyMobileOffset(){
+    if(!mobileMenu) return;
+    const navH = parseFloat(getComputedStyle(root).getPropertyValue('--navbar-h')) || 0;
+    const topH = parseFloat(getComputedStyle(root).getPropertyValue('--topbar-h')) || 0;
+    if(navbar && navbar.classList.contains('is-fixed')){
+      mobileMenu.style.transform = 'translateY(' + navH + 'px)';
+    } else {
+      mobileMenu.style.transform = 'translateY(' + (navH + topH) + 'px)';
+    }
+  }
+
+  function onScroll(){
+    if(!navbar) return;
+    if(window.scrollY >= navbarOffsetTop){
+      if(!navbar.classList.contains('is-fixed')){
+        navbar.classList.add('is-fixed');
+        document.body.style.paddingTop = navbar.offsetHeight + 'px';
+      }
+    } else {
+      if(navbar.classList.contains('is-fixed')){
+        navbar.classList.remove('is-fixed');
+        document.body.style.paddingTop = '0px';
+      }
+    }
+    updateHeights();
+    applyMobileOffset();
+  }
+
+  function onResize(){
+    if(!navbar) return;
+    navbar.classList.remove('is-fixed');
+    document.body.style.paddingTop = '0px';
+    navbarOffsetTop = navbar.offsetTop;
+    updateHeights();
+    applyMobileOffset();
+    onScroll();
+  }
+
+  window.addEventListener('scroll', onScroll);
+  window.addEventListener('resize', onResize);
+  window.addEventListener('load', onResize);
+
+  if(burger && mobileMenu){
+    burger.addEventListener('click', function(){
+      burger.classList.toggle('is-open');
+      mobileMenu.classList.toggle('is-open');
+    });
+  }
+
+  // ===== HERO slider =====
+  const slides = Array.from(document.querySelectorAll('.np-hero-slide'));
+  const dotsWrap = document.querySelector('.np-hero-dots');
+  const INTERVAL = 4500;
+
+  if(!slides.length || !dotsWrap) return;
+
+  let idx = 0, timer = null;
+
+  // create dots
+  slides.forEach((_, i)=>{
+    const d = document.createElement('button');
+    d.className = 'np-dot' + (i===0 ? ' active' : '');
+    d.type = 'button';
+    d.setAttribute('aria-label', 'Go to slide ' + (i+1));
+    d.addEventListener('click', ()=> goTo(i, true));
+    dotsWrap.appendChild(d);
+  });
+
+  const dots = Array.from(document.querySelectorAll('.np-dot'));
+
+  function render(){
+    slides.forEach((s, i)=> s.classList.toggle('active', i===idx));
+    dots.forEach((d, i)=> d.classList.toggle('active', i===idx));
+  }
+
+  function next(){
+    idx = (idx + 1) % slides.length;
+    render();
+  }
+
+  function start(){
+    stop();
+    timer = setInterval(next, INTERVAL);
+  }
+
+  function stop(){
+    if(timer) clearInterval(timer);
+    timer = null;
+  }
+
+  function goTo(i, restart){
+    idx = i;
+    render();
+    if(restart) start();
+  }
+
+  // pause on hover (desktop)
+  const hero = document.querySelector('.np-hero-inner');
+  if(hero){
+    hero.addEventListener('mouseenter', stop);
+    hero.addEventListener('mouseleave', start);
+    hero.addEventListener('touchstart', stop, {passive:true});
+    hero.addEventListener('touchend', start, {passive:true});
+  }
+
+  window.addEventListener('load', ()=>{ render(); start(); });
+})();
+</script>
+<!-- ====== END ====== -->
+
+
+<!-- End Of Navbar Section -->
+
+
+<!-- Start Of About And Why Section -->
+<!-- ================== SECTION: TENTANG KAMI + KENAPA HARUS KAMI + WA POPUP ================== -->
+<style>
+  :root{
+    --brand-yellow:#ffd600;
+    --brand-red:#e12726;
+    --brand-dark:#111827;
+    --brand-gray:#6b7280;
+  }
+
+  /* Full width breakout like previous sections */
+  .np-section-full{
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    margin-right:calc(50% - 50vw);
+    position:relative;
+    z-index:2;
+  }
+
+  .np-wrap{
+    padding:64px 5vw;
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  .np-section-title{
+    text-align:center;
+    margin:0 0 26px;
+    color:var(--brand-dark);
+    font-size:28px;
+    font-weight:800;
+    letter-spacing:-.02em;
+  }
+  .np-section-subtitle{
+    text-align:center;
+    max-width:780px;
+    margin:0 auto 34px;
+    color:var(--brand-gray);
+    line-height:1.75;
+    font-size:14.5px;
+  }
+
+  /* ===== About Us ===== */
+  .np-about{
+    background:#fff;
+  }
+  .np-about-grid{
+    display:grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap:28px;
+    align-items:stretch;
+  }
+  .np-about-left{
+    background:#ffffff;
+    border:1px solid #eef2f7;
+    border-radius:22px;
+    padding:26px;
+    box-shadow:0 14px 40px rgba(15,23,42,.06);
+  }
+  .np-about-left h3{
+    margin:0 0 10px;
+    font-size:18px;
+    font-weight:800;
+    color:var(--brand-dark);
+  }
+  .np-about-left p{
+    margin:0 0 12px;
+    color:var(--brand-gray);
+    line-height:1.85;
+    font-size:14.5px;
+  }
+  .np-about-bullets{
+    margin:16px 0 0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:10px;
+  }
+  .np-about-bullets li{
+    display:flex;gap:10px;align-items:flex-start;
+    color:var(--brand-dark);
+    font-size:14px;
+  }
+  .np-about-bullets i{
+    margin-top:3px;
+    color:#22c55e;
+  }
+
+  .np-about-right{
+    border-radius:22px;
+    overflow:hidden;
+    position:relative;
+    min-height:340px;
+    box-shadow:0 14px 40px rgba(15,23,42,.08);
+    border:1px solid rgba(255,255,255,.15);
+  }
+  .np-about-right .np-about-slider{
+    position:absolute; inset:0;
+    background:#0b1220;
+  }
+  .np-about-slide{
+    position:absolute; inset:0;
+    opacity:0; transition:opacity .75s ease;
+  }
+  .np-about-slide.active{opacity:1;}
+  .np-about-slide img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transform:scale(1.03);
+  }
+  .np-about-overlay{
+    position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.25) 50%, rgba(0,0,0,.65));
+  }
+  .np-about-right .np-about-title{
+    position:absolute; inset:auto 0 18px 0;
+    z-index:3;
+    display:flex; justify-content:center;
+    padding:0 18px;
+    text-align:center;
+  }
+  .np-about-right .np-about-title span{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:10px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.20);
+    color:#fff;
+    backdrop-filter: blur(6px);
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+
+  /* ===== Why Choose Us ===== */
+  .np-why{
+    background:linear-gradient(180deg, #f8fafc, #ffffff);
+  }
+
+  .np-why-marquee{
+    margin-top:18px;
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+    border:1px solid #eef2f7;
+    background:#fff;
+    box-shadow:0 14px 40px rgba(15,23,42,.06);
+  }
+  .np-why-track{
+    display:flex;
+    gap:14px;
+    padding:18px;
+    width:max-content;
+    animation: npMarquee 26s linear infinite;
+  }
+  .np-why-marquee:hover .np-why-track{ animation-play-state: paused; }
+
+  @keyframes npMarquee{
+    from{ transform:translateX(0); }
+    to  { transform:translateX(-50%); }
+  }
+
+  .np-why-card{
+    width:280px;
+    border-radius:18px;
+    border:1px solid #eef2f7;
+    padding:16px 16px 14px;
+    background: #ffffff;
+    box-shadow:0 8px 20px rgba(15,23,42,.05);
+    flex:0 0 auto;
+  }
+  .np-why-card .icon{
+    width:40px;height:40px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(255,214,0,.25);
+    border:1px solid rgba(255,214,0,.35);
+    margin:0 auto 10px;
+    color:#000;
+    font-size:18px;
+  }
+  .np-why-card h4{
+    margin:0 0 8px;
+    text-align:center;
+    font-size:15px;
+    font-weight:800;
+    color:var(--brand-dark);
+  }
+  .np-why-card p{
+    margin:0;
+    text-align:center;
+    font-size:13.5px;
+    color:var(--brand-gray);
+    line-height:1.65;
+  }
+
+  .np-center-actions{
+    display:flex;justify-content:center;flex-wrap:wrap;gap:10px;
+    margin-top:22px;
+  }
+  .np-itin-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:12px 18px;border-radius:999px;
+    background:#22c55e;color:#052e16;font-weight:900;
+    text-decoration:none;
+    border:0;
+    cursor:pointer;
+  }
+  .np-itin-btn i{font-size:18px;}
+
+  /* ===== POPUP FORM ===== */
+  .np-modal{
+    position:fixed; inset:0; z-index:99999;
+    display:none;
+  }
+  .np-modal.is-open{ display:block; }
+  .np-modal-backdrop{
+    position:absolute; inset:0;
+    background:rgba(2,6,23,.65);
+    backdrop-filter: blur(3px);
+  }
+  .np-modal-panel{
+    position:relative;
+    width:min(540px, 92vw);
+    margin:7vh auto 0;
+    background:#fff;
+    border-radius:22px;
+    box-shadow:0 24px 70px rgba(0,0,0,.35);
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.6);
+  }
+  .np-modal-head{
+    padding:16px 18px;
+    background:linear-gradient(90deg, rgba(255,214,0,.25), rgba(225,39,38,.08));
+    border-bottom:1px solid #eef2f7;
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+  }
+  .np-modal-head b{
+    color:var(--brand-dark);
+    font-size:15px;
+    font-weight:900;
+  }
+  .np-modal-close{
+    width:36px;height:36px;border-radius:999px;
+    border:1px solid #e5e7eb;background:#fff;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    font-size:16px;
+  }
+  .np-modal-body{ padding:18px; }
+  .np-form{
+    display:grid; gap:12px;
+  }
+  .np-field label{
+    display:block;
+    font-size:12.5px;
+    font-weight:800;
+    color:var(--brand-dark);
+    margin-bottom:6px;
+  }
+  .np-field input, .np-field textarea{
+    width:100%;
+    border-radius:14px;
+    border:1px solid #e5e7eb;
+    padding:12px 12px;
+    outline:none;
+    font-family:inherit;
+    font-size:14px;
+  }
+  .np-field textarea{ min-height:110px; resize:vertical; }
+  .np-form-actions{
+    display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap;
+    margin-top:6px;
+  }
+  .np-btn-secondary{
+    padding:11px 14px;border-radius:999px;
+    border:1px solid #e5e7eb;background:#fff;
+    font-weight:800; cursor:pointer;
+  }
+  .np-btn-send{
+    padding:11px 16px;border-radius:999px;
+    border:0;background:#22c55e;color:#052e16;
+    font-weight:900; cursor:pointer;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+
+  @media (max-width: 980px){
+    .np-about-grid{ grid-template-columns:1fr; }
+    .np-about-right{ min-height:320px; }
+  }
+</style>
+
+<!-- ===== About Us ===== -->
+<section class="np-section-full np-about" id="tentang">
+  <div class="np-wrap">
+    <h2 class="np-section-title">About Us</h2>
+
+    <div class="np-about-grid">
+      <!-- LEFT: deskripsi rata kiri -->
+      <div class="np-about-left">
+        <h3>Nusa Penida Happy Trip</h3>
+        <p>
+          We are a local Nusa Penida team focused on helping you enjoy a well-planned, comfortable, and fun trip.
+          From West/East tours and snorkeling (private/shared) to boat tours, everything can be tailored to your needs.
+        </p>
+        <p>
+          Our goal is simple: you go home with great memories, great photos/videos, and a no-fuss itinerary that feels just right.
+        </p>
+
+        <ul class="np-about-bullets">
+          <li><i class="fa-solid fa-circle-check"></i> Flexible itinerary (request spots and trip pace)</li>
+          <li><i class="fa-solid fa-circle-check"></i> Local driver/guide who knows timing and the best spots</li>
+          <li><i class="fa-solid fa-circle-check"></i> Photo/video documentation plus food spot and hidden gem recommendations</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT: gambar paket auto slide + judul di tengah -->
+      <div class="np-about-right">
+        <div class="np-about-slider">
+          <div class="np-about-slide active">
+            <img src="https://everz-digital.site/wp-content/uploads/2025/12/1.4.jpeg" alt="Nusa Penida Tour Package - West">
+          </div>
+          <div class="np-about-slide">
+            <img src="https://everz-digital.site/wp-content/uploads/2025/12/2.8.jpeg" alt="Nusa Penida Tour Package - East">
+          </div>
+          <div class="np-about-slide">
+            <img src="https://everz-digital.site/wp-content/uploads/2025/12/3.12.jpeg" alt="Nusa Penida Snorkeling">
+          </div>
+          <div class="np-about-slide">
+            <img src="https://everz-digital.site/wp-content/uploads/2025/12/4.2.jpeg" alt="Nusa Penida Boat Tour">
+          </div>
+          <div class="np-about-overlay"></div>
+
+          <div class="np-about-title">
+            <span><i class="fa-solid fa-camera-retro"></i> Your Best Moments</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Why Choose Us ===== -->
+<section class="np-section-full np-why" id="kenapa">
+  <div class="np-wrap">
+    <h2 class="np-section-title">Why Choose Us</h2>
+    <p class="np-section-subtitle">
+      We design trips so you do not just arrive, take photos, and leave, but truly enjoy Nusa Penida with a smooth flow,
+      safe experience, and the best documentation.
+    </p>
+
+    <!-- running cards (marquee) -->
+    <div class="np-why-marquee" aria-label="Our strengths">
+      <div class="np-why-track" id="npWhyTrack">
+        <!-- Set A -->
+        <div class="np-why-card">
+          <div class="icon"><i class="fa-solid fa-route"></i></div>
+          <h4>Well-Planned Itinerary</h4>
+          <p>We manage timing so you are not rushing and still get the best spots.</p>
+        </div>
+
+        <div class="np-why-card">
+          <div class="icon"><i class="fa-solid fa-user-shield"></i></div>
+          <h4>Safe and Comfortable</h4>
+          <p>Local driver/guide who understands road conditions and the most efficient meeting points.</p>
+        </div>
+
+        <div class="np-why-card">
+          <div class="icon"><i class="fa-solid fa-camera"></i></div>
+          <h4>Great Documentation</h4>
+          <p>Help capture great photos/videos and recommend the best angles.</p>
+        </div>
+
+        <div class="np-why-card">
+          <div class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+          <h4>Clear Pricing</h4>
+          <p>Transparent, easy to understand, and tailored to your trip needs.</p>
+        </div>
+
+        <div class="np-why-card">
+          <div class="icon"><i class="fa-solid fa-headset"></i></div>
+          <h4>Fast Response</h4>
+          <p>Fast chat, easy consultation, and you can request an itinerary.</p>
+        </div>
+
+        <!-- Set B (clone for seamless loop) -->
+        <div class="np-why-card">
+          <div class="icon"><i class="fa-solid fa-route"></i></div>
+          <h4>Well-Planned Itinerary</h4>
+          <p>We manage timing so you are not rushing and still get the best spots.</p>
+        </div>
+
+        <div class="np-why-card">
+          <div class="icon"><i class="fa-solid fa-user-shield"></i></div>
+          <h4>Safe and Comfortable</h4>
+          <p>Local driver/guide who understands road conditions and the most efficient meeting points.</p>
+        </div>
+
+        <div class="np-why-card">
+          <div class="icon"><i class="fa-solid fa-camera"></i></div>
+          <h4>Great Documentation</h4>
+          <p>Help capture great photos/videos and recommend the best angles.</p>
+        </div>
+
+        <div class="np-why-card">
+          <div class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+          <h4>Clear Pricing</h4>
+          <p>Transparent, easy to understand, and tailored to your trip needs.</p>
+        </div>
+
+        <div class="np-why-card">
+          <div class="icon"><i class="fa-solid fa-headset"></i></div>
+          <h4>Fast Response</h4>
+          <p>Fast chat, easy consultation, and you can request an itinerary.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="np-center-actions">
+      <button class="np-itin-btn" type="button" id="npOpenItin">
+        <i class="fa-brands fa-whatsapp"></i> Get a Free Itinerary
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Popup Form (Forward to WhatsApp) ===== -->
+<div class="np-modal" id="npItinModal" aria-hidden="true">
+  <div class="np-modal-backdrop" data-close="1"></div>
+
+  <div class="np-modal-panel" role="dialog" aria-modal="true" aria-label="Free itinerary form">
+    <div class="np-modal-head">
+      <b>Get a Free Itinerary (WhatsApp)</b>
+      <button class="np-modal-close" type="button" data-close="1" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="np-modal-body">
+      <form class="np-form" id="npItinForm">
+        <div class="np-field">
+          <label for="npName">Name</label>
+          <input id="npName" name="name" type="text" placeholder="Example: Budi" required>
+        </div>
+
+        <div class="np-field">
+          <label for="npPhone">Phone Number (WhatsApp)</label>
+          <input id="npPhone" name="phone" type="tel" placeholder="Example: 0812xxxxxxx" required>
+        </div>
+
+        <div class="np-field">
+          <label for="npNote">Notes</label>
+          <textarea id="npNote" name="note" placeholder="Example: Trip date, number of people, West/East + snorkeling, etc."></textarea>
+        </div>
+
+        <div class="np-form-actions">
+          <button class="np-btn-secondary" type="button" data-close="1">Cancel</button>
+          <button class="np-btn-send" type="submit">
+            <i class="fa-brands fa-whatsapp"></i> Send to WhatsApp
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ===== About slider (auto) =====
+  const aboutSlides = Array.from(document.querySelectorAll('.np-about-slide'));
+  let aIdx = 0;
+  if(aboutSlides.length){
+    setInterval(()=>{
+      aboutSlides[aIdx].classList.remove('active');
+      aIdx = (aIdx + 1) % aboutSlides.length;
+      aboutSlides[aIdx].classList.add('active');
+    }, 4200);
+  }
+
+  // ===== Modal open/close =====
+  const openBtn = document.getElementById('npOpenItin');
+  const modal   = document.getElementById('npItinModal');
+  const form    = document.getElementById('npItinForm');
+
+  function openModal(){
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    setTimeout(()=>{ document.getElementById('npName')?.focus(); }, 50);
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+
+  openBtn && openBtn.addEventListener('click', openModal);
+
+  modal && modal.addEventListener('click', (e)=>{
+    const t = e.target;
+    if(t && t.getAttribute && t.getAttribute('data-close') === '1') closeModal();
+  });
+
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+
+  // ===== Forward to WhatsApp =====
+  // Nomor WA tujuan (tanpa +): 6287807268256
+  const WA_NUMBER = "6287807268256";
+
+  function normalizePhone(input){
+    // Biar rapi, cuma angka dan plus
+    return (input || "").toString().trim().replace(/[^\d+]/g,'');
+  }
+
+  form && form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    const name  = (document.getElementById('npName')?.value || "").trim();
+    const phone = normalizePhone(document.getElementById('npPhone')?.value || "");
+    const note  = (document.getElementById('npNote')?.value || "").trim();
+
+    const msg =
+`Hello Nusa Penida Happy Trip, I would like a free itinerary.
+
+Name: ${name}
+Phone: ${phone}
+Notes: ${note || "-"}
+
+Thank you!`;
+
+    const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+    window.open(url, "_blank", "noopener,noreferrer");
+    closeModal();
+  });
+})();
+</script>
+<!-- ================== END SECTION ================== -->
+
+
+<!-- Start Of About And Why Section -->
+
+
+<!-- Start Of Package Wisata -->
+<!-- ================== SECTION: PAKET WISATA (3/ROW) + CARD SLIDER + BOOKING MODAL ================== -->
+<style>
+  .np-packages{ background:#fff; }
+  .np-wrap{ padding:64px 5vw; max-width:1200px; margin:0 auto; }
+
+  .np-section-title{
+    text-align:center;margin:0 0 10px;
+    color:#111827;font-size:28px;font-weight:800;letter-spacing:-.02em;
+  }
+  .np-section-subtitle{
+    text-align:center;max-width:820px;margin:0 auto 34px;
+    color:#6b7280;line-height:1.75;font-size:14.5px;
+  }
+  .np-swipe-hint{
+    display:none;
+    text-align:center;
+    font-size:12.5px;
+    font-weight:800;
+    color:#111827;
+    opacity:.7;
+    letter-spacing:.02em;
+    margin:-20px auto 18px;
+  }
+
+  /* GRID 3 per row */
+  .np-pkg-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:18px;
+  }
+
+  .np-pkg-card{
+    border-radius:22px;
+    border:1px solid #eef2f7;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:0 14px 40px rgba(15,23,42,.06);
+    display:flex;
+    flex-direction:column;
+    min-height: 520px;
+  }
+
+  /* Card slider */
+  .np-pkg-media{
+    position:relative;
+    height:210px;
+    background:#0b1220;
+    overflow:hidden;
+  }
+  .np-pkg-slide{
+    position:absolute; inset:0;
+    opacity:0;
+    filter:blur(7px);
+    transform:scale(1.03);
+    transition:opacity .6s ease, filter .6s ease, transform .6s ease;
+  }
+  .np-pkg-slide.active{
+    opacity:1;
+    filter:blur(0);
+    transform:scale(1.02);
+  }
+  .np-pkg-slide img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transform:scale(1.03);
+  }
+  .np-pkg-media::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.35) 55%, rgba(0,0,0,.55));
+    pointer-events:none;
+  }
+
+  .np-pkg-badge{
+    position:absolute; left:14px; top:14px; z-index:2;
+    background:rgba(255,214,0,.92);
+    color:#000;
+    border:1px solid rgba(0,0,0,.1);
+    font-weight:900;
+    font-size:12px;
+    padding:7px 10px;
+    border-radius:999px;
+  }
+
+  .np-pkg-dots{
+    position:absolute; left:50%; bottom:10px; transform:translateX(-50%);
+    z-index:2; display:flex; gap:7px;
+  }
+  .np-pkg-dot{
+    width:8px;height:8px;border-radius:999px;
+    background:rgba(255,255,255,.35);
+    border:1px solid rgba(255,255,255,.25);
+    cursor:pointer;
+  }
+  .np-pkg-dot.active{ background:#ffd600; border-color:rgba(0,0,0,.25); }
+
+  /* Content */
+  .np-pkg-body{
+    padding:16px 16px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex:1;
+  }
+  .np-pkg-title{
+    margin:0;
+    font-size:16px;
+    font-weight:900;
+    color:#111827;
+    text-align:left;
+    line-height:1.25;
+  }
+  .np-pkg-desc{
+    margin:0;
+    color:#6b7280;
+    font-size:13.5px;
+    line-height:1.7;
+  }
+
+  .np-pkg-highlights{
+    margin:6px 0 0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:8px;
+  }
+  .np-pkg-highlights li{
+    display:flex; gap:10px; align-items:flex-start;
+    font-size:13.5px;
+    color:#111827;
+  }
+  .np-pkg-highlights i{ margin-top:3px; color:#22c55e; }
+
+  .np-pkg-footer{
+    padding:0 16px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:auto;
+  }
+  .np-pkg-price{
+    display:flex; flex-direction:column; gap:2px;
+  }
+  .np-pkg-price small{ color:#6b7280; font-weight:700; }
+  .np-pkg-price b{
+    font-size:16px;
+    color:#111827;
+    font-weight:900; /* agak bold */
+  }
+
+  .np-pkg-btn{
+    display:inline-flex; align-items:center; gap:9px; justify-content:center;
+    padding:11px 14px;
+    border-radius:999px;
+    background:#22c55e;
+    color:#052e16;
+    font-weight:900;
+    border:0;
+    cursor:pointer;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .np-pkg-btn i{ font-size:18px; }
+
+  /* Responsive */
+  @media (max-width: 1024px){
+    .np-pkg-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 680px){
+    .np-swipe-hint{ display:block; }
+    .np-packages .np-pkg-grid{
+      grid-template-columns:none;
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
+      padding:4px 4px 12px;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .np-packages .np-pkg-grid::-webkit-scrollbar{ display:none; }
+    .np-packages .np-pkg-grid{ scrollbar-width:none; }
+    .np-packages .np-pkg-card{
+      min-width:84%;
+      scroll-snap-align:start;
+    }
+    .np-pkg-card{ min-height:auto; }
+    .np-bali-grid{
+      grid-template-columns:none;
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
+      padding:4px 4px 12px;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .np-bali-grid .np-pkg-card{
+      min-width:84%;
+      scroll-snap-align:start;
+    }
+  }
+
+  /* ===== Booking Modal (paket) ===== */
+  .np-modal{ position:fixed; inset:0; z-index:99999; display:none; }
+  .np-modal.is-open{ display:block; }
+  .np-modal-backdrop{
+    position:absolute; inset:0;
+    background:rgba(2,6,23,.65);
+    backdrop-filter: blur(3px);
+  }
+  .np-modal-panel{
+    position:relative;
+    width:min(560px, 92vw);
+    margin:7vh auto 0;
+    background:#fff;
+    border-radius:22px;
+    box-shadow:0 24px 70px rgba(0,0,0,.35);
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.6);
+  }
+  .np-modal-head{
+    padding:16px 18px;
+    background:linear-gradient(90deg, rgba(255,214,0,.25), rgba(225,39,38,.08));
+    border-bottom:1px solid #eef2f7;
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+  }
+  .np-modal-head b{ color:#111827; font-size:15px; font-weight:900; }
+  .np-modal-close{
+    width:36px;height:36px;border-radius:999px;
+    border:1px solid #e5e7eb;background:#fff;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    font-size:16px;
+  }
+  .np-modal-body{ padding:18px; }
+  .np-form{ display:grid; gap:12px; }
+  .np-field label{
+    display:block;
+    font-size:12.5px;
+    font-weight:900;
+    color:#111827;
+    margin-bottom:6px;
+  }
+  .np-field input, .np-field textarea, .np-field select{
+    width:100%;
+    border-radius:14px;
+    border:1px solid #e5e7eb;
+    padding:12px 12px;
+    outline:none;
+    font-family:inherit;
+    font-size:14px;
+    background:#fff;
+  }
+  .np-field textarea{ min-height:110px; resize:vertical; }
+  .np-form-actions{
+    display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap;
+    margin-top:6px;
+  }
+  .np-btn-secondary{
+    padding:11px 14px;border-radius:999px;
+    border:1px solid #e5e7eb;background:#fff;
+    font-weight:900; cursor:pointer;
+  }
+  .np-btn-send{
+    padding:11px 16px;border-radius:999px;
+    border:0;background:#22c55e;color:#052e16;
+    font-weight:900; cursor:pointer;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+</style>
+
+<section class="np-section-full np-packages" id="paket">
+  <div class="np-wrap">
+    <h2 class="np-section-title">Best Tour Packages for You</h2>
+    <p class="np-section-subtitle">
+      Choose the package that fits you best, from West/East trips and snorkeling to boat tours.
+      Just click booking, fill a short form, and continue on WhatsApp.
+    </p>
+    <div class="np-swipe-hint">Swipe to see more packages -></div>
+
+    <div class="np-pkg-grid" id="npPkgGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Booking Modal (Package) ===== -->
+<div class="np-modal" id="npPkgModal" aria-hidden="true">
+  <div class="np-modal-backdrop" data-close="1"></div>
+
+  <div class="np-modal-panel" role="dialog" aria-modal="true" aria-label="Package booking form">
+    <div class="np-modal-head">
+      <b>Book a Package (WhatsApp)</b>
+      <button class="np-modal-close" type="button" data-close="1" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="np-modal-body">
+      <form class="np-form" id="npPkgForm">
+        <div class="np-field">
+          <label for="npPkgSelect">Select Package</label>
+          <select id="npPkgSelect" name="package" required></select>
+        </div>
+
+        <div class="np-field">
+          <label for="npPkgName">Name</label>
+          <input id="npPkgName" name="name" type="text" placeholder="Example: Budi" required>
+        </div>
+
+        <div class="np-field">
+          <label for="npPkgPhone">Phone Number (WhatsApp)</label>
+          <input id="npPkgPhone" name="phone" type="tel" placeholder="Example: 0812xxxxxxx" required>
+        </div>
+
+        <div class="np-field">
+          <label for="npPkgNote">Notes</label>
+          <textarea id="npPkgNote" name="note" placeholder="Example: Trip date, number of people, pickup, requested spots, etc."></textarea>
+        </div>
+
+        <div class="np-form-actions">
+          <button class="np-btn-secondary" type="button" data-close="1">Cancel</button>
+          <button class="np-btn-send" type="submit">
+            <i class="fa-brands fa-whatsapp"></i> Send Booking
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ====== DATA PAKET (silakan sesuaikan harga/deskripsi sesuai data kamu) ======
+  // kalau kamu mau, nanti tinggal kirim format harga & inclusionsnya, aku rapihin 1:1.
+  const WA_NUMBER = "6287807268256";
+
+  const packages = [
+    {
+      id: "trip-west-side",
+      badge: "Popular Trip",
+      name: "West Side Trip",
+      desc: "Our most popular package for seeing iconic west-side Nusa Penida spots. This route is perfect for photos and videos.",
+      priceLabel: "Price",
+      price: "Rp 650.000",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/1.4.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/1.3.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/1.2.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/1.1.jpeg"
+      ],
+      highlights: [
+        "Klingking Beach",
+        "Broken Beach",
+        "Angel Bilabong",
+        "Crystal Bay",
+        "Includes: drinking water",
+        "Includes: entrance tickets and parking",
+        "Includes: photo and video documentation"
+      ]
+    },
+
+    {
+      id: "paket-east-side",
+      badge: "Best Views",
+      name: "East Side Package",
+      desc: "If you love white sand and beautiful cliffs, East Side is the winner. The vibe is pure tropical postcard.",
+      priceLabel: "Price",
+      price: "Rp 800.000",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/2.8.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/2.7.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/2.6.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/2.5.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/2.4.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/2.3.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/2.2.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/2.1.jpeg"
+      ],
+      highlights: [
+        "Diamond Beach",
+        "Atuh Beach",
+        "Tree House",
+        "Thousand Island",
+        "Teletubbies Hills",
+        "Includes: entrance tickets",
+        "Includes: drink and snack",
+        "Includes: photo and video documentation",
+        "Includes: photo ticket at Tree House"
+      ]
+    },
+    {
+      id: "group-west-side",
+      badge: "Group Tour",
+      name: "West Side Group Tour",
+      desc: "West Side group tour for 4-6 people. Great for groups, budget-friendly, and still comfortable.",
+      priceLabel: "Price",
+      price: "Rp 210.000 / person (min 4, max 6)",
+      images: [
+        "https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2023/05/04/c39c7b44-fc38-4aeb-955c-b116c2c6d602-1683172651721-ac3a1d25f637a2ddaabfa4dd84a21e7b.jpg",
+        "https://usercontent.one/wp/www.sunshineseeker.com/wp-content/uploads/2024/01/Paluang-Cliff-West-Nusa-Penida.webp?media=1763304812",
+        "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/15/85/e0/ce.jpg"
+      ],
+      highlights: [
+        "Min 4 people, max 6 people",
+        "Includes: mineral water and snack",
+        "Includes: entrance ticket",
+        "Includes: photo and video documentation"
+      ]
+    },
+    {
+      id: "group-east-side",
+      badge: "Group Tour",
+      name: "East Side Group Tour",
+      desc: "East Side group tour for 4-6 people with favorite routes and beautiful views.",
+      priceLabel: "Price",
+      price: "Rp 300.000 / person (min 4, max 6)",
+      images: [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROJ5rA6axgpWPIUxV4H9I-B3MqxRtiHZNdjQ&s",
+        "https://cdn.tripspoint.com/uploads/photos/9090/nusa-penida-east-part-tour-the-most-famous-spot-all-inclusive_RvYBU.jpeg",
+        "https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit800600gsm/eventThirdParty/2022/07/22/3b793f6a-9279-4f6e-915d-72b3e875f0e2-1658465265104-3b7e810ba93b0bf8eaa5fd3d83360e25.jpg"
+      ],
+      highlights: [
+        "Min 4 people, max 6 people",
+        "Includes: mineral water",
+        "Includes: entrance ticket at Diamond Beach",
+        "Photo ticket not included"
+      ]
+    },
+    {
+      id: "combo-west-east",
+      badge: "Combo Tour",
+      name: "West + East Side Combo Trip",
+      desc: "A full-day mix of the best West and East Side spots. Includes drinking water, parking ticket, and Diamond Beach entrance ticket.",
+      priceLabel: "Price",
+      price: "Rp 1.300.000",
+      highlightLimit: 6,
+      images: [
+        "https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2023/05/04/c39c7b44-fc38-4aeb-955c-b116c2c6d602-1683172651721-ac3a1d25f637a2ddaabfa4dd84a21e7b.jpg",
+        "https://cdn.tripspoint.com/uploads/photos/9090/nusa-penida-east-part-tour-the-most-famous-spot-all-inclusive_RvYBU.jpeg",
+        "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/15/85/e0/ce.jpg"
+      ],
+      highlights: [
+        "Klingking Beach",
+        "Broken Beach",
+        "Angel Bilabong",
+        "Diamond Beach",
+        "Atuh Beach",
+        "Tree House"
+      ]
+    },
+
+    {
+      id: "private-snorekeling",
+      badge: "Private",
+      name: "Private Snorkeling Package",
+      desc: "Private snorkeling for a more relaxed and flexible experience. 4-5 spots (depending on sea conditions).",
+      priceLabel: "Price",
+      price: "Rp 2.500.000",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.12.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.11.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.10.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.9.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.8.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.7.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.6.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.5.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.4.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.3.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.2.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.1.jpeg"
+      ],
+      highlights: [
+        "Manta Point",
+        "Manta Bay",
+        "Wall Point",
+        "Gamat Bay",
+        "Turtle Point",
+        "4-5 spots (sea conditions apply)"
+      ]
+    },
+
+    {
+      id: "shared-snorekeling",
+      badge: "Sharing Boat",
+      name: "Shared Snorkeling Package",
+      desc: "Public snorkeling / sharing boat. Same spots as the private package, more budget-friendly for solo or couples.",
+      priceLabel: "Price",
+      price: "Rp 350.000",
+      // pakai gambar yang sama dengan paket 3
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.12.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.11.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.10.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.9.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.8.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.7.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.6.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.5.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.4.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.3.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.2.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.1.jpeg"
+      ],
+      highlights: [
+        "Sharing boat (public)",
+        "Same spots as private snorkeling",
+        "More budget-friendly"
+      ]
+    },
+
+    {
+      id: "boat-tour-nusapenida",
+      badge: "Boat Tour",
+      name: "Boat Tour in Nusa Penida",
+      desc: "Boat tour around Nusa Penida. Private boat package: minimum 4 people, maximum 6 people.",
+      priceLabel: "Price",
+      price: "Rp 8.000.000 (min 4 pax, max 6 pax)",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/61450e69-186a-4204-b0e9-e5bdcfe3739e.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/61450e69-186a-4204-b0e9-e5bdcfe3739e.jpeg"
+      ],
+      highlights: [
+        "Visit all main spots in Nusa Penida",
+        "Example: Gamat Bay, Wall Point, Kelingking Beach",
+        "Broken Beach, Angel Billabong"
+      ]
+    },
+
+    {
+      id: "tour-komodo-4h3m",
+      badge: "Special Trip",
+      name: "Komodo Tour 4 Days 3 Nights",
+      desc: "Komodo 4D3N trip with pickup from Nusa Penida and Gili. Includes meals and entrance tickets for all sites.",
+      priceLabel: "Price",
+      price: "Rp 5.000.000 (Sharing Room) - Private Room contact CS",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/46075954-2065-4760-8267-f7c643a1744c.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/d70b3bcd-de17-4c8d-97d3-4bc694a015a1.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/61f28520-a086-4cf0-b8fd-c61d40f8e5eb.jpeg",
+        "https://everz-digital.site/wp-content/uploads/2025/12/7c11b6b8-73a2-49d8-a068-ac6536b241ae.jpeg"
+      ],
+      highlights: [
+        "Duration 4 days 3 nights",
+        "Includes: breakfast, lunch, dinner",
+        "Includes: unlimited coffee",
+        "Includes: entrance tickets for all sites",
+        "Includes: pickup in Nusa Penida",
+        "Includes: pickup in Gili Trawangan, Gili Air, Gili Meno",
+        "Room options: sharing or private (contact CS for private)"
+      ]
+    }
+  ];
+
+  const BALI_INCLUDES = "Includes driver/guide, fuel, and mineral water.";
+
+  const baliTours = [
+    {
+      id: "bali-sunset-uluwatu-kecak",
+      badge: "Sunset Tour",
+      name: "Sunset Uluwatu and Kecak Dance",
+      desc: "Start 08:00 am - finish. " + BALI_INCLUDES,
+      priceLabel: "Price",
+      price: "Rp 600.000 / car / day",
+      images: [
+        "https://ik.imagekit.io/tvlk/xpe-asset/dsIfD0QxFcgaDmB6sQchobk5CmBu9PzsWhwFXGFxJ179jzSxIGG5kZNhhHY-p7nw/xxt/experience/image/3-jpg-960x720-FIT-9a838c7aab320b31f246459ed51e12f9.jpeg?_src=imagekit&tr=c-at_max,h-500,q-100,w-740",
+        "https://res.klook.com/images/w_1200,h_630,c_fill,q_65/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/bdioxjhtmzqfsiklyhaw/SunsetdiPuraUluwatudanKecakFireDance-KlookIndonesia.jpg"
+      ],
+      highlights: [
+        "Nusa Dua Area",
+        "GWK Bali",
+        "Pandawa Beach",
+        "Melasti Beach",
+        "Uluwatu Temple",
+        "Watch the Kecak Dance",
+        "Jimbaran dinner / return to hotel"
+      ]
+    },
+    {
+      id: "bali-kota-sunset-jimbaran",
+      badge: "City Tour",
+      name: "Bali City Tour + Jimbaran Sunset",
+      desc: "Start 08:00 am - finish. " + BALI_INCLUDES,
+      priceLabel: "Price",
+      price: "Rp 600.000 / car / day",
+      images: [
+        "https://www.pelago.com/img/products/ID-Indonesia/kris/0608-0640_5.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL-2KW5_GmV0oJawl5yEdGO9_v1idRDl1D5g&s"
+      ],
+      highlights: [
+        "Barong & Keris Dance",
+        "Bajra Sandhi Monument Renon",
+        "UC Silver",
+        "Garden Corner",
+        "Sanur Beach",
+        "Krisna Souvenir Center",
+        "Jimbaran Sunset"
+      ]
+    },
+    {
+      id: "bali-sunrise-kintamani-ubud",
+      badge: "Sunrise Tour",
+      name: "Sunrise Kintamani Batur & Ubud Tour",
+      desc: "Start 04:30 - 05:00 am. " + BALI_INCLUDES,
+      priceLabel: "Price",
+      price: "Rp 700.000 / car / day",
+      images: [
+        "https://assets.pikiran-rakyat.com/crop/0x0:0x0/1200x675/webp/photo/2024/04/04/3327383683.jpg",
+        "https://www.rentalmobilbali.net/wp-content/uploads/2024/12/wisatawan-pakaian-adat-desa-penglipuran.webp"
+      ],
+      highlights: [
+        "Akasa Coffee Above-the-Clouds Kintamani Batur / Montana / Elago",
+        "Penglipuran Village, Bangli",
+        "Coffee Plantation",
+        "Ubud area art village",
+        "Taman Dedari",
+        "Tegalalang, Ubud",
+        "Tirta Empul, Tampaksiring",
+        "Ubud Waterfalls (Kanto Lampo / Tegenungan / Tibumana)"
+      ]
+    },
+    {
+      id: "bali-nusa-dua-kecak-uluwatu",
+      badge: "Sunset Tour",
+      name: "Nusa Dua & Uluwatu Kecak Sunset",
+      desc: "Start 08:00 am - finish. " + BALI_INCLUDES,
+      priceLabel: "Price",
+      price: "Rp 600.000 / car / day",
+      images: [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT44ER9E_V-x3esE5CqVvRbXRpoJPyasF82uQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbQA_rI-rWDsnHGBUZ2Ms6yNCjlbQtqKjgcw&s"
+      ],
+      highlights: [
+        "Nusa Dua Area",
+        "GWK Bali",
+        "Pandawa Beach",
+        "Melasti Beach",
+        "Padang Padang Beach",
+        "Uluwatu Temple",
+        "Uluwatu Kecak Sunset"
+      ]
+    },
+    {
+      id: "bali-bedugul-tanah-lot",
+      badge: "Nature Tour",
+      name: "Bedugul & Tanah Lot Temple Sunset",
+      desc: "Start 08:00 am - finish. " + BALI_INCLUDES,
+      priceLabel: "Price",
+      price: "Rp 700.000 / car / day",
+      images: [
+        "https://upload.wikimedia.org/wikipedia/commons/e/e3/Pura_taman_ayun.jpg",
+        "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/fc/e8/d6/lrm-export-108141443278445.jpg?w=900&h=500&s=1"
+      ],
+      highlights: [
+        "Taman Ayun Temple",
+        "Wanagiri Hill",
+        "Handara Gate",
+        "Ulun Danu Temple",
+        "Bloom Garden",
+        "Tanah Lot Temple Sunset"
+      ]
+    },
+    {
+      id: "bali-lempuyang-sunrise-jimbaran",
+      badge: "Sunrise Tour",
+      name: "Lempuyang Sunrise & Sunset Jimbaran",
+      desc: "Start 05:00 am - finish. " + BALI_INCLUDES,
+      priceLabel: "Price",
+      price: "Rp 800.000 / car / day",
+      images: [
+        "https://cozzy.id/uploads/0000/630/2024/07/31/cozzyid-hotel-murah-hotel-terdekat-penginapan-murah-penginapan-terdekat-booking-hotel-tangkal-pinus-lembang-surga-hutan-pinus-di-bandung-sumber-gambar-berita99.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWwhNWOOx_QE2FfRw_Mm3FUEAk7ihcM2LWGw&s"
+      ],
+      highlights: [
+        "Lempuyang Gate (Gates of Heaven)",
+        "Maha Gangga, Karangasem",
+        "Tirta Gangga, Karangasem",
+        "Taman Ujung, Karangasem",
+        "Tukad Cepung Waterfall",
+        "Jimbaran Sunset"
+      ]
+    },
+    {
+      id: "bali-lovina-lumba",
+      badge: "Sunrise Tour",
+      name: "Lovina Sunrise and Dolphins",
+      desc: "Start 03:00 am (from Denpasar). " + BALI_INCLUDES,
+      priceLabel: "Price",
+      price: "Rp 850.000 / car / day",
+      images: [
+        "https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/p1/583/2024/01/07/Picsart_24-01-07_19-18-46-699-2832656940.jpg",
+        "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/d7/bb/34/krasny-vodopad-uprostred.jpg?w=900&h=500&s=1"
+      ],
+      highlights: [
+        "Lovina Beach dolphin watching at sunrise",
+        "Munduk / Banyumala Waterfalls",
+        "Wanagiri, Bedugul",
+        "Bali Handara Gate",
+        "Ulun Danu Bratan / Tanah Lot / Bloom Garden / Jatiluwih",
+        "Sunset at Finns Beach Club / Atlas Beach Club"
+      ]
+    },
+    {
+      id: "bali-sunrise-kintamani-lempuyang",
+      badge: "Sunrise Tour",
+      name: "Sunrise Kintamani & Lempuyang Gate",
+      desc: "Start 04:30 - 05:00 am. " + BALI_INCLUDES,
+      priceLabel: "Price",
+      price: "Rp 850.000 / car / day",
+      images: [
+        "https://imgsrv2.voi.id/XncTKW-f3_DiVjLkOPg9aGndE9mJ6Asb4PvvJraIOjk/auto/1200/675/sm/1/bG9jYWw6Ly8vcHVibGlzaGVycy8xODMyNTIvMjAyMjA2MjYxNDM0LW1haW4uanBn.jpg",
+        "https://cozzy.id/uploads/0000/630/2024/09/20/cozzyid-hotel-murah-hotel-terdekat-penginapan-murah-penginapan-terdekat-booking-hotel-desa-penglipuran-bali-wisata-budaya-di-desa-terbersih-di-dunia-sumber-gambar-tunashijau.jpg"
+      ],
+      highlights: [
+        "Above-the-Clouds Kintamani Batur",
+        "Penglipuran Village",
+        "Lempuyang Gate (Gates of Heaven)",
+        "Tirta Gangga, Karangasem",
+        "Bebek Joni, Ubud",
+        "Return to hotel"
+      ]
+    },
+    {
+      id: "bali-sunrise-kintamani-monkey-forest",
+      badge: "Sunrise Tour",
+      name: "Sunrise Kintamani & Ubud Monkey Forest",
+      desc: "Pickup 04:30 - 05:00 am. " + BALI_INCLUDES,
+      priceLabel: "Price",
+      price: "Rp 700.000 / car / day",
+      images: [
+        "https://www.jalanmelali.com/wp-content/uploads/2021/11/desa-pinggan-edited.jpg",
+        "https://www.rentalmobilbali.net/wp-content/uploads/2016/12/kolam-air-panas-toya-devasya-kintamani-bali.jpg"
+      ],
+      highlights: [
+        "Sunrise at Above-the-Clouds Kintamani",
+        "Toye Devasya Hot Springs",
+        "Penglipuran Village",
+        "Tegalalang, Ubud",
+        "Ubud Monkey Forest",
+        "Kanto Lampo Waterfall",
+        "Dinner in Ubud",
+        "Return to hotel"
+      ]
+    },
+    {
+      id: "bali-ubud-kintamani",
+      badge: "Nature Tour",
+      name: "Ubud & Kintamani Batur",
+      desc: "Pickup 08:00 am. " + BALI_INCLUDES,
+      priceLabel: "Price",
+      price: "Rp 700.000 / car / day",
+      images: [
+        "https://www.balifulldaytour.com/images/BarongDance1.jpg",
+        "https://monkeyforestubud.com/wp-content/uploads/2023/07/24.9.jpg"
+      ],
+      highlights: [
+        "Barong and Keris Dance",
+        "Ubud Monkey Forest",
+        "Art Center",
+        "Tegalalang, Ubud",
+        "Kintamani Batur",
+        "Tirta Empul",
+        "Tegenungan Waterfall",
+        "Return to hotel"
+      ]
+    },
+    {
+      id: "bali-ubud-lempuyang",
+      badge: "Culture Tour",
+      name: "Ubud & Lempuyang Gate",
+      desc: "Pickup 07:30 am. " + BALI_INCLUDES,
+      priceLabel: "Price",
+      price: "Rp 700.000 / car / day",
+      images: [
+        "https://media.tacdn.com/media/attractions-splice-spp-674x446/07/3b/60/74.jpg",
+        "https://media.cntraveler.com/photos/5e35bdf00e2bfd0008a03691/16:9/w_2560,c_limit/Tegallalang-GettyImages-515480864.jpg"
+      ],
+      highlights: [
+        "Coffee Plantation, Ubud",
+        "Tegalalang, Ubud",
+        "Penglipuran Village",
+        "Lempuyang Gate (Gates of Heaven)",
+        "Tirta Gangga, Bali"
+      ]
+    },
+    {
+      id: "bali-jatiluwih-bedugul",
+      badge: "Nature Tour",
+      name: "Jatiluwih & Bedugul Tour",
+      desc: "Start 06:00 am - finish. " + BALI_INCLUDES,
+      priceLabel: "Price",
+      price: "Rp 800.000 / car / day",
+      images: [
+        "https://www.rentalmobilbali.net/wp-content/uploads/2019/06/Sawah-Terasering-Jatiluwih-Bali-Feature-Image.jpg",
+        "https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2021/04/23/efa1d3f9-e366-4a1f-a380-ea906501f39d-1619186206486-2a32c007eddc172c41ca49710c004384.jpg"
+      ],
+      highlights: [
+        "Beautiful Jatiluwih rice terraces",
+        "Bloom Garden",
+        "Ulun Danu Beratan, Bedugul",
+        "Bali Handara Gate",
+        "Wanagiri Hill",
+        "Coffee Plantation"
+      ]
+    }
+  ];
+
+  const divingPackages = [
+    {
+      id: "certified-diver",
+      badge: "Certified Diver",
+      name: "Diving Package for Certified Divers",
+      desc: "Dive options for certified divers.",
+      priceLabel: "Price",
+      price: "IDR 1.800.000 (2 dives) - IDR 2.550.000 (3 dives) - Pool Refresher IDR 400.000",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.12.jpeg"
+      ],
+      highlights: [
+        "Includes: pick up and drop off (<=5 km)",
+        "Includes: SCUBA gear",
+        "Includes: snack, water, tea, coffee",
+        "Includes: PADI insurance",
+        "Divemaster/Instructor ratio max 1:4"
+      ]
+    },
+    {
+      id: "special-4-dives",
+      badge: "Special Package",
+      name: "4 Dives Package (2 Days)",
+      desc: "2 dives in the morning/day for 2 days.",
+      priceLabel: "Price",
+      price: "IDR 4.000.000 / person",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.11.jpeg"
+      ],
+      highlights: [
+        "Duration 2 days",
+        "2 morning/day dives per day",
+        "Includes as per certified package"
+      ]
+    },
+    {
+      id: "special-6-dives",
+      badge: "Special Package",
+      name: "6 Dives Package (2 Days)",
+      desc: "2 dives morning + 1 afternoon dive/day.",
+      priceLabel: "Price",
+      price: "IDR 6.000.000 / person",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.10.jpeg"
+      ],
+      highlights: [
+        "Duration 2 days",
+        "2 morning dives plus 1 afternoon dive per day",
+        "Includes as per certified package"
+      ]
+    },
+    {
+      id: "non-certified-diver",
+      badge: "Intro SCUBA",
+      name: "Non-Certified / Introduction SCUBA Diving",
+      desc: "Great for beginners with a pool session before the ocean dive.",
+      priceLabel: "Price",
+      price: "IDR 2.800.000 / person",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/3.9.jpeg"
+      ],
+      highlights: [
+        "Pool session + 2 ocean dives",
+        "Pick up & drop off (<=5 km)",
+        "Includes: snacks and drinks",
+        "Includes: SCUBA gear",
+        "Instructor ratio max 1:2"
+      ]
+    }
+  ];
+
+  const trekkingPackages = [
+    {
+      id: "trekking-rinjani-3d2n",
+      badge: "Trekking",
+      name: "Rinjani Trekking Package 3D2N",
+      desc: "3 days 2 nights itinerary with full facilities.",
+      priceLabel: "Price",
+      price: "Rp 3.600.000",
+      images: [
+        "https://www.rinjaninationalpark.com/wp-content/uploads/2016/09/gunungrinjanilombok21.jpg",
+        "https://jomblangcavetour.com/storage/app/uploads/public/671/3c5/8f4/6713c58f4c2d2148964977.jpg",
+        "https://rinjanitrekkingspecialist.com/wp-content/uploads/2022/06/FB_IMG_1686222672129-1.jpg"
+      ],
+      highlights: [
+        "3D2N itinerary and briefing",
+        "Includes: guide and porter",
+        "Includes: meals during the trek",
+        "Includes: tent and equipment"
+      ]
+    }
+  ];
+
+  const transportPackages = [
+    {
+      id: "fast-ferry-np-gili",
+      badge: "Fast Ferry",
+      name: "Fast Boat Ticket Nusa Penida to Gili Trawangan",
+      desc: "Daily schedule, fast and comfortable departures.",
+      priceLabel: "Price",
+      price: "Rp 350.000",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/61450e69-186a-4204-b0e9-e5bdcfe3739e.jpeg"
+      ],
+      highlights: [
+        "Fast Ferry",
+        "Route: Nusa Penida to Gili Trawangan"
+      ]
+    },
+    {
+      id: "fast-ferry-np-lombok",
+      badge: "Fast Ferry",
+      name: "Fast Boat Ticket Nusa Penida to Lombok",
+      desc: "Fast ferry direct to Lombok.",
+      priceLabel: "Price",
+      price: "Rp 350.000",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/61450e69-186a-4204-b0e9-e5bdcfe3739e.jpeg"
+      ],
+      highlights: [
+        "Fast Ferry",
+        "Route: Nusa Penida to Lombok"
+      ]
+    },
+    {
+      id: "fast-ferry-sanur-lombok-return",
+      badge: "Fast Ferry",
+      name: "Sanur to Lombok Ticket (Round Trip)",
+      desc: "Round trip Sanur to Lombok.",
+      priceLabel: "Price",
+      price: "Rp 800.000",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/61450e69-186a-4204-b0e9-e5bdcfe3739e.jpeg"
+      ],
+      highlights: [
+        "Fast Ferry",
+        "Return: Sanur to Lombok"
+      ]
+    },
+    {
+      id: "fast-ferry-sanur-lombok-oneway",
+      badge: "Fast Ferry",
+      name: "Sanur to Lombok Ticket (One Way)",
+      desc: "One way Sanur to Lombok.",
+      priceLabel: "Price",
+      price: "Rp 500.000",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/61450e69-186a-4204-b0e9-e5bdcfe3739e.jpeg"
+      ],
+      highlights: [
+        "Fast Ferry",
+        "One Way: Sanur to Lombok"
+      ]
+    },
+    {
+      id: "fast-ferry-lombok-padangbai",
+      badge: "Fast Ferry",
+      name: "Lombok to Padang Bai Ticket",
+      desc: "Fast ferry from Lombok to Padang Bai.",
+      priceLabel: "Price",
+      price: "Rp 350.000",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/61450e69-186a-4204-b0e9-e5bdcfe3739e.jpeg"
+      ],
+      highlights: [
+        "Fast Ferry",
+        "Route: Lombok to Padang Bai"
+      ]
+    },
+    {
+      id: "fast-ferry-padangbai-lombok",
+      badge: "Fast Ferry",
+      name: "Padang Bai to Lombok Ticket",
+      desc: "Fast ferry from Padang Bai to Lombok.",
+      priceLabel: "Price",
+      price: "Rp 350.000",
+      images: [
+        "https://everz-digital.site/wp-content/uploads/2025/12/61450e69-186a-4204-b0e9-e5bdcfe3739e.jpeg"
+      ],
+      highlights: [
+        "Fast Ferry",
+        "Route: Padang Bai to Lombok"
+      ]
+    },
+    {
+      id: "rental-scooter-np",
+      badge: "Rental",
+      name: "Nusa Penida Scooter Rental",
+      desc: "Comfortable automatic scooter for getting around Nusa Penida.",
+      priceLabel: "Price",
+      price: "Rp 100.000 / day",
+      images: [
+        "https://image.kkday.com/v2/image/get/c_fit%2Cq_55%2Ct_webp%2Cw_960/s1.kkday.com/product_134201/20221010104131_spT2s/jpg"
+      ],
+      highlights: [
+        "Daily rental",
+        "Pickup and drop-off by arrangement"
+      ]
+    }
+  ];
+
+  // ====== RENDER CARDS ======
+  const grid = document.getElementById('npPkgGrid');
+  const select = document.getElementById('npPkgSelect');
+
+  function escapeHtml(str){
+    return (str || "").toString()
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
+  }
+
+  function cardTemplate(pkg, index){
+    const dots = pkg.images.map((_,i)=> `<button class="np-pkg-dot ${i===0?'active':''}" type="button" aria-label="Slide ${i+1}" data-dot="${i}"></button>`).join('');
+    const slides = pkg.images.map((src,i)=> `
+      <div class="np-pkg-slide ${i===0?'active':''}" data-slide="${i}">
+        <img src="${escapeHtml(src)}" alt="${escapeHtml(pkg.name)} image ${i+1}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/1600x1000?text=Image+Not+Available';this.alt='Image not available'">
+      </div>
+    `).join('');
+
+    const highlightLimit = Number.isFinite(pkg.highlightLimit) ? pkg.highlightLimit : 3;
+    const highlights = (pkg.highlights || []).slice(0, highlightLimit).map(h=>`
+      <li><i class="fa-solid fa-circle-check"></i> ${escapeHtml(h)}</li>
+    `).join('');
+
+    return `
+      <article class="np-pkg-card" data-pkg-index="${index}">
+        <div class="np-pkg-media">
+          <div class="np-pkg-badge">${escapeHtml(pkg.badge || "Package")}</div>
+          ${slides}
+          <div class="np-pkg-dots">${dots}</div>
+        </div>
+
+        <div class="np-pkg-body">
+          <h3 class="np-pkg-title">${escapeHtml(pkg.name)}</h3>
+          <p class="np-pkg-desc">${escapeHtml(pkg.desc)}</p>
+          <ul class="np-pkg-highlights">${highlights}</ul>
+        </div>
+
+        <div class="np-pkg-footer">
+          <div class="np-pkg-price">
+            <small>${escapeHtml(pkg.priceLabel || "Price")}</small>
+            <b>${escapeHtml(pkg.price)}</b>
+          </div>
+          <button class="np-pkg-btn" type="button" data-book="${escapeHtml(pkg.id)}">
+            <i class="fa-brands fa-whatsapp"></i> Booking
+          </button>
+        </div>
+      </article>
+    `;
+  }
+
+  if(grid){
+    grid.innerHTML = packages.map(cardTemplate).join('');
+  }
+
+  // dropdown options
+  if(select){
+    select.innerHTML = packages.map(p => `<option value="${escapeHtml(p.name)}">${escapeHtml(p.name)} - ${escapeHtml(p.price)}</option>`).join('');
+  }
+
+  function buildBaliWhatsAppLink(name, price){
+    const msg =
+`Hello Nusa Penida Happy Trip, I want to book a Bali tour.
+
+Tour: ${name}
+Price: ${price} 
+
+Thank you!`;
+    return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+  }
+
+  function buildTransportWhatsAppLink(name, price){
+    const msg =
+`Hello Nusa Penida Happy Trip, I want to book transportation.
+
+Transport: ${name}
+Price: ${price}
+
+Thank you!`;
+    return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+  }
+
+  function buildDivingWhatsAppLink(name, price){
+    const msg =
+`Hello Nusa Penida Happy Trip, I want to book a diving package.
+
+Package: ${name}
+Price: ${price}
+
+Thank you!`;
+    return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+  }
+
+  function buildTrekkingWhatsAppLink(name, price){
+    const msg =
+`Hello Nusa Penida Happy Trip, I want to book a trekking package.
+
+Package: ${name}
+Price: ${price}
+
+Thank you!`;
+    return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+  }
+
+  function baliCardTemplate(tour, index){
+    const dots = (tour.images || []).map((_,i)=> `<button class="np-pkg-dot ${i===0?'active':''}" type="button" aria-label="Slide ${i+1}" data-dot="${i}"></button>`).join('');
+    const slides = (tour.images || []).map((src,i)=> `
+      <div class="np-pkg-slide ${i===0?'active':''}" data-slide="${i}">
+        <img src="${escapeHtml(src)}" alt="${escapeHtml(tour.name)} image ${i+1}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/1600x1000?text=Image+Not+Available';this.alt='Image not available'">
+      </div>
+    `).join('');
+    const highlights = (tour.highlights || []).map(h=>`
+      <li><i class="fa-solid fa-circle-check"></i> ${escapeHtml(h)}</li>
+    `).join('');
+
+    return `
+      <article class="np-pkg-card" data-bali-index="${index}">
+        <div class="np-pkg-media">
+          <div class="np-pkg-badge">${escapeHtml(tour.badge || "Day Tour")}</div>
+          ${slides}
+          ${dots ? `<div class="np-pkg-dots">${dots}</div>` : ""}
+        </div>
+
+        <div class="np-pkg-body">
+          <h3 class="np-pkg-title">${escapeHtml(tour.name)}</h3>
+          <p class="np-pkg-desc">${escapeHtml(tour.desc || "")}</p>
+          <details class="np-bali-accordion">
+            <summary>Tour locations</summary>
+            <ul class="np-pkg-highlights">${highlights}</ul>
+          </details>
+        </div>
+
+        <div class="np-pkg-footer">
+          <div class="np-pkg-price">
+            <small>${escapeHtml(tour.priceLabel || "Price")}</small>
+            <b>${escapeHtml(tour.price)}</b>
+          </div>
+          <a class="np-pkg-btn" href="${buildBaliWhatsAppLink(tour.name, tour.price)}" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> Booking
+          </a>
+        </div>
+      </article>
+    `;
+  }
+
+  function initBaliGrid(){
+    const baliGrid = document.getElementById('npBaliGrid');
+    if(!baliGrid) return;
+    baliGrid.innerHTML = baliTours.map(baliCardTemplate).join('');
+    baliGrid.querySelectorAll('.np-pkg-card').forEach(initCardSlider);
+  }
+
+  function divingCardTemplate(item, index){
+    const dots = (item.images || []).map((_,i)=> `<button class="np-pkg-dot ${i===0?'active':''}" type="button" aria-label="Slide ${i+1}" data-dot="${i}"></button>`).join('');
+    const slides = (item.images || []).map((src,i)=> `
+      <div class="np-pkg-slide ${i===0?'active':''}" data-slide="${i}">
+        <img src="${escapeHtml(src)}" alt="${escapeHtml(item.name)} image ${i+1}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/1600x1000?text=Image+Not+Available';this.alt='Image not available'">
+      </div>
+    `).join('');
+    const highlights = (item.highlights || []).map(h=>`
+      <li><i class="fa-solid fa-circle-check"></i> ${escapeHtml(h)}</li>
+    `).join('');
+
+    return `
+      <article class="np-pkg-card" data-diving-index="${index}">
+        <div class="np-pkg-media">
+          <div class="np-pkg-badge">${escapeHtml(item.badge || "Diving")}</div>
+          ${slides}
+          ${dots ? `<div class="np-pkg-dots">${dots}</div>` : ""}
+        </div>
+
+        <div class="np-pkg-body">
+          <h3 class="np-pkg-title">${escapeHtml(item.name)}</h3>
+          <p class="np-pkg-desc">${escapeHtml(item.desc || "")}</p>
+          <ul class="np-pkg-highlights">${highlights}</ul>
+        </div>
+
+        <div class="np-pkg-footer">
+          <div class="np-pkg-price">
+            <small>${escapeHtml(item.priceLabel || "Price")}</small>
+            <b>${escapeHtml(item.price)}</b>
+          </div>
+          <a class="np-pkg-btn" href="${buildDivingWhatsAppLink(item.name, item.price)}" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> Booking
+          </a>
+        </div>
+      </article>
+    `;
+  }
+
+  function initDivingGrid(){
+    const divingGrid = document.getElementById('npDivingGrid');
+    if(!divingGrid) return;
+    divingGrid.innerHTML = divingPackages.map(divingCardTemplate).join('');
+    divingGrid.querySelectorAll('.np-pkg-card').forEach(initCardSlider);
+  }
+
+  function trekkingCardTemplate(item, index){
+    const dots = (item.images || []).map((_,i)=> `<button class="np-pkg-dot ${i===0?'active':''}" type="button" aria-label="Slide ${i+1}" data-dot="${i}"></button>`).join('');
+    const slides = (item.images || []).map((src,i)=> `
+      <div class="np-pkg-slide ${i===0?'active':''}" data-slide="${i}">
+        <img src="${escapeHtml(src)}" alt="${escapeHtml(item.name)} image ${i+1}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/1600x1000?text=Image+Not+Available';this.alt='Image not available'">
+      </div>
+    `).join('');
+    const highlights = (item.highlights || []).map(h=>`
+      <li><i class="fa-solid fa-circle-check"></i> ${escapeHtml(h)}</li>
+    `).join('');
+
+    return `
+      <article class="np-pkg-card" data-trekking-index="${index}">
+        <div class="np-pkg-media">
+          <div class="np-pkg-badge">${escapeHtml(item.badge || "Trekking")}</div>
+          ${slides}
+          ${dots ? `<div class="np-pkg-dots">${dots}</div>` : ""}
+        </div>
+
+        <div class="np-pkg-body">
+          <h3 class="np-pkg-title">${escapeHtml(item.name)}</h3>
+          <p class="np-pkg-desc">${escapeHtml(item.desc || "")}</p>
+          <ul class="np-pkg-highlights">${highlights}</ul>
+        </div>
+
+        <div class="np-pkg-footer">
+          <div class="np-pkg-price">
+            <small>${escapeHtml(item.priceLabel || "Price")}</small>
+            <b>${escapeHtml(item.price)}</b>
+          </div>
+          <a class="np-pkg-btn" href="${buildTrekkingWhatsAppLink(item.name, item.price)}" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> Booking
+          </a>
+        </div>
+      </article>
+    `;
+  }
+
+  function initTrekkingGrid(){
+    const trekkingGrid = document.getElementById('npTrekkingGrid');
+    if(!trekkingGrid) return;
+    trekkingGrid.innerHTML = trekkingPackages.map(trekkingCardTemplate).join('');
+    trekkingGrid.querySelectorAll('.np-pkg-card').forEach(initCardSlider);
+  }
+
+  function transportCardTemplate(item, index){
+    const dots = (item.images || []).map((_,i)=> `<button class="np-pkg-dot ${i===0?'active':''}" type="button" aria-label="Slide ${i+1}" data-dot="${i}"></button>`).join('');
+    const slides = (item.images || []).map((src,i)=> `
+      <div class="np-pkg-slide ${i===0?'active':''}" data-slide="${i}">
+        <img src="${escapeHtml(src)}" alt="${escapeHtml(item.name)} image ${i+1}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/1600x1000?text=Image+Not+Available';this.alt='Image not available'">
+      </div>
+    `).join('');
+    const highlights = (item.highlights || []).map(h=>`
+      <li><i class="fa-solid fa-circle-check"></i> ${escapeHtml(h)}</li>
+    `).join('');
+
+    return `
+      <article class="np-pkg-card" data-transport-index="${index}">
+        <div class="np-pkg-media">
+          <div class="np-pkg-badge">${escapeHtml(item.badge || "Transport")}</div>
+          ${slides}
+          ${dots ? `<div class="np-pkg-dots">${dots}</div>` : ""}
+        </div>
+
+        <div class="np-pkg-body">
+          <h3 class="np-pkg-title">${escapeHtml(item.name)}</h3>
+          <p class="np-pkg-desc">${escapeHtml(item.desc || "")}</p>
+          <ul class="np-pkg-highlights">${highlights}</ul>
+        </div>
+
+        <div class="np-pkg-footer">
+          <div class="np-pkg-price">
+            <small>${escapeHtml(item.priceLabel || "Price")}</small>
+            <b>${escapeHtml(item.price)}</b>
+          </div>
+          <a class="np-pkg-btn" href="${buildTransportWhatsAppLink(item.name, item.price)}" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> Booking
+          </a>
+        </div>
+      </article>
+    `;
+  }
+
+  function initTransportGrid(){
+    const transportGrid = document.getElementById('npTransportGrid');
+    if(!transportGrid) return;
+    transportGrid.innerHTML = transportPackages.map(transportCardTemplate).join('');
+    transportGrid.querySelectorAll('.np-pkg-card').forEach(initCardSlider);
+  }
+
+  // ====== CARD SLIDER LOGIC (per-card) ======
+  // tiap card auto slide; pause on hover; dot clickable
+  function initCardSlider(card){
+    const slides = Array.from(card.querySelectorAll('.np-pkg-slide'));
+    const dots = Array.from(card.querySelectorAll('.np-pkg-dot'));
+    if(slides.length <= 1) return;
+
+    let idx = 0;
+    let timer = null;
+    const INTERVAL = 3600;
+
+    function render(){
+      slides.forEach((s,i)=> s.classList.toggle('active', i===idx));
+      dots.forEach((d,i)=> d.classList.toggle('active', i===idx));
+    }
+    function next(){
+      idx = (idx + 1) % slides.length;
+      render();
+    }
+    function start(){
+      stop();
+      timer = setInterval(next, INTERVAL);
+    }
+    function stop(){
+      if(timer) clearInterval(timer);
+      timer = null;
+    }
+    function goTo(i){
+      idx = i;
+      render();
+      start();
+    }
+
+    dots.forEach((d,i)=> d.addEventListener('click', ()=> goTo(i)));
+    card.addEventListener('mouseenter', stop);
+    card.addEventListener('mouseleave', start);
+    card.addEventListener('touchstart', stop, {passive:true});
+    card.addEventListener('touchend', start, {passive:true});
+
+    start();
+  }
+
+  document.querySelectorAll('.np-pkg-card').forEach(initCardSlider);
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", initBaliGrid);
+    document.addEventListener("DOMContentLoaded", initDivingGrid);
+    document.addEventListener("DOMContentLoaded", initTrekkingGrid);
+    document.addEventListener("DOMContentLoaded", initTransportGrid);
+  } else {
+    initBaliGrid();
+    initDivingGrid();
+    initTrekkingGrid();
+    initTransportGrid();
+  }
+
+  // ====== BOOKING MODAL ======
+  const modal = document.getElementById('npPkgModal');
+  const form  = document.getElementById('npPkgForm');
+
+  function openModalWithPackage(pkgName){
+    if(!modal) return;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+
+    // set selected package
+    if(select && pkgName){
+      const option = Array.from(select.options).find(o => o.value === pkgName);
+      if(option) select.value = option.value;
+    }
+    setTimeout(()=>{ document.getElementById('npPkgName')?.focus(); }, 50);
+  }
+  function closeModal(){
+    if(!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+
+  // open on any Booking button
+  document.addEventListener('click', (e)=>{
+    const btn = e.target.closest && e.target.closest('[data-book]');
+    if(!btn) return;
+    const id = btn.getAttribute('data-book');
+    const pkg = packages.find(p=>p.id===id);
+    openModalWithPackage(pkg ? pkg.name : "");
+  });
+
+  // close modal
+  modal && modal.addEventListener('click', (e)=>{
+    const t = e.target;
+    if(t && t.getAttribute && t.getAttribute('data-close') === '1') closeModal();
+  });
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape' && modal && modal.classList.contains('is-open')) closeModal();
+  });
+
+  function normalizePhone(input){
+    return (input || "").toString().trim().replace(/[^\d+]/g,'');
+  }
+
+  // submit -> WhatsApp
+  form && form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    const pkg  = (select?.value || "").trim();
+    const name = (document.getElementById('npPkgName')?.value || "").trim();
+    const phone= normalizePhone(document.getElementById('npPkgPhone')?.value || "");
+    const note = (document.getElementById('npPkgNote')?.value || "").trim();
+
+    const msg =
+`Hello Nusa Penida Happy Trip, I want to book a package.
+
+Package: ${pkg}
+Name: ${name}
+Phone: ${phone}
+Notes: ${note || "-"}
+
+Thank you!`;
+
+    const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+    window.open(url, "_blank", "noopener,noreferrer");
+    closeModal();
+  });
+
+})();
+</script>
+<!-- ================== END SECTION ================== -->
+
+
+<!-- End OF Package Wisata -->
+
+<!-- Start Of Wisata Terbaik Di Bali -->
+<!-- ================== SECTION: WISATA TERBAIK DI BALI ================== -->
+<style>
+  .np-bali-best{
+    background:
+      linear-gradient(180deg, rgba(2,6,23,.55), rgba(2,6,23,.78)),
+      url("https://international.unud.ac.id/protected/storage/file_summernote/4a0885ebc3c02b217cbf6c079eca6b37.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:#e5e7eb;
+  }
+  .np-bali-panel{
+    border-radius:26px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(15,23,42,.78);
+    box-shadow:0 26px 60px rgba(2,6,23,.35);
+    padding:26px;
+  }
+  .np-bali-best .np-section-title{ color:#f8fafc; }
+  .np-bali-best .np-section-subtitle{ color:#cbd5e1; }
+  .np-bali-grid{
+    margin-top:22px;
+  }
+  .np-bali-panel .np-pkg-card{
+    box-shadow:0 18px 50px rgba(15,23,42,.12);
+    border:0;
+  }
+  .np-bali-best .np-pkg-media{
+    height:240px;
+  }
+  .np-bali-best .np-pkg-slide img{
+    transform:none;
+  }
+  .np-bali-best .np-pkg-media::after{
+    background:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.25));
+  }
+  .np-bali-accordion{
+    margin-top:6px;
+    border-top:1px dashed rgba(255,255,255,.12);
+    padding-top:8px;
+  }
+  .np-bali-accordion summary{
+    cursor:pointer;
+    list-style:none;
+    font-size:13px;
+    font-weight:900;
+    color:#facc15;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .np-bali-accordion summary::-webkit-details-marker{ display:none; }
+  .np-bali-accordion summary::after{
+    content:"+";
+    margin-left:auto;
+    font-weight:900;
+    color:#facc15;
+  }
+  .np-bali-accordion[open] summary::after{ content:"-"; }
+  .np-bali-accordion .np-pkg-highlights{ margin-top:8px; }
+  .np-bali-notes{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:16px;
+    margin-top:22px;
+  }
+  .np-bali-note{
+    border-radius:16px;
+    border:1px dashed rgba(255,255,255,.18);
+    background:rgba(255,255,255,.05);
+    padding:16px;
+  }
+  .np-bali-note h4{
+    margin:0 0 8px;
+    font-size:13.5px;
+    font-weight:900;
+    color:#f8fafc;
+  }
+  .np-bali-note ul{
+    margin:0;
+    padding-left:18px;
+    display:grid;
+    gap:6px;
+    font-size:13px;
+    color:#e5e7eb;
+  }
+
+  @media (max-width: 980px){
+    .np-bali-notes{ grid-template-columns:1fr; }
+    .np-bali-best{ background-attachment:scroll; }
+  }
+  @media (max-width: 680px){
+    .np-bali-panel{ padding:18px; }
+    .np-bali-grid{
+      grid-template-columns:none;
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
+      padding:4px 4px 12px;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .np-bali-grid::-webkit-scrollbar{ display:none; }
+    .np-bali-grid{ scrollbar-width:none; }
+    .np-bali-grid .np-pkg-card{
+      min-width:84%;
+      scroll-snap-align:start;
+    }
+  }
+</style>
+
+<section class="np-section-full np-bali-best" id="wisata-bali">
+  <div class="np-wrap">
+    <div class="np-bali-panel">
+      <h2 class="np-section-title np-bali-title">Best Tours in Bali</h2>
+      <p class="np-section-subtitle np-bali-subtitle">
+        Favorite day tours for sunrise, sunset, culture, and iconic Bali spots.
+      </p>
+      <div class="np-swipe-hint">Swipe to see more packages -></div>
+
+      <div class="np-pkg-grid np-bali-grid" id="npBaliGrid"></div>
+
+      <div class="np-bali-notes">
+        <div class="np-bali-note">
+          <h4>Day Tour Price Includes</h4>
+          <ul>
+            <li>Private car</li>
+            <li>Fuel</li>
+            <li>Driver/guide</li>
+            <li>Mineral water</li>
+            <li>Tour duration 10-11 hours</li>
+          </ul>
+        </div>
+        <div class="np-bali-note">
+          <h4>Price Excludes</h4>
+          <ul>
+            <li>Attraction entrance fees</li>
+            <li>Lunch and dinner</li>
+            <li>Shopping expenses</li>
+            <li>Airfare</li>
+            <li>Activity tickets</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================== END SECTION ================== -->
+
+<!-- ================== SECTION: PAKET DIVING ================== -->
+<style>
+  .np-diving{
+    background:#fff;
+  }
+  .np-diving .np-section-title{ color:#111827; }
+  .np-diving .np-section-subtitle{ color:#6b7280; }
+  .np-diving-grid{ margin-top:22px; }
+  .np-diving-notes{
+    margin-top:22px;
+    border:1px dashed #e5e7eb;
+    border-radius:16px;
+    padding:16px;
+    background:#f8fafc;
+    color:#111827;
+    font-size:13px;
+    line-height:1.65;
+  }
+  .np-diving-notes h4{
+    margin:0 0 8px;
+    font-size:13.5px;
+    font-weight:900;
+  }
+  .np-diving-notes ul{
+    margin:0;
+    padding-left:18px;
+    display:grid;
+    gap:6px;
+  }
+
+  @media (max-width: 680px){
+    .np-diving-grid{
+      grid-template-columns:none;
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
+      padding:4px 4px 12px;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .np-diving-grid::-webkit-scrollbar{ display:none; }
+    .np-diving-grid{ scrollbar-width:none; }
+    .np-diving-grid .np-pkg-card{
+      min-width:84%;
+      scroll-snap-align:start;
+    }
+  }
+</style>
+
+<section class="np-section-full np-diving" id="paket-diving">
+  <div class="np-wrap">
+    <h2 class="np-section-title">Nusa Penida Diving Packages</h2>
+    <p class="np-section-subtitle">
+      Choose a diving package by level, from certified to intro scuba.
+    </p>
+    <div class="np-swipe-hint">Swipe to see more packages -></div>
+
+    <div class="np-pkg-grid np-diving-grid" id="npDivingGrid"></div>
+
+    <div class="np-diving-notes">
+      <h4>Important Notes</h4>
+      <ul>
+        <li>Flight consideration: at least 18 hours after a dive before flying.</li>
+        <li>Pool refresher is required if you have not dived in the last 12 months.</li>
+        <li>Pool session (non-certified) is done 1 day before at 15:00 or 16:00 at the office infinity pool.</li>
+        <li>Ocean dive meeting point: Ahiltourandtravel Shop, Toyapakeh Beach.</li>
+        <li>A 30% deposit is required before the pool session (transfer/PayPal).</li>
+        <li>Price excluded: conservation area ticket 100,000 per pax per day (cash).</li>
+        <li>Pool session transport not included.</li>
+        <li>Pick up/drop off within a 5 km radius of the dive center.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- ================== END SECTION ================== -->
+
+<!-- ================== SECTION: PAKET TREKKING ================== -->
+<style>
+  .np-trekking{
+    background:#fff;
+  }
+  .np-trekking .np-section-title{ color:#111827; }
+  .np-trekking .np-section-subtitle{ color:#6b7280; }
+  .np-trekking-grid{ margin-top:22px; }
+
+  @media (max-width: 680px){
+    .np-trekking-grid{
+      grid-template-columns:none;
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
+      padding:4px 4px 12px;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .np-trekking-grid::-webkit-scrollbar{ display:none; }
+    .np-trekking-grid{ scrollbar-width:none; }
+    .np-trekking-grid .np-pkg-card{
+      min-width:84%;
+      scroll-snap-align:start;
+    }
+  }
+</style>
+
+<section class="np-section-full np-trekking" id="paket-trekking">
+  <div class="np-wrap">
+    <h2 class="np-section-title">Rinjani Trekking Packages</h2>
+    <p class="np-section-subtitle">
+      3D2N trekking package with a complete itinerary and full facilities.
+    </p>
+    <div class="np-swipe-hint">Swipe to see more packages -></div>
+
+    <div class="np-pkg-grid np-trekking-grid" id="npTrekkingGrid"></div>
+  </div>
+</section>
+<!-- ================== END SECTION ================== -->
+
+<!-- ================== SECTION: TRANSPORTASI ================== -->
+<style>
+  .np-transport{
+    background:#fff;
+  }
+  .np-transport .np-section-title{ color:#111827; }
+  .np-transport .np-section-subtitle{ color:#6b7280; }
+  .np-transport-grid{ margin-top:22px; }
+
+  @media (max-width: 680px){
+    .np-transport-grid{
+      grid-template-columns:none;
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
+      padding:4px 4px 12px;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .np-transport-grid::-webkit-scrollbar{ display:none; }
+    .np-transport-grid{ scrollbar-width:none; }
+    .np-transport-grid .np-pkg-card{
+      min-width:84%;
+      scroll-snap-align:start;
+    }
+  }
+</style>
+
+<section class="np-section-full np-transport" id="transportasi">
+  <div class="np-wrap">
+    <h2 class="np-section-title">Transportation Packages</h2>
+    <p class="np-section-subtitle">
+      Fast ferry and scooter rental options for your trip in Nusa Penida and Lombok.
+    </p>
+    <div class="np-swipe-hint">Swipe to see more packages -></div>
+
+    <div class="np-pkg-grid np-transport-grid" id="npTransportGrid"></div>
+  </div>
+</section>
+<!-- ================== END SECTION ================== -->
+
+<!-- Start Of Testimonials -->
+<!-- ================== SECTION: TESTIMONI (6 CARDS, STARS, RUNNING) ================== -->
+<style>
+  .np-testimonials{
+    background:linear-gradient(180deg, #ffffff, #f8fafc);
+  }
+  .np-section-full{
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    margin-right:calc(50% - 50vw);
+    position:relative;
+    z-index:2;
+  }
+  .np-wrap{
+    padding:64px 5vw;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  .np-section-title{
+    text-align:center;
+    margin:0 0 10px;
+    color:#111827;
+    font-size:28px;
+    font-weight:800;
+    letter-spacing:-.02em;
+  }
+  .np-section-subtitle{
+    text-align:center;
+    max-width:820px;
+    margin:0 auto 34px;
+    color:#6b7280;
+    line-height:1.75;
+    font-size:14.5px;
+  }
+
+  /* marquee container */
+  .np-testi-marquee{
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+    border:1px solid #eef2f7;
+    background:#fff;
+    box-shadow:0 14px 40px rgba(15,23,42,.06);
+  }
+  .np-testi-track{
+    display:flex;
+    gap:14px;
+    padding:18px;
+    width:max-content;
+    animation: npTestiMarquee 30s linear infinite;
+  }
+  .np-testi-marquee:hover .np-testi-track{ animation-play-state: paused; }
+
+  @keyframes npTestiMarquee{
+    from{ transform:translateX(0); }
+    to  { transform:translateX(-50%); }
+  }
+
+  /* testimonial card */
+  .np-testi-card{
+    width:320px;
+    border-radius:18px;
+    border:1px solid #eef2f7;
+    padding:12px;
+    background:#fff;
+    box-shadow:0 8px 22px rgba(15,23,42,.05);
+    flex:0 0 auto;
+  }
+  .np-testi-img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:12px;
+    border:1px solid #eef2f7;
+  }
+
+  @media (max-width: 640px){
+    .np-testi-card{ width:280px; }
+    .np-testi-marquee{
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .np-testi-marquee::-webkit-scrollbar{ display:none; }
+    .np-testi-marquee{ scrollbar-width:none; }
+    .np-testi-track{
+      animation:none;
+    }
+    .np-testi-card{
+      scroll-snap-align:start;
+    }
+  }
+</style>
+
+<section class="np-section-full np-testimonials" id="testimoni">
+  <div class="np-wrap">
+    <h2 class="np-section-title">Testimonials</h2>
+    <p class="np-section-subtitle">
+      Real reviews from guests who traveled with Nusa Penida Happy Trip. (Hover to pause)
+    </p>
+
+    <div class="np-testi-marquee" aria-label="Testimonials running">
+      <div class="np-testi-track" id="npTestiTrack">
+        <!-- SET A -->
+        <article class="np-testi-card">
+          <img class="np-testi-img" src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-25-10-59-08.png" alt="Google review screenshot 1" loading="lazy">
+        </article>
+        <article class="np-testi-card">
+          <img class="np-testi-img" src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-25-10-59-20.png" alt="Google review screenshot 2" loading="lazy">
+        </article>
+        <article class="np-testi-card">
+          <img class="np-testi-img" src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-25-11-00-00.png" alt="Google review screenshot 3" loading="lazy">
+        </article>
+        <article class="np-testi-card">
+          <img class="np-testi-img" src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-25-11-00-15.png" alt="Google review screenshot 4" loading="lazy">
+        </article>
+        <article class="np-testi-card">
+          <img class="np-testi-img" src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-25-11-00-35.png" alt="Google review screenshot 5" loading="lazy">
+        </article>
+
+        <!-- SET B (clone for seamless loop) -->
+        <article class="np-testi-card">
+          <img class="np-testi-img" src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-25-10-59-08.png" alt="Google review screenshot 1" loading="lazy">
+        </article>
+        <article class="np-testi-card">
+          <img class="np-testi-img" src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-25-10-59-20.png" alt="Google review screenshot 2" loading="lazy">
+        </article>
+        <article class="np-testi-card">
+          <img class="np-testi-img" src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-25-11-00-00.png" alt="Google review screenshot 3" loading="lazy">
+        </article>
+        <article class="np-testi-card">
+          <img class="np-testi-img" src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-25-11-00-15.png" alt="Google review screenshot 4" loading="lazy">
+        </article>
+        <article class="np-testi-card">
+          <img class="np-testi-img" src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-25-11-00-35.png" alt="Google review screenshot 5" loading="lazy">
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================== END SECTION ================== -->
+
+
+<!-- End Of Package Wisata -->
+
+<!-- Start Of Gallery Section -->
+<!-- ================== SECTION: GALLERY (SAME SIZE, NO DOTS, SWIPE LOOP) ================== -->
+<style>
+  .np-gallery{ background:#0b1220; color:#fff; }
+  .np-section-full{
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    margin-right:calc(50% - 50vw);
+    position:relative;
+    z-index:2;
+  }
+  .np-wrap{
+    max-width:1200px;
+    margin:0 auto;
+    padding:48px 5vw 28px;
+  }
+  .np-gallery-title{
+    text-align:center;
+    margin:0 0 10px;
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:-.02em;
+  }
+  .np-gallery-sub{
+    text-align:center;
+    margin:0 auto 18px;
+    max-width:820px;
+    color:rgba(255,255,255,.78);
+    font-size:14.5px;
+    line-height:1.7;
+  }
+
+  /* Frame gallery: semua slide sama besar */
+  .np-gallery-stage{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,.10);
+    box-shadow:0 22px 60px rgba(0,0,0,.35);
+    background:#050a14;
+  }
+
+  /* bikin frame "seragam" pakai aspect-ratio */
+  .np-gallery-frame{
+    aspect-ratio: 16 / 9;   /* ubah kalau mau 4/3 atau 1/1 */
+    width:100%;
+    min-height:520px;       /* biar tetap gede di desktop */
+    height: auto;
+  }
+  @media (max-width: 640px){
+    .np-gallery-frame{ min-height:480px; }
+  }
+
+  .np-g-track{
+    height:100%;
+    display:flex;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+    transition: transform .45s ease;
+  }
+
+  .np-g-slide{
+    min-width:100%;
+    height:100%;
+    position:relative;
+    background:#050a14;
+  }
+
+  /* MODE DEFAULT: seragam & "fit" ke frame (penuh, rapi) */
+  .np-g-slide img{
+    width:100%;
+    height:100%;
+    object-fit: cover;   /* seragam, rapi (bisa sedikit crop) */
+    display:block;
+  }
+
+  /* Kalau kamu mau "dipaksa pas" tanpa peduli rasio (tanpa crop, tapi stretch),
+     ganti object-fit cover -> fill:
+     .np-g-slide img{ object-fit: fill; }
+  */
+
+  .np-g-hint{
+    position:absolute;
+    top:14px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:5;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.9);
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.18);
+    padding:9px 14px;
+    border-radius:999px;
+    backdrop-filter: blur(6px);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    pointer-events:none;
+  }
+
+  /* Controls */
+  .np-g-btn{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:44px; height:44px; border-radius:999px;
+    border:1px solid rgba(255,255,255,.22);
+    background:rgba(0,0,0,.25);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    z-index:6;
+    backdrop-filter: blur(6px);
+  }
+  .np-g-btn:hover{ background:rgba(0,0,0,.40); }
+  .np-g-prev{ left:12px; }
+  .np-g-next{ right:12px; }
+</style>
+
+<section class="np-section-full np-gallery" id="gallery">
+  <div class="np-wrap">
+    <h2 class="np-gallery-title">Gallery</h2>
+    <p class="np-gallery-sub">All photos are uniform and aligned (same size). Swipe/drag or use the buttons.</p>
+
+    <div class="np-gallery-stage np-gallery-frame" id="npGalleryStage" aria-label="Gallery swipe loop">
+      <div class="np-g-hint"><i class="fa-solid fa-hand-pointer"></i> Swipe / Drag</div>
+
+      <button class="np-g-btn np-g-prev" type="button" aria-label="Previous">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="np-g-btn np-g-next" type="button" aria-label="Next">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <div class="np-g-track" id="npGTrack"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const imgs = [
+    // West
+    "https://everz-digital.site/wp-content/uploads/2025/12/1.1.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/1.2.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/1.3.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/1.4.jpeg",
+    // East
+    "https://everz-digital.site/wp-content/uploads/2025/12/2.1.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/2.2.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/2.3.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/2.4.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/2.5.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/2.6.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/2.7.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/2.8.jpeg",
+    // Snorkeling
+    "https://everz-digital.site/wp-content/uploads/2025/12/3.1.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/3.2.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/3.3.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/3.4.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/3.5.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/3.6.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/3.7.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/3.8.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/3.9.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/3.10.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/3.11.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/3.12.jpeg",
+    // Boat
+    "https://everz-digital.site/wp-content/uploads/2025/12/4.1.jpeg",
+    "https://everz-digital.site/wp-content/uploads/2025/12/4.2.jpeg"
+  ];
+
+  const stage = document.getElementById('npGalleryStage');
+  const track = document.getElementById('npGTrack');
+  if(!stage || !track || !imgs.length) return;
+
+  const prevBtn = stage.querySelector('.np-g-prev');
+  const nextBtn = stage.querySelector('.np-g-next');
+
+  // build with clones for smooth loop
+  function slide(src, alt){ return `<div class="np-g-slide"><img src="${src}" alt="${alt}"></div>`; }
+  track.innerHTML =
+    slide(imgs[imgs.length-1], "Gallery clone last") +
+    imgs.map((s,i)=>slide(s, "Gallery image "+(i+1))).join('') +
+    slide(imgs[0], "Gallery clone first");
+
+  let idx = 0;
+  let timer = null;
+  const INTERVAL = 4200;
+
+  function goTo(realIndex, animate=true){
+    const n = imgs.length;
+    idx = (realIndex + n) % n;
+    const trackIndex = idx + 1; // because clone at 0
+    track.style.transition = animate ? 'transform .45s ease' : 'none';
+    track.style.transform = `translate3d(${-trackIndex * 100}%,0,0)`;
+  }
+
+  function next(){ goTo(idx + 1, true); }
+  function prev(){ goTo(idx - 1, true); }
+
+  track.addEventListener('transitionend', ()=>{
+    const n = imgs.length;
+    const m = new DOMMatrixReadOnly(getComputedStyle(track).transform);
+    const currentX = m.m41;
+    const w = stage.getBoundingClientRect().width;
+    const approx = Math.round(-currentX / w);
+
+    if(approx === 0){
+      track.style.transition = 'none';
+      track.style.transform = `translate3d(${-n * 100}%,0,0)`;
+    }
+    if(approx === n + 1){
+      track.style.transition = 'none';
+      track.style.transform = `translate3d(${-100}%,0,0)`;
+    }
+  });
+
+  // buttons
+  prevBtn && prevBtn.addEventListener('click', prev);
+  nextBtn && nextBtn.addEventListener('click', next);
+
+  // swipe/drag (horizontal)
+  let dragging=false, startX=0, dx=0;
+
+  function down(e){
+    dragging = true;
+    stage.setPointerCapture && stage.setPointerCapture(e.pointerId);
+    startX = e.clientX;
+    dx = 0;
+    track.style.transition = 'none';
+    stop();
+  }
+  function move(e){
+    if(!dragging) return;
+    dx = e.clientX - startX;
+    const baseIndex = idx + 1;
+    const base = -baseIndex * stage.getBoundingClientRect().width;
+    track.style.transform = `translate3d(${base + dx}px,0,0)`;
+  }
+  function up(){
+    if(!dragging) return;
+    dragging = false;
+    const threshold = stage.getBoundingClientRect().width * 0.18;
+    if(dx < -threshold) next();
+    else if(dx > threshold) prev();
+    else goTo(idx, true);
+    start();
+  }
+
+  stage.addEventListener('pointerdown', down);
+  stage.addEventListener('pointermove', move);
+  stage.addEventListener('pointerup', up);
+  stage.addEventListener('pointercancel', up);
+  stage.addEventListener('pointerleave', up);
+
+  // auto
+  function start(){ stop(); timer = setInterval(next, INTERVAL); }
+  function stop(){ if(timer) clearInterval(timer); timer = null; }
+
+  stage.addEventListener('mouseenter', stop);
+  stage.addEventListener('mouseleave', start);
+
+  goTo(0, false);
+  start();
+})();
+</script>
+<!-- ================== END SECTION ================== -->
+
+
+<!-- End Of Gallery Section -->
+
+<!-- Start Of COntact and Footer -->
+<style>
+.np-contact-section{
+  width:100%;
+  background:#f9fafb;
+  padding:60px 20px;
+}
+
+.np-contact-title{
+  text-align:center;
+  font-size:28px;
+  font-weight:700;
+  margin-bottom:40px;
+  color:#111827;
+}
+
+.np-contact-box{
+  max-width:1100px;
+  margin:0 auto;
+  background:#ffffff;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  padding:30px;
+}
+
+.np-contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.np-contact-info h3{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:12px;
+}
+
+.np-contact-info p{
+  font-size:14px;
+  line-height:1.7;
+  color:#374151;
+  margin-bottom:10px;
+}
+
+.np-contact-info a{
+  color:#16a34a;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.np-map iframe{
+  width:100%;
+  height:280px;
+  border:0;
+  border-radius:12px;
+}
+
+@media(max-width:768px){
+  .np-contact-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+
+<section class="np-contact-section" id="kontak">
+  <h2 class="np-contact-title">Contact Nusa Penida Happy Trip</h2>
+
+  <div class="np-contact-box">
+    <div class="np-contact-grid">
+
+      <!-- KIRI -->
+      <div class="np-contact-info">
+        <h3>Contact Us</h3>
+        <p><strong>Address:</strong><br>
+          Bali, Nusa Penida, Klungkung Regency<br>
+          Nusa Penida District, Toyapakeh Ped Village
+        </p>
+
+        <p><strong>WhatsApp:</strong><br>
+          <a href="https://wa.me/6287807268256" target="_blank">
+            +62 878-0726-8256
+          </a>
+        </p>
+
+        <p><strong>Email:</strong><br>
+          muhamadahil01@gmail.com
+        </p>
+
+        <p>
+          Serving Nusa Penida tour packages, snorkeling, and boat tours with
+          friendly and professional service.
+        </p>
+      </div>
+
+      <!-- KANAN -->
+      <div class="np-map">
+        <iframe 
+          loading="lazy" 
+          allowfullscreen 
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Ahil%20Tour%20And%20Travel%20Nusa%20Penida&output=embed">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Font Awesome (pasang sekali saja di halaman) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+/* FOOTER FULL WIDTH */
+.np-footer-full{
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  background:#0f172a;
+  color:#e5e7eb;
+  padding:22px 5vw;
+  font-family:Poppins,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+.np-footer-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+
+/* KIRI: BRAND */
+.np-footer-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:240px;
+}
+
+.np-footer-logo{
+  width:40px;
+  height:40px;
+  object-fit:contain;
+  flex:0 0 40px;
+}
+
+.np-footer-brandtext strong{
+  display:block;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.2;
+  color:#f8fafc;
+}
+.np-footer-brandtext span{
+  display:block;
+  font-size:12.5px;
+  color:#cbd5e1;
+  line-height:1.4;
+}
+
+/* TENGAH: KONTAK */
+.np-footer-contact{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:center;
+  text-align:center;
+  flex:1;
+}
+.np-footer-pill{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  font-size:12.5px;
+  color:#e5e7eb;
+  white-space:nowrap;
+}
+.np-footer-pill i{ font-size:14px; }
+
+/* KANAN: SOSMED */
+.np-footer-social{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  justify-content:flex-end;
+  min-width:160px;
+}
+.np-social-btn{
+  width:38px;
+  height:38px;
+  border-radius:999px;
+  background:#ffffff;
+  color:#0f172a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  transition:transform .2s ease, opacity .2s ease;
+}
+.np-social-btn:hover{
+  transform:translateY(-2px);
+  opacity:.9;
+}
+.np-social-btn i{ font-size:16px; }
+
+/* MOBILE */
+@media(max-width:768px){
+  .np-footer-inner{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  .np-footer-brand{
+    flex-direction:column;
+  }
+  .np-footer-brand, .np-footer-social{
+    justify-content:center;
+    min-width:unset;
+  }
+  .np-footer-contact{
+    justify-content:center;
+    flex-direction:column;
+    gap:10px;
+  }
+  .np-footer-pill{
+    width:100%;
+    max-width:320px;
+    justify-content:center;
+    text-align:center;
+    white-space:normal;
+    padding:8px 12px;
+  }
+}
+</style>
+
+<footer class="np-footer-full">
+  <div class="np-footer-inner">
+
+    <!-- KIRI -->
+    <div class="np-footer-brand">
+      <img
+        src="https://everz-digital.site/wp-content/uploads/2025/12/Desain-tanpa-judul-16.png"
+        alt="Nusa Penida Happy Trip"
+        class="np-footer-logo"
+      >
+      <div class="np-footer-brandtext">
+        <strong>Nusa Penida Happy Trip</strong>
+        <span>Tours - Snorkeling - Boat Trips</span>
+      </div>
+    </div>
+
+    <!-- TENGAH -->
+    <div class="np-footer-contact">
+      <div class="np-footer-pill">
+        <i class="fa-solid fa-phone"></i>
+        <span>+62 878-0726-8256</span>
+      </div>
+      <div class="np-footer-pill">
+        <i class="fa-solid fa-envelope"></i>
+        <span>muhamadahil01@gmail.com</span>
+      </div>
+    </div>
+
+    <!-- KANAN -->
+    <div class="np-footer-social">
+      <a class="np-social-btn" href="https://www.instagram.com/ahilpenidatour2022" target="_blank" aria-label="Instagram" rel="noopener">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a class="np-social-btn" href="https://www.tiktok.com/@nanakhil" target="_blank" aria-label="TikTok" rel="noopener">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+<!-- End Of Contact and Footer -->

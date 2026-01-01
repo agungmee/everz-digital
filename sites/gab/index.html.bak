@@ -1,0 +1,34 @@
+// Di dalam script navbar yang sudah ada, modifikasi fungsi applyLang:
+
+function applyLang(lang){
+  document.documentElement.lang = (lang === 'en') ? 'en' : 'id';
+  document.documentElement.dataset.lang = lang; // Tambahkan ini
+
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(I18N[lang] && I18N[lang][key]) el.textContent = I18N[lang][key];
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-placeholder');
+    if(I18N[lang] && I18N[lang][key]) el.setAttribute('placeholder', I18N[lang][key]);
+  });
+
+  // sync switches
+  const sw = document.getElementById('gabLangSwitch');
+  const swM = document.getElementById('gabLangSwitchMobile');
+  const checked = (lang === 'en');
+  if(sw) sw.checked = checked;
+  if(swM) swM.checked = checked;
+
+  // modal title sesuai tipe
+  const type = document.getElementById('gabBookingType')?.value || 'allin';
+  setBookingType(type, lang);
+
+  localStorage.setItem('gab_lang', lang);
+
+  // 🔥 BROADCAST EVENT KE SECTION LAIN
+  window.dispatchEvent(new CustomEvent('gab:lang-changed', { 
+    detail: { lang: lang } 
+  }));
+}

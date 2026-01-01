@@ -1,0 +1,3007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batur Jeep Tours | baturjeeptours.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-2: #f4f5f7;
+      --bg-3: #eef0f3;
+      --text: #1b1b1b;
+      --muted: #5c5c5c;
+      --accent: #2f855a;
+      --accent-2: #38a169;
+      --nav-height: 78px;
+      --ring: rgba(47, 133, 90, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top left, rgba(47, 133, 90, 0.12), transparent 45%),
+        radial-gradient(circle at 80% 20%, rgba(56, 161, 105, 0.12), transparent 50%),
+        linear-gradient(180deg, #ffffff 0%, #f7f7f7 35%, #f1f3f5 100%);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body.loaded .page-loader {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    body.loaded .reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      padding-bottom: 80px;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+    }
+
+    .glow {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(47, 133, 90, 0.2) 0%, transparent 70%);
+      filter: blur(10px);
+      top: -200px;
+      right: -120px;
+      pointer-events: none;
+    }
+
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      background: #ffffff;
+      display: grid;
+      place-items: center;
+      z-index: 100;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .loader-icon {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 40px rgba(47, 133, 90, 0.25);
+      animation: pulse 1.2s ease-in-out infinite;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .loader-icon img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        transform: scale(0.96);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      z-index: 30;
+      background: rgba(255, 255, 255, 0.9);
+      transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      backdrop-filter: blur(6px);
+    }
+
+    .navbar.scrolled {
+      background: #ffffff;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-inner {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      height: 44px;
+      width: auto;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-name span {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-name small {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      color: var(--text);
+      font-size: 14px;
+      background: transparent;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(120deg, var(--accent) 0%, #48bb78 100%);
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 14px 40px rgba(47, 133, 90, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero {
+      padding: calc(var(--nav-height) + 80px) 0 56px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+      background-image: url("https://balitrekkingexploration.com/wp-content/uploads/2023/09/banner_gl-1024x576.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+      z-index: 0;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-inner {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 48px;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: reveal 0.8s ease forwards;
+      animation-delay: var(--delay, 0s);
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(28px, 3.2vw, 40px);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+      color: #1b1b1b;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.05;
+      margin: 18px 0 16px;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-text {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 18px;
+    }
+
+    .meta-card {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .meta-card h4 {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      margin-bottom: 6px;
+    }
+
+    .meta-card p {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .hero-visual {
+      position: relative;
+      border-radius: 28px;
+      padding: 28px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(47, 133, 90, 0.18), transparent 55%);
+      opacity: 0.8;
+    }
+
+    .visual-card {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 18px;
+    }
+
+    .visual-card h3 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .visual-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .trail {
+      display: grid;
+      gap: 12px;
+    }
+
+    .trail span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .trail span::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 0 6px rgba(230, 57, 70, 0.12);
+    }
+
+    .floating-card {
+      position: absolute;
+      right: 32px;
+      bottom: -20px;
+      background: #ffffff;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .floating-card strong {
+      font-size: 14px;
+    }
+
+    .floating-card small {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .about {
+      width: min(1200px, 92%);
+      margin: 80px auto 0;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 36px;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .about-image {
+      width: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .why {
+      width: min(1200px, 92%);
+      margin: 80px auto 0;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .why-slider {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(240px, 1fr);
+      gap: 18px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .why-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .why-card {
+      scroll-snap-align: start;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: linear-gradient(120deg, var(--accent) 0%, #48bb78 100%);
+      border: 1px solid rgba(47, 133, 90, 0.5);
+      box-shadow: 0 16px 30px rgba(47, 133, 90, 0.25);
+      min-height: 160px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .why-card h4 {
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    .why-card p {
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .packages {
+      width: min(1200px, 92%);
+      margin: 80px auto 0;
+      padding: 40px;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .packages-inner {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .package-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 24px;
+      margin-top: 28px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .package-item {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 16px;
+    }
+
+    .package-slider {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .package-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .package-featured {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: stretch;
+      padding: 0;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 26px;
+      min-height: 420px;
+      overflow: hidden;
+    }
+
+    .package-image {
+      border-radius: 26px 26px 0 0;
+      overflow: hidden;
+      border: none;
+      box-shadow: none;
+      height: 240px;
+    }
+
+    .package-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .package-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 4px 20px 12px;
+      height: 100%;
+    }
+
+    .package-body h3 {
+      font-size: 24px;
+    }
+
+    .package-body p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .package-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding: 0 20px 20px;
+    }
+
+    .package-actions .btn {
+      padding: 8px 12px;
+      font-size: 12px;
+      line-height: 1.2;
+      white-space: nowrap;
+      gap: 6px;
+      transform: none;
+      flex: 1 1 140px;
+    }
+
+    .package-actions .btn.primary {
+      box-shadow: 0 12px 26px rgba(47, 133, 90, 0.25);
+    }
+
+    .package-actions .btn > * {
+      transform: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn.whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn.whatsapp svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 60;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      width: min(920px, 92vw);
+      max-height: 82vh;
+      overflow-y: auto;
+      background: #ffffff;
+      border-radius: 24px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 28px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-close {
+      position: sticky;
+      top: 16px;
+      right: 16px;
+      align-self: flex-end;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 6px 14px;
+      cursor: pointer;
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transform: translate(10px, -10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+      z-index: 2;
+    }
+
+    .modal h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .modal h4 {
+      margin: 18px 0 8px;
+      font-size: 16px;
+    }
+
+    .modal p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .modal-hero {
+      width: 100%;
+      height: 220px;
+      border-radius: 18px;
+      overflow: hidden;
+      margin: 6px 0 16px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .modal-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .modal ul {
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .modal table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 18px;
+      font-size: 14px;
+    }
+
+    .modal th,
+    .modal td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      text-align: left;
+    }
+
+    .modal th {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .modal-footer {
+      position: sticky;
+      bottom: 0;
+      background: #ffffff;
+      padding: 16px 0 4px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      margin-top: 12px;
+    }
+
+    .modal-footer .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .testimonials {
+      width: min(1200px, 92%);
+      margin: 80px auto 0;
+      padding: 40px;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .testimonial-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(280px, 1fr);
+      gap: 20px;
+      overflow-x: auto;
+      padding: 6px 4px 14px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+
+    .testimonial-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonial-track.dragging {
+      cursor: grabbing;
+      user-select: none;
+    }
+
+    .testimonial-card {
+      scroll-snap-align: start;
+      border-radius: 20px;
+      background: linear-gradient(140deg, rgba(47, 133, 90, 0.12), rgba(56, 161, 105, 0.08));
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 22px;
+      display: grid;
+      gap: 12px;
+      min-height: 220px;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-stars {
+      display: inline-flex;
+      gap: 6px;
+      color: #2f855a;
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-quote {
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .testimonial-meta {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .testimonial-name {
+      color: var(--text);
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 14px;
+    }
+
+    .contact {
+      width: min(1200px, 92%);
+      margin: 80px auto 0;
+    }
+
+    .contact-shell {
+      background: var(--bg-2);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+      align-items: start;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+      padding: 28px;
+    }
+
+    .contact-card strong {
+      color: var(--text);
+    }
+
+    .contact-actions {
+      margin-top: 8px;
+    }
+
+    .contact-map {
+      height: 320px;
+      border-left: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 0 24px 24px 0;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      border-radius: inherit;
+    }
+
+    .footer {
+      margin-top: 80px;
+      padding: 48px 0 36px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      background: #ffffff;
+    }
+
+    .footer-inner {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+      display: grid;
+      gap: 18px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .footer-brand img {
+      height: 46px;
+      width: auto;
+    }
+
+    .footer-brand span {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      color: var(--text);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .footer-note {
+      font-size: 13px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 18px;
+      margin-top: 16px;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .form-field label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 12px;
+      padding: 10px 12px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .form-field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-span {
+      grid-column: span 2;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 14px;
+    }
+
+    .hero-inner,
+    .nav-inner {
+      animation: none;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta .btn.secondary {
+        display: none;
+      }
+
+      .floating-card {
+        position: static;
+      }
+
+    }
+
+    @media (max-width: 560px) {
+      .hero-inner {
+        padding: 0 24px;
+      }
+      .brand-name span {
+        font-size: 16px;
+      }
+
+      .hero {
+        padding-top: calc(var(--nav-height) + 60px);
+      }
+
+      .hero-visual {
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 8px;
+      }
+
+      .visual-card h3 {
+        font-size: 20px;
+      }
+
+      .trail {
+        gap: 10px;
+      }
+
+      .trail span {
+        font-size: 13px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        text-align: center;
+      }
+
+      .hero-meta {
+        display: none;
+      }
+
+      .floating-card {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 14px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-slider {
+        grid-auto-columns: minmax(220px, 1fr);
+      }
+
+      .package-list {
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(220px, 1fr);
+        grid-template-columns: unset;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+      }
+
+      .package-list::-webkit-scrollbar {
+        display: none;
+      }
+
+      .package-item {
+        scroll-snap-align: start;
+        border-bottom: none;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        padding: 16px 18px;
+        min-height: 110px;
+        display: grid;
+        align-content: center;
+      }
+
+      .package-slider {
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(88%, 1fr);
+        grid-template-columns: unset;
+        gap: 16px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 6px 8px 6px 0;
+        scrollbar-width: none;
+      }
+
+      .package-slider::-webkit-scrollbar {
+        display: none;
+      }
+
+      .package-featured {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        scroll-snap-align: start;
+      }
+
+      .package-image {
+        height: 200px;
+      }
+
+      .package-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .package-actions .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 14px;
+        font-size: 13px;
+        flex: none;
+      }
+
+      .modal-hero {
+        height: 180px;
+      }
+
+      .testimonials {
+        padding: 32px 24px;
+      }
+
+      .testimonial-track {
+        grid-auto-columns: minmax(86%, 1fr);
+        padding-right: 8px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        padding: 24px;
+      }
+
+      .contact-map {
+        border-left: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        height: 240px;
+        border-radius: 0 0 24px 24px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-span {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-loader" id="page-loader" aria-hidden="true">
+    <div class="loader-icon" aria-hidden="true">
+      <img src="https://everz-digital.site/wp-content/uploads/2025/12/baturlogo-removebg-preview.png" alt="" />
+    </div>
+  </div>
+  <div class="page">
+    <div class="glow"></div>
+
+    <nav class="navbar" id="navbar">
+      <div class="nav-inner">
+        <a href="#" class="brand">
+          <img src="https://everz-digital.site/wp-content/uploads/2025/12/baturlogo-removebg-preview.png" alt="Logo Batur Jeep Tours" />
+          <div class="brand-name">
+            <span>Batur Jeep Tours</span>
+            <small>baturjeeptours.com</small>
+          </div>
+        </a>
+        <div class="nav-links">
+          <a href="#packages">Packages</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-cta">
+          <a class="btn secondary" href="tel:+6287780352002">+62 877-8035-2002</a>
+          <a class="btn primary" href="https://wa.me/6287780352002" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION START -->
+    <section class="hero">
+      <div class="hero-inner reveal" style="--delay: 0.1s;">
+        <div>
+          <div class="hero-badge">Kintamani, Bali</div>
+          <h1 class="hero-title">Sunrise, jeep, and lava trails <span>guided by local crew</span> from Batur Base.</h1>
+          <p class="hero-text">
+            Batur Jeep Tours brings safe, comfortable, and exciting jeep sunrise tours, lava exploration, and private trips.
+            Our base is at Jl. Pendakian Gn. Batur, Kintamani, so pickup, timing, and routes stay smooth and flexible.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#packages">View Packages</a>
+            <a class="btn" href="tel:+6287780352002">Call Now</a>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-card">
+              <h4>Location</h4>
+              <p>Kintamani, Bali</p>
+            </div>
+            <div class="meta-card">
+              <h4>Contact</h4>
+              <p>+62 877-8035-2002</p>
+            </div>
+            <div class="meta-card">
+              <h4>Highlight</h4>
+              <p>Sunrise, Jeep, Lava</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-card">
+            <h3>Favorite routes for your Batur adventure</h3>
+            <p>
+              From sunrise jeep rides to black lava, every package is personal. Choose your start time, guide options,
+              and cinematic photo add-ons prepared by our team.
+            </p>
+            <div class="trail">
+              <span>Sunrise Jeep Tour</span>
+              <span>Jeep Day Tour</span>
+              <span>Sunset Jeep Tour</span>
+            </div>
+          </div>
+          <div class="floating-card">
+            <div>
+              <strong>Bali Basecamp</strong>
+              <small>Flexible pickup areas</small>
+            </div>
+            <div>
+              <strong>24/7</strong>
+              <small>Fast response</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- HERO SECTION END -->
+
+    <!-- ABOUT SECTION START -->
+    <section class="about reveal" id="about" style="--delay: 0.15s;">
+      <h2 class="section-title">About Us</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          We are a Kintamani-based team focused on crafting safe, flexible, and memorable Batur experiences. From sunrise jeep rides
+          to black lava exploration and hot spring stops, every trip is led by local crew who know the terrain, timing, and the best
+          spots to enjoy the view. We keep it simple: clear communication, comfortable pacing, and a trip designed around your
+          preferred vibe.
+        </div>
+        <div class="about-image">
+          <img src="https://balitrekkingexploration.com/wp-content/uploads/2023/09/banner_gl-1024x576.jpg" alt="Batur adventure view" />
+        </div>
+      </div>
+    </section>
+    <!-- ABOUT SECTION END -->
+
+    <!-- WHY CHOOSE US SECTION START -->
+    <section class="why reveal" id="why" style="--delay: 0.2s;">
+      <h2 class="section-title">Why Choose Us</h2>
+      <p class="section-subtitle">
+        Modern trips backed by local knowledge, smooth logistics, and flexible options for your group.
+      </p>
+      <div class="why-slider" aria-label="Why choose us highlights">
+        <article class="why-card">
+          <h4>Local Crew, Real Insights</h4>
+          <p>Guides who know the trails, sunrise timing, and the best stops for photos and rest.</p>
+        </article>
+        <article class="why-card">
+          <h4>Flexible Start Times</h4>
+          <p>Pick a schedule that fits your travel plan, from early sunrise to relaxed late morning.</p>
+        </article>
+        <article class="why-card">
+          <h4>Customizable Packages</h4>
+          <p>Mix sunrise, jeep, and hot spring stops to match your group’s energy and time.</p>
+        </article>
+        <article class="why-card">
+          <h4>Comfort & Safety First</h4>
+          <p>Well-planned routes, responsive support, and clear pickup coordination.</p>
+        </article>
+        <article class="why-card">
+          <h4>Fast, Friendly Response</h4>
+          <p>We reply quickly and keep communication simple before and during your trip.</p>
+        </article>
+      </div>
+    </section>
+    <!-- WHY CHOOSE US SECTION END -->
+
+    <!-- PACKAGES SECTION START -->
+    <section class="packages" id="packages">
+      <div class="packages-inner">
+        <h2 class="section-title reveal" style="--delay: 0.25s;">Tour Packages</h2>
+        <p class="section-subtitle">
+          Explore our most requested Batur jeep experiences. Full details and pricing will be added next.
+        </p>
+        <div class="package-slider reveal" style="--delay: 0.3s;">
+        <article class="package-featured">
+          <div class="package-image">
+            <img src="https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2022/10/05/c760ccc1-e2b4-4237-bd00-4d82d9272aeb-1664960747080-f1e6cde0d66fbf62e074cd1a9bf0318c.jpg" alt="Batur Sunrise Jeep Tour" />
+          </div>
+          <div class="package-body">
+            <h3>Batur Sunrise Jeep Tour</h3>
+            <p>Watch the sunrise from Mount Batur by 4WD jeep without a night hike. Ideal for families and anyone who prefers a relaxed adventure.</p>
+            <div class="package-actions">
+              <button class="btn" type="button" data-modal-target="tour-details-modal">Tour Details</button>
+              <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+                <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                  <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+                </svg>
+                Booking Now
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="package-featured">
+          <div class="package-image">
+            <img src="https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2021/03/24/a22b0564-2c9f-4f5e-b382-376d7653b47b-1616584869148-5e81b16687dbf20f45fcf137ac998632.jpg" alt="Batur Jeep Day Tour" />
+          </div>
+          <div class="package-body">
+            <h3>Batur Jeep Day Tour</h3>
+            <p>Explore Mount Batur’s black lava, black sand, and lakeside temple in a relaxed 4WD day trip.</p>
+            <div class="package-actions">
+              <button class="btn" type="button" data-modal-target="day-tour-details-modal">Tour Details</button>
+              <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+                <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                  <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+                </svg>
+                Booking Now
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="package-featured">
+          <div class="package-image">
+            <img src="https://www.mountbaturjeepadventure.com/wp-content/uploads/2022/11/Mount-Batur-Jeep-Tour-768x432.jpg" alt="Batur Sunset Jeep Tour" />
+          </div>
+          <div class="package-body">
+            <h3>Batur Sunset Jeep Tour</h3>
+            <p>End your day with an off-road jeep adventure and a golden sunset over Mount Batur and Lake Batur.</p>
+            <div class="package-actions">
+              <button class="btn" type="button" data-modal-target="sunset-tour-details-modal">Tour Details</button>
+              <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+                <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                  <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+                </svg>
+                Booking Now
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="package-featured">
+          <div class="package-image">
+            <img src="https://sunrisejeepadventure.com/wp-content/uploads/2017/01/Sunrise-Mount-Batur-Jeep-Adventure-700x430.jpg" alt="Batur Sunrise and Blacklava Tour" />
+          </div>
+          <div class="package-body">
+            <h3>Batur Sunrise and Blacklava Tour</h3>
+            <p>Experience sunrise from a 4x4 jeep viewpoint, then continue to the black lava fields for dramatic photos and scenery.</p>
+            <div class="package-actions">
+              <button class="btn" type="button" data-modal-target="sunrise-blacklava-details-modal">Tour Details</button>
+              <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+                <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                  <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+                </svg>
+                Booking Now
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="package-featured">
+          <div class="package-image">
+            <img src="https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit800600gsm/eventThirdParty/2023/09/01/33108cbb-95f3-4152-89ed-7958e1626cdb-1693552091797-9fc1b6e80f27db54af51bea140924020.jpg" alt="Batur Sunrise and Natural Hot Spring" />
+          </div>
+          <div class="package-body">
+            <h3>Batur Sunrise and Natural Hot Spring</h3>
+            <p>Sunrise trekking to Mount Batur, volcanic breakfast, then unwind in natural hot springs for a full adventure-reset.</p>
+            <div class="package-actions">
+              <button class="btn" type="button" data-modal-target="sunrise-hot-spring-details-modal">Tour Details</button>
+              <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+                <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                  <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+                </svg>
+                Booking Now
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="package-featured">
+          <div class="package-image">
+            <img src="https://images.squarespace-cdn.com/content/v1/5e74d0b0ec99d437dda01b4d/1739706541322-W56RO29JAD8PF3GZ7Q22/DSCF7555.jpg" alt="Batur Sunrise and Kintamani Cafe Tour" />
+          </div>
+          <div class="package-body">
+            <h3>Batur Sunrise and Kintamani Cafe</h3>
+            <p>Catch Mount Batur sunrise by private jeep, explore the Black Lava Field, then unwind at Kintamani’s scenic hilltop cafes.</p>
+            <div class="package-actions">
+              <button class="btn" type="button" data-modal-target="kintamani-cafe-details-modal">Tour Details</button>
+              <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+                <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                  <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+                </svg>
+                Booking Now
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="package-featured">
+          <div class="package-image">
+            <img src="https://baturkintamani.com/wp-content/uploads/2024/04/20.png" alt="Batur Sunrise and Ubud ATV Ride Tour" />
+          </div>
+          <div class="package-body">
+            <h3>Batur Sunrise and Ubud ATV Ride</h3>
+            <p>Sunrise jeep to Mount Batur, black lava exploration, then continue to Ubud for an adrenaline-packed ATV quad biking ride.</p>
+            <div class="package-actions">
+              <button class="btn" type="button" data-modal-target="ubud-atv-details-modal">Tour Details</button>
+              <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+                <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                  <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+                </svg>
+                Booking Now
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="package-featured">
+          <div class="package-image">
+            <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/9c/93/7a.jpg" alt="Batur Sunrise and Tukad Cepung Waterfall Tour" />
+          </div>
+          <div class="package-body">
+            <h3>Batur Sunrise and Tukad Cepung Waterfall</h3>
+            <p>Sunrise trekking at Mount Batur, then visit Tegalalang Rice Terrace and finish with the hidden Tukad Cepung Waterfall.</p>
+            <div class="package-actions">
+              <button class="btn" type="button" data-modal-target="tukad-cepung-details-modal">Tour Details</button>
+              <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+                <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                  <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+                </svg>
+                Booking Now
+              </button>
+            </div>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+    <!-- PACKAGES SECTION END -->
+
+    <!-- TESTIMONIALS SECTION START -->
+    <section class="testimonials reveal" id="testimonials" style="--delay: 0.32s;">
+      <h2 class="section-title">Guest Testimonials</h2>
+      <p class="section-subtitle">
+        Five-star memories from travelers who rode with our local crew.
+      </p>
+      <div class="testimonial-track" id="testimonial-track" aria-label="Testimonials carousel">
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+          <p class="testimonial-quote">
+            "Unforgettable sunrise and a super friendly guide. The trekking pace felt perfect, and the hot spring after the hike
+            was the best reset."
+          </p>
+          <div class="testimonial-meta">
+            <span class="testimonial-name">Samantha W.</span>
+            <span>Australia</span>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+          <p class="testimonial-quote">
+            "Smooth pickup, clear instructions, and epic views. The team handled everything, so we could just enjoy the sunrise."
+          </p>
+          <div class="testimonial-meta">
+            <span class="testimonial-name">Hiro T.</span>
+            <span>Japan</span>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+          <p class="testimonial-quote">
+            "The jeep and trekking combo was stunning. Loved the volcanic breakfast and the guide's local stories."
+          </p>
+          <div class="testimonial-meta">
+            <span class="testimonial-name">Maria L.</span>
+            <span>Spain</span>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+          <p class="testimonial-quote">
+            "Great communication before the trip and a very safe, comfortable ride. We got amazing photos at every stop."
+          </p>
+          <div class="testimonial-meta">
+            <span class="testimonial-name">Daniel K.</span>
+            <span>Germany</span>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+          <p class="testimonial-quote">
+            "We booked last minute and they still made it easy. The sunset tour was beautiful and the driver was awesome."
+          </p>
+          <div class="testimonial-meta">
+            <span class="testimonial-name">Lina P.</span>
+            <span>Singapore</span>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- TESTIMONIALS SECTION END -->
+
+    <!-- CONTACT SECTION START -->
+    <section class="contact reveal" id="contact" style="--delay: 0.35s;">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-shell">
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div>
+              <strong>Address</strong>
+              <div>Jl. Pendakian Gn. Batur, Batur Tengah, Kec. Kintamani, Kabupaten Bangli, Bali 80652</div>
+            </div>
+            <div>
+              <strong>Phone</strong>
+              <div><a href="tel:+6287780352002">+62 877-8035-2002</a></div>
+            </div>
+            <div>
+              <strong>Email</strong>
+              <div><a href="mailto:info@baturjeeptours.com">info@baturjeeptours.com</a></div>
+            </div>
+            <div class="contact-actions">
+              <a class="btn primary whatsapp" href="https://wa.me/6287780352002" target="_blank" rel="noopener">
+                <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                  <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+                </svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="contact-map" aria-label="Batur Jeep Tours location on map">
+            <iframe
+              title="Batur Jeep Tours Map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Jl.+Pendakian+Gn.+Batur,+Batur+Tengah,+Kec.+Kintamani,+Kabupaten+Bangli,+Bali+80652&output=embed"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CONTACT SECTION END -->
+
+    <!-- FOOTER SECTION START -->
+    <footer class="footer reveal" style="--delay: 0.4s;">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="https://everz-digital.site/wp-content/uploads/2025/12/baturlogo-removebg-preview.png" alt="Batur Jeep Tours logo" />
+          <span>Batur Jeep Tours</span>
+        </div>
+        <div class="footer-links">
+          <a href="#packages">Packages</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-note">© 2025 Batur Jeep Tours. All rights reserved.</div>
+      </div>
+    </footer>
+    <!-- FOOTER SECTION END -->
+  </div>
+
+  <div class="modal" id="tour-details-modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="tour-details-title">
+      <button class="modal-close" type="button" data-modal-close>Close</button>
+      <h3 id="tour-details-title">Sunrise Jeep Tour at Mount Batur with the Best Value</h3>
+      <div class="modal-hero">
+        <img src="https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2022/10/05/c760ccc1-e2b4-4237-bd00-4d82d9272aeb-1664960747080-f1e6cde0d66fbf62e074cd1a9bf0318c.jpg" alt="Batur Sunrise Jeep Tour" />
+      </div>
+      <p>
+        The Mount Batur sunrise jeep tour is the best alternative for anyone who wants to enjoy the views without a night hike.
+        This option is great for families, children, and older travelers who prefer a more relaxed start.
+      </p>
+      <p>
+        Bali offers unforgettable adventures, and watching the sunrise at Mount Batur is a must. Mount Batur is an active volcano
+        in the Kintamani area, one of the most popular places to begin the day with dramatic sunrise views.
+      </p>
+      <p>
+        We offer multiple packages at competitive prices, designed to be friendly for different travel budgets. You can choose
+        a simple sunrise jeep experience or extend the trip with lava and black sand exploration.
+      </p>
+
+      <h4>Sunrise Jeep Tour Options</h4>
+      <p>
+        Pickup starts from your hotel and continues to the jeep meeting point. After 1–2 hours of driving, you will meet our
+        experienced local jeep driver and begin the off-road journey.
+      </p>
+      <p>
+        The route climbs to around 1,350 meters above sea level, an ideal viewpoint for sunrise and panoramic scenery. You can
+        relax for about one hour while enjoying breakfast.
+      </p>
+
+      <h4>Option A: Pickup in the Mount Batur Area</h4>
+      <p>Short and efficient sunrise experience with direct return to hotel after the sunrise view.</p>
+      <ul>
+        <li>05.00: Arrive at the start point, 4WD jeep journey begins</li>
+        <li>05.45: Arrive at the sunrise viewpoint (1,350 m)</li>
+        <li>06.00 – 06.30: Sunrise viewing and breakfast</li>
+        <li>07.00: Return to the start point</li>
+        <li>07.45: Transfer back to your hotel</li>
+      </ul>
+
+      <h4>Price</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Participants</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 person</td>
+            <td>Rp 550,000</td>
+          </tr>
+          <tr>
+            <td>2 people</td>
+            <td>Rp 300,000 / person</td>
+          </tr>
+          <tr>
+            <td>3 people</td>
+            <td>Rp 225,000 / person</td>
+          </tr>
+          <tr>
+            <td>4 people / 2 jeeps</td>
+            <td>Rp 275,000 / person</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Option B: Pickup Outside the Mount Batur Area</h4>
+      <p>Short and efficient sunrise experience with direct return to hotel after the sunrise view.</p>
+      <ul>
+        <li>05.00: Arrive at the start point, 4WD jeep journey begins</li>
+        <li>05.45: Arrive at the sunrise viewpoint (1,350 m)</li>
+        <li>06.00 – 06.30: Sunrise viewing and breakfast</li>
+        <li>07.00: Return to the start point</li>
+        <li>07.45: Transfer back to your hotel</li>
+      </ul>
+
+      <h4>Price</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Participants</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 person</td>
+            <td>Rp 550,000</td>
+          </tr>
+          <tr>
+            <td>2 people</td>
+            <td>Rp 300,000 / person</td>
+          </tr>
+          <tr>
+            <td>3 people</td>
+            <td>Rp 225,000 / person</td>
+          </tr>
+          <tr>
+            <td>4 people / 2 jeeps</td>
+            <td>Rp 275,000 / person</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Possible Stops After the Tour (with our transport)</h4>
+      <ul>
+        <li>Natural hot springs</li>
+        <li>Scenic cafes in the Kintamani area</li>
+      </ul>
+
+      <h4>Important Notes</h4>
+      <ul>
+        <li>Private tour only: you will not be combined with other groups.</li>
+        <li>Booking deadline: at least one day before the tour.</li>
+        <li>Deposit required: 25%–50% of the total payment.</li>
+        <li>Cancellation: cancel no later than two days before the tour to receive your deposit back.</li>
+        <li>Maximum 4 people per booking.</li>
+        <li>One vehicle holds up to 4 people.</li>
+      </ul>
+      <div class="modal-footer">
+        <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+          <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+          </svg>
+          Book This Tour
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="day-tour-details-modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="day-tour-details-title">
+      <button class="modal-close" type="button" data-modal-close>Close</button>
+      <h3 id="day-tour-details-title">Mount Batur Jeep Day Tour</h3>
+      <div class="modal-hero">
+        <img src="https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2021/03/24/a22b0564-2c9f-4f5e-b382-376d7653b47b-1616584869148-5e81b16687dbf20f45fcf137ac998632.jpg" alt="Mount Batur Jeep Day Tour" />
+      </div>
+      <p>
+        The Mount Batur Jeep Day Trip offers a comfortable way to explore the beauty of Mount Batur without hiking. Ride in a
+        4x4 jeep through scenic volcanic landscapes and enjoy panoramic views from 1,360 meters above sea level. This experience
+        is perfect for families, children, and elderly travelers alike.
+      </p>
+      <p>
+        Your journey begins with a morning hotel pickup and a scenic drive through the Kintamani highlands. Once you arrive at
+        Mount Batur, hop into your private jeep and start your adventure across the famous Black Lava and Black Sand fields.
+        Visit Segara Temple, a peaceful lakeside temple, and circle around Mount Batur for a full day of exploration and photos.
+      </p>
+      <p>
+        The Mount Batur Jeep Day Trip is an easy yet unforgettable experience that showcases the best of Bali’s volcanic
+        landscape in one relaxed off-road adventure.
+      </p>
+
+      <h4>Option A - Pickup in the Mount Batur Area</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>07.00 AM: Hotel pickup (all areas)</li>
+        <li>09.00 AM: Arrive at Mount Batur base camp</li>
+        <li>09.15 AM: Explore Black Lava field</li>
+        <li>09.45 AM: Continue to Black Sand area</li>
+        <li>10.15 AM: Visit Segara Temple</li>
+        <li>10.45 AM: Scenic drive around Mount Batur</li>
+        <li>11.30 AM: Return to base camp and transfer back to hotel</li>
+      </ul>
+
+      <h4>Pricing</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Participants</th>
+            <th>Price (IDR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 person</td>
+            <td>1,350K / person</td>
+          </tr>
+          <tr>
+            <td>2 people</td>
+            <td>875K / person</td>
+          </tr>
+          <tr>
+            <td>3-4 people</td>
+            <td>775K / person</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Option B - Pickup Outside the Mount Batur Area</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>07.00 AM: Hotel pickup (all areas)</li>
+        <li>09.00 AM: Arrive at Mount Batur base camp</li>
+        <li>09.15 AM: Explore Black Lava field</li>
+        <li>09.45 AM: Continue to Black Sand area</li>
+        <li>10.15 AM: Visit Segara Temple</li>
+        <li>10.45 AM: Scenic drive around Mount Batur</li>
+        <li>11.30 AM: Return to base camp and transfer back to hotel</li>
+      </ul>
+
+      <h4>Pricing</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Participants</th>
+            <th>Price (IDR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 person</td>
+            <td>1,350K / person</td>
+          </tr>
+          <tr>
+            <td>2 people</td>
+            <td>875K / person</td>
+          </tr>
+          <tr>
+            <td>3-4 people</td>
+            <td>775K / person</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Includes</h4>
+      <ul>
+        <li>Round-trip hotel transfers</li>
+        <li>English / Bahasa Indonesia-speaking guide</li>
+        <li>Professional local guide</li>
+        <li>Bottled drinking water</li>
+        <li>Light breakfast and tea or coffee</li>
+        <li>Parking fees and fuel fees</li>
+        <li>Private 4WD jeep</li>
+      </ul>
+
+      <h4>Excludes</h4>
+      <ul>
+        <li>Meals and beverages</li>
+        <li>Personal expenses</li>
+        <li>Tips and gratuities</li>
+      </ul>
+
+      <h4>What to Bring</h4>
+      <ul>
+        <li>Jacket or sweater</li>
+        <li>Comfortable shoes</li>
+        <li>Camera or smartphone</li>
+        <li>Sunscreen</li>
+        <li>Cash for personal expenses</li>
+      </ul>
+
+      <h4>Pickup Time</h4>
+      <p>07.00 AM: Ubud, Kuta, Nusa Dua, Legian, Seminyak. Other pickup areas, please contact us.</p>
+
+      <div class="modal-footer">
+        <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+          <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+          </svg>
+          Book This Tour
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="sunset-tour-details-modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="sunset-tour-details-title">
+      <button class="modal-close" type="button" data-modal-close>Close</button>
+      <h3 id="sunset-tour-details-title">Mount Batur Sunset Jeep Tour</h3>
+      <div class="modal-hero">
+        <img src="https://www.mountbaturjeepadventure.com/wp-content/uploads/2022/11/Mount-Batur-Jeep-Tour-768x432.jpg" alt="Mount Batur Sunset Jeep Tour" />
+      </div>
+      <p>
+        The Mount Batur Sunset Jeep Tour is designed for travelers who want to enjoy Bali’s volcanic beauty in the calm of the
+        afternoon. This adventure offers a perfect mix of off-road excitement and stunning views as the sun sets over Mount
+        Batur and Lake Batur.
+      </p>
+      <p>
+        Your journey starts with a comfortable hotel pickup and a scenic drive to Kintamani. Upon arrival, your local guide
+        will welcome you at the jeep base camp before beginning the off-road experience. Ride through the famous Black Lava and
+        Black Sand trails while surrounded by breathtaking volcanic scenery.
+      </p>
+      <p>
+        As golden hour begins, your guide will take you to the best sunset viewpoint. Capture the warm glow of the evening sky
+        as it reflects over the mountain and lake. The Mount Batur Sunset Jeep Tour is the perfect way to end your day with
+        adventure, relaxation, and Bali’s natural beauty.
+      </p>
+
+      <h4>Option A - Dijemput Di Area Gunung Batur</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>13.00 – 14.00 PM: Hotel pickup</li>
+        <li>14.30 PM: Visit coffee plantation (optional)</li>
+        <li>15.30 PM: Arrive at base camp and safety briefing</li>
+        <li>15.45 PM: Start the jeep adventure, black lava and black sand exploration</li>
+        <li>17.15 PM: Sunset at the viewpoint (15-minute walk)</li>
+        <li>18.15 PM: Return to base camp (arrive around 18.45 PM)</li>
+        <li>19.30 – 20.30 PM: Return to hotel</li>
+      </ul>
+
+      <h4>Pricing</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Participants</th>
+            <th>Price (IDR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 person</td>
+            <td>1,250K / person</td>
+          </tr>
+          <tr>
+            <td>2 people</td>
+            <td>775K / person</td>
+          </tr>
+          <tr>
+            <td>3-4 people</td>
+            <td>550K / person</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Option B - Dijemput Di Luar Area Gunung Batur</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>13.00 – 14.00 PM: Hotel pickup</li>
+        <li>14.30 PM: Visit coffee plantation (optional)</li>
+        <li>15.30 PM: Arrive at base camp and safety briefing</li>
+        <li>15.45 PM: Start the jeep adventure, black lava and black sand exploration</li>
+        <li>17.15 PM: Sunset at the viewpoint (15-minute walk)</li>
+        <li>18.15 PM: Return to base camp (arrive around 18.45 PM)</li>
+        <li>19.30 – 20.30 PM: Return to hotel</li>
+      </ul>
+
+      <h4>Pricing</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Participants</th>
+            <th>Price (IDR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 person</td>
+            <td>1,250K / person</td>
+          </tr>
+          <tr>
+            <td>2 people</td>
+            <td>775K / person</td>
+          </tr>
+          <tr>
+            <td>3-4 people</td>
+            <td>550K / person</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Includes</h4>
+      <ul>
+        <li>Hotel pickup and drop-off</li>
+        <li>Entrance to Mount Batur and Kintamani</li>
+        <li>Jeep sunset tour with professional driver</li>
+        <li>Snack and mineral water</li>
+        <li>Black lava field visit</li>
+        <li>Private 4x4 jeep with professional local driver</li>
+        <li>Visit local coffee plantation</li>
+      </ul>
+
+      <h4>Excludes</h4>
+      <ul>
+        <li>Personal expenses</li>
+        <li>Tips and gratuities</li>
+      </ul>
+
+      <h4>What to Bring</h4>
+      <ul>
+        <li>Jacket or sweater</li>
+        <li>Comfortable shoes</li>
+        <li>Camera or smartphone</li>
+        <li>Sunscreen</li>
+        <li>Cash for personal expenses</li>
+      </ul>
+
+      <h4>Pickup Time</h4>
+      <p>13.00 – 14.00 PM: Ubud, Kuta, Nusa Dua, Legian, Seminyak. Other pickup areas, please contact us.</p>
+
+      <div class="modal-footer">
+        <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+          <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+          </svg>
+          Book This Tour
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="sunrise-blacklava-details-modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="sunrise-blacklava-details-title">
+      <button class="modal-close" type="button" data-modal-close>Close</button>
+      <h3 id="sunrise-blacklava-details-title">Batur Sunrise and Blacklava Tour</h3>
+      <div class="modal-hero">
+        <img src="https://sunrisejeepadventure.com/wp-content/uploads/2017/01/Sunrise-Mount-Batur-Jeep-Adventure-700x430.jpg" alt="Batur Sunrise and Blacklava Tour" />
+      </div>
+      <p>
+        Mount Batur Sunrise Jeep is an adventure that makes it easy for you to see the beauty of the sunrise on Mount Batur,
+        by driving a 4x4 Jeep car to the view point. From the sunrise view point you can see the majesty of the sunrise, a very
+        special sight while spending time during holidays on the island of Bali by doing sunrise activities.
+      </p>
+      <p>
+        This is an alternative solution for those of you who are not strong enough to climb but want to enjoy the beautiful view
+        of the sunrise at the Mount Batur view point. The tracks traversed by this jeep are different from trekking routes,
+        because the trekking path cannot be traversed by a 4x4 jeep. The tour follows a different route to a jeep-accessible
+        viewpoint, with the best spot to see the amazing sunrise and the beauty of Mount Batur and Lake Batur.
+      </p>
+      <p>
+        Enjoy the beautiful and spectacular sunrise view, very charming and incomparable, during your holiday in Bali.
+      </p>
+
+      <h4>Mount Batur Sunrise Jeep 4x4 WD Program</h4>
+      <p>
+        The program starts early in the morning. Our driver picks you up at 03.00 am (03.30 am for Ubud), then continues to the
+        starting point. After preparation, you will ride a 4x4 Jeep to the sunrise viewpoint. Enjoy the scenery in the dark,
+        then watch the sunrise from the jeep. After sunrise, the journey continues to black lava for scenic views and photos.
+        The trip ends at the finish point and returns you to your hotel with a memorable experience.
+      </p>
+
+      <h4>Option A - Pick Up Mount Batur Area</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>03.00: Pick up at your hotel (Ubud pick up at 03.30 am)</li>
+        <li>04.45: Arrival at starting point and preparation</li>
+        <li>05.00: Begin the adventure of 4x4 Jeep car</li>
+        <li>05.30: Arrival at sunrise viewpoint</li>
+        <li>06.30: Continue around the black lava</li>
+        <li>07.00: Go to finish point</li>
+        <li>07.30: Arrival at finish point</li>
+        <li>08.00: Back to your hotel</li>
+        <li>09.30: Arrival at your hotel</li>
+      </ul>
+
+      <h4>Price</h4>
+      <ul>
+        <li>1 person: IDR 1,400,000 (solo traveler)</li>
+        <li>2 person: IDR 800,000 / person</li>
+        <li>3 person: IDR 650,000 / person</li>
+        <li>4 person: IDR 600,000 / person</li>
+      </ul>
+
+      <h4>Include</h4>
+      <ul>
+        <li>Return transfer with comfortable private car</li>
+        <li>English-speaking driver</li>
+        <li>Petrol</li>
+        <li>Private 4x4 jeep car</li>
+        <li>Friendly and professional jeep driver</li>
+        <li>Mineral water</li>
+      </ul>
+
+      <h4>Remarks</h4>
+      <ul>
+        <li>Get special price for group booking</li>
+        <li>1 Jeep 4x4 car can only accommodate 3 people; more than 3 people will need 2 jeeps</li>
+      </ul>
+
+      <h4>What to Bring During Mount Batur Sunrise Jeep</h4>
+      <ul>
+        <li>Long pants</li>
+        <li>Jacket (it will be cold in the morning and at the top)</li>
+        <li>Shoes</li>
+        <li>Camera for taking sunrise photos</li>
+      </ul>
+
+      <h4>Option B - Pick Up Outside Mount Batur Area</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>03.00: Pick up at your hotel (Ubud pick up at 03.30 am)</li>
+        <li>04.45: Arrival at starting point and preparation</li>
+        <li>05.00: Begin the adventure of 4x4 Jeep car</li>
+        <li>05.30: Arrival at sunrise viewpoint</li>
+        <li>06.30: Continue around the black lava</li>
+        <li>07.00: Go to finish point</li>
+        <li>07.30: Arrival at finish point</li>
+        <li>08.00: Back to your hotel</li>
+        <li>09.30: Arrival at your hotel</li>
+      </ul>
+
+      <h4>Price</h4>
+      <ul>
+        <li>1 person: IDR 1,400,000 (solo traveler)</li>
+        <li>2 person: IDR 800,000 / person</li>
+        <li>3 person: IDR 650,000 / person</li>
+        <li>4 person: IDR 600,000 / person</li>
+      </ul>
+
+      <h4>Include</h4>
+      <ul>
+        <li>Return transfer with comfortable private car</li>
+        <li>English-speaking driver</li>
+        <li>Petrol</li>
+        <li>Private 4x4 jeep car</li>
+        <li>Friendly and professional jeep driver</li>
+        <li>Mineral water</li>
+      </ul>
+
+      <h4>Remarks</h4>
+      <ul>
+        <li>Get special price for group booking</li>
+        <li>1 Jeep 4x4 car can only accommodate 3 people; more than 3 people will need 2 jeeps</li>
+      </ul>
+
+      <h4>What to Bring During Mount Batur Sunrise Jeep</h4>
+      <ul>
+        <li>Long pants</li>
+        <li>Jacket (it will be cold in the morning and at the top)</li>
+        <li>Shoes</li>
+        <li>Camera for taking sunrise photos</li>
+      </ul>
+      <div class="modal-footer">
+        <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+          <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+          </svg>
+          Book This Tour
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="sunrise-hot-spring-details-modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="sunrise-hot-spring-details-title">
+      <button class="modal-close" type="button" data-modal-close>Close</button>
+      <h3 id="sunrise-hot-spring-details-title">Batur Sunrise and Natural Hot Spring</h3>
+      <div class="modal-hero">
+        <img src="https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit800600gsm/eventThirdParty/2023/09/01/33108cbb-95f3-4152-89ed-7958e1626cdb-1693552091797-9fc1b6e80f27db54af51bea140924020.jpg" alt="Batur Sunrise and Natural Hot Spring" />
+      </div>
+      <p>
+        Join us on the Mount Batur Sunrise Trekking and Natural Hot Springs experience and enjoy the stunning sunrise from
+        1,717 meters above sea level, overlooking Bali's most active volcano and thousands of temple islands. While soaking
+        in the breathtaking view, we'll serve you a cup of coffee or chocolate, complemented with a light breakfast including
+        banana sandwich, hard-boiled egg, seasonal fruits, and chocolate bars.
+      </p>
+      <p>
+        During the Mount Batur Sunrise Trekking and Natural Hot Springs, you can see steam rising from several hot spots on
+        the active volcano summit, with temperatures exceeding 100C. Here, we cook eggs and bananas for your breakfast using
+        the volcanic heat. Simply dig a small hole in the sand, place the eggs and bananas inside, cover them with grass,
+        wait 10-15 minutes, and enjoy your unique volcanic-cooked breakfast.
+      </p>
+      <p>
+        The Mount Batur Sunrise Trekking and Natural Hot Springs covers a total distance of about 9 km up and down, making it
+        suitable for those with an average fitness level. After the hike, you can relax in the Batur natural hot springs and
+        relieve tight muscles from the trek, making this combined package a perfect balance of adventure and relaxation.
+      </p>
+      <p>
+        As part of the Mount Batur Sunrise Trekking and Natural Hot Springs experience, the hot spring water comes from rocks
+        with temperatures around 35-37C. This water travels through volcanic activity under Mount Batur, creating natural hot
+        springs. It is also believed to have benefits for skin health. On the way back to your hotel, you will visit the hot
+        springs, or optionally a coffee plantation, before returning home safely.
+      </p>
+
+      <h4>Mount Batur Sunrise Trek & Hot Spring Package</h4>
+      <p>
+        This Mount Batur sunrise trek & hot spring package is similar to other Mount Batur sunrise trekking packages, but it
+        provides a good itinerary with reasonable price, all inclusive and no hidden price at all.
+      </p>
+
+      <h4>Option A - Dijemput Dari Area Gunung Batur</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>01.45 - 02.30 AM: Pick up in your villa/hotel/guest house or AirBnB all around Bali</li>
+        <li>03.45 AM: Reaching the starting point and introduction to the guide</li>
+        <li>03.50 AM: Start your hike (approximately 2 hours to the top)</li>
+        <li>05.50 AM: Arrive at the top, sunrise and breakfast</li>
+        <li>07.00 AM: Explore the main crater and descend via a different way</li>
+        <li>08.30 AM: Arrive back at car park and soak at hot spring</li>
+        <li>10.00 AM: Finish hot spring, ready for coffee tasting</li>
+        <li>10.45 AM: Arrive at the coffee plantation (optional)</li>
+        <li>12.00 - 13.00 PM: Estimate reaching your accommodation (hotel)</li>
+      </ul>
+
+      <h4>Tour Inclusion</h4>
+      <ul>
+        <li>Private experienced English-speaking driver and local trekking guides</li>
+        <li>Light breakfast (banana sandwich, hot drink, egg, fruits, biscuits)</li>
+        <li>Mineral water during your hike</li>
+        <li>Trekking equipment (flashlights and trekking poles)</li>
+        <li>Natural hot spring bath with towel, locker, and changing rooms</li>
+      </ul>
+
+      <h4>Should Bring & Wear</h4>
+      <ul>
+        <li>Hiking shoes and jacket</li>
+        <li>Long pants and camera</li>
+        <li>Change suits for hot spring</li>
+        <li>Extra T-shirt</li>
+        <li>Sunblock</li>
+      </ul>
+
+      <h4>Pick Up Time</h4>
+      <ul>
+        <li>Seminyak / Kuta: 01.45 AM</li>
+        <li>Nusa Dua / Jimbaran: 01.40 AM</li>
+        <li>Sanur: 02.00 AM</li>
+        <li>Ubud: 02.30 AM</li>
+      </ul>
+
+      <h4>Rate</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Group</th>
+            <th>Price (IDR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Minimal 4 people</td>
+            <td>650K / person</td>
+          </tr>
+          <tr>
+            <td>Minimal 3 people</td>
+            <td>800K / person</td>
+          </tr>
+          <tr>
+            <td>Minimal 2 people</td>
+            <td>875K / person</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Notice: Tour minimal 2 participants.</p>
+
+      <h4>Option B - Dijemput Dari Luar Area Gunung Batur</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>01.45 - 02.30 AM: Pick up in your villa/hotel/guest house or AirBnB all around Bali</li>
+        <li>03.45 AM: Reaching the starting point and introduction to the guide</li>
+        <li>03.50 AM: Start your hike (approximately 2 hours to the top)</li>
+        <li>05.50 AM: Arrive at the top, sunrise and breakfast</li>
+        <li>07.00 AM: Explore the main crater and descend via a different way</li>
+        <li>08.30 AM: Arrive back at car park and soak at hot spring</li>
+        <li>10.00 AM: Finish hot spring, ready for coffee tasting</li>
+        <li>10.45 AM: Arrive at the coffee plantation (optional)</li>
+        <li>12.00 - 13.00 PM: Estimate reaching your accommodation (hotel)</li>
+      </ul>
+
+      <h4>Tour Inclusion</h4>
+      <ul>
+        <li>Private experienced English-speaking driver and local trekking guides</li>
+        <li>Light breakfast (banana sandwich, hot drink, egg, fruits, biscuits)</li>
+        <li>Mineral water during your hike</li>
+        <li>Trekking equipment (flashlights and trekking poles)</li>
+        <li>Natural hot spring bath with towel, locker, and changing rooms</li>
+      </ul>
+
+      <h4>Should Bring & Wear</h4>
+      <ul>
+        <li>Hiking shoes and jacket</li>
+        <li>Long pants and camera</li>
+        <li>Change suits for hot spring</li>
+        <li>Extra T-shirt</li>
+        <li>Sunblock</li>
+      </ul>
+
+      <h4>Pick Up Time</h4>
+      <ul>
+        <li>Seminyak / Kuta: 01.45 AM</li>
+        <li>Nusa Dua / Jimbaran: 01.40 AM</li>
+        <li>Sanur: 02.00 AM</li>
+        <li>Ubud: 02.30 AM</li>
+      </ul>
+
+      <h4>Rate</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Group</th>
+            <th>Price (IDR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Minimal 4 people</td>
+            <td>650K / person</td>
+          </tr>
+          <tr>
+            <td>Minimal 3 people</td>
+            <td>800K / person</td>
+          </tr>
+          <tr>
+            <td>Minimal 2 people</td>
+            <td>875K / person</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Notice: Tour minimal 2 participants.</p>
+      <div class="modal-footer">
+        <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+          <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+          </svg>
+          Book This Tour
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="kintamani-cafe-details-modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="kintamani-cafe-details-title">
+      <button class="modal-close" type="button" data-modal-close>Close</button>
+      <h3 id="kintamani-cafe-details-title">Batur Sunrise and Kintamani Cafe</h3>
+      <div class="modal-hero">
+        <img src="https://images.squarespace-cdn.com/content/v1/5e74d0b0ec99d437dda01b4d/1739706541322-W56RO29JAD8PF3GZ7Q22/DSCF7555.jpg" alt="Batur Sunrise and Kintamani Cafe" />
+      </div>
+      <p>
+        Catch Mount Batur’s sunrise from a private jeep with no hiking needed, and enjoy breakfast served on the jeep rooftop.
+        This is a quiet, crowd-free way to watch golden hour with fresh air and volcano views all around.
+      </p>
+      <p>
+        After sunrise, continue to the rugged Black Lava Field, then relax at one of Kintamani’s aesthetic cafes with panoramic
+        views of the volcano and lake before heading back.
+      </p>
+
+      <h4>Option A - Pickup in the Mount Batur Area</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>02.15 – 03.30 AM: Pickup time depending on hotel location</li>
+        <li>04.45 AM: Short introduction, then start the jeep ride</li>
+        <li>05.30 AM: Arrive at the viewpoint, sunrise and breakfast</li>
+        <li>07.00 AM: Visit the Black Lava Field</li>
+        <li>08.00 AM: Return to the car park and visit a Kintamani cafe</li>
+        <li>10.30 AM: Visit a local coffee farm (optional)</li>
+        <li>11.30 AM – 12.30 PM: Arrive at your hotel</li>
+      </ul>
+
+      <h4>Pickup Time</h4>
+      <ul>
+        <li>02.15 AM: Jimbaran, Nusa Dua</li>
+        <li>02.30 AM: Kuta, Canggu, Seminyak, Sanur</li>
+        <li>03.30 AM: Ubud, Gianyar</li>
+      </ul>
+
+      <h4>What to Bring</h4>
+      <ul>
+        <li>Warm clothes or blanket</li>
+        <li>Walking shoes</li>
+        <li>Small backpack for essentials</li>
+      </ul>
+
+      <h4>Includes</h4>
+      <ul>
+        <li>Private hotel pickup and drop-off</li>
+        <li>All entrance fees</li>
+        <li>Private Mount Batur sunrise jeep with professional driver</li>
+        <li>Warm breakfast and tea or coffee</li>
+        <li>Photo assistance for social media shots</li>
+        <li>Black Lava Field visit</li>
+        <li>Visit one of Kintamani’s cafes (AKASA, Paperhills, Montana, etc.)</li>
+        <li>Visit local coffee plantation (optional)</li>
+      </ul>
+
+      <h4>Excludes</h4>
+      <ul>
+        <li>Personal expenses at the Kintamani cafe</li>
+      </ul>
+
+      <h4>Private Tour Rate</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Number of People</th>
+            <th>Price Per Person</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Solo traveler</td>
+            <td>IDR 1,200k</td>
+          </tr>
+          <tr>
+            <td>Group of 2</td>
+            <td>IDR 650k</td>
+          </tr>
+          <tr>
+            <td>Group of 3 - 4</td>
+            <td>IDR 475k</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Note: Prices are for a private jeep and transfer. Each jeep accommodates up to 3 people; groups up to 4 can be arranged
+        with 2 jeeps.
+      </p>
+
+      <h4>Option B - Pickup Outside the Mount Batur Area</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>02.15 – 03.30 AM: Pickup time depending on hotel location</li>
+        <li>04.45 AM: Short introduction, then start the jeep ride</li>
+        <li>05.30 AM: Arrive at the viewpoint, sunrise and breakfast</li>
+        <li>07.00 AM: Visit the Black Lava Field</li>
+        <li>08.00 AM: Return to the car park and visit a Kintamani cafe</li>
+        <li>10.30 AM: Visit a local coffee farm (optional)</li>
+        <li>11.30 AM – 12.30 PM: Arrive at your hotel</li>
+      </ul>
+
+      <h4>Pickup Time</h4>
+      <ul>
+        <li>02.15 AM: Jimbaran, Nusa Dua</li>
+        <li>02.30 AM: Kuta, Canggu, Seminyak, Sanur</li>
+        <li>03.30 AM: Ubud, Gianyar</li>
+      </ul>
+
+      <h4>What to Bring</h4>
+      <ul>
+        <li>Warm clothes or blanket</li>
+        <li>Walking shoes</li>
+        <li>Small backpack for essentials</li>
+      </ul>
+
+      <h4>Includes</h4>
+      <ul>
+        <li>Private hotel pickup and drop-off</li>
+        <li>All entrance fees</li>
+        <li>Private Mount Batur sunrise jeep with professional driver</li>
+        <li>Warm breakfast and tea or coffee</li>
+        <li>Photo assistance for social media shots</li>
+        <li>Black Lava Field visit</li>
+        <li>Visit one of Kintamani’s cafes (AKASA, Paperhills, Montana, etc.)</li>
+        <li>Visit local coffee plantation (optional)</li>
+      </ul>
+
+      <h4>Excludes</h4>
+      <ul>
+        <li>Personal expenses at the Kintamani cafe</li>
+      </ul>
+
+      <h4>Private Tour Rate</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Number of People</th>
+            <th>Price Per Person</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Solo traveler</td>
+            <td>IDR 1,200k</td>
+          </tr>
+          <tr>
+            <td>Group of 2</td>
+            <td>IDR 650k</td>
+          </tr>
+          <tr>
+            <td>Group of 3 - 4</td>
+            <td>IDR 475k</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Note: Prices are for a private jeep and transfer. Each jeep accommodates up to 3 people; groups up to 4 can be arranged
+        with 2 jeeps.
+      </p>
+      <div class="modal-footer">
+        <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+          <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+          </svg>
+          Book This Tour
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="ubud-atv-details-modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="ubud-atv-details-title">
+      <button class="modal-close" type="button" data-modal-close>Close</button>
+      <h3 id="ubud-atv-details-title">Batur Sunrise and Ubud ATV Ride</h3>
+      <div class="modal-hero">
+        <img src="https://baturkintamani.com/wp-content/uploads/2024/04/20.png" alt="Batur Sunrise and Ubud ATV Ride" />
+      </div>
+      <p>
+        The Mount Batur Sunrise Jeep Tour with ATV Quad Biking in Ubud is made for adventure lovers who want to experience
+        Bali’s volcanic beauty and thrilling off-road rides in one day. Start with a private 4x4 jeep to the best sunrise
+        viewpoint, then explore Black Lava and Black Sand fields before heading to Ubud for an exciting ATV ride.
+      </p>
+      <p>
+        Ride through rice fields, jungle tracks, rivers, and muddy trails guided by professionals. This combination of sunrise
+        serenity and adrenaline-pumping action makes for the ultimate Bali adventure day.
+      </p>
+
+      <h4>Option A - Pickup in the Mount Batur Area</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>02.00 – 03.00 AM: Hotel pickup and drive to Kintamani</li>
+        <li>04.30 AM: Arrive at Mount Batur base camp, meet guide, safety briefing</li>
+        <li>05.00 AM: Jeep ride to the sunrise viewpoint (35–40 minutes)</li>
+        <li>05.45 AM: Sunrise experience at Mount Batur</li>
+        <li>06.15 AM: Light breakfast with hot coffee or tea</li>
+        <li>07.00 AM: Explore Black Lava and Black Sand fields</li>
+        <li>08.30 AM: Transfer to Ubud for ATV quad biking</li>
+        <li>10.00 AM: Start ATV adventure through rice fields, rivers, and jungle trails</li>
+        <li>12.00 PM: Return to hotel</li>
+      </ul>
+
+      <h4>Price</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Person</th>
+            <th>Price (IDR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 person</td>
+            <td>1,600k / person</td>
+          </tr>
+          <tr>
+            <td>2 people</td>
+            <td>1,300k / person</td>
+          </tr>
+          <tr>
+            <td>3 - 4 people</td>
+            <td>1,200k / person</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Includes</h4>
+      <ul>
+        <li>Round-trip transport from hotel</li>
+        <li>Private 4x4 jeep with professional local driver</li>
+        <li>English-speaking local guide</li>
+        <li>Mineral water</li>
+        <li>Breakfast</li>
+        <li>Hot drink at sunrise point (coffee or tea)</li>
+        <li>Visit to Black Lava and Black Sand areas</li>
+        <li>All entrance tickets</li>
+        <li>Professional ATV guide</li>
+        <li>ATV safety equipment (helmet and boots)</li>
+      </ul>
+
+      <h4>Excludes</h4>
+      <ul>
+        <li>Personal expenses</li>
+        <li>Tips and gratuities</li>
+      </ul>
+
+      <h4>What to Bring</h4>
+      <ul>
+        <li>Jacket or sweater</li>
+        <li>Comfortable shoes</li>
+        <li>Camera or smartphone</li>
+        <li>Sunscreen</li>
+        <li>Cash for personal expenses</li>
+      </ul>
+
+      <h4>Pickup Time</h4>
+      <p>02.00 – 03.00 AM: Ubud, Kuta, Nusa Dua, Legian, Seminyak. Other pickup areas, please contact us.</p>
+
+      <h4>Option B - Pickup Outside the Mount Batur Area</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>02.00 – 03.00 AM: Hotel pickup and drive to Kintamani</li>
+        <li>04.30 AM: Arrive at Mount Batur base camp, meet guide, safety briefing</li>
+        <li>05.00 AM: Jeep ride to the sunrise viewpoint (35–40 minutes)</li>
+        <li>05.45 AM: Sunrise experience at Mount Batur</li>
+        <li>06.15 AM: Light breakfast with hot coffee or tea</li>
+        <li>07.00 AM: Explore Black Lava and Black Sand fields</li>
+        <li>08.30 AM: Transfer to Ubud for ATV quad biking</li>
+        <li>10.00 AM: Start ATV adventure through rice fields, rivers, and jungle trails</li>
+        <li>12.00 PM: Return to hotel</li>
+      </ul>
+
+      <h4>Price</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Person</th>
+            <th>Price (IDR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 person</td>
+            <td>1,600k / person</td>
+          </tr>
+          <tr>
+            <td>2 people</td>
+            <td>1,300k / person</td>
+          </tr>
+          <tr>
+            <td>3 - 4 people</td>
+            <td>1,200k / person</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Includes</h4>
+      <ul>
+        <li>Round-trip transport from hotel</li>
+        <li>Private 4x4 jeep with professional local driver</li>
+        <li>English-speaking local guide</li>
+        <li>Mineral water</li>
+        <li>Breakfast</li>
+        <li>Hot drink at sunrise point (coffee or tea)</li>
+        <li>Visit to Black Lava and Black Sand areas</li>
+        <li>All entrance tickets</li>
+        <li>Professional ATV guide</li>
+        <li>ATV safety equipment (helmet and boots)</li>
+      </ul>
+
+      <h4>Excludes</h4>
+      <ul>
+        <li>Personal expenses</li>
+        <li>Tips and gratuities</li>
+      </ul>
+
+      <h4>What to Bring</h4>
+      <ul>
+        <li>Jacket or sweater</li>
+        <li>Comfortable shoes</li>
+        <li>Camera or smartphone</li>
+        <li>Sunscreen</li>
+        <li>Cash for personal expenses</li>
+      </ul>
+
+      <h4>Pickup Time</h4>
+      <p>02.00 – 03.00 AM: Ubud, Kuta, Nusa Dua, Legian, Seminyak. Other pickup areas, please contact us.</p>
+      <div class="modal-footer">
+        <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+          <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+          </svg>
+          Book This Tour
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="tukad-cepung-details-modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="tukad-cepung-details-title">
+      <button class="modal-close" type="button" data-modal-close>Close</button>
+      <h3 id="tukad-cepung-details-title">Batur Sunrise and Tukad Cepung Waterfall</h3>
+      <div class="modal-hero">
+        <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/9c/93/7a.jpg" alt="Batur Sunrise and Tukad Cepung Waterfall" />
+      </div>
+      <p>
+        Begin your morning with Mount Batur Sunrise Trekking, guided to the summit for panoramic sunrise views of Mount Agung,
+        Lake Batur, and the volcanic landscape. Enjoy a warm breakfast cooked with volcanic steam at the top.
+      </p>
+      <p>
+        After descending, continue to Tegalalang Rice Terrace to walk through lush paddies and learn about the Subak irrigation
+        system. End the trip with a refreshing visit to Tukad Cepung Waterfall, a hidden gem tucked inside Bali’s tropical forest.
+      </p>
+
+      <h4>Option A - Pickup in the Mount Batur Area</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>01.20 – 03.00 AM: Hotel pickup and transfer to the trekking start point</li>
+        <li>03.45 – 04.00 AM: Arrive at Toya Bungkah Village, meet guide and briefing</li>
+        <li>04.00 – 06.00 AM: Trek to the summit under the stars</li>
+        <li>06.00 – 06.20 AM: Sunrise and breakfast at the summit (coffee or tea)</li>
+        <li>07.00 AM: Descend back to Toya Bungkah Village</li>
+        <li>09.00 AM: Transfer to Tegalalang Rice Terrace</li>
+        <li>10.30 AM: Arrive at Tegalalang Rice Terrace</li>
+        <li>11.30 AM: Depart for Tukad Cepung Waterfall</li>
+        <li>12.00 PM: Arrive at Tukad Cepung Waterfall</li>
+        <li>01.00 – 02.00 PM: Return to hotel</li>
+      </ul>
+
+      <h4>Price</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Person</th>
+            <th>Price (IDR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 person</td>
+            <td>1,350k / person</td>
+          </tr>
+          <tr>
+            <td>2 people</td>
+            <td>875k / person</td>
+          </tr>
+          <tr>
+            <td>3 - 4 people</td>
+            <td>775k / person</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Includes</h4>
+      <ul>
+        <li>Private hotel pickup and drop-off (air-conditioned car)</li>
+        <li>Experienced English-speaking trekking guide</li>
+        <li>Breakfast, drinking water, and flashlight</li>
+        <li>Trekking equipment (torch and raincoat)</li>
+        <li>Entrance ticket to Mount Batur trekking area</li>
+        <li>Visit to Tegalalang Rice Terrace</li>
+        <li>Visit to Tukad Cepung Waterfall</li>
+      </ul>
+
+      <h4>Excludes</h4>
+      <ul>
+        <li>Personal expenses</li>
+      </ul>
+
+      <h4>What to Bring</h4>
+      <ul>
+        <li>Hiking or sport shoes</li>
+        <li>Warm jacket and long pants</li>
+        <li>Backpack and camera</li>
+        <li>Cash for personal expenses</li>
+        <li>Extra clothes or towel</li>
+      </ul>
+
+      <h4>Activities Detail</h4>
+      <ul>
+        <li>Activity level: Moderate</li>
+        <li>Hiking duration: 4 hours (up and down)</li>
+        <li>Temperature: 8 – 15°C at the summit</li>
+      </ul>
+
+      <h4>Pickup Time</h4>
+      <ul>
+        <li>Ubud: 02.30 AM</li>
+        <li>Sanur: 02.00 AM</li>
+        <li>Kuta: 01.40 AM</li>
+        <li>Nusa Dua: 01.40 AM</li>
+        <li>Legian: 01.40 AM</li>
+        <li>Seminyak: 01.40 AM</li>
+      </ul>
+
+      <h4>Option B - Pickup Outside the Mount Batur Area</h4>
+      <h4>Itinerary</h4>
+      <ul>
+        <li>01.20 – 03.00 AM: Hotel pickup and transfer to the trekking start point</li>
+        <li>03.45 – 04.00 AM: Arrive at Toya Bungkah Village, meet guide and briefing</li>
+        <li>04.00 – 06.00 AM: Trek to the summit under the stars</li>
+        <li>06.00 – 06.20 AM: Sunrise and breakfast at the summit (coffee or tea)</li>
+        <li>07.00 AM: Descend back to Toya Bungkah Village</li>
+        <li>09.00 AM: Transfer to Tegalalang Rice Terrace</li>
+        <li>10.30 AM: Arrive at Tegalalang Rice Terrace</li>
+        <li>11.30 AM: Depart for Tukad Cepung Waterfall</li>
+        <li>12.00 PM: Arrive at Tukad Cepung Waterfall</li>
+        <li>01.00 – 02.00 PM: Return to hotel</li>
+      </ul>
+
+      <h4>Price</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Person</th>
+            <th>Price (IDR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 person</td>
+            <td>1,350k / person</td>
+          </tr>
+          <tr>
+            <td>2 people</td>
+            <td>875k / person</td>
+          </tr>
+          <tr>
+            <td>3 - 4 people</td>
+            <td>775k / person</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Includes</h4>
+      <ul>
+        <li>Private hotel pickup and drop-off (air-conditioned car)</li>
+        <li>Experienced English-speaking trekking guide</li>
+        <li>Breakfast, drinking water, and flashlight</li>
+        <li>Trekking equipment (torch and raincoat)</li>
+        <li>Entrance ticket to Mount Batur trekking area</li>
+        <li>Visit to Tegalalang Rice Terrace</li>
+        <li>Visit to Tukad Cepung Waterfall</li>
+      </ul>
+
+      <h4>Excludes</h4>
+      <ul>
+        <li>Personal expenses</li>
+      </ul>
+
+      <h4>What to Bring</h4>
+      <ul>
+        <li>Hiking or sport shoes</li>
+        <li>Warm jacket and long pants</li>
+        <li>Backpack and camera</li>
+        <li>Cash for personal expenses</li>
+        <li>Extra clothes or towel</li>
+      </ul>
+
+      <h4>Activities Detail</h4>
+      <ul>
+        <li>Activity level: Moderate</li>
+        <li>Hiking duration: 4 hours (up and down)</li>
+        <li>Temperature: 8 – 15°C at the summit</li>
+      </ul>
+
+      <h4>Pickup Time</h4>
+      <ul>
+        <li>Ubud: 02.30 AM</li>
+        <li>Sanur: 02.00 AM</li>
+        <li>Kuta: 01.40 AM</li>
+        <li>Nusa Dua: 01.40 AM</li>
+        <li>Legian: 01.40 AM</li>
+        <li>Seminyak: 01.40 AM</li>
+      </ul>
+      <div class="modal-footer">
+        <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
+          <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+          </svg>
+          Book This Tour
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="booking-modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+      <button class="modal-close" type="button" data-modal-close>Close</button>
+      <h3 id="booking-title">Book Your Tour</h3>
+      <form>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="tour-package">Tour Package</label>
+            <select id="tour-package" name="tour-package">
+              <option>Batur Sunrise Jeep Tour</option>
+              <option>Batur Jeep Day Tour</option>
+              <option>Batur Sunset Jeep Tour</option>
+              <option>Batur Sunrise and Blacklava Tour</option>
+              <option>Batur Sunrise and Natural Hot Spring</option>
+              <option>Batur Sunrise and Kintamani Cafe</option>
+              <option>Batur Sunrise and Ubud ATV Ride</option>
+              <option>Batur Sunrise and Tukad Cepung Waterfall</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="tour-date">Tour Date</label>
+            <input id="tour-date" name="tour-date" type="date" />
+          </div>
+          <div class="form-field">
+            <label for="adults">Adults</label>
+            <input id="adults" name="adults" type="number" min="1" placeholder="2" />
+          </div>
+          <div class="form-field">
+            <label for="children">Children</label>
+            <input id="children" name="children" type="number" min="0" placeholder="0" />
+          </div>
+          <div class="form-field">
+            <label for="full-name">Full Name</label>
+            <input id="full-name" name="full-name" type="text" placeholder="Your name" />
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@email.com" />
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone Number</label>
+            <input id="phone" name="phone" type="tel" placeholder="+62..." />
+          </div>
+          <div class="form-field">
+            <label for="hotel">Hotel Name / Address</label>
+            <input id="hotel" name="hotel" type="text" placeholder="Hotel or pickup location" />
+          </div>
+          <div class="form-field form-span">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" placeholder="Any special requests or details"></textarea>
+          </div>
+        </div>
+        <p class="form-note">IMPORTANT: Please provide accurate data, a valid email address, and an active phone number that can be reached.</p>
+        <div class="package-actions">
+          <button class="btn primary whatsapp" type="button">
+            <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.52 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+            </svg>
+            Submit Booking
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    const modalTriggers = document.querySelectorAll("[data-modal-target]");
+    const modalCloses = document.querySelectorAll("[data-modal-close]");
+    const modals = document.querySelectorAll(".modal");
+    const testimonialTrack = document.getElementById("testimonial-track");
+
+    const onScroll = () => {
+      if (window.scrollY > 24) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    };
+
+    const closeModal = (modal) => {
+      if (!modal) return;
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    const openModal = (modal) => {
+      if (!modal) return;
+      modals.forEach((item) => item.classList.remove("active"));
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+
+    modalTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const id = trigger.getAttribute("data-modal-target");
+        openModal(document.getElementById(id));
+      });
+    });
+
+    modalCloses.forEach((button) => {
+      button.addEventListener("click", () => {
+        closeModal(button.closest(".modal"));
+      });
+    });
+
+    modals.forEach((modal) => {
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeModal(modal);
+        }
+      });
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        modals.forEach((modal) => closeModal(modal));
+      }
+    });
+
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    if (testimonialTrack) {
+      let isDown = false;
+      let startX = 0;
+      let scrollLeft = 0;
+
+      const onPointerDown = (event) => {
+        isDown = true;
+        testimonialTrack.classList.add("dragging");
+        startX = event.pageX - testimonialTrack.offsetLeft;
+        scrollLeft = testimonialTrack.scrollLeft;
+      };
+
+      const onPointerLeave = () => {
+        isDown = false;
+        testimonialTrack.classList.remove("dragging");
+      };
+
+      const onPointerUp = () => {
+        isDown = false;
+        testimonialTrack.classList.remove("dragging");
+      };
+
+      const onPointerMove = (event) => {
+        if (!isDown) return;
+        event.preventDefault();
+        const x = event.pageX - testimonialTrack.offsetLeft;
+        const walk = (x - startX) * 1.2;
+        testimonialTrack.scrollLeft = scrollLeft - walk;
+      };
+
+      testimonialTrack.addEventListener("mousedown", onPointerDown);
+      testimonialTrack.addEventListener("mouseleave", onPointerLeave);
+      testimonialTrack.addEventListener("mouseup", onPointerUp);
+      testimonialTrack.addEventListener("mousemove", onPointerMove);
+
+      testimonialTrack.addEventListener("touchstart", () => {
+        testimonialTrack.classList.add("dragging");
+      });
+      testimonialTrack.addEventListener("touchend", () => {
+        testimonialTrack.classList.remove("dragging");
+      });
+    }
+
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+  </script>
+</body>
+</html>

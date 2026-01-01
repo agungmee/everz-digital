@@ -1,0 +1,3339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AHA Trans Bali — Tour & Transport</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#0b1b2b;
+      --paper:#f8faf9;
+      --sun:#f6c453;
+      --sea:#0b4d66;
+      --glass:rgba(8,18,30,.52);
+      --line:rgba(255,255,255,.22);
+    }
+    *{ box-sizing:border-box; }
+    html, body{
+      margin:0;
+      padding:0;
+      width:100%;
+      height:100%;
+      overflow-x:hidden;
+      background:#0b1220;
+    }
+    body{
+      font-family:"Manrope", sans-serif;
+      color:var(--paper);
+    }
+    .elementor,
+    .elementor-section,
+    .elementor-section-wrap,
+    .elementor-container,
+    .elementor-top-section,
+    .elementor-column,
+    .elementor-widget-wrap,
+    .elementor-widget-container{
+      margin:0 !important;
+      padding:0 !important;
+      max-width:100% !important;
+      width:100% !important;
+    }
+    .elementor-section,
+    .elementor-top-section,
+    .elementor-section-wrap{
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+    .elementor-section > .elementor-container{
+      padding-left:0 !important;
+      padding-right:0 !important;
+      max-width:100% !important;
+    }
+    body > .elementor{
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+    body > .elementor .elementor-section:first-child,
+    body > .elementor .elementor-top-section:first-child{
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+    body > .elementor .elementor-section:first-child > .elementor-container{
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+    a{ color:inherit; text-decoration:none; }
+
+    .aha-hero{
+      position:relative;
+      min-height:92vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      overflow:hidden;
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+
+    .aha-slider{
+      position:absolute;
+      inset:0;
+      z-index:0;
+    }
+    .aha-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity 1.2s ease, transform 1.2s ease;
+    }
+    .aha-slide.active{
+      opacity:1;
+      transform:scale(1.01);
+    }
+    .aha-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(120deg, rgba(6,12,20,.92), rgba(6,12,20,.62) 45%, rgba(6,12,20,.25)),
+        linear-gradient(0deg, rgba(6,12,20,.55), rgba(6,12,20,.15));
+      z-index:1;
+    }
+
+    .aha-nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:5;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 6vw;
+      background:rgba(10,18,28,.02);
+      box-shadow:none;
+      transition:background .35s ease, box-shadow .35s ease, transform .35s ease;
+    }
+    .aha-nav .aha-menu a{ color:var(--paper); opacity:.85; }
+    .aha-nav .aha-brand-text{ color:var(--paper); }
+    .aha-nav .aha-btn{
+      background:rgba(255,255,255,.06);
+      color:var(--paper);
+      border:1px solid var(--line);
+    }
+    .aha-nav .aha-btn.primary{
+      background:var(--sun);
+      color:#1b1b1b;
+      border:0;
+    }
+    .aha-nav.is-scrolled{
+      background:#ffffff !important;
+      box-shadow:0 18px 40px rgba(15,23,42,.12) !important;
+    }
+    .aha-nav.is-scrolled .aha-menu a{ color:#0b1220; opacity:.8; }
+    .aha-nav.is-scrolled .aha-brand-text{ color:#0b1220; }
+    .aha-nav.is-scrolled .aha-btn{
+      background:#f3f4f6;
+      color:#0b1220;
+      border:1px solid #e5e7eb;
+    }
+    .aha-nav.is-scrolled .aha-btn.primary{
+      background:var(--sun);
+      color:#1b1b1b;
+      border:0;
+    }
+    .aha-brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.06em;
+    }
+    .aha-logo{
+      width:44px;height:44px;
+      border-radius:50% !important;
+      border:2px solid rgba(255,255,255,.5);
+      object-fit:cover;
+      overflow:hidden;
+      box-shadow:0 10px 26px rgba(0,0,0,.35);
+    }
+    .aha-menu{
+      display:flex;
+      gap:18px;
+      font-size:14px;
+      font-weight:600;
+    }
+    .aha-menu a{ opacity:.85; }
+    .aha-menu a:hover{ opacity:1; }
+    .aha-dropdown{
+      position:relative;
+      padding-bottom:6px;
+    }
+    .aha-dropdown > a{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+    .aha-caret{
+      font-size:11px;
+      opacity:.7;
+    }
+    .aha-dropdown-menu{
+      position:absolute;
+      top:calc(100% + 12px);
+      left:0;
+      min-width:200px;
+      background:#ffffff;
+      color:#0b1220;
+      border:1px solid #e5e7eb;
+      border-radius:14px;
+      box-shadow:0 18px 40px rgba(15,23,42,.12);
+      padding:8px;
+      display:grid;
+      gap:4px;
+      opacity:0;
+      pointer-events:none;
+      transform:translateY(8px);
+      transition:opacity .25s ease, transform .25s ease;
+      z-index:999;
+    }
+    .aha-dropdown:hover .aha-dropdown-menu,
+    .aha-dropdown-menu:hover{
+      opacity:1;
+      pointer-events:auto;
+      transform:translateY(0);
+    }
+    .aha-dropdown-menu::before{
+      content:"";
+      position:absolute;
+      top:-12px;
+      left:0;
+      right:0;
+      height:12px;
+    }
+    .aha-dropdown-menu a{
+      color:#0b1220 !important;
+      padding:8px 10px;
+      border-radius:10px;
+      font-weight:600;
+      opacity:1 !important;
+    }
+    .aha-dropdown-menu a:hover{
+      background:#f3f4f6;
+    }
+
+    .aha-nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .aha-cta{
+      display:flex;gap:10px;align-items:center;
+    }
+    .aha-btn{
+      padding:10px 16px;border-radius:999px;
+      border:1px solid var(--line);
+      backdrop-filter: blur(6px);
+      background:rgba(255,255,255,.06);
+      font-weight:700;font-size:13.5px;
+    }
+    .aha-btn.primary{
+      background:var(--sun);
+      color:#1b1b1b;
+      border:0;
+      box-shadow:0 14px 30px rgba(246,196,83,.35);
+    }
+    .aha-burger{
+      display:grid;
+      place-items:center;
+      border:0;
+      background:transparent;
+      color:var(--paper);
+      cursor:pointer;
+      padding:8px;
+    }
+    .aha-burger:hover{
+      transform:none;
+      box-shadow:none;
+    }
+    .aha-burger-lines{
+      position:relative;
+      width:20px;
+      height:14px;
+    }
+    .aha-burger-lines span{
+      position:absolute;
+      left:0;
+      height:2px;
+      background:currentColor;
+      border-radius:999px;
+      transition:transform .3s ease, opacity .2s ease, width .3s ease;
+    }
+    .aha-burger-lines span:nth-child(1){ top:0; width:20px; }
+    .aha-burger-lines span:nth-child(2){ top:6px; width:14px; }
+    .aha-burger-lines span:nth-child(3){ bottom:0; width:18px; }
+    .aha-burger.is-open .aha-burger-lines span:nth-child(1){
+      transform:translateY(6px) rotate(45deg);
+      width:20px;
+    }
+    .aha-burger.is-open .aha-burger-lines span:nth-child(2){
+      opacity:0;
+      transform:translateX(-6px);
+    }
+    .aha-burger.is-open .aha-burger-lines span:nth-child(3){
+      transform:translateY(-6px) rotate(-45deg);
+      width:20px;
+    }
+    .aha-nav.is-scrolled .aha-burger{
+      background:transparent;
+      color:#0b1220;
+      border:0;
+    }
+
+    .aha-content{
+      position:relative;
+      z-index:2;
+      padding:calc(5vh + 56px) 6vw 10vh;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:36px;
+      align-items:center;
+      margin-top:0;
+    }
+    .aha-kicker{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:8px 14px;border-radius:999px;
+      background:var(--glass);
+      border:1px solid var(--line);
+      font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    }
+    .aha-title{
+      font-family:"Playfair Display", serif;
+      font-size:48px;
+      line-height:1.08;
+      margin:16px 0 14px;
+      text-shadow:0 12px 30px rgba(0,0,0,.45);
+    }
+    .aha-subtitle{
+      font-size:15.5px;
+      line-height:1.8;
+      color:#e5e7eb;
+      max-width:520px;
+    }
+    .aha-subtitle .aha-sub-short{ display:none; }
+    .aha-actions{
+      display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;
+    }
+    .aha-actions .aha-btn{ padding:12px 18px; }
+
+    .aha-card{
+      background:rgba(10,20,30,.72);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:20px;
+      padding:20px;
+      box-shadow:0 24px 60px rgba(0,0,0,.35);
+    }
+    .aha-card h3{
+      margin:0 0 12px;font-size:16px;font-weight:800;letter-spacing:.02em;
+    }
+    .aha-card ul{
+      margin:0;padding:0;list-style:none;display:grid;gap:10px;
+      font-size:14px;color:#e5e7eb;
+    }
+    .aha-card li span{ color:#fef3c7; font-weight:700; }
+
+    .aha-slide-indicator{
+      position:absolute;
+      right:6vw;
+      bottom:6vh;
+      z-index:2;
+      display:flex;gap:8px;align-items:center;
+    }
+    .aha-dot{
+      width:18px;height:4px;border-radius:999px;
+      background:rgba(255,255,255,.35);
+      transition:all .4s ease;
+    }
+    .aha-dot.active{ background:var(--sun); width:32px; }
+
+    @media (max-width: 900px){
+      .aha-hero{ min-height:100vh; }
+      .aha-content{ grid-template-columns:1fr; align-items:flex-start; }
+      .aha-title{ font-size:40px; }
+      .aha-menu{ display:none; }
+      .aha-burger{ display:grid; }
+    }
+    @media (min-width: 901px){
+      .aha-burger{ display:none; }
+    }
+    @media (max-width: 640px){
+      .aha-hero{ min-height:96vh; }
+      .aha-title{ font-size:30px; line-height:1.12; }
+      .aha-subtitle{ font-size:14px; line-height:1.7; }
+      .aha-subtitle .aha-sub-full{ display:none; }
+      .aha-subtitle .aha-sub-short{ display:inline; }
+      .aha-brand-text{ display:none; }
+      .aha-card{ padding:16px; }
+      .aha-nav{ padding:16px 5vw; }
+      .aha-content{ padding:calc(3vh + 52px) 5vw 8vh; gap:22px; }
+      .aha-cta .aha-btn{ padding:9px 12px; font-size:12.5px; }
+      .aha-actions{ margin-top:16px; }
+      .aha-actions .aha-btn{ padding:11px 14px; }
+      .aha-slide-indicator{ right:5vw; bottom:4vh; }
+    }
+
+    .aha-section{
+      padding:70px 6vw;
+      background:#fff;
+      color:#0b1220;
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+    }
+    .aha-section-title{
+      font-family:"Playfair Display", serif;
+      text-align:center;
+      font-size:34px;
+      margin:0 0 12px;
+      color:#0b1220;
+    }
+    .aha-section-sub{
+      text-align:center;
+      max-width:720px;
+      margin:0 auto 34px;
+      color:#4b5563;
+      font-size:15px;
+      line-height:1.75;
+    }
+    .aha-activity{
+      background:
+        radial-gradient(circle at 12% 0%, rgba(246,196,83,.22), transparent 45%),
+        radial-gradient(circle at 85% 10%, rgba(11,77,102,.12), transparent 38%),
+        #fff;
+    }
+    .aha-activity-wrap{
+      position:relative;
+    }
+    .aha-activity-track{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:18px;
+    }
+    .aha-activity-card{
+      background:#ffffff;
+      border:1px solid rgba(11,77,102,.12);
+      border-radius:22px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
+    .aha-activity-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 26px 50px rgba(15,23,42,.12);
+    }
+    .aha-activity-media{
+      position:relative;
+      height:190px;
+      background:#0b1220;
+    }
+    .aha-activity-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .aha-activity-price{
+      position:absolute;
+      left:14px;
+      bottom:14px;
+      background:rgba(11,27,43,.9);
+      color:#fff;
+      padding:10px 12px;
+      border-radius:14px;
+      font-size:12.5px;
+      font-weight:800;
+      letter-spacing:.02em;
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+    }
+    .aha-activity-price span{
+      display:block;
+      font-size:11px;
+      font-weight:600;
+      opacity:.8;
+      letter-spacing:.03em;
+    }
+    .aha-activity-body{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      flex:1;
+    }
+    .aha-activity-body h3{
+      margin:0;
+      font-size:17px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-activity-tag{
+      margin:0;
+      font-size:13px;
+      font-weight:700;
+      color:#0b4d66;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+    .aha-activity-list{
+      margin:0;
+      padding-left:18px;
+      color:#4b5563;
+      font-size:13.5px;
+      line-height:1.6;
+      display:grid;
+      gap:6px;
+    }
+    .aha-activity-more{
+      border-top:1px dashed #e5e7eb;
+      padding-top:10px;
+      max-height:0;
+      opacity:0;
+      overflow:hidden;
+      transition:max-height .4s ease, opacity .35s ease;
+    }
+    .aha-activity-card.is-open .aha-activity-more{
+      max-height:220px;
+      opacity:1;
+    }
+    .aha-activity-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:auto;
+    }
+    .aha-activity-actions .aha-btn{
+      font-size:13px;
+      padding:10px 14px;
+    }
+    .aha-bonus{
+      color:#b45309;
+      font-weight:700;
+    }
+    .aha-activity-dots{
+      display:none;
+      justify-content:center;
+      gap:8px;
+      margin-top:18px;
+    }
+    .aha-activity-dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:#d1d5db;
+      transition:all .3s ease;
+    }
+    .aha-activity-dot.active{
+      width:24px;
+      background:var(--sun);
+    }
+
+    .aha-mobile{
+      position:fixed;
+      inset:0;
+      z-index:200;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .3s ease;
+    }
+    .aha-mobile.is-open{
+      opacity:1;
+      pointer-events:auto;
+    }
+    .aha-mobile-backdrop{
+      position:absolute;
+      inset:0;
+      background:rgba(2,6,23,.6);
+      backdrop-filter: blur(4px);
+    }
+    .aha-mobile-panel{
+      position:absolute;
+      top:0;
+      right:0;
+      height:100%;
+      width:min(340px, 86vw);
+      background:linear-gradient(160deg, #0b1220 0%, #0f1a2b 55%, #0b2230 100%);
+      color:#f8faf9;
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      box-shadow:-18px 0 50px rgba(3,10,20,.35);
+      transform:translateX(12px);
+      transition:transform .3s ease;
+    }
+    .aha-mobile.is-open .aha-mobile-panel{
+      transform:translateX(0);
+    }
+    .aha-mobile-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .aha-mobile-title{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:800;
+      opacity:.7;
+    }
+    .aha-mobile-close{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(255,255,255,.08);
+      color:#f8faf9;
+      cursor:pointer;
+      font-size:16px;
+    }
+    .aha-mobile-links{
+      display:grid;
+      gap:10px;
+    }
+    .aha-mobile-links a,
+    .aha-mobile-toggle{
+      color:#f8faf9;
+      font-weight:700;
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      text-align:left;
+      font-family:inherit;
+    }
+    .aha-mobile-toggle{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      cursor:pointer;
+    }
+    .aha-mobile-sub{
+      display:grid;
+      gap:8px;
+      padding-left:10px;
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .3s ease;
+    }
+    .aha-mobile-sub.is-open{
+      max-height:400px;
+    }
+    .aha-mobile-sub a{
+      font-weight:600;
+      background:rgba(255,255,255,.03);
+    }
+
+    .aha-contact{
+      background:linear-gradient(120deg, #ffffff 0%, #f9fafb 55%, #f1f5f9 100%);
+    }
+    .aha-contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1.1fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    .aha-contact-card{
+      background:#ffffff;
+      border:1px solid #e5e7eb;
+      border-radius:20px;
+      padding:22px;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+    }
+    .aha-contact-card h3{
+      margin:0 0 10px;
+      font-size:20px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-contact-card p{
+      margin:0 0 16px;
+      color:#4b5563;
+      font-size:14.5px;
+      line-height:1.7;
+    }
+    .aha-contact-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:10px;
+      font-size:14px;
+      color:#111827;
+    }
+    .aha-contact-list span{
+      color:#6b7280;
+      font-weight:600;
+      margin-right:6px;
+    }
+    .aha-contact-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+    .aha-map{
+      border:1px solid #e5e7eb;
+      border-radius:20px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+      min-height:320px;
+    }
+    .aha-map iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    .aha-testimonial{
+      background:linear-gradient(135deg, #0b1220 0%, #101b2c 60%, #0c1f2d 100%);
+      color:var(--paper);
+    }
+    .aha-testimonial .aha-section-title{ color:#f8faf9; }
+    .aha-testimonial .aha-section-sub{ color:#dbe4ef; }
+    .aha-testimonial-wrap{
+      position:relative;
+      margin-top:30px;
+    }
+    .aha-testimonial-track{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:18px;
+    }
+    .aha-testimonial-card{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 18px 40px rgba(3,10,20,.35);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:210px;
+    }
+    .aha-testimonial-stars{
+      color:var(--sun);
+      letter-spacing:2px;
+      font-size:14px;
+    }
+    .aha-testimonial-card p{
+      margin:0;
+      color:#e5e7eb;
+      font-size:14px;
+      line-height:1.7;
+    }
+    .aha-testimonial-name{
+      font-weight:800;
+      color:#f8faf9;
+    }
+    .aha-testimonial-meta{
+      font-size:12.5px;
+      color:#c7d2e3;
+    }
+    .aha-testimonial-dots{
+      display:none;
+      margin-top:16px;
+      gap:8px;
+      justify-content:center;
+    }
+    .aha-testimonial-dot{
+      width:18px;height:4px;border-radius:999px;
+      background:rgba(255,255,255,.3);
+      transition:all .4s ease;
+    }
+    .aha-testimonial-dot.active{ background:var(--sun); width:32px; }
+
+    .aha-footer{
+      background:#0b1220;
+      color:#e5e7eb;
+      padding:48px 6vw;
+      border-top:1px solid rgba(255,255,255,.08);
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+    }
+    .aha-footer-wrap{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+      align-items:center;
+    }
+    .aha-footer h3{
+      margin:0 0 8px;
+      font-size:18px;
+      color:#f8faf9;
+    }
+    .aha-footer p{
+      margin:0;
+      font-size:14px;
+      color:#cbd5e1;
+      line-height:1.7;
+    }
+    .aha-footer-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:8px;
+      font-size:14px;
+    }
+    .aha-footer-list span{ color:#fef3c7; font-weight:700; }
+
+    .aha-about-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:32px;
+      align-items:center;
+    }
+    .aha-about-copy{
+      color:#1f2937;
+      font-size:15px;
+      line-height:1.8;
+    }
+    .aha-about-copy h3{
+      margin:0 0 10px;
+      font-size:20px;
+      font-weight:800;
+    }
+    .aha-about-slider{
+      position:relative;
+      border-radius:22px;
+      overflow:hidden;
+      min-height:320px;
+      background:#0b1220;
+      box-shadow:0 24px 60px rgba(15,23,42,.15);
+    }
+    .aha-about-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity 1s ease, transform 1s ease;
+    }
+    .aha-about-slide.active{ opacity:1; transform:scale(1.01); }
+    .aha-about-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.28));
+      pointer-events:none;
+    }
+
+    .aha-why-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:16px;
+    }
+    .aha-why-card{
+      border-radius:18px;
+      border:1px solid #e5e7eb;
+      background:#f9fafb;
+      padding:18px;
+      box-shadow:0 12px 30px rgba(15,23,42,.06);
+    }
+    .aha-why-card h4{
+      margin:0 0 8px;
+      font-size:16px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-why-card p{
+      margin:0;
+      color:#4b5563;
+      font-size:13.5px;
+      line-height:1.7;
+    }
+    .aha-swipe-hint{
+      display:none;
+      text-align:center;
+      font-size:12.5px;
+      font-weight:700;
+      color:#6b7280;
+      margin:-12px auto 20px;
+      letter-spacing:.02em;
+    }
+
+    @media (max-width: 980px){
+      .aha-about-grid{ grid-template-columns:1fr; }
+      .aha-about-slider{ min-height:280px; }
+      .aha-why-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .aha-activity-track{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .aha-testimonial-track{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .aha-contact-grid{ grid-template-columns:1fr; }
+      .aha-transfer-grid{ grid-template-columns:1fr; }
+    }
+    @media (max-width: 680px){
+      .aha-section{ padding:56px 5vw; }
+      .aha-section-title{ font-size:28px; }
+      .aha-why-grid{
+        grid-template-columns:none;
+        display:flex;
+        gap:14px;
+        overflow-x:auto;
+        padding:4px 4px 12px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+      }
+      .aha-why-grid::-webkit-scrollbar{ display:none; }
+      .aha-why-grid{ scrollbar-width:none; }
+      .aha-why-card{
+        min-width:84%;
+        scroll-snap-align:start;
+      }
+      .aha-swipe-hint{ display:block; }
+      .aha-footer-wrap{ grid-template-columns:1fr; }
+    }
+    @media (max-width: 760px){
+      .aha-activity-track{
+        display:flex;
+        gap:16px;
+        overflow-x:auto;
+        padding:4px 4px 16px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+      }
+      .aha-activity-track::-webkit-scrollbar{ display:none; }
+      .aha-activity-track{ scrollbar-width:none; }
+      .aha-activity-card{
+        min-width:86%;
+        scroll-snap-align:center;
+      }
+      .aha-activity-dots{ display:flex; }
+      .aha-testimonial-track{
+        display:flex;
+        gap:16px;
+        overflow-x:auto;
+        padding:4px 4px 14px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+      }
+      .aha-testimonial-track::-webkit-scrollbar{ display:none; }
+      .aha-testimonial-track{ scrollbar-width:none; }
+      .aha-testimonial-card{
+        min-width:86%;
+        scroll-snap-align:center;
+      }
+      .aha-testimonial-dots{ display:flex; }
+    }
+
+    .aha-transfer-grid{
+      display:grid;
+      gap:24px;
+      grid-template-columns:minmax(0, 1fr);
+    }
+    .aha-transfer-card{
+      border-radius:20px;
+      border:1px solid #e5e7eb;
+      overflow:hidden;
+      background:#ffffff;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+      display:grid;
+      grid-template-columns:1fr 1.2fr;
+      gap:0;
+      max-width:980px;
+      margin:0 auto;
+    }
+    .aha-transfer-media{
+      min-height:260px;
+      background:#eef2f6;
+      display:grid;
+      place-items:center;
+      padding:16px;
+    }
+    .aha-transfer-media img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+    .aha-transfer-body{
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .aha-transfer-body h4{
+      margin:0;
+      font-size:18px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-transfer-desc{
+      margin:0;
+      color:#4b5563;
+      font-size:14px;
+      line-height:1.7;
+    }
+    .aha-transfer-select{
+      display:grid;
+      gap:8px;
+    }
+    .aha-transfer-select label{
+      font-size:12.5px;
+      font-weight:700;
+      color:#111827;
+    }
+    .aha-select-wrap{
+      position:relative;
+      display:grid;
+    }
+    .aha-select-wrap::after{
+      content:"▾";
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      color:#9ca3af;
+      pointer-events:none;
+      font-size:12px;
+    }
+    .aha-transfer-select select{
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      font-size:14px;
+      outline:none;
+      background:#fff;
+      appearance:none;
+      padding-right:34px;
+    }
+    .aha-vehicle-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:12px;
+    }
+    .aha-vehicle-card{
+      border:1px solid #e5e7eb;
+      border-radius:14px;
+      padding:10px;
+      background:#fff;
+      text-align:center;
+      cursor:pointer;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      display:grid;
+      gap:6px;
+    }
+    .aha-vehicle-card img{
+      width:100%;
+      height:70px;
+      object-fit:contain;
+      display:block;
+    }
+    .aha-vehicle-title{
+      font-size:12.5px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-vehicle-meta{
+      font-size:11.5px;
+      color:#6b7280;
+    }
+    .aha-vehicle-price{
+      font-size:12.5px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-vehicle-card.is-active{
+      border-color:var(--sun);
+      box-shadow:0 14px 30px rgba(246,196,83,.25);
+      transform:translateY(-2px);
+    }
+    @media (max-width: 900px){
+      .aha-vehicle-grid{
+        display:flex;
+        gap:12px;
+        overflow-x:auto;
+        padding:4px 4px 10px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+      }
+      .aha-vehicle-grid::-webkit-scrollbar{ display:none; }
+      .aha-vehicle-grid{ scrollbar-width:none; }
+      .aha-vehicle-card{
+        min-width:70%;
+        scroll-snap-align:start;
+      }
+      .aha-vehicle-card img{ height:90px; }
+    }
+    .aha-transfer-price{
+      display:grid;
+      gap:8px;
+      font-size:13px;
+      color:#6b7280;
+    }
+    .aha-transfer-price b{
+      font-size:18px;
+      color:#111827;
+    }
+    .aha-transfer-price span{
+      font-size:11.5px;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      color:#6b7280;
+      font-weight:700;
+    }
+    .aha-transfer-note{
+      font-size:12.5px;
+      color:#6b7280;
+    }
+    .aha-transfer-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .aha-book-tabs{
+      display:flex;
+      gap:8px;
+      margin-top:4px;
+    }
+    .aha-tab{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid #e5e7eb;
+      background:#f3f4f6;
+      color:#111827;
+      font-weight:700;
+      font-size:12.5px;
+      cursor:pointer;
+    }
+    .aha-tab.is-active{
+      background:var(--sun);
+      border-color:transparent;
+      color:#1b1b1b;
+      box-shadow:0 10px 24px rgba(246,196,83,.28);
+    }
+    .aha-vehicle-select{
+      display:grid;
+      gap:8px;
+      margin-top:12px;
+    }
+    .aha-vehicle-select label{
+      font-size:12px;
+      font-weight:700;
+      color:#111827;
+    }
+    .aha-vehicle-select select{
+      padding:9px 10px;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      font-size:12px;
+      outline:none;
+      background:#fff;
+    }
+    @media (max-width: 900px){
+      .aha-transfer-grid{ grid-template-columns:1fr; }
+    }
+
+    .aha-modal{
+      position:fixed;
+      inset:0;
+      z-index:999;
+      display:none;
+    }
+    .aha-modal.is-open{ display:block; }
+    .aha-modal-backdrop{
+      position:absolute;
+      inset:0;
+      background:rgba(2,6,23,.6);
+      backdrop-filter: blur(3px);
+    }
+    .aha-modal-panel{
+      position:relative;
+      margin:8vh auto 0;
+      width:min(560px, 92vw);
+      background:#ffffff;
+      color:#111827;
+      border-radius:18px;
+      box-shadow:0 24px 70px rgba(0,0,0,.35);
+      overflow:hidden;
+      max-height:82vh;
+      display:flex;
+      flex-direction:column;
+    }
+    .aha-modal-head{
+      padding:14px 16px;
+      background:#f8fafc;
+      border-bottom:1px solid #e5e7eb;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .aha-modal-head b{
+      font-size:14.5px;
+      color:#111827;
+    }
+    .aha-modal-close{
+      width:34px;height:34px;border-radius:999px;
+      border:1px solid #e5e7eb;background:#fff;
+      cursor:pointer;font-size:16px;
+      display:grid;place-items:center;
+    }
+    .aha-modal-body{
+      padding:16px;
+      overflow:auto;
+    }
+    .aha-detail-slider{
+      position:relative;
+      height:220px;
+      border-radius:14px;
+      overflow:hidden;
+      margin-bottom:12px;
+      background:#0b1220;
+    }
+    .aha-detail-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity .9s ease, transform .9s ease;
+    }
+    .aha-detail-slide.active{
+      opacity:1;
+      transform:scale(1.01);
+    }
+    .aha-form{
+      display:grid;
+      gap:12px;
+    }
+    #ahaPkgSelectField,
+    #ahaPkgDailyVehicleField{
+      display:none;
+    }
+    .aha-modal.is-daily-package #ahaPkgNameField,
+    .aha-modal.is-daily-package .aha-pkg-unit,
+    .aha-modal.is-daily-package #ahaPkgVehicleField{
+      display:none;
+    }
+    .aha-modal.is-daily-package #ahaPkgSelectField,
+    .aha-modal.is-daily-package #ahaPkgDailyVehicleField{
+      display:grid;
+    }
+    .aha-transfer-fields{
+      display:grid;
+      gap:12px;
+    }
+    .aha-daily-fields{
+      display:none;
+    }
+    .aha-modal.is-daily .aha-transfer-fields{
+      display:none;
+    }
+    .aha-modal.is-daily .aha-daily-fields{
+      display:block;
+    }
+    .aha-field label{
+      display:block;
+      font-size:12.5px;
+      font-weight:700;
+      color:#111827;
+      margin-bottom:6px;
+    }
+    .aha-field-note{
+      font-size:12px;
+      color:#6b7280;
+      margin-top:6px;
+    }
+    .aha-field input,
+    .aha-field textarea,
+    .aha-field select{
+      width:100%;
+      padding:11px 12px;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      font-size:14px;
+      outline:none;
+      font-family:inherit;
+      background:#fff;
+      color:#111827;
+    }
+    .aha-field input::placeholder,
+    .aha-field textarea::placeholder{
+      color:#9ca3af;
+    }
+    .aha-field textarea{ min-height:90px; resize:vertical; }
+    .aha-form-actions{
+      display:flex;
+      gap:10px;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+    .aha-btn.secondary{
+      background:#f3f4f6;
+      color:#111827;
+      border:1px solid #e5e7eb;
+    }
+    @media (max-width: 900px){
+      .aha-transfer-card{ grid-template-columns:1fr; }
+      .aha-transfer-media{ min-height:220px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="aha-hero">
+    <div class="aha-slider" aria-hidden="true">
+      <div class="aha-slide active" style="background-image:url('https://international.unud.ac.id/protected/storage/file_summernote/4a0885ebc3c02b217cbf6c079eca6b37.jpg')"></div>
+      <div class="aha-slide" style="background-image:url('https://girlsbeyond.com/girlsbeyond/_next/image?url=https%3A%2F%2Fgirlsbeyond.com%2Fwp-content%2Fuploads%2F2024%2F12%2Fpexels-triew0814-29377726.jpg&w=3840&q=80')"></div>
+      <div class="aha-slide" style="background-image:url('https://limakaki.com/wp-content/uploads/2017/04/pura-besakih-pedomanwisata.jpg')"></div>
+      <div class="aha-slide" style="background-image:url('https://www.rentalmobilbali.net/wp-content/uploads/2012/11/Harga-Tiket-Masuk-Wisata-Di-Bali-Twitter.jpg')"></div>
+    </div>
+    <div class="aha-overlay"></div>
+
+    <nav class="aha-nav">
+      <div class="aha-brand">
+        <img class="aha-logo" src="https://everz-digital.site/wp-content/uploads/2025/12/28737883-3f66-4c3a-b742-9b0b1b7f93cd.jpeg" alt="AHA Trans Bali logo" loading="lazy">
+        <div class="aha-brand-text">
+          <div style="font-size:13px;opacity:.7;">AHA Trans Bali</div>
+          <div style="font-size:15px;">Tour &amp; Transport</div>
+        </div>
+      </div>
+      <div class="aha-menu">
+        <a href="#about">About</a>
+        <a href="#why-choose">Why Choose</a>
+        <a href="#airport-transfer">Airport Transfer</a>
+        <div class="aha-dropdown">
+          <a href="#multi-day-packages">Services <span class="aha-caret">▾</span></a>
+          <div class="aha-dropdown-menu" role="menu" aria-label="Services">
+            <a href="#multi-day-packages">Multi Days</a>
+            <a href="#nusa-penida">Nusa Penida</a>
+            <a href="#packages">Fun Activity</a>
+          </div>
+        </div>
+        <a href="#contact-section">Contact</a>
+        <a href="#testimonials">Testimonials</a>
+      </div>
+      <div class="aha-nav-actions">
+        <div class="aha-cta">
+          <a class="aha-btn" href="tel:08170017201">Call Now</a>
+          <a class="aha-btn primary" href="https://wa.me/6285730908894?text=Hello%20AHA%20Trans%20Bali%2C%20I%20want%20to%20book%20a%20ride." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <button class="aha-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="ahaMobileMenu">
+          <span class="aha-burger-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="aha-mobile" id="ahaMobileMenu" aria-hidden="true">
+      <div class="aha-mobile-backdrop" data-close="1"></div>
+      <div class="aha-mobile-panel">
+        <div class="aha-mobile-head">
+          <div class="aha-mobile-title">Menu</div>
+          <button class="aha-mobile-close" type="button" data-close="1" aria-label="Close menu">✕</button>
+        </div>
+        <div class="aha-mobile-links">
+          <a href="#about">About</a>
+          <a href="#why-choose">Why Choose</a>
+          <a href="#airport-transfer">Airport Transfer</a>
+          <button class="aha-mobile-toggle" type="button" data-submenu="services" aria-expanded="false">
+            Services <span>+</span>
+          </button>
+          <div class="aha-mobile-sub" id="ahaMobileServices">
+            <a href="#multi-day-packages">Multi Days</a>
+            <a href="#nusa-penida">Nusa Penida</a>
+            <a href="#packages">Fun Activity</a>
+          </div>
+          <a href="#contact-section">Contact</a>
+          <a href="#testimonials">Testimonials</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="aha-content">
+      <div>
+        <div class="aha-kicker">Bali Tour &amp; Transport Experts</div>
+        <h1 class="aha-title">Tour Bali in Comfort, With Private Transport You Can Trust.</h1>
+        <p class="aha-subtitle">
+          <span class="aha-sub-full">Private transport and custom tour services with a friendly local team. From airport pickup to full‑day trips, we keep schedules smooth, prices clear, and routes tailored to your plan.</span>
+          <span class="aha-sub-short">Private transport and custom tours with clear pricing and smooth schedules.</span>
+        </p>
+        <div class="aha-actions">
+          <a class="aha-btn primary" href="https://wa.me/6285730908894?text=Hello%20AHA%20Trans%20Bali%2C%20I%20want%20to%20book%20a%20ride." target="_blank" rel="noopener">Book a Ride</a>
+          <a class="aha-btn" href="mailto:ahatrans34@gmail.com">Email Us</a>
+        </div>
+      </div>
+
+      <div class="aha-card" id="contact">
+        <h3>Quick Contact</h3>
+        <ul>
+          <li><span>WhatsApp:</span> +62 857 3090 8894</li>
+          <li><span>Phone:</span> 0817 0017 201</li>
+          <li><span>Email:</span> ahatrans34@gmail.com</li>
+          <li><span>Location:</span> Tukad Baru GG Mertangga No. 10</li>
+          <li><span>Service:</span> Tour & Transport, Airport Transfer, Private Driver</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="aha-slide-indicator" aria-label="Background slide indicator">
+      <span class="aha-dot active"></span>
+      <span class="aha-dot"></span>
+      <span class="aha-dot"></span>
+      <span class="aha-dot"></span>
+    </div>
+  </header>
+
+  <section class="aha-section" id="about">
+    <h2 class="aha-section-title">About AHA Trans Bali</h2>
+    <p class="aha-section-sub">
+      We are a local Bali team focused on tour services and private transport across the island.
+    </p>
+    <div class="aha-about-grid">
+      <div class="aha-about-copy">
+        <h3>Local Drivers, Trusted Tour &amp; Transport</h3>
+        <p>
+          AHA Trans Bali provides private transport, custom tours, and full‑day travel support for
+          visitors who want a reliable, comfortable way to explore. From airport pickup to island
+          tours, we handle timing, routes, and logistics with clean vehicles and friendly local drivers.
+        </p>
+      </div>
+      <div class="aha-about-slider" aria-label="About image slider">
+        <div class="aha-about-slide active" style="background-image:url('https://international.unud.ac.id/protected/storage/file_summernote/4a0885ebc3c02b217cbf6c079eca6b37.jpg')"></div>
+        <div class="aha-about-slide" style="background-image:url('https://girlsbeyond.com/girlsbeyond/_next/image?url=https%3A%2F%2Fgirlsbeyond.com%2Fwp-content%2Fuploads%2F2024%2F12%2Fpexels-triew0814-29377726.jpg&w=3840&q=80')"></div>
+        <div class="aha-about-slide" style="background-image:url('https://limakaki.com/wp-content/uploads/2017/04/pura-besakih-pedomanwisata.jpg')"></div>
+        <div class="aha-about-slide" style="background-image:url('https://www.rentalmobilbali.net/wp-content/uploads/2012/11/Harga-Tiket-Masuk-Wisata-Di-Bali-Twitter.jpg')"></div>
+        <div class="aha-about-overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aha-section" id="why-choose">
+    <h2 class="aha-section-title">Why Choose AHA Trans Bali</h2>
+    <p class="aha-section-sub">
+      Tour & transport service that feels easy from the first message to the final drop‑off.
+    </p>
+    <div class="aha-swipe-hint">Swipe to explore →</div>
+    <div class="aha-why-grid">
+      <div class="aha-why-card">
+        <h4>On‑Time Tour & Transfer</h4>
+        <p>We prioritize punctual pick‑ups and live coordination for stress‑free travel.</p>
+      </div>
+      <div class="aha-why-card">
+        <h4>Comfortable Transport</h4>
+        <p>Clean, well‑maintained vehicles and flexible routes for every tour.</p>
+      </div>
+      <div class="aha-why-card">
+        <h4>Clear Tour Pricing</h4>
+        <p>Upfront rates with no surprises, whether for a transfer or full‑day tour.</p>
+      </div>
+      <div class="aha-why-card">
+        <h4>Local Tour Experts</h4>
+        <p>Friendly drivers who know Bali’s best routes and timing for each destination.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="aha-section" id="airport-transfer">
+    <h2 class="aha-section-title">Vehicle Options for Your Needs</h2>
+    <p class="aha-section-sub">
+      Choose the best vehicle for airport transfers or daily tours. Comfortable, private, and always on time.
+    </p>
+    <div class="aha-transfer-grid">
+      <div class="aha-transfer-card">
+        <div class="aha-transfer-media">
+          <img id="ahaVehicleImage" src="https://d1g6w7sntckt92.cloudfront.net/public/images/color_option_images/3JloGadsmWh5OPk36rQe3VxbJXbKbO9SinbBAuL1.png" alt="Vehicle option" loading="lazy">
+        </div>
+        <div class="aha-transfer-body">
+          <h4>Vehicle Options (Airport + Daily Tour)</h4>
+          <p class="aha-transfer-desc">
+            Pick the best vehicle for your group and use it for airport transfer or daily tours.
+          </p>
+          <div class="aha-transfer-select">
+            <label>Select vehicle</label>
+            <div class="aha-vehicle-grid" id="ahaVehicleGrid">
+              <button class="aha-vehicle-card is-active" type="button" data-name="New Avanza" data-seater="6 Seater" data-transfer="150000" data-daily="600000" data-image="https://d1g6w7sntckt92.cloudfront.net/public/images/color_option_images/3JloGadsmWh5OPk36rQe3VxbJXbKbO9SinbBAuL1.png">
+                <img src="https://d1g6w7sntckt92.cloudfront.net/public/images/color_option_images/3JloGadsmWh5OPk36rQe3VxbJXbKbO9SinbBAuL1.png" alt="New Avanza">
+                <div class="aha-vehicle-title">New Avanza</div>
+                <div class="aha-vehicle-meta">6 Seater</div>
+              </button>
+              <button class="aha-vehicle-card" type="button" data-name="Innova Reborn" data-seater="7 Seater" data-transfer="300000" data-daily="1000000" data-image="https://res.cloudinary.com/mufautoshow/image/upload/f_auto,f_auto/w_1200/v1608086374/moas/news/1604391565_toyota-innova-reborn-ini-dia-spesifikasi-dan-fitur-barunya.jpg">
+                <img src="https://res.cloudinary.com/mufautoshow/image/upload/f_auto,f_auto/w_1200/v1608086374/moas/news/1604391565_toyota-innova-reborn-ini-dia-spesifikasi-dan-fitur-barunya.jpg" alt="Innova Reborn">
+                <div class="aha-vehicle-title">Innova Reborn</div>
+                <div class="aha-vehicle-meta">7 Seater</div>
+              </button>
+              <button class="aha-vehicle-card" type="button" data-name="Hiace Commuter" data-seater="15 Seater" data-transfer="600000" data-daily="1200000" data-image="https://d1g6w7sntckt92.cloudfront.net/public/images/car_gallery_images/NyAkRE6YcSKvUKH7M8i8PCVoQ4uuqkBFpaG4Piy2.jpg">
+                <img src="https://d1g6w7sntckt92.cloudfront.net/public/images/car_gallery_images/NyAkRE6YcSKvUKH7M8i8PCVoQ4uuqkBFpaG4Piy2.jpg" alt="Hiace Commuter">
+                <div class="aha-vehicle-title">Hiace Commuter</div>
+                <div class="aha-vehicle-meta">15 Seater</div>
+              </button>
+              <button class="aha-vehicle-card" type="button" data-name="Elf" data-seater="17 Seater" data-transfer="700000" data-daily="1400000" data-image="https://solidtransmalang.com/wp-content/uploads/2018/02/Isuzu-Elf-Long.png">
+                <img src="https://solidtransmalang.com/wp-content/uploads/2018/02/Isuzu-Elf-Long.png" alt="Elf">
+                <div class="aha-vehicle-title">Elf</div>
+                <div class="aha-vehicle-meta">17 Seater</div>
+              </button>
+            </div>
+          </div>
+          <div class="aha-transfer-price">
+            <div>
+              <span>Airport Transfer (in/out) start from</span>
+              <b id="ahaVehicleAirportPrice">IDR 150.000</b>
+            </div>
+            <div>
+              <span>Daily Tour start from</span>
+              <b id="ahaVehicleDailyPrice">IDR 600.000</b>
+            </div>
+          </div>
+          <div class="aha-transfer-note">Final price depends on destination, route, and availability.</div>
+          <div class="aha-transfer-actions">
+            <button class="aha-btn primary" type="button" id="ahaVehicleBook">Book via WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aha-section aha-activity" id="daily-tour">
+    <h2 class="aha-section-title">Daily Tour Packages</h2>
+    <p class="aha-section-sub">
+      Private daily tours with flexible routes, trusted drivers, and pay-on-the-day options.
+    </p>
+    <div class="aha-activity-wrap">
+      <div class="aha-activity-track">
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://www.indonesia.travel/link/a2502e7c13a743e28696d78c3bd659fa.aspx" alt="Batuan Temple in Ubud" loading="lazy">
+            <div class="aha-activity-price">Daily Tour<span>Pay on the day</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Culture Route</p>
+            <h3>Ubud Tour A</h3>
+            <ul class="aha-activity-list">
+              <li>Batuan Temple</li>
+              <li>Barong Dance</li>
+              <li>Batik Making</li>
+              <li>Silver Craft</li>
+              <li>Wood Carving</li>
+              <li>Balinese Painting Art</li>
+              <li>ATV Quad Bike</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li><b>Include:</b> private car + driver</li>
+                <li>Mineral water</li>
+                <li>Parking fee</li>
+                <li>Petrol</li>
+                <li><b>Add options:</b> Tegenungan Waterfall</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="Ubud Tour A - Pay on the day" data-price="0" data-unit="car" data-min="1" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://www.agoda.com/wp-content/uploads/2024/09/Featured-image-Tirtha-Empul-temple-in-Tampak-Bali-Indonesia.jpg" alt="Tirta Empul temple in Tampak Siring" loading="lazy">
+            <div class="aha-activity-price">Daily Tour<span>Pay on the day</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Ubud Route</p>
+            <h3>Ubud Tour B</h3>
+            <ul class="aha-activity-list">
+              <li>Tirta Empul Temple</li>
+              <li>Elephant Cave Temple</li>
+              <li>White River Tubing</li>
+              <li>Kanto Lampo Waterfall</li>
+              <li>Balinese Vintage House</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li><b>Include:</b> private car + driver</li>
+                <li>Mineral water</li>
+                <li>Parking fee</li>
+                <li>Petrol</li>
+                <li><b>Add options:</b> ATV quad bike</li>
+                <li>Gunung Kawi Temple</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="Ubud Tour B - Pay on the day" data-price="0" data-unit="car" data-min="1" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://www.baligoldentour.com/images/bali-interest-place/kintamani-village-view-volcano-bali-golden-tour.jpg" alt="Kintamani village view of Mount Batur" loading="lazy">
+            <div class="aha-activity-price">Daily Tour<span>Pay on the day</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Kintamani Route</p>
+            <h3>Kintamani Tour</h3>
+            <ul class="aha-activity-list">
+              <li>Kintamani View Point</li>
+              <li>Instagram Spot Cafe</li>
+              <li>Jati Temple Kintamani</li>
+              <li>Toya Devasya Natural Hot Spring</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li><b>Include:</b> private car + driver</li>
+                <li>Mineral water</li>
+                <li>Parking fee</li>
+                <li>Petrol</li>
+                <li><b>Add options:</b> Day Jeep Mount Batur</li>
+                <li>Penglipuran Village</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="Kintamani Tour - Pay on the day" data-price="0" data-unit="car" data-min="1" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3MlEKBuCsHxJIvV70E8JzV39GrLVMnbSxeg&s" alt="Handara gate tour package" loading="lazy">
+            <div class="aha-activity-price">Daily Tour<span>Pay on the day</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">North Bali</p>
+            <h3>Tanah Lot Temple + Handara Gate</h3>
+            <ul class="aha-activity-list">
+              <li>Hotel transfer by private car</li>
+              <li>Handara Gate</li>
+              <li>Ulun Danu Temple</li>
+              <li>Leke-leke Waterfall</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Tanah Lot Temple</li>
+                <li>Mineral water</li>
+                <li>Free parking &amp; toll road</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="Tanah Lot Temple + Handara Gate - Pay on the day" data-price="0" data-unit="car" data-min="1" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://cdn.forevervacation.com/uploads/attraction/lempuyang-temple-2263.jpeg" alt="Lempuyang Temple heaven gate" loading="lazy">
+            <div class="aha-activity-price">Daily Tour<span>Pay on the day</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">East Bali</p>
+            <h3>Lempuyang Temple Heaven Gate</h3>
+            <ul class="aha-activity-list">
+              <li>Hotel transfer by private car</li>
+              <li>Lempuyang Temple</li>
+              <li>Tirta Gangga or Water Palace</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Mineral water</li>
+                <li>Parking fee &amp; toll road</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="Lempuyang Temple Heaven Gate - Pay on the day" data-price="0" data-unit="car" data-min="1" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://wisatabaliku.com/wp-content/uploads/2024/08/Harga-Watersport-Tanjung-Benoa-Wisatawan-Lokal.jpg" alt="Nusa Dua tour watersport and Uluwatu" loading="lazy">
+            <div class="aha-activity-price">Only 600K / car<span>Duration 10 hours</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Explore Bali Fun Activity</p>
+            <h3>Nusa Dua Tour</h3>
+            <ul class="aha-activity-list">
+              <li>Watersport at Tanjung Benoa</li>
+              <li>Jet ski</li>
+              <li>Parasailing adventure</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Banana boat</li>
+                <li>GWK</li>
+                <li>Uluwatu Temple</li>
+                <li>Kecak dance fire</li>
+                <li>Jimbaran by seafood for dinner</li>
+                <li>Private car driver + guide</li>
+                <li>Patrol</li>
+                <li>Mineral water</li>
+                <li>Fee parking and toll road</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="Nusa Dua Tour" data-price="600000" data-unit="car" data-min="1" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="aha-section aha-activity" id="multi-day-packages">
+    <h2 class="aha-section-title">Multi‑Day Bali Tour Packages</h2>
+    <p class="aha-section-sub">
+      Complete 3–5 day itineraries with hotel, transport, and daily tours included. All prices are per pax.
+    </p>
+    <div class="aha-activity-wrap">
+      <div class="aha-activity-track">
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://industry.twic.pics/uploads/berita/detail/1857.jpg" alt="Bali multi-day 3D2N tour package" loading="lazy">
+            <div class="aha-activity-price">3D/2N — 250 USD / pax<span>Hotel 3★ included</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">3 Days • 2 Nights</p>
+            <h3>3D2N Highlights Package</h3>
+            <ul class="aha-activity-list">
+              <li><b>Day 1:</b> Nusa Dua Trip</li>
+              <li><b>Day 2:</b> Ubud Tour</li>
+              <li><b>Day 3:</b> Nusa Penida Island</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Included: private car during stay, airport pickup &amp; transfer, 3★ hotel with breakfast, daily trips, entrance tickets.</li>
+                <li>Not included: lunch/dinner, personal expenses. Day 1 free banana boat per pax.</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail-target="ahaDetail3d2n">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="3D2N Highlights Package" data-price="250" data-currency="USD" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://www.onayaresorts.com/wp-content/cache/seraphinite-accelerator/s/m/d/img/73ad953201ee5f87e570cf00fc6076a1.10bd4.webp" alt="Bali multi-day 4D3N tour package" loading="lazy">
+            <div class="aha-activity-price">4D/3N — 300 USD / pax<span>Hotel 3★ included</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">4 Days • 3 Nights</p>
+            <h3>4D3N Complete Island Tour</h3>
+            <ul class="aha-activity-list">
+              <li><b>Day 1:</b> Nusa Dua Trip</li>
+              <li><b>Day 2:</b> Ubud Tour</li>
+              <li><b>Day 3:</b> Nusa Penida Island</li>
+              <li><b>Day 4:</b> Tanah Lot Tour</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Included: private car during stay, airport pickup &amp; transfer, 3★ hotel with breakfast, daily trips, entrance tickets.</li>
+                <li>Not included: lunch/dinner, personal expenses. Day 1 free banana boat per pax.</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail-target="ahaDetail4d3n">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="4D3N Complete Island Tour" data-price="300" data-currency="USD" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://www.discoverykartikaplaza.com/wp-content/uploads/2022/08/DSC01349-scaled.jpg" alt="Bali multi-day 5D4N tour package" loading="lazy">
+            <div class="aha-activity-price">5D/4N — 400 USD / pax<span>Hotel 3★ included</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">5 Days • 4 Nights</p>
+            <h3>5D4N Grand Bali Journey</h3>
+            <ul class="aha-activity-list">
+              <li><b>Day 1:</b> Nusa Dua Trip</li>
+              <li><b>Day 2:</b> Ubud Tour</li>
+              <li><b>Day 3:</b> Nusa Penida Island</li>
+              <li><b>Day 4:</b> Tanah Lot Tour</li>
+              <li><b>Day 5:</b> Kintamani Tour</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Included: private car during stay, airport pickup &amp; transfer, 3★ hotel with breakfast, daily trips, entrance tickets.</li>
+                <li>Not included: lunch/dinner, personal expenses. Day 1 free banana boat per pax.</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail-target="ahaDetail5d4n">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="5D4N Grand Bali Journey" data-price="400" data-currency="USD" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="aha-modal" id="ahaDetailModal" aria-hidden="true">
+    <div class="aha-modal-backdrop" data-close="1"></div>
+    <div class="aha-modal-panel" role="dialog" aria-modal="true" aria-label="Package details">
+      <div class="aha-modal-head">
+        <b id="ahaDetailTitle">Package Details</b>
+        <button class="aha-modal-close" type="button" data-close="1" aria-label="Close">✕</button>
+      </div>
+      <div class="aha-modal-body">
+        <div id="ahaDetailBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <template id="ahaDetail3d2n">
+    <div class="aha-detail-slider" aria-label="Package gallery">
+      <div class="aha-detail-slide active" style="background-image:url('https://industry.twic.pics/uploads/berita/detail/1857.jpg')"></div>
+      <div class="aha-detail-slide" style="background-image:url('https://www.onayaresorts.com/wp-content/cache/seraphinite-accelerator/s/m/d/img/73ad953201ee5f87e570cf00fc6076a1.10bd4.webp')"></div>
+      <div class="aha-detail-slide" style="background-image:url('https://www.discoverykartikaplaza.com/wp-content/uploads/2022/08/DSC01349-scaled.jpg')"></div>
+      <div class="aha-detail-slide" style="background-image:url('https://indonesiajuara.asia/wp-content/uploads/2024/03/Broken-Beach-Nusa-Penida_NEW.webp')"></div>
+      <div class="aha-detail-slide" style="background-image:url('https://thebalisun.com/wp-content/uploads/2025/08/Balis-Powerful-Tegenungan-Waterfall-Leaves-Tourists-Awe-Inspired-By-Nature-On-Vacation-.jpg')"></div>
+    </div>
+    <ul class="aha-activity-list">
+      <li><b>Day 1 • Nusa Dua Trip</b></li>
+      <li>Tanjung Benoa Watersport - Thrilling water sports and fun rides.</li>
+      <li>Padang-Padang Beach - Hidden cove beach between cliffs.</li>
+      <li>Uluwatu Temple - Cliffside temple with sunset views.</li>
+      <li>Melasti Beach - White sand and crystal water for photos.</li>
+      <li>Kecak Fire Dance - Iconic Balinese cultural performance.</li>
+      <li>Jimbaran Seafood Dinner - Fresh seafood on the beach.</li>
+      <li class="aha-bonus">Bonus: Day 1 free banana boat per pax.</li>
+      <li><b>Day 2 • Ubud Tour</b></li>
+      <li>Barong Dance - Traditional Balinese dance show.</li>
+      <li>Batik Process - See how batik is made.</li>
+      <li>Silver &amp; Goldsmith - Local silver and gold crafts.</li>
+      <li>Wood Carving - Classic Balinese wood art.</li>
+      <li>Painting Village - Local art galleries and studios.</li>
+      <li>Coffee Luwak Plantation - Coffee and tea tasting.</li>
+      <li>Batuan Temple - Historic Balinese temple architecture.</li>
+      <li>Tegenungan Waterfall - Refreshing jungle waterfall.</li>
+      <li>Ubud Market - Souvenirs and handmade crafts.</li>
+      <li>Ubud Palace - Traditional palace complex.</li>
+      <li><b>Day 3 • Nusa Penida</b></li>
+      <li>Broken Beach - Dramatic circular cliff coastline.</li>
+      <li>Angel Billabong - Natural infinity pool by the cliffs.</li>
+      <li>Kelingking Beach - Iconic T-Rex cliff viewpoint.</li>
+      <li>Crystal Beach - Clear water for relaxing.</li>
+      <li><b>Included:</b> private car during stay, airport pickup &amp; transfer, 3★ hotel with breakfast, daily trips, entrance tickets.</li>
+      <li><b>Not included:</b> lunch/dinner, personal expenses.</li>
+    </ul>
+  </template>
+
+  <template id="ahaDetail4d3n">
+    <div class="aha-detail-slider" aria-label="Package gallery">
+      <div class="aha-detail-slide active" style="background-image:url('https://industry.twic.pics/uploads/berita/detail/1857.jpg')"></div>
+      <div class="aha-detail-slide" style="background-image:url('https://www.onayaresorts.com/wp-content/cache/seraphinite-accelerator/s/m/d/img/73ad953201ee5f87e570cf00fc6076a1.10bd4.webp')"></div>
+      <div class="aha-detail-slide" style="background-image:url('https://www.discoverykartikaplaza.com/wp-content/uploads/2022/08/DSC01349-scaled.jpg')"></div>
+      <div class="aha-detail-slide" style="background-image:url('https://indonesiajuara.asia/wp-content/uploads/2024/03/Broken-Beach-Nusa-Penida_NEW.webp')"></div>
+      <div class="aha-detail-slide" style="background-image:url('https://thebalisun.com/wp-content/uploads/2025/08/Balis-Powerful-Tegenungan-Waterfall-Leaves-Tourists-Awe-Inspired-By-Nature-On-Vacation-.jpg')"></div>
+    </div>
+    <ul class="aha-activity-list">
+      <li><b>Day 1 • Nusa Dua Trip</b></li>
+      <li>Tanjung Benoa Watersport - Safe and exciting water activities.</li>
+      <li>Padang-Padang Beach - Beautiful hidden beach spot.</li>
+      <li>Uluwatu Temple - Dramatic clifftop sunset views.</li>
+      <li>Melasti Beach - Clean beach with blue water.</li>
+      <li>Kecak Fire Dance - Evening cultural performance.</li>
+      <li>Jimbaran Seafood Dinner - Fresh seafood by the beach.</li>
+      <li class="aha-bonus">Bonus: Day 1 free banana boat per pax.</li>
+      <li><b>Day 2 • Ubud Tour</b></li>
+      <li>Barong Dance - Traditional Balinese story dance.</li>
+      <li>Batik Process - Learn the batik-making process.</li>
+      <li>Silver &amp; Goldsmith - Watch local artisans at work.</li>
+      <li>Wood Carving - Classic Balinese woodcraft.</li>
+      <li>Painting Village - Local art and galleries.</li>
+      <li>Coffee Luwak Plantation - Coffee tasting experience.</li>
+      <li>Batuan Temple - Unique ancient Balinese temple.</li>
+      <li>Tegenungan Waterfall - Refreshing waterfall photo stop.</li>
+      <li>Ubud Market - Souvenirs and local crafts.</li>
+      <li>Ubud Palace - Historic royal complex.</li>
+      <li><b>Day 3 • Nusa Penida</b></li>
+      <li>Broken Beach - Cliff ring with ocean views.</li>
+      <li>Angel Billabong - Natural pool by the cliffs.</li>
+      <li>Kelingking Beach - Iconic Nusa Penida viewpoint.</li>
+      <li>Crystal Beach - Calm and clear waters.</li>
+      <li><b>Day 4 • Tanah Lot Tour</b></li>
+      <li>Handara Gate - Famous photo gate.</li>
+      <li>Ulun Danu Bratan Temple - Lakeside temple setting.</li>
+      <li>Taman Ayun Temple - Temple complex with gardens.</li>
+      <li>Tanah Lot - Sea temple at sunset.</li>
+      <li><b>Included:</b> private car during stay, airport pickup &amp; transfer, 3★ hotel with breakfast, daily trips, entrance tickets.</li>
+      <li><b>Not included:</b> lunch/dinner, personal expenses.</li>
+    </ul>
+  </template>
+
+  <template id="ahaDetail5d4n">
+    <div class="aha-detail-slider" aria-label="Package gallery">
+      <div class="aha-detail-slide active" style="background-image:url('https://industry.twic.pics/uploads/berita/detail/1857.jpg')"></div>
+      <div class="aha-detail-slide" style="background-image:url('https://www.onayaresorts.com/wp-content/cache/seraphinite-accelerator/s/m/d/img/73ad953201ee5f87e570cf00fc6076a1.10bd4.webp')"></div>
+      <div class="aha-detail-slide" style="background-image:url('https://www.discoverykartikaplaza.com/wp-content/uploads/2022/08/DSC01349-scaled.jpg')"></div>
+      <div class="aha-detail-slide" style="background-image:url('https://indonesiajuara.asia/wp-content/uploads/2024/03/Broken-Beach-Nusa-Penida_NEW.webp')"></div>
+      <div class="aha-detail-slide" style="background-image:url('https://thebalisun.com/wp-content/uploads/2025/08/Balis-Powerful-Tegenungan-Waterfall-Leaves-Tourists-Awe-Inspired-By-Nature-On-Vacation-.jpg')"></div>
+    </div>
+    <ul class="aha-activity-list">
+      <li><b>Day 1 • Nusa Dua Trip</b></li>
+      <li>Tanjung Benoa Watersport - Jet ski, parasailing, and more.</li>
+      <li>Padang-Padang Beach - Small beach with beautiful cliffs.</li>
+      <li>Uluwatu Temple - Cliff temple with ocean views.</li>
+      <li>Melasti Beach - White sand and blue water.</li>
+      <li>Kecak Fire Dance - Balinese cultural performance.</li>
+      <li>Jimbaran Seafood Dinner - Beachside dinner experience.</li>
+      <li class="aha-bonus">Bonus: Day 1 free banana boat per pax.</li>
+      <li><b>Day 2 • Ubud Tour</b></li>
+      <li>Barong Dance - Traditional Balinese dance.</li>
+      <li>Batik Process - See how batik is made.</li>
+      <li>Silver &amp; Goldsmith - Local artisan crafts.</li>
+      <li>Wood Carving - Balinese wood carving art.</li>
+      <li>Painting Village - Local art and painting studios.</li>
+      <li>Coffee Luwak Plantation - Coffee tasting stop.</li>
+      <li>Batuan Temple - Classic Balinese temple.</li>
+      <li>Tegenungan Waterfall - Fresh waterfall photo spot.</li>
+      <li>Ubud Market - Handmade crafts and souvenirs.</li>
+      <li>Ubud Palace - Historic palace site.</li>
+      <li><b>Day 3 • Nusa Penida</b></li>
+      <li>Broken Beach - Circular cliff cove.</li>
+      <li>Angel Billabong - Natural rock pool.</li>
+      <li>Kelingking Beach - Iconic T‑Rex cliff view.</li>
+      <li>Crystal Beach - Clear, calm beach.</li>
+      <li><b>Day 4 • Tanah Lot Tour</b></li>
+      <li>Handara Gate - Popular photo gate.</li>
+      <li>Ulun Danu Bratan Temple - Scenic lake temple.</li>
+      <li>Taman Ayun Temple - Temple with gardens.</li>
+      <li>Tanah Lot - Sunset sea temple.</li>
+      <li><b>Day 5 • Kintamani Tour</b></li>
+      <li>Mount Batur View - Mountain and lake panorama.</li>
+      <li>Panglipuran Village - Neat traditional village.</li>
+      <li>Tirta Empul Holy Spring - Sacred water temple.</li>
+      <li>Tegalalang Rice Terrace - Iconic rice terraces.</li>
+      <li>Bali Swing - Swing with rice field view.</li>
+      <li><b>Included:</b> private car during stay, airport pickup &amp; transfer, 3★ hotel with breakfast, daily trips, entrance tickets.</li>
+      <li><b>Not included:</b> lunch/dinner, personal expenses.</li>
+    </ul>
+  </template>
+
+  <section class="aha-section aha-activity" id="nusa-penida">
+    <h2 class="aha-section-title">Nusa Penida Trip</h2>
+    <p class="aha-section-sub">
+      Explore the best of Nusa Penida with curated East, West, and Mix trips. All prices are per pax (min 2 people).
+    </p>
+    <div class="aha-activity-wrap">
+      <div class="aha-activity-track" id="ahaPenidaTrack">
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://shewandersabroad.com/wp-content/uploads/2019/05/Rumah-Pohon-Tree-House-Nusa-Penida-1.jpg" alt="Manta snorkeling in Nusa Penida" loading="lazy">
+            <div class="aha-activity-price">Only 1.200K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">East Trip + Snorkeling</p>
+            <h3>East Nusa Penida With Snorkeling Manta</h3>
+            <ul class="aha-activity-list">
+              <li>Three House</li>
+              <li>Diamond Beach</li>
+              <li>Manta Bay Snorkeling</li>
+              <li>Crystal Bay Snorkeling</li>
+              <li>Gamat Bay Snorkeling</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Hotel transfer by private car</li>
+                <li>Ticket return fastboat</li>
+                <li>All entrance fee + parking</li>
+                <li>Lunch + mineral water</li>
+                <li>Private car + driver + guide + patrol at Nusa Penida</li>
+                <li>Retribution fee Nusa Penida etc</li>
+                <li>All equipment for snorkeling</li>
+                <li>Boat + captain + snorkeling guide</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="East Nusa Penida With Snorkeling Manta" data-price="1200000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://ctdots.eu/wp-content/uploads/2022/09/thousand-island-viewpoint-east-nusa-penida-bali-1-1.jpg" alt="Nusa Penida East trip island views" loading="lazy">
+            <div class="aha-activity-price">Only 800K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">East Trip Island</p>
+            <h3>Nusa Penida East</h3>
+            <ul class="aha-activity-list">
+              <li>Three House</li>
+              <li>Diamond Beach</li>
+              <li>Thousand Island</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Teletabies Hill</li>
+                <li>Hotel transfer by private car</li>
+                <li>Ticket return fastboat</li>
+                <li>All entrance fee + parking</li>
+                <li>Lunch + mineral water</li>
+                <li>Private car + driver + guide + patrol at Nusa Penida</li>
+                <li>Retribution fee Nusa Penida etc</li>
+                <li>Insurance fastboat</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="Nusa Penida East Trip" data-price="800000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbwy7kaAyhtXQ7KE18Z4fxjUtpzF_cftRadg&s" alt="Nusa Penida mix trip west and east" loading="lazy">
+            <div class="aha-activity-price">Only 900K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Mix Trip West &amp; East</p>
+            <h3>Nusa Penida West &amp; East</h3>
+            <ul class="aha-activity-list">
+              <li>Three House</li>
+              <li>Diamond Beach</li>
+              <li>Kelingking Beach</li>
+              <li>Broken Beach</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Broken Beach</li>
+                <li>Angel Billabong</li>
+                <li>Hotel transfer by private car</li>
+                <li>Ticket return fastboat</li>
+                <li>All entrance fee + parking</li>
+                <li>Lunch + mineral water</li>
+                <li>Private car + driver + guide + patrol at Nusa Penida</li>
+                <li>Retribution fee Nusa Penida etc</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="Nusa Penida Mix Trip West &amp; East" data-price="900000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://bukatravel.id/wp-content/uploads/2025/07/Nusa-Penida-West-2-1.jpg" alt="Nusa Penida west trip island scenery" loading="lazy">
+            <div class="aha-activity-price">Only 800K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">West Trip Island</p>
+            <h3>Nusa Penida West</h3>
+            <ul class="aha-activity-list">
+              <li>Kelingking Beach</li>
+              <li>Angel Billabong Beach</li>
+              <li>Broken Beach</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Crystal Bay</li>
+                <li>Hotel transfer by private car</li>
+                <li>Ticket return fastboat</li>
+                <li>All entrance fee + parking</li>
+                <li>Lunch + mineral water</li>
+                <li>Private car + driver + guide + patrol at Nusa Penida</li>
+                <li>Retribution fee Nusa Penida etc</li>
+                <li>Insurance fastboat</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="Nusa Penida West Trip" data-price="800000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="aha-activity-dots" id="ahaPenidaDots" aria-hidden="true">
+        <span class="aha-activity-dot active"></span>
+        <span class="aha-activity-dot"></span>
+        <span class="aha-activity-dot"></span>
+        <span class="aha-activity-dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="aha-section aha-activity" id="packages">
+    <h2 class="aha-section-title">Fun Tour Activity</h2>
+    <p class="aha-section-sub">
+      Choose your favorite adventure package and book directly via WhatsApp. All prices are per pax (min 2 people).
+    </p>
+    <div class="aha-activity-wrap">
+      <div class="aha-activity-track" id="ahaActivityTrack">
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/e8/35/e3/mount-batur-bali-trekking.jpg?w=700&h=500&s=1" alt="Mount Batur sunrise trekking" loading="lazy">
+            <div class="aha-activity-price">Start 600K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Sunrise Trekking</p>
+            <h3>Mount Batur Kintamani</h3>
+            <ul class="aha-activity-list">
+              <li>Bonfire at Base Camp</li>
+              <li>Coffee/Tea & banana pancake</li>
+              <li>Kintamani entrance ticket</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Breakfast & mineral water</li>
+                <li>Shuttle to Mount Batur</li>
+                <li>Guide, walking stick, flashlight</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="Mount Batur Kintamani Sunrise Trekking" data-price="600000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2023/10/27/502d30dc-2f8c-4c6b-ac84-fb2c4a29c35c-1698400091408-0613e215c9106d37ab87032e92b1a8e1.png" alt="ATV ride and rafting adventure" loading="lazy">
+            <div class="aha-activity-price">Only 1200K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Adventure All Included</p>
+            <h3>ATV Kuber Ride + Rafting</h3>
+            <ul class="aha-activity-list">
+              <li>ATV quad bike adventure</li>
+              <li>Water rafting</li>
+              <li>Free visit coffee plantation</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Pickup return hotel by private car</li>
+                <li>Lunch, equipment ATV + rafting</li>
+                <li>Locker, hand towel, insurance</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="ATV Kuber Ride + Rafting" data-price="1200000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/12/04/37/f0.jpg" alt="ATV quad bike, rafting, and infinity pool package" loading="lazy">
+            <div class="aha-activity-price">Only 1200K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Adventure All Included</p>
+            <h3>ATV Quad Bike + Rafting &amp; Infinity Pool</h3>
+            <ul class="aha-activity-list">
+              <li>ATV quad bike adventure</li>
+              <li>Water rafting</li>
+              <li>Infinity pool access</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Pickup and drop by private car</li>
+                <li>Lunch</li>
+                <li>All equipment, hand towel, locker, insurance</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="ATV Quad Bike + Rafting &amp; Infinity Pool" data-price="1200000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/12/04/37/f5.jpg" alt="ATV quad bike and water rafting package" loading="lazy">
+            <div class="aha-activity-price">Only 990K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Adventure All Included</p>
+            <h3>ATV Quad Bike &amp; Water Rafting</h3>
+            <ul class="aha-activity-list">
+              <li>ATV quad bike adventure</li>
+              <li>Water rafting</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Pickup and drop by private car</li>
+                <li>Lunch</li>
+                <li>All equipment, hand towel, locker, insurance</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="ATV Quad Bike &amp; Water Rafting" data-price="990000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKKBRXVAY61rgHnMEnBL3cmEZN4RHaWm3l9Q&s" alt="ATV kuber ride adventure" loading="lazy">
+            <div class="aha-activity-price">Only 950K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Adventure All Included</p>
+            <h3>ATV Kuber Ride</h3>
+            <ul class="aha-activity-list">
+              <li>ATV quad bike adventure</li>
+              <li>Free visit coffee plantation</li>
+              <li>Pickup return hotel by private car</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Lunch & equipment ATV</li>
+                <li>Locker, hand towel, insurance</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="ATV Kuber Ride" data-price="950000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit1600900gsm/eventThirdParty/2024/03/19/886b46c4-c94b-44dc-91b7-2f11f7e121e3-1710865527124-b4d33848b0d991c7559d7388d0c0aad2.jpg" alt="ATV ride package" loading="lazy">
+            <div class="aha-activity-price">Only 750K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Package All Included</p>
+            <h3>ATV Ride Package</h3>
+            <ul class="aha-activity-list">
+              <li>ATV quad bike adventure</li>
+              <li>Free visit coffee plantation</li>
+              <li>Pickup return hotel by private car</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Lunch & equipment ATV</li>
+                <li>Locker, hand towel, insurance</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="ATV Ride Package" data-price="750000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://cdn-imgix.headout.com/media/images/c27609e16d5c62d4cd15b72c3d657f10-26150-bali-bali-atv-quad-bike-guided-tour-with-lunch-08.jpg?w=1041.6000000000001&h=651&crop=faces&auto=compress%2Cformat&fit=min" alt="ATV quad bike and tubing adventure" loading="lazy">
+            <div class="aha-activity-price">Only 990K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Adventure All Included</p>
+            <h3>ATV Quad Bike &amp; Tubing</h3>
+            <ul class="aha-activity-list">
+              <li>ATV quad bike adventure</li>
+              <li>Water tubing</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Pickup and drop by private car</li>
+                <li>Lunch</li>
+                <li>Equipment ATV &amp; tubing</li>
+                <li>Hand towel and locker</li>
+                <li>Insurance</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="ATV Quad Bike &amp; Tubing" data-price="990000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://everz-digital.site/wp-content/uploads/2025/12/e33d62fa-e7f0-457e-bd33-548652eef0f5.jpeg" alt="UTV buggie and tubing adventure" loading="lazy">
+            <div class="aha-activity-price">Only 1100K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Explore Bali Fun Activity</p>
+            <h3>UTV Buggie + Tubing</h3>
+            <ul class="aha-activity-list">
+              <li>UTV buggie adventure</li>
+              <li>Water rafting</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Pickup return hotel by private car</li>
+                <li>Lunch</li>
+                <li>Equipment ATV</li>
+                <li>Locker and hand towel</li>
+                <li>Insurance</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="UTV Buggie + Tubing" data-price="1100000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://www.baliquadbiking.com/wp-content/uploads/2024/04/Bali-ATV-Quad-Bike-River-Tubing-and-Tlaga-Singha-River-Club.jpg" alt="ATV quad bike and Bali swing package" loading="lazy">
+            <div class="aha-activity-price">Only 800K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Adventure All Included</p>
+            <h3>ATV Quad Bike &amp; Bali Swing</h3>
+            <ul class="aha-activity-list">
+              <li>ATV quad bike adventure</li>
+              <li>Best Bali swing experience</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>All tickets for ATV + Bali swing</li>
+                <li>Pickup and drop by private car</li>
+                <li>Lunch</li>
+                <li>All equipment</li>
+                <li>Hand towel and locker</li>
+                <li>Insurance</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="ATV Quad Bike &amp; Bali Swing" data-price="800000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-media">
+            <img src="https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2022/10/05/c760ccc1-e2b4-4237-bd00-4d82d9272aeb-1664960747080-f1e6cde0d66fbf62e074cd1a9bf0318c.jpg" alt="Jeep sunrise Mount Batur adventure" loading="lazy">
+            <div class="aha-activity-price">Start 600K / pax<span>Min 2 people</span></div>
+          </div>
+          <div class="aha-activity-body">
+            <p class="aha-activity-tag">Jeep Sunrise</p>
+            <h3>Mount Batur Jeep Sunrise</h3>
+            <ul class="aha-activity-list">
+              <li>Jeep adventure</li>
+              <li>Bonfire at Base Camp</li>
+              <li>Coffee, tea, banana pancake</li>
+            </ul>
+            <div class="aha-activity-more">
+              <ul class="aha-activity-list">
+                <li>Kintamani entrance ticket</li>
+                <li>Experience jeep driver</li>
+                <li>Breakfast, mineral water</li>
+              </ul>
+            </div>
+            <div class="aha-activity-actions">
+              <button class="aha-btn secondary aha-activity-detail" type="button" data-detail="1" aria-expanded="false">Details</button>
+              <button class="aha-btn primary aha-package-book" type="button" data-package="Mount Batur Jeep Sunrise" data-price="600000" data-unit="pax" data-min="2" data-wa="6285730908894">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="aha-activity-dots" id="ahaActivityDots" aria-hidden="true">
+        <span class="aha-activity-dot active"></span>
+        <span class="aha-activity-dot"></span>
+        <span class="aha-activity-dot"></span>
+        <span class="aha-activity-dot"></span>
+        <span class="aha-activity-dot"></span>
+        <span class="aha-activity-dot"></span>
+        <span class="aha-activity-dot"></span>
+        <span class="aha-activity-dot"></span>
+        <span class="aha-activity-dot"></span>
+        <span class="aha-activity-dot"></span>
+        <span class="aha-activity-dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="aha-section aha-contact" id="contact-section">
+    <h2 class="aha-section-title">Contact AHA Trans Bali</h2>
+    <p class="aha-section-sub">
+      Reach out for bookings, custom routes, or airport transfers. We respond quickly on WhatsApp.
+    </p>
+    <div class="aha-contact-grid">
+      <div class="aha-contact-card">
+        <h3>Get in touch</h3>
+        <p>We are ready to plan your Bali trip with clear pricing and reliable transport.</p>
+        <ul class="aha-contact-list">
+          <li><span>WhatsApp:</span> +62 857 3090 8894</li>
+          <li><span>Phone:</span> 0817 0017 201</li>
+          <li><span>Email:</span> ahatrans34@gmail.com</li>
+          <li><span>Address:</span> Tukad Baru GG Mertangga No. 10</li>
+        </ul>
+        <div class="aha-contact-actions">
+          <a class="aha-btn primary" href="https://wa.me/6285730908894?text=Hello%20AHA%20Trans%20Bali%2C%20I%20want%20to%20ask%20about%20a%20tour%20package." target="_blank" rel="noopener">Chat on WhatsApp</a>
+          <a class="aha-btn" href="mailto:ahatrans34@gmail.com">Send Email</a>
+        </div>
+      </div>
+      <div class="aha-map" aria-label="AHA Trans Bali location map">
+        <iframe title="AHA Trans Bali map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Tukad%20Baru%20GG%20Mertangga%20No.%2010%2C%20Bali&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="aha-section aha-testimonial" id="testimonials">
+    <h2 class="aha-section-title">Customer Testimonials</h2>
+    <p class="aha-section-sub">
+      Short stories from guests who used our tour and transport services in Bali.
+    </p>
+    <div class="aha-testimonial-wrap">
+      <div class="aha-testimonial-track" id="ahaTestimonialTrack">
+        <article class="aha-testimonial-card">
+          <div class="aha-testimonial-stars">★★★★★</div>
+          <p>Driver was on time, the car was clean, and the tour route was flexible. Super smooth trip.</p>
+          <div class="aha-testimonial-name">Nadia P.</div>
+          <div class="aha-testimonial-meta">Airport transfer + Ubud day tour</div>
+        </article>
+        <article class="aha-testimonial-card">
+          <div class="aha-testimonial-stars">★★★★★</div>
+          <p>Fast WhatsApp response, clear pricing, and friendly crew. Highly recommended.</p>
+          <div class="aha-testimonial-name">Rizky A.</div>
+          <div class="aha-testimonial-meta">Kintamani trip</div>
+        </article>
+        <article class="aha-testimonial-card">
+          <div class="aha-testimonial-stars">★★★★★</div>
+          <p>Comfortable vehicle, the driver knew the best spots and timing. Worth it.</p>
+          <div class="aha-testimonial-name">Dewi S.</div>
+          <div class="aha-testimonial-meta">Nusa Penida tour</div>
+        </article>
+        <article class="aha-testimonial-card">
+          <div class="aha-testimonial-stars">★★★★★</div>
+          <p>Airport pickup was smooth and direct to the hotel with zero hassle.</p>
+          <div class="aha-testimonial-name">Andre K.</div>
+          <div class="aha-testimonial-meta">Airport transfer</div>
+        </article>
+        <article class="aha-testimonial-card">
+          <div class="aha-testimonial-stars">★★★★★</div>
+          <p>Full‑day tour was great, the driver was patient and helped with photos.</p>
+          <div class="aha-testimonial-name">Maya L.</div>
+          <div class="aha-testimonial-meta">Full day tour</div>
+        </article>
+        <article class="aha-testimonial-card">
+          <div class="aha-testimonial-stars">★★★★★</div>
+          <p>Safe transport, clear itinerary, and easy to customize by request.</p>
+          <div class="aha-testimonial-name">Bagas W.</div>
+          <div class="aha-testimonial-meta">Custom tour</div>
+        </article>
+      </div>
+      <div class="aha-testimonial-dots" id="ahaTestimonialDots" aria-hidden="true">
+        <span class="aha-testimonial-dot active"></span>
+        <span class="aha-testimonial-dot"></span>
+        <span class="aha-testimonial-dot"></span>
+        <span class="aha-testimonial-dot"></span>
+        <span class="aha-testimonial-dot"></span>
+        <span class="aha-testimonial-dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="aha-footer" id="footer">
+    <div class="aha-footer-wrap">
+      <div>
+        <h3>AHA Trans Bali</h3>
+        <p>Trusted tour &amp; transport with local drivers, comfortable vehicles, and clear pricing.</p>
+      </div>
+      <ul class="aha-footer-list">
+        <li><span>WhatsApp:</span> +62 857 3090 8894</li>
+        <li><span>Phone:</span> 0817 0017 201</li>
+        <li><span>Email:</span> ahatrans34@gmail.com</li>
+        <li><span>Address:</span> Tukad Baru GG Mertangga No. 10</li>
+      </ul>
+    </div>
+  </footer>
+
+  <div class="aha-modal" id="ahaPackageModal" aria-hidden="true">
+    <div class="aha-modal-backdrop" data-close="1"></div>
+    <div class="aha-modal-panel" role="dialog" aria-modal="true" aria-label="Package booking">
+      <div class="aha-modal-head">
+        <b id="ahaPackageModalTitle">Package Booking</b>
+        <button class="aha-modal-close" type="button" data-close="1" aria-label="Close">✕</button>
+      </div>
+      <div class="aha-modal-body">
+        <form class="aha-form" id="ahaPackageForm">
+          <div class="aha-field" id="ahaPkgNameField">
+            <label for="ahaPkgName">Selected package</label>
+            <input id="ahaPkgName" name="package" type="text" readonly>
+          </div>
+          <div class="aha-field" id="ahaPkgSelectField">
+            <label for="ahaPkgSelect">Select package</label>
+            <select id="ahaPkgSelect" name="package-select">
+              <option value="Ubud Tour A">Ubud Tour A</option>
+              <option value="Ubud Tour B">Ubud Tour B</option>
+              <option value="Kintamani Tour">Kintamani Tour</option>
+              <option value="Tanah Lot Temple + Handara Gate">Tanah Lot Temple + Handara Gate</option>
+              <option value="Lempuyang Temple Heaven Gate">Lempuyang Temple Heaven Gate</option>
+            </select>
+          </div>
+          <div class="aha-field aha-pkg-unit">
+            <label for="ahaPkgPrice">Unit price</label>
+            <input id="ahaPkgPrice" name="unit-price" type="text" readonly>
+          </div>
+          <div class="aha-field" id="ahaPkgVehicleField">
+            <label for="ahaPkgVehicle">Vehicle option</label>
+            <select id="ahaPkgVehicle" name="vehicle">
+              <option value="New Avanza - 6 Seater - IDR 600.000 / 10 Hours">New Avanza - 6 Seater - IDR 600.000 / 10 Hours</option>
+              <option value="Hiace Commuter - 15 Seater - IDR 1.200.000 / 10 Hours">Hiace Commuter - 15 Seater - IDR 1.200.000 / 10 Hours</option>
+              <option value="Innova Reborn - 7 Seater - IDR 1.000.000 / Hours">Innova Reborn - 7 Seater - IDR 1.000.000 / Hours</option>
+              <option value="Elf - 17 Seater - IDR 1.400.000 / Hours">Elf - 17 Seater - IDR 1.400.000 / Hours</option>
+            </select>
+          </div>
+          <div class="aha-field" id="ahaPkgDailyVehicleField">
+            <label>Select vehicle option</label>
+            <div class="aha-vehicle-grid" id="ahaPkgDailyVehicleGrid">
+              <button class="aha-vehicle-card is-active" type="button" data-name="New Avanza" data-seater="6 Seater" data-price="600000" data-image="https://d1g6w7sntckt92.cloudfront.net/public/images/color_option_images/3JloGadsmWh5OPk36rQe3VxbJXbKbO9SinbBAuL1.png">
+                <img src="https://d1g6w7sntckt92.cloudfront.net/public/images/color_option_images/3JloGadsmWh5OPk36rQe3VxbJXbKbO9SinbBAuL1.png" alt="New Avanza">
+                <div class="aha-vehicle-title">New Avanza</div>
+                <div class="aha-vehicle-meta">6 Seater</div>
+                <div class="aha-vehicle-price">IDR 600.000 / 10 hours</div>
+              </button>
+              <button class="aha-vehicle-card" type="button" data-name="Innova Reborn" data-seater="7 Seater" data-price="1000000" data-image="https://res.cloudinary.com/mufautoshow/image/upload/f_auto,f_auto/w_1200/v1608086374/moas/news/1604391565_toyota-innova-reborn-ini-dia-spesifikasi-dan-fitur-barunya.jpg">
+                <img src="https://res.cloudinary.com/mufautoshow/image/upload/f_auto,f_auto/w_1200/v1608086374/moas/news/1604391565_toyota-innova-reborn-ini-dia-spesifikasi-dan-fitur-barunya.jpg" alt="Innova Reborn">
+                <div class="aha-vehicle-title">Innova Reborn</div>
+                <div class="aha-vehicle-meta">7 Seater</div>
+                <div class="aha-vehicle-price">IDR 1.000.000 / 10 hours</div>
+              </button>
+              <button class="aha-vehicle-card" type="button" data-name="Hiace Commuter" data-seater="15 Seater" data-price="1200000" data-image="https://d1g6w7sntckt92.cloudfront.net/public/images/car_gallery_images/NyAkRE6YcSKvUKH7M8i8PCVoQ4uuqkBFpaG4Piy2.jpg">
+                <img src="https://d1g6w7sntckt92.cloudfront.net/public/images/car_gallery_images/NyAkRE6YcSKvUKH7M8i8PCVoQ4uuqkBFpaG4Piy2.jpg" alt="Hiace Commuter">
+                <div class="aha-vehicle-title">Hiace Commuter</div>
+                <div class="aha-vehicle-meta">15 Seater</div>
+                <div class="aha-vehicle-price">IDR 1.200.000 / 10 hours</div>
+              </button>
+              <button class="aha-vehicle-card" type="button" data-name="Elf" data-seater="17 Seater" data-price="1400000" data-image="https://solidtransmalang.com/wp-content/uploads/2018/02/Isuzu-Elf-Long.png">
+                <img src="https://solidtransmalang.com/wp-content/uploads/2018/02/Isuzu-Elf-Long.png" alt="Elf">
+                <div class="aha-vehicle-title">Elf</div>
+                <div class="aha-vehicle-meta">17 Seater</div>
+                <div class="aha-vehicle-price">IDR 1.400.000 / 10 hours</div>
+              </button>
+            </div>
+          </div>
+          <div class="aha-field">
+            <label for="ahaPkgNameInput">Name</label>
+            <input id="ahaPkgNameInput" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="aha-field">
+            <label for="ahaPkgPhone">Phone (WhatsApp)</label>
+            <input id="ahaPkgPhone" name="phone" type="tel" placeholder="08xxxxxxxxxx" required>
+          </div>
+          <div class="aha-field">
+            <label for="ahaPkgEmail">Email</label>
+            <input id="ahaPkgEmail" name="email" type="email" placeholder="you@email.com" required>
+          </div>
+          <div class="aha-field">
+            <label for="ahaPkgDate">Booking date</label>
+            <input id="ahaPkgDate" name="date" type="date" required>
+          </div>
+          <div class="aha-field">
+            <label for="ahaPkgPax">Guests (pax)</label>
+            <input id="ahaPkgPax" name="pax" type="number" min="1" value="1" required>
+          </div>
+          <div class="aha-field">
+            <label for="ahaPkgTotal" id="ahaPkgTotalLabel">Total price</label>
+            <input id="ahaPkgTotal" name="total" type="text" readonly>
+          </div>
+          <div class="aha-field">
+            <label for="ahaPkgNote">Notes</label>
+            <textarea id="ahaPkgNote" name="note" placeholder="Pickup location, special requests, etc"></textarea>
+          </div>
+          <div class="aha-form-actions">
+            <button class="aha-btn secondary" type="button" data-close="1">Cancel</button>
+            <button class="aha-btn primary" type="submit">Send to WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="aha-modal" id="ahaTransferModal" aria-hidden="true">
+    <div class="aha-modal-backdrop" data-close="1"></div>
+    <div class="aha-modal-panel" role="dialog" aria-modal="true" aria-label="Airport transfer booking">
+      <div class="aha-modal-head">
+        <b id="ahaTransferModalTitle">Airport Transfer Booking</b>
+        <button class="aha-modal-close" type="button" data-close="1" aria-label="Close">✕</button>
+      </div>
+      <div class="aha-modal-body">
+        <div class="aha-book-tabs" role="tablist" aria-label="Booking type">
+          <button class="aha-tab is-active" type="button" data-mode="transfer">Airport Transfer</button>
+          <button class="aha-tab" type="button" data-mode="daily">Daily Tour</button>
+        </div>
+        <form class="aha-form" id="ahaTransferForm">
+          <div class="aha-field">
+            <label for="ahaTfName">Name</label>
+            <input id="ahaTfName" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="aha-field">
+            <label for="ahaTfPhone">Phone (WhatsApp)</label>
+            <input id="ahaTfPhone" name="phone" type="tel" placeholder="08xxxxxxxxxx" required>
+          </div>
+          <div class="aha-field">
+            <label for="ahaTfEmail">Email</label>
+            <input id="ahaTfEmail" name="email" type="email" placeholder="you@email.com" required>
+          </div>
+          <div class="aha-field">
+            <label for="ahaTfVehicle">Vehicle</label>
+            <input id="ahaTfVehicle" name="vehicle" type="text" readonly>
+          </div>
+          <div class="aha-transfer-fields">
+            <div class="aha-field">
+              <label for="ahaTfFrom">From</label>
+              <input id="ahaTfFrom" name="from" type="text" placeholder="Airport (DPS) or pickup location">
+            </div>
+            <div class="aha-field">
+              <label for="ahaTfTo">To</label>
+              <input id="ahaTfTo" name="to" type="text" placeholder="Hotel or destination">
+            </div>
+          </div>
+          <div class="aha-field aha-daily-fields">
+            <label for="ahaTfDailyPackage">Select Daily Tour Package</label>
+            <select id="ahaTfDailyPackage" name="daily-package">
+              <option value="Ubud Tour A">Ubud Tour A</option>
+              <option value="Ubud Tour B">Ubud Tour B</option>
+              <option value="Kintamani Tour">Kintamani Tour</option>
+              <option value="Tanah Lot Temple + Handara Gate">Tanah Lot Temple + Handara Gate</option>
+              <option value="Lempuyang Temple Heaven Gate">Lempuyang Temple Heaven Gate</option>
+            </select>
+          </div>
+          <div class="aha-field">
+            <label for="ahaTfDate">Booking date</label>
+            <input id="ahaTfDate" name="date" type="date">
+          </div>
+          <div class="aha-field">
+            <label for="ahaTfTime">Estimated time</label>
+            <input id="ahaTfTime" name="time" type="time">
+          </div>
+          <div class="aha-field">
+            <label for="ahaTfPrice">Price (Start from)</label>
+            <input id="ahaTfPrice" name="price" type="text" readonly>
+            <div class="aha-field-note">Final price will be confirmed via WhatsApp.</div>
+          </div>
+          <div class="aha-field">
+            <label for="ahaTfNote">Notes</label>
+            <textarea id="ahaTfNote" name="note" placeholder="Flight time, pickup details, etc"></textarea>
+          </div>
+          <div class="aha-form-actions">
+            <button class="aha-btn secondary" type="button" data-close="1">Cancel</button>
+            <button class="aha-btn primary" type="submit">Send to WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const slides = Array.from(document.querySelectorAll('.aha-slide'));
+      const dots = Array.from(document.querySelectorAll('.aha-dot'));
+      if(slides.length <= 1) return;
+
+      let idx = 0;
+      const INTERVAL = 5200;
+
+      function render(){
+        slides.forEach((slide,i)=> slide.classList.toggle('active', i===idx));
+        dots.forEach((dot,i)=> dot.classList.toggle('active', i===idx));
+      }
+
+      setInterval(function(){
+        idx = (idx + 1) % slides.length;
+        render();
+      }, INTERVAL);
+    })();
+
+    (function(){
+      const aboutSlides = Array.from(document.querySelectorAll('.aha-about-slide'));
+      if(aboutSlides.length <= 1) return;
+
+      let idx = 0;
+      const INTERVAL = 4200;
+
+      setInterval(function(){
+        aboutSlides[idx].classList.remove('active');
+        idx = (idx + 1) % aboutSlides.length;
+        aboutSlides[idx].classList.add('active');
+      }, INTERVAL);
+    })();
+
+    (function(){
+      const nav = document.querySelector('.aha-nav');
+      if(!nav) return;
+
+      function getScrollTop(){
+        return Math.max(
+          window.pageYOffset || 0,
+          document.documentElement.scrollTop || 0,
+          document.body.scrollTop || 0
+        );
+      }
+
+      function applyState(isScrolled){
+        nav.classList.toggle('is-scrolled', isScrolled);
+        nav.style.background = isScrolled ? "#ffffff" : "rgba(10,18,28,.02)";
+        nav.style.boxShadow = isScrolled ? "0 18px 40px rgba(15,23,42,.12)" : "none";
+      }
+
+      let last = -1;
+      function tick(){
+        const current = getScrollTop();
+        if(current !== last){
+          applyState(current > 2);
+          last = current;
+        }
+        requestAnimationFrame(tick);
+      }
+      applyState(getScrollTop() > 2);
+      requestAnimationFrame(tick);
+    })();
+
+    (function(){
+      const select = document.getElementById('ahaTransferTo');
+      const priceEl = document.getElementById('ahaTransferPrice');
+      if(!select || !priceEl) return;
+
+      function formatCurrency(value, currency){
+        if(currency === "USD"){
+          return "USD " + Number(value).toLocaleString('en-US');
+        }
+        return "IDR " + Number(value).toLocaleString('id-ID');
+      }
+
+      function updatePrice(){
+        const option = select.selectedOptions[0];
+        const price = option ? option.dataset.price : "";
+        if(price){
+          priceEl.textContent = formatCurrency(price, "IDR");
+        }
+      }
+
+      updatePrice();
+      select.addEventListener('change', updatePrice);
+    })();
+
+    (function(){
+      const grid = document.getElementById('ahaVehicleGrid');
+      const airportPriceEl = document.getElementById('ahaVehicleAirportPrice');
+      const dailyPriceEl = document.getElementById('ahaVehicleDailyPrice');
+      const imageEl = document.getElementById('ahaVehicleImage');
+      if(!grid || !airportPriceEl || !dailyPriceEl || !imageEl) return;
+
+      function formatCurrency(value){
+        return "IDR " + Number(value).toLocaleString('id-ID');
+      }
+
+      function setActive(card){
+        const transfer = card.dataset.transfer;
+        const daily = card.dataset.daily;
+        const image = card.dataset.image;
+        if(transfer){ airportPriceEl.textContent = formatCurrency(transfer); }
+        if(daily){ dailyPriceEl.textContent = formatCurrency(daily); }
+        if(image){ imageEl.src = image; }
+        grid.querySelectorAll('.aha-vehicle-card').forEach((item)=>{
+          item.classList.toggle('is-active', item === card);
+        });
+      }
+
+      grid.addEventListener('click', (e)=>{
+        const card = e.target.closest('.aha-vehicle-card');
+        if(card){ setActive(card); }
+      });
+
+      const initial = grid.querySelector('.aha-vehicle-card.is-active') || grid.querySelector('.aha-vehicle-card');
+      if(initial){ setActive(initial); }
+    })();
+
+    (function(){
+      const WA_NUMBER = "6285730908894";
+      const vehicleBtn = document.getElementById('ahaVehicleBook');
+      const modal = document.getElementById('ahaTransferModal');
+      const modalTitle = document.getElementById('ahaTransferModalTitle');
+      const form = document.getElementById('ahaTransferForm');
+      const vehicleInput = document.getElementById('ahaTfVehicle');
+      const fromInput = document.getElementById('ahaTfFrom');
+      const toInput = document.getElementById('ahaTfTo');
+      const dailyPackageInput = document.getElementById('ahaTfDailyPackage');
+      const dateInput = document.getElementById('ahaTfDate');
+      const timeInput = document.getElementById('ahaTfTime');
+      const priceInput = document.getElementById('ahaTfPrice');
+      const tabs = Array.from(document.querySelectorAll('.aha-book-tabs .aha-tab'));
+      const vehicleGrid = document.getElementById('ahaVehicleGrid');
+      const airportPriceEl = document.getElementById('ahaVehicleAirportPrice');
+      const dailyPriceEl = document.getElementById('ahaVehicleDailyPrice');
+
+      if(!modal || !form || !vehicleInput || !fromInput || !toInput || !priceInput) return;
+
+      function formatStartPrice(value){
+        const clean = value.trim();
+        return clean.toLowerCase().startsWith('start from') ? clean : `Start from ${clean}`;
+      }
+
+      function setMode(mode){
+        modal.dataset.mode = mode;
+        modal.classList.toggle('is-daily', mode === "daily");
+        if(modalTitle){
+          modalTitle.textContent = mode === "daily" ? "Daily Tour Vehicle Booking" : "Airport Transfer Booking";
+        }
+        const priceValue = mode === "daily"
+          ? (modal.dataset.dailyPrice || "")
+          : (modal.dataset.transferPrice || "");
+        priceInput.value = formatStartPrice(priceValue || "-");
+        tabs.forEach((tab)=>{
+          tab.classList.toggle('is-active', tab.dataset.mode === mode);
+          tab.setAttribute('aria-selected', String(tab.dataset.mode === mode));
+        });
+      }
+
+      function openModal(options){
+        const mode = (options && options.mode) || "transfer";
+        const hasFrom = options && Object.prototype.hasOwnProperty.call(options, 'from');
+        const hasTo = options && Object.prototype.hasOwnProperty.call(options, 'to');
+        const hasVehicle = options && Object.prototype.hasOwnProperty.call(options, 'vehicle');
+        const hasTransferPrice = options && Object.prototype.hasOwnProperty.call(options, 'transferPrice');
+        const hasDailyPrice = options && Object.prototype.hasOwnProperty.call(options, 'dailyPrice');
+        const from = hasFrom ? options.from : "Airport (DPS)";
+        const to = hasTo ? options.to : "";
+        const vehicle = hasVehicle ? options.vehicle : "";
+        const transferPrice = hasTransferPrice ? options.transferPrice : (airportPriceEl ? airportPriceEl.textContent.trim() : "");
+        const dailyPrice = hasDailyPrice ? options.dailyPrice : (dailyPriceEl ? dailyPriceEl.textContent.trim() : "");
+        vehicleInput.value = vehicle;
+        fromInput.value = from;
+        toInput.value = to;
+        modal.dataset.transferPrice = transferPrice;
+        modal.dataset.dailyPrice = dailyPrice;
+        setMode(mode);
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+      function closeModal(){
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        modal.classList.remove('is-daily');
+        delete modal.dataset.mode;
+      }
+      modal.addEventListener('click', (e)=>{
+        if(e.target.dataset.close){ closeModal(); }
+      });
+      tabs.forEach((tab)=>{
+        tab.addEventListener('click', ()=>{
+          setMode(tab.dataset.mode || "transfer");
+        });
+      });
+      if(vehicleBtn && vehicleGrid){
+        vehicleBtn.addEventListener('click', function(){
+          const activeCard = vehicleGrid.querySelector('.aha-vehicle-card.is-active') || vehicleGrid.querySelector('.aha-vehicle-card');
+          const vehicleName = activeCard ? activeCard.dataset.name : "Vehicle";
+          const vehicleSeater = activeCard ? activeCard.dataset.seater : "";
+          const vehicleLabel = vehicleSeater ? `${vehicleName} - ${vehicleSeater}` : vehicleName;
+          openModal({
+            from:"Airport (DPS)",
+            to:"",
+            vehicle: vehicleLabel
+          });
+        });
+      }
+
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const name = document.getElementById('ahaTfName').value.trim();
+        const phone = document.getElementById('ahaTfPhone').value.trim();
+        const email = document.getElementById('ahaTfEmail').value.trim();
+        const vehicle = vehicleInput.value.trim();
+        const mode = modal.dataset.mode || "transfer";
+        const from = fromInput.value.trim();
+        const to = toInput.value.trim();
+        const dailyPackage = dailyPackageInput ? dailyPackageInput.value : "";
+        const date = dateInput ? dateInput.value : "";
+        const time = timeInput ? timeInput.value : "";
+        const price = priceInput.value.trim();
+        const note = document.getElementById('ahaTfNote').value.trim();
+
+        const header = mode === "daily"
+          ? "Hello AHA Trans Bali, I want to book a daily tour vehicle."
+          : "Hello AHA Trans Bali, I want to book an airport transfer.";
+        const routeLines = mode === "daily"
+          ? `Daily tour package: ${dailyPackage || "-"}`
+          : `From: ${from || "-"}\nTo: ${to || "-"}`;
+        const msg =
+`${header}
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Vehicle: ${vehicle || "-"}
+${routeLines}
+Booking date: ${date || "-"}
+Estimated time: ${time || "-"}
+Price: ${price}
+Notes: ${note || "-"}
+`;
+        const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+        window.open(url, "_blank", "noopener,noreferrer");
+        closeModal();
+      });
+    })();
+
+    (function(){
+      const buttons = Array.from(document.querySelectorAll('.aha-package-book'));
+      const modal = document.getElementById('ahaPackageModal');
+      const modalTitle = document.getElementById('ahaPackageModalTitle');
+      const form = document.getElementById('ahaPackageForm');
+      const nameInput = document.getElementById('ahaPkgNameInput');
+      const phoneInput = document.getElementById('ahaPkgPhone');
+      const emailInput = document.getElementById('ahaPkgEmail');
+      const dateInput = document.getElementById('ahaPkgDate');
+      const paxInput = document.getElementById('ahaPkgPax');
+      const packageInput = document.getElementById('ahaPkgName');
+      const packageSelect = document.getElementById('ahaPkgSelect');
+      const packageNameField = document.getElementById('ahaPkgNameField');
+      const packageSelectField = document.getElementById('ahaPkgSelectField');
+      const unitPriceInput = document.getElementById('ahaPkgPrice');
+      const vehicleInput = document.getElementById('ahaPkgVehicle');
+      const vehicleField = document.getElementById('ahaPkgVehicleField');
+      const dailyVehicleField = document.getElementById('ahaPkgDailyVehicleField');
+      const dailyVehicleGrid = document.getElementById('ahaPkgDailyVehicleGrid');
+      const totalLabel = document.getElementById('ahaPkgTotalLabel');
+      const totalInput = document.getElementById('ahaPkgTotal');
+      const noteInput = document.getElementById('ahaPkgNote');
+
+      if(!buttons.length || !modal || !form) return;
+
+      function formatCurrency(value, currency){
+        if(currency === "USD"){
+          return "USD " + Number(value).toLocaleString('en-US');
+        }
+        return "IDR " + Number(value).toLocaleString('id-ID');
+      }
+
+      function updateTotal(){
+        const price = Number(form.dataset.price || 0);
+        const currency = form.dataset.currency || "IDR";
+        const unit = form.dataset.unit || "pax";
+        const minPax = Number(paxInput.min || 1);
+        let pax = Number(paxInput.value || minPax);
+        if(pax < minPax) pax = minPax;
+        paxInput.value = String(pax);
+        const total = unit === "car" ? price : price * pax;
+        totalInput.value = formatCurrency(total, currency);
+      }
+
+      function openModal(button){
+        const card = button.closest('.aha-activity-card');
+        const isDailyPackage = !!(card && card.closest('#daily-tour'));
+        const vehicleSelect = card ? card.querySelector('.aha-vehicle-select-input') : null;
+        const vehicleValue = vehicleSelect ? vehicleSelect.value : "";
+        const price = Number(button.dataset.price || 0);
+        const unit = button.dataset.unit || "pax";
+        const minPax = Number(button.dataset.min || 1);
+        const wa = button.dataset.wa || "6285730908894";
+        const currency = (button.dataset.currency || "IDR").toUpperCase();
+        const packageLabel = (button.dataset.package || "").replace(" - Pay on the day", "").trim();
+
+        form.dataset.unit = unit;
+        form.dataset.wa = wa;
+        form.dataset.currency = currency;
+
+        if(isDailyPackage){
+          modal.classList.add('is-daily-package');
+          if(modalTitle){ modalTitle.textContent = "Daily Tour Package Booking Form"; }
+          if(totalLabel){ totalLabel.textContent = "Estimated Price"; }
+          if(packageSelect){ packageSelect.value = packageLabel || "Ubud Tour A"; }
+          if(packageInput){ packageInput.value = packageLabel || ""; }
+          const activeCard = dailyVehicleGrid ? (dailyVehicleGrid.querySelector('.aha-vehicle-card.is-active') || dailyVehicleGrid.querySelector('.aha-vehicle-card')) : null;
+          const activePrice = activeCard ? Number(activeCard.dataset.price || 0) : 0;
+          form.dataset.price = String(activePrice);
+          form.dataset.currency = "IDR";
+          form.dataset.unit = "car";
+        }else{
+          modal.classList.remove('is-daily-package');
+          if(modalTitle){ modalTitle.textContent = "Package Booking"; }
+          if(totalLabel){ totalLabel.textContent = "Total price"; }
+          form.dataset.price = String(price);
+          packageInput.value = button.dataset.package || "";
+          unitPriceInput.value = formatCurrency(price, currency) + (unit === "car" ? " / car" : " / pax");
+        }
+
+        if(vehicleField){
+          if(vehicleValue){
+            vehicleField.style.display = "";
+            form.dataset.hasVehicle = "1";
+            if(vehicleInput){ vehicleInput.value = vehicleValue; }
+          }else{
+            vehicleField.style.display = "none";
+            form.dataset.hasVehicle = "0";
+          }
+        }
+        paxInput.min = String(minPax);
+        paxInput.value = String(minPax);
+        updateTotal();
+
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeModal(){
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+
+      buttons.forEach((button)=>{
+        button.addEventListener('click', ()=> openModal(button));
+      });
+
+      if(dailyVehicleGrid){
+        dailyVehicleGrid.addEventListener('click', (e)=>{
+          const card = e.target.closest('.aha-vehicle-card');
+          if(!card) return;
+          dailyVehicleGrid.querySelectorAll('.aha-vehicle-card').forEach((item)=>{
+            item.classList.toggle('is-active', item === card);
+          });
+          if(modal.classList.contains('is-daily-package')){
+            form.dataset.price = String(card.dataset.price || 0);
+            updateTotal();
+          }
+        });
+      }
+
+      paxInput.addEventListener('input', updateTotal);
+      modal.addEventListener('click', (e)=>{
+        if(e.target.dataset.close){ closeModal(); }
+      });
+
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const price = Number(form.dataset.price || 0);
+        const unit = form.dataset.unit || "pax";
+        const wa = form.dataset.wa || "6285730908894";
+        const currency = form.dataset.currency || "IDR";
+        const minPax = Number(paxInput.min || 1);
+        let pax = Number(paxInput.value || minPax);
+        if(pax < minPax) pax = minPax;
+        const total = unit === "car" ? price : price * pax;
+        const unitLabel = unit === "car" ? "car" : "pax";
+        const isDailyPackage = modal.classList.contains('is-daily-package');
+        const dailyPackage = packageSelect ? packageSelect.value : "";
+        const dailyVehicleCard = dailyVehicleGrid ? (dailyVehicleGrid.querySelector('.aha-vehicle-card.is-active') || dailyVehicleGrid.querySelector('.aha-vehicle-card')) : null;
+        const dailyVehicleName = dailyVehicleCard ? dailyVehicleCard.dataset.name : "";
+        const dailyVehicleSeater = dailyVehicleCard ? dailyVehicleCard.dataset.seater : "";
+        const dailyVehicleLabel = dailyVehicleName ? `${dailyVehicleName} - ${dailyVehicleSeater}` : "";
+
+        const hasVehicle = form.dataset.hasVehicle === "1";
+        const vehicleLine = hasVehicle && vehicleInput ? `Vehicle: ${vehicleInput.value}\\n` : "";
+        const dailyVehicleLine = dailyVehicleLabel ? `Vehicle: ${dailyVehicleLabel}\\n` : "";
+        const priceLine = isDailyPackage
+          ? ""
+          : `Price per ${unitLabel}: ${formatCurrency(price, currency)}`;
+        const totalLine = isDailyPackage
+          ? `Estimated price (10 hours): ${formatCurrency(total, currency)}`
+          : `Total price: ${formatCurrency(total, currency)}`;
+        const msg =
+`Hello AHA Trans Bali, I want to book a tour package.
+
+Name: ${nameInput.value.trim()}
+Phone: ${phoneInput.value.trim()}
+Email: ${emailInput.value.trim()}
+Booking date: ${dateInput.value}
+Package: ${isDailyPackage ? dailyPackage : packageInput.value}
+${isDailyPackage ? dailyVehicleLine : vehicleLine}${priceLine}
+Pax: ${pax}
+${totalLine}
+Notes: ${noteInput.value.trim() || "-"}
+`;
+        const url = "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg);
+        window.open(url, "_blank", "noopener,noreferrer");
+        closeModal();
+      });
+    })();
+
+    (function(){
+      const detailButtons = Array.from(document.querySelectorAll('.aha-activity-detail'));
+      if(!detailButtons.length) return;
+
+      const detailModal = document.getElementById('ahaDetailModal');
+      const detailTitle = document.getElementById('ahaDetailTitle');
+      const detailBody = document.getElementById('ahaDetailBody');
+      let detailTimer = null;
+
+      function openDetailModal(templateId, titleText){
+        if(!detailModal || !detailTitle || !detailBody) return;
+        const template = document.getElementById(templateId);
+        if(!template) return;
+        detailTitle.textContent = titleText || "Package Details";
+        detailBody.innerHTML = "";
+        detailBody.appendChild(template.content.cloneNode(true));
+        const slider = detailBody.querySelector('.aha-detail-slider');
+        if(slider){
+          const slides = Array.from(slider.querySelectorAll('.aha-detail-slide'));
+          if(slides.length > 1){
+            let idx = 0;
+            slides.forEach((slide, i)=> slide.classList.toggle('active', i === 0));
+            if(detailTimer) clearInterval(detailTimer);
+            detailTimer = setInterval(()=>{
+              slides[idx].classList.remove('active');
+              idx = (idx + 1) % slides.length;
+              slides[idx].classList.add('active');
+            }, 3600);
+          }
+        }
+        detailModal.classList.add('is-open');
+        detailModal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeDetailModal(){
+        if(!detailModal) return;
+        detailModal.classList.remove('is-open');
+        detailModal.setAttribute('aria-hidden', 'true');
+        if(detailTimer){
+          clearInterval(detailTimer);
+          detailTimer = null;
+        }
+      }
+
+      if(detailModal){
+        detailModal.addEventListener('click', (e)=>{
+          if(e.target.dataset.close){ closeDetailModal(); }
+        });
+      }
+
+      detailButtons.forEach((btn)=>{
+        btn.addEventListener('click', ()=>{
+          const targetId = btn.dataset.detailTarget;
+          if(targetId){
+            const title = btn.closest('.aha-activity-card')?.querySelector('h3')?.textContent || "";
+            openDetailModal(targetId, title);
+            return;
+          }
+          const card = btn.closest('.aha-activity-card');
+          if(!card) return;
+          const isOpen = card.classList.toggle('is-open');
+          btn.textContent = isOpen ? 'Hide Details' : 'Details';
+          btn.setAttribute('aria-expanded', String(isOpen));
+        });
+      });
+    })();
+
+    (function(){
+      const track = document.getElementById('ahaActivityTrack');
+      const dotsWrap = document.getElementById('ahaActivityDots');
+      if(!track || !dotsWrap) return;
+
+      const cards = Array.from(track.querySelectorAll('.aha-activity-card'));
+      const dots = Array.from(dotsWrap.querySelectorAll('.aha-activity-dot'));
+      if(!cards.length || !dots.length) return;
+
+      function setActive(index){
+        dots.forEach((dot, i)=> dot.classList.toggle('active', i === index));
+      }
+
+      function updateActive(){
+        if(window.innerWidth > 760) return;
+        const trackRect = track.getBoundingClientRect();
+        const trackCenter = trackRect.left + trackRect.width / 2;
+        let closest = 0;
+        let minDistance = Infinity;
+
+        cards.forEach((card, i)=>{
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.left + rect.width / 2;
+          const distance = Math.abs(trackCenter - cardCenter);
+          if(distance < minDistance){
+            minDistance = distance;
+            closest = i;
+          }
+        });
+        setActive(closest);
+      }
+
+      let rafId = null;
+      track.addEventListener('scroll', ()=>{
+        if(rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(updateActive);
+      }, {passive:true});
+
+      window.addEventListener('resize', updateActive);
+      updateActive();
+    })();
+
+    (function(){
+      const track = document.getElementById('ahaPenidaTrack');
+      const dotsWrap = document.getElementById('ahaPenidaDots');
+      if(!track || !dotsWrap) return;
+
+      const cards = Array.from(track.querySelectorAll('.aha-activity-card'));
+      const dots = Array.from(dotsWrap.querySelectorAll('.aha-activity-dot'));
+      if(!cards.length || !dots.length) return;
+
+      function setActive(index){
+        dots.forEach((dot, i)=> dot.classList.toggle('active', i === index));
+      }
+
+      function updateActive(){
+        if(window.innerWidth > 760) return;
+        const trackRect = track.getBoundingClientRect();
+        const trackCenter = trackRect.left + trackRect.width / 2;
+        let closest = 0;
+        let minDistance = Infinity;
+
+        cards.forEach((card, i)=>{
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.left + rect.width / 2;
+          const distance = Math.abs(trackCenter - cardCenter);
+          if(distance < minDistance){
+            minDistance = distance;
+            closest = i;
+          }
+        });
+        setActive(closest);
+      }
+
+      let rafId = null;
+      track.addEventListener('scroll', ()=>{
+        if(rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(updateActive);
+      }, {passive:true});
+
+      window.addEventListener('resize', updateActive);
+      updateActive();
+    })();
+
+    (function(){
+      const track = document.getElementById('ahaTestimonialTrack');
+      const dotsWrap = document.getElementById('ahaTestimonialDots');
+      if(!track || !dotsWrap) return;
+
+      const cards = Array.from(track.querySelectorAll('.aha-testimonial-card'));
+      const dots = Array.from(dotsWrap.querySelectorAll('.aha-testimonial-dot'));
+      if(!cards.length || !dots.length) return;
+
+      let idx = 0;
+      let timer = null;
+
+      function setActive(index){
+        dots.forEach((dot, i)=> dot.classList.toggle('active', i === index));
+      }
+
+      function updateActive(){
+        if(track.scrollWidth <= track.clientWidth) return;
+        const trackRect = track.getBoundingClientRect();
+        const trackCenter = trackRect.left + trackRect.width / 2;
+        let closest = 0;
+        let minDistance = Infinity;
+
+        cards.forEach((card, i)=>{
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.left + rect.width / 2;
+          const distance = Math.abs(trackCenter - cardCenter);
+          if(distance < minDistance){
+            minDistance = distance;
+            closest = i;
+          }
+        });
+        idx = closest;
+        setActive(closest);
+      }
+
+      function scrollToIndex(index){
+        if(track.scrollWidth <= track.clientWidth) return;
+        const card = cards[index];
+        const left = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
+        track.scrollTo({left, behavior:'smooth'});
+      }
+
+      function startAuto(){
+        if(track.scrollWidth <= track.clientWidth) return;
+        if(timer) clearInterval(timer);
+        timer = setInterval(()=>{
+          idx = (idx + 1) % cards.length;
+          scrollToIndex(idx);
+          setActive(idx);
+        }, 4200);
+      }
+
+      let rafId = null;
+      track.addEventListener('scroll', ()=>{
+        if(rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(updateActive);
+      }, {passive:true});
+
+      window.addEventListener('resize', ()=>{
+        updateActive();
+        startAuto();
+      });
+
+      updateActive();
+      startAuto();
+    })();
+
+    (function(){
+      const burger = document.querySelector('.aha-burger');
+      const mobile = document.getElementById('ahaMobileMenu');
+      const servicesToggle = document.querySelector('[data-submenu="services"]');
+      const servicesPanel = document.getElementById('ahaMobileServices');
+      if(!burger || !mobile) return;
+
+      function openMobile(){
+        mobile.classList.add('is-open');
+        burger.classList.add('is-open');
+        burger.setAttribute('aria-expanded', 'true');
+        mobile.setAttribute('aria-hidden', 'false');
+      }
+      function closeMobile(){
+        mobile.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        mobile.setAttribute('aria-hidden', 'true');
+      }
+
+      burger.addEventListener('click', ()=>{
+        if(mobile.classList.contains('is-open')){
+          closeMobile();
+        }else{
+          openMobile();
+        }
+      });
+
+      mobile.addEventListener('click', (e)=>{
+        if(e.target.dataset.close){ closeMobile(); }
+      });
+
+      mobile.querySelectorAll('a').forEach((link)=>{
+        link.addEventListener('click', closeMobile);
+      });
+
+      if(servicesToggle && servicesPanel){
+        servicesToggle.addEventListener('click', ()=>{
+          const isOpen = servicesPanel.classList.toggle('is-open');
+          servicesToggle.setAttribute('aria-expanded', String(isOpen));
+          servicesToggle.querySelector('span').textContent = isOpen ? '−' : '+';
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

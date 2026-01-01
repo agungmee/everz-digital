@@ -1,0 +1,2040 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Injak Balik | Event Organizer, Tour & Travel</title>
+  <meta name="description" content="Injak Balik adalah event organizer serta tour & travel di Tangerang Selatan." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://everz-digital.site" />
+  <link rel="preload" as="image" href="https://everz-digital.site/wp-content/uploads/2025/12/1701720814016-scaled.jpg" />
+
+  <style>
+    :root {
+      --cream: #f7f2ea;
+      --ink: #1c1a17;
+      --sand: #e8ddcf;
+      --gold: #b08a51;
+      --fog: rgba(255, 255, 255, 0.92);
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      font-family: "Manrope", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(1200px 600px at 15% -10%, #fff 0%, var(--cream) 50%, #efe6da 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body.drawer-open {
+      overflow: hidden;
+    }
+
+    body.drawer-open .nav {
+      z-index: 900;
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      overflow: visible;
+    }
+
+    .page,
+    .page * {
+      box-sizing: border-box;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .elementor,
+    .elementor-section,
+    .elementor-container,
+    .elementor-widget,
+    .elementor-widget-container,
+    .elementor-column,
+    .elementor-column-wrap,
+    .elementor-element,
+    .elementor-element-populated {
+      margin: 0 !important;
+      padding: 0 !important;
+      height: auto !important;
+      min-height: 0 !important;
+      overflow: visible !important;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 8px 6vw;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+      background: transparent;
+      color: #fff;
+      overflow: visible;
+    }
+
+    .nav.scrolled {
+      background: var(--fog);
+      box-shadow: var(--shadow);
+      padding: 6px 6vw;
+      backdrop-filter: blur(6px);
+      color: var(--ink);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      line-height: 0;
+    }
+
+    .brand img {
+      width: auto;
+      height: 42px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.25));
+      transform: translateY(-1px);
+    }
+
+    .brand span {
+      font-size: 1.05rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      font-weight: 600;
+    }
+
+    .burger {
+      display: none;
+      width: 28px;
+      height: 28px;
+      border: 0;
+      background: transparent;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: currentColor;
+    }
+
+    .burger span {
+      width: 22px;
+      height: 2px;
+      background: currentColor;
+      position: relative;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    .burger span::before,
+    .burger span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 22px;
+      height: 2px;
+      background: currentColor;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .burger span::before {
+      top: -6px;
+    }
+
+    .burger span::after {
+      top: 6px;
+    }
+
+    .nav.scrolled .burger {
+      color: var(--ink);
+    }
+
+    .burger[aria-expanded="true"] span {
+      transform: rotate(45deg);
+    }
+
+    .burger[aria-expanded="true"] span::before {
+      transform: rotate(90deg) translateX(0);
+      top: 0;
+    }
+
+    .burger[aria-expanded="true"] span::after {
+      opacity: 0;
+    }
+
+    .nav-links a {
+      position: relative;
+      opacity: 0.88;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      opacity: 1;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .nav-cta {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-size: 0.85rem;
+      transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+    }
+
+    .nav.scrolled .nav-cta {
+      background: var(--ink);
+      color: #fff;
+      border: 1px solid transparent;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(78vw, 320px);
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.98);
+      color: var(--ink);
+      padding: 72px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      z-index: 999;
+      box-shadow: -20px 0 40px rgba(0, 0, 0, 0.2);
+      will-change: transform;
+      touch-action: pan-y;
+    }
+
+    .mobile-drawer.is-dragging {
+      transition: none;
+    }
+
+    .drawer-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(28, 26, 23, 0.08);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      color: var(--ink);
+    }
+
+    .drawer-close span {
+      position: relative;
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    .drawer-close span::before,
+    .drawer-close span::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    .drawer-close span::before {
+      transform: rotate(45deg);
+    }
+
+    .drawer-close span::after {
+      transform: rotate(-45deg);
+    }
+
+    .mobile-drawer a {
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(28, 26, 23, 0.08);
+      font-size: 0.95rem;
+    }
+
+    .mobile-drawer .drawer-cta {
+      margin-top: auto;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      text-align: left;
+      letter-spacing: 1.2px;
+      font-size: 0.9rem;
+      border-bottom: none;
+    }
+
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 998;
+    }
+
+    .drawer-backdrop.is-dragging {
+      transition: none;
+    }
+
+    .drawer-open .mobile-drawer {
+      transform: translateX(0);
+    }
+
+    .drawer-open .drawer-backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .wa-float {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.25);
+      z-index: 997;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .wa-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 34px rgba(0, 0, 0, 0.28);
+    }
+
+    .wa-float i {
+      font-size: 28px;
+    }
+
+    @media (max-width: 600px) {
+      .wa-float {
+        width: 52px;
+        height: 52px;
+        right: 18px;
+        bottom: 18px;
+      }
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      padding: 130px 6vw 90px;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(900px 520px at 12% 10%, rgba(15, 12, 8, 0.65), rgba(15, 12, 8, 0.2) 60%),
+        linear-gradient(120deg, rgba(8, 6, 4, 0.82), rgba(8, 6, 4, 0.28));
+      z-index: -1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--hero-image);
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.1) contrast(1.05);
+      transform: scale(1.03);
+      transition: opacity 1s ease;
+      z-index: -2;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-content {
+      max-width: 640px;
+      color: #fff;
+      display: grid;
+      gap: 18px;
+      animation: rise 0.9s ease both;
+    }
+
+    .hero-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 4vw, 4.1rem);
+      line-height: 1.05;
+      margin: 0;
+      text-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-size: 0.78rem;
+      white-space: nowrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(176, 138, 81, 0.35);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-primary:hover,
+    .btn-outline:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 26px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .hero-highlights span {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.15);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-metrics {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-weight: 600;
+      min-height: 54px;
+    }
+
+    .typing-label {
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .typing-text {
+      font-size: 1.1rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .typing-caret {
+      width: 2px;
+      height: 1.3rem;
+      background: rgba(255, 255, 255, 0.8);
+      display: inline-block;
+      animation: blink 0.8s steps(2, start) infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .hero-info {
+      display: grid;
+      gap: 8px;
+      font-size: 0.95rem;
+      margin-top: 18px;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .info-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .info-tag {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .hero-clients {
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+      border: 0;
+      color: #fff;
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+    }
+
+    .hero-clients h3 {
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .client-marquee {
+      position: relative;
+      border-radius: 0;
+      background: transparent;
+      padding: 16px 0;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .client-row {
+      display: flex;
+      gap: 18px;
+      white-space: nowrap;
+      align-items: center;
+    }
+
+    .client-row + .client-row {
+      margin-top: 10px;
+    }
+
+    .client-name {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      font-weight: 700;
+      color: #1c1a17;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .client-name:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.22);
+    }
+
+    .client-track .client-name:nth-child(6n + 1) {
+      background: rgba(255, 231, 146, 0.92);
+    }
+
+    .client-track .client-name:nth-child(6n + 2) {
+      background: rgba(178, 233, 216, 0.92);
+    }
+
+    .client-track .client-name:nth-child(6n + 3) {
+      background: rgba(255, 201, 212, 0.92);
+    }
+
+    .client-track .client-name:nth-child(6n + 4) {
+      background: rgba(189, 212, 255, 0.92);
+    }
+
+    .client-track .client-name:nth-child(6n + 5) {
+      background: rgba(213, 197, 255, 0.92);
+    }
+
+    .client-track .client-name:nth-child(6n) {
+      background: rgba(255, 214, 176, 0.92);
+    }
+
+    .hero-clients-mobile {
+      display: none;
+      margin-top: 18px;
+      gap: 10px;
+      color: #fff;
+      justify-items: start;
+    }
+
+    .hero-clients-mobile h3 {
+      margin: 0;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    @keyframes marquee-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes marquee-right {
+      0% {
+        transform: translateX(-50%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .client-track {
+      display: inline-flex;
+      gap: 12px;
+      animation: marquee-left 24s linear infinite;
+    }
+
+    .client-row.reverse .client-track {
+      animation-name: marquee-right;
+      animation-duration: 26s;
+    }
+
+    .client-row.slow .client-track {
+      animation-duration: 30s;
+    }
+
+    .about {
+      padding: 90px 6vw;
+      background: linear-gradient(120deg, #f6efe6 0%, #fff 45%, #f2e6d8 100%);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .section-title {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      color: #6b5c4a;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .about h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin: 0 0 16px;
+      color: var(--ink);
+    }
+
+    .about p {
+      margin: 0 0 16px;
+      color: rgba(28, 26, 23, 0.75);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .about-values {
+      display: grid;
+      gap: 14px;
+    }
+
+    .about-card {
+      padding: 18px 20px;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 16px 30px rgba(15, 12, 8, 0.08);
+      border: 1px solid rgba(176, 138, 81, 0.12);
+    }
+
+    .about-card strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+    }
+
+    .about-card span {
+      color: rgba(28, 26, 23, 0.7);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .about-cta {
+      margin-top: 22px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 0.85rem;
+      color: var(--ink);
+    }
+
+    .about-cta::after {
+      content: "";
+      width: 42px;
+      height: 2px;
+      background: var(--gold);
+      display: inline-block;
+    }
+
+    .about-figure {
+      position: relative;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.65);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(176, 138, 81, 0.18);
+    }
+
+    .about-figure img {
+      width: 100%;
+      border-radius: 18px;
+      object-fit: cover;
+      aspect-ratio: 4 / 5;
+      transition: opacity 0.6s ease;
+    }
+
+    .about-figure img.is-fading {
+      opacity: 0;
+    }
+
+    .about-badge {
+      position: absolute;
+      right: -12px;
+      bottom: 24px;
+      background: #fff;
+      padding: 14px 16px;
+      border-radius: 14px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+      font-weight: 700;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-size: 0.75rem;
+    }
+
+    .about-badge span {
+      display: block;
+      font-size: 1.3rem;
+      letter-spacing: 0.5px;
+      color: var(--gold);
+    }
+
+    .services {
+      padding: 80px 6vw 100px;
+      background: linear-gradient(180deg, #f1e8db 0%, #f7f2ea 55%, #fff 100%);
+    }
+
+    .services h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin: 0 0 14px;
+      color: var(--ink);
+    }
+
+    .services p {
+      margin: 0;
+      color: rgba(28, 26, 23, 0.7);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    .services-grid {
+      margin-top: 32px;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(176, 138, 81, 0.15);
+      box-shadow: 0 18px 32px rgba(15, 12, 8, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 38px rgba(15, 12, 8, 0.14);
+    }
+
+    .service-media {
+      position: relative;
+      height: 170px;
+      overflow: hidden;
+    }
+
+    .service-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover .service-media img {
+      transform: scale(1.06);
+    }
+
+    .service-body {
+      padding: 18px 18px 22px;
+    }
+
+    .service-body h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
+
+    .service-body p {
+      margin: 0;
+      color: rgba(28, 26, 23, 0.7);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .testimonials {
+      padding: 90px 6vw 100px;
+      background: linear-gradient(160deg, #f5ede2 0%, #fff 60%, #f1e6d8 100%);
+    }
+
+    .testimonials h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin: 0 0 14px;
+      color: var(--ink);
+    }
+
+    .testimonials p {
+      margin: 0 0 26px;
+      color: rgba(28, 26, 23, 0.7);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    .testimonial-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(320px, 1fr);
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .testimonial-track::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .testimonial-track::-webkit-scrollbar-thumb {
+      background: rgba(28, 26, 23, 0.2);
+      border-radius: 999px;
+    }
+
+    .testimonial-card {
+      scroll-snap-align: start;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #f7f5f0;
+      border: 1px solid rgba(176, 138, 81, 0.18);
+      box-shadow: 0 18px 34px rgba(15, 12, 8, 0.1);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 18px;
+      min-height: 230px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 40px rgba(15, 12, 8, 0.16);
+    }
+
+    .testimonial-photo {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      background: transparent;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      background: transparent;
+      transition: transform 0.4s ease;
+    }
+
+    .testimonial-card:hover .testimonial-photo img {
+      transform: scale(1.04);
+    }
+
+    .testimonial-content h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+    }
+
+    .testimonial-role {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: rgba(28, 26, 23, 0.65);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-quote {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: rgba(28, 26, 23, 0.78);
+    }
+
+    .contact {
+      padding: 90px 6vw 100px;
+      background: linear-gradient(180deg, #fff 0%, #f4ecdf 100%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .contact h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin: 0 0 16px;
+      color: var(--ink);
+    }
+
+    .contact p {
+      margin: 0 0 18px;
+      color: rgba(28, 26, 23, 0.7);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid rgba(176, 138, 81, 0.18);
+      box-shadow: 0 12px 24px rgba(15, 12, 8, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 28px rgba(15, 12, 8, 0.12);
+    }
+
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(176, 138, 81, 0.15);
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item h4 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .contact-item span,
+    .contact-item a {
+      color: rgba(28, 26, 23, 0.75);
+      font-size: 0.95rem;
+    }
+
+    .contact-map {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(176, 138, 81, 0.18);
+      box-shadow: 0 18px 36px rgba(15, 12, 8, 0.12);
+      min-height: 360px;
+      background: #fff;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .footer {
+      padding: 50px 6vw;
+      background: #1f1a14;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .footer-brand img {
+      height: 36px;
+      width: auto;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.35));
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: flex-end;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-weight: 600;
+      font-size: 0.82rem;
+    }
+
+    .footer-links a {
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .burger {
+        display: inline-flex;
+        margin-left: auto;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-bottom: 60px;
+      }
+
+      .hero-metrics {
+        width: 100%;
+      }
+
+      .hero-info {
+        display: none;
+      }
+
+      .hero-clients {
+        display: none;
+      }
+
+      .hero-clients-mobile {
+        display: grid;
+      }
+
+      .hero-clients-mobile .client-name {
+        font-size: 0.82rem;
+        letter-spacing: 1.2px;
+        padding: 6px 12px;
+      }
+
+      .hero-clients-mobile .client-row + .client-row {
+        margin-top: 8px;
+      }
+
+      .about {
+        padding: 70px 6vw;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-badge {
+        right: 16px;
+      }
+
+      .services {
+        padding: 70px 6vw 90px;
+      }
+
+      .testimonials {
+        padding: 70px 6vw 90px;
+      }
+
+      .testimonial-track {
+        grid-auto-columns: minmax(85%, 1fr);
+      }
+
+      .testimonial-card {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonial-photo {
+        width: 100%;
+        height: 200px;
+      }
+
+      .contact {
+        padding: 70px 6vw 90px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+
+      .services-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .services-grid::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .services-grid::-webkit-scrollbar-thumb {
+        background: rgba(28, 26, 23, 0.2);
+        border-radius: 999px;
+      }
+
+      .service-card {
+        min-width: 78%;
+        scroll-snap-align: start;
+      }
+
+      .service-media {
+        height: 150px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="nav" id="siteNav">
+      <div class="nav-inner">
+        <a class="brand" href="#">
+          <img src="https://everz-digital.site/wp-content/uploads/2025/12/03ae6c87-e556-4590-bb61-00a093c17512-removebg-preview.png" alt="Logo Injak Balik" />
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#">Tentang</a>
+          <a href="#">Layanan</a>
+          <a href="#">Paket</a>
+          <a href="#">Kontak</a>
+        </nav>
+        <button class="burger" id="burgerBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span>
+        </button>
+        <a class="nav-cta" href="https://wa.me/6287822248866" target="_blank" rel="noopener">Hubungi</a>
+      </div>
+    </header>
+
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile">
+      <button class="drawer-close" id="drawerClose" aria-label="Tutup menu">
+        <span aria-hidden="true"></span>
+      </button>
+      <a href="#">Tentang</a>
+      <a href="#">Layanan</a>
+      <a href="#">Paket</a>
+      <a href="#">Kontak</a>
+      <a class="drawer-cta" href="https://wa.me/6287822248866" target="_blank" rel="noopener">Hubungi</a>
+    </nav>
+
+    <main class="hero" id="hero">
+      <div class="section-inner">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-eyebrow">Event Organizer & Tour Travel</div>
+            <h1>Wujudkan momen tak terlupakan bersama Injak Balik.</h1>
+            <p>
+              Tim profesional kami merancang event, tour, dan perjalanan yang rapi, nyaman, dan penuh cerita.
+              Mulai dari konsep kreatif hingga eksekusi di lapangan, semua detail ditangani dengan presisi.
+            </p>
+            <div class="hero-highlights">
+              <span>Corporate Gathering</span>
+              <span>Outbound & Team Building</span>
+              <span>Custom Tour & Travel</span>
+            </div>
+            <div class="hero-actions">
+              <a class="btn-primary" href="https://wa.me/6287822248866" target="_blank" rel="noopener">Konsultasi Sekarang</a>
+              <a class="btn-outline" href="mailto:injakbalikeventorganizer@gmail.com">Kirim Email</a>
+            </div>
+            <div class="hero-metrics" aria-label="Pencapaian">
+              <span class="typing-label">Pencapaian</span>
+              <span class="typing-text" id="typingText"></span>
+              <span class="typing-caret" aria-hidden="true"></span>
+            </div>
+            <div class="hero-clients-mobile" aria-label="Client bahagia kami">
+              <h3>Client Bahagia Kami</h3>
+              <div class="client-marquee" aria-hidden="true">
+                <div class="client-row">
+                  <div class="client-track">
+                    <span class="client-name">DPRD Kota Magelang</span>
+                    <span class="client-name">BPMPKB Kota Magelang</span>
+                    <span class="client-name">Bappeda Kota Magelang</span>
+                    <span class="client-name">KLH Kota Magelang</span>
+                    <span class="client-name">Dharma Wanita Kota Magelang</span>
+                    <span class="client-name">SD Asisi Jakarta</span>
+                    <span class="client-name">SMP Asisi Jakarta</span>
+                    <span class="client-name">SMA Asisi Jakarta</span>
+                    <span class="client-name">Kopditsi Asisi Jakarta</span>
+                    <span class="client-name">Klinik Pratama Asisi Jakarta</span>
+                  </div>
+                  <div class="client-track" aria-hidden="true">
+                    <span class="client-name">DPRD Kota Magelang</span>
+                    <span class="client-name">BPMPKB Kota Magelang</span>
+                    <span class="client-name">Bappeda Kota Magelang</span>
+                    <span class="client-name">KLH Kota Magelang</span>
+                    <span class="client-name">Dharma Wanita Kota Magelang</span>
+                    <span class="client-name">SD Asisi Jakarta</span>
+                    <span class="client-name">SMP Asisi Jakarta</span>
+                    <span class="client-name">SMA Asisi Jakarta</span>
+                    <span class="client-name">Kopditsi Asisi Jakarta</span>
+                    <span class="client-name">Klinik Pratama Asisi Jakarta</span>
+                  </div>
+                </div>
+                <div class="client-row reverse">
+                  <div class="client-track">
+                    <span class="client-name">Puskesmas Suradita Tangerang</span>
+                    <span class="client-name">PT Mitra Efektif Damai Lestari</span>
+                    <span class="client-name">PT Citra Langgeng Otomotif</span>
+                    <span class="client-name">MIN 06 Bandar Lampung</span>
+                    <span class="client-name">SMK Yadika 12 Kota Depok</span>
+                    <span class="client-name">SMPN 18 Kota Depok</span>
+                    <span class="client-name">SMP Strada Yos Sudarso</span>
+                    <span class="client-name">SMP PGRI Serpong</span>
+                    <span class="client-name">MTS Al Ihsan Pamulang</span>
+                    <span class="client-name">SMP Trimulia Jakarta</span>
+                  </div>
+                  <div class="client-track" aria-hidden="true">
+                    <span class="client-name">Puskesmas Suradita Tangerang</span>
+                    <span class="client-name">PT Mitra Efektif Damai Lestari</span>
+                    <span class="client-name">PT Citra Langgeng Otomotif</span>
+                    <span class="client-name">MIN 06 Bandar Lampung</span>
+                    <span class="client-name">SMK Yadika 12 Kota Depok</span>
+                    <span class="client-name">SMPN 18 Kota Depok</span>
+                    <span class="client-name">SMP Strada Yos Sudarso</span>
+                    <span class="client-name">SMP PGRI Serpong</span>
+                    <span class="client-name">MTS Al Ihsan Pamulang</span>
+                    <span class="client-name">SMP Trimulia Jakarta</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-info">
+              <div class="info-line">
+                <span class="info-tag">Jl Pesantren No 88, Jurang Mangu Timur</span>
+                <span class="info-tag">Tangerang Selatan</span>
+              </div>
+              <div class="info-line">
+                <span>Phone: +62 878 2224 8866</span>
+                <span>Email: injakbalikeventorganizer@gmail.com</span>
+              </div>
+            </div>
+          </div>
+          <aside class="hero-clients" aria-label="Client bahagia kami">
+            <h3>Client Bahagia Kami</h3>
+            <div class="client-marquee" aria-hidden="true">
+              <div class="client-row">
+                <div class="client-track">
+                  <span class="client-name">DPRD Kota Magelang</span>
+                  <span class="client-name">BPMPKB Kota Magelang</span>
+                  <span class="client-name">Bappeda Kota Magelang</span>
+                  <span class="client-name">KLH Kota Magelang</span>
+                  <span class="client-name">Dharma Wanita Kota Magelang</span>
+                  <span class="client-name">SD Asisi Jakarta</span>
+                  <span class="client-name">SMP Asisi Jakarta</span>
+                  <span class="client-name">SMA Asisi Jakarta</span>
+                  <span class="client-name">Kopditsi Asisi Jakarta</span>
+                  <span class="client-name">Klinik Pratama Asisi Jakarta</span>
+                  <span class="client-name">Puskesmas Suradita Tangerang</span>
+                  <span class="client-name">PT Mitra Efektif Damai Lestari</span>
+                  <span class="client-name">PT Citra Langgeng Otomotif</span>
+                  <span class="client-name">MIN 06 Bandar Lampung</span>
+                  <span class="client-name">SMK Yadika 12 Kota Depok</span>
+                </div>
+                <div class="client-track" aria-hidden="true">
+                  <span class="client-name">DPRD Kota Magelang</span>
+                  <span class="client-name">BPMPKB Kota Magelang</span>
+                  <span class="client-name">Bappeda Kota Magelang</span>
+                  <span class="client-name">KLH Kota Magelang</span>
+                  <span class="client-name">Dharma Wanita Kota Magelang</span>
+                  <span class="client-name">SD Asisi Jakarta</span>
+                  <span class="client-name">SMP Asisi Jakarta</span>
+                  <span class="client-name">SMA Asisi Jakarta</span>
+                  <span class="client-name">Kopditsi Asisi Jakarta</span>
+                  <span class="client-name">Klinik Pratama Asisi Jakarta</span>
+                  <span class="client-name">Puskesmas Suradita Tangerang</span>
+                  <span class="client-name">PT Mitra Efektif Damai Lestari</span>
+                  <span class="client-name">PT Citra Langgeng Otomotif</span>
+                  <span class="client-name">MIN 06 Bandar Lampung</span>
+                  <span class="client-name">SMK Yadika 12 Kota Depok</span>
+                </div>
+              </div>
+              <div class="client-row reverse">
+                <div class="client-track">
+                  <span class="client-name">SMPN 18 Kota Depok</span>
+                  <span class="client-name">SMP Strada Yos Sudarso</span>
+                  <span class="client-name">SMP PGRI Serpong</span>
+                  <span class="client-name">MTS Al Ihsan Pamulang</span>
+                  <span class="client-name">SMP Trimulia Jakarta</span>
+                  <span class="client-name">KCD Provinsi Banten</span>
+                  <span class="client-name">Kantor PL CIMB Niaga Karawaci</span>
+                  <span class="client-name">SMKN Pertanian Kota Serang</span>
+                  <span class="client-name">SMKN 2 Tangsel</span>
+                  <span class="client-name">SMK Averus Jaksel</span>
+                  <span class="client-name">SMK Perwira Jaksel</span>
+                  <span class="client-name">SMK Yadika 5 Pondok Aren</span>
+                  <span class="client-name">SMA Yadika 6 Pondok Aren</span>
+                  <span class="client-name">SMK Yapia Pondok Aren</span>
+                  <span class="client-name">SMK Trimulia Jaksel</span>
+                </div>
+                <div class="client-track" aria-hidden="true">
+                  <span class="client-name">SMPN 18 Kota Depok</span>
+                  <span class="client-name">SMP Strada Yos Sudarso</span>
+                  <span class="client-name">SMP PGRI Serpong</span>
+                  <span class="client-name">MTS Al Ihsan Pamulang</span>
+                  <span class="client-name">SMP Trimulia Jakarta</span>
+                  <span class="client-name">KCD Provinsi Banten</span>
+                  <span class="client-name">Kantor PL CIMB Niaga Karawaci</span>
+                  <span class="client-name">SMKN Pertanian Kota Serang</span>
+                  <span class="client-name">SMKN 2 Tangsel</span>
+                  <span class="client-name">SMK Averus Jaksel</span>
+                  <span class="client-name">SMK Perwira Jaksel</span>
+                  <span class="client-name">SMK Yadika 5 Pondok Aren</span>
+                  <span class="client-name">SMA Yadika 6 Pondok Aren</span>
+                  <span class="client-name">SMK Yapia Pondok Aren</span>
+                  <span class="client-name">SMK Trimulia Jaksel</span>
+                </div>
+              </div>
+              <div class="client-row slow">
+                <div class="client-track">
+                  <span class="client-name">SMK Kebangsaan Tangsel</span>
+                  <span class="client-name">MKKS Gugus 4 Pondok Aren</span>
+                  <span class="client-name">SMPN 12 Tangerang Selatan</span>
+                  <span class="client-name">SMPN 10 Tangerang Selatan</span>
+                  <span class="client-name">SMA PGRI 22 Serpong</span>
+                  <span class="client-name">SMA PGRI 56 Ciputat</span>
+                  <span class="client-name">SMK PGRI 5 Serpong</span>
+                  <span class="client-name">SMK PGRI 11 Serpong</span>
+                  <span class="client-name">SMP Sariputra Cikarang</span>
+                  <span class="client-name">SD Sariputra Cikarang</span>
+                  <span class="client-name">SDN Serpong 04</span>
+                  <span class="client-name">SMP I YKS Kota Depok</span>
+                </div>
+                <div class="client-track" aria-hidden="true">
+                  <span class="client-name">SMK Kebangsaan Tangsel</span>
+                  <span class="client-name">MKKS Gugus 4 Pondok Aren</span>
+                  <span class="client-name">SMPN 12 Tangerang Selatan</span>
+                  <span class="client-name">SMPN 10 Tangerang Selatan</span>
+                  <span class="client-name">SMA PGRI 22 Serpong</span>
+                  <span class="client-name">SMA PGRI 56 Ciputat</span>
+                  <span class="client-name">SMK PGRI 5 Serpong</span>
+                  <span class="client-name">SMK PGRI 11 Serpong</span>
+                  <span class="client-name">SMP Sariputra Cikarang</span>
+                  <span class="client-name">SD Sariputra Cikarang</span>
+                  <span class="client-name">SDN Serpong 04</span>
+                  <span class="client-name">SMP I YKS Kota Depok</span>
+                </div>
+              </div>
+              <div class="client-row reverse slow">
+                <div class="client-track">
+                  <span class="client-name">DPRD Kota Magelang</span>
+                  <span class="client-name">BPMPKB Kota Magelang</span>
+                  <span class="client-name">Bappeda Kota Magelang</span>
+                  <span class="client-name">KLH Kota Magelang</span>
+                  <span class="client-name">Dharma Wanita Kota Magelang</span>
+                  <span class="client-name">SD Asisi Jakarta</span>
+                  <span class="client-name">SMP Asisi Jakarta</span>
+                  <span class="client-name">SMA Asisi Jakarta</span>
+                  <span class="client-name">Kopditsi Asisi Jakarta</span>
+                  <span class="client-name">Klinik Pratama Asisi Jakarta</span>
+                  <span class="client-name">Puskesmas Suradita Tangerang</span>
+                  <span class="client-name">PT Mitra Efektif Damai Lestari</span>
+                </div>
+                <div class="client-track" aria-hidden="true">
+                  <span class="client-name">DPRD Kota Magelang</span>
+                  <span class="client-name">BPMPKB Kota Magelang</span>
+                  <span class="client-name">Bappeda Kota Magelang</span>
+                  <span class="client-name">KLH Kota Magelang</span>
+                  <span class="client-name">Dharma Wanita Kota Magelang</span>
+                  <span class="client-name">SD Asisi Jakarta</span>
+                  <span class="client-name">SMP Asisi Jakarta</span>
+                  <span class="client-name">SMA Asisi Jakarta</span>
+                  <span class="client-name">Kopditsi Asisi Jakarta</span>
+                  <span class="client-name">Klinik Pratama Asisi Jakarta</span>
+                  <span class="client-name">Puskesmas Suradita Tangerang</span>
+                  <span class="client-name">PT Mitra Efektif Damai Lestari</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </main>
+
+    <section class="about" id="about">
+      <div class="section-inner">
+        <div class="about-grid">
+          <div>
+            <div class="section-title">About Us</div>
+            <h2>Event organizer & tour travel yang fokus pada detail, keamanan, dan pengalaman.</h2>
+            <p>
+              Injak Balik adalah partner event organizer dan tour travel yang berfokus pada konsep kreatif,
+              eksekusi yang tertata, dan pengalaman yang berkesan. Kami merancang perjalanan dan event dengan
+              pendekatan yang personal agar setiap agenda terasa profesional sekaligus hangat.
+            </p>
+            <p>
+              Tim kami terbiasa menangani corporate gathering, outing, serta perjalanan khusus dengan kebutuhan
+              berbeda-beda. Setiap itinerary dipastikan rapi, transparan, dan sesuai dengan tujuan klien.
+            </p>
+            <div class="about-cta">Cerita Kami</div>
+          </div>
+          <div class="about-figure">
+            <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701776708145-scaled.jpg" alt="Tim Injak Balik" loading="lazy" id="aboutSlider" />
+            <div class="about-badge">
+              <span>12+</span>
+              Tahun pengalaman
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="section-inner">
+        <div class="section-title">Our Services</div>
+        <h2>Fokus layanan yang menjadi keunggulan utama.</h2>
+        <p>Mulai dari event corporate hingga perjalanan edukasi, semuanya dirancang rapi dengan konsep yang solid.</p>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-media">
+              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701720814016-scaled.jpg" alt="Special Event" loading="lazy" />
+            </div>
+            <div class="service-body">
+              <h3>Special Event</h3>
+              <p>Konsep acara tematik dengan detail dekor, rundown, dan eksekusi yang rapi.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-media">
+              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701776708145-scaled.jpg" alt="Meeting" loading="lazy" />
+            </div>
+            <div class="service-body">
+              <h3>Meeting</h3>
+              <p>Rapat internal maupun klien dengan venue nyaman, logistik siap, dan flow jelas.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-media">
+              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701720833690-scaled.jpg" alt="Gathering" loading="lazy" />
+            </div>
+            <div class="service-body">
+              <h3>Gathering</h3>
+              <p>Aktivasi kebersamaan tim dengan konsep interaktif dan pengalaman yang hangat.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-media">
+              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701720814016-scaled.jpg" alt="Outing" loading="lazy" />
+            </div>
+            <div class="service-body">
+              <h3>Outing</h3>
+              <p>Perjalanan outing dengan itinerary solid, keamanan terjaga, dan fun maksimal.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-media">
+              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701776708145-scaled.jpg" alt="Study Banding" loading="lazy" />
+            </div>
+            <div class="service-body">
+              <h3>Study Banding</h3>
+              <p>Program kunjungan kerja dengan agenda efektif, dokumentasi lengkap, dan nyaman.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-media">
+              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701720833690-scaled.jpg" alt="Brand Activation" loading="lazy" />
+            </div>
+            <div class="service-body">
+              <h3>Brand Activation</h3>
+              <p>Kegiatan promosi kreatif yang meningkatkan engagement dan exposure brand.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-media">
+              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701720814016-scaled.jpg" alt="Study Tour" loading="lazy" />
+            </div>
+            <div class="service-body">
+              <h3>Study Tour</h3>
+              <p>Perjalanan edukatif dengan konsep belajar sambil eksplorasi destinasi pilihan.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="section-inner">
+        <div class="section-title">Testimonials</div>
+        <h2>Cerita nyata dari klien kami.</h2>
+        <p>Dokumentasi testimonial asli yang menunjukkan pengalaman nyata bersama tim Injak Balik.</p>
+        <div class="testimonial-track" aria-label="Testimoni klien">
+          <article class="testimonial-card">
+            <div class="testimonial-photo">
+              <img src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-29-12-01-52.png" alt="Istikharissa" loading="lazy" />
+            </div>
+            <div class="testimonial-content">
+              <h3>Istikharissa</h3>
+              <span class="testimonial-role">Customer Relation Officer, PT Citra Langgeng Otomotif</span>
+              <p class="testimonial-quote">
+                “Kami dari PT Citra Langgeng Otomotif (Ferrari Indonesia) berwisata ke Malaysia bersama tim
+                InjakBalik.com seperti berwisata dengan keluarga sendiri. Tim ramah dan siap membantu.”
+              </p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-photo">
+              <img src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-29-12-02-05.png" alt="Fakihah" loading="lazy" />
+            </div>
+            <div class="testimonial-content">
+              <h3>Fakihah</h3>
+              <span class="testimonial-role">Kepala Madrasah, MIN 06 Bandar Lampung</span>
+              <p class="testimonial-quote">
+                “Tour ke Bali dan Jogja bersama InjakBalik.com sangat memuaskan. Pelayanannya baik,
+                tour guide ramah, dan semuanya berjalan lancar.”
+              </p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-photo">
+              <img src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-29-12-01-44.png" alt="Ilde Kalina Oktavia" loading="lazy" />
+            </div>
+            <div class="testimonial-content">
+              <h3>Ilde Kalina Oktavia</h3>
+              <span class="testimonial-role">Telesales Manager, PL CIMB Niaga</span>
+              <p class="testimonial-quote">
+                “Excellent! InjakBalik.com membuat pengalaman ke Jogja tak terlupakan. Pelayanan, spot wisata,
+                dan hasil foto luar biasa. Recommended!”
+              </p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-photo">
+              <img src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-29-12-02-00.png" alt="Abdul Khair" loading="lazy" />
+            </div>
+            <div class="testimonial-content">
+              <h3>Abdul Khair, S.Kom., MM.</h3>
+              <span class="testimonial-role">Kepala Sekolah, SMK Yadika 5 Pondok Aren</span>
+              <p class="testimonial-quote">
+                “Acara tour perpisahan dan promnight berjalan sukses dan lancar. Tour leader ramah, persiapan matang,
+                dan peserta merasa nyaman. Sukses selalu untuk InjakBalik.com.”
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="section-inner">
+        <div class="section-title">Contact</div>
+        <div class="contact-grid">
+          <div>
+            <h2>Siap bantu rancang event & perjalanan terbaik.</h2>
+            <p>Hubungi tim Injak Balik untuk konsultasi konsep, itinerary, dan kebutuhan event kamu.</p>
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                  <h4>Alamat</h4>
+                  <span>Jl Pesantren No 88, Jurang Mangu Timur, Tangerang Selatan</span>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                <div>
+                  <h4>Telepon</h4>
+                  <a href="tel:+6287822248866">+62 878 2224 8866</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                  <h4>Email</h4>
+                  <a href="mailto:injakbalikeventorganizer@gmail.com">injakbalikeventorganizer@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div>
+                  <h4>WhatsApp</h4>
+                  <a href="https://wa.me/6287822248866" target="_blank" rel="noopener">Chat langsung sekarang</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-map" aria-label="Lokasi Injak Balik">
+            <iframe
+              title="Peta Injak Balik"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Jl%20Pesantren%20No%2088%20Jurang%20Mangu%20Timur%20Tangerang%20Selatan&output=embed">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="section-inner footer-inner">
+        <div class="footer-brand">
+          <img src="https://everz-digital.site/wp-content/uploads/2025/12/03ae6c87-e556-4590-bb61-00a093c17512-removebg-preview.png" alt="Logo Injak Balik" />
+          <div>Event organizer & tour travel terpercaya untuk momen tak terlupakan.</div>
+          <div class="footer-note">© 2025 Injak Balik. All rights reserved.</div>
+        </div>
+        <div class="footer-links">
+          <a href="#about">Tentang</a>
+          <a href="#services">Layanan</a>
+          <a href="#testimonials">Testimoni</a>
+          <a href="#contact">Kontak</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <a class="wa-float" href="https://wa.me/6287822248866" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <script>
+    const nav = document.getElementById("siteNav");
+    const hero = document.getElementById("hero");
+    const typingEl = document.getElementById("typingText");
+    const burgerBtn = document.getElementById("burgerBtn");
+    const mobileDrawer = document.getElementById("mobileDrawer");
+    const drawerBackdrop = document.getElementById("drawerBackdrop");
+    const drawerClose = document.getElementById("drawerClose");
+    const aboutSlider = document.getElementById("aboutSlider");
+
+    const heroImages = [
+      "https://everz-digital.site/wp-content/uploads/2025/12/1701720814016-scaled.jpg",
+      "https://everz-digital.site/wp-content/uploads/2025/12/1701776708145-scaled.jpg",
+      "https://everz-digital.site/wp-content/uploads/2025/12/1701720833690-scaled.jpg",
+    ];
+
+    const typingTexts = [
+      "150+ Event Sukses",
+      "50+ Mitra Vendor",
+      "12+ Tahun Pengalaman",
+    ];
+
+    let currentIndex = 0;
+    let typingIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function setHeroImage(url) {
+      hero.style.setProperty("--hero-image", `url('${url}')`);
+    }
+
+    setHeroImage(heroImages[0]);
+    if (aboutSlider) {
+      aboutSlider.src = heroImages[1];
+    }
+
+    function runTyping() {
+      if (!typingEl) return;
+      const currentText = typingTexts[typingIndex];
+      const visibleText = deleting
+        ? currentText.slice(0, charIndex - 1)
+        : currentText.slice(0, charIndex + 1);
+      typingEl.textContent = visibleText;
+      charIndex = deleting ? charIndex - 1 : charIndex + 1;
+
+      if (!deleting && charIndex === currentText.length) {
+        deleting = true;
+        setTimeout(runTyping, 1200);
+        return;
+      }
+
+      if (deleting && charIndex === 0) {
+        deleting = false;
+        typingIndex = (typingIndex + 1) % typingTexts.length;
+      }
+
+      const speed = deleting ? 45 : 70;
+      setTimeout(runTyping, speed);
+    }
+
+    runTyping();
+
+    function preloadNextImages() {
+      heroImages.slice(1).forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    }
+
+    window.addEventListener("load", () => {
+      preloadNextImages();
+    });
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % heroImages.length;
+      setHeroImage(heroImages[currentIndex]);
+    }, 7000);
+
+    if (aboutSlider) {
+      let aboutIndex = 1;
+      setInterval(() => {
+        aboutIndex = (aboutIndex + 1) % heroImages.length;
+        aboutSlider.classList.add("is-fading");
+        setTimeout(() => {
+          aboutSlider.src = heroImages[aboutIndex];
+          aboutSlider.classList.remove("is-fading");
+        }, 500);
+      }, 5000);
+    }
+
+    function handleScroll() {
+      const offset = window.scrollY || window.pageYOffset;
+      nav.classList.toggle("scrolled", offset > 20);
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    function setDrawer(open) {
+      document.body.classList.toggle("drawer-open", open);
+      if (burgerBtn) {
+        burgerBtn.setAttribute("aria-expanded", open ? "true" : "false");
+        burgerBtn.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+      }
+    }
+
+    if (burgerBtn) {
+      burgerBtn.addEventListener("click", () => {
+        const isOpen = document.body.classList.contains("drawer-open");
+        setDrawer(!isOpen);
+      });
+    }
+
+    if (drawerBackdrop) {
+      drawerBackdrop.addEventListener("click", () => setDrawer(false));
+    }
+
+    if (drawerClose) {
+      drawerClose.addEventListener("click", () => setDrawer(false));
+    }
+
+    if (mobileDrawer) {
+      mobileDrawer.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => setDrawer(false));
+      });
+    }
+
+    let touchStartX = 0;
+    let touchCurrentX = 0;
+    let dragTranslate = 0;
+    let canDrag = false;
+
+    function getDrawerWidth() {
+      return mobileDrawer ? mobileDrawer.getBoundingClientRect().width : 0;
+    }
+
+    function setDragState(active) {
+      if (!mobileDrawer || !drawerBackdrop) return;
+      mobileDrawer.classList.toggle("is-dragging", active);
+      drawerBackdrop.classList.toggle("is-dragging", active);
+    }
+
+    function updateBackdropOpacity(px) {
+      if (!drawerBackdrop) return;
+      const width = getDrawerWidth();
+      const progress = width ? 1 - Math.min(Math.max(px / width, 0), 1) : 0;
+      drawerBackdrop.style.opacity = `${0.35 * progress}`;
+      drawerBackdrop.style.pointerEvents = progress > 0 ? "auto" : "none";
+    }
+
+    function resetDragStyles() {
+      if (!mobileDrawer || !drawerBackdrop) return;
+      mobileDrawer.style.transform = "";
+      drawerBackdrop.style.opacity = "";
+      drawerBackdrop.style.pointerEvents = "";
+    }
+
+    document.addEventListener(
+      "touchstart",
+      (event) => {
+        if (!mobileDrawer || event.touches.length > 1) return;
+        const startX = event.touches[0].clientX;
+        const isOpen = document.body.classList.contains("drawer-open");
+        const edge = 28;
+        canDrag = isOpen || startX > window.innerWidth - edge;
+        if (!canDrag) return;
+        touchStartX = startX;
+        touchCurrentX = startX;
+        dragTranslate = isOpen ? 0 : getDrawerWidth();
+        setDragState(true);
+      },
+      { passive: true }
+    );
+
+    document.addEventListener(
+      "touchmove",
+      (event) => {
+        if (!canDrag || !mobileDrawer || event.touches.length > 1) return;
+        const currentX = event.touches[0].clientX;
+        touchCurrentX = currentX;
+        const delta = touchCurrentX - touchStartX;
+        const width = getDrawerWidth();
+        const isOpen = document.body.classList.contains("drawer-open");
+
+        if (isOpen) {
+          dragTranslate = Math.min(Math.max(delta, 0), width);
+        } else {
+          if (delta > 0) return;
+          dragTranslate = Math.min(Math.max(width + delta, 0), width);
+        }
+
+        mobileDrawer.style.transform = `translateX(${dragTranslate}px)`;
+        updateBackdropOpacity(dragTranslate);
+        setDragState(true);
+        event.preventDefault();
+      },
+      { passive: false }
+    );
+
+    function endDrag() {
+      if (!canDrag || !mobileDrawer) return;
+      const width = getDrawerWidth();
+      const isOpen = document.body.classList.contains("drawer-open");
+      const closeThreshold = width * 0.35;
+      const openThreshold = width * 0.65;
+      const shouldOpen = isOpen ? dragTranslate <= closeThreshold : dragTranslate <= openThreshold;
+      setDrawer(shouldOpen);
+      setDragState(false);
+      resetDragStyles();
+      canDrag = false;
+    }
+
+    document.addEventListener("touchend", endDrag);
+    document.addEventListener("touchcancel", endDrag);
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setDrawer(false);
+      }
+    });
+  </script>
+</body>
+</html>
