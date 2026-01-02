@@ -269,6 +269,10 @@
       text-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
     }
 
+    .hero-copy {
+      max-width: 640px;
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: nowrap;
@@ -278,12 +282,14 @@
     .hero-stats {
       margin-top: 28px;
       position: relative;
+      width: 100%;
     }
 
     .hero-stats-track {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
+      width: 100%;
     }
 
     .stat-card {
@@ -636,7 +642,7 @@
         padding: 55px 0;
       }
       .hero-content {
-        padding-top: 90px;
+        padding: 90px 10px 60px;
       }
 
       .nav-cta {
@@ -667,16 +673,37 @@
 
       .hero-stats {
         overflow: hidden;
+        display: flex;
+        justify-content: flex-start;
+        padding: 0;
       }
 
       .hero-stats-track {
         display: flex;
         gap: 0;
-        animation: heroSlide 12s infinite;
+        animation: heroSlide 12s steps(1, end) infinite;
+        width: 100%;
       }
 
       .stat-card {
+        width: 100%;
         min-width: 100%;
+        margin: 0 auto;
+        padding: 12px 14px;
+        min-height: auto;
+      }
+
+      .stat-card strong {
+        font-size: 1.05rem;
+      }
+
+      .stat-card span {
+        font-size: 0.78rem;
+      }
+
+      .stat-anim {
+        width: 44px;
+        height: 44px;
       }
 
       .hero-actions {
@@ -692,14 +719,14 @@
 
     @keyframes heroSlide {
       0%,
-      28% {
+      33% {
         transform: translateX(0);
       }
-      33%,
-      61% {
+      34%,
+      66% {
         transform: translateX(-100%);
       }
-      66%,
+      67%,
       100% {
         transform: translateX(-200%);
       }
@@ -739,9 +766,11 @@
 
   <section class="hero" id="home">
     <div class="container hero-content">
-      <div class="tag">Rental Mobil Labuan Bajo</div>
-      <h1 class="reveal" style="animation-delay: 0.1s;">Nyaman & Aman Jelajah Labuan Bajo</h1>
-      <p class="reveal" style="animation-delay: 0.2s;">Labuan Rental menyediakan armada premium, harga transparan, dan layanan 24/7 untuk kebutuhan wisata, dinas, hingga event keluarga. Pilih armada favorit dan booking sekarang.</p>
+      <div class="hero-copy">
+        <div class="tag">Rental Mobil Labuan Bajo</div>
+        <h1 class="reveal" style="animation-delay: 0.1s;">Nyaman & Aman Jelajah Labuan Bajo</h1>
+        <p class="reveal" style="animation-delay: 0.2s;">Labuan Rental menyediakan armada premium, harga transparan, dan layanan 24/7 untuk kebutuhan wisata, dinas, hingga event keluarga. Pilih armada favorit dan booking sekarang.</p>
+      </div>
       <div class="hero-actions reveal" style="animation-delay: 0.3s;">
         <a class="btn primary" href="#armada">Lihat Armada</a>
         <a class="btn secondary" href="#kontak">Cek Ketersediaan</a>
