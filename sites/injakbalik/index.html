@@ -43,6 +43,7 @@
       background: radial-gradient(1200px 600px at 15% -10%, #fff 0%, var(--cream) 50%, #efe6da 100%);
       min-height: 100vh;
       overflow-x: hidden;
+      overscroll-behavior-x: none;
     }
 
     body.drawer-open {
@@ -57,6 +58,24 @@
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    .hashtag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f9d986, #c49757);
+      color: #1c1a17;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      box-shadow: 0 10px 18px rgba(176, 138, 81, 0.22);
+    }
+
+    .hashtag.inline {
+      margin-left: 10px;
     }
 
     img {
@@ -114,7 +133,7 @@
     .nav.scrolled {
       background: var(--fog);
       box-shadow: var(--shadow);
-      padding: 6px 6vw;
+      padding: 10px 6vw;
       backdrop-filter: blur(6px);
       color: var(--ink);
     }
@@ -124,6 +143,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+      min-height: 56px;
     }
 
     .brand {
@@ -949,18 +969,20 @@
       grid-auto-columns: minmax(320px, 1fr);
       gap: 20px;
       overflow-x: auto;
+      overscroll-behavior-x: contain;
       scroll-snap-type: x mandatory;
       padding-bottom: 10px;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
     .testimonial-track::-webkit-scrollbar {
-      height: 6px;
+      display: none;
     }
 
     .testimonial-track::-webkit-scrollbar-thumb {
-      background: rgba(28, 26, 23, 0.2);
-      border-radius: 999px;
+      background: transparent;
     }
 
     .testimonial-card {
@@ -972,10 +994,12 @@
       box-shadow: 0 18px 34px rgba(15, 12, 8, 0.1);
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
-      padding: 18px;
+      gap: 14px;
+      padding: 22px 20px 24px;
+      text-align: center;
       min-height: 230px;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+      justify-items: center;
     }
 
     .testimonial-card:hover {
@@ -984,14 +1008,13 @@
     }
 
     .testimonial-photo {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 4 / 5;
-      border-radius: 18px;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
       overflow: hidden;
-      border: 2px solid rgba(255, 255, 255, 0.7);
+      border: 2px solid rgba(176, 138, 81, 0.3);
       background: transparent;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
       transition: transform 0.3s ease;
     }
 
@@ -999,7 +1022,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center;
       display: block;
       background: transparent;
       transition: transform 0.4s ease;
@@ -1009,8 +1032,14 @@
       transform: scale(1.04);
     }
 
+    .testimonial-content {
+      display: grid;
+      justify-items: center;
+      gap: 6px;
+    }
+
     .testimonial-content h3 {
-      margin: 0 0 6px;
+      margin: 8px 0 0;
       font-size: 1.05rem;
       text-transform: uppercase;
       letter-spacing: 1.4px;
@@ -1021,7 +1050,7 @@
       font-size: 0.85rem;
       color: rgba(28, 26, 23, 0.65);
       font-weight: 600;
-      margin-bottom: 10px;
+      margin-bottom: 0;
     }
 
     .testimonial-quote {
@@ -1240,10 +1269,18 @@
 
       .services {
         padding: 70px 6vw 90px;
+        background:
+          radial-gradient(320px 220px at 92% 6%, rgba(255, 236, 205, 0.85) 0%, rgba(255, 236, 205, 0) 72%),
+          radial-gradient(280px 200px at 12% 12%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 72%),
+          linear-gradient(180deg, #fbf5ed 0%, #efe2d2 100%);
       }
 
       .testimonials {
         padding: 70px 6vw 90px;
+        background:
+          radial-gradient(320px 220px at 90% 8%, rgba(255, 233, 199, 0.8) 0%, rgba(255, 233, 199, 0) 72%),
+          radial-gradient(300px 210px at 14% 14%, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 70%),
+          linear-gradient(180deg, #fbf3ea 0%, #efdfce 100%);
       }
 
       .testimonial-track {
@@ -1255,8 +1292,8 @@
       }
 
       .testimonial-photo {
-        width: 100%;
-        height: 200px;
+        width: 72px;
+        height: 72px;
       }
 
       .contact {
@@ -1280,19 +1317,21 @@
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
+        overscroll-behavior-x: contain;
         scroll-snap-type: x mandatory;
         gap: 16px;
         padding-bottom: 8px;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
       }
 
       .services-grid::-webkit-scrollbar {
-        height: 6px;
+        display: none;
       }
 
       .services-grid::-webkit-scrollbar-thumb {
-        background: rgba(28, 26, 23, 0.2);
-        border-radius: 999px;
+        background: transparent;
       }
 
       .service-card {
@@ -1331,7 +1370,7 @@
         <button class="burger" id="burgerBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileDrawer">
           <span></span>
         </button>
-        <a class="nav-cta" href="https://wa.me/6287822248866" target="_blank" rel="noopener">Hubungi</a>
+        <a class="nav-cta" href="https://wa.me/628131827739" target="_blank" rel="noopener">Hubungi</a>
       </div>
     </header>
 
@@ -1344,7 +1383,7 @@
       <a href="#">Layanan</a>
       <a href="#">Paket</a>
       <a href="#">Kontak</a>
-      <a class="drawer-cta" href="https://wa.me/6287822248866" target="_blank" rel="noopener">Hubungi</a>
+      <a class="drawer-cta" href="https://wa.me/628131827739" target="_blank" rel="noopener">Hubungi</a>
     </nav>
 
     <main class="hero" id="hero">
@@ -1352,6 +1391,7 @@
         <div class="hero-grid">
           <div class="hero-content">
             <div class="hero-eyebrow">Event Organizer & Tour Travel</div>
+            <div class="hashtag">#kamiinjakbalik</div>
             <h1>Wujudkan momen tak terlupakan bersama Injak Balik.</h1>
             <p>
               Tim profesional kami merancang event, tour, dan perjalanan yang rapi, nyaman, dan penuh cerita.
@@ -1363,7 +1403,7 @@
               <span>Custom Tour & Travel</span>
             </div>
             <div class="hero-actions">
-              <a class="btn-primary" href="https://wa.me/6287822248866" target="_blank" rel="noopener">Konsultasi Sekarang</a>
+              <a class="btn-primary" href="https://wa.me/628131827739" target="_blank" rel="noopener">Konsultasi Sekarang</a>
               <a class="btn-outline" href="mailto:injakbalikeventorganizer@gmail.com">Kirim Email</a>
             </div>
             <div class="hero-metrics" aria-label="Pencapaian">
@@ -1431,10 +1471,10 @@
             <div class="hero-info">
               <div class="info-line">
                 <span class="info-tag">Jl Pesantren No 88, Jurang Mangu Timur</span>
-                <span class="info-tag">Tangerang Selatan</span>
+                <span class="info-tag">Jalan Raya Pesucen, Petarukan</span>
               </div>
               <div class="info-line">
-                <span>Phone: +62 878 2224 8866</span>
+                <span>Phone: +62 813 1827 739</span>
                 <span>Email: injakbalikeventorganizer@gmail.com</span>
               </div>
             </div>
@@ -1585,12 +1625,12 @@
       <div class="section-inner">
         <div class="about-grid">
           <div>
-            <div class="section-title">About Us</div>
+            <div class="section-title">About Us <span class="hashtag inline">#kamiinjakbalik</span></div>
             <h2>Event organizer & tour travel yang fokus pada detail, keamanan, dan pengalaman.</h2>
             <p>
-              Injak Balik adalah partner event organizer dan tour travel yang berfokus pada konsep kreatif,
-              eksekusi yang tertata, dan pengalaman yang berkesan. Kami merancang perjalanan dan event dengan
-              pendekatan yang personal agar setiap agenda terasa profesional sekaligus hangat.
+              PT KAMI INJAK BALIK (Injak Balik) adalah partner event organizer dan tour travel yang berfokus pada
+              konsep kreatif, eksekusi yang tertata, dan pengalaman yang berkesan. Kami merancang perjalanan dan
+              event dengan pendekatan yang personal agar setiap agenda terasa profesional sekaligus hangat.
             </p>
             <p>
               Tim kami terbiasa menangani corporate gathering, outing, serta perjalanan khusus dengan kebutuhan
@@ -1611,13 +1651,13 @@
 
     <section class="services" id="services">
       <div class="section-inner">
-        <div class="section-title">Our Services</div>
+        <div class="section-title">Our Services <span class="hashtag inline">#kamiinjakbalik</span></div>
         <h2>Fokus layanan yang menjadi keunggulan utama.</h2>
         <p>Mulai dari event corporate hingga perjalanan edukasi, semuanya dirancang rapi dengan konsep yang solid.</p>
         <div class="services-grid">
           <article class="service-card">
             <div class="service-media">
-              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701720814016-scaled.jpg" alt="Special Event" loading="lazy" />
+              <img src="https://bizplus.id/wp-content/uploads/2021/01/NT-Team-Building-600x342-1.jpeg" alt="Special Event" loading="lazy" />
             </div>
             <div class="service-body">
               <h3>Special Event</h3>
@@ -1626,7 +1666,7 @@
           </article>
           <article class="service-card">
             <div class="service-media">
-              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701776708145-scaled.jpg" alt="Meeting" loading="lazy" />
+              <img src="https://ik.imagekit.io/tvlk/blog/2020/03/The-Ritz-Carlton-Jakata-Pacific-Place-2.jpg?tr=q-70,c-at_max,w-1000,h-600" alt="Meeting" loading="lazy" />
             </div>
             <div class="service-body">
               <h3>Meeting</h3>
@@ -1635,7 +1675,7 @@
           </article>
           <article class="service-card">
             <div class="service-media">
-              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701720833690-scaled.jpg" alt="Gathering" loading="lazy" />
+              <img src="https://wisatapuncakbogor.com/wp-content/uploads/2024/12/Paketgathering1.jpg" alt="Gathering" loading="lazy" />
             </div>
             <div class="service-body">
               <h3>Gathering</h3>
@@ -1644,7 +1684,7 @@
           </article>
           <article class="service-card">
             <div class="service-media">
-              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701720814016-scaled.jpg" alt="Outing" loading="lazy" />
+              <img src="https://www.king-adventure.com/wp-content/uploads/2024/04/Tempat-Outbound-yang-Wajib-Ada-di-Paket-Outing-Bali.jpg" alt="Outing" loading="lazy" />
             </div>
             <div class="service-body">
               <h3>Outing</h3>
@@ -1653,7 +1693,7 @@
           </article>
           <article class="service-card">
             <div class="service-media">
-              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701776708145-scaled.jpg" alt="Study Banding" loading="lazy" />
+              <img src="https://desa-sadamantra.kuningankab.go.id/sites/des2038/files/photo-galeri/WhatsApp%20Image%202021-12-11%20at%2009.52.48.jpeg" alt="Study Banding" loading="lazy" />
             </div>
             <div class="service-body">
               <h3>Study Banding</h3>
@@ -1662,7 +1702,7 @@
           </article>
           <article class="service-card">
             <div class="service-media">
-              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701720833690-scaled.jpg" alt="Brand Activation" loading="lazy" />
+              <img src="https://stickearn.com/storage/app/uploads/public/64b/763/3a2/64b7633a220d7696003624.jpg" alt="Brand Activation" loading="lazy" />
             </div>
             <div class="service-body">
               <h3>Brand Activation</h3>
@@ -1671,7 +1711,7 @@
           </article>
           <article class="service-card">
             <div class="service-media">
-              <img src="https://everz-digital.site/wp-content/uploads/2025/12/1701720814016-scaled.jpg" alt="Study Tour" loading="lazy" />
+              <img src="https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/05/26/study-tour-fp-1-3783364898.jpeg" alt="Study Tour" loading="lazy" />
             </div>
             <div class="service-body">
               <h3>Study Tour</h3>
@@ -1684,60 +1724,154 @@
 
     <section class="testimonials" id="testimonials">
       <div class="section-inner">
-        <div class="section-title">Testimonials</div>
+        <div class="section-title">Testimonials <span class="hashtag inline">#kamiinjakbalik</span></div>
         <h2>Cerita nyata dari klien kami.</h2>
         <p>Dokumentasi testimonial asli yang menunjukkan pengalaman nyata bersama tim Injak Balik.</p>
         <div class="testimonial-track" aria-label="Testimoni klien">
           <article class="testimonial-card">
             <div class="testimonial-photo">
-              <img src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-29-12-01-52.png" alt="Istikharissa" loading="lazy" />
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-09-34-03.png" alt="Istikharissa" loading="lazy" />
             </div>
             <div class="testimonial-content">
-              <h3>Istikharissa</h3>
-              <span class="testimonial-role">Customer Relation Officer, PT Citra Langgeng Otomotif</span>
               <p class="testimonial-quote">
                 “Kami dari PT Citra Langgeng Otomotif (Ferrari Indonesia) berwisata ke Malaysia bersama tim
                 InjakBalik.com seperti berwisata dengan keluarga sendiri. Tim ramah dan siap membantu.”
               </p>
+              <h3>Istikharissa</h3>
+              <span class="testimonial-role">Customer Relation Officer, PT Citra Langgeng Otomotif</span>
             </div>
           </article>
           <article class="testimonial-card">
             <div class="testimonial-photo">
-              <img src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-29-12-02-05.png" alt="Fakihah" loading="lazy" />
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-09-34-09.png" alt="Fakihah" loading="lazy" />
             </div>
             <div class="testimonial-content">
-              <h3>Fakihah</h3>
-              <span class="testimonial-role">Kepala Madrasah, MIN 06 Bandar Lampung</span>
               <p class="testimonial-quote">
                 “Tour ke Bali dan Jogja bersama InjakBalik.com sangat memuaskan. Pelayanannya baik,
                 tour guide ramah, dan semuanya berjalan lancar.”
               </p>
+              <h3>Fakihah</h3>
+              <span class="testimonial-role">Kepala Madrasah, MIN 06 Bandar Lampung</span>
             </div>
           </article>
           <article class="testimonial-card">
             <div class="testimonial-photo">
-              <img src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-29-12-01-44.png" alt="Ilde Kalina Oktavia" loading="lazy" />
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-09-34-15.png" alt="Ilde Kalina Oktavia" loading="lazy" />
             </div>
             <div class="testimonial-content">
-              <h3>Ilde Kalina Oktavia</h3>
-              <span class="testimonial-role">Telesales Manager, PL CIMB Niaga</span>
               <p class="testimonial-quote">
                 “Excellent! InjakBalik.com membuat pengalaman ke Jogja tak terlupakan. Pelayanan, spot wisata,
                 dan hasil foto luar biasa. Recommended!”
               </p>
+              <h3>Ilde Kalina Oktavia</h3>
+              <span class="testimonial-role">Telesales Manager, PL CIMB Niaga</span>
             </div>
           </article>
           <article class="testimonial-card">
             <div class="testimonial-photo">
-              <img src="https://everz-digital.site/wp-content/uploads/2025/12/Screenshot-from-2025-12-29-12-02-00.png" alt="Abdul Khair" loading="lazy" />
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-09-34-30.png" alt="Abdul Khair" loading="lazy" />
             </div>
             <div class="testimonial-content">
-              <h3>Abdul Khair, S.Kom., MM.</h3>
-              <span class="testimonial-role">Kepala Sekolah, SMK Yadika 5 Pondok Aren</span>
               <p class="testimonial-quote">
                 “Acara tour perpisahan dan promnight berjalan sukses dan lancar. Tour leader ramah, persiapan matang,
                 dan peserta merasa nyaman. Sukses selalu untuk InjakBalik.com.”
               </p>
+              <h3>Abdul Khair, S.Kom., MM.</h3>
+              <span class="testimonial-role">Kepala Sekolah, SMK Yadika 5 Pondok Aren</span>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-photo">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-02-56.png" alt="Bp. Yayat Supriatna" loading="lazy" />
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-quote">
+                “Dengan team yang sudah terampil dan berpengalaman membuat kerjasama dari sekolah dan pihak javasa
+                berjalan dengan sangat baik. Komitmen dan Profesionalitas yang sangat luar biasa.”
+              </p>
+              <h3>Bp. Yayat Supriatna, S.Pd</h3>
+              <span class="testimonial-role">Ketua PGRI Cabang Serpong</span>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-photo">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-03-08.png" alt="Bp. Ferizal Utama" loading="lazy" />
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-quote">
+                “Trip ke Bandung bersama Javasa Tour sangat mengesankan dan memuaskan. Pelayanannya bagus, tour guidenya
+                jg baik. Dari awal perjalanan, smpe ditempat tujuan, sampai kembali ke perjalanan pulang, semuanya sangat
+                menyenangkan. Pokoknya puas dan sangat recommended. Terima kasih Javasatour...”
+              </p>
+              <h3>Bp. Ferizal Utama</h3>
+              <span class="testimonial-role">Kepala Sekolah SMA Yadika 6 Pd. Aren</span>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-photo">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-03-25.png" alt="Bp. Tengku Fery Z" loading="lazy" />
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-quote">
+                “Kenyamanan dan kepuasan serta keramahan tambahan sebuah perjalanan wisata adalah keharusan yg kita semua
+                harapkan dan inginkan agar perjalanan wisata menjadi suatu momen kebahagiaan tak terlupakan, dan ini
+                semua saya sudah dapatkan di Javasatour, semoga dapat terus dipertahankan oleh javasatour.”
+              </p>
+              <h3>Bp. Tengku Fery Z, S.Pd</h3>
+              <span class="testimonial-role">Kepala Sekolah SMK Averus Jaksel</span>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-photo">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-03-45.png" alt="Bp. Buyung Tarmidzi" loading="lazy" />
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-quote">
+                “Kegiatan Goes To Campus SMA PGRI 56 Ciputat berjalan dengan sangat memuaskan, awalnya ada beberapa
+                perubahan jadwal, tetapi mampu direncanakan kembali dengan baik oleh team dari Javasatour.”
+              </p>
+              <h3>Bp. Buyung Tarmidzi, S.Pd</h3>
+              <span class="testimonial-role">Kepala Sekolah SMA PGRI 56 Ciputat</span>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-photo">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-03-52.png" alt="Bp. Masfur Siddik" loading="lazy" />
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-quote">
+                “SMKS-TI PGRI Serpong dengan Bangga memberikan testimoni positif atas pelayanan Javasatour dalam
+                penyelenggaraan Kunjungan Industri pada tahun 2023. Komunikasi yang baik dan terbuka dengan pihak
+                sekolah, sehingga pelaksanaan berjalan dengan lancar.”
+              </p>
+              <h3>Bp. Masfur Siddik, S.TH.I</h3>
+              <span class="testimonial-role">Kepala Sekolah SMK PGRI 11 Serpong</span>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-photo">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-04-10.png" alt="Ibu Elly Natalia" loading="lazy" />
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-quote">
+                “Acara Kunjungan Industri Kelas XI semua jurusan ke Bandung berjalan lancar dan sesuai dengan yang
+                diharapkan oleh Panitia dan Guru. Terimakasih mas Aris dan Team dari Javasatour.”
+              </p>
+              <h3>Ibu Elly Natalia</h3>
+              <span class="testimonial-role">Kepala Sekolah SMK Kebangsaan Pd. Aren</span>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-photo">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-04-23.png" alt="Ibu Markiah" loading="lazy" />
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-quote">
+                “Kami atas nama panitia Kegiatan Kunjungan Industri mengucapkan banyak terimakasih buat mas aris dan
+                team nya. Terimakasih untuk pelayanan yang memuaskan.”
+              </p>
+              <h3>Ibu Markiah, S.Pd</h3>
+              <span class="testimonial-role">Ketua Panitia KI SMK Trimulia Jakarta</span>
             </div>
           </article>
         </div>
@@ -1746,7 +1880,7 @@
 
     <section class="contact" id="contact">
       <div class="section-inner">
-        <div class="section-title">Contact</div>
+        <div class="section-title">Contact <span class="hashtag inline">#kamiinjakbalik</span></div>
         <div class="contact-grid">
           <div>
             <h2>Siap bantu rancang event & perjalanan terbaik.</h2>
@@ -1760,10 +1894,18 @@
                 </div>
               </div>
               <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                  <h4>Alamat Kedua</h4>
+                  <span>Jalan raya Pesucen, RT.008 RW.005 No.334 Kec. Petarukan, Kabupaten Pemalang, Jawa Tengah 52362</span>
+                  <a href="https://www.google.com/maps?q=Jalan%20raya%20Pesucen%2C%20RT.008%20RW.005%20No.334%20Kec.%20Petarukan%2C%20Kabupaten%20Pemalang%2C%20Jawa%20Tengah%2052362" target="_blank" rel="noopener">Lihat di Google Maps</a>
+                </div>
+              </div>
+              <div class="contact-item">
                 <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
                 <div>
                   <h4>Telepon</h4>
-                  <a href="tel:+6287822248866">+62 878 2224 8866</a>
+                  <a href="tel:+628131827739">+62 813 1827 739</a>
                 </div>
               </div>
               <div class="contact-item">
@@ -1777,7 +1919,7 @@
                 <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
                 <div>
                   <h4>WhatsApp</h4>
-                  <a href="https://wa.me/6287822248866" target="_blank" rel="noopener">Chat langsung sekarang</a>
+                  <a href="https://wa.me/628131827739" target="_blank" rel="noopener">Chat langsung sekarang</a>
                 </div>
               </div>
             </div>
@@ -1787,7 +1929,7 @@
               title="Peta Injak Balik"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Jl%20Pesantren%20No%2088%20Jurang%20Mangu%20Timur%20Tangerang%20Selatan&output=embed">
+              src="https://www.google.com/maps?q=Jalan%20raya%20Pesucen%2C%20RT.008%20RW.005%20No.334%20Kec.%20Petarukan%2C%20Kabupaten%20Pemalang%2C%20Jawa%20Tengah%2052362&output=embed">
             </iframe>
           </div>
         </div>
@@ -1799,6 +1941,7 @@
         <div class="footer-brand">
           <img src="https://everz-digital.site/wp-content/uploads/2025/12/03ae6c87-e556-4590-bb61-00a093c17512-removebg-preview.png" alt="Logo Injak Balik" />
           <div>Event organizer & tour travel terpercaya untuk momen tak terlupakan.</div>
+          <div class="hashtag">#kamiinjakbalik</div>
           <div class="footer-note">© 2025 Injak Balik. All rights reserved.</div>
         </div>
         <div class="footer-links">
@@ -1811,7 +1954,7 @@
     </footer>
   </div>
 
-  <a class="wa-float" href="https://wa.me/6287822248866" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+  <a class="wa-float" href="https://wa.me/628131827739" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
     <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
   </a>
 
