@@ -40,7 +40,7 @@
       padding: 0 !important;
       font-family: "Manrope", system-ui, -apple-system, sans-serif;
       color: var(--ink);
-      background: radial-gradient(1200px 600px at 15% -10%, #fff 0%, var(--cream) 50%, #efe6da 100%);
+      background: radial-gradient(1200px 600px at 15% -10%, #fff 0%, var(--cream) 55%, #faf6f0 100%);
       min-height: 100vh;
       overflow-x: hidden;
       overscroll-behavior-x: none;
@@ -867,7 +867,7 @@
 
     .services {
       padding: 80px 6vw 100px;
-      background: linear-gradient(180deg, #f1e8db 0%, #f7f2ea 55%, #fff 100%);
+      background: transparent;
     }
 
     .services h2 {
@@ -945,7 +945,7 @@
 
     .testimonials {
       padding: 90px 6vw 100px;
-      background: linear-gradient(160deg, #f5ede2 0%, #fff 60%, #f1e6d8 100%);
+      background: transparent;
     }
 
     .testimonials h2 {
@@ -1036,6 +1036,14 @@
       display: grid;
       justify-items: center;
       gap: 6px;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      color: #c49757;
+      font-size: 0.85rem;
+      letter-spacing: 0.4px;
     }
 
     .testimonial-content h3 {
@@ -1132,6 +1140,11 @@
     .contact-item a {
       color: rgba(28, 26, 23, 0.75);
       font-size: 0.95rem;
+    }
+
+    .contact-item a {
+      color: #b87111;
+      font-weight: 700;
     }
 
     .contact-map {
@@ -1269,18 +1282,12 @@
 
       .services {
         padding: 70px 6vw 90px;
-        background:
-          radial-gradient(320px 220px at 92% 6%, rgba(255, 236, 205, 0.85) 0%, rgba(255, 236, 205, 0) 72%),
-          radial-gradient(280px 200px at 12% 12%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 72%),
-          linear-gradient(180deg, #fbf5ed 0%, #efe2d2 100%);
+        background: transparent;
       }
 
       .testimonials {
         padding: 70px 6vw 90px;
-        background:
-          radial-gradient(320px 220px at 90% 8%, rgba(255, 233, 199, 0.8) 0%, rgba(255, 233, 199, 0) 72%),
-          radial-gradient(300px 210px at 14% 14%, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 70%),
-          linear-gradient(180deg, #fbf3ea 0%, #efdfce 100%);
+        background: transparent;
       }
 
       .testimonial-track {
@@ -1733,6 +1740,13 @@
               <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-09-34-03.png" alt="Istikharissa" loading="lazy" />
             </div>
             <div class="testimonial-content">
+              <div class="testimonial-stars" aria-label="Rating 5 bintang">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
               <p class="testimonial-quote">
                 “Kami dari PT Citra Langgeng Otomotif (Ferrari Indonesia) berwisata ke Malaysia bersama tim
                 InjakBalik.com seperti berwisata dengan keluarga sendiri. Tim ramah dan siap membantu.”
@@ -1746,6 +1760,13 @@
               <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-09-34-09.png" alt="Fakihah" loading="lazy" />
             </div>
             <div class="testimonial-content">
+              <div class="testimonial-stars" aria-label="Rating 5 bintang">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
               <p class="testimonial-quote">
                 “Tour ke Bali dan Jogja bersama InjakBalik.com sangat memuaskan. Pelayanannya baik,
                 tour guide ramah, dan semuanya berjalan lancar.”
@@ -1759,6 +1780,13 @@
               <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-09-34-15.png" alt="Ilde Kalina Oktavia" loading="lazy" />
             </div>
             <div class="testimonial-content">
+              <div class="testimonial-stars" aria-label="Rating 5 bintang">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
               <p class="testimonial-quote">
                 “Excellent! InjakBalik.com membuat pengalaman ke Jogja tak terlupakan. Pelayanan, spot wisata,
                 dan hasil foto luar biasa. Recommended!”
@@ -1772,6 +1800,13 @@
               <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-09-34-30.png" alt="Abdul Khair" loading="lazy" />
             </div>
             <div class="testimonial-content">
+              <div class="testimonial-stars" aria-label="Rating 5 bintang">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
               <p class="testimonial-quote">
                 “Acara tour perpisahan dan promnight berjalan sukses dan lancar. Tour leader ramah, persiapan matang,
                 dan peserta merasa nyaman. Sukses selalu untuk InjakBalik.com.”
@@ -1785,6 +1820,13 @@
               <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-02-56.png" alt="Bp. Yayat Supriatna" loading="lazy" />
             </div>
             <div class="testimonial-content">
+              <div class="testimonial-stars" aria-label="Rating 5 bintang">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
               <p class="testimonial-quote">
                 “Dengan team yang sudah terampil dan berpengalaman membuat kerjasama dari sekolah dan pihak javasa
                 berjalan dengan sangat baik. Komitmen dan Profesionalitas yang sangat luar biasa.”
@@ -1798,6 +1840,13 @@
               <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-03-08.png" alt="Bp. Ferizal Utama" loading="lazy" />
             </div>
             <div class="testimonial-content">
+              <div class="testimonial-stars" aria-label="Rating 5 bintang">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
               <p class="testimonial-quote">
                 “Trip ke Bandung bersama Javasa Tour sangat mengesankan dan memuaskan. Pelayanannya bagus, tour guidenya
                 jg baik. Dari awal perjalanan, smpe ditempat tujuan, sampai kembali ke perjalanan pulang, semuanya sangat
@@ -1812,6 +1861,13 @@
               <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-03-25.png" alt="Bp. Tengku Fery Z" loading="lazy" />
             </div>
             <div class="testimonial-content">
+              <div class="testimonial-stars" aria-label="Rating 5 bintang">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
               <p class="testimonial-quote">
                 “Kenyamanan dan kepuasan serta keramahan tambahan sebuah perjalanan wisata adalah keharusan yg kita semua
                 harapkan dan inginkan agar perjalanan wisata menjadi suatu momen kebahagiaan tak terlupakan, dan ini
@@ -1826,6 +1882,13 @@
               <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-03-45.png" alt="Bp. Buyung Tarmidzi" loading="lazy" />
             </div>
             <div class="testimonial-content">
+              <div class="testimonial-stars" aria-label="Rating 5 bintang">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
               <p class="testimonial-quote">
                 “Kegiatan Goes To Campus SMA PGRI 56 Ciputat berjalan dengan sangat memuaskan, awalnya ada beberapa
                 perubahan jadwal, tetapi mampu direncanakan kembali dengan baik oleh team dari Javasatour.”
@@ -1839,6 +1902,13 @@
               <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-03-52.png" alt="Bp. Masfur Siddik" loading="lazy" />
             </div>
             <div class="testimonial-content">
+              <div class="testimonial-stars" aria-label="Rating 5 bintang">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
               <p class="testimonial-quote">
                 “SMKS-TI PGRI Serpong dengan Bangga memberikan testimoni positif atas pelayanan Javasatour dalam
                 penyelenggaraan Kunjungan Industri pada tahun 2023. Komunikasi yang baik dan terbuka dengan pihak
@@ -1853,6 +1923,13 @@
               <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-04-10.png" alt="Ibu Elly Natalia" loading="lazy" />
             </div>
             <div class="testimonial-content">
+              <div class="testimonial-stars" aria-label="Rating 5 bintang">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
               <p class="testimonial-quote">
                 “Acara Kunjungan Industri Kelas XI semua jurusan ke Bandung berjalan lancar dan sesuai dengan yang
                 diharapkan oleh Panitia dan Guru. Terimakasih mas Aris dan Team dari Javasatour.”
@@ -1866,6 +1943,13 @@
               <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-02-10-04-23.png" alt="Ibu Markiah" loading="lazy" />
             </div>
             <div class="testimonial-content">
+              <div class="testimonial-stars" aria-label="Rating 5 bintang">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
               <p class="testimonial-quote">
                 “Kami atas nama panitia Kegiatan Kunjungan Industri mengucapkan banyak terimakasih buat mas aris dan
                 team nya. Terimakasih untuk pelayanan yang memuaskan.”
@@ -1896,7 +1980,7 @@
               <div class="contact-item">
                 <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
                 <div>
-                  <h4>Alamat Kedua</h4>
+                  <h4>Alamat Cabang Jawa Tengah</h4>
                   <span>Jalan raya Pesucen, RT.008 RW.005 No.334 Kec. Petarukan, Kabupaten Pemalang, Jawa Tengah 52362</span>
                   <a href="https://www.google.com/maps?q=Jalan%20raya%20Pesucen%2C%20RT.008%20RW.005%20No.334%20Kec.%20Petarukan%2C%20Kabupaten%20Pemalang%2C%20Jawa%20Tengah%2052362" target="_blank" rel="noopener">Lihat di Google Maps</a>
                 </div>
