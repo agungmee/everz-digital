@@ -673,22 +673,22 @@
       }
 
       .hero-stats {
-        overflow: hidden;
+        overflow: visible;
         display: flex;
         justify-content: flex-start;
         padding: 0;
       }
 
       .hero-stats-track {
-        display: flex;
-        gap: 0;
-        animation: heroSlide 12s steps(1, end) infinite;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
         width: 100%;
       }
 
       .stat-card {
         width: 100%;
-        min-width: 100%;
+        min-width: 0;
         margin: 0 auto;
         padding: 12px 14px;
         min-height: auto;
@@ -720,16 +720,8 @@
 
     @keyframes heroSlide {
       0%,
-      33% {
-        transform: translateX(0);
-      }
-      34%,
-      66% {
-        transform: translateX(-100%);
-      }
-      67%,
       100% {
-        transform: translateX(-200%);
+        transform: translateX(0);
       }
     }
   </style>
