@@ -583,12 +583,12 @@
     .package-cta {
       margin-top: auto;
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      flex-wrap: nowrap;
+      gap: 8px;
     }
 
     .package-cta .btn {
-      padding: 10px 18px;
+      padding: 10px 16px;
       font-size: 0.9rem;
       min-height: 40px;
     }
@@ -662,6 +662,25 @@
       display: grid;
       gap: 18px;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .modal-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .modal-table th,
+    .modal-table td {
+      text-align: left;
+      padding: 8px 10px;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+    }
+
+    .modal-table th {
+      color: var(--gold);
+      font-weight: 700;
     }
 
     .modal-list {
@@ -1056,10 +1075,10 @@
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#why">Why Us</a>
-        <a href="#paket-wisata">Paket Wisata</a>
-        <a href="#armada">Armada</a>
-        <a href="#testimoni">Testimoni</a>
-        <a href="#kontak">Kontak</a>
+        <a href="#paket-wisata">Tour Packages</a>
+        <a href="#armada">Fleet</a>
+        <a href="#testimoni">Testimonials</a>
+        <a href="#kontak">Contact</a>
       </div>
       <div class="nav-cta">
         <a class="icon-link" href="tel:082146116363" aria-label="Call Labuan Rental" title="Call">
@@ -1078,34 +1097,34 @@
   <section class="hero" id="home">
     <div class="container hero-content">
       <div class="hero-copy">
-        <div class="tag">Rental Mobil Labuan Bajo</div>
-        <h1 class="reveal" style="animation-delay: 0.1s;">Nyaman & Aman Jelajah Labuan Bajo</h1>
-        <p class="reveal" style="animation-delay: 0.2s;">Labuan Rental menyediakan armada premium, harga transparan, dan layanan 24/7 untuk kebutuhan wisata, dinas, hingga event keluarga. Pilih armada favorit dan booking sekarang.</p>
+        <div class="tag">Labuan Bajo Car Rental</div>
+        <h1 class="reveal" style="animation-delay: 0.1s;">Comfortable & Safe Labuan Bajo Trips</h1>
+        <p class="reveal" style="animation-delay: 0.2s;">Labuan Rental provides premium fleets, transparent pricing, and 24/7 service for tours, business trips, and family events. Choose your favorite vehicle and book now.</p>
       </div>
       <div class="hero-actions reveal" style="animation-delay: 0.3s;">
-        <a class="btn primary" href="#armada">Lihat Armada</a>
-        <a class="btn secondary" href="#kontak">Cek Ketersediaan</a>
+        <a class="btn primary" href="#armada">View Fleet</a>
+        <a class="btn secondary" href="#kontak">Check Availability</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stats-track">
           <div class="stat-card reveal" style="animation-delay: 0.4s;">
             <div class="stat-text">
               <strong>6+</strong>
-              <span>Armada siap harian & city tour</span>
+              <span>Daily fleet ready for city tours</span>
             </div>
             <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
           </div>
           <div class="stat-card reveal" style="animation-delay: 0.5s;">
             <div class="stat-text">
-              <strong>Harga Jelas</strong>
-              <span>List paket transparan</span>
+              <strong>Clear Pricing</strong>
+              <span>Transparent package list</span>
             </div>
             <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
           </div>
           <div class="stat-card reveal" style="animation-delay: 0.6s;">
             <div class="stat-text">
-              <strong>Booking Mudah</strong>
-              <span>WhatsApp & Telepon</span>
+              <strong>Easy Booking</strong>
+              <span>WhatsApp & Phone</span>
             </div>
             <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
           </div>
@@ -1118,15 +1137,15 @@
     <div class="container about-grid">
       <div>
         <div class="tag">About Us</div>
-        <h2 class="section-title">Labuan Rental, Partner Perjalanan Anda</h2>
-        <p class="section-subtitle">Berlokasi di Wae Kasambi, kami hadir memberikan pengalaman sewa mobil yang bersih, rapi, dan tepat waktu. Armada terawat, driver profesional, dan siap mengantar wisata hingga kebutuhan bisnis di Labuan Bajo.</p>
+        <h2 class="section-title">Labuan Rental, Your Travel Partner</h2>
+        <p class="section-subtitle">Located in Wae Kasambi, we deliver clean, tidy, and on-time car rentals. Well-maintained vehicles, professional drivers, ready for tours and business needs in Labuan Bajo.</p>
       </div>
       <div class="about-card">
-        <h3>Detail Usaha</h3>
-        <p style="color: var(--ash); margin-top: 8px;">Alamat: Wae Kasambi, Jln Kenari No 12</p>
-        <p style="color: var(--ash);">Nomor HP: 082146116363</p>
+        <h3>Business Details</h3>
+        <p style="color: var(--ash); margin-top: 8px;">Address: Wae Kasambi, Jln Kenari No 12</p>
+        <p style="color: var(--ash);">Phone: 082146116363</p>
         <p style="color: var(--ash);">Email: labuanrental@gmail.com</p>
-        <p style="margin-top: 14px;">Kami melayani rental harian, half day, fullday, transfer bandara, serta paket all in untuk perjalanan wisata.</p>
+        <p style="margin-top: 14px;">We serve daily rentals, half day, full day, airport transfers, and all-in tour packages.</p>
       </div>
     </div>
   </section>
@@ -1134,24 +1153,24 @@
   <section class="section" id="why">
     <div class="container">
       <div class="tag">Why Choose Us</div>
-      <h2 class="section-title">Layanan Premium dengan Sentuhan Lokal</h2>
-      <p class="section-subtitle">Tim lokal yang memahami spot terbaik di Labuan Bajo, armada bersih, serta layanan fleksibel untuk perjalanan yang nyaman.</p>
+      <h2 class="section-title">Premium Service with Local Touch</h2>
+      <p class="section-subtitle">Local team that knows the best spots in Labuan Bajo, clean vehicles, and flexible service for a comfortable trip.</p>
       <div class="feature-grid">
         <div class="feature-item reveal" style="animation-delay: 0.1s;">
-          <h4>Driver Berpengalaman</h4>
-          <p>Driver ramah dan tahu rute wisata, siap bantu itinerary terbaik.</p>
+          <h4>Experienced Drivers</h4>
+          <p>Friendly drivers who know the routes and help with the best itinerary.</p>
         </div>
         <div class="feature-item reveal" style="animation-delay: 0.2s;">
-          <h4>Armada Bersih & Wangi</h4>
-          <p>Interior bersih, AC dingin, dan pengecekan rutin sebelum berangkat.</p>
+          <h4>Clean & Fresh Fleet</h4>
+          <p>Clean interiors, cold AC, and routine checks before departure.</p>
         </div>
         <div class="feature-item reveal" style="animation-delay: 0.3s;">
-          <h4>Harga Transparan</h4>
-          <p>Tidak ada biaya tersembunyi, semua paket jelas di awal.</p>
+          <h4>Transparent Pricing</h4>
+          <p>No hidden fees, all packages are clear upfront.</p>
         </div>
         <div class="feature-item reveal" style="animation-delay: 0.4s;">
-          <h4>Booking Cepat</h4>
-          <p>Konfirmasi via WhatsApp dan pilihan paket fleksibel.</p>
+          <h4>Fast Booking</h4>
+          <p>Confirm via WhatsApp with flexible package options.</p>
         </div>
       </div>
     </div>
@@ -1159,13 +1178,13 @@
 
   <section class="section" id="paket-wisata">
     <div class="container">
-      <div class="tag">Paket Wisata</div>
-      <h2 class="section-title">Pilihan Paket Wisata</h2>
-      <p class="section-subtitle">Setiap paket ditampilkan dalam card dengan slider gambar yang bisa digeser manual.</p>
+      <div class="tag">Tour Packages</div>
+      <h2 class="section-title">Tour Package Options</h2>
+      <p class="section-subtitle">Each package is shown in a card with a swipeable image slider.</p>
 
       <div class="package-grid">
         <article class="package-card reveal" style="animation-delay: 0.1s;">
-          <div class="package-slider" aria-label="Slider paket Fullday Trip Komodo">
+          <div class="package-slider" aria-label="Fullday Trip Komodo slider">
             <div class="package-slide">
               <img src="https://everz-digital.site/wp-content/uploads/2026/01/6059d016-5d71-4888-bafc-6c32466f142c.jpeg" alt="Fullday Trip Komodo 1" />
             </div>
@@ -1190,15 +1209,69 @@
             <div class="slider-dots" data-slider-dots></div>
           </div>
           <div class="package-content">
-            <h3 class="package-title">Fullday Trip Komodo Wuth Speed Boat</h3>
+            <h3 class="package-title">Fullday Trip Komodo With Speed Boat</h3>
             <div class="package-price">Rp 1.350.000 / pax</div>
             <div class="package-meta">
-              <span>1 day trip by speedboat, 6 destinasi dalam 1 hari</span>
-              <span>Pick up time: 06.00-06.30 am</span>
+              <span>1 day trip by speedboat, 6 destinations in 1 day</span>
+              <span>Pick-up time: 06.00-06.30 am</span>
             </div>
             <div class="package-cta">
-              <button class="btn secondary" type="button" data-modal-target="#paketDetailModal">Detail Paket</button>
-              <button class="btn primary" type="button" data-modal-target="#paketBookingModal">Booking via WhatsApp</button>
+              <button class="btn secondary" type="button" data-modal-target="#paketDetailModal">Package Details</button>
+              <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Fullday Trip Komodo With Speed Boat">Book via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="package-card reveal" style="animation-delay: 0.15s;">
+          <div class="package-slider" aria-label="Riley Cruise slider">
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-12-08.png" alt="Riley Cruise 1" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-02.png" alt="Riley Cruise 2" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-12.png" alt="Riley Cruise 3" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-19.png" alt="Riley Cruise 4" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-26.png" alt="Riley Cruise 5" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-35.png" alt="Riley Cruise 6" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-41.png" alt="Riley Cruise 7" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-49.png" alt="Riley Cruise 8" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-57.png" alt="Riley Cruise 9" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-14-07.png" alt="Riley Cruise 10" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-14-16.png" alt="Riley Cruise 11" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-14-28.png" alt="Riley Cruise 12" />
+            </div>
+            <div class="slider-dots" data-slider-dots></div>
+          </div>
+          <div class="package-content">
+            <h3 class="package-title">Riley Cruise Charter</h3>
+            <div class="package-price">From Rp 30.000.000</div>
+            <div class="package-meta">
+              <span>Private cruise options from 1 day to 4 days 3 nights</span>
+              <span>Capacity: 1-12 pax with extra guest options</span>
+            </div>
+            <div class="package-cta">
+              <button class="btn secondary" type="button" data-modal-target="#rileyDetailModal">Package Details</button>
+              <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Riley Cruise Charter">Book via WhatsApp</button>
             </div>
           </div>
         </article>
@@ -1208,12 +1281,12 @@
 
   <div class="modal" id="paketDetailModal" aria-hidden="true">
     <div class="modal-backdrop" data-close-modal></div>
-    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="paketDetailTitle">
-      <div class="modal-header">
-        <div class="modal-title" id="paketDetailTitle">Fullday Trip Komodo Wuth Speed Boat</div>
-        <button class="modal-close" type="button" data-close-modal aria-label="Close detail">&times;</button>
-      </div>
-      <div class="modal-slider" aria-label="Slider detail paket">
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="paketDetailTitle">
+        <div class="modal-header">
+          <div class="modal-title" id="paketDetailTitle">Fullday Trip Komodo With Speed Boat</div>
+          <button class="modal-close" type="button" data-close-modal aria-label="Close details">&times;</button>
+        </div>
+      <div class="modal-slider" aria-label="Package detail slider">
         <div class="modal-slide">
           <img src="https://everz-digital.site/wp-content/uploads/2026/01/6059d016-5d71-4888-bafc-6c32466f142c.jpeg" alt="Fullday Trip Komodo 1" />
         </div>
@@ -1240,7 +1313,7 @@
 
       <div class="modal-grid" style="margin-top: 18px;">
         <div>
-          <h4>Destinasi</h4>
+          <h4>Destinations</h4>
           <ul class="modal-list">
             <li>Padar Island</li>
             <li>Pink long beach (Padar)</li>
@@ -1260,7 +1333,7 @@
           </ul>
         </div>
         <div>
-          <h4>Price NOT Includes</h4>
+          <h4>Price Not Included</h4>
           <ul class="modal-list">
             <li>Entrance tickets fee to Komodo National Park & Ranger</li>
             <li>Alcohol drinks</li>
@@ -1293,55 +1366,240 @@
         </div>
       </div>
       <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
-        <button class="btn primary" type="button" data-modal-target="#paketBookingModal">Booking via WhatsApp</button>
+        <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Fullday Trip Komodo With Speed Boat">Book via WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="rileyDetailModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="rileyDetailTitle">
+      <div class="modal-header">
+        <div class="modal-title" id="rileyDetailTitle">Riley Cruise Charter</div>
+        <button class="modal-close" type="button" data-close-modal aria-label="Close details">&times;</button>
+      </div>
+      <div class="modal-slider" aria-label="Riley Cruise detail slider">
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-12-08.png" alt="Riley Cruise 1" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-02.png" alt="Riley Cruise 2" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-12.png" alt="Riley Cruise 3" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-19.png" alt="Riley Cruise 4" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-26.png" alt="Riley Cruise 5" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-35.png" alt="Riley Cruise 6" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-41.png" alt="Riley Cruise 7" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-49.png" alt="Riley Cruise 8" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-13-57.png" alt="Riley Cruise 9" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-14-07.png" alt="Riley Cruise 10" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-14-16.png" alt="Riley Cruise 11" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-03-21-14-28.png" alt="Riley Cruise 12" />
+        </div>
+        <div class="slider-dots" data-slider-dots></div>
+      </div>
+
+      <div class="modal-grid" style="margin-top: 18px;">
+        <div>
+          <h4>Rates & Duration</h4>
+          <table class="modal-table">
+            <thead>
+              <tr>
+                <th>Duration</th>
+                <th>1-8 pax</th>
+                <th>9-12 pax</th>
+                <th>Extra Guest</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>One Day Cruise</td>
+                <td>Rp 30.000.000</td>
+                <td>Rp 35.000.000</td>
+                <td>Rp 1.500.000</td>
+              </tr>
+              <tr>
+                <td>2 Days 1 Night</td>
+                <td>Rp 42.000.000</td>
+                <td>Rp 46.000.000</td>
+                <td>Rp 3.000.000</td>
+              </tr>
+              <tr>
+                <td>3 Days 2 Nights</td>
+                <td>Rp 58.000.000</td>
+                <td>Rp 62.500.000</td>
+                <td>Rp 4.500.000</td>
+              </tr>
+              <tr>
+                <td>4 Days 3 Nights</td>
+                <td>Rp 77.500.000</td>
+                <td>Rp 85.000.000</td>
+                <td>Rp 6.000.000</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="modal-note" style="margin-top: 8px;">Port clearance: Rp 50.000 / pax.</p>
+        </div>
+        <div>
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Meals</li>
+            <li>Snacks & fruits</li>
+            <li>Mineral water</li>
+            <li>Soft drinks, juice, welcome drink</li>
+            <li>Coffee, tea, milk, sugar</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Additional Services</h4>
+          <table class="modal-table">
+            <tbody>
+              <tr>
+                <td>Tour guide</td>
+                <td>Rp 750.000 / day</td>
+              </tr>
+              <tr>
+                <td>Documentation person (drone, GoPro, DSLR)</td>
+                <td>Rp 1.250.000 / pax</td>
+              </tr>
+              <tr>
+                <td>Shuttle</td>
+                <td>Rp 500.000 / drop</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h4>On the Cruise</h4>
+          <ul class="modal-list">
+            <li>Jacuzzi pool on board</li>
+            <li>Karaoke system</li>
+            <li>Sound system + wireless mic</li>
+            <li>LED TV 42"</li>
+            <li>Relaxing balcony</li>
+            <li>Sun deck</li>
+            <li>Kitchen</li>
+            <li>Dispenser</li>
+            <li>Showcase cooler</li>
+            <li>Canoe</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Room Types</h4>
+          <table class="modal-table">
+            <thead>
+              <tr>
+                <th>Room</th>
+                <th>Bed</th>
+                <th>Bathroom</th>
+                <th>Extra Bed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Master Suite Cabin</td>
+                <td>Double bed</td>
+                <td>Private</td>
+                <td>Max 2</td>
+              </tr>
+              <tr>
+                <td>Deluxe Cabin</td>
+                <td>Double bed</td>
+                <td>Private</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Junior Suite Cabin</td>
+                <td>Double bed</td>
+                <td>Private</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Superior Cabin</td>
+                <td>Double bed</td>
+                <td>Private</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Standard Cabin</td>
+                <td>Twin bunk bed</td>
+                <td>Shared</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="modal-note" style="margin-top: 12px;">All prices exclude Komodo National Park entrance fee and island entrance fee.</p>
+      <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Riley Cruise Charter">Book via WhatsApp</button>
       </div>
     </div>
   </div>
 
   <div class="modal" id="paketBookingModal" aria-hidden="true">
     <div class="modal-backdrop" data-close-modal></div>
-    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="paketBookingTitle">
-      <div class="modal-header">
-        <div class="modal-title" id="paketBookingTitle">Booking Fullday Trip Komodo</div>
-        <button class="modal-close" type="button" data-close-modal aria-label="Close booking">&times;</button>
-      </div>
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="paketBookingTitle">
+        <div class="modal-header">
+          <div class="modal-title" id="paketBookingTitle">Book Fullday Trip Komodo</div>
+          <button class="modal-close" type="button" data-close-modal aria-label="Close booking">&times;</button>
+        </div>
       <form class="booking-form" id="bookingForm">
-        <input type="text" name="name" placeholder="Nama lengkap" required />
-        <input type="tel" name="phone" placeholder="Nomor WhatsApp" required />
+        <input type="text" name="name" placeholder="Full name" required />
+        <input type="tel" name="phone" placeholder="WhatsApp number" required />
         <input type="date" name="date" required />
-        <textarea name="notes" rows="3" placeholder="Catatan tambahan (opsional)"></textarea>
-        <button class="btn primary" type="submit">Kirim via WhatsApp</button>
+        <textarea name="notes" rows="3" placeholder="Additional notes (optional)"></textarea>
+        <button class="btn primary" type="submit">Send via WhatsApp</button>
       </form>
-      <p class="modal-note" style="margin-top: 10px;">*Harga dapat berubah karena fee tertentu dibagi berdasarkan jumlah tamu pada hari keberangkatan.</p>
+      <p class="modal-note" style="margin-top: 10px;">*Prices may vary because certain fees are shared based on the number of guests on the departure day.</p>
     </div>
   </div>
 
   <section class="section" id="armada">
     <div class="container">
-      <div class="tag">List Armada</div>
-      <h2 class="section-title">Paket Rental Favorit</h2>
-      <p class="section-subtitle">Pilih mobil sesuai kebutuhan perjalanan. Semua harga sudah termasuk layanan terbaik dari Labuan Rental.</p>
+      <div class="tag">Fleet List</div>
+      <h2 class="section-title">Favorite Rental Packages</h2>
+      <p class="section-subtitle">Choose a car that fits your trip. All prices include the best service from Labuan Rental.</p>
 
       <div class="armada-grid">
         <article class="armada-card reveal" style="animation-delay: 0.1s;">
           <img src="https://d1g6w7sntckt92.cloudfront.net/public/images/color_option_images/3JloGadsmWh5OPk36rQe3VxbJXbKbO9SinbBAuL1.png" alt="Toyota Avanza" />
           <div class="armada-content">
             <h3>Avanza</h3>
-            <p>Cocok untuk city tour dan perjalanan keluarga kecil.</p>
+            <p>Great for city tours and small family trips.</p>
             <details class="price-toggle">
               <summary>Price List</summary>
               <ul class="price-list">
-                <li>Transfer only <span>120k</span></li>
-                <li>2 way transfer <span>300k</span></li>
-                <li>Halfday (5 jam) <span>550k</span></li>
-                <li>Self drive (full day) <span>575k</span></li>
-                <li>Fullday (12 jam) <span>800k</span></li>
+                <li>One-way transfer <span>120k</span></li>
+                <li>Round-trip transfer <span>300k</span></li>
+                <li>Half day (5 hours) <span>550k</span></li>
+                <li>Self-drive (full day) <span>575k</span></li>
+                <li>Full day (12 hours) <span>800k</span></li>
                 <li>All in <span>975k</span></li>
               </ul>
-              <div class="overtime">Overtime charge: 100k/jam</div>
+              <div class="overtime">Overtime charge: 100k/hour</div>
             </details>
             <div class="armada-cta">
-              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Avanza</a>
+              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Book Avanza</a>
             </div>
           </div>
         </article>
@@ -1350,21 +1608,21 @@
           <img src="https://toyotabengkulu.id/wp-content/uploads/2018/08/avz-GBL.png" alt="Toyota Grand" />
           <div class="armada-content">
             <h3>Grand</h3>
-            <p>Mobil harian yang stabil dan nyaman untuk perjalanan santai.</p>
+            <p>Stable and comfortable for relaxed daily trips.</p>
             <details class="price-toggle">
               <summary>Price List</summary>
               <ul class="price-list">
-                <li>Transfer only <span>135k</span></li>
-                <li>2 way transfer <span>350k</span></li>
-                <li>Halfday (5 jam) <span>600k</span></li>
-                <li>Self drive (full day) <span>650k</span></li>
-                <li>Fullday (12 jam) <span>900k</span></li>
+                <li>One-way transfer <span>135k</span></li>
+                <li>Round-trip transfer <span>350k</span></li>
+                <li>Half day (5 hours) <span>600k</span></li>
+                <li>Self-drive (full day) <span>650k</span></li>
+                <li>Full day (12 hours) <span>900k</span></li>
                 <li>All in <span>1.150k</span></li>
               </ul>
-              <div class="overtime">Overtime charge: 150k/jam</div>
+              <div class="overtime">Overtime charge: 150k/hour</div>
             </details>
             <div class="armada-cta">
-              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Grand</a>
+              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Book Grand</a>
             </div>
           </div>
         </article>
@@ -1373,21 +1631,21 @@
           <img src="https://res.cloudinary.com/mufautoshow/image/upload/f_auto,f_auto/w_1200/v1608086374/moas/news/1604391565_toyota-innova-reborn-ini-dia-spesifikasi-dan-fitur-barunya.jpg" alt="Innova Reborn" />
           <div class="armada-content">
             <h3>Reborn</h3>
-            <p>Ruang lega, nyaman untuk perjalanan panjang dan rombongan kecil.</p>
+            <p>Spacious and comfortable for long trips and small groups.</p>
             <details class="price-toggle">
               <summary>Price List</summary>
               <ul class="price-list">
-                <li>Transfer only <span>150k</span></li>
-                <li>2 way transfer <span>425k</span></li>
-                <li>Halfday (5 jam) <span>650k</span></li>
-                <li>Self drive (full day) <span>750k</span></li>
-                <li>Fullday (12 jam) <span>1.000k</span></li>
+                <li>One-way transfer <span>150k</span></li>
+                <li>Round-trip transfer <span>425k</span></li>
+                <li>Half day (5 hours) <span>650k</span></li>
+                <li>Self-drive (full day) <span>750k</span></li>
+                <li>Full day (12 hours) <span>1.000k</span></li>
                 <li>All in <span>1.350k</span></li>
               </ul>
-              <div class="overtime">Overtime charge: 150k/jam</div>
+              <div class="overtime">Overtime charge: 150k/hour</div>
             </details>
             <div class="armada-cta">
-              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Reborn</a>
+              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Book Reborn</a>
             </div>
           </div>
         </article>
@@ -1396,20 +1654,20 @@
           <img src="https://d1g6w7sntckt92.cloudfront.net/public/images/car_gallery_images/NyAkRE6YcSKvUKH7M8i8PCVoQ4uuqkBFpaG4Piy2.jpg" alt="Toyota Hiace" />
           <div class="armada-content">
             <h3>Hiace</h3>
-            <p>Ideal untuk group tour dan kebutuhan acara besar.</p>
+            <p>Ideal for group tours and large events.</p>
             <details class="price-toggle">
               <summary>Price List</summary>
               <ul class="price-list">
-                <li>Transfer only <span>400k</span></li>
-                <li>2 way transfer <span>700k</span></li>
-                <li>Halfday (5 jam) <span>950k</span></li>
-                <li>Fullday (12 jam) <span>1.600k</span></li>
+                <li>One-way transfer <span>400k</span></li>
+                <li>Round-trip transfer <span>700k</span></li>
+                <li>Half day (5 hours) <span>950k</span></li>
+                <li>Full day (12 hours) <span>1.600k</span></li>
                 <li>All in <span>2.250k</span></li>
               </ul>
-              <div class="overtime">Overtime charge: 200k/jam</div>
+              <div class="overtime">Overtime charge: 200k/hour</div>
             </details>
             <div class="armada-cta">
-              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Hiace</a>
+              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Book Hiace</a>
             </div>
           </div>
         </article>
@@ -1418,20 +1676,20 @@
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2VeP0x8XkUmdfS2BGdLO8R0S-7wZNzEVMKw&s" alt="Toyota Fortuner" />
           <div class="armada-content">
             <h3>Fortuner</h3>
-            <p>Performa tangguh dengan gaya premium untuk perjalanan VIP.</p>
+            <p>Tough performance with premium style for VIP trips.</p>
             <details class="price-toggle">
               <summary>Price List</summary>
               <ul class="price-list">
-                <li>Transfer only <span>600k</span></li>
-                <li>2 way transfer <span>1.000k</span></li>
-                <li>Halfday (5 jam) <span>1.500k</span></li>
-                <li>Fullday (12 jam) <span>2.250k</span></li>
+                <li>One-way transfer <span>600k</span></li>
+                <li>Round-trip transfer <span>1.000k</span></li>
+                <li>Half day (5 hours) <span>1.500k</span></li>
+                <li>Full day (12 hours) <span>2.250k</span></li>
                 <li>All in <span>2.750k</span></li>
               </ul>
-              <div class="overtime">Overtime charge: 300k/jam</div>
+              <div class="overtime">Overtime charge: 300k/hour</div>
             </details>
             <div class="armada-cta">
-              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Fortuner</a>
+              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Book Fortuner</a>
             </div>
           </div>
         </article>
@@ -1440,20 +1698,20 @@
           <img src="https://img.goodfon.com/original/2000x1333/8/2e/toyota-alphard-ah40-toyota-alphard-2023-toyota-motor-corpo-1.jpg" alt="Toyota Alphard" />
           <div class="armada-content">
             <h3>Alphard</h3>
-            <p>Luxury MPV untuk tamu VIP, wedding, dan event spesial.</p>
+            <p>Luxury MPV for VIP guests, weddings, and special events.</p>
             <details class="price-toggle">
               <summary>Price List</summary>
               <ul class="price-list">
-                <li>Transfer only <span>1.750k</span></li>
-                <li>2 way transfer <span>2.750k</span></li>
-                <li>Halfday (5 jam) <span>3.750k</span></li>
-                <li>Fullday (12 jam) <span>4.750k</span></li>
+                <li>One-way transfer <span>1.750k</span></li>
+                <li>Round-trip transfer <span>2.750k</span></li>
+                <li>Half day (5 hours) <span>3.750k</span></li>
+                <li>Full day (12 hours) <span>4.750k</span></li>
                 <li>All in <span>5.750k</span></li>
               </ul>
-              <div class="overtime">Overtime charge: 500k/jam</div>
+              <div class="overtime">Overtime charge: 500k/hour</div>
             </details>
             <div class="armada-cta">
-              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking Alphard</a>
+              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Book Alphard</a>
             </div>
           </div>
         </article>
@@ -1463,23 +1721,23 @@
         <div>
           <h4>Booking Procedures</h4>
           <ol>
-            <li>All booking via WhatsApp chat/call.</li>
-            <li>Kami berikan informasi harga dan diskusi kebutuhan Anda.</li>
-            <li>Setelah deal, kami berikan booking code (simpan dengan baik).</li>
-            <li>Booking code berlaku hingga H-7 sebelum pick up date.</li>
-            <li>Lakukan pembayaran atau DP sebelum booking code expired.</li>
-            <li>Jika expired, booking tidak dapat kami jamin.</li>
-            <li>Booking ulang diperlukan jika kode tidak valid.</li>
-            <li>Admin akan kirim detail pembayaran & invoice via WhatsApp.</li>
-            <li>Harga kami belum termasuk pajak pemerintah.</li>
+            <li>All bookings via WhatsApp chat/call.</li>
+            <li>We provide pricing details and discuss your needs.</li>
+            <li>After confirmation, we issue a booking code (keep it safe).</li>
+            <li>Booking code is valid until 7 days before the pick-up date.</li>
+            <li>Make payment or deposit before the booking code expires.</li>
+            <li>If expired, booking is not guaranteed.</li>
+            <li>Rebooking is required if the code is invalid.</li>
+            <li>Admin will send payment details and invoice via WhatsApp.</li>
+            <li>Prices exclude government taxes.</li>
           </ol>
         </div>
         <div>
           <h4>Refund Policy</h4>
           <ul>
-            <li>H-7 sebelum pick up date: refund 50%.</li>
-            <li>Setelah H-7 pick up date: no refund.</li>
-            <li>Voucher policy tersedia (hubungi admin).</li>
+            <li>7 days before pick-up date: 50% refund.</li>
+            <li>Less than 7 days before pick-up date: no refund.</li>
+            <li>Voucher policy available (contact admin).</li>
           </ul>
         </div>
       </div>
@@ -1488,20 +1746,20 @@
 
   <section class="section" id="testimoni">
     <div class="container">
-      <div class="tag">Testimoni</div>
-      <h2 class="section-title">Cerita Pelanggan</h2>
-      <p class="section-subtitle">Pelayanan yang ramah dan armada bersih membuat perjalanan lebih nyaman.</p>
+      <div class="tag">Testimonials</div>
+      <h2 class="section-title">Customer Stories</h2>
+      <p class="section-subtitle">Friendly service and clean vehicles make trips more comfortable.</p>
       <div class="testimonial-grid">
         <div class="testimonial-card reveal" style="animation-delay: 0.1s;">
-          <p>“Driver ramah, mobil bersih, perjalanan ke spot wisata jadi lancar. Recommended!”</p>
+          <p>“Friendly driver, clean car, and a smooth trip to the sightseeing spots. Recommended!”</p>
           <strong>- Rina, Jakarta</strong>
         </div>
         <div class="testimonial-card reveal" style="animation-delay: 0.2s;">
-          <p>“Harga jelas, komunikasi cepat. Kami sekeluarga puas dengan Labuan Rental.”</p>
+          <p>“Clear pricing and fast communication. Our family was happy with Labuan Rental.”</p>
           <strong>- Anwar, Makassar</strong>
         </div>
         <div class="testimonial-card reveal" style="animation-delay: 0.3s;">
-          <p>“Hiace nyaman untuk rombongan, driver bantu itinerary dan foto-foto.”</p>
+          <p>“The Hiace is comfortable for groups, and the driver helped with the itinerary and photos.”</p>
           <strong>- Diah, Surabaya</strong>
         </div>
       </div>
@@ -1510,24 +1768,24 @@
 
   <section class="section" id="kontak">
     <div class="container">
-      <div class="tag">Kontak</div>
-      <h2 class="section-title">Hubungi Kami Sekarang</h2>
-      <p class="section-subtitle">Tim Labuan Rental siap membantu rencana perjalanan Anda.</p>
+      <div class="tag">Contact</div>
+      <h2 class="section-title">Contact Us Now</h2>
+      <p class="section-subtitle">The Labuan Rental team is ready to help your travel plans.</p>
       <div class="contact-grid" style="margin-top: 32px;">
         <div class="contact-card">
-          <h4>Detail Kontak</h4>
+          <h4>Contact Details</h4>
           <div class="contact-details">
-            <div><strong>Alamat:</strong> Wae Kasambi, Jln Kenari No 12</div>
-            <div><strong>Telepon:</strong> 082146116363</div>
+            <div><strong>Address:</strong> Wae Kasambi, Jln Kenari No 12</div>
+            <div><strong>Phone:</strong> 082146116363</div>
             <div><strong>Email:</strong> labuanrental@gmail.com</div>
             <div><strong>Website:</strong> labuanrental.com</div>
           </div>
           <div style="margin-top: 12px;">
-            <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Booking via WhatsApp</a>
+            <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Book via WhatsApp</a>
           </div>
         </div>
         <div class="contact-map">
-          <iframe title="Lokasi Labuan Rental" src="https://www.google.com/maps?q=wae%20kasambi%20jln%20kenari%20no%2012&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe title="Labuan Rental Location" src="https://www.google.com/maps?q=wae%20kasambi%20jln%20kenari%20no%2012&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
@@ -1560,6 +1818,9 @@
 
     const modalTriggers = document.querySelectorAll("[data-modal-target]");
     const modals = document.querySelectorAll(".modal");
+    const bookingState = {
+      packageName: "Fullday Trip Komodo With Speed Boat",
+    };
 
     const initSliderDots = (slider) => {
       const slides = Array.from(slider.querySelectorAll(".package-slide, .modal-slide"));
@@ -1605,6 +1866,13 @@
       trigger.addEventListener("click", () => {
         const target = document.querySelector(trigger.dataset.modalTarget);
         if (!target) return;
+        if (trigger.dataset.package) {
+          bookingState.packageName = trigger.dataset.package;
+          const bookingTitle = document.getElementById("paketBookingTitle");
+          if (bookingTitle) {
+            bookingTitle.textContent = `Book ${bookingState.packageName}`;
+          }
+        }
         closeModals();
         target.classList.add("is-open");
         target.setAttribute("aria-hidden", "false");
@@ -1631,11 +1899,11 @@
         const phone = formData.get("phone");
         const date = formData.get("date");
         const notes = formData.get("notes");
-        const rawMessage = `Booking Paket: Fullday Trip Komodo Wuth Speed Boat\n` +
-          `Nama: ${name}\n` +
+        const rawMessage = `Package Booking: ${bookingState.packageName}\n` +
+          `Name: ${name}\n` +
           `WA: ${phone}\n` +
-          `Tanggal: ${date}\n` +
-          (notes ? `Catatan: ${notes}\n` : "");
+          `Date: ${date}\n` +
+          (notes ? `Notes: ${notes}\n` : "");
         const waUrl = `https://wa.me/6282146116363?text=${encodeURIComponent(rawMessage)}`;
         window.open(waUrl, "_blank");
       });
