@@ -987,6 +987,7 @@
     }
 
     .booking-form input,
+    .booking-form select,
     .booking-form textarea {
       background: rgba(255, 255, 255, 0.9);
       border: 1px solid rgba(31, 27, 22, 0.15);
@@ -2324,12 +2325,48 @@
         <input type="email" name="email" placeholder="Email aktif" required />
         <input type="date" name="date" required />
         <input type="text" id="bookingPackage" name="package" placeholder="Paket yang dipilih" readonly />
-        <input type="text" name="car" placeholder="Pilih mobil (contoh: Avanza)" required />
+        <select id="bookingCar" name="car" required>
+          <option value="" selected>Pilih mobil</option>
+        </select>
         <input type="text" name="pickup" placeholder="Lokasi jemput / nama hotel" required />
         <textarea name="notes" rows="3" placeholder="Catatan tambahan (opsional)"></textarea>
         <button class="btn primary" type="submit">Kirim via WhatsApp</button>
       </form>
       <p class="modal-note" style="margin-top: 10px;">*Harga dapat berubah karena fee tertentu dibagi berdasarkan jumlah tamu pada hari keberangkatan.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="rentalBookingModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="rentalBookingTitle">
+      <div class="modal-header">
+        <div class="modal-title" id="rentalBookingTitle">Pemesanan Rental Mobil</div>
+        <button class="modal-close" type="button" data-close-modal aria-label="Tutup pemesanan">&times;</button>
+      </div>
+      <form class="booking-form" id="rentalBookingForm">
+        <input type="text" name="name" placeholder="Nama lengkap" required />
+        <input type="tel" name="phone" placeholder="Nomor WhatsApp" required />
+        <input type="email" name="email" placeholder="Email aktif" required />
+        <select id="rentalCar" name="car" required>
+          <option value="" selected>Pilih mobil</option>
+        </select>
+        <select name="rentalPackage" required>
+          <option value="" selected>Pilih paket rental</option>
+          <option value="Transfer saja">Transfer saja</option>
+          <option value="Transfer PP">Transfer PP</option>
+          <option value="Setengah hari (5 jam)">Setengah hari (5 jam)</option>
+          <option value="Lepas kunci (seharian)">Lepas kunci (seharian)</option>
+          <option value="Seharian (12 jam)">Seharian (12 jam)</option>
+          <option value="Paket all in">Paket all in</option>
+        </select>
+        <input type="date" name="startDate" required />
+        <input type="date" name="endDate" required />
+        <input type="text" name="estimatedCost" placeholder="Estimasi total biaya (opsional)" />
+        <input type="text" name="pickup" placeholder="Lokasi jemput / nama hotel" required />
+        <textarea name="notes" rows="3" placeholder="Catatan tambahan (opsional)"></textarea>
+        <button class="btn primary" type="submit">Kirim via WhatsApp</button>
+      </form>
+      <p class="modal-note" style="margin-top: 10px;">*Estimasi total biaya akan dikonfirmasi ulang oleh admin.</p>
     </div>
   </div>
 
@@ -2358,7 +2395,7 @@
               <div class="overtime">Biaya lembur: 100k/jam</div>
             </details>
             <div class="armada-cta">
-              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Pesan Avanza</a>
+              <button class="btn primary" type="button" data-modal-target="#rentalBookingModal" data-car="Avanza">Pesan Avanza</button>
             </div>
           </div>
         </article>
@@ -2381,7 +2418,7 @@
               <div class="overtime">Biaya lembur: 150k/jam</div>
             </details>
             <div class="armada-cta">
-              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Pesan Grand</a>
+              <button class="btn primary" type="button" data-modal-target="#rentalBookingModal" data-car="Grand">Pesan Grand</button>
             </div>
           </div>
         </article>
@@ -2404,7 +2441,7 @@
               <div class="overtime">Biaya lembur: 150k/jam</div>
             </details>
             <div class="armada-cta">
-              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Pesan Reborn</a>
+              <button class="btn primary" type="button" data-modal-target="#rentalBookingModal" data-car="Reborn">Pesan Reborn</button>
             </div>
           </div>
         </article>
@@ -2426,7 +2463,7 @@
               <div class="overtime">Biaya lembur: 200k/jam</div>
             </details>
             <div class="armada-cta">
-              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Pesan Hiace</a>
+              <button class="btn primary" type="button" data-modal-target="#rentalBookingModal" data-car="Hiace">Pesan Hiace</button>
             </div>
           </div>
         </article>
@@ -2448,7 +2485,7 @@
               <div class="overtime">Biaya lembur: 300k/jam</div>
             </details>
             <div class="armada-cta">
-              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Pesan Fortuner</a>
+              <button class="btn primary" type="button" data-modal-target="#rentalBookingModal" data-car="Fortuner">Pesan Fortuner</button>
             </div>
           </div>
         </article>
@@ -2470,7 +2507,7 @@
               <div class="overtime">Biaya lembur: 500k/jam</div>
             </details>
             <div class="armada-cta">
-              <a class="btn primary" href="https://wa.me/6282146116363" target="_blank" rel="noreferrer">Pesan Alphard</a>
+              <button class="btn primary" type="button" data-modal-target="#rentalBookingModal" data-car="Alphard">Pesan Alphard</button>
             </div>
           </div>
         </article>
@@ -2778,6 +2815,27 @@
       packageName: "Trip Seharian Komodo dengan Kapal Cepat",
     };
 
+    const armadaNames = Array.from(document.querySelectorAll(".armada-card h3")).map(
+      (item) => item.textContent.trim()
+    );
+
+    const populateSelect = (select, items) => {
+      if (!select || items.length === 0) return;
+      const existingValues = new Set(
+        Array.from(select.options).map((option) => option.value)
+      );
+      items.forEach((name) => {
+        if (!name || existingValues.has(name)) return;
+        const option = document.createElement("option");
+        option.value = name;
+        option.textContent = name;
+        select.appendChild(option);
+      });
+    };
+
+    populateSelect(document.getElementById("bookingCar"), armadaNames);
+    populateSelect(document.getElementById("rentalCar"), armadaNames);
+
     const applyAccent = (card, rgb) => {
       if (!card || !rgb) return;
       card.style.setProperty("--card-accent", rgb.join(" "));
@@ -2911,6 +2969,12 @@
             bookingPackage.value = bookingState.packageName;
           }
         }
+        if (trigger.dataset.car) {
+          const rentalCar = document.getElementById("rentalCar");
+          if (rentalCar) {
+            rentalCar.value = trigger.dataset.car;
+          }
+        }
         closeModals();
         target.classList.add("is-open");
         target.setAttribute("aria-hidden", "false");
@@ -2947,6 +3011,36 @@
           `Email: ${email}\n` +
           `Tanggal: ${date}\n` +
           `Mobil: ${car}\n` +
+          `Jemput/Hotel: ${pickup}\n` +
+          (notes ? `Catatan: ${notes}\n` : "");
+        const waUrl = `https://wa.me/6282146116363?text=${encodeURIComponent(rawMessage)}`;
+        window.open(waUrl, "_blank");
+      });
+    }
+
+    const rentalBookingForm = document.getElementById("rentalBookingForm");
+    if (rentalBookingForm) {
+      rentalBookingForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(rentalBookingForm);
+        const name = formData.get("name");
+        const phone = formData.get("phone");
+        const email = formData.get("email");
+        const car = formData.get("car");
+        const rentalPackage = formData.get("rentalPackage");
+        const startDate = formData.get("startDate");
+        const endDate = formData.get("endDate");
+        const estimatedCost = formData.get("estimatedCost");
+        const pickup = formData.get("pickup");
+        const notes = formData.get("notes");
+        const rawMessage = `Pemesanan Rental Mobil\n` +
+          `Nama: ${name}\n` +
+          `WA: ${phone}\n` +
+          `Email: ${email}\n` +
+          `Mobil: ${car}\n` +
+          `Paket: ${rentalPackage}\n` +
+          `Tanggal: ${startDate} s/d ${endDate}\n` +
+          (estimatedCost ? `Estimasi Biaya: ${estimatedCost}\n` : "") +
           `Jemput/Hotel: ${pickup}\n` +
           (notes ? `Catatan: ${notes}\n` : "");
         const waUrl = `https://wa.me/6282146116363?text=${encodeURIComponent(rawMessage)}`;
