@@ -61,11 +61,14 @@
       letter-spacing: 1.5px;
       text-transform: uppercase;
       margin-bottom: 12px;
+      text-align: center;
     }
 
     .section-subtitle {
       color: var(--ash);
       max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .tag {
@@ -80,6 +83,15 @@
       font-size: 0.75rem;
       letter-spacing: 2px;
       margin-bottom: 18px;
+    }
+
+    #about .section-title,
+    #why .section-title,
+    #about .section-subtitle,
+    #why .section-subtitle {
+      text-align: left;
+      margin-left: 0;
+      margin-right: 0;
     }
 
     .navbar {
@@ -289,6 +301,12 @@
       text-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
     }
 
+    .hero .tag {
+      color: #7a4a05;
+      border-color: rgba(122, 74, 5, 0.3);
+      background: rgba(255, 255, 255, 0.75);
+    }
+
     .hero p {
       max-width: 560px;
       font-size: 1.05rem;
@@ -376,6 +394,10 @@
     .stat-card strong {
       font-size: 1.3rem;
       color: var(--gold);
+    }
+
+    .hero .stat-card strong {
+      color: #b05b00;
     }
 
     .stat-card span {
@@ -1210,6 +1232,18 @@
       .client-logo img {
         max-height: 56px;
       }
+
+      .feature-item {
+        padding: 18px;
+        gap: 12px;
+      }
+
+      .feature-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        font-size: 1.05rem;
+      }
     }
 
     @keyframes heroSlide {
@@ -1234,7 +1268,7 @@
         <a href="#about">Tentang</a>
         <a href="#why">Kenapa Kami</a>
         <a href="#paket-wisata">Paket Wisata</a>
-        <a href="#armada">Armada</a>
+        <a href="#armada">Rental Mobil</a>
         <a href="#testimoni">Testimoni</a>
         <a href="#kontak">Kontak</a>
       </div>
@@ -1257,20 +1291,20 @@
     <div class="hero-bg hero-bg--b" aria-hidden="true"></div>
     <div class="container hero-content">
       <div class="hero-copy">
-        <div class="tag">Rental Mobil Labuan Bajo</div>
+        <div class="tag">Rental Mobil & Paket Wisata Labuan Bajo</div>
         <h1 class="hero-headline">Nyaman & Aman Jelajah Labuan Bajo</h1>
-        <p class="reveal" style="animation-delay: 0.2s;">Labuan Rental menyediakan armada premium, harga transparan, dan layanan 24/7 untuk kebutuhan wisata, dinas, hingga event keluarga. Pilih armada favorit dan pesan sekarang.</p>
+        <p class="reveal" style="animation-delay: 0.2s;">Labuan Rental melayani rental mobil harian, paket wisata Komodo, hingga sewa phinisi. Armada bersih, harga transparan, dan layanan 24/7 untuk perjalanan wisata, dinas, maupun event keluarga.</p>
       </div>
       <div class="hero-actions reveal" style="animation-delay: 0.3s;">
-        <a class="btn primary" href="#armada">Lihat Armada</a>
-        <a class="btn secondary" href="#kontak">Cek Ketersediaan</a>
+        <a class="btn primary" href="#paket-wisata">Lihat Paket Wisata</a>
+        <a class="btn secondary" href="#armada">Cek Rental Mobil</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stats-track">
           <div class="stat-card reveal" style="animation-delay: 0.4s;">
             <div class="stat-text">
               <strong>6+</strong>
-              <span>Armada siap harian & wisata kota</span>
+              <span>Rental mobil, paket wisata, hingga phinisi</span>
             </div>
             <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
           </div>
@@ -2372,10 +2406,10 @@
     const heroHeadline = document.querySelector(".hero-headline");
     const headlineCopies = [
       "Aman & Nyaman Jelajah Labuan Bajo",
-      "Armada Lengkap, Bersih, dan Siap Harian",
-      "Tour Labuan Bajo Harga Terbaik & Transparan",
-      "Phinisi Seru untuk Trip Komodo & Island Hopping",
-      "Layanan Cepat: Rental Mobil + Driver Berpengalaman",
+      "Rental Mobil Lengkap, Bersih, dan Siap Harian",
+      "Paket Wisata Komodo Harga Terbaik & Transparan",
+      "Sewa Phinisi Seru untuk Trip Komodo & Island Hopping",
+      "Layanan Terpadu: Rental Mobil + Tour + Driver",
     ];
 
     if (heroHeadline && headlineCopies.length > 0) {
@@ -2574,14 +2608,3 @@
   </script>
 </body>
 </html>
-      .feature-item {
-        padding: 18px;
-        gap: 12px;
-      }
-
-      .feature-icon {
-        width: 42px;
-        height: 42px;
-        border-radius: 12px;
-        font-size: 1.05rem;
-      }
