@@ -93,12 +93,19 @@
     }
 
     #about .section-title,
-    #why .section-title,
     #about .section-subtitle,
+    #why .section-title,
     #why .section-subtitle {
       text-align: left;
       margin-left: 0;
       margin-right: 0;
+    }
+
+    #why .section-title,
+    #why .section-subtitle {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .section-title.is-visible {
@@ -114,6 +121,11 @@
     #why .tag {
       margin-left: 0;
       margin-right: 0;
+    }
+
+    #why .tag {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -765,9 +777,22 @@
     }
 
     .package-price {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 800;
       color: var(--gold);
+    }
+
+    .package-price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .package-price-note {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ash);
     }
 
     .package-meta {
@@ -788,6 +813,7 @@
       padding: 10px 16px;
       font-size: 0.9rem;
       min-height: 40px;
+      white-space: nowrap;
     }
 
     .package-cta .btn.secondary {
@@ -1517,12 +1543,49 @@
             <h3 class="package-title">Trip Seharian Komodo dengan Kapal Cepat</h3>
             <div class="package-price">Rp 1.350.000 / pax</div>
             <div class="package-meta">
-              <span>Trip 1 hari dengan kapal cepat, 6 destinasi dalam 1 hari</span>
-              <span>Waktu penjemputan: 06.00-06.30</span>
+              <span>6 spot ikonik dalam 1 hari dengan kapal cepat</span>
+              <span>Penjemputan 06.00–06.30, pulang sore</span>
             </div>
             <div class="package-cta">
               <button class="btn secondary" type="button" data-modal-target="#paketDetailModal">Detail Paket</button>
               <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Trip Seharian Komodo dengan Kapal Cepat">Pesan via WhatsApp</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="package-card reveal" style="animation-delay: 0.25s;" data-accent="92 146 140">
+          <div class="package-slider" aria-label="Slider Land Tour Kampung Melo & Goa Rangko">
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/ed2cc56e-f5e4-49e6-ac03-c0011d2a157e.jpeg" alt="Land Tour Kampung Melo & Goa Rangko 1" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/d3e01ac6-45be-4756-883a-2e832543180a.jpeg" alt="Land Tour Kampung Melo & Goa Rangko 2" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/87615b83-a3e6-4fd7-8b85-56bd517543fb.jpeg" alt="Land Tour Kampung Melo & Goa Rangko 3" />
+            </div>
+            <div class="package-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/cb4fe1d7-0bda-4642-9e87-ae4c2668847e.jpeg" alt="Land Tour Kampung Melo & Goa Rangko 4" />
+            </div>
+            <div class="slider-dots" data-slider-dots></div>
+          </div>
+          <div class="package-content">
+            <h3 class="package-title">Land Tour Kampung Melo & Goa Rangko</h3>
+            <div class="package-price-row">
+              <span class="package-price">Rp 750.000 / pax</span>
+              <span class="package-price-note">2 Destinasi Tour</span>
+            </div>
+            <div class="package-price-row">
+              <span class="package-price">Rp 550.000 / pax</span>
+              <span class="package-price-note">Hanya Goa Rangko</span>
+            </div>
+            <div class="package-meta">
+              <span>All in: Kampung Melo + Goa Rangko + sunset Bukit Sylvia</span>
+              <span>Opsi hemat: Goa Rangko saja · Min 2 pax · Start 08.00 WITA</span>
+            </div>
+            <div class="package-cta">
+              <button class="btn secondary" type="button" data-modal-target="#meloRangkoDetailModal">Detail Paket</button>
+              <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Land Tour Kampung Melo & Goa Rangko">Pesan via WhatsApp</button>
             </div>
           </div>
         </article>
@@ -1571,8 +1634,8 @@
             <h3 class="package-title">Sewa Kapal Riley Cruise</h3>
             <div class="package-price">Mulai Rp 30.000.000</div>
             <div class="package-meta">
-              <span>Pilihan pelayaran privat 1 hari hingga 4 hari 3 malam</span>
-              <span>Kapasitas: 1-12 pax dengan opsi tamu tambahan</span>
+              <span>Pelayaran privat 1–4 hari, santai bareng keluarga/rombongan</span>
+              <span>Kapasitas 1–12 pax, bisa tambah tamu</span>
             </div>
             <div class="package-cta">
               <button class="btn secondary" type="button" data-modal-target="#rileyDetailModal">Detail Paket</button>
@@ -1631,8 +1694,8 @@
             <h3 class="package-title">Sewa Phinisi Lady Grace</h3>
             <div class="package-price">Mulai Rp 57.500.000</div>
             <div class="package-meta">
-              <span>Pilihan pelayaran privat 1 hari hingga 4 hari 3 malam</span>
-              <span>Kapasitas: 1-18 pax dengan tambahan orang</span>
+              <span>Pelayaran privat 1–4 hari dengan fasilitas premium</span>
+              <span>Kapasitas 1–18 pax, cocok untuk group besar</span>
             </div>
             <div class="package-cta">
               <button class="btn secondary" type="button" data-modal-target="#ladyGraceDetailModal">Detail Paket</button>
@@ -1732,6 +1795,94 @@
       </div>
       <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
         <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Trip Seharian Komodo dengan Kapal Cepat">Pesan via WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="meloRangkoDetailModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="meloRangkoDetailTitle">
+      <div class="modal-header">
+        <div class="modal-title" id="meloRangkoDetailTitle">Land Tour Kampung Melo & Goa Rangko</div>
+        <button class="modal-close" type="button" data-close-modal aria-label="Tutup detail">&times;</button>
+      </div>
+      <div class="modal-slider" aria-label="Slider detail Land Tour Kampung Melo & Goa Rangko">
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/ed2cc56e-f5e4-49e6-ac03-c0011d2a157e.jpeg" alt="Land Tour Kampung Melo & Goa Rangko 1" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/d3e01ac6-45be-4756-883a-2e832543180a.jpeg" alt="Land Tour Kampung Melo & Goa Rangko 2" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/87615b83-a3e6-4fd7-8b85-56bd517543fb.jpeg" alt="Land Tour Kampung Melo & Goa Rangko 3" />
+        </div>
+        <div class="modal-slide">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/cb4fe1d7-0bda-4642-9e87-ae4c2668847e.jpeg" alt="Land Tour Kampung Melo & Goa Rangko 4" />
+        </div>
+        <div class="slider-dots" data-slider-dots></div>
+      </div>
+
+      <div class="modal-grid" style="margin-top: 18px;">
+        <div>
+          <h4>Harga & Ketentuan</h4>
+          <ul class="modal-list">
+            <li>Rp 750.000 / pax (all in)</li>
+            <li>Rp 550.000 / pax (Goa Rangko saja)</li>
+            <li>Minimal 2 pax</li>
+            <li>All in termasuk mobil, boat penyebrangan, tiket masuk destinasi</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Fasilitas</h4>
+          <ul class="modal-list">
+            <li>Transportasi mobil AC</li>
+            <li>Boat ke Goa Rangko</li>
+            <li>Tiket masuk Goa Rangko</li>
+            <li>Tiket masuk Kampung Melo</li>
+            <li>Makan 1x</li>
+            <li>Driver dan BBM</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Tidak Termasuk</h4>
+          <ul class="modal-list">
+            <li>Keperluan pribadi di luar paket</li>
+            <li>Asuransi diri</li>
+            <li>Tiket pesawat (start point)</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Destinasi</h4>
+          <ul class="modal-list">
+            <li>Goa Rangko</li>
+            <li>Gusung Taka Rangko</li>
+            <li>Kampung Melo</li>
+            <li>Bukit Sylvia</li>
+            <li>Pusat tenun & oleh-oleh</li>
+            <li>Pusat kuliner malam</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Rundown</h4>
+          <ol class="modal-steps">
+            <li>Berkumpul di Labuan Bajo / penjemputan hotel pukul 08.00 WITA</li>
+            <li>Menuju dermaga Rangko</li>
+            <li>Penyebrangan ke Goa Rangko sekitar 40 menit</li>
+            <li>Kegiatan di Goa Rangko</li>
+            <li>Gusung Taka Rangko</li>
+            <li>Lanjut ke Kampung Melo dengan mobil</li>
+            <li>Kegiatan di Kampung Melo</li>
+            <li>Makan siang</li>
+            <li>Lanjut ke Bukit Sylvia (sunset)</li>
+            <li>Pusat oleh-oleh & tenun</li>
+            <li>Pusat kuliner malam</li>
+            <li>Diantar kembali ke hotel</li>
+          </ol>
+          <p class="modal-note">Waktu dapat berubah sesuai kondisi di lapangan saat trip.</p>
+        </div>
+      </div>
+      <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Land Tour Kampung Melo & Goa Rangko">Pesan via WhatsApp</button>
       </div>
     </div>
   </div>
@@ -2170,7 +2321,11 @@
       <form class="booking-form" id="bookingForm">
         <input type="text" name="name" placeholder="Nama lengkap" required />
         <input type="tel" name="phone" placeholder="Nomor WhatsApp" required />
+        <input type="email" name="email" placeholder="Email aktif" required />
         <input type="date" name="date" required />
+        <input type="text" id="bookingPackage" name="package" placeholder="Paket yang dipilih" readonly />
+        <input type="text" name="car" placeholder="Pilih mobil (contoh: Avanza)" required />
+        <input type="text" name="pickup" placeholder="Lokasi jemput / nama hotel" required />
         <textarea name="notes" rows="3" placeholder="Catatan tambahan (opsional)"></textarea>
         <button class="btn primary" type="submit">Kirim via WhatsApp</button>
       </form>
@@ -2751,6 +2906,10 @@
           if (bookingTitle) {
             bookingTitle.textContent = `Pemesanan ${bookingState.packageName}`;
           }
+          const bookingPackage = document.getElementById("bookingPackage");
+          if (bookingPackage) {
+            bookingPackage.value = bookingState.packageName;
+          }
         }
         closeModals();
         target.classList.add("is-open");
@@ -2776,12 +2935,19 @@
         const formData = new FormData(bookingForm);
         const name = formData.get("name");
         const phone = formData.get("phone");
+        const email = formData.get("email");
         const date = formData.get("date");
+        const packageName = formData.get("package") || bookingState.packageName;
+        const car = formData.get("car");
+        const pickup = formData.get("pickup");
         const notes = formData.get("notes");
-        const rawMessage = `Pemesanan Paket: ${bookingState.packageName}\n` +
+        const rawMessage = `Pemesanan Paket: ${packageName}\n` +
           `Nama: ${name}\n` +
           `WA: ${phone}\n` +
+          `Email: ${email}\n` +
           `Tanggal: ${date}\n` +
+          `Mobil: ${car}\n` +
+          `Jemput/Hotel: ${pickup}\n` +
           (notes ? `Catatan: ${notes}\n` : "");
         const waUrl = `https://wa.me/6282146116363?text=${encodeURIComponent(rawMessage)}`;
         window.open(waUrl, "_blank");
