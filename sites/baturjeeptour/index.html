@@ -28,9 +28,10 @@
 
     body {
       font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      background-color: #daece5;
       background: radial-gradient(circle at top left, rgba(47, 133, 90, 0.12), transparent 45%),
         radial-gradient(circle at 80% 20%, rgba(56, 161, 105, 0.12), transparent 50%),
-        linear-gradient(180deg, #ffffff 0%, #f7f7f7 35%, #f1f3f5 100%);
+        linear-gradient(180deg, #daece5 0%, #f3f6f4 55%, #f1f3f5 100%);
       color: var(--text);
       min-height: 100vh;
       overflow-x: hidden;
@@ -39,11 +40,6 @@
     body.loaded .page-loader {
       opacity: 0;
       visibility: hidden;
-    }
-
-    body.loaded .reveal {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     a {
@@ -55,8 +51,8 @@
       position: relative;
       min-height: 100vh;
       padding-bottom: 80px;
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
+      width: 100%;
+      margin-left: 0;
     }
 
     .glow {
@@ -119,10 +115,10 @@
       display: flex;
       align-items: center;
       z-index: 30;
-      background: rgba(255, 255, 255, 0.9);
+      background: transparent;
       transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-      backdrop-filter: blur(6px);
+      border-bottom: 1px solid transparent;
+      backdrop-filter: none;
     }
 
     .navbar.scrolled {
@@ -211,6 +207,145 @@
       align-items: center;
     }
 
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-toggle span {
+      width: 18px;
+      height: 2px;
+      background: #1b1b1b;
+      border-radius: 999px;
+      transition: transform 0.3s ease, opacity 0.2s ease;
+    }
+
+    .menu-open .nav-toggle span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-open .nav-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-open .nav-toggle span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: calc(var(--nav-height) + 8px) 16px auto 16px;
+      border-radius: 24px;
+      padding: 26px 22px 22px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(14px);
+      transform: translateY(-16px) scale(0.98);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 40;
+      overflow: hidden;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .mobile-menu::before,
+    .mobile-menu::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(47, 133, 90, 0.2) 0%, rgba(47, 133, 90, 0.02) 70%);
+      transform: scale(0);
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+      pointer-events: none;
+    }
+
+    .mobile-menu::before {
+      width: 240px;
+      height: 240px;
+      top: -120px;
+      right: -80px;
+    }
+
+    .mobile-menu::after {
+      width: 180px;
+      height: 180px;
+      bottom: -90px;
+      left: -60px;
+      background: radial-gradient(circle, rgba(56, 161, 105, 0.18) 0%, rgba(56, 161, 105, 0.02) 70%);
+    }
+
+    .menu-open .mobile-menu {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .menu-open .mobile-menu::before,
+    .menu-open .mobile-menu::after {
+      transform: scale(1);
+    }
+
+    .mobile-menu-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 14px;
+    }
+
+    .mobile-menu-inner a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .mobile-cta {
+      display: grid;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .wa-float {
+      position: fixed;
+      right: 18px;
+      bottom: 22px;
+      z-index: 50;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(140deg, #1ebf5c 0%, #0fae4f 100%);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 18px 30px rgba(15, 174, 79, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .wa-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 36px rgba(15, 174, 79, 0.4);
+    }
+
+    .wa-float svg {
+      width: 24px;
+      height: 24px;
+      fill: #ffffff;
+    }
+
     .btn {
       padding: 10px 18px;
       border-radius: 999px;
@@ -239,19 +374,25 @@
       position: relative;
       overflow: hidden;
       z-index: 2;
-      background-image: url("https://balitrekkingexploration.com/wp-content/uploads/2023/09/banner_gl-1024x576.jpg");
+      background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(218, 236, 229, 0.96) 78%, #daece5 100%),
+        url("https://balitrekkingexploration.com/wp-content/uploads/2023/09/banner_gl-1024x576.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
+      box-shadow: none;
     }
 
-    .hero::before {
+    .hero::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+      left: -8%;
+      right: -8%;
+      bottom: -24px;
+      height: 200px;
+      background: linear-gradient(180deg, rgba(218, 236, 229, 0) 0%, rgba(218, 236, 229, 0.75) 45%, #daece5 100%);
+      filter: blur(10px);
       z-index: 0;
+      pointer-events: none;
     }
 
     .hero > * {
@@ -269,11 +410,20 @@
       padding: 0 40px;
     }
 
+    .scroll-reveal,
     .reveal {
       opacity: 0;
-      transform: translateY(16px);
-      animation: reveal 0.8s ease forwards;
-      animation-delay: var(--delay, 0s);
+      transform: translateY(28px) scaleY(0.96);
+      transform-origin: bottom;
+      transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transition-delay: var(--delay, 0.1s);
+      will-change: transform, opacity;
+    }
+
+    .scroll-reveal.is-visible,
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scaleY(1);
     }
 
     .section-title {
@@ -358,6 +508,8 @@
 
     .hero-visual {
       position: relative;
+      display: grid;
+      gap: 18px;
       border-radius: 28px;
       padding: 28px;
       background: #ffffff;
@@ -403,6 +555,10 @@
       gap: 10px;
       font-size: 14px;
       color: var(--text);
+      padding: 8px 12px;
+      border-radius: 14px;
+      background: rgba(47, 133, 90, 0.08);
+      border: 1px solid rgba(47, 133, 90, 0.16);
     }
 
     .trail span::before {
@@ -411,13 +567,13 @@
       height: 8px;
       border-radius: 50%;
       background: var(--accent-2);
-      box-shadow: 0 0 0 6px rgba(230, 57, 70, 0.12);
+      box-shadow: 0 0 0 6px rgba(56, 161, 105, 0.18);
     }
 
     .floating-card {
       position: absolute;
       right: 32px;
-      bottom: -20px;
+      bottom: 20px;
       background: #ffffff;
       padding: 14px 16px;
       border-radius: 14px;
@@ -564,13 +720,12 @@
     .package-featured {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
       align-items: stretch;
       padding: 0;
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 26px;
-      min-height: 420px;
       overflow: hidden;
     }
 
@@ -579,7 +734,7 @@
       overflow: hidden;
       border: none;
       box-shadow: none;
-      height: 240px;
+      height: 180px;
     }
 
     .package-image img {
@@ -592,18 +747,27 @@
     .package-body {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      padding: 4px 20px 12px;
+      gap: 8px;
+      padding: 10px 18px 6px;
       height: 100%;
+      flex: 1;
     }
 
     .package-body h3 {
       font-size: 24px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .package-body p {
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .package-actions {
@@ -611,7 +775,7 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-top: auto;
-      padding: 0 20px 20px;
+      padding: 0 18px 8px;
     }
 
     .package-actions .btn {
@@ -1013,8 +1177,12 @@
         display: none;
       }
 
-      .nav-cta .btn.secondary {
+      .nav-cta {
         display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
       }
 
       .floating-card {
@@ -1042,7 +1210,12 @@
       }
 
       .visual-card h3 {
-        font-size: 20px;
+        font-size: 19px;
+        line-height: 1.3;
+      }
+
+      .visual-card p {
+        font-size: 14px;
       }
 
       .trail {
@@ -1068,8 +1241,22 @@
 
       .floating-card {
         width: 100%;
-        justify-content: space-between;
-        margin-top: 14px;
+        margin-top: 6px;
+        background: #f7fbf8;
+        border-color: rgba(47, 133, 90, 0.18);
+        box-shadow: none;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .floating-card > div {
+        padding: 8px 10px;
+        border-radius: 12px;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        text-align: center;
       }
 
       .about-grid {
@@ -1211,6 +1398,23 @@
           <a class="btn secondary" href="tel:+6287780352002">+62 877-8035-2002</a>
           <a class="btn primary" href="https://wa.me/6287780352002" target="_blank" rel="noopener">WhatsApp</a>
         </div>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu-inner">
+          <a href="#packages">Packages</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <div class="mobile-cta">
+            <a class="btn secondary" href="tel:+6287780352002">+62 877-8035-2002</a>
+            <a class="btn primary" href="https://wa.me/6287780352002" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
       </div>
     </nav>
 
@@ -1255,16 +1459,6 @@
               <span>Sunrise Jeep Tour</span>
               <span>Jeep Day Tour</span>
               <span>Sunset Jeep Tour</span>
-            </div>
-          </div>
-          <div class="floating-card">
-            <div>
-              <strong>Bali Basecamp</strong>
-              <small>Flexible pickup areas</small>
-            </div>
-            <div>
-              <strong>24/7</strong>
-              <small>Fast response</small>
             </div>
           </div>
         </div>
@@ -1323,9 +1517,9 @@
     <!-- PACKAGES SECTION START -->
     <section class="packages" id="packages">
       <div class="packages-inner">
-        <h2 class="section-title reveal" style="--delay: 0.25s;">Tour Packages</h2>
+        <h2 class="section-title reveal" style="--delay: 0.25s;">Batur Jeep Tour</h2>
         <p class="section-subtitle">
-          Explore our most requested Batur jeep experiences. Full details and pricing will be added next.
+          Pilihan jeep sunrise, day, dan sunset dengan rute klasik Mount Batur.
         </p>
         <div class="package-slider reveal" style="--delay: 0.3s;">
         <article class="package-featured">
@@ -1382,9 +1576,20 @@
             </div>
           </div>
         </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages" id="activity-tour">
+      <div class="packages-inner">
+        <h2 class="section-title reveal" style="--delay: 0.25s;">Batur Activity Tour</h2>
+        <p class="section-subtitle">
+          Kombinasi jeep dengan aktivitas tambahan seperti black lava, hot spring, dan waterfall.
+        </p>
+        <div class="package-slider reveal" style="--delay: 0.32s;">
         <article class="package-featured">
           <div class="package-image">
-            <img src="https://sunrisejeepadventure.com/wp-content/uploads/2017/01/Sunrise-Mount-Batur-Jeep-Adventure-700x430.jpg" alt="Batur Sunrise and Blacklava Tour" />
+            <img src="https://cdn-imgix.headout.com/media/images/5b542cb3956e3513971bf7436ca9d418-17192-bali-mount-batur---natural-hot-springs-private-sunrise-jeep-tour-02.jpeg" alt="Batur Sunrise and Blacklava Tour" />
           </div>
           <div class="package-body">
             <h3>Batur Sunrise and Blacklava Tour</h3>
@@ -1409,42 +1614,6 @@
             <p>Sunrise trekking to Mount Batur, volcanic breakfast, then unwind in natural hot springs for a full adventure-reset.</p>
             <div class="package-actions">
               <button class="btn" type="button" data-modal-target="sunrise-hot-spring-details-modal">Tour Details</button>
-              <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
-                <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-                  <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
-                </svg>
-                Booking Now
-              </button>
-            </div>
-          </div>
-        </article>
-        <article class="package-featured">
-          <div class="package-image">
-            <img src="https://images.squarespace-cdn.com/content/v1/5e74d0b0ec99d437dda01b4d/1739706541322-W56RO29JAD8PF3GZ7Q22/DSCF7555.jpg" alt="Batur Sunrise and Kintamani Cafe Tour" />
-          </div>
-          <div class="package-body">
-            <h3>Batur Sunrise and Kintamani Cafe</h3>
-            <p>Catch Mount Batur sunrise by private jeep, explore the Black Lava Field, then unwind at Kintamani’s scenic hilltop cafes.</p>
-            <div class="package-actions">
-              <button class="btn" type="button" data-modal-target="kintamani-cafe-details-modal">Tour Details</button>
-              <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
-                <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-                  <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
-                </svg>
-                Booking Now
-              </button>
-            </div>
-          </div>
-        </article>
-        <article class="package-featured">
-          <div class="package-image">
-            <img src="https://baturkintamani.com/wp-content/uploads/2024/04/20.png" alt="Batur Sunrise and Ubud ATV Ride Tour" />
-          </div>
-          <div class="package-body">
-            <h3>Batur Sunrise and Ubud ATV Ride</h3>
-            <p>Sunrise jeep to Mount Batur, black lava exploration, then continue to Ubud for an adrenaline-packed ATV quad biking ride.</p>
-            <div class="package-actions">
-              <button class="btn" type="button" data-modal-target="ubud-atv-details-modal">Tour Details</button>
               <button class="btn primary whatsapp" type="button" data-modal-target="booking-modal">
                 <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
                   <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.58 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
@@ -1596,6 +1765,11 @@
     </footer>
     <!-- FOOTER SECTION END -->
   </div>
+  <a class="wa-float" href="https://wa.me/6287780352002" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M19.11 17.45c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.13-.41-2.15-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.69 4.13.66.28 1.18.45 1.58.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.06-.12-.23-.18-.5-.32zM16.04 4.5c-6.33 0-11.5 5.15-11.5 11.5 0 2.03.54 4.02 1.57 5.77L4.5 27.5l5.9-1.55a11.43 11.43 0 0 0 5.64 1.49h.01c6.33 0 11.5-5.15 11.5-11.5 0-6.35-5.17-11.44-11.51-11.44zm0 21.1h-.01a9.58 9.58 0 0 1-4.89-1.34l-.35-.2-3.5.92.94-3.41-.23-.35a9.52 9.52 0 0 1-1.5-5.16c0-5.23 4.27-9.49 9.54-9.49 5.25 0 9.48 4.26 9.48 9.49 0 5.23-4.23 9.54-9.48 9.54z"/>
+    </svg>
+  </a>
 
   <div class="modal" id="tour-details-modal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="tour-details-title">
@@ -2010,7 +2184,7 @@
       <button class="modal-close" type="button" data-modal-close>Close</button>
       <h3 id="sunrise-blacklava-details-title">Batur Sunrise and Blacklava Tour</h3>
       <div class="modal-hero">
-        <img src="https://sunrisejeepadventure.com/wp-content/uploads/2017/01/Sunrise-Mount-Batur-Jeep-Adventure-700x430.jpg" alt="Batur Sunrise and Blacklava Tour" />
+        <img src="https://cdn-imgix.headout.com/media/images/5b542cb3956e3513971bf7436ca9d418-17192-bali-mount-batur---natural-hot-springs-private-sunrise-jeep-tour-02.jpeg" alt="Batur Sunrise and Blacklava Tour" />
       </div>
       <p>
         Mount Batur Sunrise Jeep is an adventure that makes it easy for you to see the beauty of the sunrise on Mount Batur,
@@ -2904,6 +3078,8 @@
 
   <script>
     const navbar = document.getElementById("navbar");
+    const navToggle = document.getElementById("nav-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
     const modalTriggers = document.querySelectorAll("[data-modal-target]");
     const modalCloses = document.querySelectorAll("[data-modal-close]");
     const modals = document.querySelectorAll(".modal");
@@ -2932,6 +3108,30 @@
       document.body.style.overflow = "hidden";
     };
 
+    const setMenuState = (isOpen) => {
+      if (!navToggle || !mobileMenu) return;
+      document.body.classList.toggle("menu-open", isOpen);
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+      mobileMenu.setAttribute("aria-hidden", String(!isOpen));
+    };
+
+    if (navToggle && mobileMenu) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = document.body.classList.contains("menu-open");
+        setMenuState(!isOpen);
+      });
+
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => setMenuState(false));
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 860) {
+          setMenuState(false);
+        }
+      });
+    }
+
     modalTriggers.forEach((trigger) => {
       trigger.addEventListener("click", () => {
         const id = trigger.getAttribute("data-modal-target");
@@ -2956,6 +3156,7 @@
     window.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
         modals.forEach((modal) => closeModal(modal));
+        setMenuState(false);
       }
     });
 
@@ -3003,6 +3204,32 @@
       testimonialTrack.addEventListener("touchend", () => {
         testimonialTrack.classList.remove("dragging");
       });
+    }
+
+    const revealTargets = document.querySelectorAll(
+      ".reveal, .why-card, .package-featured, .testimonial-card, .contact-card, .meta-card, .visual-card, .package-item"
+    );
+
+    revealTargets.forEach((el) => {
+      el.classList.add("scroll-reveal");
+    });
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
+      );
+
+      revealTargets.forEach((el) => revealObserver.observe(el));
+    } else {
+      revealTargets.forEach((el) => el.classList.add("is-visible"));
     }
 
     window.addEventListener("load", () => {
