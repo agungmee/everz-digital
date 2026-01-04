@@ -26,6 +26,10 @@
       padding: 0;
     }
 
+    html {
+      overflow-x: hidden;
+    }
+
     body {
       font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
       background-color: #daece5;
@@ -140,6 +144,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      min-width: 0;
     }
 
     .brand img {
@@ -1197,6 +1202,16 @@
       }
       .brand-name span {
         font-size: 16px;
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .brand-name small {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .hero {
