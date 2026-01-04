@@ -62,6 +62,9 @@
       text-transform: uppercase;
       margin-bottom: 12px;
       text-align: center;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     .section-subtitle {
@@ -72,7 +75,7 @@
     }
 
     .tag {
-      display: inline-flex;
+      display: block;
       align-items: center;
       gap: 10px;
       padding: 6px 14px;
@@ -83,6 +86,9 @@
       font-size: 0.75rem;
       letter-spacing: 2px;
       margin-bottom: 18px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     #about .section-title,
@@ -92,6 +98,30 @@
       text-align: left;
       margin-left: 0;
       margin-right: 0;
+    }
+
+    .section-title.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section:not(#about):not(#why) .tag {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #about .tag,
+    #why .tag {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .section-title {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
     }
 
     .navbar {
@@ -1196,6 +1226,12 @@
         padding: 10px 16px;
         font-size: 0.85rem;
         white-space: nowrap;
+      }
+
+      .hero .tag {
+        font-size: 0.65rem;
+        white-space: nowrap;
+        padding: 6px 12px;
       }
 
       .package-price {
@@ -2374,6 +2410,24 @@
 
     window.addEventListener("scroll", updateNavbarState, { passive: true });
     updateNavbarState();
+
+    const sectionTitles = document.querySelectorAll(".section .section-title");
+    if (sectionTitles.length > 0) {
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (prefersReduced) {
+        sectionTitles.forEach((title) => title.classList.add("is-visible"));
+      } else {
+        const titleObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              entry.target.classList.toggle("is-visible", entry.isIntersecting);
+            });
+          },
+          { threshold: 0.35 }
+        );
+        sectionTitles.forEach((title) => titleObserver.observe(title));
+      }
+    }
 
     const heroLayers = document.querySelectorAll(".hero-bg");
     const heroImages = [
