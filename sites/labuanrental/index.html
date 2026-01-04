@@ -908,6 +908,33 @@
       gap: 20px;
     }
 
+    .client-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      align-items: center;
+    }
+
+    .client-logo {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid rgba(31, 27, 22, 0.08);
+      box-shadow: 0 12px 24px rgba(30, 22, 18, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 96px;
+    }
+
+    .client-logo img {
+      max-height: 70px;
+      width: auto;
+      object-fit: contain;
+      filter: none;
+    }
+
     .testimonial-card {
       background: #ffffff;
       padding: 22px;
@@ -1168,6 +1195,20 @@
       .modal-table th,
       .modal-table td {
         padding: 6px 6px;
+      }
+
+      .client-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .client-logo {
+        min-height: 86px;
+        padding: 14px;
+      }
+
+      .client-logo img {
+        max-height: 56px;
       }
     }
 
@@ -2208,6 +2249,34 @@
         <div class="testimonial-card reveal" style="animation-delay: 0.3s;">
           <p>“Hiace nyaman untuk rombongan, driver bantu rencana perjalanan dan foto-foto.”</p>
           <strong>- Diah, Surabaya</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="klien">
+    <div class="container">
+      <div class="tag">Klien Kami</div>
+      <h2 class="section-title">Dipercaya Berbagai Klien</h2>
+      <p class="section-subtitle">Deretan klien yang mempercayakan perjalanan dan layanan Labuan Rental.</p>
+      <div class="client-grid">
+        <div class="client-logo reveal" style="animation-delay: 0.05s;">
+          <img src="https://komodoshuttle.com/wp-content/uploads/2024/05/32.png" alt="Logo Klien 32" loading="lazy" />
+        </div>
+        <div class="client-logo reveal" style="animation-delay: 0.1s;">
+          <img src="https://komodoshuttle.com/wp-content/uploads/2024/05/33.png" alt="Logo Klien 33" loading="lazy" />
+        </div>
+        <div class="client-logo reveal" style="animation-delay: 0.15s;">
+          <img src="https://komodoshuttle.com/wp-content/uploads/2024/05/10.png" alt="Logo Klien 10" loading="lazy" />
+        </div>
+        <div class="client-logo reveal" style="animation-delay: 0.2s;">
+          <img src="https://komodoshuttle.com/wp-content/uploads/2024/06/Fanny-2.png" alt="Logo Fanny" loading="lazy" />
+        </div>
+        <div class="client-logo reveal" style="animation-delay: 0.25s;">
+          <img src="https://komodoshuttle.com/wp-content/uploads/2024/05/34.png" alt="Logo Klien 34" loading="lazy" />
+        </div>
+        <div class="client-logo reveal" style="animation-delay: 0.3s;">
+          <img src="https://komodoshuttle.com/wp-content/uploads/2024/05/4.png" alt="Logo Klien 4" loading="lazy" />
         </div>
       </div>
     </div>
