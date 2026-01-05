@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Generator Website - Form Input Client</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Merriweather:wght@400;700&display=swap");
+
+      :root {
+        --ink: #1b1c1d;
+        --cream: #f6f1e8;
+        --sun: #ffb44c;
+        --coral: #ff6f59;
+        --sea: #2f6f73;
+        --teal: #4aa79f;
+        --line: rgba(27, 28, 29, 0.12);
+        --card: #ffffff;
+        --shadow: 0 22px 45px rgba(27, 28, 29, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--ink);
+        font-family: "Source Sans 3", "Segoe UI", sans-serif;
+        background: radial-gradient(circle at 15% 15%, rgba(255, 180, 76, 0.35), transparent 45%),
+          radial-gradient(circle at 85% 0%, rgba(74, 167, 159, 0.32), transparent 48%),
+          linear-gradient(135deg, #f7efe2 0%, #fdf9f3 60%, #f2f7f5 100%);
+      }
+
+      .page {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 48px 24px 72px;
+      }
+
+      header {
+        display: grid;
+        gap: 16px;
+        margin-bottom: 32px;
+        text-align: center;
+        justify-items: center;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(255, 180, 76, 0.2);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-weight: 600;
+        color: #8a4b14;
+      }
+
+      h1 {
+        font-family: "Merriweather", "Georgia", serif;
+        font-size: clamp(2.6rem, 4.6vw, 3.8rem);
+        margin: 0;
+      }
+
+      header p {
+        max-width: 620px;
+        line-height: 1.6;
+        font-size: 1.05rem;
+        margin: 0;
+      }
+
+      .layout {
+        display: grid;
+        gap: 28px;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
+        align-items: start;
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(27, 28, 29, 0.08);
+        position: relative;
+        overflow: hidden;
+        animation: fadeUp 0.6s ease both;
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 180, 76, 0.35);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .card:hover::after {
+        opacity: 1;
+      }
+
+      .card h2 {
+        font-family: "Merriweather", "Georgia", serif;
+        margin: 0 0 18px;
+        font-size: 1.6rem;
+      }
+
+      .card h2 + .helper {
+        margin-top: -6px;
+      }
+
+      form {
+        display: grid;
+        gap: 24px;
+      }
+
+      .form-stack {
+        display: grid;
+        gap: 24px;
+      }
+
+      .submit-bar {
+        display: flex;
+        justify-content: center;
+      }
+
+      .field {
+        display: grid;
+        gap: 8px;
+      }
+
+      label {
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        font-family: inherit;
+        font-size: 0.98rem;
+        background: #fffdf9;
+        transition: border 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: rgba(74, 167, 159, 0.7);
+        box-shadow: 0 0 0 3px rgba(74, 167, 159, 0.2);
+      }
+
+      textarea {
+        min-height: 90px;
+        resize: vertical;
+      }
+
+      .grid-2 {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .services {
+        display: grid;
+        gap: 12px;
+      }
+
+      .service-input {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+      }
+
+      .helper {
+        margin: 6px 0 0;
+        font-size: 0.9rem;
+        color: rgba(27, 28, 29, 0.6);
+      }
+
+      .btn {
+        border: none;
+        padding: 11px 18px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #ffb44c, #ff6f59);
+        color: #1b1c1d;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 20px rgba(255, 111, 89, 0.2);
+      }
+
+      .btn-secondary {
+        background: linear-gradient(135deg, #4aa79f, #2f6f73);
+        color: #ffffff;
+      }
+
+      .btn-secondary:hover {
+        box-shadow: 0 12px 20px rgba(47, 111, 115, 0.25);
+      }
+
+      .btn-outline {
+        background: #ffffff;
+        border: 1px solid rgba(27, 28, 29, 0.2);
+        color: #1b1c1d;
+      }
+
+      .service-sections {
+        display: grid;
+        gap: 18px;
+      }
+
+      .service-section {
+        border-radius: 16px;
+        border: 1px solid rgba(27, 28, 29, 0.12);
+        padding: 18px;
+        background: rgba(255, 255, 255, 0.85);
+        display: grid;
+        gap: 16px;
+      }
+
+      .service-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .service-title {
+        font-weight: 600;
+        font-size: 1.05rem;
+      }
+
+      .packages {
+        display: grid;
+        gap: 14px;
+      }
+
+      .package-card {
+        border-radius: 14px;
+        border: 1px solid rgba(27, 28, 29, 0.1);
+        padding: 16px;
+        background: rgba(74, 167, 159, 0.08);
+        display: grid;
+        gap: 12px;
+      }
+
+      .package-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .package-title {
+        font-weight: 600;
+      }
+
+      .package-grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .upload {
+        border: 1px dashed rgba(27, 28, 29, 0.3);
+        border-radius: 14px;
+        padding: 14px;
+        background: rgba(255, 244, 223, 0.7);
+      }
+
+      .preview-grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        margin-top: 12px;
+      }
+
+      .preview-item {
+        position: relative;
+      }
+
+      .preview-grid img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 1px solid rgba(27, 28, 29, 0.1);
+        background: #ffffff;
+      }
+
+      .preview-remove {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        border: none;
+        border-radius: 999px;
+        width: 26px;
+        height: 26px;
+        display: grid;
+        place-items: center;
+        background: rgba(27, 28, 29, 0.8);
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 0.85rem;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 28px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .hint {
+        background: #1b1c1d;
+        color: #f7f1e8;
+        border-radius: 18px;
+        padding: 22px;
+        display: grid;
+        gap: 10px;
+        animation: fadeUp 0.7s ease both;
+      }
+
+      .hint h3 {
+        margin: 0;
+        font-family: "Merriweather", "Georgia", serif;
+        font-size: 1.3rem;
+      }
+
+      .hint p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: rgba(247, 241, 232, 0.85);
+      }
+
+      .guide {
+        display: grid;
+        gap: 14px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 18px;
+        padding: 22px;
+        border: 1px solid rgba(27, 28, 29, 0.08);
+      }
+
+      .guide h4 {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+
+      .guide ul {
+        margin: 0;
+        padding-left: 18px;
+        display: grid;
+        gap: 8px;
+        color: rgba(27, 28, 29, 0.75);
+        font-size: 0.95rem;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .stagger {
+        animation-delay: 0.15s;
+      }
+
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: static;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <h1>Form Isian Website</h1>
+      </header>
+
+      <div class="layout">
+        <form id="generator-form" class="form-stack">
+          <section class="card">
+            <h2>Profil Usaha</h2>
+            <div class="grid-2">
+              <div class="field">
+                <label for="nama-usaha">Nama Usaha</label>
+                <input id="nama-usaha" name="nama_usaha" placeholder="PT. Aku Bisa" required />
+              </div>
+              <div class="field">
+                <label for="bidang-usaha">Bidang Usaha</label>
+                <input id="bidang-usaha" name="bidang_usaha" placeholder="Tour & Travel" required />
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="field">
+                <label for="nama-website">Nama Website</label>
+                <input id="nama-website" name="nama_website" placeholder="akubisa.com" required />
+              </div>
+              <div class="field">
+                <label for="no-hp">No HP</label>
+                <input id="no-hp" name="no_hp" placeholder="089238273823" inputmode="tel" required />
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="akubisa@gmail.com" required />
+              </div>
+              <div class="field">
+                <label for="logo">Logo (Upload)</label>
+                <div class="upload">
+                  <input id="logo" name="logo" type="file" accept="image/*" />
+                  <div class="preview-grid" id="logo-preview"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="alamat-usaha">Alamat Usaha</label>
+              <textarea
+                id="alamat-usaha"
+                name="alamat_usaha"
+                placeholder="Bali, Indonesia (lengkap supaya bisa dijadikan maps)"
+                required
+              ></textarea>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Layanan & Paket</h2>
+            <div class="services">
+              <div class="field">
+                <label for="layanan-input">Nama Layanan</label>
+                <div class="service-input">
+                  <input
+                    id="layanan-input"
+                    name="layanan_input"
+                    placeholder="Contoh: Rental Mobil, Paket Wisata"
+                  />
+                  <button class="btn add-service" type="button">Tambah Layanan</button>
+                </div>
+                <p class="helper">
+                  Setiap layanan berisi beberapa paket. Tambahkan paket sebanyak yang dibutuhkan.
+                </p>
+              </div>
+              <div class="service-sections" id="layanan-sections" aria-live="polite"></div>
+              <button class="btn add-service" type="button">Tambah Layanan</button>
+              <p class="helper">
+                Pisahkan setiap layanan dalam section berbeda. Contoh layanan: Rental Mobil,
+                Paket Wisata, Airport Transfer, Trekking, Umroh. Jangan gabungkan layanan berbeda
+                dalam satu paket.
+              </p>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Gallery</h2>
+            <div class="field">
+              <label for="gallery-upload">Upload Foto Gallery</label>
+              <div class="upload">
+                <input
+                  id="gallery-upload"
+                  name="gallery_upload"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                />
+                <div class="preview-grid" id="gallery-preview"></div>
+              </div>
+              <p class="helper">Upload beberapa foto terbaik yang mewakili usaha dan layanan.</p>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Testimoni</h2>
+            <p class="helper">Bisa upload hasil screenshot chat/ulasan, atau isi teks saja.</p>
+            <div class="field">
+              <label for="testimoni-text">Testimoni (Input Text)</label>
+              <textarea
+                id="testimoni-text"
+                name="testimoni_text"
+                placeholder="Contoh: Pelayanan cepat, mobil bersih, driver ramah."
+              ></textarea>
+            </div>
+            <div class="field">
+              <label for="testimoni-upload">Upload Screenshot Testimoni</label>
+              <div class="upload">
+                <input
+                  id="testimoni-upload"
+                  name="testimoni_upload"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                />
+                <div class="preview-grid" id="testimoni-preview"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card submit-bar">
+            <button class="btn" type="submit">Submit Form Website</button>
+          </section>
+        </form>
+
+        <aside class="sidebar">
+          <div class="hint">
+            <h3>Contoh Layanan</h3>
+            <p>
+              Sewa mobil lepas kunci, all in, transport airport, daily tour, paket tour multi days,
+              trekking, umroh, dan lain-lain.
+            </p>
+          </div>
+          <div class="guide stagger">
+            <h4>Tips Isi Data</h4>
+            <ul>
+              <li>Isi alamat lengkap agar mudah diproses ke maps.</li>
+              <li>Gunakan nama website sesuai domain yang diinginkan.</li>
+              <li>Upload logo versi PNG agar hasilnya lebih bersih.</li>
+              <li>Layanan bisa ditambah kapan saja tanpa batas.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <script>
+      const addButtons = document.querySelectorAll(".add-service");
+      const input = document.getElementById("layanan-input");
+      const sections = document.getElementById("layanan-sections");
+      const logoInput = document.getElementById("logo");
+      const logoPreview = document.getElementById("logo-preview");
+      const galleryInput = document.getElementById("gallery-upload");
+      const galleryPreview = document.getElementById("gallery-preview");
+      const testimoniInput = document.getElementById("testimoni-upload");
+      const testimoniPreview = document.getElementById("testimoni-preview");
+      const galleryFiles = [];
+      const testimoniFiles = [];
+      let serviceCount = 0;
+
+      const createField = (labelText, id, type = "text", placeholder = "", extra = "") => `
+        <div class="field">
+          <label for="${id}">${labelText}</label>
+          ${
+            type === "textarea"
+              ? `<textarea id="${id}" name="${id}" placeholder="${placeholder}"></textarea>`
+              : `<input id="${id}" name="${id}" type="${type}" placeholder="${placeholder}" ${extra} />`
+          }
+        </div>
+      `;
+
+      const addService = (value) => {
+        const trimmed = value.trim();
+        if (!trimmed) return;
+
+        serviceCount += 1;
+        const serviceId = `service-${serviceCount}`;
+        const section = document.createElement("section");
+        section.className = "service-section";
+        section.dataset.serviceId = serviceId;
+
+        const packages = document.createElement("div");
+        packages.className = "packages";
+
+        let packageCount = 0;
+
+        const addPackage = () => {
+          packageCount += 1;
+          const packageId = `${serviceId}-package-${packageCount}`;
+          const card = document.createElement("div");
+          card.className = "package-card";
+          card.innerHTML = `
+            <div class="package-header">
+              <span class="package-title">${trimmed} - Paket / Produk ${packageCount}</span>
+              <button class="btn btn-outline" type="button" data-remove="${packageId}">Hapus Paket</button>
+            </div>
+            <div class="package-grid">
+              ${createField("Nama Paket", `${packageId}-nama`, "text", "Contoh: Sewa Mobil Lepas Kunci")}
+              ${createField("Harga", `${packageId}-harga`, "text", "Contoh: 350.000")}
+              ${createField("Gambar Paket", `${packageId}-gambar`, "file", "", 'accept="image/*"')}
+            </div>
+            <div class="package-grid">
+              ${createField("Include", `${packageId}-include`, "textarea", "Contoh: Driver, BBM, Air Mineral")}
+              ${createField("Exclude", `${packageId}-exclude`, "textarea", "Contoh: Tiket masuk, makan siang")}
+            </div>
+            ${createField(
+              "Deskripsi Singkat",
+              `${packageId}-deskripsi`,
+              "textarea",
+              "Tulis ringkasan paket yang menarik dan jelas."
+            )}
+          `;
+
+          card.querySelector(`[data-remove="${packageId}"]`).addEventListener("click", () => {
+            card.remove();
+          });
+
+          packages.appendChild(card);
+        };
+
+        section.innerHTML = `
+          <div class="service-header">
+            <span class="service-title">Layanan ${trimmed}</span>
+            <button class="btn btn-outline" type="button" data-remove-service="${serviceId}">
+              Hapus Layanan
+            </button>
+          </div>
+          <button class="btn btn-secondary" type="button" data-add-package="${serviceId}">
+            Tambah Produk / Paket - ${trimmed}
+          </button>
+        `;
+
+        section.appendChild(packages);
+        section.insertAdjacentHTML(
+          "beforeend",
+          `<button class="btn btn-secondary" type="button" data-add-package="${serviceId}">
+            Tambah Produk / Paket - ${trimmed}
+          </button>`
+        );
+
+        section.querySelector(`[data-remove-service="${serviceId}"]`).addEventListener("click", () => {
+          section.remove();
+        });
+
+        section.querySelectorAll(`[data-add-package="${serviceId}"]`).forEach((button) => {
+          button.addEventListener("click", addPackage);
+        });
+
+        sections.appendChild(section);
+        addPackage();
+      };
+
+      addButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          addService(input.value);
+          input.value = "";
+          input.focus();
+        });
+      });
+
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          addService(input.value);
+          input.value = "";
+        }
+      });
+
+      const renderPreview = (files, container, limit = null) => {
+        container.innerHTML = "";
+        const items = Array.from(files);
+        const slice = limit ? items.slice(0, limit) : items;
+        slice.forEach((file) => {
+          const url = URL.createObjectURL(file);
+          const item = document.createElement("div");
+          item.className = "preview-item";
+          const img = document.createElement("img");
+          img.src = url;
+          img.alt = file.name;
+          img.onload = () => URL.revokeObjectURL(url);
+          item.appendChild(img);
+          container.appendChild(item);
+        });
+      };
+
+      const fileKey = (file) => `${file.name}-${file.size}-${file.lastModified}`;
+
+      const addFiles = (files, store) => {
+        Array.from(files).forEach((file) => {
+          if (!store.some((item) => fileKey(item) === fileKey(file))) {
+            store.push(file);
+          }
+        });
+      };
+
+      const renderFileList = (store, container) => {
+        container.innerHTML = "";
+        store.forEach((file, index) => {
+          const url = URL.createObjectURL(file);
+          const item = document.createElement("div");
+          item.className = "preview-item";
+          const img = document.createElement("img");
+          img.src = url;
+          img.alt = file.name;
+          img.onload = () => URL.revokeObjectURL(url);
+          const remove = document.createElement("button");
+          remove.type = "button";
+          remove.className = "preview-remove";
+          remove.textContent = "×";
+          remove.setAttribute("aria-label", `Hapus ${file.name}`);
+          remove.addEventListener("click", () => {
+            store.splice(index, 1);
+            renderFileList(store, container);
+          });
+          item.appendChild(img);
+          item.appendChild(remove);
+          container.appendChild(item);
+        });
+      };
+
+      logoInput.addEventListener("change", (event) => {
+        renderPreview(event.target.files, logoPreview, 1);
+      });
+
+      galleryInput.addEventListener("change", (event) => {
+        addFiles(event.target.files, galleryFiles);
+        renderFileList(galleryFiles, galleryPreview);
+        event.target.value = "";
+      });
+
+      testimoniInput.addEventListener("change", (event) => {
+        addFiles(event.target.files, testimoniFiles);
+        renderFileList(testimoniFiles, testimoniPreview);
+        event.target.value = "";
+      });
+    </script>
+  </body>
+</html>
