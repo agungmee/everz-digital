@@ -5,15 +5,1665 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT. Subiso Solusi Sejati - Solusi IT & Percetakan</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ink: #1f2a44;
+    --muted: #667085;
+    --accent: #f4c430;
+    --accent-deep: #e7b10a;
+    --accent-soft: #fff3c4;
+    --surface: #ffffff;
+    --line: #e6e9ef;
+    --display-font: "Sora", "Plus Jakarta Sans", sans-serif;
+    --shadow: 0 20px 60px rgba(25, 32, 50, 0.12);
+}
+
+body {
+    font-family: "Plus Jakarta Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, #fdfbf5 0%, #ffffff 40%, #f6f8fb 100%);
+    overflow-x: hidden;
+}
+
+body.nav-open {
+    overflow: hidden;
+}
+
+.floating-wa {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    background: #22c55e;
+    color: #ffffff;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 18px 30px rgba(34, 197, 94, 0.3);
+    z-index: 1200;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-wa i {
+    font-size: 18px;
+}
+
+.floating-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 36px rgba(34, 197, 94, 0.4);
+}
+
+@media (max-width: 600px) {
+    .floating-wa {
+        right: 16px;
+        bottom: 16px;
+        padding: 12px 16px;
+    }
+
+    .floating-wa span {
+        display: none;
+    }
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(230, 233, 239, 0.8);
+    padding: 0.9rem 2rem;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+}
+
+header.scrolled .nav-links a {
+    color: var(--ink);
+}
+
+header.scrolled .menu-toggle span {
+    background: var(--ink);
+}
+
+header.scrolled .btn-call {
+    border-color: var(--ink);
+    color: var(--ink);
+}
+
+header.scrolled .btn-call:hover {
+    background: var(--ink);
+    color: #ffffff;
+}
+
+header.scrolled .btn-whatsapp {
+    background: var(--accent);
+}
+
+header.scrolled .btn-whatsapp:hover {
+    background: var(--accent-deep);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    height: 24px !important;
+    width: auto;
+    max-width: 120px !important;
+    object-fit: contain;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+.company-name {
+    color: var(--ink);
+}
+
+.company-name h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.company-name p {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-deep);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-call {
+    padding: 0.6rem 1.5rem;
+    border: 2px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-whatsapp {
+    padding: 0.6rem 1.5rem;
+    background: var(--accent);
+    color: #1f2a44;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-call:hover {
+    background: var(--ink);
+    color: #ffffff;
+}
+
+.btn-whatsapp:hover {
+    background: var(--accent-deep);
+    transform: translateY(-2px);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(31, 42, 68, 0.2);
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: var(--ink);
+    transition: 0.3s;
+}
+
+.menu-toggle span:nth-child(2) {
+    width: 14px;
+    margin-left: 6px;
+}
+
+.menu-toggle.active {
+    transform: rotate(90deg);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 100px 0 50px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    right: -140px;
+    top: 120px;
+    background: radial-gradient(circle, rgba(244, 196, 48, 0.35), rgba(244, 196, 48, 0));
+    z-index: 1;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    left: -120px;
+    bottom: -120px;
+    background: radial-gradient(circle, rgba(180, 205, 255, 0.35), rgba(180, 205, 255, 0));
+    z-index: 1;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.9) brightness(1.05);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.78) 55%, rgba(244, 196, 48, 0.25));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+}
+
+.hero-text {
+    flex: 1;
+    color: var(--ink);
+    max-width: 650px;
+    animation: fadeUp 0.9s ease both;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--accent-soft);
+    border: 1px solid rgba(244, 196, 48, 0.6);
+    border-radius: 25px;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.hero-text h1 {
+    font-size: 3.2rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.hero-text p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--muted);
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-book {
+    padding: 1rem 2rem;
+    background: var(--accent);
+    color: #1f2a44;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-email {
+    padding: 1rem 2rem;
+    background: transparent;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-book:hover {
+    background: var(--accent-deep);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(244, 196, 48, 0.35);
+}
+
+.btn-email:hover {
+    background: var(--ink);
+    color: #ffffff;
+}
+
+/* Quick Contact Card */
+.quick-contact {
+    flex: 0 0 380px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    padding: 2rem 2.2rem;
+    border-radius: 24px;
+    border: 1px solid rgba(31, 42, 68, 0.08);
+    box-shadow: 0 24px 60px rgba(31, 42, 68, 0.16);
+    animation: fadeUp 1.1s ease both;
+    text-align: center;
+}
+
+.quick-contact h2 {
+    color: var(--ink);
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.01em;
+}
+
+.contact-item {
+    margin-bottom: 0.85rem;
+    color: var(--ink);
+}
+
+.contact-item strong {
+    color: var(--accent-deep);
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.contact-item span {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    display: block;
+}
+
+/* Slider Dots */
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+}
+
+.dot {
+    width: 40px;
+    height: 4px;
+    background: rgba(31, 42, 68, 0.25);
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 2px;
+}
+
+.dot.active {
+    background: var(--accent);
+    width: 60px;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero {
+        min-height: auto;
+        padding: 120px 2rem 80px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .quick-contact {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 0.8rem 1rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        right: 16px;
+        flex-direction: column;
+        background: rgba(255, 252, 242, 0.96);
+        width: min(92vw, 360px);
+        padding: 1.8rem 1.6rem;
+        transition: clip-path 0.5s ease, opacity 0.35s ease, transform 0.35s ease;
+        gap: 1rem;
+        height: auto;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+        opacity: 0;
+        pointer-events: none;
+        clip-path: circle(24px at 92% 6%);
+        transform: translateY(-8px);
+        border-radius: 32px;
+        box-shadow: 0 26px 60px rgba(15, 23, 42, 0.18);
+        border: 1px solid rgba(31, 42, 68, 0.08);
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        pointer-events: auto;
+        clip-path: circle(140% at 92% 6%);
+        transform: translateY(0);
+    }
+
+    .nav-links::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 88% 10%, rgba(244, 196, 48, 0.35), rgba(244, 196, 48, 0) 60%);
+        opacity: 0.9;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .nav-links li,
+    .nav-buttons {
+        position: relative;
+        z-index: 1;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-call, .btn-whatsapp {
+        width: 100%;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 100px 1rem 60px;
+    }
+
+    .hero-content {
+        padding: 0 1rem;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text p {
+        font-size: 0.95rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-book, .btn-email {
+        width: 100%;
+    }
+
+    .quick-contact {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+
+    .quick-contact h2 {
+        font-size: 1.5rem;
+    }
+
+    .slider-dots {
+        bottom: 20px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+    .company-name h1 {
+        font-size: 1rem;
+    }
+
+    .company-name p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-text p {
+        font-size: 0.9rem;
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 1rem;
+    }
+
+    .quick-contact {
+        padding: 1.2rem;
+    }
+
+    .quick-contact h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact-item {
+        margin-bottom: 1rem;
+    }
+
+    .contact-item strong {
+        font-size: 0.85rem;
+    }
+
+    .contact-item span {
+        font-size: 0.85rem;
+    }
+}
+
+/* ==============================
+   ABOUT OFFSET - PREMIUM STYLE
+============================== */
+.about-offset {
+    padding: 50px 2rem 15px;
+    background: linear-gradient(180deg, #fdfbf5, #ffffff);
+}
+
+.about-offset-header {
+    text-align: left;
+    max-width: 860px;
+    margin: 0 auto 2.4rem;
+    position: relative;
+}
+
+.section-badge {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.about-offset-header h2 {
+    font-size: 2.6rem;
+    font-family: var(--display-font);
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.02em;
+}
+
+.about-offset-header p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 520px;
+}
+
+.accent-line {
+    width: 86px;
+    height: 4px;
+    margin-top: 1.2rem;
+    background: linear-gradient(90deg, var(--accent), rgba(244, 196, 48, 0.1));
+    border-radius: 999px;
+}
+
+/* Layout */
+.about-offset-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4.5rem;
+}
+
+/* Text */
+.about-offset-text {
+    flex: 1;
+}
+
+.about-offset-text h3 {
+    font-size: 2.1rem;
+    color: var(--ink);
+    margin-bottom: 1.3rem;
+}
+
+.about-offset-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 0.7rem;
+}
+
+.about-offset-text .lead {
+    font-size: 1.05rem;
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.about-offset-text .support {
+    font-size: 0.98rem;
+}
+
+.reveal-item {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition-delay: 0.1s;
+}
+
+.reveal-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==============================
+   SLIDER (FIX RESPONSIVE)
+============================== */
+.about-offset-slider {
+    flex: 1;
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #1f2a44;
+    box-shadow: var(--shadow);
+}
+
+.about-offset-slider::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0) 40%,
+        rgba(0,0,0,0.45)
+    );
+    z-index: 2;
+}
+
+/* Slides */
+.offset-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.offset-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.offset-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+@media (max-width: 1024px) {
+    .about-offset-content {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .about-offset-text h3 {
+        font-size: 1.8rem;
+    }
+
+    .about-offset-header {
+        text-align: center;
+    }
+
+    .about-offset-header p {
+        margin: 0 auto;
+    }
+
+    .accent-line {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-offset {
+        padding: 90px 1.5rem;
+    }
+
+    .about-offset-header h2 {
+        font-size: 2rem;
+    }
+
+    .about-offset-slider {
+        aspect-ratio: 1 / 1;
+    }
+}
+
+/* ===== Vision & Mission Section ===== */
+.vision-mission-section {
+  padding: 15px 20px 80px;
+  background: linear-gradient(180deg, #ffffff, #f7f9fc);
+}
+
+.vision-mission-section .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.vision-mission-section .section-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+.vision-mission-section .section-subtitle {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+
+/* ===== Grid ===== */
+.vm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  justify-content: center;
+}
+
+/* ===== Card ===== */
+.vm-card {
+  background: linear-gradient(135deg, #fffdf1, #ffffff);
+  border-radius: 20px;
+  padding: 28px 26px;
+  max-width: 420px;
+  margin: 0 auto;
+  border: 1px solid #f1e4b2;
+  transition: all 0.3s ease;
+}
+
+.vm-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vm-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.vm-card p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.vm-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(231, 177, 10, 0.18);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .vm-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .vm-card {
+    padding: 22px 20px;
+    max-width: 100%;
+  }
+
+  .vision-mission-section .section-title {
+    font-size: 28px;
+  }
+
+  .vision-mission-section .section-subtitle {
+    font-size: 14px;
+  }
+}
+
+.why-choose {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #fdfbf5, #f6f8fb);
+}
+
+.why-choose .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.why-choose h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.why-choose .subtitle {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 650px;
+  margin: 0 auto 50px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.why-card {
+  background: linear-gradient(180deg, #ffffff, #f9fafb);
+  border-radius: 18px;
+  padding: 28px 24px;
+  text-align: left;
+  border: 1px solid var(--line);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* accent line */
+.why-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), #9bb9ff);
+}
+
+.why-card:hover {
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .why-grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .why-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .why-card {
+    min-width: 240px;
+    max-width: 240px;
+    padding: 20px 18px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .why-card h4 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .why-card p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
+
+.machine-section {
+  padding: 80px 20px;
+  background: #ffffff;
+}
+
+.machine-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.machine-section h2 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.machine-section .subtitle {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  color: var(--muted);
+}
+
+.machine-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* LEFT */
+.machine-preview {
+  background: #f7f8fb;
+  padding: 0;
+  overflow: hidden;
+}
+
+.machine-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* RIGHT */
+.machine-info {
+  padding: 40px;
+}
+
+.machine-info h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.machine-info .desc {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.machine-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 25px;
+}
+
+.machine-item {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.machine-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.machine-item span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.machine-item.active,
+.machine-item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.machine-preview img {
+  transition: opacity 0.3s ease;
+}
+
+.price-info small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.btn-wa {
+  display: inline-block;
+  margin-top: 20px;
+  background: var(--accent);
+  color: #1f2a44;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-wa:hover {
+  background: var(--accent-deep);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .machine-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .machine-section h2 {
+    font-size: 28px;
+  }
+
+  .machine-info {
+    padding: 25px;
+  }
+
+  .machine-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== SERVICES OFFSET SECTION ===== */
+.services-offset {
+  padding: 90px 20px;
+  background: #fdfbf5;
+}
+
+.services-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* LEFT */
+.services-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+
+.services-desc {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.service-item {
+  display: flex;
+  gap: 14px;
+  background: #ffffff;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  transition: all 0.3s ease;
+}
+
+.service-item i {
+  font-size: 18px;
+  color: var(--accent-deep);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.service-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+
+.service-item p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.service-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(231, 177, 10, 0.16);
+}
+
+/* ===== SERVICES IMAGE SLIDER ===== */
+.services-images-slider {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.services-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.services-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.services-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .services-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .services-images-slider {
+    height: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-title {
+    font-size: 26px;
+  }
+
+  .services-desc {
+    font-size: 14px;
+  }
+
+  .services-images-slider {
+    height: 220px;
+  }
+}
+
+/* ===== SERVICE COMPONENT ===== */
+.service-component-section {
+  padding: 90px 20px;
+  background: #ffffff;
+}
+
+.section-header {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.section-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* GRID */
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* ===== MOBILE SWIPE MODE ===== */
+@media (max-width: 768px) {
+  .component-grid {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .component-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .component-card {
+    min-width: 260px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+}
+
+/* CARD */
+.component-card {
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.component-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 60px rgba(25, 32, 50, 0.16);
+}
+
+/* IMAGE */
+.card-image {
+  position: relative;
+  height: 190px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* PRICE BADGE */
+.price-badge {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  background: rgba(31, 42, 68, 0.9);
+  color: #ffffff;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* BODY */
+.card-body {
+  padding: 18px 20px 22px;
+}
+
+.card-body h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+.card-body ul {
+  padding-left: 18px;
+}
+
+.card-body li {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .section-header h2 {
+    font-size: 26px;
+  }
+
+  .card-image {
+    height: 160px;
+  }
+}
+
+/* ===== FAQ SECTION ===== */
+.faq-section {
+  padding: 90px 20px;
+  background: #fdfbf5;
+}
+
+.section-header.center {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 22px;
+  margin-bottom: 16px;
+  border: 1px solid var(--line);
+}
+
+.faq-item summary {
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.faq-item summary::marker {
+  color: var(--accent-deep);
+}
+
+.faq-item p {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ===== TESTIMONIAL SECTION ===== */
+.testimonial-section {
+  padding: 90px 20px;
+  background: linear-gradient(135deg, #ffffff, #f6f8fb);
+  overflow: hidden;
+}
+
+.testimonial-title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.testimonial-subtitle {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 50px;
+  font-size: 15px;
+}
+
+/* SLIDER */
+.testimonial-slider {
+  overflow: hidden;
+  position: relative;
+}
+
+.testimonial-track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--line);
+}
+
+.testimonial-card .quote {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.testimonial-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.testimonial-card span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .testimonial-slider {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .testimonial-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .testimonial-track {
+    display: flex;
+    padding-bottom: 6px;
+  }
+
+  .testimonial-card {
+    min-width: 260px;
+    scroll-snap-align: start;
+  }
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: #1f2a44;
+  color: #e4e9f7;
+}
+
+.footer-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 24px;
+  padding: 50px 20px;
+  align-items: center;
+}
+
+.footer-info h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.footer-info p {
+  font-size: 14px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.footer-info span {
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.footer-map.small-map iframe {
+  width: 100%;
+  height: 160px;
+  border: 0;
+  border-radius: 12px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 14px;
+  font-size: 13px;
+  background: #161f33;
+}
+
+.footer-map.small-map {
+  max-width: 420px;
+}
+
+.footer-map.small-map iframe {
+  width: 100%;
+  height: 150px;
+  border-radius: 12px;
+}
+
+.map-label {
+  font-size: 13px;
+  color: #e4e9f7;
+  margin: 6px 0 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-map.small-map iframe {
+    height: 140px;
+  }
+}
+    </style>
 
 </head>
 <body>
     <header>
         <nav>
             <div class="logo-section">
-                <img src="images/logo-subiso.png" alt="Logo PT. Subiso" class="logo">
+                <img src="https://everz-digital.site/wp-content/uploads/2026/01/logo-subiso.png" alt="Logo PT. Subiso" class="logo">
 
             </div>
             
@@ -32,8 +1682,8 @@
   <li><a href="#faq">FAQ</a></li>
 
   <div class="nav-buttons">
-    <button class="btn-call" onclick="window.location.href='tel:087772237724'">Telepon Sekarang</button>
-    <button class="btn-whatsapp" onclick="window.open('https://wa.me/6287772237724','_blank')">WhatsApp</button>
+    <button class="btn-call" onclick="window.location.href='tel:+6285183137230'">Telepon Sekarang</button>
+    <button class="btn-whatsapp" onclick="window.open('https://wa.me/6285183137230','_blank')">WhatsApp</button>
   </div>
 </ul>
 
@@ -43,13 +1693,13 @@
     <section class="hero">
         <div class="slider">
             <div class="slide active">
-                <img src="images/teknisi1.jpg" alt="Layanan 1">
+                <img src="https://everz-digital.site/wp-content/uploads/2026/01/teknisi1.jpg" alt="Layanan 1">
             </div>
             <div class="slide">
-                <img src="images/teknisi2.jpg" alt="Layanan 2">
+                <img src="https://everz-digital.site/wp-content/uploads/2026/01/teknisi2.webp" alt="Layanan 2">
             </div>
             <div class="slide">
-                <img src="images/teknisi3.jpg" alt="Layanan 3">
+                <img src="https://everz-digital.site/wp-content/uploads/2026/01/teknisi3.webp" alt="Layanan 3">
             </div>
         </div>
 
@@ -63,7 +1713,7 @@
                 <p>PT. Subiso Solusi Sejati menyediakan layanan infrastruktur IT, instalasi jaringan, serta servis mesin offset dan pengadaan suku cadang. Didukung tim teknisi berpengalaman, kami memastikan operasional kantor dan produksi berjalan stabil, aman, dan efisien.</p>
 
                 <div class="hero-buttons">
-                    <button class="btn-book" onclick="window.open('https://wa.me/6287772237724', '_blank')">Konsultasi Gratis</button>
+                    <button class="btn-book" onclick="window.open('https://wa.me/6285183137230', '_blank')">Konsultasi Gratis</button>
                     <button class="btn-email" onclick="window.location.href='mailto:subisoservice@gmail.com'">Kirim Email</button>
                 </div>
             </div>
@@ -72,7 +1722,7 @@
                 <h2>Kontak Cepat</h2>
                 <div class="contact-item">
                     <strong>WhatsApp:</strong>
-                    <span>0877-7223-7724</span>
+                    <span>+62 851-8313-7230<br>+62 813-1876-1988</span>
                 </div>
                 <div class="contact-item">
                     <strong>Email:</strong>
@@ -122,16 +1772,16 @@
         <!-- Image Slider -->
         <div class="about-offset-slider reveal-item">
             <div class="offset-slide active">
-                <img src="images/mesin-offset-1.jpg" alt="Servis Mesin Offset 1">
+                <img src="https://everz-digital.site/wp-content/uploads/2026/01/mesin-offset-1.jpg" alt="Servis Mesin Offset 1">
             </div>
             <div class="offset-slide">
-                <img src="images/mesin-offset-2.jpg" alt="Servis Mesin Offset 2">
+                <img src="https://everz-digital.site/wp-content/uploads/2026/01/mesin-offset-2.jpg" alt="Servis Mesin Offset 2">
             </div>
             <div class="offset-slide">
-                <img src="images/mesin-offset-3.jpg" alt="Servis Mesin Offset 3">
+                <img src="https://everz-digital.site/wp-content/uploads/2026/01/mesin-offset-3.jpg" alt="Servis Mesin Offset 3">
             </div>
             <div class="offset-slide">
-                <img src="images/mesin-offset-4.jpg" alt="Servis Mesin Offset 4">
+                <img src="https://everz-digital.site/wp-content/uploads/2026/01/mesin-offset-4.jpg" alt="Servis Mesin Offset 4">
             </div>
         </div>
 
@@ -225,7 +1875,7 @@
     <div class="machine-card">
       <!-- LEFT IMAGE -->
       <div class="machine-preview">
-        <img id="machineImage" src="images/mesin-offset-1.jpg" alt="Mesin Percetakan">
+        <img id="machineImage" src="https://everz-digital.site/wp-content/uploads/2026/01/mesin-offset-1.jpg" alt="Mesin Percetakan">
       </div>
 
       <!-- RIGHT CONTENT -->
@@ -239,22 +1889,22 @@
         <span class="label">Pilihan Paket Servis</span>
 
         <div class="machine-list">
-          <div class="machine-item active" data-service="Servis + Ganti Layar" data-price="Rp. 5.000.000" data-image="images/mesin-offset-1.jpg">
+          <div class="machine-item active" data-service="Servis + Ganti Layar" data-price="Rp. 5.000.000" data-image="https://everz-digital.site/wp-content/uploads/2026/01/mesin-offset-1.jpg">
             <h4>Servis + Ganti Layar</h4>
             <span>Mulai dari Rp. 5.000.000</span>
           </div>
 
-          <div class="machine-item" data-service="Servis Papan" data-price="Rp. 5.000.000" data-image="images/service-board.jpg">
+          <div class="machine-item" data-service="Servis Papan" data-price="Rp. 5.000.000" data-image="https://everz-digital.site/wp-content/uploads/2026/01/service-board.jpg">
             <h4>Servis Papan</h4>
             <span>Mulai dari Rp. 5.000.000</span>
           </div>
 
-          <div class="machine-item" data-service="Servis Kompresor" data-price="Rp. 10.000.000" data-image="images/service-compesro.jpg">
+          <div class="machine-item" data-service="Servis Kompresor" data-price="Rp. 10.000.000" data-image="https://everz-digital.site/wp-content/uploads/2026/01/service-compesro.jpg">
             <h4>Servis Kompresor</h4>
             <span>Mulai dari Rp. 10.000.000</span>
           </div>
 
-          <div class="machine-item" data-service="Servis Motor Utama" data-price="Rp. 25.000.000" data-image="images/service-mainmotor.jpg">
+          <div class="machine-item" data-service="Servis Motor Utama" data-price="Rp. 25.000.000" data-image="https://everz-digital.site/wp-content/uploads/2026/01/service-mainmotor.jpg">
             <h4>Servis Motor Utama</h4>
             <span>Mulai dari Rp. 25.000.000</span>
           </div>
@@ -266,7 +1916,7 @@
           </small>
         </div>
 
-        <a href="https://wa.me/6287772237724?text=Halo%20SUBISO,%20saya%20tertarik%20dengan%20paket%20Servis%20%2B%20Ganti%20Layar%20(Mulai%20dari%20Rp.%205.000.000)" target="_blank" class="btn-wa" id="waButton">
+        <a href="https://wa.me/6285183137230?text=Halo%20SUBISO,%20saya%20tertarik%20dengan%20paket%20Servis%20%2B%20Ganti%20Layar%20(Mulai%20dari%20Rp.%205.000.000)" target="_blank" class="btn-wa" id="waButton">
           Konsultasi via WhatsApp
         </a>
       </div>
@@ -338,174 +1988,21 @@
     <!-- RIGHT IMAGE GRID -->
     <div class="services-images-slider">
   <div class="services-slide active">
-    <img src="images/cctv.jpg" alt="Instalasi CCTV">
+    <img src="https://everz-digital.site/wp-content/uploads/2026/01/cctv-1.jpg" alt="Instalasi CCTV">
   </div>
   <div class="services-slide">
-    <img src="images/jaringan.jpg" alt="Instalasi Jaringan">
+    <img src="https://everz-digital.site/wp-content/uploads/2026/01/jaringan-1.jpg" alt="Instalasi Jaringan">
   </div>
   <div class="services-slide">
-    <img src="images/listrik.png" alt="Instalasi Kelistrikan">
+    <img src="https://everz-digital.site/wp-content/uploads/2026/01/listrik-1.png" alt="Instalasi Kelistrikan">
   </div>
   <div class="services-slide">
-    <img src="images/mesinoffsetservice.jpg" alt="Servis Mesin Offset">
+    <img src="https://everz-digital.site/wp-content/uploads/2026/01/mesinoffsetservice.jpg" alt="Servis Mesin Offset">
   </div>
 </div>
 
 
 
-
-  </div>
-</section>
-
-<section class="service-component-section">
-  <div class="container">
-
-    <div class="section-header">
-  <h2>Paket Servis Komponen</h2>
-  <p>Layanan servis dan perawatan komponen mesin offset dengan harga transparan.</p>
-</div>
-
-
-    <div class="component-grid">
-
-      <!-- CARD -->
-      <div class="component-card reveal-item">
-        <div class="card-image">
-          <img src="images/SEK.jpg" alt="Papan SEK">
-          <span class="price-badge">Mulai Rp 5.000.000</span>
-        </div>
-        <div class="card-body">
-          <h4>Papan SEK</h4>
-          <ul>
-            <li>Perbaikan modul papan</li>
-            <li>Kalibrasi & pengujian</li>
-            <li>Mesin Heidelberg</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="component-card reveal-item">
-        <div class="card-image">
-          <img src="images/POLAR.jpg" alt="Papan POLAR">
-          <span class="price-badge">Mulai Rp 6.500.000</span>
-        </div>
-        <div class="card-body">
-          <h4>Papan POLAR</h4>
-          <ul>
-            <li>Servis sistem kontrol</li>
-            <li>Sensor & wiring</li>
-            <li>Mesin offset</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="component-card reveal-item">
-        <div class="card-image">
-          <img src="images/RGP 2.jpg" alt="RGP 2">
-          <span class="price-badge">Mulai Rp 4.500.000</span>
-        </div>
-        <div class="card-body">
-          <h4>RGP 2</h4>
-          <ul>
-            <li>Perbaikan papan</li>
-            <li>Pembersihan & penyetelan</li>
-            <li>Siap uji cetak</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="component-card reveal-item">
-        <div class="card-image">
-          <img src="images/SVT.jpg" alt="SVT">
-          <span class="price-badge">Mulai Rp 7.000.000</span>
-        </div>
-        <div class="card-body">
-          <h4>SVT</h4>
-          <ul>
-            <li>Pengecekan motor & sensor</li>
-            <li>Kalibrasi presisi</li>
-            <li>Uji operasional</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="component-card reveal-item">
-  <div class="card-image">
-    <img src="images/Sensor front lay.jpg" alt="Sensor Lay Depan">
-    <span class="price-badge">Mulai Rp 3.500.000</span>
-  </div>
-  <div class="card-body">
-    <h4>Sensor Lay Depan</h4>
-    <ul>
-      <li>Penyelarasan sensor</li>
-      <li>Kalibrasi presisi</li>
-      <li>Mesin offset</li>
-    </ul>
-  </div>
-</div>
-
-<div class="component-card reveal-item">
-  <div class="card-image">
-    <img src="images/Sensor Side Lay.jpg" alt="Sensor Lay Samping">
-    <span class="price-badge">Mulai Rp 3.500.000</span>
-  </div>
-  <div class="card-body">
-    <h4>Sensor Lay Samping</h4>
-    <ul>
-      <li>Deteksi sensor</li>
-      <li>Stabilitas pemasukan</li>
-      <li>Pengujian mesin</li>
-    </ul>
-  </div>
-</div>
-
-<div class="component-card reveal-item">
-  <div class="card-image">
-    <img src="images/Servis kompressor.jpg" alt="Servis Kompresor">
-    <span class="price-badge">Mulai Rp 4.000.000</span>
-  </div>
-  <div class="card-body">
-    <h4>Servis Kompresor</h4>
-    <ul>
-      <li>Pengecekan tekanan</li>
-      <li>Servis & penyetelan</li>
-      <li>Sistem udara</li>
-    </ul>
-  </div>
-</div>
-
-<div class="component-card reveal-item">
-  <div class="card-image">
-    <img src="images/roll air.jpg" alt="Roll Udara">
-    <span class="price-badge">Mulai Rp 3.000.000</span>
-  </div>
-  <div class="card-body">
-    <h4>Roll Udara</h4>
-    <ul>
-      <li>Perawatan roll</li>
-      <li>Stabilitas kertas</li>
-      <li>Mesin offset</li>
-    </ul>
-  </div>
-</div>
-
-<div class="component-card reveal-item">
-  <div class="card-image">
-    <img src="images/motor air.jpg" alt="Motor Udara">
-    <span class="price-badge">Mulai Rp 4.500.000</span>
-  </div>
-  <div class="card-body">
-    <h4>Motor Udara</h4>
-    <ul>
-      <li>Pengecekan sistem motor</li>
-      <li>Penyetelan performa</li>
-      <li>Uji operasional</li>
-    </ul>
-  </div>
-</div>
-
-
-    </div>
 
   </div>
 </section>
@@ -635,11 +2132,23 @@
         Perumahan Hastinapura Blok B1 No.8,<br>
         Tambun Utara, Bekasi
       </p>
-      <span>📞 0877-7223-7724</span><br>
+      <p>
+        Palmerah Utara 2 No. 19 RT. 010/ 016<br>
+        Palmerah, Jakarta Barat
+      </p>
+      <span>📞 +62 851-8313-7230</span><br>
+      <span>📞 +62 813-1876-1988</span><br>
       <span>📧 subisoservice@gmail.com</span>
     </div>
 
     <div class="footer-map small-map">
+      <p class="map-label">Workshop - Palmerah</p>
+      <iframe
+        src="https://www.google.com/maps?q=Palmerah+Utara+2+No.+19+RT.+010%2F+016+Palmerah+Jakarta+Barat&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <p class="map-label">Kantor - Tambun Utara</p>
       <iframe
         src="https://www.google.com/maps?q=Perumahan+Hastinapura+Tambun+Utara+Bekasi&output=embed"
         loading="lazy"
@@ -654,13 +2163,204 @@
   </div>
 </footer>
 
-<a class="floating-wa" href="https://wa.me/6287772237724" target="_blank" aria-label="Chat via WhatsApp">
+<a class="floating-wa" href="https://wa.me/6285183137230" target="_blank" aria-label="Chat via WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
   <span>WhatsApp</span>
 </a>
 
 
 
-    <script src="script.js"></script>
+    <script>
+// Navbar Scroll Effect
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Slider Functionality
+let slideIndex = 0;
+let slideInterval;
+
+function showSlides() {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    // Increment slide index
+    slideIndex++;
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
+    }
+
+    // Add active class to current slide and dot
+    slides[slideIndex].classList.add('active');
+    dots[slideIndex].classList.add('active');
+}
+
+// Auto slide every 5 seconds
+function startSlider() {
+    slideInterval = setInterval(showSlides, 2000);
+}
+
+// Manual slide control
+function currentSlide(n) {
+    clearInterval(slideInterval);
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    slideIndex = n;
+    slides[slideIndex].classList.add('active');
+    dots[slideIndex].classList.add('active');
+
+    startSlider();
+}
+
+// Mobile Menu Toggle
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const toggleButton = document.querySelector('.menu-toggle');
+    navLinks.classList.toggle('active');
+    toggleButton.classList.toggle('active');
+    document.body.classList.toggle('nav-open');
+}
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.remove('active');
+        document.querySelector('.menu-toggle').classList.remove('active');
+        document.body.classList.remove('nav-open');
+    });
+});
+
+// Initialize slider when page loads
+window.addEventListener('load', () => {
+    startSlider();
+});
+
+// Smooth scroll for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Reveal on scroll (replay when scrolling up/down)
+document.addEventListener('DOMContentLoaded', () => {
+  const revealItems = document.querySelectorAll('.reveal-item');
+  if (!revealItems.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      } else {
+        entry.target.classList.remove('is-visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  revealItems.forEach(item => observer.observe(item));
+});
+
+// OFFSET Image Slider
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.offset-slide');
+    if (!slides.length) return;
+
+    let index = 0;
+    slides[0].classList.add('active');
+
+    setInterval(() => {
+        slides[index].classList.remove('active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('active');
+    }, 4000);
+});
+
+// SERVICES IMAGE SLIDER
+document.addEventListener('DOMContentLoaded', () => {
+  const serviceSlides = document.querySelectorAll('.services-slide');
+  if (!serviceSlides.length) return;
+
+  let current = 0;
+  serviceSlides[current].classList.add('active');
+
+  setInterval(() => {
+    serviceSlides[current].classList.remove('active');
+    current = (current + 1) % serviceSlides.length;
+    serviceSlides[current].classList.add('active');
+  }, 3500);
+});
+
+// COMPONENT SERVICE SLIDER
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.component-card');
+  let index = 0;
+
+  if (!cards.length) return;
+
+  setInterval(() => {
+    cards[index].classList.remove('active');
+    index = (index + 1) % cards.length;
+    cards[index].classList.add('active');
+  }, 3500);
+});
+
+// MACHINE SERVICE SELECTOR - INTERACTIVE SELECTION
+document.addEventListener('DOMContentLoaded', () => {
+  const machineItems = document.querySelectorAll('.machine-item');
+  const machineImage = document.getElementById('machineImage');
+  const waButton = document.getElementById('waButton');
+
+  // Check if elements exist
+  if (!machineItems.length || !machineImage || !waButton) return;
+
+  machineItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remove active class from all items
+      machineItems.forEach(i => i.classList.remove('active'));
+
+      // Add active class to clicked item
+      item.classList.add('active');
+
+      // Get data from clicked item
+      const serviceName = item.getAttribute('data-service');
+      const servicePrice = item.getAttribute('data-price');
+      const serviceImage = item.getAttribute('data-image');
+
+      // Change image with fade effect
+      machineImage.style.opacity = '0';
+      setTimeout(() => {
+        machineImage.src = serviceImage;
+        machineImage.style.opacity = '1';
+      }, 300);
+
+      // Update WhatsApp link with selected service
+      const waMessage = `Halo SUBISO, saya tertarik dengan paket ${serviceName} (Mulai dari ${servicePrice})`;
+      const encodedMessage = encodeURIComponent(waMessage);
+      waButton.href = `https://wa.me/6285183137230?text=${encodedMessage}`;
+    });
+  });
+});
+    </script>
 </body>
 </html>

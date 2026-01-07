@@ -489,6 +489,11 @@
       height: 64px;
       flex-shrink: 0;
       filter: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #b05b00;
     }
 
     .about-grid,
@@ -679,6 +684,12 @@
 
     .armada-cta {
       margin-top: auto;
+      display: flex;
+    }
+
+    .armada-cta .btn {
+      width: 100%;
+      justify-content: center;
     }
 
     .terms-panel {
@@ -807,6 +818,8 @@
       display: flex;
       flex-wrap: nowrap;
       gap: 8px;
+      justify-content: center;
+      align-items: center;
     }
 
     .package-cta .btn {
@@ -814,6 +827,8 @@
       font-size: 0.9rem;
       min-height: 40px;
       white-space: nowrap;
+      flex: 1;
+      min-width: 0;
     }
 
     .package-cta .btn.secondary {
@@ -1413,21 +1428,21 @@
                 <strong>6+</strong>
                 <span>Rental mobil, paket wisata, hingga phinisi</span>
               </div>
-              <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
+              <i class="fa-solid fa-car-side stat-anim" aria-hidden="true"></i>
             </div>
             <div class="stat-card reveal" style="animation-delay: 0.5s;">
               <div class="stat-text">
                 <strong>Harga Jelas</strong>
                 <span>List paket transparan</span>
               </div>
-              <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
+              <i class="fa-solid fa-tag stat-anim" aria-hidden="true"></i>
             </div>
             <div class="stat-card reveal" style="animation-delay: 0.6s;">
               <div class="stat-text">
                 <strong>Pemesanan Mudah</strong>
                 <span>WhatsApp & Telepon</span>
               </div>
-              <lottie-player class="stat-anim" src="carr.json" background="transparent" speed="1" loop autoplay></lottie-player>
+              <i class="fa-solid fa-comments stat-anim" aria-hidden="true"></i>
             </div>
           </div>
         </div>
@@ -1549,7 +1564,7 @@
             </div>
             <div class="package-cta">
               <button class="btn secondary" type="button" data-modal-target="#paketDetailModal">Detail Paket</button>
-              <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Trip Seharian Komodo dengan Kapal Cepat">Pesan via WhatsApp</button>
+              <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Trip Seharian Komodo dengan Kapal Cepat">Book Now</button>
             </div>
           </div>
         </article>
@@ -1586,7 +1601,7 @@
             </div>
             <div class="package-cta">
               <button class="btn secondary" type="button" data-modal-target="#meloRangkoDetailModal">Detail Paket</button>
-              <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Land Tour Kampung Melo & Goa Rangko">Pesan via WhatsApp</button>
+              <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Land Tour Kampung Melo & Goa Rangko">Book Now</button>
             </div>
           </div>
         </article>
@@ -1640,7 +1655,7 @@
             </div>
             <div class="package-cta">
               <button class="btn secondary" type="button" data-modal-target="#rileyDetailModal">Detail Paket</button>
-              <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Sewa Kapal Riley Cruise">Pesan via WhatsApp</button>
+              <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Sewa Kapal Riley Cruise">Book Now</button>
             </div>
           </div>
         </article>
@@ -1700,7 +1715,7 @@
             </div>
             <div class="package-cta">
               <button class="btn secondary" type="button" data-modal-target="#ladyGraceDetailModal">Detail Paket</button>
-              <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Sewa Phinisi Lady Grace">Pesan via WhatsApp</button>
+              <button class="btn primary" type="button" data-modal-target="#paketBookingModal" data-package="Sewa Phinisi Lady Grace">Book Now</button>
             </div>
           </div>
         </article>
@@ -2620,7 +2635,6 @@
       <p>Labuan Rental (c) 2026 · Wae Kasambi, Labuan Bajo · 082146116363</p>
     </div>
   </footer>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script>
     const toggle = document.querySelector(".menu-toggle");
     const body = document.body;
@@ -2754,29 +2768,27 @@
     const heroVisual = document.querySelector(".hero-visual");
     if (heroVisual) {
       const desktopMedia = window.matchMedia("(min-width: 1024px)");
-      const syncHeroLottie = () => {
-        const existing = heroVisual.querySelector("lottie-player");
+      const syncHeroVisual = () => {
+        const existing = heroVisual.querySelector("img");
         if (desktopMedia.matches) {
           if (!existing) {
-            const heroLottie = document.createElement("lottie-player");
-            heroLottie.className = "hero-lottie";
-            heroLottie.setAttribute("src", "Traveling Girl.json");
-            heroLottie.setAttribute("background", "transparent");
-            heroLottie.setAttribute("speed", "1");
-            heroLottie.setAttribute("loop", "");
-            heroLottie.setAttribute("autoplay", "");
-            heroVisual.appendChild(heroLottie);
+            const heroImage = document.createElement("img");
+            heroImage.className = "hero-lottie";
+            heroImage.src = "https://everz-digital.site/wp-content/uploads/2026/01/Trip-cuate.png";
+            heroImage.alt = "Ilustrasi perjalanan Labuan Rental";
+            heroImage.loading = "lazy";
+            heroVisual.appendChild(heroImage);
           }
         } else if (existing) {
           existing.remove();
         }
       };
 
-      syncHeroLottie();
+      syncHeroVisual();
       if (desktopMedia.addEventListener) {
-        desktopMedia.addEventListener("change", syncHeroLottie);
+        desktopMedia.addEventListener("change", syncHeroVisual);
       } else if (desktopMedia.addListener) {
-        desktopMedia.addListener(syncHeroLottie);
+        desktopMedia.addListener(syncHeroVisual);
       }
     }
 

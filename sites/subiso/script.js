@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Update WhatsApp link with selected service
       const waMessage = `Halo SUBISO, saya tertarik dengan paket ${serviceName} (Mulai dari ${servicePrice})`;
       const encodedMessage = encodeURIComponent(waMessage);
-      waButton.href = `https://wa.me/6287772237724?text=${encodedMessage}`;
+      waButton.href = `https://wa.me/6285183137230?text=${encodedMessage}`;
     });
   });
 });

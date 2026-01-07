@@ -1643,6 +1643,12 @@ section {
   border-radius: 12px;
 }
 
+.map-label {
+  font-size: 13px;
+  color: #e4e9f7;
+  margin: 6px 0 10px;
+}
+
 
 
 /* RESPONSIVE */
