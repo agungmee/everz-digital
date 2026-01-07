@@ -53,7 +53,7 @@
       position: relative;
       min-height: 100vh;
       background: linear-gradient(135deg, rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.15)),
-        url("https://bisniswisata.co.id/wp-content/uploads/2018/05/maxresdefault.jpg") center/cover no-repeat;
+        url("https://everz-digital.site/wp-content/uploads/2026/01/ece6221b-ee17-441a-9657-3487a568f564.jpeg") center/cover no-repeat;
       color: #fff;
       overflow: hidden;
     }
@@ -65,12 +65,14 @@
       right: 0;
       z-index: 1000;
       padding: 18px 0;
+      color: #f8f3ea;
       background: transparent;
       transition: background 0.4s ease, box-shadow 0.4s ease;
     }
 
     .navbar.scrolled {
       background: rgba(10, 10, 10, 0.85);
+      color: #ffffff;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
       backdrop-filter: blur(8px);
     }
@@ -112,6 +114,7 @@
 
     .nav-links a {
       position: relative;
+      color: rgba(255, 255, 255, 0.9);
       padding-bottom: 4px;
     }
 
@@ -276,6 +279,8 @@
     .hero {
       padding-top: 120px;
       display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 40px;
       align-items: center;
       min-height: 100vh;
     }
@@ -320,6 +325,53 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      min-height: 360px;
+      align-content: center;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: -40px -20px;
+      background: radial-gradient(circle at top, rgba(200, 121, 47, 0.4), rgba(15, 15, 15, 0.1) 65%);
+      filter: blur(8px);
+      opacity: 0.9;
+      z-index: 0;
+    }
+
+    .hero-stat {
+      position: relative;
+      z-index: 1;
+      padding: 22px 24px;
+      border-radius: 20px;
+      background: rgba(15, 15, 15, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+      color: #fff;
+    }
+
+    .hero-stat__label {
+      font-size: 1.05rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 6px;
+    }
+
+    .hero-stat__value {
+      font-family: "Playfair Display", serif;
+      font-size: 2.2rem;
+      line-height: 1.2;
+    }
+
+    .hero-stat--wide {
+      grid-column: 1 / -1;
     }
 
     .ghost {
@@ -674,22 +726,17 @@
 
     .gallery-grid {
       margin-top: 36px;
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 18px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 12px;
-      -webkit-overflow-scrolling: touch;
     }
 
     .gallery-item {
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
-      transform: scale(0.96);
+      transform: scale(1);
       transition: transform 0.35s ease, box-shadow 0.35s ease;
-      scroll-snap-align: center;
-      flex: 0 0 clamp(220px, 28vw, 320px);
     }
 
     .gallery-item.is-active {
@@ -702,6 +749,113 @@
       width: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    .gallery-item.is-hidden {
+      display: none;
+    }
+
+    .gallery-actions {
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    .load-more {
+      border: 0;
+      padding: 12px 30px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      cursor: pointer;
+      box-shadow: 0 14px 28px rgba(200, 121, 47, 0.35);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .load-more:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 32px rgba(200, 121, 47, 0.45);
+    }
+
+    .load-more.is-hidden {
+      display: none;
+    }
+
+    .contact-section {
+      background: #fff;
+    }
+
+    .contact-section .section-title,
+    .contact-section .section-subtitle {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      background: var(--soft);
+      border-radius: 18px;
+      padding: 28px;
+      border: 1px solid #efe0c8;
+      display: grid;
+      gap: 16px;
+    }
+
+    .contact-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      color: var(--ink);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      color: #5a4d3e;
+      font-size: 1rem;
+    }
+
+    .contact-list span {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .contact-section .hero-actions {
+      gap: 12px;
+      align-items: center;
+    }
+
+    .contact-section .cta {
+      padding: 12px 26px;
+      min-width: 160px;
+      text-align: center;
+      box-shadow: 0 12px 24px rgba(200, 121, 47, 0.3);
+    }
+
+    .contact-section .ghost {
+      padding: 12px 26px;
+      min-width: 160px;
+      text-align: center;
+      border-color: rgba(200, 121, 47, 0.45);
+      color: var(--accent-dark);
+      background: rgba(200, 121, 47, 0.08);
+    }
+
+    .map-frame {
+      width: 100%;
+      min-height: 320px;
+      border: 0;
+      border-radius: 18px;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
     }
 
     .testimonials {
@@ -747,6 +901,10 @@
       gap: 24px;
     }
 
+    .footer-grid p {
+      max-width: 320px;
+    }
+
     .footer-grid h4 {
       font-family: "Playfair Display", serif;
       margin-bottom: 12px;
@@ -766,6 +924,7 @@
       margin-top: 28px;
       font-size: 0.85rem;
       color: rgba(255, 255, 255, 0.6);
+      text-align: center;
     }
 
     @keyframes fadeUp {
@@ -799,10 +958,47 @@
 
       .hero {
         justify-content: center;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        display: none;
       }
 
       .hero-card {
         padding: 40px 30px;
+      }
+
+      .gallery-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .gallery-item {
+        transform: scale(0.96);
+        scroll-snap-align: center;
+        flex: 0 0 clamp(220px, 70vw, 320px);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 901px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 40px;
+        align-items: start;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .footer-contact {
+        justify-items: center;
       }
     }
 
@@ -843,9 +1039,9 @@
         <a href="#testimonials">Testimoni</a>
       </div>
       <div class="nav-actions">
-        <a class="cta nav-cta" href="https://wa.me/6282313333649">Hubungi Kami</a>
+        <a class="cta nav-cta" href="https://wa.me/6282313333640">Hubungi Kami</a>
         <div class="nav-icons">
-          <a class="nav-icon nav-icon--whatsapp" href="https://wa.me/6282313333649" aria-label="WhatsApp">
+          <a class="nav-icon nav-icon--whatsapp" href="https://wa.me/6282313333640" aria-label="WhatsApp">
             <svg viewBox="0 0 32 32" aria-hidden="true">
               <path d="M19.11 17.22c-.28-.14-1.63-.8-1.88-.9-.25-.09-.43-.14-.61.14-.18.27-.7.9-.86 1.09-.16.18-.32.2-.6.07-.28-.14-1.19-.44-2.27-1.4-.84-.75-1.4-1.68-1.56-1.96-.16-.27-.02-.42.12-.56.12-.12.28-.32.41-.48.14-.16.18-.27.28-.45.09-.18.04-.34-.02-.48-.07-.14-.61-1.48-.84-2.03-.22-.53-.44-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.96.93-.96 2.27s.98 2.64 1.11 2.82c.14.18 1.93 2.95 4.68 4.13.66.28 1.17.45 1.57.58.66.2 1.26.17 1.73.1.53-.08 1.63-.67 1.86-1.31.23-.64.23-1.18.16-1.31-.06-.14-.25-.2-.52-.34zM16.04 5.33c-5.61 0-10.16 4.44-10.16 9.93 0 1.75.47 3.38 1.29 4.81l-1.37 4.92 5.11-1.32c1.4.76 3 .12 5.12.12 5.61 0 10.16-4.44 10.16-9.93S21.65 5.33 16.04 5.33zm0 18.05c-1.86 0-3.59-.5-5.07-1.36l-.36-.2-3.03.78.81-2.9-.24-.37a8.63 8.63 0 0 1-1.38-4.68c0-4.8 4.01-8.7 8.94-8.7s8.94 3.9 8.94 8.7-4.01 8.7-8.94 8.7z"/>
             </svg>
@@ -875,12 +1071,26 @@
         <p>Website resmi <strong>mitratransportmamuju.com</strong>. Sewa mobil harian, perjalanan bisnis, hingga kebutuhan proyek dengan sopir profesional.</p>
         <div class="hero-meta">
           <span>📍 Jln. Sultan Hasanuddin No. 94 kav. 2</span>
-          <span>📞 0823-1333-3649</span>
+          <span>📞 0823-1333-3640</span>
           <span>✉️ mitraautorent@gmail.com</span>
         </div>
         <div class="hero-actions">
-          <a class="cta" href="https://wa.me/6282313333649">Pesan Sekarang</a>
+          <a class="cta" href="https://wa.me/6282313333640">Pesan Sekarang</a>
           <a class="ghost" href="https://www.facebook.com/share/1BwsrnvCjp/">Facebook Kami</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-stat">
+          <p class="hero-stat__label">Armada Premium</p>
+          <p class="hero-stat__value">10+ Unit</p>
+        </div>
+        <div class="hero-stat">
+          <p class="hero-stat__label">Layanan 24/7</p>
+          <p class="hero-stat__value">Respon Cepat</p>
+        </div>
+        <div class="hero-stat hero-stat--wide">
+          <p class="hero-stat__label">Area Layanan</p>
+          <p class="hero-stat__value">Mamuju - Majene - Pasangkayu</p>
         </div>
       </div>
     </div>
@@ -1067,6 +1277,41 @@
           <img src="https://everz-digital.site/wp-content/uploads/2026/01/Screenshot-from-2026-01-06-21-47-06.png" alt="Gallery 17" loading="lazy" />
         </div>
       </div>
+      <div class="gallery-actions">
+        <button class="load-more" type="button">Load More</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Kontak Kami</h2>
+      <p class="section-subtitle">Hubungi kami untuk pemesanan armada, informasi harga, atau konsultasi kebutuhan transportasi Anda.</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Detail Kontak</h3>
+          <div class="contact-list">
+            <span>📍 Jln. Sultan Hasanuddin No. 94 kav. 2, Mamuju</span>
+            <span>📞 0823-1333-3640</span>
+            <span>✉️ mitraautorent@gmail.com</span>
+            <span>🕒 Setiap hari, 07.00 - 21.00 WITA</span>
+          </div>
+          <div class="hero-actions">
+            <a class="cta" href="https://wa.me/6282313333640">Chat WhatsApp</a>
+            <a class="ghost" href="mailto:mitraautorent@gmail.com">Kirim Email</a>
+          </div>
+        </div>
+        <div>
+          <iframe
+            class="map-frame"
+            title="Lokasi PT. Mitra Rent Transport"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Jln.%20Sultan%20Hasanuddin%20No.%2094%20kav.%202%20Mamuju&output=embed">
+          </iframe>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1141,13 +1386,13 @@
         <div class="footer-contact">
           <h4>Kontak</h4>
           <span>📍 Jln. Sultan Hasanuddin No. 94 kav. 2</span>
-          <span>📞 0823-1333-3649</span>
+          <span>📞 0823-1333-3640</span>
           <span>✉️ mitraautorent@gmail.com</span>
         </div>
         <div class="footer-contact">
           <h4>Media Sosial</h4>
           <a href="https://www.facebook.com/share/1BwsrnvCjp/">Facebook</a>
-          <a href="https://wa.me/6282313333649">WhatsApp</a>
+          <a href="https://wa.me/6282313333640">WhatsApp</a>
         </div>
       </div>
       <div class="footer-bottom">© 2026 PT. Mitra Rent Transport · mitratransportmamuju.com</div>
@@ -1260,18 +1505,32 @@
 
     const galleryGrid = document.querySelector(".gallery-grid");
     const galleryItems = galleryGrid ? Array.from(galleryGrid.querySelectorAll(".gallery-item")) : [];
+    const loadMoreButton = document.querySelector(".load-more");
+    const INITIAL_GALLERY_COUNT = 8;
+    const GALLERY_BATCH = 4;
+    let visibleGalleryCount = Math.min(INITIAL_GALLERY_COUNT, galleryItems.length);
     let galleryTicking = false;
 
     const setActiveGalleryItem = () => {
       if (!galleryGrid || galleryItems.length === 0) {
         return;
       }
+      const visibleItems = galleryItems.filter((item) => !item.classList.contains("is-hidden"));
+      if (visibleItems.length === 0) {
+        return;
+      }
+      if (galleryGrid.scrollWidth <= galleryGrid.clientWidth) {
+        visibleItems.forEach((item) => {
+          item.classList.remove("is-active");
+        });
+        return;
+      }
       const gridRect = galleryGrid.getBoundingClientRect();
       const gridCenter = gridRect.left + gridRect.width / 2;
-      let closestItem = galleryItems[0];
+      let closestItem = visibleItems[0];
       let closestDistance = Infinity;
 
-      galleryItems.forEach((item) => {
+      visibleItems.forEach((item) => {
         const rect = item.getBoundingClientRect();
         const itemCenter = rect.left + rect.width / 2;
         const distance = Math.abs(gridCenter - itemCenter);
@@ -1281,9 +1540,18 @@
         }
       });
 
-      galleryItems.forEach((item) => {
+      visibleItems.forEach((item) => {
         item.classList.toggle("is-active", item === closestItem);
       });
+    };
+
+    const updateGalleryVisibility = () => {
+      galleryItems.forEach((item, index) => {
+        item.classList.toggle("is-hidden", index >= visibleGalleryCount);
+      });
+      if (loadMoreButton) {
+        loadMoreButton.classList.toggle("is-hidden", visibleGalleryCount >= galleryItems.length);
+      }
     };
 
     const onGalleryScroll = () => {
@@ -1298,9 +1566,18 @@
     };
 
     if (galleryGrid) {
+      updateGalleryVisibility();
       setActiveGalleryItem();
       galleryGrid.addEventListener("scroll", onGalleryScroll, { passive: true });
       window.addEventListener("resize", setActiveGalleryItem);
+    }
+
+    if (loadMoreButton) {
+      loadMoreButton.addEventListener("click", () => {
+        visibleGalleryCount = Math.min(visibleGalleryCount + GALLERY_BATCH, galleryItems.length);
+        updateGalleryVisibility();
+        setActiveGalleryItem();
+      });
     }
   </script>
 </body>
