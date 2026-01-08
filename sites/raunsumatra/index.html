@@ -1,0 +1,2291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raun Sumatra Tour &amp; Travel</title>
+  <style>
+    body{ margin:0; }
+  </style>
+</head>
+<body>
+<!--\n  Compiled from:\n  - sections/navbar.html\n  - sections/hero.html\n  - sections/about.html\n  - sections/why.html\n  - sections/paket.html\n  - sections/testimonials.html\n-->\n\n<!-- Start Navbar Section: Raun Sumatra Tour & Travel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<style>
+  :root{
+    --rs-ink:#0f1f17;
+    --rs-ink-soft:#2a3a31;
+    --rs-sand:#f4efe7;
+    --rs-sand-deep:#e5dccd;
+    --rs-terracotta:#c55b3c;
+    --rs-leaf:#1f6d4d;
+    --rs-gold:#d9b46c;
+    --rs-wrap:1200px;
+    --rs-nav-h:78px;
+  }
+
+  .rs-fullbleed{
+    width:100vw !important;
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:calc(50% - 50vw) !important;
+    left:auto !important;
+    right:auto !important;
+  }
+
+  .rs-navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:9999;
+    height:var(--rs-nav-h);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(244,239,231,0.15);
+    border-bottom:1px solid rgba(244,239,231,0.18);
+    backdrop-filter:saturate(140%) blur(10px);
+    transition:background .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .rs-navbar.scrolled{
+    background:rgba(244,239,231,0.96);
+    border-color:rgba(15,31,23,0.08);
+    box-shadow:0 12px 32px rgba(15,31,23,0.12);
+  }
+
+  .rs-nav-inner{
+    width:100%;
+    max-width:var(--rs-wrap);
+    padding:0 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    font-family:"Sora", sans-serif;
+  }
+
+  .rs-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:var(--rs-ink);
+  }
+  .rs-brand img{
+    height:44px;
+    width:auto;
+    display:block;
+  }
+  .rs-brand span{
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+
+  .rs-menu{
+    list-style:none;
+    display:flex;
+    gap:26px;
+    margin:0;
+    padding:0;
+  }
+  .rs-menu a{
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    color:var(--rs-ink);
+    position:relative;
+  }
+  .rs-menu a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:2px;
+    background:var(--rs-terracotta);
+    transition:width .2s ease;
+  }
+  .rs-menu a:hover::after{ width:100%; }
+
+  .rs-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 16px;
+    border-radius:999px;
+    background:var(--rs-terracotta);
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    box-shadow:0 12px 24px rgba(197,91,60,0.28);
+  }
+
+  .rs-burger{
+    display:none;
+    width:42px;
+    height:42px;
+    border-radius:999px;
+    border:1px solid rgba(15,31,23,0.12);
+    background:rgba(244,239,231,0.85);
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+  }
+  .rs-burger span{
+    width:18px;
+    height:2px;
+    background:var(--rs-ink);
+    border-radius:999px;
+  }
+  .rs-burger::after{
+    content:"";
+    position:absolute;
+    left:var(--rs-bubble-x, 50%);
+    top:var(--rs-bubble-y, 50%);
+    width:10px;
+    height:10px;
+    border-radius:999px;
+    background:rgba(197,91,60,0.35);
+    transform:translate(-50%, -50%) scale(0);
+    opacity:0;
+    pointer-events:none;
+  }
+  .rs-burger.bubble::after{
+    animation:rs-bubble .5s ease;
+  }
+
+  .rs-mobile{
+    display:none;
+    position:fixed;
+    top:var(--rs-nav-h);
+    left:0;
+    width:100vw;
+    background:rgba(244,239,231,0.98);
+    border-top:1px solid rgba(15,31,23,0.08);
+    padding:16px 18px 20px;
+    z-index:9998;
+    font-family:"Sora", sans-serif;
+  }
+  .rs-mobile a{
+    display:block;
+    padding:10px 0;
+    text-decoration:none;
+    color:var(--rs-ink);
+    font-weight:700;
+  }
+  .rs-mobile.open{ display:block; }
+
+  @media(max-width:980px){
+    .rs-menu{ display:none; }
+    .rs-burger{ display:flex; }
+    .rs-cta{ display:none; }
+  }
+
+  @keyframes rs-bubble{
+    0%{ transform:translate(-50%, -50%) scale(0); opacity:0.6; }
+    50%{ transform:translate(-50%, -50%) scale(3.2); opacity:0.35; }
+    100%{ transform:translate(-50%, -50%) scale(4.2); opacity:0; }
+  }
+</style>
+
+<div class="rs-fullbleed">
+  <header class="rs-navbar" id="rsNavbar">
+    <div class="rs-nav-inner">
+      <a class="rs-brand" href="#home" aria-label="Raun Sumatra Tour & Travel">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/01/logo-RAUN-SUMATRA-768x132-removebg-preview.png" alt="Raun Sumatra Tour & Travel">
+      </a>
+
+      <ul class="rs-menu" aria-label="Primary">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#paket">Packages</a></li>
+        <li><a href="#destinasi">Destinations</a></li>
+        <li><a href="#tentang">About</a></li>
+        <li><a href="#kontak">Contact</a></li>
+      </ul>
+
+      <div style="display:flex;align-items:center;gap:10px;">
+        <a class="rs-cta" href="#kontak">Free Consultation</a>
+        <button class="rs-burger" id="rsMenuToggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="rs-mobile" id="rsMobileMenu" aria-label="Mobile">
+    <a href="#home">Home</a>
+    <a href="#paket">Packages</a>
+    <a href="#destinasi">Destinations</a>
+    <a href="#tentang">About</a>
+    <a href="#kontak">Contact</a>
+  </nav>
+</div>
+
+<script>
+  (function(){
+    const nav = document.getElementById('rsNavbar');
+    const burger = document.getElementById('rsMenuToggle');
+    const mobile = document.getElementById('rsMobileMenu');
+
+    function setScrolled(){
+      if(!nav) return;
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    }
+
+    function syncMobileTop(){
+      if(!nav || !mobile) return;
+      mobile.style.top = (nav.offsetHeight || 78) + 'px';
+      document.documentElement.style.scrollPaddingTop = (nav.offsetHeight || 78) + 'px';
+    }
+
+    if(burger && mobile){
+      burger.addEventListener('click', (e) => {
+        const isOpen = mobile.classList.toggle('open');
+        burger.setAttribute('aria-expanded', String(isOpen));
+
+        const rect = burger.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        burger.style.setProperty('--rs-bubble-x', x + 'px');
+        burger.style.setProperty('--rs-bubble-y', y + 'px');
+        burger.classList.remove('bubble');
+        void burger.offsetWidth;
+        burger.classList.add('bubble');
+      });
+      mobile.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobile.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    window.addEventListener('scroll', setScrolled, { passive:true });
+    window.addEventListener('resize', syncMobileTop);
+    window.addEventListener('load', () => { setScrolled(); syncMobileTop(); });
+  })();
+</script>
+<!-- End Navbar Section -->
+<!-- Start Hero Section: Raun Sumatra Tour & Travel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rs-ink:#0f1f17;
+    --rs-ink-soft:#2a3a31;
+    --rs-sand:#f4efe7;
+    --rs-sand-deep:#e5dccd;
+    --rs-terracotta:#c55b3c;
+    --rs-leaf:#1f6d4d;
+    --rs-gold:#d9b46c;
+    --rs-wrap:1200px;
+    --rs-nav-h:78px;
+  }
+
+  .rs-hero{
+    position:relative;
+    width:100vw !important;
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:calc(50% - 50vw) !important;
+    padding:calc(var(--rs-nav-h) + 40px) 0 90px;
+    background:
+      radial-gradient(800px 420px at 10% 20%, rgba(31,109,77,0.25), transparent 60%),
+      radial-gradient(680px 360px at 85% 10%, rgba(197,91,60,0.18), transparent 60%),
+      linear-gradient(180deg, #f7f2ea 0%, #f1eadf 50%, #efe6d7 100%);
+    overflow:hidden;
+    font-family:"Sora", sans-serif;
+    color:var(--rs-ink);
+  }
+
+  .rs-hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(120deg, rgba(15,31,23,0.06) 0%, rgba(15,31,23,0) 40%),
+      repeating-linear-gradient(135deg, rgba(15,31,23,0.03) 0 2px, transparent 2px 7px);
+    opacity:.45;
+    pointer-events:none;
+  }
+
+  .rs-hero-inner{
+    position:relative;
+    z-index:2;
+    max-width:var(--rs-wrap);
+    margin:0 auto;
+    padding:0 18px;
+  }
+
+  .rs-hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:40px;
+    align-items:center;
+  }
+
+  .rs-kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(31,109,77,0.12);
+    color:var(--rs-leaf);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+
+  .rs-hero h1{
+    font-family:"DM Serif Display", serif;
+    font-weight:400;
+    font-size:clamp(34px, 4vw, 62px);
+    line-height:1.05;
+    margin:18px 0 14px;
+    color:var(--rs-ink);
+  }
+
+  .rs-hero p{
+    margin:0 0 22px;
+    color:var(--rs-ink-soft);
+    font-size:18px;
+    line-height:1.7;
+    max-width:580px;
+  }
+
+  .rs-hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:18px;
+  }
+
+  .rs-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 18px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.04em;
+    border:1px solid transparent;
+  }
+  .rs-btn.primary{
+    background:var(--rs-leaf);
+    color:#fff;
+    box-shadow:0 16px 36px rgba(31,109,77,0.28);
+  }
+  .rs-btn.ghost{
+    border-color:rgba(15,31,23,0.18);
+    color:var(--rs-ink);
+    background:rgba(244,239,231,0.7);
+  }
+
+  .rs-hero-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .rs-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    border-radius:999px;
+    background:#fff;
+    border:1px solid rgba(15,31,23,0.08);
+    font-size:12px;
+    font-weight:600;
+    color:var(--rs-ink-soft);
+  }
+  .rs-badge span{
+    width:8px;
+    height:8px;
+    border-radius:999px;
+    background:var(--rs-terracotta);
+  }
+
+  .rs-hero-card{
+    position:relative;
+    padding:28px;
+    border-radius:28px;
+    background:rgba(255,255,255,0.86);
+    border:1px solid rgba(15,31,23,0.12);
+    box-shadow:0 26px 60px rgba(15,31,23,0.16);
+    overflow:hidden;
+  }
+  .rs-hero-card h3{
+    margin:0 0 8px;
+    font-size:20px;
+    color:var(--rs-ink);
+  }
+  .rs-hero-card p{
+    margin:0 0 18px;
+    font-size:14px;
+    color:var(--rs-ink-soft);
+  }
+
+  .rs-feature-list{
+    display:grid;
+    gap:12px;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .rs-feature-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:12px 12px;
+    border-radius:16px;
+    background:rgba(244,239,231,0.7);
+    border:1px solid rgba(15,31,23,0.08);
+  }
+  .rs-feature-dot{
+    width:10px;
+    height:10px;
+    border-radius:999px;
+    background:var(--rs-gold);
+    margin-top:6px;
+    flex:0 0 auto;
+  }
+  .rs-feature-list strong{
+    display:block;
+    font-size:13px;
+    margin-bottom:2px;
+  }
+  .rs-feature-list span{
+    font-size:12px;
+    color:var(--rs-ink-soft);
+  }
+
+  .rs-hero-orb{
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(217,180,108,0.9), rgba(217,180,108,0.2));
+    top:-40px;
+    right:-50px;
+    filter:blur(0.2px);
+    animation:rs-float 8s ease-in-out infinite;
+  }
+
+  .rs-hero-map{
+    position:absolute;
+    inset:auto -50px -60px auto;
+    width:240px;
+    height:180px;
+    background:conic-gradient(from 120deg, rgba(31,109,77,0.22), rgba(197,91,60,0.15), rgba(31,109,77,0.22));
+    border-radius:120px;
+    transform:rotate(-8deg);
+    opacity:.7;
+  }
+
+  .rs-fade-up{
+    opacity:0;
+    transform:translateY(16px);
+    animation:rs-fade-up .8s ease forwards;
+  }
+  .rs-fade-up.delay-1{ animation-delay:.1s; }
+  .rs-fade-up.delay-2{ animation-delay:.2s; }
+  .rs-fade-up.delay-3{ animation-delay:.3s; }
+
+  @keyframes rs-fade-up{
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  @keyframes rs-float{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(8px); }
+  }
+
+  @media(max-width:980px){
+    .rs-hero-grid{ grid-template-columns:1fr; }
+  }
+  @media(max-width:640px){
+    .rs-hero{ padding-top:calc(var(--rs-nav-h) + 20px); }
+    .rs-hero-card{ padding:22px; }
+    .rs-hero-grid{ text-align:center; }
+    .rs-hero p{ margin-left:auto; margin-right:auto; }
+    .rs-hero-actions{ justify-content:center; }
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .rs-fade-up{ animation:none; opacity:1; transform:none; }
+    .rs-hero-orb{ animation:none; }
+  }
+</style>
+
+<section class="rs-hero" id="home" aria-label="Hero">
+  <div class="rs-hero-inner">
+    <div class="rs-hero-grid">
+      <div>
+        <div class="rs-kicker rs-fade-up">Tours &amp; Travel</div>
+        <h1 class="rs-fade-up delay-1">
+          RAUN SUMATRA<br>
+          Tours &amp; Travel
+        </h1>
+        <p class="rs-fade-up delay-2">
+          The best travel packages and memorable experiences across Indonesia,
+          guided by professional tour leaders.
+        </p>
+        <div class="rs-hero-actions rs-fade-up delay-3">
+          <a class="rs-btn primary" href="#kontak">Contact Us</a>
+          <a class="rs-btn ghost" href="#paket">Tour Packages</a>
+        </div>
+      </div>
+
+      <div class="rs-hero-card rs-fade-up delay-2" aria-label="Highlights">
+        <div class="rs-hero-orb" aria-hidden="true"></div>
+        <div class="rs-hero-map" aria-hidden="true"></div>
+        <h3>Popular Highlights</h3>
+        <p>Our most requested trips combining nature, culture, and culinary experiences.</p>
+        <ul class="rs-feature-list">
+          <li>
+            <div class="rs-feature-dot"></div>
+            <div>
+              <strong>Archipelago Tour Packages</strong>
+              <span>Curated itineraries from nature to heritage.</span>
+            </div>
+          </li>
+          <li>
+            <div class="rs-feature-dot"></div>
+            <div>
+              <strong>Private &amp; Group Trips</strong>
+              <span>Flexible options for families, teams, and groups.</span>
+            </div>
+          </li>
+          <li>
+            <div class="rs-feature-dot"></div>
+            <div>
+              <strong>Professional Tour Guides</strong>
+              <span>Friendly, informative, and experienced guides.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Hero Section -->
+
+<!-- Start About Us Section: Raun Sumatra Tour & Travel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rs-ink:#0f1f17;
+    --rs-ink-soft:#2a3a31;
+    --rs-sand:#f4efe7;
+    --rs-sand-deep:#e5dccd;
+    --rs-terracotta:#c55b3c;
+    --rs-leaf:#1f6d4d;
+    --rs-gold:#d9b46c;
+    --rs-wrap:1200px;
+  }
+
+  .rs-section{
+    width:100vw !important;
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:calc(50% - 50vw) !important;
+    background:#fff;
+    padding:90px 0;
+    font-family:"Sora", sans-serif;
+    color:var(--rs-ink);
+  }
+
+  .rs-container{
+    max-width:var(--rs-wrap);
+    margin:0 auto;
+    padding:0 18px;
+  }
+
+  .rs-about-grid{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:40px;
+    align-items:center;
+  }
+
+  .rs-about-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(31,109,77,0.12);
+    color:var(--rs-leaf);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+
+  .rs-about h2{
+    font-family:"DM Serif Display", serif;
+    font-weight:400;
+    font-size:clamp(30px, 3.4vw, 46px);
+    line-height:1.12;
+    margin:0 0 16px;
+  }
+
+  .rs-about p{
+    margin:0 0 16px;
+    color:var(--rs-ink-soft);
+    line-height:1.8;
+    font-size:16px;
+  }
+
+  .rs-about-list{
+    display:grid;
+    gap:10px;
+    margin-top:14px;
+  }
+
+  .rs-about-item{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:12px 14px;
+    border-radius:14px;
+    background:rgba(244,239,231,0.6);
+    border:1px solid rgba(15,31,23,0.08);
+  }
+
+  .rs-about-dot{
+    width:9px;
+    height:9px;
+    border-radius:999px;
+    background:var(--rs-terracotta);
+    margin-top:6px;
+    flex:0 0 auto;
+  }
+
+  .rs-about-cta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+  }
+
+  .rs-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 18px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.04em;
+    border:1px solid transparent;
+  }
+  .rs-btn.primary{
+    background:var(--rs-terracotta);
+    color:#fff;
+    box-shadow:0 16px 32px rgba(197,91,60,0.28);
+  }
+  .rs-btn.ghost{
+    border-color:rgba(15,31,23,0.18);
+    color:var(--rs-ink);
+    background:#fff;
+  }
+
+  .rs-about-gallery{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:14px;
+  }
+
+  .rs-about-track{
+    display:contents;
+  }
+
+  .rs-about-slide{
+    display:block;
+  }
+
+  .rs-about-card{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid rgba(15,31,23,0.12);
+    box-shadow:0 18px 38px rgba(15,31,23,0.12);
+    background:#fff;
+    aspect-ratio:4 / 3;
+  }
+
+  .rs-about-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  @media(max-width:980px){
+    .rs-about-grid{ grid-template-columns:1fr; }
+    .rs-about-gallery{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media(max-width:640px){
+    .rs-about-gallery{
+      display:block;
+      overflow:hidden;
+      position:relative;
+    }
+    .rs-about-track{
+      display:flex;
+      gap:0;
+      transition:transform .5s ease;
+    }
+    .rs-about-slide{
+      min-width:100%;
+    }
+  }
+</style>
+
+<section class="rs-section" id="tentang" aria-label="About Us">
+  <div class="rs-container">
+    <div class="rs-about-grid">
+      <div class="rs-about">
+        <div class="rs-about-chip">About Us</div>
+        <h2>Raun Sumatra Tour &amp; Travel</h2>
+        <p>
+          We craft memorable journeys across Indonesia with a warm, personal approach. From cultural
+          landmarks and highland escapes to island adventures, every itinerary is designed to match
+          your style and pace.
+        </p>
+        <p>
+          Our team focuses on comfort, clear planning, and responsive support, so you can relax and
+          enjoy the experience from start to finish.
+        </p>
+        <div class="rs-about-list">
+          <div class="rs-about-item">
+            <div class="rs-about-dot"></div>
+            <div>Curated routes with flexible schedules and transparent pricing.</div>
+          </div>
+          <div class="rs-about-item">
+            <div class="rs-about-dot"></div>
+            <div>Friendly local guides and reliable transport options.</div>
+          </div>
+          <div class="rs-about-item">
+            <div class="rs-about-dot"></div>
+            <div>Private and group tours tailored to families, teams, and travelers.</div>
+          </div>
+        </div>
+        <div class="rs-about-cta">
+          <a class="rs-btn primary" href="#kontak">Plan Your Trip</a>
+          <a class="rs-btn ghost" href="#paket">Explore Packages</a>
+        </div>
+      </div>
+
+      <div class="rs-about-gallery" aria-label="Destination highlights" data-about-slider>
+        <div class="rs-about-track">
+          <div class="rs-about-slide">
+            <div class="rs-about-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxmXpunRbf65DAv9am1xxRsNDYSswa-orPiA&s" alt="Traditional cultural house">
+            </div>
+          </div>
+          <div class="rs-about-slide">
+            <div class="rs-about-card">
+              <img src="https://unesco.or.id/wp-content/uploads/2025/08/Danau-Toba-1.webp" alt="Lake Toba scenery">
+            </div>
+          </div>
+          <div class="rs-about-slide">
+            <div class="rs-about-card">
+              <img src="https://raunsumatra.com/wp-content/uploads/2023/12/minangkabau-village-508x339.png" alt="Minangkabau village">
+            </div>
+          </div>
+          <div class="rs-about-slide">
+            <div class="rs-about-card">
+              <img src="https://raunsumatra.com/wp-content/uploads/2024/01/SABANG.png" alt="Sabang coastline">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End About Us Section -->
+
+<!-- Start Why Us Section: Raun Sumatra Tour & Travel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rs-ink:#0f1f17;
+    --rs-ink-soft:#2a3a31;
+    --rs-sand:#f4efe7;
+    --rs-sand-deep:#e5dccd;
+    --rs-terracotta:#c55b3c;
+    --rs-leaf:#1f6d4d;
+    --rs-gold:#d9b46c;
+    --rs-wrap:1200px;
+  }
+
+  .rs-section{
+    width:100vw !important;
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:calc(50% - 50vw) !important;
+    background:#fff;
+    padding:90px 0;
+    font-family:"Sora", sans-serif;
+    color:var(--rs-ink);
+  }
+
+  .rs-container{
+    max-width:var(--rs-wrap);
+    margin:0 auto;
+    padding:0 18px;
+  }
+
+  .rs-why-head{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:32px;
+    align-items:end;
+    margin-bottom:28px;
+  }
+
+  .rs-why-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(31,109,77,0.12);
+    color:var(--rs-leaf);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+
+  .rs-why-title{
+    font-family:"DM Serif Display", serif;
+    font-weight:400;
+    font-size:clamp(30px, 3.4vw, 46px);
+    line-height:1.12;
+    margin:0 0 10px;
+  }
+
+  .rs-why-desc{
+    margin:0;
+    color:var(--rs-ink-soft);
+    line-height:1.8;
+    font-size:16px;
+  }
+
+  .rs-why-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:18px;
+  }
+
+  .rs-why-card{
+    position:relative;
+    padding:20px;
+    border-radius:20px;
+    background:#fff;
+    border:1px solid rgba(15,31,23,0.08);
+    box-shadow:0 18px 40px rgba(15,31,23,0.12);
+  }
+
+  .rs-why-icon{
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(197,91,60,0.12);
+    color:var(--rs-terracotta);
+    font-weight:800;
+    font-size:16px;
+    margin-bottom:12px;
+  }
+
+  .rs-why-card h3{
+    margin:0 0 8px;
+    font-size:18px;
+  }
+
+  .rs-why-card p{
+    margin:0 0 14px;
+    font-size:14px;
+    color:var(--rs-ink-soft);
+    line-height:1.7;
+  }
+
+  .rs-why-stat{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:12px;
+    font-weight:700;
+    color:var(--rs-ink);
+  }
+
+  .rs-why-dot{
+    width:8px;
+    height:8px;
+    border-radius:999px;
+    background:var(--rs-gold);
+  }
+
+  @media(max-width:980px){
+    .rs-why-head{ grid-template-columns:1fr; }
+    .rs-why-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media(max-width:640px){
+    .rs-why{ padding:80px 0; }
+    .rs-why-grid{ grid-template-columns:1fr; }
+  }
+</style>
+
+<section class="rs-section" id="why" aria-label="Why Us">
+  <div class="rs-container">
+    <div class="rs-why-head">
+      <div>
+        <div class="rs-why-chip">Why Us</div>
+        <h2 class="rs-why-title">Why travelers choose Raun Sumatra.</h2>
+      </div>
+      <p class="rs-why-desc">
+        We combine clear planning, responsive support, and trusted local expertise to deliver
+        smooth trips that feel personal, safe, and well-organized.
+      </p>
+    </div>
+
+    <div class="rs-why-grid">
+      <div class="rs-why-card">
+        <div class="rs-why-icon">01</div>
+        <h3>Clear Itineraries</h3>
+        <p>Well-structured routes with flexible timing and transparent pricing.</p>
+        <div class="rs-why-stat"><span class="rs-why-dot"></span>Tailored to your travel style</div>
+      </div>
+
+      <div class="rs-why-card">
+        <div class="rs-why-icon">02</div>
+        <h3>Local Expertise</h3>
+        <p>Experienced guides and drivers who know the best routes and hidden gems.</p>
+        <div class="rs-why-stat"><span class="rs-why-dot"></span>Authentic insights on every stop</div>
+      </div>
+
+      <div class="rs-why-card">
+        <div class="rs-why-icon">03</div>
+        <h3>Responsive Support</h3>
+        <p>Fast replies and proactive coordination before and during your trip.</p>
+        <div class="rs-why-stat"><span class="rs-why-dot"></span>We are with you all the way</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Why Us Section -->
+
+<!-- Start Package Section: Raun Sumatra Tour & Travel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rs-ink:#0f1f17;
+    --rs-ink-soft:#2a3a31;
+    --rs-sand:#f4efe7;
+    --rs-sand-deep:#e5dccd;
+    --rs-terracotta:#c55b3c;
+    --rs-leaf:#1f6d4d;
+    --rs-gold:#d9b46c;
+    --rs-wrap:1200px;
+  }
+
+  .rs-package{
+    background:linear-gradient(180deg, #ffffff 0%, #f8f3ea 100%);
+  }
+
+  .rs-package-head{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:32px;
+    align-items:end;
+    margin-bottom:26px;
+  }
+
+  .rs-package-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(31,109,77,0.12);
+    color:var(--rs-leaf);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+
+  .rs-package-title{
+    font-family:"DM Serif Display", serif;
+    font-weight:400;
+    font-size:clamp(30px, 3.4vw, 46px);
+    line-height:1.12;
+    margin:0 0 10px;
+  }
+
+  .rs-package-desc{
+    margin:0;
+    color:var(--rs-ink-soft);
+    line-height:1.8;
+    font-size:16px;
+  }
+
+  .rs-package-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:18px;
+  }
+
+  .rs-package-card{
+    display:flex;
+    flex-direction:column;
+    border-radius:22px;
+    overflow:hidden;
+    background:#fff;
+    border:1px solid rgba(15,31,23,0.08);
+    box-shadow:0 20px 44px rgba(15,31,23,0.12);
+  }
+
+  .rs-package-media{
+    position:relative;
+    min-height:200px;
+  }
+
+  .rs-package-media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .rs-package-badge{
+    position:absolute;
+    top:16px;
+    left:16px;
+    padding:8px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.92);
+    border:1px solid rgba(15,31,23,0.12);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+
+  .rs-package-body{
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex:1;
+  }
+
+  .rs-package-name{
+    margin:0;
+    font-size:18px;
+    font-weight:700;
+    color:var(--rs-ink);
+  }
+
+  .rs-package-sub{
+    margin:0;
+    font-size:13px;
+    color:var(--rs-ink-soft);
+    line-height:1.6;
+  }
+
+  .rs-package-price{
+    font-size:16px;
+    font-weight:700;
+    color:var(--rs-terracotta);
+  }
+
+  .rs-package-actions{
+    margin-top:auto;
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:10px;
+  }
+
+  .rs-package-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px 14px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+    text-decoration:none;
+    letter-spacing:.04em;
+    border:1px solid transparent;
+    cursor:pointer;
+    width:100%;
+    box-sizing:border-box;
+  }
+
+  .rs-package-btn.primary{
+    background:var(--rs-leaf);
+    color:#fff;
+    box-shadow:0 12px 24px rgba(31,109,77,0.26);
+  }
+
+  .rs-package-btn.ghost{
+    background:#fff;
+    color:var(--rs-ink);
+    border-color:rgba(15,31,23,0.16);
+  }
+
+  .rs-modal{
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(15,31,23,0.55);
+    z-index:10000;
+  }
+
+  .rs-modal.open{
+    display:flex;
+  }
+
+  .rs-modal-content{
+    width:100%;
+    max-width:900px;
+    max-height:85vh;
+    overflow:auto;
+    overflow-x:hidden;
+    background:#fff;
+    border-radius:20px;
+    padding:0;
+    position:relative;
+    box-shadow:0 30px 70px rgba(15,31,23,0.25);
+  }
+
+  .rs-modal-header{
+    position:sticky;
+    top:0;
+    z-index:2;
+    background:#fff;
+    padding:18px 24px 12px;
+    margin-bottom:0;
+    border-bottom:1px solid rgba(15,31,23,0.08);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+
+  .rs-modal-body{
+    padding:0 24px 24px;
+  }
+
+  .rs-modal-footer{
+    position:sticky;
+    bottom:0;
+    background:#fff;
+    padding:12px 24px 18px;
+    border-top:1px solid rgba(15,31,23,0.08);
+    margin:16px -24px -24px;
+  }
+
+  .rs-modal-close{
+    width:36px;
+    height:36px;
+    border-radius:999px;
+    border:1px solid rgba(15,31,23,0.14);
+    background:#fff;
+    cursor:pointer;
+    flex:0 0 auto;
+  }
+
+  .rs-modal-title{
+    margin:0;
+    font-family:"DM Serif Display", serif;
+    font-size:26px;
+    font-weight:400;
+  }
+
+  .rs-modal-hero{
+    border-radius:16px;
+    overflow:hidden;
+    margin-bottom:16px;
+  }
+
+  .rs-modal-hero img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
+  .rs-modal-section{
+    margin-bottom:16px;
+  }
+
+  .rs-modal-section h4{
+    margin:0 0 8px;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+
+  .rs-modal-section ul{
+    margin:0;
+    padding-left:18px;
+    color:var(--rs-ink-soft);
+    font-size:13px;
+    line-height:1.7;
+  }
+
+  .rs-modal-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+  }
+
+  .rs-modal-table th,
+  .rs-modal-table td{
+    border:1px solid rgba(15,31,23,0.12);
+    padding:8px 10px;
+    text-align:left;
+    vertical-align:top;
+  }
+
+  .rs-modal-table th{
+    background:var(--rs-sand);
+  }
+
+  @media(max-width:980px){
+    .rs-package-head{ grid-template-columns:1fr; }
+    .rs-package-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media(max-width:640px){
+    .rs-package-grid{ grid-template-columns:1fr; }
+  }
+</style>
+
+<section class="rs-section rs-package" id="paket" aria-label="Tour Packages">
+  <div class="rs-container">
+    <div class="rs-package-head">
+      <div>
+        <div class="rs-package-chip">Tour Package</div>
+        <h2 class="rs-package-title">Tour Package</h2>
+      </div>
+      <p class="rs-package-desc">
+        Pilih paket terbaik dan lihat detail itinerari sebelum booking. Semua paket disusun
+        secara private tour basis dengan dukungan tim lokal.
+      </p>
+    </div>
+
+    <div class="rs-package-grid">
+      <article class="rs-package-card">
+        <div class="rs-package-media">
+          <span class="rs-package-badge">Private Tour</span>
+          <img src="https://raunsumatra.com/wp-content/uploads/2023/12/minangkabau-village-508x339.png" alt="Minangkabau village">
+        </div>
+        <div class="rs-package-body">
+          <h3 class="rs-package-name">EXPLORE PADANG 3 Hari 2 Malam</h3>
+          <p class="rs-package-sub">1 Mlm Bukittingg / 1 Mlm Padang. Rute budaya Minang, Lembah Harau, hingga pantai Padang.</p>
+          <div class="rs-package-price">Mulai Rp. 2.475.000 / pax</div>
+          <div class="rs-package-actions">
+            <button class="rs-package-btn ghost" type="button" data-rs-modal="rsModalDetailPadang">Detail Tour</button>
+            <a class="rs-package-btn primary" href="https://wa.me/628116602898?text=Halo%20Raun%20Sumatra%2C%20saya%20ingin%20booking%20paket%20EXPLORE%20PADANG%203%20Hari%202%20Malam." target="_blank" rel="noopener">Booking Now</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<!-- End Package Section -->
+
+<div class="rs-modal" id="rsModalDetailPadang" aria-hidden="true">
+  <div class="rs-modal-content" role="dialog" aria-modal="true" aria-labelledby="rsDetailTitle">
+    <div class="rs-modal-header">
+      <h3 class="rs-modal-title" id="rsDetailTitle">EXPLORE PADANG 3 Hari 2 Malam</h3>
+      <button class="rs-modal-close" type="button" data-rs-close aria-label="Close">✕</button>
+    </div>
+    <div class="rs-modal-body">
+      <div class="rs-modal-hero">
+        <img src="https://raunsumatra.com/wp-content/uploads/2023/12/minangkabau-village-508x339.png" alt="Minangkabau village">
+      </div>
+
+      <div class="rs-modal-section">
+        <h4>Harga Dalam Rupiah (Private Tour Basis)</h4>
+        <table class="rs-modal-table" aria-label="Harga Paket">
+          <thead>
+            <tr>
+              <th>Kategori</th>
+              <th>Kota</th>
+              <th>Hotel</th>
+              <th>Min 2 pax</th>
+              <th>Min 4 pax</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>STANDART</td>
+              <td>Bukittinggi / Padang</td>
+              <td>GRAN MALINDO / Sim 2*<br>UNP HOTEL / Sim 2*</td>
+              <td>Rp. 3.125.000</td>
+              <td>Rp. 2.475.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rs-modal-section">
+        <h4>Hari 1: Bandara - Bukittinggi (MS/MM)</h4>
+        <ul>
+          <li>Penjemputan di Bandara Internasional Minangkabau</li>
+          <li>Perjalanan menuju Bukittinggi</li>
+          <li>Makan Siang Di local restaurant</li>
+          <li>Mengunjungi pembuatan rendang di Rendang Uni Adek</li>
+          <li>Mengunjungi Taman Panorama Ngarai Sianok dan Pemandangan Great Wall,</li>
+          <li>Check in hotel</li>
+          <li>Makan Malam di Pauah/Pondok Salero restaurant</li>
+        </ul>
+      </div>
+
+      <div class="rs-modal-section">
+        <h4>Hari 2: Bukittinggi - Lembah Harau - Padang (SP/MS/MM)</h4>
+        <ul>
+          <li>Sarapan pagi di hotel dan dilanjutkan proses check out</li>
+          <li>Belanja Oleh - oleh Kerupuk Sanjai Ummi</li>
+          <li>Berwisata ke Lembah Harau</li>
+          <li>Makan Siang Di Pongek Situjuah/Pondok Flora Restaurant</li>
+          <li>Perjalanan ke Batusangkar</li>
+          <li>Mengunjungi Istana Raja Pagaruyung</li>
+          <li>Menuju Padang</li>
+          <li>Makan Malam Di Pondok Ikan Bakar restaurant,</li>
+          <li>Check in Hotel di Padang</li>
+        </ul>
+      </div>
+
+      <div class="rs-modal-section">
+        <h4>Hari 3: Padang Tour - Bandara (SP/MS)</h4>
+        <ul>
+          <li>Sarapan pagi di hotel dan dilanjutkan proses check out</li>
+          <li>Berwisata ke Pantai Air Manis, Batu Malin Kundang,</li>
+          <li>Mengunjungi Pantai Muaro Lasak, Monumen IORA &amp; Jembatan Siti Nurbaya.</li>
+          <li>Makan Siang Di Lamun Ombak Restaurant</li>
+          <li>Diantar ke bandara untuk penerbangan selanjutnya.</li>
+        </ul>
+      </div>
+
+      <div class="rs-modal-section">
+        <h4>Harga Termasuk</h4>
+        <ul>
+          <li>Transportasi AC (Private),</li>
+          <li>Hotel akomodasi sesuai hotel pilihan (Twin/Triple Share),</li>
+          <li>Makan sesuai program,</li>
+          <li>Tiket objek wisata sesuai program,</li>
+          <li>Air mineral setiap hari,</li>
+          <li>Guide, FIT hanya driver Cum guide.</li>
+        </ul>
+      </div>
+
+      <div class="rs-modal-section">
+        <h4>Harga Tidak Termasuk</h4>
+        <ul>
+          <li>Tiket pesawat,</li>
+          <li>Tour tambahan &amp; Makan tambahan,</li>
+          <li>Pengeluaran pribadi (Laundry, Telephone, Mini bar),</li>
+          <li>Tipping (Guide, driver, hotel porter)</li>
+        </ul>
+      </div>
+
+      <div class="rs-modal-section">
+        <h4>Catatan</h4>
+        <ul>
+          <li>Harga berlaku untuk PERIODE LOW SEASSON,</li>
+          <li>Harga dapat berubah sewaktu - waktu dengan atau tanpa pemberitahuan sebelumnya,</li>
+          <li>Harga tidak berlaku untuk libur panjang &amp; High seasons (Liburan Sekolah / Hari Raya / Natal / Tahun Baru), Makanan Tambahan Rp. 75.000 / pax / makan,</li>
+          <li>Anak - anak sekamar dengan 1 orang dewasa: 90% dari orang dewasa, CWB: Anak - anak dengan extra bed: 85% (2-10 yrs), CNB: Anak - anak dengan extra bed : 65% (2-10 thn)</li>
+        </ul>
+      </div>
+
+      <div class="rs-modal-footer">
+        <div class="rs-package-actions">
+          <a class="rs-package-btn primary" href="https://wa.me/628116602898?text=Halo%20Raun%20Sumatra%2C%20saya%20ingin%20booking%20paket%20EXPLORE%20PADANG%203%20Hari%202%20Malam." target="_blank" rel="noopener">Booking Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Start Testimonials Section: Raun Sumatra Tour & Travel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rs-ink:#0f1f17;
+    --rs-ink-soft:#2a3a31;
+    --rs-sand:#f4efe7;
+    --rs-sand-deep:#e5dccd;
+    --rs-terracotta:#c55b3c;
+    --rs-leaf:#1f6d4d;
+    --rs-gold:#d9b46c;
+    --rs-wrap:1200px;
+  }
+
+  .rs-testimonials{
+    position:relative;
+    background:
+      radial-gradient(520px 280px at 10% 20%, rgba(197,91,60,0.12), transparent 60%),
+      radial-gradient(520px 280px at 90% 10%, rgba(31,109,77,0.14), transparent 60%),
+      linear-gradient(180deg, #f7f2ea 0%, #f1eadf 100%);
+  }
+
+  .rs-testimonials::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg, rgba(15,31,23,0.05), transparent 50%);
+    pointer-events:none;
+  }
+
+  .rs-testimonial-head{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:32px;
+    align-items:end;
+    margin-bottom:28px;
+  }
+
+  .rs-testimonial-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(197,91,60,0.12);
+    color:var(--rs-terracotta);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+
+  .rs-testimonial-title{
+    font-family:"DM Serif Display", serif;
+    font-weight:400;
+    font-size:clamp(30px, 3.4vw, 46px);
+    line-height:1.12;
+    margin:0 0 10px;
+  }
+
+  .rs-testimonial-desc{
+    margin:0;
+    color:var(--rs-ink-soft);
+    line-height:1.8;
+    font-size:16px;
+  }
+
+  .rs-testimonial-grid{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:18px;
+  }
+
+  .rs-testimonial-card{
+    padding:22px;
+    border-radius:20px;
+    background:#fff;
+    border:1px solid rgba(15,31,23,0.08);
+    box-shadow:0 18px 40px rgba(15,31,23,0.12);
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .rs-testimonial-stars{
+    display:flex;
+    gap:4px;
+    color:var(--rs-gold);
+    font-size:16px;
+    letter-spacing:1px;
+  }
+
+  .rs-testimonial-quote{
+    margin:0;
+    color:var(--rs-ink-soft);
+    font-size:14px;
+    line-height:1.8;
+  }
+
+  .rs-testimonial-person{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  .rs-testimonial-avatar{
+    width:46px;
+    height:46px;
+    border-radius:14px;
+    background:rgba(31,109,77,0.12);
+    color:var(--rs-leaf);
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+  }
+
+  .rs-testimonial-person strong{
+    display:block;
+    font-size:15px;
+  }
+
+  .rs-testimonial-person span{
+    display:block;
+    font-size:12px;
+    color:var(--rs-ink-soft);
+  }
+
+  @media(max-width:980px){
+    .rs-testimonial-head{ grid-template-columns:1fr; }
+    .rs-testimonial-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media(max-width:640px){
+    .rs-testimonial-grid{ grid-template-columns:1fr; }
+  }
+</style>
+
+<section class="rs-section rs-testimonials" id="testimoni" aria-label="Testimonials">
+  <div class="rs-container">
+    <div class="rs-testimonial-head">
+      <div>
+        <div class="rs-testimonial-chip">Testimonials</div>
+        <h2 class="rs-testimonial-title">Travel stories from happy guests.</h2>
+      </div>
+      <p class="rs-testimonial-desc">
+        Every journey is planned with care, and these words reflect the warmth, reliability,
+        and local insight our guests experience across Sumatra.
+      </p>
+    </div>
+
+    <div class="rs-testimonial-grid">
+      <div class="rs-testimonial-card">
+        <div class="rs-testimonial-stars">
+          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+        </div>
+        <p class="rs-testimonial-quote">
+          The itinerary was smooth and beautifully paced. We never felt rushed, and every stop
+          was exactly as promised.
+        </p>
+        <div class="rs-testimonial-person">
+          <div class="rs-testimonial-avatar">AM</div>
+          <div>
+            <strong>Alice Morgan</strong>
+            <span>Private Lake Toba Escape</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rs-testimonial-card">
+        <div class="rs-testimonial-stars">
+          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+        </div>
+        <p class="rs-testimonial-quote">
+          Our guide was kind, knowledgeable, and knew the best photo spots. We felt safe, welcomed,
+          and well taken care of.
+        </p>
+        <div class="rs-testimonial-person">
+          <div class="rs-testimonial-avatar">JL</div>
+          <div>
+            <strong>James Lee</strong>
+            <span>Medan City &amp; Heritage Tour</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rs-testimonial-card">
+        <div class="rs-testimonial-stars">
+          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+        </div>
+        <p class="rs-testimonial-quote">
+          From transport to meals, everything was handled. The team stayed responsive and made
+          the trip feel effortless.
+        </p>
+        <div class="rs-testimonial-person">
+          <div class="rs-testimonial-avatar">NS</div>
+          <div>
+            <strong>Natalie Stone</strong>
+            <span>West Sumatra Culinary Trail</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Testimonials Section -->
+
+<!-- Start Gallery Section: Raun Sumatra Tour & Travel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rs-ink:#0f1f17;
+    --rs-ink-soft:#2a3a31;
+    --rs-sand:#f4efe7;
+    --rs-sand-deep:#e5dccd;
+    --rs-terracotta:#c55b3c;
+    --rs-leaf:#1f6d4d;
+    --rs-gold:#d9b46c;
+    --rs-wrap:1200px;
+  }
+
+  .rs-gallery{
+    background:#fff;
+  }
+
+  .rs-gallery-head{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:32px;
+    align-items:end;
+    margin-bottom:26px;
+  }
+
+  .rs-gallery-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(31,109,77,0.12);
+    color:var(--rs-leaf);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+
+  .rs-gallery-title{
+    font-family:"DM Serif Display", serif;
+    font-weight:400;
+    font-size:clamp(30px, 3.4vw, 46px);
+    line-height:1.12;
+    margin:0 0 10px;
+  }
+
+  .rs-gallery-desc{
+    margin:0;
+    color:var(--rs-ink-soft);
+    line-height:1.8;
+    font-size:16px;
+  }
+
+  .rs-gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:18px;
+  }
+
+  .rs-gallery-card{
+    position:relative;
+    border-radius:22px;
+    overflow:hidden;
+    background:var(--rs-sand);
+    border:1px solid rgba(15,31,23,0.08);
+    box-shadow:0 18px 40px rgba(15,31,23,0.12);
+  }
+
+  .rs-gallery-card img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    aspect-ratio:4/3;
+    transition:transform .35s ease;
+  }
+
+  .rs-gallery-card:hover img{
+    transform:scale(1.04);
+  }
+
+  @media(max-width:980px){
+    .rs-gallery-head{ grid-template-columns:1fr; }
+    .rs-gallery-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media(max-width:640px){
+    .rs-gallery-grid{ grid-template-columns:1fr; }
+  }
+</style>
+
+<section class="rs-section rs-gallery" id="gallery" aria-label="Gallery">
+  <div class="rs-container">
+    <div class="rs-gallery-head">
+      <div>
+        <div class="rs-gallery-chip">Gallery</div>
+        <h2 class="rs-gallery-title">Scenes from our favorite routes.</h2>
+      </div>
+      <p class="rs-gallery-desc">
+        A quick look at the landscapes, culture, and coastline our guests enjoy across Sumatra.
+      </p>
+    </div>
+
+    <div class="rs-gallery-grid">
+      <div class="rs-gallery-card">
+        <img src="https://unesco.or.id/wp-content/uploads/2025/08/Danau-Toba-1.webp" alt="Lake Toba scenery">
+      </div>
+      <div class="rs-gallery-card">
+        <img src="https://raunsumatra.com/wp-content/uploads/2023/12/minangkabau-village-508x339.png" alt="Minangkabau village">
+      </div>
+      <div class="rs-gallery-card">
+        <img src="https://raunsumatra.com/wp-content/uploads/2024/01/SABANG.png" alt="Sabang coastline">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Gallery Section -->
+
+<!-- Start Contact Section: Raun Sumatra Tour & Travel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rs-ink:#0f1f17;
+    --rs-ink-soft:#2a3a31;
+    --rs-sand:#f4efe7;
+    --rs-sand-deep:#e5dccd;
+    --rs-terracotta:#c55b3c;
+    --rs-leaf:#1f6d4d;
+    --rs-gold:#d9b46c;
+    --rs-wrap:1200px;
+  }
+
+  .rs-contact{
+    background:#fff;
+  }
+
+  .rs-contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1.1fr;
+    gap:24px;
+    align-items:stretch;
+  }
+
+  .rs-contact-card{
+    padding:24px;
+    border-radius:20px;
+    background:var(--rs-sand);
+    border:1px solid rgba(15,31,23,0.08);
+    box-shadow:0 18px 40px rgba(15,31,23,0.12);
+  }
+
+  .rs-contact-title{
+    font-family:"DM Serif Display", serif;
+    font-weight:400;
+    font-size:clamp(28px, 3vw, 40px);
+    margin:0 0 10px;
+  }
+
+  .rs-contact-desc{
+    margin:0 0 18px;
+    color:var(--rs-ink-soft);
+    line-height:1.7;
+  }
+
+  .rs-contact-list{
+    list-style:none;
+    margin:0 0 18px;
+    padding:0;
+    display:grid;
+    gap:12px;
+    font-size:14px;
+    color:var(--rs-ink-soft);
+  }
+
+  .rs-contact-list strong{
+    display:block;
+    font-size:13px;
+    color:var(--rs-ink);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    margin-bottom:4px;
+  }
+
+  .rs-contact-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .rs-contact-socials{
+    display:flex;
+    gap:10px;
+    margin:4px 0 18px;
+  }
+
+  .rs-contact-socials a{
+    width:42px;
+    height:42px;
+    border-radius:14px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    border:1px solid rgba(15,31,23,0.12);
+    color:var(--rs-ink);
+    text-decoration:none;
+    box-shadow:0 12px 24px rgba(15,31,23,0.1);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+
+  .rs-contact-socials a:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 30px rgba(15,31,23,0.14);
+  }
+
+  .rs-contact-socials i{
+    font-size:18px;
+  }
+
+  .rs-contact-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 18px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.04em;
+    border:1px solid transparent;
+  }
+
+  .rs-contact-btn.primary{
+    background:var(--rs-terracotta);
+    color:#fff;
+    box-shadow:0 16px 36px rgba(197,91,60,0.28);
+  }
+
+  .rs-contact-btn.ghost{
+    border-color:rgba(15,31,23,0.18);
+    color:var(--rs-ink);
+    background:#fff;
+  }
+
+  .rs-contact-map{
+    position:relative;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid rgba(15,31,23,0.08);
+    box-shadow:0 18px 40px rgba(15,31,23,0.12);
+    min-height:320px;
+  }
+
+  .rs-contact-map iframe{
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+  }
+
+  @media(max-width:980px){
+    .rs-contact-grid{ grid-template-columns:1fr; }
+  }
+</style>
+
+<section class="rs-section rs-contact" id="kontak" aria-label="Contact">
+  <div class="rs-container">
+    <div class="rs-contact-grid">
+      <div class="rs-contact-card">
+        <h2 class="rs-contact-title">Contact Raun Sumatra</h2>
+        <p class="rs-contact-desc">
+          Reach out for custom itineraries, group tours, and quick travel advice. We respond fast
+          and help you lock in the best route for your schedule.
+        </p>
+        <ul class="rs-contact-list">
+          <li>
+            <strong>Online Hours</strong>
+            Mon - Sat, 08:00 - 17:00 WIB (Sun: closed)
+          </li>
+          <li>
+            <strong>WhatsApp (Admin)</strong>
+            <a href="https://wa.me/628116602898" target="_blank" rel="noopener">+62 811 6602 898</a>
+          </li>
+          <li>
+            <strong>WhatsApp (Ucok)</strong>
+            <a href="https://wa.me/628126602898" target="_blank" rel="noopener">+62 812 6602 898</a>
+          </li>
+          <li>
+            <strong>WhatsApp (Tika)</strong>
+            <a href="https://wa.me/628116691898" target="_blank" rel="noopener">+62 811 6691 898</a>
+          </li>
+          <li>
+            <strong>WhatsApp (Widia)</strong>
+            <a href="https://wa.me/628116622898" target="_blank" rel="noopener">+62 811 6622 898</a>
+          </li>
+          <li>
+            <strong>Telephone</strong>
+            +62 752 21133
+          </li>
+          <li>
+            <strong>Office</strong>
+            Jl. Ahmad Yani No.99 Bukittinggi, West Sumatera - Indonesia
+          </li>
+          <li>
+            <strong>Email</strong>
+            raunsumatra@yahoo.com
+          </li>
+        </ul>
+        <div class="rs-contact-socials" aria-label="Social media">
+          <a href="https://www.facebook.com/raun.sumatra/" target="_blank" rel="noopener" aria-label="Raun Sumatra on Facebook">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.tiktok.com/@raun.sumatra" target="_blank" rel="noopener" aria-label="Raun Sumatra on TikTok">
+            <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.instagram.com/raun_sumatra" target="_blank" rel="noopener" aria-label="Raun Sumatra on Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="rs-contact-actions">
+          <a class="rs-contact-btn primary" href="https://wa.me/628116602898" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          <a class="rs-contact-btn ghost" href="mailto:raunsumatra@yahoo.com">Send Email</a>
+        </div>
+      </div>
+
+      <div class="rs-contact-map" aria-label="Map">
+        <iframe
+          title="Raun Sumatra Office Map"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.95680433285!2d98.657!3d3.595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3031303b0c3a5d5b%3A0x8b6e0f2af04a07b6!2sMedan%2C%20North%20Sumatra!5e0!3m2!1sen!2sid!4v1732222222222">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Contact Section -->
+
+<!-- Start Footer Section: Raun Sumatra Tour & Travel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rs-ink:#0f1f17;
+    --rs-ink-soft:#2a3a31;
+    --rs-sand:#f4efe7;
+    --rs-sand-deep:#e5dccd;
+    --rs-terracotta:#c55b3c;
+    --rs-leaf:#1f6d4d;
+    --rs-gold:#d9b46c;
+    --rs-wrap:1200px;
+  }
+
+  .rs-footer{
+    background:linear-gradient(180deg, #f7f2ea 0%, #efe6d7 100%);
+    color:var(--rs-ink);
+    font-family:"Sora", sans-serif;
+    padding:70px 0 28px;
+  }
+
+  .rs-footer-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr .9fr;
+    gap:28px;
+    align-items:start;
+  }
+
+  .rs-footer-brand{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .rs-footer-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:13px;
+  }
+
+  .rs-footer-logo img{
+    height:40px;
+    width:auto;
+    display:block;
+  }
+
+  .rs-footer-desc{
+    margin:0;
+    color:var(--rs-ink-soft);
+    line-height:1.7;
+    font-size:14px;
+    max-width:360px;
+  }
+
+  .rs-footer-title{
+    margin:0 0 12px;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+
+  .rs-footer-links{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    gap:8px;
+  }
+
+  .rs-footer-links a{
+    text-decoration:none;
+    color:var(--rs-ink-soft);
+    font-size:14px;
+  }
+
+  .rs-footer-contact{
+    margin:0;
+    display:grid;
+    gap:8px;
+    color:var(--rs-ink-soft);
+    font-size:14px;
+  }
+
+  .rs-footer-socials{
+    display:flex;
+    gap:10px;
+    margin-top:6px;
+  }
+
+  .rs-footer-socials a{
+    width:40px;
+    height:40px;
+    border-radius:14px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    border:1px solid rgba(15,31,23,0.12);
+    color:var(--rs-ink);
+    text-decoration:none;
+  }
+
+  .rs-footer-bottom{
+    margin-top:32px;
+    padding-top:18px;
+    border-top:1px solid rgba(15,31,23,0.08);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    font-size:12px;
+    color:var(--rs-ink-soft);
+  }
+
+  @media(max-width:980px){
+    .rs-footer-grid{ grid-template-columns:1fr 1fr; }
+  }
+
+  @media(max-width:640px){
+    .rs-footer-grid{ grid-template-columns:1fr; }
+  }
+</style>
+
+<footer class="rs-footer" aria-label="Footer">
+  <div class="rs-container">
+    <div class="rs-footer-grid">
+      <div class="rs-footer-brand">
+        <div class="rs-footer-logo">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/logo-RAUN-SUMATRA-768x132-removebg-preview.png" alt="Raun Sumatra Tour & Travel">
+        </div>
+        <p class="rs-footer-desc">
+          Crafted journeys across Sumatra with local experts, flexible itineraries, and attentive support.
+        </p>
+      </div>
+
+      <div>
+        <div class="rs-footer-title">Quick Links</div>
+        <ul class="rs-footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#paket">Packages</a></li>
+          <li><a href="#destinasi">Destinations</a></li>
+          <li><a href="#tentang">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#kontak">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="rs-footer-title">Contact</div>
+        <div class="rs-footer-contact">
+          <div>Jl. Ahmad Yani No.99 Bukittinggi, West Sumatera - Indonesia</div>
+          <div>+62 811 6602 898</div>
+          <div>raunsumatra@yahoo.com</div>
+        </div>
+        <div class="rs-footer-socials" aria-label="Social media">
+          <a href="https://www.facebook.com/raun.sumatra/" target="_blank" rel="noopener" aria-label="Raun Sumatra on Facebook">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.tiktok.com/@raun.sumatra" target="_blank" rel="noopener" aria-label="Raun Sumatra on TikTok">
+            <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.instagram.com/raun_sumatra" target="_blank" rel="noopener" aria-label="Raun Sumatra on Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="rs-footer-bottom">
+      <div>© Raun Sumatra Tour & Travel. All rights reserved.</div>
+      <div>Licensed tour operator in Sumatra.</div>
+    </div>
+  </div>
+</footer>
+<!-- End Footer Section -->
+
+<script>
+  (function(){
+    const gallery = document.querySelector('[data-about-slider]');
+    if(!gallery) return;
+    const track = gallery.querySelector('.rs-about-track');
+    const slides = Array.from(gallery.querySelectorAll('.rs-about-slide'));
+    if(!track || !slides.length) return;
+
+    let index = 0;
+    let timer = null;
+
+    function isMobile(){
+      return window.matchMedia('(max-width:640px)').matches;
+    }
+
+    function render(){
+      if(!isMobile()){
+        track.style.transform = '';
+        return;
+      }
+      track.style.transform = 'translateX(' + (-index * 100) + '%)';
+    }
+
+    function next(){
+      index = (index + 1) % slides.length;
+      render();
+    }
+
+    function start(){
+      if(timer) clearInterval(timer);
+      if(!isMobile()) return;
+      timer = setInterval(next, 3500);
+    }
+
+    window.addEventListener('resize', () => { render(); start(); });
+    window.addEventListener('load', () => { render(); start(); });
+  })();
+</script>
+
+<script>
+  (function(){
+    const triggers = Array.from(document.querySelectorAll('[data-rs-modal]'));
+    const modals = Array.from(document.querySelectorAll('.rs-modal'));
+
+    function openModal(id){
+      const modal = document.getElementById(id);
+      if(!modal) return;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modal){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    triggers.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-rs-modal');
+        openModal(target);
+      });
+    });
+
+    modals.forEach((modal) => {
+      modal.addEventListener('click', (e) => {
+        if(e.target === modal){
+          closeModal(modal);
+        }
+      });
+      modal.querySelectorAll('[data-rs-close]').forEach((btn) => {
+        btn.addEventListener('click', () => closeModal(modal));
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if(e.key !== 'Escape') return;
+      modals.forEach((modal) => {
+        if(modal.classList.contains('open')){
+          closeModal(modal);
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>

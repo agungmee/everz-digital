@@ -1,0 +1,309 @@
+<!-- Start Hero Section: Raun Sumatra Tour & Travel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rs-ink:#0f1f17;
+    --rs-ink-soft:#2a3a31;
+    --rs-sand:#f4efe7;
+    --rs-sand-deep:#e5dccd;
+    --rs-terracotta:#c55b3c;
+    --rs-leaf:#1f6d4d;
+    --rs-gold:#d9b46c;
+    --rs-wrap:1200px;
+    --rs-nav-h:78px;
+  }
+
+  .rs-hero{
+    position:relative;
+    width:100vw !important;
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:calc(50% - 50vw) !important;
+    padding:calc(var(--rs-nav-h) + 40px) 0 90px;
+    background:
+      radial-gradient(800px 420px at 10% 20%, rgba(31,109,77,0.25), transparent 60%),
+      radial-gradient(680px 360px at 85% 10%, rgba(197,91,60,0.18), transparent 60%),
+      linear-gradient(180deg, #f7f2ea 0%, #f1eadf 50%, #efe6d7 100%);
+    overflow:hidden;
+    font-family:"Sora", sans-serif;
+    color:var(--rs-ink);
+  }
+
+  .rs-hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(120deg, rgba(15,31,23,0.06) 0%, rgba(15,31,23,0) 40%),
+      repeating-linear-gradient(135deg, rgba(15,31,23,0.03) 0 2px, transparent 2px 7px);
+    opacity:.45;
+    pointer-events:none;
+  }
+
+  .rs-hero-inner{
+    position:relative;
+    z-index:2;
+    max-width:var(--rs-wrap);
+    margin:0 auto;
+    padding:0 18px;
+  }
+
+  .rs-hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:40px;
+    align-items:center;
+  }
+
+  .rs-kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(31,109,77,0.12);
+    color:var(--rs-leaf);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+
+  .rs-hero h1{
+    font-family:"DM Serif Display", serif;
+    font-weight:400;
+    font-size:clamp(34px, 4vw, 62px);
+    line-height:1.05;
+    margin:18px 0 14px;
+    color:var(--rs-ink);
+  }
+
+  .rs-hero p{
+    margin:0 0 22px;
+    color:var(--rs-ink-soft);
+    font-size:18px;
+    line-height:1.7;
+    max-width:580px;
+  }
+
+  .rs-hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:18px;
+  }
+
+  .rs-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 18px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.04em;
+    border:1px solid transparent;
+  }
+  .rs-btn.primary{
+    background:var(--rs-leaf);
+    color:#fff;
+    box-shadow:0 16px 36px rgba(31,109,77,0.28);
+  }
+  .rs-btn.ghost{
+    border-color:rgba(15,31,23,0.18);
+    color:var(--rs-ink);
+    background:rgba(244,239,231,0.7);
+  }
+
+  .rs-hero-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .rs-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    border-radius:999px;
+    background:#fff;
+    border:1px solid rgba(15,31,23,0.08);
+    font-size:12px;
+    font-weight:600;
+    color:var(--rs-ink-soft);
+  }
+  .rs-badge span{
+    width:8px;
+    height:8px;
+    border-radius:999px;
+    background:var(--rs-terracotta);
+  }
+
+  .rs-hero-card{
+    position:relative;
+    padding:28px;
+    border-radius:28px;
+    background:rgba(255,255,255,0.86);
+    border:1px solid rgba(15,31,23,0.12);
+    box-shadow:0 26px 60px rgba(15,31,23,0.16);
+    overflow:hidden;
+  }
+  .rs-hero-card h3{
+    margin:0 0 8px;
+    font-size:20px;
+    color:var(--rs-ink);
+  }
+  .rs-hero-card p{
+    margin:0 0 18px;
+    font-size:14px;
+    color:var(--rs-ink-soft);
+  }
+
+  .rs-feature-list{
+    display:grid;
+    gap:12px;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .rs-feature-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:12px 12px;
+    border-radius:16px;
+    background:rgba(244,239,231,0.7);
+    border:1px solid rgba(15,31,23,0.08);
+  }
+  .rs-feature-dot{
+    width:10px;
+    height:10px;
+    border-radius:999px;
+    background:var(--rs-gold);
+    margin-top:6px;
+    flex:0 0 auto;
+  }
+  .rs-feature-list strong{
+    display:block;
+    font-size:13px;
+    margin-bottom:2px;
+  }
+  .rs-feature-list span{
+    font-size:12px;
+    color:var(--rs-ink-soft);
+  }
+
+  .rs-hero-orb{
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(217,180,108,0.9), rgba(217,180,108,0.2));
+    top:-40px;
+    right:-50px;
+    filter:blur(0.2px);
+    animation:rs-float 8s ease-in-out infinite;
+  }
+
+  .rs-hero-map{
+    position:absolute;
+    inset:auto -50px -60px auto;
+    width:240px;
+    height:180px;
+    background:conic-gradient(from 120deg, rgba(31,109,77,0.22), rgba(197,91,60,0.15), rgba(31,109,77,0.22));
+    border-radius:120px;
+    transform:rotate(-8deg);
+    opacity:.7;
+  }
+
+  .rs-fade-up{
+    opacity:0;
+    transform:translateY(16px);
+    animation:rs-fade-up .8s ease forwards;
+  }
+  .rs-fade-up.delay-1{ animation-delay:.1s; }
+  .rs-fade-up.delay-2{ animation-delay:.2s; }
+  .rs-fade-up.delay-3{ animation-delay:.3s; }
+
+  @keyframes rs-fade-up{
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  @keyframes rs-float{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(8px); }
+  }
+
+  @media(max-width:980px){
+    .rs-hero-grid{ grid-template-columns:1fr; }
+  }
+  @media(max-width:640px){
+    .rs-hero{ padding-top:calc(var(--rs-nav-h) + 20px); }
+    .rs-hero-card{ padding:22px; }
+    .rs-hero-grid{ text-align:center; }
+    .rs-hero p{ margin-left:auto; margin-right:auto; }
+    .rs-hero-actions{ justify-content:center; }
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .rs-fade-up{ animation:none; opacity:1; transform:none; }
+    .rs-hero-orb{ animation:none; }
+  }
+</style>
+
+<section class="rs-hero" id="home" aria-label="Hero">
+  <div class="rs-hero-inner">
+    <div class="rs-hero-grid">
+      <div>
+        <div class="rs-kicker rs-fade-up">Tours &amp; Travel</div>
+        <h1 class="rs-fade-up delay-1">
+          RAUN SUMATRA<br>
+          Tours &amp; Travel
+        </h1>
+        <p class="rs-fade-up delay-2">
+          The best travel packages and memorable experiences across Indonesia,
+          guided by professional tour leaders.
+        </p>
+        <div class="rs-hero-actions rs-fade-up delay-3">
+          <a class="rs-btn primary" href="#kontak">Contact Us</a>
+          <a class="rs-btn ghost" href="#paket">Tour Packages</a>
+        </div>
+      </div>
+
+      <div class="rs-hero-card rs-fade-up delay-2" aria-label="Highlights">
+        <div class="rs-hero-orb" aria-hidden="true"></div>
+        <div class="rs-hero-map" aria-hidden="true"></div>
+        <h3>Popular Highlights</h3>
+        <p>Our most requested trips combining nature, culture, and culinary experiences.</p>
+        <ul class="rs-feature-list">
+          <li>
+            <div class="rs-feature-dot"></div>
+            <div>
+              <strong>Archipelago Tour Packages</strong>
+              <span>Curated itineraries from nature to heritage.</span>
+            </div>
+          </li>
+          <li>
+            <div class="rs-feature-dot"></div>
+            <div>
+              <strong>Private &amp; Group Trips</strong>
+              <span>Flexible options for families, teams, and groups.</span>
+            </div>
+          </li>
+          <li>
+            <div class="rs-feature-dot"></div>
+            <div>
+              <strong>Professional Tour Guides</strong>
+              <span>Friendly, informative, and experienced guides.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Hero Section -->

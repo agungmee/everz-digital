@@ -1,0 +1,281 @@
+<!-- Start About Us Section: Raun Sumatra Tour & Travel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rs-ink:#0f1f17;
+    --rs-ink-soft:#2a3a31;
+    --rs-sand:#f4efe7;
+    --rs-sand-deep:#e5dccd;
+    --rs-terracotta:#c55b3c;
+    --rs-leaf:#1f6d4d;
+    --rs-gold:#d9b46c;
+    --rs-wrap:1200px;
+  }
+
+  .rs-section{
+    width:100vw !important;
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:calc(50% - 50vw) !important;
+    background:#fff;
+    padding:90px 0;
+    font-family:"Sora", sans-serif;
+    color:var(--rs-ink);
+  }
+
+  .rs-container{
+    max-width:var(--rs-wrap);
+    margin:0 auto;
+    padding:0 18px;
+  }
+
+  .rs-about-grid{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:40px;
+    align-items:center;
+  }
+
+  .rs-about-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(31,109,77,0.12);
+    color:var(--rs-leaf);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+
+  .rs-about h2{
+    font-family:"DM Serif Display", serif;
+    font-weight:400;
+    font-size:clamp(30px, 3.4vw, 46px);
+    line-height:1.12;
+    margin:0 0 16px;
+  }
+
+  .rs-about p{
+    margin:0 0 16px;
+    color:var(--rs-ink-soft);
+    line-height:1.8;
+    font-size:16px;
+  }
+
+  .rs-about-list{
+    display:grid;
+    gap:10px;
+    margin-top:14px;
+  }
+
+  .rs-about-item{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:12px 14px;
+    border-radius:14px;
+    background:rgba(244,239,231,0.6);
+    border:1px solid rgba(15,31,23,0.08);
+  }
+
+  .rs-about-dot{
+    width:9px;
+    height:9px;
+    border-radius:999px;
+    background:var(--rs-terracotta);
+    margin-top:6px;
+    flex:0 0 auto;
+  }
+
+  .rs-about-cta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+  }
+
+  .rs-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 18px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.04em;
+    border:1px solid transparent;
+  }
+  .rs-btn.primary{
+    background:var(--rs-terracotta);
+    color:#fff;
+    box-shadow:0 16px 32px rgba(197,91,60,0.28);
+  }
+  .rs-btn.ghost{
+    border-color:rgba(15,31,23,0.18);
+    color:var(--rs-ink);
+    background:#fff;
+  }
+
+  .rs-about-gallery{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:14px;
+  }
+
+  .rs-about-track{
+    display:contents;
+  }
+
+  .rs-about-slide{
+    display:block;
+  }
+
+  .rs-about-card{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid rgba(15,31,23,0.12);
+    box-shadow:0 18px 38px rgba(15,31,23,0.12);
+    background:#fff;
+    aspect-ratio:4 / 3;
+  }
+
+  .rs-about-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  @media(max-width:980px){
+    .rs-about-grid{ grid-template-columns:1fr; }
+    .rs-about-gallery{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media(max-width:640px){
+    .rs-about-gallery{
+      display:block;
+      overflow:hidden;
+      position:relative;
+    }
+    .rs-about-track{
+      display:flex;
+      gap:0;
+      transition:transform .5s ease;
+    }
+    .rs-about-slide{
+      min-width:100%;
+    }
+  }
+</style>
+
+<section class="rs-section" id="tentang" aria-label="About Us">
+  <div class="rs-container">
+    <div class="rs-about-grid">
+      <div class="rs-about">
+        <div class="rs-about-chip">About Us</div>
+        <h2>Raun Sumatra Tour &amp; Travel</h2>
+        <p>
+          We craft memorable journeys across Indonesia with a warm, personal approach. From cultural
+          landmarks and highland escapes to island adventures, every itinerary is designed to match
+          your style and pace.
+        </p>
+        <p>
+          Our team focuses on comfort, clear planning, and responsive support, so you can relax and
+          enjoy the experience from start to finish.
+        </p>
+        <div class="rs-about-list">
+          <div class="rs-about-item">
+            <div class="rs-about-dot"></div>
+            <div>Curated routes with flexible schedules and transparent pricing.</div>
+          </div>
+          <div class="rs-about-item">
+            <div class="rs-about-dot"></div>
+            <div>Friendly local guides and reliable transport options.</div>
+          </div>
+          <div class="rs-about-item">
+            <div class="rs-about-dot"></div>
+            <div>Private and group tours tailored to families, teams, and travelers.</div>
+          </div>
+        </div>
+        <div class="rs-about-cta">
+          <a class="rs-btn primary" href="#kontak">Plan Your Trip</a>
+          <a class="rs-btn ghost" href="#paket">Explore Packages</a>
+        </div>
+      </div>
+
+      <div class="rs-about-gallery" aria-label="Destination highlights" data-about-slider>
+        <div class="rs-about-track">
+          <div class="rs-about-slide">
+            <div class="rs-about-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxmXpunRbf65DAv9am1xxRsNDYSswa-orPiA&s" alt="Traditional cultural house">
+            </div>
+          </div>
+          <div class="rs-about-slide">
+            <div class="rs-about-card">
+              <img src="https://unesco.or.id/wp-content/uploads/2025/08/Danau-Toba-1.webp" alt="Lake Toba scenery">
+            </div>
+          </div>
+          <div class="rs-about-slide">
+            <div class="rs-about-card">
+              <img src="https://raunsumatra.com/wp-content/uploads/2023/12/minangkabau-village-508x339.png" alt="Minangkabau village">
+            </div>
+          </div>
+          <div class="rs-about-slide">
+            <div class="rs-about-card">
+              <img src="https://raunsumatra.com/wp-content/uploads/2024/01/SABANG.png" alt="Sabang coastline">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End About Us Section -->
+
+<script>
+  (function(){
+    const gallery = document.querySelector('[data-about-slider]');
+    if(!gallery) return;
+    const track = gallery.querySelector('.rs-about-track');
+    const slides = Array.from(gallery.querySelectorAll('.rs-about-slide'));
+    if(!track || !slides.length) return;
+
+    let index = 0;
+    let timer = null;
+
+    function isMobile(){
+      return window.matchMedia('(max-width:640px)').matches;
+    }
+
+    function render(){
+      if(!isMobile()){
+        track.style.transform = '';
+        return;
+      }
+      track.style.transform = 'translateX(' + (-index * 100) + '%)';
+    }
+
+    function next(){
+      index = (index + 1) % slides.length;
+      render();
+    }
+
+    function start(){
+      if(timer) clearInterval(timer);
+      if(!isMobile()) return;
+      timer = setInterval(next, 3500);
+    }
+
+    window.addEventListener('resize', () => { render(); start(); });
+    window.addEventListener('load', () => { render(); start(); });
+  })();
+</script>

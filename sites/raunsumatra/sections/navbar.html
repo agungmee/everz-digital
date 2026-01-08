@@ -1,0 +1,270 @@
+<!-- Start Navbar Section: Raun Sumatra Tour & Travel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rs-ink:#0f1f17;
+    --rs-ink-soft:#2a3a31;
+    --rs-sand:#f4efe7;
+    --rs-sand-deep:#e5dccd;
+    --rs-terracotta:#c55b3c;
+    --rs-leaf:#1f6d4d;
+    --rs-gold:#d9b46c;
+    --rs-wrap:1200px;
+    --rs-nav-h:78px;
+  }
+
+  .rs-fullbleed{
+    width:100vw !important;
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:calc(50% - 50vw) !important;
+    left:auto !important;
+    right:auto !important;
+  }
+
+  .rs-navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:9999;
+    height:var(--rs-nav-h);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(244,239,231,0.15);
+    border-bottom:1px solid rgba(244,239,231,0.18);
+    backdrop-filter:saturate(140%) blur(10px);
+    transition:background .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .rs-navbar.scrolled{
+    background:rgba(244,239,231,0.96);
+    border-color:rgba(15,31,23,0.08);
+    box-shadow:0 12px 32px rgba(15,31,23,0.12);
+  }
+
+  .rs-nav-inner{
+    width:100%;
+    max-width:var(--rs-wrap);
+    padding:0 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    font-family:"Sora", sans-serif;
+  }
+
+  .rs-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:var(--rs-ink);
+  }
+  .rs-brand img{
+    height:44px;
+    width:auto;
+    display:block;
+  }
+  .rs-brand span{
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+
+  .rs-menu{
+    list-style:none;
+    display:flex;
+    gap:26px;
+    margin:0;
+    padding:0;
+  }
+  .rs-menu a{
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    color:var(--rs-ink);
+    position:relative;
+  }
+  .rs-menu a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:2px;
+    background:var(--rs-terracotta);
+    transition:width .2s ease;
+  }
+  .rs-menu a:hover::after{ width:100%; }
+
+  .rs-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 16px;
+    border-radius:999px;
+    background:var(--rs-terracotta);
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    box-shadow:0 12px 24px rgba(197,91,60,0.28);
+  }
+
+  .rs-burger{
+    display:none;
+    width:42px;
+    height:42px;
+    border-radius:999px;
+    border:1px solid rgba(15,31,23,0.12);
+    background:rgba(244,239,231,0.85);
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+  }
+  .rs-burger span{
+    width:18px;
+    height:2px;
+    background:var(--rs-ink);
+    border-radius:999px;
+  }
+  .rs-burger::after{
+    content:"";
+    position:absolute;
+    left:var(--rs-bubble-x, 50%);
+    top:var(--rs-bubble-y, 50%);
+    width:10px;
+    height:10px;
+    border-radius:999px;
+    background:rgba(197,91,60,0.35);
+    transform:scale(0);
+    opacity:0;
+    pointer-events:none;
+    transform:translate(-50%, -50%) scale(0);
+  }
+  .rs-burger.bubble::after{
+    animation:rs-bubble .5s ease;
+  }
+
+  .rs-mobile{
+    display:none;
+    position:fixed;
+    top:var(--rs-nav-h);
+    left:0;
+    width:100vw;
+    background:rgba(244,239,231,0.98);
+    border-top:1px solid rgba(15,31,23,0.08);
+    padding:16px 18px 20px;
+    z-index:9998;
+    font-family:"Sora", sans-serif;
+  }
+  .rs-mobile a{
+    display:block;
+    padding:10px 0;
+    text-decoration:none;
+    color:var(--rs-ink);
+    font-weight:700;
+  }
+  .rs-mobile.open{ display:block; }
+
+  @media(max-width:980px){
+    .rs-menu{ display:none; }
+    .rs-burger{ display:flex; }
+    .rs-cta{ display:none; }
+  }
+
+  @keyframes rs-bubble{
+    0%{ transform:scale(0); opacity:0.6; }
+    50%{ transform:scale(3.2); opacity:0.35; }
+    100%{ transform:scale(4.2); opacity:0; }
+  }
+</style>
+
+<div class="rs-fullbleed">
+  <header class="rs-navbar" id="rsNavbar">
+    <div class="rs-nav-inner">
+      <a class="rs-brand" href="#home" aria-label="Raun Sumatra Tour & Travel">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/01/logo-RAUN-SUMATRA-768x132-removebg-preview.png" alt="Raun Sumatra Tour & Travel">
+      </a>
+
+      <ul class="rs-menu" aria-label="Primary">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#paket">Packages</a></li>
+        <li><a href="#destinasi">Destinations</a></li>
+        <li><a href="#tentang">About</a></li>
+        <li><a href="#kontak">Contact</a></li>
+      </ul>
+
+      <div style="display:flex;align-items:center;gap:10px;">
+        <a class="rs-cta" href="#kontak">Free Consultation</a>
+        <button class="rs-burger" id="rsMenuToggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="rs-mobile" id="rsMobileMenu" aria-label="Mobile">
+    <a href="#home">Home</a>
+    <a href="#paket">Packages</a>
+    <a href="#destinasi">Destinations</a>
+    <a href="#tentang">About</a>
+    <a href="#kontak">Contact</a>
+  </nav>
+</div>
+
+<script>
+  (function(){
+    const nav = document.getElementById('rsNavbar');
+    const burger = document.getElementById('rsMenuToggle');
+    const mobile = document.getElementById('rsMobileMenu');
+
+    function setScrolled(){
+      if(!nav) return;
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    }
+
+    function syncMobileTop(){
+      if(!nav || !mobile) return;
+      mobile.style.top = (nav.offsetHeight || 78) + 'px';
+      document.documentElement.style.scrollPaddingTop = (nav.offsetHeight || 78) + 'px';
+    }
+
+    if(burger && mobile){
+      burger.addEventListener('click', (e) => {
+        const isOpen = mobile.classList.toggle('open');
+        burger.setAttribute('aria-expanded', String(isOpen));
+
+        const rect = burger.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        burger.style.setProperty('--rs-bubble-x', x + 'px');
+        burger.style.setProperty('--rs-bubble-y', y + 'px');
+        burger.classList.remove('bubble');
+        void burger.offsetWidth;
+        burger.classList.add('bubble');
+      });
+      mobile.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobile.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    window.addEventListener('scroll', setScrolled, { passive:true });
+    window.addEventListener('resize', syncMobileTop);
+    window.addEventListener('load', () => { setScrolled(); syncMobileTop(); });
+  })();
+</script>
+<!-- End Navbar Section -->
