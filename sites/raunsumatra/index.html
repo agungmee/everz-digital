@@ -1088,6 +1088,7 @@
   .rs-package-media{
     position:relative;
     min-height:200px;
+    aspect-ratio:16/9;
   }
 
   .rs-package-media img{
@@ -1124,6 +1125,11 @@
     font-size:18px;
     font-weight:700;
     color:var(--rs-ink);
+    min-height:44px;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
   }
 
   .rs-package-sub{
@@ -1131,6 +1137,11 @@
     font-size:13px;
     color:var(--rs-ink-soft);
     line-height:1.6;
+    min-height:42px;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
   }
 
   .rs-package-price{
@@ -1295,6 +1306,55 @@
     background:var(--rs-sand);
   }
 
+  .rs-booking-form{
+    display:grid;
+    gap:16px;
+  }
+
+  .rs-form-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:14px;
+  }
+
+  .rs-field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    font-size:13px;
+    color:var(--rs-ink-soft);
+  }
+
+  .rs-input,
+  .rs-textarea,
+  .rs-select{
+    border:1px solid rgba(15,31,23,0.18);
+    border-radius:12px;
+    padding:10px 12px;
+    font-size:14px;
+    font-family:inherit;
+    color:var(--rs-ink);
+    background:#fff;
+  }
+
+  .rs-input:focus,
+  .rs-textarea:focus,
+  .rs-select:focus{
+    outline:2px solid rgba(31,109,77,0.22);
+    border-color:rgba(31,109,77,0.35);
+  }
+
+  .rs-textarea{
+    min-height:110px;
+    resize:vertical;
+  }
+
+  .rs-form-note{
+    font-size:12px;
+    color:var(--rs-ink-soft);
+    margin:0;
+  }
+
   @media(max-width:980px){
     .rs-package-head{ grid-template-columns:1fr; }
     .rs-package-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
@@ -1302,6 +1362,7 @@
 
   @media(max-width:640px){
     .rs-package-grid{ grid-template-columns:1fr; }
+    .rs-form-grid{ grid-template-columns:1fr; }
   }
 </style>
 
@@ -1330,7 +1391,7 @@
           <div class="rs-package-price">From Rp. 2.475.000 / pax</div>
           <div class="rs-package-actions">
             <button class="rs-package-btn ghost" type="button" data-rs-modal="rsModalDetailPadang">Tour Details</button>
-            <a class="rs-package-btn primary" href="https://wa.me/628116602898?text=Hello%20Raun%20Sumatra%2C%20I%20would%20like%20to%20book%20the%20EXPLORE%20PADANG%203%20Days%202%20Nights%20package." target="_blank" rel="noopener">Booking Now</a>
+            <button class="rs-package-btn primary" type="button" data-rs-modal="rsModalBooking" data-rs-package="EXPLORE PADANG 3 Days 2 Nights">Booking Now</button>
           </div>
         </div>
       </article>
@@ -1345,7 +1406,7 @@
           <div class="rs-package-price">From Rp. 3.095.000 / pax</div>
           <div class="rs-package-actions">
             <button class="rs-package-btn ghost" type="button" data-rs-modal="rsModalDetailPadangBukittinggi">Tour Details</button>
-            <a class="rs-package-btn primary" href="https://wa.me/628116602898?text=Hello%20Raun%20Sumatra%2C%20I%20would%20like%20to%20book%20the%204D%203N%20Padang%20%E2%80%93%20Bukittinggi%20package." target="_blank" rel="noopener">Booking Now</a>
+            <button class="rs-package-btn primary" type="button" data-rs-modal="rsModalBooking" data-rs-package="4D 3N Padang - Bukittinggi Package">Booking Now</button>
           </div>
         </div>
       </article>
@@ -1360,7 +1421,7 @@
           <div class="rs-package-price">From Rp. 3.375.000 / pax</div>
           <div class="rs-package-actions">
             <button class="rs-package-btn ghost" type="button" data-rs-modal="rsModalDetailPadangBukittinggiAlahan">Tour Details</button>
-            <a class="rs-package-btn primary" href="https://wa.me/628116602898?text=Hello%20Raun%20Sumatra%2C%20I%20would%20like%20to%20book%20the%204D%203N%20Padang%20%E2%80%93%20Bukittinggi%20(Alahan)%20package." target="_blank" rel="noopener">Booking Now</a>
+            <button class="rs-package-btn primary" type="button" data-rs-modal="rsModalBooking" data-rs-package="4D 3N Padang - Bukittinggi Package (Alahan)">Booking Now</button>
           </div>
         </div>
       </article>
@@ -1375,7 +1436,7 @@
           <div class="rs-package-price">From Rp. 4.140.000 / pax</div>
           <div class="rs-package-actions">
             <button class="rs-package-btn ghost" type="button" data-rs-modal="rsModalDetailPadangBukittinggi5H4M">Tour Details</button>
-            <a class="rs-package-btn primary" href="https://wa.me/628116602898?text=Hello%20Raun%20Sumatra%2C%20I%20would%20like%20to%20book%20the%205D%204N%20Padang%20%E2%80%93%20Bukittinggi%20package." target="_blank" rel="noopener">Booking Now</a>
+            <button class="rs-package-btn primary" type="button" data-rs-modal="rsModalBooking" data-rs-package="5D 4N Padang - Bukittinggi Package">Booking Now</button>
           </div>
         </div>
       </article>
@@ -1492,7 +1553,7 @@
 
       <div class="rs-modal-footer">
         <div class="rs-package-actions">
-          <a class="rs-package-btn primary" href="https://wa.me/628116602898?text=Hello%20Raun%20Sumatra%2C%20I%20would%20like%20to%20book%20the%20EXPLORE%20PADANG%203%20Days%202%20Nights%20package." target="_blank" rel="noopener">Booking Now</a>
+          <button class="rs-package-btn primary" type="button" data-rs-modal="rsModalBooking" data-rs-package="EXPLORE PADANG 3 Days 2 Nights">Booking Now</button>
         </div>
       </div>
     </div>
@@ -1620,7 +1681,7 @@
 
       <div class="rs-modal-footer">
         <div class="rs-package-actions">
-          <a class="rs-package-btn primary" href="https://wa.me/628116602898?text=Hello%20Raun%20Sumatra%2C%20I%20would%20like%20to%20book%20the%204D%203N%20Padang%20%E2%80%93%20Bukittinggi%20package." target="_blank" rel="noopener">Booking Now</a>
+          <button class="rs-package-btn primary" type="button" data-rs-modal="rsModalBooking" data-rs-package="4D 3N Padang - Bukittinggi Package">Booking Now</button>
         </div>
       </div>
     </div>
@@ -1750,7 +1811,7 @@
 
       <div class="rs-modal-footer">
         <div class="rs-package-actions">
-          <a class="rs-package-btn primary" href="https://wa.me/628116602898?text=Hello%20Raun%20Sumatra%2C%20I%20would%20like%20to%20book%20the%204D%203N%20Padang%20%E2%80%93%20Bukittinggi%20(Alahan)%20package." target="_blank" rel="noopener">Booking Now</a>
+          <button class="rs-package-btn primary" type="button" data-rs-modal="rsModalBooking" data-rs-package="4D 3N Padang - Bukittinggi Package (Alahan)">Booking Now</button>
         </div>
       </div>
     </div>
@@ -1892,9 +1953,66 @@
 
       <div class="rs-modal-footer">
         <div class="rs-package-actions">
-          <a class="rs-package-btn primary" href="https://wa.me/628116602898?text=Hello%20Raun%20Sumatra%2C%20I%20would%20like%20to%20book%20the%205D%204N%20Padang%20%E2%80%93%20Bukittinggi%20package." target="_blank" rel="noopener">Booking Now</a>
+          <button class="rs-package-btn primary" type="button" data-rs-modal="rsModalBooking" data-rs-package="5D 4N Padang - Bukittinggi Package">Booking Now</button>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="rs-modal" id="rsModalBooking" aria-hidden="true">
+  <div class="rs-modal-content" role="dialog" aria-modal="true" aria-labelledby="rsBookingTitle">
+    <div class="rs-modal-header">
+      <h3 class="rs-modal-title" id="rsBookingTitle">Booking Request</h3>
+      <button class="rs-modal-close" type="button" data-rs-close aria-label="Close">✕</button>
+    </div>
+    <div class="rs-modal-body">
+      <div class="rs-modal-section">
+        <p class="rs-form-note">Fill in the details below so our team can prepare your booking request.</p>
+      </div>
+      <form class="rs-booking-form" id="rsBookingForm">
+        <div class="rs-form-grid">
+          <label class="rs-field">
+            Full name
+            <input class="rs-input" type="text" name="name" placeholder="Your full name" required>
+          </label>
+          <label class="rs-field">
+            WhatsApp number
+            <input class="rs-input" type="tel" name="whatsapp" placeholder="+62..." required>
+          </label>
+          <label class="rs-field">
+            Email
+            <input class="rs-input" type="email" name="email" placeholder="you@email.com">
+          </label>
+          <label class="rs-field">
+            Package
+            <input class="rs-input" type="text" id="rsBookingPackage" name="package" readonly required>
+          </label>
+          <label class="rs-field">
+            Travel start date
+            <input class="rs-input" type="date" name="start_date" required>
+          </label>
+          <label class="rs-field">
+            Number of travelers
+            <input class="rs-input" type="number" name="pax" min="1" placeholder="e.g. 2" required>
+          </label>
+          <label class="rs-field">
+            Pickup location
+            <input class="rs-input" type="text" name="pickup" placeholder="Airport / hotel / address" required>
+          </label>
+          <label class="rs-field">
+            Hotel preference
+            <input class="rs-input" type="text" name="hotel" placeholder="Optional">
+          </label>
+        </div>
+        <label class="rs-field">
+          Special requests
+          <textarea class="rs-textarea" name="notes" placeholder="Dietary needs, room preference, flight details, etc."></textarea>
+        </label>
+        <div class="rs-package-actions">
+          <button class="rs-package-btn primary" type="submit">Send Booking Request</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -2689,10 +2807,16 @@
   (function(){
     const triggers = Array.from(document.querySelectorAll('[data-rs-modal]'));
     const modals = Array.from(document.querySelectorAll('.rs-modal'));
+    const bookingModalId = 'rsModalBooking';
+    const bookingForm = document.getElementById('rsBookingForm');
+    const bookingPackage = document.getElementById('rsBookingPackage');
 
-    function openModal(id){
+    function openModal(id, trigger){
       const modal = document.getElementById(id);
       if(!modal) return;
+      if(id === bookingModalId && trigger && bookingPackage){
+        bookingPackage.value = trigger.getAttribute('data-rs-package') || '';
+      }
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -2707,7 +2831,7 @@
     triggers.forEach((btn) => {
       btn.addEventListener('click', () => {
         const target = btn.getAttribute('data-rs-modal');
-        openModal(target);
+        openModal(target, btn);
       });
     });
 
@@ -2730,6 +2854,27 @@
         }
       });
     });
+
+    if(bookingForm){
+      bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(bookingForm);
+        const message = [
+          'Booking Request',
+          'Package: ' + (data.get('package') || '-'),
+          'Name: ' + (data.get('name') || '-'),
+          'WhatsApp: ' + (data.get('whatsapp') || '-'),
+          'Email: ' + (data.get('email') || '-'),
+          'Travel start date: ' + (data.get('start_date') || '-'),
+          'Travelers: ' + (data.get('pax') || '-'),
+          'Pickup location: ' + (data.get('pickup') || '-'),
+          'Hotel preference: ' + (data.get('hotel') || '-'),
+          'Special requests: ' + (data.get('notes') || '-')
+        ].join('\n');
+        const url = 'https://wa.me/628116602898?text=' + encodeURIComponent(message);
+        window.open(url, '_blank', 'noopener');
+      });
+    }
   })();
 </script>
 </body>
