@@ -9,10 +9,10 @@
   </style>
 </head>
 <body>
-<!--\n  Compiled from:\n  - sections/navbar.html\n  - sections/hero.html\n  - sections/about.html\n  - sections/why.html\n  - sections/paket.html\n  - sections/testimonials.html\n-->\n\n<!-- Start Navbar Section: Raun Sumatra Tour & Travel -->
+<!-- Start Navbar Section: Raun Sumatra Tour & Travel -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
 <style>
@@ -46,26 +46,33 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    background:rgba(244,239,231,0.15);
-    border-bottom:1px solid rgba(244,239,231,0.18);
-    backdrop-filter:saturate(140%) blur(10px);
-    transition:background .25s ease, box-shadow .25s ease, border-color .25s ease;
+    background:transparent;
+    transition:background .25s ease;
   }
   .rs-navbar.scrolled{
-    background:rgba(244,239,231,0.96);
-    border-color:rgba(15,31,23,0.08);
-    box-shadow:0 12px 32px rgba(15,31,23,0.12);
+    background:transparent;
   }
 
   .rs-nav-inner{
     width:100%;
     max-width:var(--rs-wrap);
-    padding:0 18px;
+    padding:10px 22px;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:16px;
     font-family:"Sora", sans-serif;
+    border-radius:999px;
+    background:rgba(12,18,28,0.88);
+    border:1px solid rgba(255,255,255,0.24);
+    box-shadow:0 18px 40px rgba(15,31,23,0.22);
+    backdrop-filter:blur(14px) saturate(140%);
+    transition:background .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .rs-navbar.scrolled .rs-nav-inner{
+    background:rgba(8,12,20,0.95);
+    border-color:rgba(255,255,255,0.26);
+    box-shadow:0 22px 44px rgba(15,31,23,0.26);
   }
 
   .rs-brand{
@@ -73,10 +80,10 @@
     align-items:center;
     gap:12px;
     text-decoration:none;
-    color:var(--rs-ink);
+    color:#fff;
   }
   .rs-brand img{
-    height:44px;
+    height:40px;
     width:auto;
     display:block;
   }
@@ -98,7 +105,7 @@
     text-decoration:none;
     font-weight:600;
     font-size:14px;
-    color:var(--rs-ink);
+    color:#fff;
     position:relative;
   }
   .rs-menu a::after{
@@ -108,7 +115,7 @@
     bottom:-6px;
     width:0;
     height:2px;
-    background:var(--rs-terracotta);
+    background:rgba(255,255,255,0.75);
     transition:width .2s ease;
   }
   .rs-menu a:hover::after{ width:100%; }
@@ -119,14 +126,44 @@
     gap:10px;
     padding:10px 16px;
     border-radius:999px;
-    background:var(--rs-terracotta);
+    background:rgba(255,255,255,0.16);
     color:#fff;
     text-decoration:none;
     font-weight:700;
     font-size:12px;
     letter-spacing:.06em;
     text-transform:uppercase;
-    box-shadow:0 12px 24px rgba(197,91,60,0.28);
+    border:1px solid rgba(255,255,255,0.32);
+    box-shadow:0 12px 24px rgba(15,31,23,0.24);
+  }
+
+  .rs-socials{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .rs-socials a{
+    width:36px;
+    height:36px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.3);
+    background:rgba(255,255,255,0.12);
+    color:#fff;
+    transition:transform .2s ease, background .2s ease, border-color .2s ease;
+  }
+  .rs-socials a:hover{
+    transform:translateY(-1px);
+    background:rgba(255,255,255,0.2);
+    border-color:rgba(255,255,255,0.5);
+  }
+  .rs-socials svg{
+    width:16px;
+    height:16px;
+    fill:currentColor;
+    display:block;
   }
 
   .rs-burger{
@@ -134,8 +171,8 @@
     width:42px;
     height:42px;
     border-radius:999px;
-    border:1px solid rgba(15,31,23,0.12);
-    background:rgba(244,239,231,0.85);
+    border:1px solid rgba(255,255,255,0.3);
+    background:rgba(255,255,255,0.16);
     align-items:center;
     justify-content:center;
     flex-direction:column;
@@ -147,7 +184,7 @@
   .rs-burger span{
     width:18px;
     height:2px;
-    background:var(--rs-ink);
+    background:#fff;
     border-radius:999px;
   }
   .rs-burger::after{
@@ -168,16 +205,39 @@
   }
 
   .rs-mobile{
-    display:none;
+    display:block;
     position:fixed;
     top:var(--rs-nav-h);
-    left:0;
-    width:100vw;
-    background:rgba(244,239,231,0.98);
+    left:18px;
+    right:18px;
+    width:auto;
+    background:rgba(244,239,231,0.96);
     border-top:1px solid rgba(15,31,23,0.08);
     padding:16px 18px 20px;
     z-index:9998;
     font-family:"Sora", sans-serif;
+    opacity:0;
+    transform:translateY(-8px) scale(0.98);
+    transform-origin:top right;
+    pointer-events:none;
+    transition:opacity .35s ease, transform .35s ease;
+    overflow:hidden;
+    border-radius:22px;
+    box-shadow:0 18px 36px rgba(15,31,23,0.18);
+  }
+  .rs-mobile::before{
+    content:"";
+    position:absolute;
+    right:24px;
+    top:12px;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:rgba(31,109,77,0.14);
+    transform:scale(0);
+    opacity:0;
+    transition:transform .6s ease, opacity .6s ease;
+    z-index:0;
   }
   .rs-mobile a{
     display:block;
@@ -185,13 +245,61 @@
     text-decoration:none;
     color:var(--rs-ink);
     font-weight:700;
+    position:relative;
+    z-index:1;
   }
-  .rs-mobile.open{ display:block; }
+  .rs-mobile.open{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    pointer-events:auto;
+  }
+  .rs-mobile.open::before{
+    transform:scale(18);
+    opacity:1;
+  }
 
   @media(max-width:980px){
     .rs-menu{ display:none; }
     .rs-burger{ display:flex; }
     .rs-cta{ display:none; }
+  }
+
+  @media(max-width:640px){
+    .rs-navbar{
+      height:auto;
+      padding-top:calc(18px + env(safe-area-inset-top));
+      padding-bottom:8px;
+    }
+    .rs-nav-inner{
+      padding:10px 18px;
+      border-radius:999px;
+      margin:0 18px;
+      background:rgba(255,255,255,0.92);
+      border-color:rgba(15,31,23,0.14);
+      box-shadow:0 16px 32px rgba(15,31,23,0.18);
+    }
+    .rs-navbar.scrolled .rs-nav-inner{
+      background:rgba(255,255,255,0.96);
+      border-color:rgba(15,31,23,0.18);
+      box-shadow:0 18px 36px rgba(15,31,23,0.2);
+    }
+    .rs-brand img{
+      height:34px;
+    }
+    .rs-socials{
+      display:none;
+    }
+    .rs-menu a,
+    .rs-brand{
+      color:var(--rs-ink);
+    }
+    .rs-burger{
+      border-color:rgba(15,31,23,0.2);
+      background:rgba(15,31,23,0.06);
+    }
+    .rs-burger span{
+      background:var(--rs-ink);
+    }
   }
 
   @keyframes rs-bubble{
@@ -217,7 +325,17 @@
       </ul>
 
       <div style="display:flex;align-items:center;gap:10px;">
-        <a class="rs-cta" href="#kontak">Free Consultation</a>
+        <div class="rs-socials" aria-label="Social media">
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 9.5h2.4l.4-3.2h-2.8V4.8c0-.9.2-1.5 1.6-1.5h1.4V.4c-.7-.1-1.6-.2-2.6-.2-2.5 0-4.2 1.5-4.2 4.2v1.9H7v3.2h2.7V20h3.8V9.5z"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7zm5 3.5A3.5 3.5 0 1 1 8.5 12 3.5 3.5 0 0 1 12 8.5zm0 2A1.5 1.5 0 1 0 13.5 12 1.5 1.5 0 0 0 12 10.5zm5.2-2.9a.9.9 0 1 1-.9-.9.9.9 0 0 1 .9.9z"/></svg>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3c.5 2.3 2.2 4 4.5 4.3v3.2c-1.7 0-3.2-.5-4.5-1.4v5.5a5.6 5.6 0 1 1-5.6-5.6c.4 0 .8 0 1.2.1v3.3a2.4 2.4 0 1 0 2.4 2.4V3h2z"/></svg>
+          </a>
+        </div>
         <button class="rs-burger" id="rsMenuToggle" type="button" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -302,14 +420,31 @@
     width:100vw !important;
     margin-left:calc(50% - 50vw) !important;
     margin-right:calc(50% - 50vw) !important;
-    padding:calc(var(--rs-nav-h) + 40px) 0 90px;
-    background:
-      radial-gradient(800px 420px at 10% 20%, rgba(31,109,77,0.25), transparent 60%),
-      radial-gradient(680px 360px at 85% 10%, rgba(197,91,60,0.18), transparent 60%),
-      linear-gradient(180deg, #f7f2ea 0%, #f1eadf 50%, #efe6d7 100%);
+    padding:calc(var(--rs-nav-h) + 80px) 0 110px;
+    min-height:78vh;
+    background:#0c1512;
     overflow:hidden;
     font-family:"Sora", sans-serif;
-    color:var(--rs-ink);
+    color:#fff;
+  }
+
+  .rs-hero-bg{
+    position:absolute;
+    inset:0;
+    z-index:0;
+  }
+
+  .rs-hero-bg-layer{
+    position:absolute;
+    inset:0;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    transition:opacity 1.2s ease;
+  }
+
+  .rs-hero-bg-layer.is-active{
+    opacity:1;
   }
 
   .rs-hero::after{
@@ -317,10 +452,12 @@
     position:absolute;
     inset:0;
     background:
-      linear-gradient(120deg, rgba(15,31,23,0.06) 0%, rgba(15,31,23,0) 40%),
-      repeating-linear-gradient(135deg, rgba(15,31,23,0.03) 0 2px, transparent 2px 7px);
-    opacity:.45;
+      linear-gradient(180deg, rgba(8,12,16,0.68), rgba(8,12,16,0.35)),
+      radial-gradient(560px 320px at 20% 20%, rgba(255,255,255,0.05), transparent 60%),
+      radial-gradient(520px 320px at 80% 30%, rgba(255,255,255,0.04), transparent 60%);
+    opacity:1;
     pointer-events:none;
+    z-index:1;
   }
 
   .rs-hero-inner{
@@ -332,10 +469,11 @@
   }
 
   .rs-hero-grid{
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:40px;
+    display:flex;
+    flex-direction:column;
     align-items:center;
+    text-align:center;
+    gap:18px;
   }
 
   .rs-kicker{
@@ -344,29 +482,33 @@
     gap:8px;
     padding:8px 14px;
     border-radius:999px;
-    background:rgba(31,109,77,0.12);
-    color:var(--rs-leaf);
+    background:rgba(255,255,255,0.18);
+    color:#fff;
     font-weight:700;
     font-size:12px;
     letter-spacing:.12em;
     text-transform:uppercase;
+    border:1px solid rgba(255,255,255,0.28);
   }
 
   .rs-hero h1{
-    font-family:"DM Serif Display", serif;
+    font-family:"Bebas Neue", "Sora", sans-serif;
     font-weight:400;
-    font-size:clamp(34px, 4vw, 62px);
-    line-height:1.05;
-    margin:18px 0 14px;
-    color:var(--rs-ink);
+    font-size:clamp(56px, 8vw, 110px);
+    line-height:1.02;
+    margin:8px 0 8px;
+    color:#fff;
+    letter-spacing:.04em;
+    text-shadow:0 10px 28px rgba(0,0,0,0.55);
   }
 
   .rs-hero p{
     margin:0 0 22px;
-    color:var(--rs-ink-soft);
+    color:rgba(255,255,255,0.85);
     font-size:18px;
     line-height:1.7;
     max-width:580px;
+    text-shadow:0 6px 18px rgba(0,0,0,0.5);
   }
 
   .rs-hero-actions{
@@ -374,6 +516,7 @@
     flex-wrap:wrap;
     gap:12px;
     margin-bottom:18px;
+    justify-content:center;
   }
 
   .rs-btn{
@@ -395,110 +538,9 @@
     box-shadow:0 16px 36px rgba(31,109,77,0.28);
   }
   .rs-btn.ghost{
-    border-color:rgba(15,31,23,0.18);
-    color:var(--rs-ink);
-    background:rgba(244,239,231,0.7);
-  }
-
-  .rs-hero-badges{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-  }
-  .rs-badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:8px 12px;
-    border-radius:999px;
-    background:#fff;
-    border:1px solid rgba(15,31,23,0.08);
-    font-size:12px;
-    font-weight:600;
-    color:var(--rs-ink-soft);
-  }
-  .rs-badge span{
-    width:8px;
-    height:8px;
-    border-radius:999px;
-    background:var(--rs-terracotta);
-  }
-
-  .rs-hero-card{
-    position:relative;
-    padding:28px;
-    border-radius:28px;
-    background:rgba(255,255,255,0.86);
-    border:1px solid rgba(15,31,23,0.12);
-    box-shadow:0 26px 60px rgba(15,31,23,0.16);
-    overflow:hidden;
-  }
-  .rs-hero-card h3{
-    margin:0 0 8px;
-    font-size:20px;
-    color:var(--rs-ink);
-  }
-  .rs-hero-card p{
-    margin:0 0 18px;
-    font-size:14px;
-    color:var(--rs-ink-soft);
-  }
-
-  .rs-feature-list{
-    display:grid;
-    gap:12px;
-    margin:0;
-    padding:0;
-    list-style:none;
-  }
-  .rs-feature-list li{
-    display:flex;
-    align-items:flex-start;
-    gap:10px;
-    padding:12px 12px;
-    border-radius:16px;
-    background:rgba(244,239,231,0.7);
-    border:1px solid rgba(15,31,23,0.08);
-  }
-  .rs-feature-dot{
-    width:10px;
-    height:10px;
-    border-radius:999px;
-    background:var(--rs-gold);
-    margin-top:6px;
-    flex:0 0 auto;
-  }
-  .rs-feature-list strong{
-    display:block;
-    font-size:13px;
-    margin-bottom:2px;
-  }
-  .rs-feature-list span{
-    font-size:12px;
-    color:var(--rs-ink-soft);
-  }
-
-  .rs-hero-orb{
-    position:absolute;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:radial-gradient(circle at 30% 30%, rgba(217,180,108,0.9), rgba(217,180,108,0.2));
-    top:-40px;
-    right:-50px;
-    filter:blur(0.2px);
-    animation:rs-float 8s ease-in-out infinite;
-  }
-
-  .rs-hero-map{
-    position:absolute;
-    inset:auto -50px -60px auto;
-    width:240px;
-    height:180px;
-    background:conic-gradient(from 120deg, rgba(31,109,77,0.22), rgba(197,91,60,0.15), rgba(31,109,77,0.22));
-    border-radius:120px;
-    transform:rotate(-8deg);
-    opacity:.7;
+    border-color:rgba(255,255,255,0.6);
+    color:#fff;
+    background:rgba(0,0,0,0.2);
   }
 
   .rs-fade-up{
@@ -514,36 +556,50 @@
     to{ opacity:1; transform:translateY(0); }
   }
 
-  @keyframes rs-float{
-    0%,100%{ transform:translateY(0); }
-    50%{ transform:translateY(8px); }
-  }
 
   @media(max-width:980px){
-    .rs-hero-grid{ grid-template-columns:1fr; }
+    .rs-hero-grid{ max-width:720px; margin:0 auto; }
   }
   @media(max-width:640px){
-    .rs-hero{ padding-top:calc(var(--rs-nav-h) + 20px); }
-    .rs-hero-card{ padding:22px; }
-    .rs-hero-grid{ text-align:center; }
+    .rs-hero{
+      padding-top:var(--rs-nav-h);
+      padding-bottom:0;
+      min-height:100vh;
+    }
+    .rs-hero-inner{
+      min-height:calc(100vh - var(--rs-nav-h));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .rs-hero-grid{
+      align-items:center;
+      text-align:center;
+      padding-top:0;
+    }
+    .rs-hero h1,
+    .rs-hero p{
+      text-align:center;
+    }
     .rs-hero p{ margin-left:auto; margin-right:auto; }
     .rs-hero-actions{ justify-content:center; }
   }
 
   @media(prefers-reduced-motion:reduce){
     .rs-fade-up{ animation:none; opacity:1; transform:none; }
-    .rs-hero-orb{ animation:none; }
   }
 </style>
 
 <section class="rs-hero" id="home" aria-label="Hero">
+  <div class="rs-hero-bg" aria-hidden="true">
+    <span class="rs-hero-bg-layer is-active"></span>
+    <span class="rs-hero-bg-layer"></span>
+  </div>
   <div class="rs-hero-inner">
     <div class="rs-hero-grid">
       <div>
-        <div class="rs-kicker rs-fade-up">Tours &amp; Travel</div>
         <h1 class="rs-fade-up delay-1">
-          RAUN SUMATRA<br>
-          Tours &amp; Travel
+          RAUN SUMATRA
         </h1>
         <p class="rs-fade-up delay-2">
           The best travel packages and memorable experiences across Indonesia,
@@ -553,36 +609,6 @@
           <a class="rs-btn primary" href="#kontak">Contact Us</a>
           <a class="rs-btn ghost" href="#paket">Tour Packages</a>
         </div>
-      </div>
-
-      <div class="rs-hero-card rs-fade-up delay-2" aria-label="Highlights">
-        <div class="rs-hero-orb" aria-hidden="true"></div>
-        <div class="rs-hero-map" aria-hidden="true"></div>
-        <h3>Popular Highlights</h3>
-        <p>Our most requested trips combining nature, culture, and culinary experiences.</p>
-        <ul class="rs-feature-list">
-          <li>
-            <div class="rs-feature-dot"></div>
-            <div>
-              <strong>Archipelago Tour Packages</strong>
-              <span>Curated itineraries from nature to heritage.</span>
-            </div>
-          </li>
-          <li>
-            <div class="rs-feature-dot"></div>
-            <div>
-              <strong>Private &amp; Group Trips</strong>
-              <span>Flexible options for families, teams, and groups.</span>
-            </div>
-          </li>
-          <li>
-            <div class="rs-feature-dot"></div>
-            <div>
-              <strong>Professional Tour Guides</strong>
-              <span>Friendly, informative, and experienced guides.</span>
-            </div>
-          </li>
-        </ul>
       </div>
     </div>
   </div>
@@ -773,6 +799,11 @@
     .rs-about-slide{
       min-width:100%;
     }
+  }
+
+  #tentang,
+  #why{
+    display:none;
   }
 </style>
 
@@ -1393,7 +1424,14 @@
   }
 
   @media(max-width:640px){
-    .rs-package-card{ min-width:84%; }
+    .rs-package-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      overflow:visible;
+      scroll-snap-type:none;
+      padding-bottom:0;
+    }
+    .rs-package-card{ min-width:100%; }
     .rs-form-grid{ grid-template-columns:1fr; }
   }
 </style>
@@ -2072,6 +2110,19 @@
       radial-gradient(520px 280px at 10% 20%, rgba(197,91,60,0.12), transparent 60%),
       radial-gradient(520px 280px at 90% 10%, rgba(31,109,77,0.14), transparent 60%),
       linear-gradient(180deg, #f7f2ea 0%, #f1eadf 100%);
+    overflow:hidden;
+  }
+
+  .rs-testimonials::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(15,31,23,0.5), rgba(15,31,23,0.35)),
+      url("https://raunsumatra.com/wp-content/uploads/2023/12/minangkabau-village-508x339.png") center/cover no-repeat;
+    background-attachment:fixed;
+    opacity:0.35;
+    z-index:0;
   }
 
   .rs-testimonials::after{
@@ -2080,6 +2131,7 @@
     inset:0;
     background:linear-gradient(120deg, rgba(15,31,23,0.05), transparent 50%);
     pointer-events:none;
+    z-index:1;
   }
 
   .rs-testimonial-head{
@@ -2090,6 +2142,8 @@
     margin-bottom:28px;
     text-align:center;
     justify-items:center;
+    position:relative;
+    z-index:2;
   }
 
   .rs-testimonial-chip{
@@ -2122,10 +2176,18 @@
     font-size:16px;
     max-width:640px;
   }
+  .rs-testimonial-trust{
+    margin:6px 0 0;
+    font-size:13px;
+    font-weight:700;
+    color:var(--rs-terracotta);
+    letter-spacing:.03em;
+    text-transform:uppercase;
+  }
 
   .rs-testimonial-grid{
     position:relative;
-    z-index:1;
+    z-index:2;
     display:grid;
     grid-template-columns:repeat(3, minmax(0, 1fr));
     gap:18px;
@@ -2193,24 +2255,12 @@
 
   @media(max-width:980px){
     .rs-testimonial-head{ grid-template-columns:1fr; }
-    .rs-testimonial-grid{
-      display:flex;
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      gap:16px;
-      padding-bottom:8px;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:none;
-    }
-    .rs-testimonial-grid::-webkit-scrollbar{ display:none; }
-    .rs-testimonial-card{
-      min-width:72%;
-      scroll-snap-align:start;
-    }
+    .rs-testimonial-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
   }
 
   @media(max-width:640px){
-    .rs-testimonial-card{ min-width:84%; }
+    .rs-testimonial-grid{ grid-template-columns:1fr; }
+    .rs-testimonials::before{ background-attachment:scroll; }
   }
 </style>
 
@@ -2220,6 +2270,7 @@
       <div>
         <div class="rs-testimonial-chip">Testimonials</div>
         <h2 class="rs-testimonial-title">Travel stories from happy guests.</h2>
+        <p class="rs-testimonial-trust">Trusted by more than 1,000 guests.</p>
       </div>
       <p class="rs-testimonial-desc">
         Every journey is planned with care, and these words reflect the warmth, reliability,
@@ -2944,6 +2995,35 @@
         window.open(url, '_blank', 'noopener');
       });
     }
+  })();
+</script>
+<script>
+  (function(){
+    const hero = document.querySelector('.rs-hero');
+    const layers = hero ? hero.querySelectorAll('.rs-hero-bg-layer') : [];
+    if(layers.length < 2) return;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const images = [
+      'https://raunsumatra.com/wp-content/uploads/2023/12/minangkabau-village.png',
+      'https://raunsumatra.com/wp-content/uploads/2023/12/Jam-Gadang.png',
+      'https://astradigitaldigiroomuat.blob.core.windows.net/storage-uat-001/tempat-wisata-di-padang.jpg',
+      'https://raunsumatra.com/wp-content/uploads/2023/12/pandai-sikek.png'
+    ];
+
+    let index = 0;
+    layers[0].style.backgroundImage = `url('${images[index]}')`;
+    layers[1].style.backgroundImage = `url('${images[(index + 1) % images.length]}')`;
+
+    setInterval(() => {
+      const active = layers[0].classList.contains('is-active') ? 0 : 1;
+      const next = active === 0 ? 1 : 0;
+
+      index = (index + 1) % images.length;
+      layers[next].style.backgroundImage = `url('${images[index]}')`;
+      layers[next].classList.add('is-active');
+      layers[active].classList.remove('is-active');
+    }, 6500);
   })();
 </script>
 </body>
