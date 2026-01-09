@@ -55,6 +55,10 @@
     transition: transform 0.25s ease, opacity 0.25s ease;
   }
 
+  body.menu-open .topbar {
+    z-index: 9;
+  }
+
   .topbar.is-hidden {
     transform: translateY(-110%);
     opacity: 0;
@@ -469,9 +473,9 @@
       menuToggle.addEventListener("click", () => {
         navlinks.classList.toggle("is-open");
         menuToggle.classList.toggle("is-open");
-        document.body.style.overflow = navlinks.classList.contains("is-open")
-          ? "hidden"
-          : "";
+        const isOpen = navlinks.classList.contains("is-open");
+        document.body.style.overflow = isOpen ? "hidden" : "";
+        document.body.classList.toggle("menu-open", isOpen);
       });
       menuToggle.dataset.bound = "true";
     }
@@ -481,9 +485,19 @@
         navlinks.classList.remove("is-open");
         menuToggle.classList.remove("is-open");
         document.body.style.overflow = "";
+        document.body.classList.remove("menu-open");
       });
       menuClose.dataset.bound = "true";
     }
+
+    navlinks.querySelectorAll("a[href^=\"#\"]").forEach((link) => {
+      link.addEventListener("click", () => {
+        navlinks.classList.remove("is-open");
+        menuToggle.classList.remove("is-open");
+        document.body.style.overflow = "";
+        document.body.classList.remove("menu-open");
+      });
+    });
 
     const setNavbarState = () => {
       const isScrolled = window.scrollY > 8;
