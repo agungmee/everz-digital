@@ -1,0 +1,532 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+<style>
+  :root {
+    --ink: #1d1b19;
+    --sand: #f4efe6;
+    --sunset: #ff7a45;
+    --ocean: #0c6b6b;
+    --sky: #e3f3f2;
+    --accent: #f2b705;
+    --shadow: 0 18px 40px rgba(20, 28, 26, 0.12);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Work Sans", sans-serif;
+    color: var(--ink);
+    background: radial-gradient(circle at top left, #ffe9d6, var(--sand) 45%)
+      fixed;
+    padding-top: var(--nav-offset, 0);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .topbar {
+    background: var(--ink);
+    color: #f8f3ea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 6vw;
+    font-size: 0.86rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 12;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .topbar.is-hidden {
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .topbar__left,
+  .topbar__right {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+  }
+
+  .topbar__label {
+    display: flex;
+    gap: 0.45rem;
+    align-items: center;
+  }
+
+  .topbar__badge {
+    background: var(--sunset);
+    color: var(--ink);
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.75rem;
+  }
+
+  .topbar__icons {
+    display: none;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .topbar__icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+
+  .topbar__icon i {
+    font-size: 0.9rem;
+  }
+
+  .navbar {
+    position: fixed;
+    top: var(--nav-top, 0);
+    left: 0;
+    right: 0;
+    z-index: 11;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    transition: background 0.25s ease, box-shadow 0.25s ease,
+      backdrop-filter 0.25s ease;
+  }
+
+  .navbar.is-scrolled {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow);
+  }
+
+  .navbar__inner {
+    padding: 1.1rem 6vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .brand__mark {
+    width: 52px;
+    height: 52px;
+    border-radius: 0;
+    display: grid;
+    place-items: center;
+    background: transparent;
+    overflow: hidden;
+  }
+
+  .brand__mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .brand__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand__name {
+    font-family: "Unbounded", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .brand__meta {
+    font-size: 0.8rem;
+    color: #5c5852;
+  }
+
+  .navlinks {
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+    font-weight: 500;
+  }
+
+  .navlinks a {
+    position: relative;
+    padding-bottom: 0.2rem;
+  }
+
+  .navlinks a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--sunset);
+    transition: width 0.3s ease;
+  }
+
+  .navlinks a:hover::after {
+    width: 100%;
+  }
+
+  .nav-cta {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--sunset);
+    color: #1b120c;
+    padding: 0.65rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 600;
+    box-shadow: 0 12px 22px rgba(255, 122, 69, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 28px rgba(255, 122, 69, 0.3);
+  }
+
+  .menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    padding: 0.35rem;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff7a45, #1d1b19);
+    box-shadow: 0 6px 14px rgba(255, 122, 69, 0.35);
+  }
+
+  @media (max-width: 960px) {
+    .navlinks {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      min-height: 100vh;
+      padding: 8.5rem 8vw 3rem;
+      background: #141210;
+      backdrop-filter: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.4rem;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-20px) scale(0.98);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 50;
+    }
+
+    .menu-close {
+      position: absolute;
+      top: 2.3rem;
+      right: 8vw;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .navlinks.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .navlinks::before {
+      content: "";
+      position: absolute;
+      inset: 7.5rem 8vw auto;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .navlinks a {
+      font-family: "Unbounded", sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.75rem 1.2rem;
+      border-radius: 14px;
+      width: min(340px, 88vw);
+      text-align: center;
+      opacity: 0;
+      transform: translateX(-12px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      text-shadow: none;
+    }
+
+    .navlinks.is-open a {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .navlinks a:nth-child(1) {
+      transition-delay: 0.08s;
+    }
+    .navlinks a:nth-child(2) {
+      transition-delay: 0.14s;
+    }
+    .navlinks a:nth-child(3) {
+      transition-delay: 0.2s;
+    }
+    .navlinks a:nth-child(4) {
+      transition-delay: 0.26s;
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .menu-toggle.is-open {
+      background: transparent;
+    }
+
+    .menu-toggle.is-open span {
+      background: linear-gradient(90deg, #fff, #ffd7c5);
+      box-shadow: none;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .topbar {
+      padding: 0.5rem 6vw;
+      font-size: 0.78rem;
+    }
+
+    .topbar__left .topbar__label,
+    .topbar__right span,
+    .topbar__right a {
+      display: none;
+    }
+
+    .topbar__left {
+      gap: 0;
+    }
+
+    .topbar__left .topbar__address {
+      display: block;
+    }
+
+    .topbar__icons {
+      display: flex;
+    }
+
+    .topbar__icons .topbar__icon {
+      display: grid;
+    }
+  }
+</style>
+
+    <div class="topbar">
+      <div class="topbar__left">
+        <div class="topbar__label">
+          <span class="topbar__badge">OKTA WISATA</span>
+          <span>PT. OKTASARANA TRANS WISATA</span>
+        </div>
+        <span class="topbar__address"
+          >Bulakwaru RT 03 RW.03, Tarub Kab. Tegal 52184</span
+        >
+      </div>
+      <div class="topbar__right">
+        <span>IG: Okta Wisata</span>
+        <a href="mailto:pt.oktasaranatranswisata@gmail.com"
+          >pt.oktasaranatranswisata@gmail.com</a
+        >
+        <a href="tel:082221177558">0822-2117-7558</a>
+        <div class="topbar__icons" aria-label="Kontak cepat">
+          <a
+            class="topbar__icon"
+            href="https://wa.me/6282221177558"
+            aria-label="WhatsApp Okta Wisata"
+            ><i class="fa-brands fa-whatsapp"></i
+          ></a>
+          <a
+            class="topbar__icon"
+            href="mailto:pt.oktasaranatranswisata@gmail.com"
+            aria-label="Email Okta Wisata"
+            ><i class="fa-regular fa-envelope"></i
+          ></a>
+          <a
+            class="topbar__icon"
+            href="https://www.instagram.com/oktawisata"
+            aria-label="Instagram Okta Wisata"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a class="brand" href="#">
+      <div class="brand__mark">
+        <img
+          src="https://everz-digital.site/wp-content/uploads/2026/01/aa2b5e23-ad3f-457c-8840-695dba41b3df-removebg-preview.png"
+          alt="Okta Wisata"
+        />
+      </div>
+      <div class="brand__text">
+        <span class="brand__name">oktawisata.com</span>
+        <span class="brand__meta">Rental Bus & Paket Tour</span>
+      </div>
+    </a>
+
+    <div class="navlinks" id="navlinks">
+      <button class="menu-close" id="menuClose" aria-label="Tutup menu">
+        &times;
+      </button>
+      <a href="#rental-mobil">Rental Mobil</a>
+      <a href="#paket-wisata">Paket Wisata</a>
+      <a href="#kontak">Kontak</a>
+      <a href="#testimoni">Testimoni</a>
+    </div>
+
+    <div class="nav-cta">
+      <a class="btn-primary" href="https://wa.me/6282221177558"
+        >Booking Sekarang</a
+      >
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<script>
+  const initNavbar = () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const navlinks = document.getElementById("navlinks");
+    const menuClose = document.getElementById("menuClose");
+    const topbar = document.querySelector(".topbar");
+    const navbar = document.querySelector(".navbar");
+
+    if (!navbar || !menuToggle || !navlinks) {
+      return false;
+    }
+
+    if (!menuToggle.dataset.bound) {
+      menuToggle.addEventListener("click", () => {
+        navlinks.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open");
+        document.body.style.overflow = navlinks.classList.contains("is-open")
+          ? "hidden"
+          : "";
+      });
+      menuToggle.dataset.bound = "true";
+    }
+
+    if (menuClose && !menuClose.dataset.bound) {
+      menuClose.addEventListener("click", () => {
+        navlinks.classList.remove("is-open");
+        menuToggle.classList.remove("is-open");
+        document.body.style.overflow = "";
+      });
+      menuClose.dataset.bound = "true";
+    }
+
+    const setNavbarState = () => {
+      const isScrolled = window.scrollY > 8;
+      const showTopbar = window.scrollY === 0;
+      navbar.classList.toggle("is-scrolled", isScrolled);
+      if (topbar) {
+        topbar.classList.toggle("is-hidden", !showTopbar);
+      }
+      const navHeight = navbar.offsetHeight;
+      const topbarHeight = topbar ? topbar.offsetHeight : 0;
+      const topOffset = showTopbar ? topbarHeight : 0;
+      document.documentElement.style.setProperty(
+        "--nav-top",
+        `${topOffset}px`
+      );
+      document.documentElement.style.setProperty(
+        "--nav-offset",
+        `${navHeight + topOffset}px`
+      );
+    };
+
+    window.addEventListener("scroll", setNavbarState, { passive: true });
+    window.addEventListener("resize", setNavbarState);
+    setNavbarState();
+    return true;
+  };
+
+  const tryInitNavbar = () => {
+    if (initNavbar()) {
+      return;
+    }
+    let attempts = 0;
+    const timer = setInterval(() => {
+      attempts += 1;
+      if (initNavbar() || attempts > 20) {
+        clearInterval(timer);
+      }
+    }, 300);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", tryInitNavbar);
+  } else {
+    tryInitNavbar();
+  }
+</script>

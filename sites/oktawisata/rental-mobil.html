@@ -1,0 +1,412 @@
+<style>
+  .rental {
+    padding: 4.5rem 6vw 5rem;
+    background: linear-gradient(180deg, #f7f1e6, #ffffff);
+    color: #1d1b19;
+    text-align: center;
+  }
+
+  .rental__head {
+    display: grid;
+    gap: 0.8rem;
+    margin-bottom: 2.4rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rental__eyebrow {
+    font-family: "Work Sans", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #b5632b;
+  }
+
+  .rental h2 {
+    font-family: "Anton", "Unbounded", sans-serif;
+    font-size: clamp(2.2rem, 3vw + 1rem, 3.8rem);
+    margin: 0;
+    letter-spacing: 0.03em;
+  }
+
+  .rental__desc {
+    margin: 0;
+    line-height: 1.7;
+    color: #3f3b36;
+    font-size: 1.02rem;
+  }
+
+  .rental__grid {
+    display: grid;
+    gap: 1.6rem;
+  }
+
+  .rental__card {
+    background: #fff;
+    border-radius: 22px;
+    padding: 1.6rem;
+    box-shadow: 0 18px 36px rgba(20, 24, 22, 0.12);
+    display: grid;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .rental__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 122, 69, 0.12);
+    color: #b14d21;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    width: fit-content;
+  }
+
+  .rental__image {
+    width: 100%;
+    height: 220px;
+    border-radius: 18px;
+    object-fit: cover;
+  }
+
+  .rental__title {
+    font-family: "Unbounded", sans-serif;
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .rental__features {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: #2f2b27;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .rental__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 1.4rem;
+    border-radius: 999px;
+    background: #ff7a45;
+    color: #1b120c;
+    font-weight: 600;
+    box-shadow: 0 12px 22px rgba(255, 122, 69, 0.25);
+    width: 100%;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+  }
+
+  .rental__actions {
+    margin-top: 0.5rem;
+  }
+
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 14, 13, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 6vw;
+    z-index: 20;
+  }
+
+  .modal.is-open {
+    display: flex;
+  }
+
+  .modal__panel {
+    background: #fff;
+    border-radius: 24px;
+    padding: 2rem;
+    max-width: 520px;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0 24px 50px rgba(12, 16, 14, 0.2);
+  }
+
+  .modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .modal__title {
+    margin: 0;
+    font-family: "Unbounded", sans-serif;
+    font-size: 1.4rem;
+  }
+
+  .modal__close {
+    border: none;
+    background: #1d1b19;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+
+  .modal__form {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .modal__form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2f2b27;
+  }
+
+  .modal__form input,
+  .modal__form select,
+  .modal__form textarea {
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    border-radius: 12px;
+    border: 1px solid #d8d0c3;
+    font-family: "Work Sans", sans-serif;
+    font-size: 0.95rem;
+  }
+
+  .modal__form textarea {
+    min-height: 90px;
+    resize: vertical;
+  }
+
+  @media (min-width: 960px) {
+    .rental__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>
+
+<section class="rental" id="rental-mobil">
+  <div class="rental__head">
+    <div class="rental__eyebrow">Rental Mobil Terbaik</div>
+    <h2>Armada Premium untuk Perjalanan Nyaman</h2>
+    <p class="rental__desc">
+      Okta Wisata menghadirkan pilihan rental mobil dan bus terbaik di Tegal
+      untuk keluarga, kantor, sekolah, dan komunitas. Armada selalu siap pakai
+      dengan perawatan rutin dan fasilitas yang mendukung perjalanan jarak dekat
+      hingga luar kota.
+    </p>
+  </div>
+
+  <div class="rental__grid">
+    <div class="rental__card">
+      <span class="rental__badge">Favorit Rombongan</span>
+      <img
+        class="rental__image"
+        src="https://www.busmustikaholiday.com/assets/images/bus/add/medium_bus_jetbus_md_2__a32.jpg"
+        alt="Medium Bus"
+      />
+      <h3 class="rental__title">Medium Bus</h3>
+      <ul class="rental__features">
+        <li>Kabin lega untuk perjalanan jarak jauh.</li>
+        <li>AC dingin dan bagasi luas untuk perlengkapan.</li>
+        <li>Cocok untuk wisata keluarga dan perusahaan.</li>
+      </ul>
+      <div class="rental__actions">
+        <button class="rental__cta" data-booking="Medium Bus">
+          Booking Sekarang
+        </button>
+      </div>
+    </div>
+
+    <div class="rental__card">
+      <span class="rental__badge">Lincah & Hemat</span>
+      <img
+        class="rental__image"
+        src="https://toyotasemarangdealer.com/wp-content/uploads/2024/09/image-22.png"
+        alt="Elf Long"
+      />
+      <h3 class="rental__title">Elf Long</h3>
+      <ul class="rental__features">
+        <li>Nyaman untuk city tour dan wisata harian.</li>
+        <li>Interior bersih, kursi empuk, dan lega.</li>
+        <li>Ideal untuk rombongan menengah.</li>
+      </ul>
+      <div class="rental__actions">
+        <button class="rental__cta" data-booking="Elf Long">
+          Booking Sekarang
+        </button>
+      </div>
+    </div>
+
+    <div class="rental__card">
+      <span class="rental__badge">Luxury Class</span>
+      <img
+        class="rental__image"
+        src="https://www.sewapremio.com/wp-content/uploads/2024/04/WhatsApp-Image-2024-01-25-at-09.29.20-1.jpeg"
+        alt="Hiace Premio"
+      />
+      <h3 class="rental__title">Hiace Premio</h3>
+      <ul class="rental__features">
+        <li>Kabin eksklusif dengan kenyamanan premium.</li>
+        <li>Suspensi halus untuk perjalanan jauh.</li>
+        <li>Pas untuk tamu VIP dan perjalanan bisnis.</li>
+      </ul>
+      <div class="rental__actions">
+        <button class="rental__cta" data-booking="Hiace Premio">
+          Booking Sekarang
+        </button>
+      </div>
+    </div>
+
+    <div class="rental__card">
+      <span class="rental__badge">Serbaguna</span>
+      <img
+        class="rental__image"
+        src="https://d1g6w7sntckt92.cloudfront.net/public/images/car_gallery_images/NyAkRE6YcSKvUKH7M8i8PCVoQ4uuqkBFpaG4Piy2.jpg"
+        alt="Hiace Commuter"
+      />
+      <h3 class="rental__title">Hiace Commuter</h3>
+      <ul class="rental__features">
+        <li>Legroom luas untuk perjalanan harian.</li>
+        <li>AC stabil dan performa irit bahan bakar.</li>
+        <li>Rekomendasi untuk wisata keluarga.</li>
+      </ul>
+      <div class="rental__actions">
+        <button class="rental__cta" data-booking="Hiace Commuter">
+          Booking Sekarang
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="bookingModal" aria-hidden="true">
+  <div class="modal__panel" role="dialog" aria-modal="true">
+    <div class="modal__header">
+      <h3 class="modal__title">Form Booking Armada</h3>
+      <button class="modal__close" id="modalClose" aria-label="Tutup form">
+        &times;
+      </button>
+    </div>
+    <form class="modal__form" id="bookingForm">
+      <div>
+        <label for="bookingArmada">Pilihan Armada</label>
+        <select id="bookingArmada" name="armada" required>
+          <option value="Medium Bus">Medium Bus</option>
+          <option value="Elf Long">Elf Long</option>
+          <option value="Hiace Premio">Hiace Premio</option>
+          <option value="Hiace Commuter">Hiace Commuter</option>
+        </select>
+      </div>
+      <div>
+        <label for="bookingName">Nama Lengkap</label>
+        <input id="bookingName" name="nama" type="text" required />
+      </div>
+      <div>
+        <label for="bookingPhone">Nomor WhatsApp</label>
+        <input id="bookingPhone" name="wa" type="tel" required />
+      </div>
+      <div>
+        <label for="bookingDate">Tanggal Berangkat</label>
+        <input id="bookingDate" name="tanggal" type="date" required />
+      </div>
+      <div>
+        <label for="bookingNote">Catatan Perjalanan</label>
+        <textarea id="bookingNote" name="catatan"></textarea>
+      </div>
+      <button class="rental__cta" type="submit">Kirim via WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const initRentalModal = () => {
+    const rentalRoot = document.querySelector(".rental");
+    if (!rentalRoot || rentalRoot.dataset.modalReady === "true") {
+      return false;
+    }
+
+    const bookingModal = document.getElementById("bookingModal");
+    const bookingForm = document.getElementById("bookingForm");
+    const bookingArmada = document.getElementById("bookingArmada");
+    const modalClose = document.getElementById("modalClose");
+    const bookingButtons = rentalRoot.querySelectorAll("[data-booking]");
+
+    if (!bookingModal || !bookingForm || !bookingButtons.length) {
+      return false;
+    }
+
+    const openModal = (armada) => {
+      bookingModal.classList.add("is-open");
+      bookingModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      if (armada && bookingArmada) {
+        bookingArmada.value = armada;
+      }
+    };
+
+    const closeModal = () => {
+      bookingModal.classList.remove("is-open");
+      bookingModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    bookingButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        openModal(button.dataset.booking);
+      });
+    });
+
+    if (modalClose) {
+      modalClose.addEventListener("click", closeModal);
+    }
+
+    bookingModal.addEventListener("click", (event) => {
+      if (event.target === bookingModal) {
+        closeModal();
+      }
+    });
+
+    bookingForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(bookingForm);
+      const text =
+        `Halo Okta Wisata, saya mau booking armada:%0A` +
+        `Armada: ${formData.get("armada")}%0A` +
+        `Nama: ${formData.get("nama")}%0A` +
+        `WhatsApp: ${formData.get("wa")}%0A` +
+        `Tanggal: ${formData.get("tanggal")}%0A` +
+        `Catatan: ${formData.get("catatan") || "-"}`;
+      const url = `https://wa.me/6282221177558?text=${text}`;
+      window.open(url, "_blank");
+    });
+
+    rentalRoot.dataset.modalReady = "true";
+    return true;
+  };
+
+  const tryInitRental = () => {
+    if (initRentalModal()) {
+      return;
+    }
+    let attempts = 0;
+    const timer = setInterval(() => {
+      attempts += 1;
+      if (initRentalModal() || attempts > 20) {
+        clearInterval(timer);
+      }
+    }, 300);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", tryInitRental);
+  } else {
+    tryInitRental();
+  }
+</script>

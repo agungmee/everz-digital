@@ -1,0 +1,716 @@
+<style>
+  .packages {
+    padding: 4.5rem 6vw 5rem;
+    background: linear-gradient(180deg, #ffffff, #f7f1e6);
+    color: #1d1b19;
+  }
+
+  .packages__head {
+    display: grid;
+    gap: 0.8rem;
+    margin-bottom: 2.2rem;
+    max-width: 720px;
+  }
+
+  .packages__eyebrow {
+    font-family: "Work Sans", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #b5632b;
+  }
+
+  .packages h2 {
+    font-family: "Anton", "Unbounded", sans-serif;
+    font-size: clamp(2.2rem, 3vw + 1rem, 3.8rem);
+    margin: 0;
+    letter-spacing: 0.03em;
+  }
+
+  .packages__desc {
+    margin: 0;
+    line-height: 1.7;
+    color: #3f3b36;
+    font-size: 1.02rem;
+  }
+
+  @media (max-width: 720px) {
+    .packages__head {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .packages__track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(240px, 320px);
+    gap: 1.4rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .packages__track::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .packages__track::-webkit-scrollbar-thumb {
+    background: rgba(29, 27, 25, 0.2);
+    border-radius: 999px;
+  }
+
+  .package-card {
+    scroll-snap-align: start;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 24px 50px rgba(15, 18, 16, 0.22);
+    border: 1px solid rgba(26, 22, 18, 0.08);
+    display: grid;
+  }
+
+  .package-card__media {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .package-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .package-card__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(12, 12, 12, 0.6),
+      rgba(12, 12, 12, 0) 60%
+    );
+  }
+
+  .package-card__body {
+    padding: 1.2rem 1.2rem 1.4rem;
+    display: grid;
+    gap: 0.6rem;
+    background: #fffdf9;
+  }
+
+  .package-card__title {
+    margin: 0;
+    font-family: "Unbounded", sans-serif;
+    font-size: 1.05rem;
+    color: #1f1b18;
+  }
+
+  .package-card__desc {
+    margin: 0;
+    color: #5a544d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .package-card__price {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #b14d21;
+    text-shadow: 0 6px 14px rgba(177, 77, 33, 0.2);
+  }
+
+  .package-card__cta {
+    border: none;
+    width: 100%;
+    padding: 0.65rem 1.2rem;
+    border-radius: 10px;
+    background: #ff7a45;
+    color: #1b120c;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 12px 22px rgba(255, 122, 69, 0.25);
+  }
+
+  .packages__nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .packages__btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid rgba(29, 27, 25, 0.2);
+    background: #fff;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+
+  .packages-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 14, 13, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 6vw;
+    z-index: 20;
+  }
+
+  .packages-modal.is-open {
+    display: flex;
+  }
+
+  .packages-modal__panel {
+    background: #fff;
+    border-radius: 24px;
+    padding: 2rem;
+    max-width: 520px;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0 24px 50px rgba(12, 16, 14, 0.2);
+  }
+
+  .packages-modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .packages-modal__title {
+    margin: 0;
+    font-family: "Unbounded", sans-serif;
+    font-size: 1.4rem;
+  }
+
+  .packages-modal__close {
+    border: none;
+    background: #1d1b19;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+
+  .packages-modal__form {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .packages-modal__form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2f2b27;
+  }
+
+  .packages-modal__form input,
+  .packages-modal__form select,
+  .packages-modal__form textarea {
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    border-radius: 12px;
+    border: 1px solid #d8d0c3;
+    font-family: "Work Sans", sans-serif;
+    font-size: 0.95rem;
+  }
+
+  .packages-modal__form textarea {
+    min-height: 90px;
+    resize: vertical;
+  }
+</style>
+
+<section class="packages" id="paket-wisata">
+  <div class="packages__head">
+    <div class="packages__eyebrow">Paket Wisata</div>
+    <h2>Destinasi Favorit dari Tegal & Sekitarnya</h2>
+    <p class="packages__desc">
+      Pilih paket wisata favorit dengan harga mulai terjangkau. Geser untuk
+      melihat semua destinasi.
+    </p>
+  </div>
+
+  <div class="packages__track" id="packagesTrack">
+    <article class="package-card" data-title="Guci Tegal" data-price="200k">
+      <div class="package-card__media">
+        <img
+          src="https://cdn1.katadata.co.id/media/images/thumb/2023/05/08/Profil_Wisata_Gucci_Tegal-2023_05_08-12_24_49_0b3d220f5fa5caec0dd65634a3e87622_960x640_thumb.jpg"
+          alt="Guci Tegal"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Guci Tegal</h3>
+        <p class="package-card__desc">
+          Wisata pemandian air panas dan udara sejuk pegunungan.
+        </p>
+        <div class="package-card__price">Rp 200k</div>
+        <button class="package-card__cta" data-book="Guci Tegal">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article
+      class="package-card"
+      data-title="Baturraden Purwokerto"
+      data-price="250k"
+    >
+      <div class="package-card__media">
+        <img
+          src="https://www.cimbniaga.co.id/content/dam/cimb/inspirasi/wisata-baturraden.webp"
+          alt="Baturraden Purwokerto"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Baturraden Purwokerto</h3>
+        <p class="package-card__desc">
+          Panorama hijau dan udara segar lereng Gunung Slamet.
+        </p>
+        <div class="package-card__price">Rp 250k</div>
+        <button class="package-card__cta" data-book="Baturraden Purwokerto">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article
+      class="package-card"
+      data-title="Owabong Purbalingga"
+      data-price="275k"
+    >
+      <div class="package-card__media">
+        <img
+          src="https://cnc-magazine.oramiland.com/parenting/images/wisata-owabong.width-800.format-webp.webp"
+          alt="Owabong Purbalingga"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Owabong Purbalingga</h3>
+        <p class="package-card__desc">
+          Wahana air seru untuk keluarga dan rombongan wisata.
+        </p>
+        <div class="package-card__price">Rp 275k</div>
+        <button class="package-card__cta" data-book="Owabong Purbalingga">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article
+      class="package-card"
+      data-title="Dieng Wonosobo"
+      data-price="300k"
+    >
+      <div class="package-card__media">
+        <img
+          src="https://busdiscovery.id/wp-content/uploads/2024/05/wisata-dieng.png"
+          alt="Dieng Wonosobo"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Dieng Wonosobo</h3>
+        <p class="package-card__desc">
+          Negeri di atas awan dengan telaga dan kawah eksotis.
+        </p>
+        <div class="package-card__price">Rp 300k</div>
+        <button class="package-card__cta" data-book="Dieng Wonosobo">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article class="package-card" data-title="Jogja" data-price="350k">
+      <div class="package-card__media">
+        <img
+          src="https://images.tokopedia.net/img/KRMmCm/2022/6/16/56b7b2bc-aeab-4fe9-bb3b-b97ce6ccef67.jpg"
+          alt="Jogja"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Jogja</h3>
+        <p class="package-card__desc">
+          Kota budaya, kuliner, dan destinasi ikonik dalam satu trip.
+        </p>
+        <div class="package-card__price">Mulai Rp 350k</div>
+        <button class="package-card__cta" data-book="Jogja">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article class="package-card" data-title="Jakarta" data-price="375k">
+      <div class="package-card__media">
+        <img
+          src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80"
+          alt="Jakarta"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Jakarta</h3>
+        <p class="package-card__desc">
+          City tour destinasi hits dan pusat belanja ibu kota.
+        </p>
+        <div class="package-card__price">Mulai Rp 375k</div>
+        <button class="package-card__cta" data-book="Jakarta">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article class="package-card" data-title="Bandung" data-price="400k">
+      <div class="package-card__media">
+        <img
+          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80"
+          alt="Bandung"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Bandung</h3>
+        <p class="package-card__desc">
+          Udara sejuk, kuliner, dan wisata alam pegunungan.
+        </p>
+        <div class="package-card__price">Mulai Rp 400k</div>
+        <button class="package-card__cta" data-book="Bandung">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article class="package-card" data-title="Semarang" data-price="300k">
+      <div class="package-card__media">
+        <img
+          src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80"
+          alt="Semarang"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Semarang</h3>
+        <p class="package-card__desc">
+          Heritage kota lama, kuliner khas, dan spot foto estetik.
+        </p>
+        <div class="package-card__price">Mulai Rp 300k</div>
+        <button class="package-card__cta" data-book="Semarang">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article class="package-card" data-title="Malang" data-price="500k">
+      <div class="package-card__media">
+        <img
+          src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80"
+          alt="Malang"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Malang</h3>
+        <p class="package-card__desc">
+          Kota sejuk dengan wisata alam dan keluarga favorit.
+        </p>
+        <div class="package-card__price">Mulai Rp 500k</div>
+        <button class="package-card__cta" data-book="Malang">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article class="package-card" data-title="Bromo" data-price="650k">
+      <div class="package-card__media">
+        <img
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+          alt="Bromo"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Bromo</h3>
+        <p class="package-card__desc">
+          Sunrise, lautan pasir, dan petualangan gunung berapi.
+        </p>
+        <div class="package-card__price">Mulai Rp 650k</div>
+        <button class="package-card__cta" data-book="Bromo">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article class="package-card" data-title="Bali" data-price="1500k">
+      <div class="package-card__media">
+        <img
+          src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80"
+          alt="Bali"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Bali</h3>
+        <p class="package-card__desc">
+          Liburan tropis, pantai indah, dan budaya yang kaya.
+        </p>
+        <div class="package-card__price">Mulai Rp 1.500k</div>
+        <button class="package-card__cta" data-book="Bali">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article class="package-card" data-title="Lombok" data-price="2000k">
+      <div class="package-card__media">
+        <img
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+          alt="Lombok"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Lombok</h3>
+        <p class="package-card__desc">
+          Pantai eksotis dan keindahan alam Nusa Tenggara.
+        </p>
+        <div class="package-card__price">Mulai Rp 2.000k</div>
+        <button class="package-card__cta" data-book="Lombok">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article
+      class="package-card"
+      data-title="Labuan Bajo"
+      data-price="3000k"
+    >
+      <div class="package-card__media">
+        <img
+          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80"
+          alt="Labuan Bajo"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Labuan Bajo</h3>
+        <p class="package-card__desc">
+          Gerbang Komodo dan island hopping yang memukau.
+        </p>
+        <div class="package-card__price">Mulai Rp 3.000k</div>
+        <button class="package-card__cta" data-book="Labuan Bajo">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article
+      class="package-card"
+      data-title="Karimunjawa"
+      data-price="1200k"
+    >
+      <div class="package-card__media">
+        <img
+          src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80"
+          alt="Karimunjawa"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Karimunjawa</h3>
+        <p class="package-card__desc">
+          Snorkeling, pantai pasir putih, dan laut biru jernih.
+        </p>
+        <div class="package-card__price">Mulai Rp 1.200k</div>
+        <button class="package-card__cta" data-book="Karimunjawa">
+          Booking
+        </button>
+      </div>
+    </article>
+
+    <article
+      class="package-card"
+      data-title="Kepulauan Seribu"
+      data-price="1000k"
+    >
+      <div class="package-card__media">
+        <img
+          src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80"
+          alt="Kepulauan Seribu"
+        />
+      </div>
+      <div class="package-card__body">
+        <h3 class="package-card__title">Kepulauan Seribu</h3>
+        <p class="package-card__desc">
+          Island hopping seru dekat Jakarta untuk liburan singkat.
+        </p>
+        <div class="package-card__price">Mulai Rp 1.000k</div>
+        <button class="package-card__cta" data-book="Kepulauan Seribu">
+          Booking
+        </button>
+      </div>
+    </article>
+  </div>
+
+  <div class="packages__nav">
+    <button class="packages__btn" id="packagesPrev" aria-label="Sebelumnya">
+      &#8592;
+    </button>
+    <button class="packages__btn" id="packagesNext" aria-label="Berikutnya">
+      &#8594;
+    </button>
+  </div>
+</section>
+
+<div class="packages-modal" id="packagesModal" aria-hidden="true">
+  <div class="packages-modal__panel" role="dialog" aria-modal="true">
+    <div class="packages-modal__header">
+      <h3 class="packages-modal__title">Form Booking Paket Wisata</h3>
+      <button
+        class="packages-modal__close"
+        id="packagesModalClose"
+        aria-label="Tutup form"
+      >
+        &times;
+      </button>
+    </div>
+    <form class="packages-modal__form" id="packagesForm">
+      <div>
+        <label for="packagesName">Nama Lengkap</label>
+        <input id="packagesName" name="nama" type="text" required />
+      </div>
+      <div>
+        <label for="packagesPhone">Nomor WhatsApp</label>
+        <input id="packagesPhone" name="wa" type="tel" required />
+      </div>
+      <div>
+        <label for="packagesDestination">Pilihan Paket</label>
+        <input
+          id="packagesDestination"
+          name="paket"
+          type="text"
+          readonly
+        />
+      </div>
+      <div>
+        <label for="packagesDate">Tanggal Berangkat</label>
+        <input id="packagesDate" name="tanggal" type="date" required />
+      </div>
+      <div>
+        <label for="packagesNote">Catatan Perjalanan</label>
+        <textarea id="packagesNote" name="catatan"></textarea>
+      </div>
+      <button class="package-card__cta" type="submit">Kirim via WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const initPackages = () => {
+    const track = document.getElementById("packagesTrack");
+    const prev = document.getElementById("packagesPrev");
+    const next = document.getElementById("packagesNext");
+    const modal = document.getElementById("packagesModal");
+    const modalClose = document.getElementById("packagesModalClose");
+    const form = document.getElementById("packagesForm");
+    const destination = document.getElementById("packagesDestination");
+
+    if (
+      !track ||
+      !prev ||
+      !next ||
+      !modal ||
+      !form ||
+      !destination ||
+      track.dataset.ready === "true"
+    ) {
+      return false;
+    }
+
+    const scrollByCard = (dir) => {
+      const card = track.querySelector(".package-card");
+      const gap = 24;
+      if (!card) {
+        return;
+      }
+      const amount = card.offsetWidth + gap;
+      track.scrollBy({ left: dir * amount, behavior: "smooth" });
+    };
+
+    prev.addEventListener("click", () => scrollByCard(-1));
+    next.addEventListener("click", () => scrollByCard(1));
+
+    const openModal = (title, price) => {
+      destination.value = title + (price ? ` (Mulai Rp ${price})` : "");
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeModal = () => {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    track.querySelectorAll("[data-book]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const title = btn.dataset.book || "Paket Wisata";
+        const price = btn
+          .closest(".package-card")
+          ?.getAttribute("data-price");
+        openModal(title, price);
+      });
+    });
+
+    if (modalClose) {
+      modalClose.addEventListener("click", closeModal);
+    }
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const msg =
+        `Halo Okta Wisata, saya mau booking paket wisata:%0A` +
+        `Nama: ${formData.get("nama")}%0A` +
+        `WhatsApp: ${formData.get("wa")}%0A` +
+        `Paket: ${formData.get("paket")}%0A` +
+        `Tanggal: ${formData.get("tanggal")}%0A` +
+        `Catatan: ${formData.get("catatan") || "-"}`;
+      window.open(
+        `https://wa.me/6282221177558?text=${msg}`,
+        "_blank"
+      );
+      closeModal();
+    });
+
+    track.dataset.ready = "true";
+    return true;
+  };
+
+  const tryInitPackages = () => {
+    if (initPackages()) {
+      return;
+    }
+    let attempts = 0;
+    const timer = setInterval(() => {
+      attempts += 1;
+      if (initPackages() || attempts > 20) {
+        clearInterval(timer);
+      }
+    }, 300);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", tryInitPackages);
+  } else {
+    tryInitPackages();
+  }
+</script>

@@ -1,0 +1,211 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+<style>
+  .about {
+    padding: 4.5rem 6vw;
+    background: linear-gradient(180deg, #fff8f1, #f7f1e6);
+    color: #1d1b19;
+  }
+
+  .about__grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .about__eyebrow {
+    font-family: "Work Sans", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #b5632b;
+    margin-bottom: 0.6rem;
+  }
+
+  .about h2 {
+    font-family: "Anton", "Unbounded", sans-serif;
+    font-size: clamp(2.2rem, 3vw + 1rem, 3.6rem);
+    margin: 0 0 1.2rem;
+    letter-spacing: 0.03em;
+  }
+
+  .about p {
+    margin: 0 0 1rem;
+    line-height: 1.7;
+    color: #3f3b36;
+    font-size: 1.02rem;
+  }
+
+  .about__highlight {
+    font-weight: 600;
+    color: #1d1b19;
+  }
+
+  .about__card {
+    background: #fff;
+    border-radius: 22px;
+    padding: 1.8rem;
+    box-shadow: 0 18px 36px rgba(20, 24, 22, 0.12);
+  }
+
+  .about__list {
+    margin: 0;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.7rem;
+    color: #2f2b27;
+  }
+
+  .about__list li {
+    line-height: 1.6;
+  }
+
+  .about__perks {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .about__perk {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.9rem;
+    align-items: start;
+    background: #fff;
+    border-radius: 18px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 12px 26px rgba(20, 24, 22, 0.1);
+  }
+
+  .about__perk i {
+    color: #ff7a45;
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+  }
+
+  .about__perk h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.05rem;
+  }
+
+  .about__perk p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .about__stats {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .about__stat {
+    background: #1d1b19;
+    color: #f8f3ea;
+    border-radius: 18px;
+    padding: 1.1rem 1.3rem;
+  }
+
+  .about__stat strong {
+    display: block;
+    font-family: "Anton", sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+  }
+
+  .about__stat span {
+    font-size: 0.9rem;
+    color: #d9d2c4;
+  }
+
+  @media (min-width: 960px) {
+    .about__grid {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+  }
+</style>
+
+<section class="about" id="tentang-kami">
+  <div class="about__grid">
+    <div>
+      <div class="about__eyebrow">Tentang Kami</div>
+      <h2>PT. OKTASARANA TRANS WISATA — Rental & Tour Tegal</h2>
+      <p>
+        <span class="about__highlight">PT. Oktasarana Trans Wisata</span> adalah
+        penyedia jasa rental bus dan paket wisata di Tegal yang melayani
+        perjalanan keluarga, rombongan kantor, sekolah, hingga wisata religi.
+        Berbasis di Bulakwaru, Tarub, Kab. Tegal, kami fokus pada layanan
+        transportasi yang aman, nyaman, dan tepat waktu untuk tujuan lokal maupun
+        luar kota.
+      </p>
+      <p>
+        Armada unggulan kami meliputi <strong>Medium Bus</strong>,
+        <strong>Elf Long</strong>, <strong>Hiace Premio Luxury</strong>, dan
+        <strong>Hiace Commuter</strong>. Setiap unit rutin dicek demi menjaga
+        kualitas perjalanan dan keselamatan penumpang.
+      </p>
+      <div class="about__card">
+        <p class="about__highlight">Kelebihan layanan kami:</p>
+        <div class="about__perks">
+          <div class="about__perk">
+            <i class="fa-solid fa-route"></i>
+            <div>
+              <h3>Pilihan Paket Lengkap</h3>
+              <p>
+                Rute favorit dari Tegal ke Guci, Baturraden, Dieng, Jogja,
+                Bandung, Jakarta, sampai Lombok.
+              </p>
+            </div>
+          </div>
+          <div class="about__perk">
+            <i class="fa-solid fa-user-shield"></i>
+            <div>
+              <h3>Driver Berpengalaman</h3>
+              <p>
+                Tim sopir profesional, rute teruji, dan fokus pada kenyamanan
+                penumpang.
+              </p>
+            </div>
+          </div>
+          <div class="about__perk">
+            <i class="fa-solid fa-tags"></i>
+            <div>
+              <h3>Harga Transparan</h3>
+              <p>
+                Cocok untuk wisata keluarga, sekolah, perusahaan, dan komunitas
+                dengan biaya jelas.
+              </p>
+            </div>
+          </div>
+          <div class="about__perk">
+            <i class="fa-solid fa-comments"></i>
+            <div>
+              <h3>Respon Cepat</h3>
+              <p>
+                Layanan customer service responsif via WhatsApp untuk booking
+                dan konsultasi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about__stats">
+      <div class="about__stat">
+        <strong>24/7</strong>
+        <span>Layanan konsultasi & pemesanan tour.</span>
+      </div>
+      <div class="about__stat">
+        <strong>FLEET</strong>
+        <span>Medium Bus, Elf Long, Hiace Premio, Hiace Commuter.</span>
+      </div>
+      <div class="about__stat">
+        <strong>TEGAL</strong>
+        <span>Base di Bulakwaru RT 03 RW.03, Tarub Kab. Tegal.</span>
+      </div>
+    </div>
+  </div>
+</section>

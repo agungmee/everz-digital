@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Okta Wisata</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #fff;
+      }
+
+      .section {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="page">
+      <div class="section" data-section="topbar-navbar.html"></div>
+      <div class="section" data-section="hero.html"></div>
+      <div class="section" data-section="rental-mobil.html"></div>
+      <div class="section" data-section="paket-wisata.html"></div>
+      <div class="section" data-section="kontak.html"></div>
+      <div class="section" data-section="testimoni.html"></div>
+      <div class="section" data-section="footer.html"></div>
+    </main>
+
+    <script>
+      const sections = document.querySelectorAll("[data-section]");
+
+      const loadSection = async (host) => {
+        const file = host.getAttribute("data-section");
+        if (!file) {
+          return;
+        }
+
+        const res = await fetch(file);
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, "text/html");
+
+        const links = Array.from(doc.querySelectorAll("link[rel]"));
+        links.forEach((link) => {
+          const href = link.getAttribute("href");
+          const rel = link.getAttribute("rel");
+          if (!href || !rel) {
+            return;
+          }
+          const exists = document.head.querySelector(
+            `link[rel="${rel}"][href="${href}"]`
+          );
+          if (exists) {
+            return;
+          }
+          const tag = document.createElement("link");
+          Array.from(link.attributes).forEach((attr) => {
+            tag.setAttribute(attr.name, attr.value);
+          });
+          document.head.appendChild(tag);
+        });
+
+        const styles = Array.from(doc.querySelectorAll("style"));
+        styles.forEach((style) => {
+          const tag = document.createElement("style");
+          tag.textContent = style.textContent || "";
+          document.head.appendChild(tag);
+        });
+
+        const scripts = Array.from(doc.querySelectorAll("script"));
+        scripts.forEach((script) => {
+          const tag = document.createElement("script");
+          if (script.type) {
+            tag.type = script.type;
+          }
+          if (script.src) {
+            tag.src = script.src;
+          }
+          if (script.textContent) {
+            tag.textContent = script.textContent;
+          }
+          document.body.appendChild(tag);
+        });
+
+        host.innerHTML = doc.body.innerHTML;
+      };
+
+      sections.forEach((section) => {
+        loadSection(section);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,306 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@300;400;500;600&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  :root {
+    --hero-ink: #1d1b19;
+    --hero-sand: #f4efe6;
+    --hero-sun: #ff7a45;
+    --hero-shadow: 0 20px 60px rgba(18, 22, 20, 0.2);
+  }
+
+  .hero {
+    position: relative;
+    min-height: clamp(420px, 70vh, 720px);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+
+  .hero__slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero__card {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    box-shadow: var(--hero-shadow);
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+    filter: blur(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease,
+      filter 0.6s ease;
+  }
+
+  .hero__card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(14, 18, 16, 0.85),
+      rgba(14, 18, 16, 0.2) 55%
+    );
+  }
+
+  .hero__card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero__label {
+    position: relative;
+    z-index: 1;
+    padding: 1.2rem 6vw 1.6rem;
+    color: #fff;
+    font-family: "Anton", "Unbounded", sans-serif;
+    font-size: clamp(2.8rem, 4vw + 1rem, 5.4rem);
+    letter-spacing: 0.06em;
+    text-align: center;
+    max-width: 720px;
+    text-shadow: 0 12px 32px rgba(5, 10, 8, 0.65);
+    -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .hero__desc {
+    margin-top: 0.6rem;
+    font-family: "Work Sans", sans-serif;
+    font-size: 1rem;
+    max-width: 520px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease 0.08s, transform 0.6s ease 0.08s;
+  }
+
+  .hero__card.is-active .hero__label,
+  .hero__card.is-active .hero__desc {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero__card.is-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  .hero__card.is-exit {
+    opacity: 0;
+    transform: translateX(-24px) scale(0.96);
+    filter: blur(20px);
+  }
+
+  .hero__dots {
+    position: absolute;
+    bottom: 1.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 2;
+  }
+
+  .hero__dot {
+    width: 28px;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  .hero__dot.is-active {
+    background: var(--hero-sun);
+  }
+</style>
+
+<section class="hero" aria-label="Hero Okta Wisata">
+  <div class="hero__slider" id="heroSlider">
+    <article
+      class="hero__card is-active"
+      data-title="Guci Tegal"
+      data-desc="Pemandian air panas legendaris di kaki Gunung Slamet."
+    >
+      <img
+        src="https://cdn1.katadata.co.id/media/images/thumb/2023/05/08/Profil_Wisata_Gucci_Tegal-2023_05_08-12_24_49_0b3d220f5fa5caec0dd65634a3e87622_960x640_thumb.jpg"
+        alt="Guci Tegal"
+      />
+      <div class="hero__label">
+        Guci Tegal
+        <div class="hero__desc">
+          Pemandian air panas legendaris di kaki Gunung Slamet.
+        </div>
+      </div>
+    </article>
+    <article
+      class="hero__card"
+      data-title="Baturraden Purwokerto"
+      data-desc="Udara sejuk dan panorama hijau di lereng Gunung Slamet."
+    >
+      <img
+        src="https://www.cimbniaga.co.id/content/dam/cimb/inspirasi/wisata-baturraden.webp"
+        alt="Baturraden Purwokerto"
+      />
+      <div class="hero__label">
+        Baturraden Purwokerto
+        <div class="hero__desc">
+          Udara sejuk dan panorama hijau di lereng Gunung Slamet.
+        </div>
+      </div>
+    </article>
+    <article
+      class="hero__card"
+      data-title="Owabong Purbalingga"
+      data-desc="Wahana air seru untuk keluarga dan rombongan wisata."
+    >
+      <img
+        src="https://cnc-magazine.oramiland.com/parenting/images/wisata-owabong.width-800.format-webp.webp"
+        alt="Owabong Purbalingga"
+      />
+      <div class="hero__label">
+        Owabong Purbalingga
+        <div class="hero__desc">
+          Wahana air seru untuk keluarga dan rombongan wisata.
+        </div>
+      </div>
+    </article>
+    <article
+      class="hero__card"
+      data-title="Dieng Wonosobo"
+      data-desc="Negeri di atas awan dengan pesona kawah dan telaga."
+    >
+      <img
+        src="https://busdiscovery.id/wp-content/uploads/2024/05/wisata-dieng.png"
+        alt="Dieng Wonosobo"
+      />
+      <div class="hero__label">
+        Dieng Wonosobo
+        <div class="hero__desc">
+          Negeri di atas awan dengan pesona kawah dan telaga.
+        </div>
+      </div>
+    </article>
+    <article
+      class="hero__card"
+      data-title="Jogja"
+      data-desc="Budaya, kuliner, dan destinasi ikonik dalam satu kota."
+    >
+      <img
+        src="https://images.tokopedia.net/img/KRMmCm/2022/6/16/56b7b2bc-aeab-4fe9-bb3b-b97ce6ccef67.jpg"
+        alt="Jogja"
+      />
+      <div class="hero__label">
+        Jogja
+        <div class="hero__desc">
+          Budaya, kuliner, dan destinasi ikonik dalam satu kota.
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="hero__dots" id="heroDots"></div>
+</section>
+
+<script>
+  const initHeroSlider = () => {
+    const heroRoot = document.querySelector(".hero");
+    if (!heroRoot || heroRoot.dataset.sliderReady === "true") {
+      return false;
+    }
+
+    const heroCards = Array.from(heroRoot.querySelectorAll(".hero__card"));
+    const heroDots = heroRoot.querySelector("#heroDots");
+    let heroIndex = 0;
+
+    if (!heroCards.length) {
+      return false;
+    }
+
+    const renderDots = () => {
+      if (!heroDots) {
+        return;
+      }
+      heroDots.innerHTML = "";
+      heroCards.forEach((_, idx) => {
+        const dot = document.createElement("span");
+        dot.className = "hero__dot" + (idx === heroIndex ? " is-active" : "");
+        heroDots.appendChild(dot);
+      });
+    };
+
+    const showHero = (nextIndex) => {
+      const current = heroCards[heroIndex];
+      const next = heroCards[nextIndex];
+
+      if (!current || !next || current === next) {
+        return;
+      }
+
+      current.classList.remove("is-active");
+      current.classList.add("is-exit");
+
+      next.classList.add("is-active");
+      next.classList.remove("is-exit");
+
+      setTimeout(() => {
+        current.classList.remove("is-exit");
+      }, 600);
+
+      heroIndex = nextIndex;
+      renderDots();
+    };
+
+    const cycleHero = () => {
+      const nextIndex = (heroIndex + 1) % heroCards.length;
+      showHero(nextIndex);
+    };
+
+    const setHeroHeight = () => {
+      const topbar = document.querySelector(".topbar");
+      const navbar = document.querySelector(".navbar");
+      const offset =
+        (topbar ? topbar.offsetHeight : 0) +
+        (navbar ? navbar.offsetHeight : 0);
+      const height = Math.max(360, window.innerHeight - offset);
+      heroRoot.style.minHeight = `${height}px`;
+    };
+
+    renderDots();
+    setHeroHeight();
+    window.addEventListener("resize", setHeroHeight);
+    setInterval(cycleHero, 3200);
+    heroRoot.dataset.sliderReady = "true";
+    return true;
+  };
+
+  const tryInit = () => {
+    if (initHeroSlider()) {
+      return;
+    }
+    let attempts = 0;
+    const timer = setInterval(() => {
+      attempts += 1;
+      if (initHeroSlider() || attempts > 20) {
+        clearInterval(timer);
+      }
+    }, 300);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", tryInit);
+  } else {
+    tryInit();
+  }
+</script>

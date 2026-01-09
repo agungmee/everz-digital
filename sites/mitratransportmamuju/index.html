@@ -739,15 +739,16 @@
     }
 
     .gallery-item {
+      --gallery-scale: 1;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
-      transform: scale(1);
+      transform: translateY(var(--reveal-y, 0)) rotate(var(--reveal-rotate, 0deg)) scale(var(--gallery-scale));
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
 
     .gallery-item.is-active {
-      transform: scale(1.03);
+      --gallery-scale: 1.03;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
     }
 
@@ -934,6 +935,40 @@
       text-align: center;
     }
 
+    .reveal-on-scroll {
+      --reveal-y: 24px;
+      --reveal-rotate: -0.6deg;
+      opacity: 0;
+      filter: blur(6px);
+      transform: translateY(var(--reveal-y)) rotate(var(--reveal-rotate));
+      transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+      transition-delay: 0.1s;
+      will-change: opacity, transform, filter;
+    }
+
+    .gallery-item.reveal-on-scroll {
+      transform: translateY(var(--reveal-y)) rotate(var(--reveal-rotate)) scale(var(--gallery-scale));
+      transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease, box-shadow 0.35s ease;
+      transition-delay: 0.1s;
+    }
+
+    .reveal-on-scroll.is-revealed {
+      --reveal-y: 0;
+      --reveal-rotate: 0deg;
+      opacity: 1;
+      filter: blur(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-on-scroll {
+        --reveal-y: 0;
+        --reveal-rotate: 0deg;
+        opacity: 1;
+        filter: none;
+        transition: none;
+      }
+    }
+
     @keyframes fadeUp {
       0% {
         opacity: 0;
@@ -985,7 +1020,8 @@
       }
 
       .gallery-item {
-        transform: scale(0.96);
+        --gallery-scale: 0.96;
+        transform: translateY(var(--reveal-y, 0)) rotate(var(--reveal-rotate, 0deg)) scale(var(--gallery-scale));
         scroll-snap-align: center;
         flex: 0 0 clamp(220px, 70vw, 320px);
       }
@@ -1623,6 +1659,49 @@
         visibleGalleryCount = Math.min(visibleGalleryCount + GALLERY_BATCH, galleryItems.length);
         updateGalleryVisibility();
         setActiveGalleryItem();
+      });
+    }
+
+    const revealSelectors = [
+      ".hero-card",
+      ".hero-visual",
+      ".hero-stat",
+      ".section-title",
+      ".section-subtitle",
+      ".about-card",
+      ".why-card",
+      ".fleet-card",
+      ".gallery-item",
+      ".contact-card",
+      ".testimonial-card",
+      "footer .footer-grid > div",
+      ".footer-bottom"
+    ];
+
+    const revealElements = document.querySelectorAll(revealSelectors.join(","));
+    revealElements.forEach((element) => {
+      element.classList.add("reveal-on-scroll");
+    });
+
+    if (!("IntersectionObserver" in window)) {
+      revealElements.forEach((element) => {
+        element.classList.add("is-revealed");
+      });
+    } else {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-revealed");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+      );
+
+      revealElements.forEach((element) => {
+        revealObserver.observe(element);
       });
     }
   </script>
