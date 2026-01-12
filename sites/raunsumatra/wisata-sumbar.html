@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>West Sumatra Travel - Raun Sumatra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
+    :root{
+      --sb-ink:#15221a;
+      --sb-ink-soft:#384a3f;
+      --sb-cream:#f7f0e6;
+      --sb-sand:#eadfce;
+      --sb-leaf:#1f6d4d;
+      --sb-copper:#c96a45;
+      --sb-sky:#cfe3dc;
+      --sb-shadow:0 18px 50px rgba(21,34,26,0.18);
+      --sb-radius:22px;
+      --sb-wrap:1120px;
+      --rs-ink:#0f1f17;
+      --rs-ink-soft:#2a3a31;
+      --rs-sand:#f4efe7;
+      --rs-sand-deep:#e5dccd;
+      --rs-terracotta:#c55b3c;
+      --rs-leaf:#1f6d4d;
+      --rs-gold:#d9b46c;
+      --rs-wrap:1200px;
+      --rs-nav-h:78px;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:"Plus Jakarta Sans", sans-serif;
+      color:var(--sb-ink);
+      background:
+        radial-gradient(circle at 12% 10%, #f5e7d5 0%, transparent 40%),
+        radial-gradient(circle at 85% 5%, #dcece5 0%, transparent 35%),
+        linear-gradient(180deg, #fbf6ee 0%, #f0e4d3 100%);
+      min-height:100vh;
+    }
+    a{ color:inherit; text-decoration:none; }
+
+    .sb-container{
+      width:min(92vw, var(--sb-wrap));
+      margin:0 auto;
+    }
+
+    .rs-container{
+      max-width:var(--rs-wrap);
+      margin:0 auto;
+      padding:0 18px;
+    }
+
+    .rs-fullbleed{
+      width:100vw !important;
+      margin-left:calc(50% - 50vw) !important;
+      margin-right:calc(50% - 50vw) !important;
+      left:auto !important;
+      right:auto !important;
+    }
+
+    .rs-navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:9999;
+      height:var(--rs-nav-h);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:transparent;
+      transition:background .25s ease;
+    }
+    .rs-navbar.scrolled{
+      background:transparent;
+    }
+
+    .rs-nav-inner{
+      width:100%;
+      max-width:var(--rs-wrap);
+      padding:10px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      font-family:"Sora", sans-serif;
+      border-radius:999px;
+      background:rgba(12,18,28,0.88);
+      border:1px solid rgba(255,255,255,0.24);
+      box-shadow:0 18px 40px rgba(15,31,23,0.22);
+      backdrop-filter:blur(14px) saturate(140%);
+      transition:background .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .rs-navbar.scrolled .rs-nav-inner{
+      background:rgba(8,12,20,0.95);
+      border-color:rgba(255,255,255,0.26);
+      box-shadow:0 22px 44px rgba(15,31,23,0.26);
+    }
+
+    .rs-brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:#fff;
+    }
+    .rs-brand img{
+      height:40px;
+      width:auto;
+      display:block;
+    }
+    .rs-brand span{
+      font-weight:700;
+      font-size:14px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    .rs-menu{
+      list-style:none;
+      display:flex;
+      gap:26px;
+      margin:0;
+      padding:0;
+    }
+    .rs-menu a{
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      color:#fff;
+      position:relative;
+    }
+    .rs-menu a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:0;
+      height:2px;
+      background:rgba(255,255,255,0.75);
+      transition:width .2s ease;
+    }
+    .rs-menu a:hover::after{ width:100%; }
+
+    .rs-socials{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .rs-socials a{
+      width:36px;
+      height:36px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.3);
+      background:rgba(255,255,255,0.12);
+      color:#fff;
+      transition:transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .rs-socials a:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,0.2);
+      border-color:rgba(255,255,255,0.5);
+    }
+    .rs-socials svg{
+      width:16px;
+      height:16px;
+      fill:currentColor;
+      display:block;
+    }
+
+    .rs-burger{
+      display:none;
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.3);
+      background:rgba(255,255,255,0.16);
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:5px;
+      cursor:pointer;
+      position:relative;
+      overflow:hidden;
+    }
+    .rs-burger span{
+      width:18px;
+      height:2px;
+      background:#fff;
+      border-radius:999px;
+    }
+    .rs-burger::after{
+      content:"";
+      position:absolute;
+      left:var(--rs-bubble-x, 50%);
+      top:var(--rs-bubble-y, 50%);
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:rgba(197,91,60,0.35);
+      transform:translate(-50%, -50%) scale(0);
+      opacity:0;
+      pointer-events:none;
+    }
+    .rs-burger.bubble::after{
+      animation:rs-bubble .5s ease;
+    }
+
+    .rs-mobile{
+      display:block;
+      position:fixed;
+      top:var(--rs-nav-h);
+      left:18px;
+      right:18px;
+      width:auto;
+      background:rgba(244,239,231,0.96);
+      border-top:1px solid rgba(15,31,23,0.08);
+      padding:16px 18px 20px;
+      z-index:9998;
+      font-family:"Sora", sans-serif;
+      opacity:0;
+      transform:translateY(-8px) scale(0.98);
+      transform-origin:top right;
+      pointer-events:none;
+      transition:opacity .35s ease, transform .35s ease;
+      overflow:hidden;
+      border-radius:22px;
+      box-shadow:0 18px 36px rgba(15,31,23,0.18);
+    }
+    .rs-mobile::before{
+      content:"";
+      position:absolute;
+      right:24px;
+      top:12px;
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:rgba(31,109,77,0.14);
+      transform:scale(0);
+      opacity:0;
+      transition:transform .6s ease, opacity .6s ease;
+      z-index:0;
+    }
+    .rs-mobile a{
+      display:block;
+      padding:10px 0;
+      text-decoration:none;
+      color:var(--rs-ink);
+      font-weight:700;
+      position:relative;
+      z-index:1;
+    }
+    .rs-mobile.open{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      pointer-events:auto;
+    }
+    .rs-mobile.open::before{
+      transform:scale(18);
+      opacity:1;
+    }
+
+    @media(max-width:980px){
+      .rs-menu{ display:none; }
+      .rs-burger{ display:flex; }
+    }
+
+    @media(max-width:640px){
+      .rs-navbar{
+        height:auto;
+        padding-top:calc(18px + env(safe-area-inset-top));
+        padding-bottom:8px;
+      }
+      .rs-nav-inner{
+        padding:10px 18px;
+        border-radius:999px;
+        margin:0 18px;
+        background:rgba(255,255,255,0.92);
+        border-color:rgba(15,31,23,0.14);
+        box-shadow:0 16px 32px rgba(15,31,23,0.18);
+      }
+      .rs-navbar.scrolled .rs-nav-inner{
+        background:rgba(255,255,255,0.96);
+        border-color:rgba(15,31,23,0.18);
+        box-shadow:0 18px 36px rgba(15,31,23,0.2);
+      }
+      .rs-brand img{
+        height:34px;
+      }
+      .rs-socials{
+        display:none;
+      }
+      .rs-menu a,
+      .rs-brand{
+        color:var(--rs-ink);
+      }
+      .rs-burger{
+        border-color:rgba(15,31,23,0.2);
+        background:rgba(15,31,23,0.06);
+      }
+      .rs-burger span{
+        background:var(--rs-ink);
+      }
+    }
+
+    @keyframes rs-bubble{
+      0%{ transform:translate(-50%, -50%) scale(0); opacity:0.6; }
+      50%{ transform:translate(-50%, -50%) scale(3.2); opacity:0.35; }
+      100%{ transform:translate(-50%, -50%) scale(4.2); opacity:0; }
+    }
+
+    .sb-hero{
+      padding:130px 0 42px;
+      position:relative;
+      overflow:hidden;
+    }
+    .sb-hero::after{
+      content:"";
+      position:absolute;
+      right:-120px;
+      top:-80px;
+      width:280px;
+      height:280px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(31,109,77,0.18), transparent 70%);
+      pointer-events:none;
+    }
+    .sb-hero-grid{
+      display:grid;
+      gap:28px;
+      grid-template-columns:1.1fr 0.9fr;
+      align-items:center;
+    }
+    .sb-hero h1{
+      margin:0 0 16px;
+      font-family:"Fraunces", serif;
+      font-size:44px;
+      line-height:1.05;
+    }
+    .sb-hero p{
+      margin:0;
+      color:var(--sb-ink-soft);
+      font-size:16px;
+      line-height:1.7;
+    }
+    .sb-hero-card{
+      background:#fff;
+      border-radius:var(--sb-radius);
+      padding:22px;
+      box-shadow:var(--sb-shadow);
+      border:1px solid rgba(21,34,26,0.08);
+    }
+    .sb-hero-card h3{
+      margin:0 0 10px;
+      font-size:15px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--sb-leaf);
+    }
+    .sb-hero-card ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--sb-ink-soft);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .sb-section{
+      padding:36px 0;
+    }
+    .sb-section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .sb-section h2{
+      margin:0;
+      font-family:"Fraunces", serif;
+      font-size:30px;
+    }
+    .sb-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      color:var(--sb-ink-soft);
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.6);
+      border:1px solid rgba(21,34,26,0.12);
+    }
+
+    .sb-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:18px;
+    }
+    .sb-card{
+      background:#fff;
+      border-radius:18px;
+      padding:18px;
+      border:1px solid rgba(21,34,26,0.08);
+      box-shadow:0 10px 28px rgba(21,34,26,0.08);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height:190px;
+    }
+    .sb-card h4{
+      margin:0;
+      font-size:17px;
+    }
+    .sb-card p{
+      margin:0;
+      color:var(--sb-ink-soft);
+      font-size:14px;
+      line-height:1.6;
+    }
+    .sb-tag{
+      align-self:flex-start;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(31,109,77,0.12);
+      color:var(--sb-leaf);
+    }
+
+    .sb-banner{
+      margin-top:32px;
+      padding:22px;
+      background:linear-gradient(135deg, #1f6d4d, #2b845f);
+      color:#fff;
+      border-radius:20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      box-shadow:var(--sb-shadow);
+    }
+    .sb-banner strong{
+      font-size:18px;
+    }
+    .sb-banner a{
+      background:#fff;
+      color:var(--sb-leaf);
+      font-weight:700;
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:13px;
+    }
+
+    .rs-footer{
+      background:linear-gradient(180deg, #f7f2ea 0%, #efe6d7 100%);
+      color:var(--rs-ink);
+      font-family:"Sora", sans-serif;
+      padding:70px 0 28px;
+    }
+
+    .rs-footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr .9fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .rs-footer-brand{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .rs-footer-logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:13px;
+    }
+
+    .rs-footer-logo img{
+      height:40px;
+      width:auto;
+      display:block;
+    }
+
+    .rs-footer-desc{
+      margin:0;
+      color:var(--rs-ink-soft);
+      line-height:1.7;
+      font-size:14px;
+      max-width:360px;
+    }
+
+    .rs-footer-title{
+      margin:0 0 12px;
+      font-weight:700;
+      font-size:14px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .rs-footer-links{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:8px;
+    }
+
+    .rs-footer-links a{
+      text-decoration:none;
+      color:var(--rs-ink-soft);
+      font-size:14px;
+    }
+
+    .rs-footer-contact{
+      margin:0;
+      display:grid;
+      gap:8px;
+      color:var(--rs-ink-soft);
+      font-size:14px;
+    }
+
+    .rs-footer-socials{
+      display:flex;
+      gap:10px;
+      margin-top:6px;
+    }
+
+    .rs-footer-socials a{
+      width:40px;
+      height:40px;
+      border-radius:14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+      border:1px solid rgba(15,31,23,0.12);
+      color:var(--rs-ink);
+      text-decoration:none;
+    }
+
+    .rs-footer-bottom{
+      margin-top:32px;
+      padding-top:18px;
+      border-top:1px solid rgba(15,31,23,0.08);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
+      font-size:12px;
+      color:var(--rs-ink-soft);
+    }
+
+    @media(max-width:980px){
+      .sb-hero-grid{ grid-template-columns:1fr; }
+      .sb-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .rs-footer-grid{ grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:640px){
+      .sb-hero h1{ font-size:34px; }
+      .sb-grid{ grid-template-columns:1fr; }
+      .sb-section-head{ flex-direction:column; align-items:flex-start; }
+      .sb-banner{ flex-direction:column; align-items:flex-start; }
+      .rs-footer-grid{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="rs-fullbleed">
+    <header class="rs-navbar" id="rsNavbar">
+      <div class="rs-nav-inner">
+        <a class="rs-brand" href="index.html#home" aria-label="Raun Sumatra Tour & Travel">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/logo-RAUN-SUMATRA-768x132-removebg-preview.png" alt="Raun Sumatra Tour & Travel">
+        </a>
+
+        <ul class="rs-menu" aria-label="Primary">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#paket">Packages</a></li>
+          <li><a href="wisata-sumbar.html">West Sumatra Travel</a></li>
+          <li><a href="index.html#destinasi">Destinations</a></li>
+          <li><a href="index.html#tentang">About</a></li>
+          <li><a href="index.html#kontak">Contact</a></li>
+        </ul>
+
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="rs-socials" aria-label="Social media">
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 9.5h2.4l.4-3.2h-2.8V4.8c0-.9.2-1.5 1.6-1.5h1.4V.4c-.7-.1-1.6-.2-2.6-.2-2.5 0-4.2 1.5-4.2 4.2v1.9H7v3.2h2.7V20h3.8V9.5z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7zm5 3.5A3.5 3.5 0 1 1 8.5 12 3.5 3.5 0 0 1 12 8.5zm0 2A1.5 1.5 0 1 0 13.5 12 1.5 1.5 0 0 0 12 10.5zm5.2-2.9a.9.9 0 1 1-.9-.9.9.9 0 0 1 .9.9z"/></svg>
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3c.5 2.3 2.2 4 4.5 4.3v3.2c-1.7 0-3.2-.5-4.5-1.4v5.5a5.6 5.6 0 1 1-5.6-5.6c.4 0 .8 0 1.2.1v3.3a2.4 2.4 0 1 0 2.4 2.4V3h2z"/></svg>
+            </a>
+          </div>
+          <button class="rs-burger" id="rsMenuToggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="rs-mobile" id="rsMobileMenu" aria-label="Mobile">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#paket">Packages</a>
+      <a href="wisata-sumbar.html">West Sumatra Travel</a>
+      <a href="index.html#destinasi">Destinations</a>
+      <a href="index.html#tentang">About</a>
+      <a href="index.html#kontak">Contact</a>
+    </nav>
+  </div>
+
+  <script>
+    (function(){
+      const nav = document.getElementById('rsNavbar');
+      const burger = document.getElementById('rsMenuToggle');
+      const mobile = document.getElementById('rsMobileMenu');
+
+      function setScrolled(){
+        if(!nav) return;
+        nav.classList.toggle('scrolled', window.scrollY > 10);
+      }
+
+      function syncMobileTop(){
+        if(!nav || !mobile) return;
+        mobile.style.top = (nav.offsetHeight || 78) + 'px';
+        document.documentElement.style.scrollPaddingTop = (nav.offsetHeight || 78) + 'px';
+      }
+
+      if(burger && mobile){
+        burger.addEventListener('click', (e) => {
+          const isOpen = mobile.classList.toggle('open');
+          burger.setAttribute('aria-expanded', String(isOpen));
+
+          const rect = burger.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          burger.style.setProperty('--rs-bubble-x', x + 'px');
+          burger.style.setProperty('--rs-bubble-y', y + 'px');
+          burger.classList.remove('bubble');
+          void burger.offsetWidth;
+          burger.classList.add('bubble');
+        });
+      }
+
+      window.addEventListener('scroll', setScrolled);
+      window.addEventListener('resize', syncMobileTop);
+      setScrolled();
+      syncMobileTop();
+    })();
+  </script>
+
+  <section class="sb-hero">
+    <div class="sb-container sb-hero-grid">
+      <div>
+        <div class="sb-chip">West Sumatra Travel List</div>
+        <h1>Culture, nature, and culinary highlights across Minang land.</h1>
+        <p>
+          This page summarizes key destinations that often become the highlights of West Sumatra
+          journeys. From city icons and natural landscapes to cultural centers and Minangkabau cuisine.
+        </p>
+      </div>
+      <div class="sb-hero-card">
+        <h3>Journey Highlights</h3>
+        <ul>
+          <li>Rumah Gadang architecture at the airport and cultural hubs.</li>
+          <li>Signature panoramas of valleys, lakes, and coastal views.</li>
+          <li>Souvenir shopping and iconic Minang culinary experiences.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sb-section">
+    <div class="sb-container">
+      <div class="sb-section-head">
+        <div>
+          <div class="sb-chip">Gateway</div>
+          <h2>Travel Gate</h2>
+        </div>
+      </div>
+      <div class="sb-grid">
+        <article class="sb-card">
+          <div class="sb-tag">Gateway</div>
+          <h4>Bandara Internasional Minangkabau</h4>
+          <p>West Sumatra's main airport with Rumah Gadang architecture, welcoming visitors with Minang ambience from the start.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sb-section">
+    <div class="sb-container">
+      <div class="sb-section-head">
+        <div>
+          <div class="sb-chip">Minangkabau Culture</div>
+          <h2>Heritage and Identity</h2>
+        </div>
+      </div>
+      <div class="sb-grid">
+        <article class="sb-card">
+          <div class="sb-tag">Education</div>
+          <h4>PDIKM (Pusat Dokumentasi dan Informasi Kebudayaan Minangkabau)</h4>
+          <p>An educational destination presenting Minang history, customs, and cultural development inside a Rumah Gadang-inspired building.</p>
+        </article>
+        <article class="sb-card">
+          <div class="sb-tag">History</div>
+          <h4>Istano Basa Pagaruyung</h4>
+          <p>A grand Minangkabau palace rich in history, symbolizing the greatness of Minang culture.</p>
+        </article>
+        <article class="sb-card">
+          <div class="sb-tag">Attire</div>
+          <h4>Baju Pengantin Adat Minangkabau</h4>
+          <p>Traditional wedding attire with a suntiang headpiece symbolizing honor, responsibility, and beauty.</p>
+        </article>
+        <article class="sb-card">
+          <div class="sb-tag">Craft</div>
+          <h4>Songket Pandai Sikek</h4>
+          <p>A high-quality traditional weaving center using gold-threaded songket, reflecting patience and cultural values.</p>
+        </article>
+        <article class="sb-card">
+          <div class="sb-tag">Craft</div>
+          <h4>Sulaman Minangkabau</h4>
+          <p>Intricate embroidery with refined craftsmanship, often used in traditional attire and souvenirs.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sb-section">
+    <div class="sb-container">
+      <div class="sb-section-head">
+        <div>
+          <div class="sb-chip">West Sumatra Nature</div>
+          <h2>Panoramas and Landscapes</h2>
+        </div>
+      </div>
+      <div class="sb-grid">
+        <article class="sb-card">
+          <div class="sb-tag">Nature</div>
+          <h4>Lembah Harau</h4>
+          <p>Towering granite cliffs, natural waterfalls, and a calming green landscape.</p>
+        </article>
+        <article class="sb-card">
+          <div class="sb-tag">Lake</div>
+          <h4>Danau Singkarak</h4>
+          <p>The second-largest lake in Sumatra, known as the habitat of endemic bilih fish.</p>
+        </article>
+        <article class="sb-card">
+          <div class="sb-tag">Panorama</div>
+          <h4>Panorama Baru</h4>
+          <p>Elevated views of Bukittinggi and its refreshing highland air.</p>
+        </article>
+        <article class="sb-card">
+          <div class="sb-tag">Beach</div>
+          <h4>Pantai Air Manis (Legenda Malin Kundang)</h4>
+          <p>A beach tied to the Malin Kundang legend, complete with the iconic folklore stone.</p>
+        </article>
+        <article class="sb-card">
+          <div class="sb-tag">Beach</div>
+          <h4>Pantai Padang</h4>
+          <p>A beach near the city center, perfect for sunsets and local culinary treats.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sb-section">
+    <div class="sb-container">
+      <div class="sb-section-head">
+        <div>
+          <div class="sb-chip">City Icons</div>
+          <h2>Landmarks and Activities</h2>
+        </div>
+      </div>
+      <div class="sb-grid">
+        <article class="sb-card">
+          <div class="sb-tag">Landmark</div>
+          <h4>Jam Gadang</h4>
+          <p>The main icon of Bukittinggi with high historical value and a lively tourism hub.</p>
+        </article>
+        <article class="sb-card">
+          <div class="sb-tag">Shopping</div>
+          <h4>Pasar Atas Bukittinggi</h4>
+          <p>A bustling market for Minang souvenirs and crafts with a lively local vibe.</p>
+        </article>
+        <article class="sb-card">
+          <div class="sb-tag">Legend</div>
+          <h4>Jembatan Siti Nurbaya</h4>
+          <p>A historic bridge in Padang tied to the Siti Nurbaya legend with views of the Batang Arau River.</p>
+        </article>
+        <article class="sb-card">
+          <div class="sb-tag">Religious</div>
+          <h4>Masjid Raya Syekh Khatib Al Minangkabawi</h4>
+          <p>A grand mosque with a Rumah Gadang roof design, a religious icon and pride of West Sumatra.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sb-section">
+    <div class="sb-container">
+      <div class="sb-section-head">
+        <div>
+          <div class="sb-chip">Cuisine and Souvenirs</div>
+          <h2>Signature Minang Flavors</h2>
+        </div>
+      </div>
+      <div class="sb-grid">
+        <article class="sb-card">
+          <div class="sb-tag">Cuisine</div>
+          <h4>Restoran Padang - Menu Khas Minangkabau</h4>
+          <p>Rendang, gulai, dendeng, and Minang sambal served with a unique spread worth trying.</p>
+        </article>
+        <article class="sb-card">
+          <div class="sb-tag">Souvenir</div>
+          <h4>Kerupuk Sanjai</h4>
+          <p>Crispy cassava crackers with flavors from original to sweet-spicy balado.</p>
+        </article>
+      </div>
+
+      <div class="sb-banner">
+        <strong>Need a custom West Sumatra route?</strong>
+        <a href="index.html#paket">See Tour Packages</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="rs-footer" aria-label="Footer">
+    <div class="rs-container">
+      <div class="rs-footer-grid">
+        <div class="rs-footer-brand">
+          <div class="rs-footer-logo">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/01/logo-RAUN-SUMATRA-768x132-removebg-preview.png" alt="Raun Sumatra Tour & Travel">
+          </div>
+          <p class="rs-footer-desc">
+            Crafted journeys across Sumatra with local experts, flexible itineraries, and attentive support.
+          </p>
+        </div>
+
+        <div>
+          <div class="rs-footer-title">Quick Links</div>
+          <ul class="rs-footer-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#paket">Packages</a></li>
+            <li><a href="wisata-sumbar.html">West Sumatra Travel</a></li>
+            <li><a href="index.html#destinasi">Destinations</a></li>
+            <li><a href="index.html#tentang">About</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#kontak">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="rs-footer-title">Contact</div>
+          <div class="rs-footer-contact">
+            <div>Jl. Ahmad Yani No.99 Bukittinggi, West Sumatra - Indonesia</div>
+            <div>+62 811 6602 898</div>
+            <div>raunsumatra@yahoo.com</div>
+          </div>
+          <div class="rs-footer-socials" aria-label="Social media">
+            <a href="https://www.facebook.com/raun.sumatra/" target="_blank" rel="noopener" aria-label="Raun Sumatra on Facebook">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.tiktok.com/@raun.sumatra" target="_blank" rel="noopener" aria-label="Raun Sumatra on TikTok">
+              <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/raun_sumatra" target="_blank" rel="noopener" aria-label="Raun Sumatra on Instagram">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rs-footer-bottom">
+        <div>© Raun Sumatra Tour & Travel. All rights reserved.</div>
+        <div>Licensed tour operator in Sumatra.</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
