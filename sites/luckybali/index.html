@@ -1,4 +1,5 @@
 <!-- Start Navbar & Hero Section -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- LBT FULLBLEED HEADER + HERO (ELEMENTOR SAFE + FIXED TRANSPARENT -> WHITE ON SCROLL) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -324,7 +325,7 @@
   <header class="lbt-navbar" id="lbtNavbar">
     <div class="lbt-nav-inner">
       <div class="lbt-brand">
-        <img src="https://everz-digital.site/wp-content/uploads/2025/12/20251215_2124_Logo_Bali_Travel_remix_01kch69xe4f59sc5j88k7mw7ma-removebg-preview.png" alt="Lucky Bali Tour and Travel">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/01/8c13cb37-96d0-4b18-a834-f56b01a3b125-removebg-preview.png" alt="Lucky Bali Tour and Travel">
       </div>
 
       <ul class="lbt-menu">
@@ -1610,6 +1611,62 @@
     font-size:13px;
     line-height:1.5;
   }
+  .lbt-pay-box{
+    margin-top:10px;
+    background:rgba(15,23,42,.04);
+    border:1px solid rgba(15,23,42,.10);
+    border-radius:14px;
+    padding:10px 12px;
+    width:100%;
+    max-width:none;
+    display:grid;
+    gap:8px;
+    align-items:center;
+    box-sizing:border-box;
+  }
+  .lbt-pay-title{
+    font-weight:800;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--dark);
+  }
+  .lbt-pay-note{
+    margin:0;
+    font-size:12px;
+    color:rgba(15,23,42,.75);
+  }
+  .lbt-pay-options{
+    display:grid;
+    gap:8px;
+    width:100%;
+  }
+  .lbt-pay-option{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 10px;
+    border-radius:12px;
+    border:1px solid rgba(15,23,42,.12);
+    background:#fff;
+    font-size:13px;
+    font-weight:800;
+    color:var(--dark);
+    cursor:pointer;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+  .lbt-pay-option input{
+    accent-color:var(--brand);
+  }
+  .lbt-pay-option span{
+    line-height:1.2;
+  }
+  .lbt-pay-number{
+    font-size:13px;
+    letter-spacing:.04em;
+  }
   .lbt-sheet-close{
     border:0;
     background:rgba(15,23,42,.06);
@@ -2065,6 +2122,23 @@
         </div>
 
         <div class="lbt-field full">
+          <div class="lbt-pay-box" aria-label="Payment Info">
+            <div class="lbt-pay-title" data-i18n="pay.method.title">Metode Pembayaran</div>
+            <p class="lbt-pay-note" data-i18n="pay.dp">Setiap booking wajib DP minimal 50%.</p>
+            <div class="lbt-pay-options">
+              <label class="lbt-pay-option">
+                <input type="radio" name="payment_method" value="transfer" checked>
+                <span data-i18n="pay.method.transfer">Transfer</span>
+              </label>
+              <label class="lbt-pay-option">
+                <input type="radio" name="payment_method" value="qris">
+                <span data-i18n="pay.method.qris">QRIS</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="lbt-field full">
           <label class="lbt-label" for="lbtSocial" data-i18n="wa.label.social">IG/FB/Email</label>
           <input class="lbt-input" id="lbtSocial" name="social" type="text" placeholder="@ig / fb / email" data-i18n-placeholder="wa.placeholder.social">
         </div>
@@ -2120,6 +2194,13 @@
 
       "fleet.form.title": "Booking via WhatsApp",
       "fleet.form.subtitle": "Isi cepat dulu, nanti otomatis terbuka WhatsApp dengan format pesan rapi.",
+      "pay.title": "Payment Info",
+      "pay.method.title": "Metode Pembayaran",
+      "pay.method.transfer": "Transfer",
+      "pay.method.qris": "QRIS",
+      "pay.dp": "Setiap booking wajib DP minimal 50%.",
+      "pay.bank": "Bank Mandiri a/n Lukmanul Hakim",
+      "pay.qr": "QRIS BCA",
       "fleet.form.name": "Nama",
       "fleet.form.phone": "Nomor HP",
       "fleet.form.date": "Tanggal Booking",
@@ -2146,6 +2227,8 @@
       "wa.label.checkin": "Tanggal Check-in",
       "wa.label.checkout": "Tanggal Check-out",
       "wa.label.confirm": "Konfirmasi",
+      "wa.label.payment": "Metode Pembayaran",
+      "wa.label.payment_info": "Info Pembayaran",
       "wa.label.phone": "No. HP",
       "wa.label.social": "IG/FB/Email",
       "wa.label.price": "Harga",
@@ -2212,6 +2295,13 @@
 
       "fleet.form.title": "Booking via WhatsApp",
       "fleet.form.subtitle": "Fill this quickly—WhatsApp will open with a neatly formatted message.",
+      "pay.title": "Payment Info",
+      "pay.method.title": "Payment Method",
+      "pay.method.transfer": "Transfer",
+      "pay.method.qris": "QRIS",
+      "pay.dp": "Every booking requires at least a 50% deposit.",
+      "pay.bank": "Bank Mandiri a/n Lukmanul Hakim",
+      "pay.qr": "QRIS BCA",
       "fleet.form.name": "Name",
       "fleet.form.phone": "Phone number",
       "fleet.form.date": "Booking date",
@@ -2238,6 +2328,8 @@
       "wa.label.checkin": "Check-in date",
       "wa.label.checkout": "Check-out date",
       "wa.label.confirm": "Confirm",
+      "wa.label.payment": "Payment Method",
+      "wa.label.payment_info": "Payment Info",
       "wa.label.phone": "Phone",
       "wa.label.social": "IG/FB/Email",
       "wa.label.price": "Price",
@@ -2558,6 +2650,7 @@
     const price = (document.getElementById('lbtPrice').value || '').trim();
     const social = (document.getElementById('lbtSocial').value || '').trim();
     const notes = (document.getElementById('lbtNotes').value || '').trim();
+    const payment = (form.querySelector('input[name="payment_method"]:checked') || {}).value || 'transfer';
     const subActivities = Array.from(document.querySelectorAll('#lbtSubActivityList input[type="checkbox"]:checked'))
       .map(input => (input.value || '').trim())
       .filter(Boolean);
@@ -2585,6 +2678,11 @@
 
     const confirmLabel = confirm === 'yes' ? t('wa.confirm.yes') : (confirm === 'no' ? t('wa.confirm.no') : '-');
     const voucher = voucherCode(currentKind, date, phone);
+    const qrisUrl = 'https://luckybalitourandtravel.com/wp-content/uploads/2026/01/3719159e-3b70-4d03-9d4b-c3a22796bec1.jpeg';
+    const paymentLabel = payment === 'qris' ? t('pay.method.qris') : t('pay.method.transfer');
+    const paymentInfo = payment === 'qris'
+      ? `QRIS: ${qrisUrl}`
+      : 'Bank Mandiri a/n Lukmanul Hakim - 1450 0121 07559';
 
     const lines = [
       t('wa.header'),
@@ -2600,6 +2698,8 @@
       `${t('wa.label.checkin')}: ${pick(formatDateDisplay(checkin))}`,
       `${t('wa.label.checkout')}: ${pick(formatDateDisplay(checkout))}`,
       `${t('wa.label.confirm')}: ${confirmLabel}`,
+      `${t('wa.label.payment')}: ${paymentLabel}`,
+      `${t('wa.label.payment_info')}: ${paymentInfo}`,
       `${t('wa.label.phone')}: ${pick(phone)}`,
       `${t('wa.label.price')}: ${pick(price)}`,
       `${t('wa.label.social')}: ${pick(social)}`,
@@ -3659,6 +3759,23 @@
             <label class="lbt-label" for="lbtTDuration" data-i18n="tour.form.duration">Duration</label>
             <input class="lbt-input" id="lbtTDuration" name="duration" type="text" placeholder="1 hari / 10 jam" data-i18n-placeholder="tour.form.placeholder.duration" required>
           </div>
+
+          <div class="lbt-field full">
+            <div class="lbt-pay-box" aria-label="Payment Info">
+              <div class="lbt-pay-title" data-i18n="pay.method.title">Metode Pembayaran</div>
+              <p class="lbt-pay-note" data-i18n="pay.dp">Setiap booking wajib DP minimal 50%.</p>
+              <div class="lbt-pay-options">
+                <label class="lbt-pay-option">
+                  <input type="radio" name="payment_method" value="transfer" checked>
+                  <span data-i18n="pay.method.transfer">Transfer</span>
+                </label>
+                <label class="lbt-pay-option">
+                  <input type="radio" name="payment_method" value="qris">
+                  <span data-i18n="pay.method.qris">QRIS</span>
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -4247,8 +4364,19 @@
     const pkg = (document.getElementById('lbtTPackage').value || '').trim();
     const start = (document.getElementById('lbtTStart').value || '').trim();
     const duration = (document.getElementById('lbtTDuration').value || '').trim();
+    const payment = (form.querySelector('input[name="payment_method"]:checked') || {}).value || 'transfer';
 
     if(!name || !phone || !pax || !pkg || !start || !duration) return;
+
+    const qrisUrl = 'https://luckybalitourandtravel.com/wp-content/uploads/2026/01/3719159e-3b70-4d03-9d4b-c3a22796bec1.jpeg';
+    const paymentLabelID = payment === 'qris' ? 'QRIS' : 'Transfer';
+    const paymentInfoID = payment === 'qris'
+      ? `QRIS: ${qrisUrl}`
+      : 'Bank Mandiri a/n Lukmanul Hakim - 1450 0121 07559';
+    const paymentLabelEN = payment === 'qris' ? 'QRIS' : 'Transfer';
+    const paymentInfoEN = payment === 'qris'
+      ? `QRIS: ${qrisUrl}`
+      : 'Bank Mandiri a/n Lukmanul Hakim - 1450 0121 07559';
 
     const msgID =
 `Halo Lucky Bali Tour & Travel 👋
@@ -4259,6 +4387,8 @@ No. HP: ${phone}
 Pax: ${pax}
 Tanggal mulai: ${start}
 Durasi: ${duration}
+Metode pembayaran: ${paymentLabelID}
+Info pembayaran: ${paymentInfoID}
 
 Terima kasih!`;
 
@@ -4271,6 +4401,8 @@ Phone: ${phone}
 Pax: ${pax}
 Start date: ${start}
 Duration: ${duration}
+Payment method: ${paymentLabelEN}
+Payment info: ${paymentInfoEN}
 
 Thank you!`;
 
@@ -5307,7 +5439,7 @@ Thank you!`;
 
 
           <figure class="lbt-gal-card">
-            <img src="https://everz-digital.site/wp-content/uploads/2025/12/20251215_2124_Logo_Bali_Travel_remix_01kch69xe4f59sc5j88k7mw7ma-removebg-preview.png" alt="Lucky Bali Tour and Travel">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/01/8c13cb37-96d0-4b18-a834-f56b01a3b125-removebg-preview.png" alt="Lucky Bali Tour and Travel">
             <div class="lbt-gal-overlay"></div>
           </figure>
 
@@ -5846,6 +5978,167 @@ Thank you!`;
 
 <!-- End Of Gallery Section -->
 
+<style>
+  /* =========================
+     PAYMENT INFO SECTION
+     ========================= */
+  .lbt-payment-section{
+    padding:58px 0 48px;
+    background:#fff;
+  }
+  .lbt-payment-wrap{
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:0 16px;
+  }
+  .lbt-payment-head{
+    text-align:center;
+    margin:0 0 18px;
+  }
+  .lbt-payment-head h2{
+    margin:0 0 6px;
+    font-size:clamp(24px, 2.6vw, 34px);
+    font-weight:950;
+    letter-spacing:-.02em;
+    color:var(--dark);
+  }
+  .lbt-payment-head p{
+    margin:0 auto;
+    max-width:560px;
+    color:rgba(15,23,42,.75);
+    font-size:15px;
+    line-height:1.7;
+    font-weight:600;
+  }
+  .lbt-pay-tabs{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin:16px 0 18px;
+    flex-wrap:wrap;
+  }
+  .lbt-pay-tab{
+    border:1px solid rgba(15,23,42,.15);
+    background:#fff;
+    color:var(--dark);
+    padding:10px 16px;
+    border-radius:999px;
+    font-weight:900;
+    font-size:13px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  }
+  .lbt-pay-tab.active{
+    background:rgba(225,39,38,.1);
+    border-color:rgba(225,39,38,.45);
+    color:#b91c1c;
+  }
+  .lbt-pay-card{
+    max-width:720px;
+    margin:0 auto;
+    background:#fff;
+    border:1px solid rgba(15,23,42,.12);
+    border-radius:18px;
+    box-shadow:0 18px 40px rgba(15,23,42,.10);
+    padding:18px;
+  }
+  .lbt-pay-panel{
+    display:none;
+  }
+  .lbt-pay-panel.active{
+    display:block;
+  }
+  .lbt-pay-bank{
+    display:grid;
+    gap:6px;
+    text-align:center;
+    font-weight:800;
+    color:var(--dark);
+  }
+  .lbt-pay-number{
+    font-size:18px;
+    letter-spacing:.05em;
+  }
+  .lbt-pay-qr{
+    display:grid;
+    justify-items:center;
+    gap:10px;
+  }
+  .lbt-pay-qr img{
+    display:block;
+    margin:0 auto;
+    width:min(280px, 70vw);
+    height:auto;
+    border-radius:12px;
+    border:1px solid rgba(15,23,42,.12);
+    background:#fff;
+    max-width:100%;
+  }
+  .lbt-pay-qr span{
+    font-size:13px;
+    color:rgba(15,23,42,.7);
+    font-weight:700;
+  }
+  @media(max-width:640px){
+    .lbt-payment-section{
+      padding:44px 0 36px;
+    }
+    .lbt-pay-card{
+      padding:14px;
+    }
+    .lbt-pay-number{
+      font-size:16px;
+    }
+  }
+</style>
+
+<section class="lbt-payment-section" id="payment" aria-label="Payment Info">
+  <div class="lbt-payment-wrap">
+    <div class="lbt-payment-head">
+      <h2>Payment Info</h2>
+      <p>Setiap booking wajib DP minimal 50%.</p>
+    </div>
+
+    <div class="lbt-pay-tabs" role="tablist" aria-label="Payment options">
+      <button class="lbt-pay-tab active" type="button" data-pay-tab="transfer">Transfer</button>
+      <button class="lbt-pay-tab" type="button" data-pay-tab="qris">QRIS</button>
+    </div>
+
+    <div class="lbt-pay-card">
+      <div class="lbt-pay-panel active" data-pay-panel="transfer">
+        <div class="lbt-pay-bank">
+          <span>Bank Mandiri a/n Lukmanul Hakim</span>
+          <span class="lbt-pay-number">1450 0121 07559</span>
+        </div>
+      </div>
+
+      <div class="lbt-pay-panel" data-pay-panel="qris">
+        <div class="lbt-pay-qr">
+          <img src="https://luckybalitourandtravel.com/wp-content/uploads/2026/01/3719159e-3b70-4d03-9d4b-c3a22796bec1.jpeg" alt="QRIS Lucky Bali Tour and Travel">
+          <span>Scan QRIS untuk bayar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const tabs = Array.from(document.querySelectorAll('[data-pay-tab]'));
+  const panels = Array.from(document.querySelectorAll('[data-pay-panel]'));
+  if(!tabs.length || !panels.length) return;
+  function setActive(key){
+    tabs.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-pay-tab') === key));
+    panels.forEach(panel => panel.classList.toggle('active', panel.getAttribute('data-pay-panel') === key));
+  }
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => setActive(btn.getAttribute('data-pay-tab')));
+  });
+})();
+</script>
+
 <!-- Start Of Contact & Footer Section -->
 <!-- Font Awesome (hapus kalau sudah ada di theme) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer"/>
@@ -5958,6 +6251,7 @@ Thank you!`;
     flex-wrap:wrap;
     gap:12px;
     margin-top:10px;
+    width:100%;
   }
   .lbt-cbtn{
     display:inline-flex;
@@ -5971,7 +6265,9 @@ Thank you!`;
     font-weight:950;
     letter-spacing:.04em;
     transition:.2s;
-    white-space:nowrap;
+    white-space:normal;
+    max-width:100%;
+    box-sizing:border-box;
   }
   .lbt-cbtn i{ font-size:14px; }
 
@@ -6069,7 +6365,6 @@ Thank you!`;
     font-size:14px;
     max-width:420px;
   }
-
   .lbt-foot-badges{
     display:flex;
     flex-wrap:wrap;
@@ -6191,6 +6486,7 @@ Thank you!`;
     display:flex;
     gap:10px;
     flex-wrap:wrap;
+    width:100%;
   }
   .lbt-foot-btn{
     display:inline-flex;
@@ -6206,6 +6502,7 @@ Thank you!`;
     color:#fff;
     background:rgba(255,255,255,.08);
     transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    max-width:100%;
   }
   .lbt-foot-btn:hover{
     transform:translateY(-2px);
@@ -6269,6 +6566,8 @@ Thank you!`;
     .lbt-cbtn{ width:100%; }
     .lbt-foot-grid{ grid-template-columns:1fr; }
     .lbt-foot-bottom .row{ justify-content:center; text-align:center; }
+    .lbt-foot-cta{ flex-direction:column; align-items:stretch; }
+    .lbt-foot-btn{ width:100%; }
   }
   
   /* FIX: footer badges overlap */
@@ -6386,11 +6685,10 @@ Thank you!`;
 
         <!-- Brand -->
         <div class="lbt-foot-brand">
-          <img src="https://everz-digital.site/wp-content/uploads/2025/12/20251215_2124_Logo_Bali_Travel_remix_01kch69xe4f59sc5j88k7mw7ma-removebg-preview.png" alt="Lucky Bali Tour and Travel">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/01/8c13cb37-96d0-4b18-a834-f56b01a3b125-removebg-preview.png" alt="Lucky Bali Tour and Travel">
           <p data-i18n="cf.brand.desc">
             Tour Bali, sewa mobil + driver, dan itinerary fleksibel. Kami bantu kamu nikmati Bali tanpa ribet — aman, nyaman, dan fast response.
           </p>
-
           
         </div>
 
@@ -6417,15 +6715,6 @@ Thank you!`;
             <li><a href="#contact"><span class="lbt-link-ico"><i class="fa-solid fa-plane-arrival"></i></span><span data-i18n="cf.services.s4">Airport Pickup</span></a></li>
           </ul>
 
-          <div class="lbt-foot-cta">
-            <a class="lbt-foot-btn primary" href="https://wa.me/628174745473?text=Halo%20Lucky%20Bali%20Tour%20and%20Travel" target="_blank" rel="noopener"
-               data-wa-form data-book-kind="TRP" data-activity-key="wa.activity.general" data-wa="628174745473">
-              <i class="fa-brands fa-whatsapp"></i> <span data-i18n="cf.footer.wa">WhatsApp</span>
-            </a>
-            <a class="lbt-foot-btn" href="#paket-wisata">
-              <i class="fa-solid fa-list-check"></i> <span data-i18n="cf.footer.see">See Packages</span>
-            </a>
-          </div>
         </div>
 
         <!-- Contact -->
