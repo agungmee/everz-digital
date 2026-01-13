@@ -515,17 +515,16 @@
 
       .service-card {
         background: var(--white);
-        border-radius: 16px;
         box-shadow: var(--shadow);
-        overflow: hidden;
         display: flex;
         flex-direction: column;
       }
 
       .service-card__image {
         width: 100%;
-        height: 170px;
-        object-fit: cover;
+        height: auto;
+        object-fit: contain;
+        background: #ffffff;
       }
 
       .service-card__body {
@@ -558,14 +557,15 @@
       .service-card__cta {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         gap: 8px;
-        background: var(--red-600);
+        background: #111111;
         color: var(--white);
         padding: 8px 16px;
-        border-radius: 999px;
+        border-radius: 0;
         font-weight: 700;
         font-size: 0.9rem;
-        width: fit-content;
+        width: 100%;
       }
 
       .service-card__meta {
@@ -575,6 +575,103 @@
         color: var(--red-600);
         font-weight: 700;
         font-size: 0.9rem;
+      }
+
+      .service-list {
+        padding: 0 0 50px;
+      }
+
+      .service-list__box {
+        max-width: 420px;
+        background: #2f2f2f;
+        color: #f3f3f3;
+        box-shadow: var(--shadow);
+      }
+
+      .service-list__header {
+        background: var(--red-600);
+        color: var(--white);
+        font-weight: 800;
+        text-align: center;
+        padding: 12px 16px;
+      }
+
+      .service-list__items {
+        list-style: none;
+      }
+
+      .service-list__item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        background: #3b3b3b;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        font-weight: 600;
+      }
+
+      .service-list__item:nth-child(even) {
+        background: #464646;
+      }
+
+      .service-list__icon {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--red-600);
+        display: grid;
+        place-items: center;
+        color: var(--white);
+        font-size: 12px;
+        flex-shrink: 0;
+      }
+
+      .documentation {
+        padding: 0 0 60px;
+      }
+
+      .doc-slider {
+        position: relative;
+        overflow: hidden;
+        background: #ffffff;
+        box-shadow: var(--shadow);
+      }
+
+      .doc-track {
+        display: flex;
+        transition: transform 0.6s ease;
+        will-change: transform;
+      }
+
+      .doc-slide {
+        min-width: 100%;
+      }
+
+      .doc-slide img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+      }
+
+      .doc-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.6);
+        color: #ffffff;
+        border: none;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 2;
+      }
+
+      .doc-nav--prev {
+        left: 10px;
+      }
+
+      .doc-nav--next {
+        right: 10px;
       }
 
       .testimonials {
@@ -831,7 +928,7 @@
         }
 
         .service-card__image {
-          height: 190px;
+          height: auto;
         }
 
         .testimonials-grid {
@@ -840,6 +937,10 @@
 
         .footer-grid {
           grid-template-columns: 1fr;
+        }
+
+        .doc-slide img {
+          height: 260px;
         }
       }
     </style>
@@ -1107,7 +1208,7 @@
           <article class="service-card">
             <img
               class="service-card__image"
-              src="https://everz-digital.site/wp-content/uploads/2026/01/ChatGPT-Image-10-Jan-2026-09.33.39.png"
+              src="https://everz-digital.site/wp-content/uploads/2026/01/ChatGPT-Image-9-Jan-2026-07.49.07.png"
               alt="Ambulans pasien 24 jam"
             />
             <div class="service-card__body">
@@ -1117,8 +1218,13 @@
                 <li>Pasien kontrol, rujukan, dan perawatan lanjutan</li>
                 <li>Didampingi petugas berpengalaman & peralatan medis standar</li>
               </ul>
-              <a class="service-card__cta" href="tel:081523834461">
-                Hubungi Kami <i class="fa-solid fa-phone"></i>
+              <a
+                class="service-card__cta"
+                href="https://wa.me/6281523834461"
+                target="_blank"
+                rel="noopener"
+              >
+                Hubungi Kami <i class="fa-brands fa-whatsapp"></i>
               </a>
             </div>
           </article>
@@ -1137,8 +1243,13 @@
                 <li>Dari RS kembali ke rumah</li>
                 <li>Aman, nyaman, dan tepat waktu</li>
               </ul>
-              <a class="service-card__cta" href="tel:081523834461">
-                Hubungi Kami <i class="fa-solid fa-phone"></i>
+              <a
+                class="service-card__cta"
+                href="https://wa.me/6281523834461"
+                target="_blank"
+                rel="noopener"
+              >
+                Hubungi Kami <i class="fa-brands fa-whatsapp"></i>
               </a>
             </div>
           </article>
@@ -1158,15 +1269,20 @@
                 <li>Didukung tim medis profesional (driver & medis terlatih)</li>
                 <li>Kesiapsiagaan penuh selama acara berlangsung</li>
               </ul>
-              <a class="service-card__cta" href="tel:081523834461">
-                Hubungi Kami <i class="fa-solid fa-phone"></i>
+              <a
+                class="service-card__cta"
+                href="https://wa.me/6281523834461"
+                target="_blank"
+                rel="noopener"
+              >
+                Hubungi Kami <i class="fa-brands fa-whatsapp"></i>
               </a>
             </div>
           </article>
           <article class="service-card">
             <img
               class="service-card__image"
-              src="https://everz-digital.site/wp-content/uploads/2026/01/ChatGPT-Image-9-Jan-2026-07.49.07.png"
+              src="https://everz-digital.site/wp-content/uploads/2026/01/ChatGPT-Image-10-Jan-2026-09.33.39.png"
               alt="Ambulans antar kota"
             />
             <div class="service-card__body">
@@ -1177,11 +1293,147 @@
                 <li>Layanan Door to Door</li>
                 <li>Penanganan dengan sopan, aman, dan sesuai prosedur</li>
               </ul>
-              <a class="service-card__cta" href="tel:081523834461">
-                Hubungi Kami <i class="fa-solid fa-phone"></i>
+              <a
+                class="service-card__cta"
+                href="https://wa.me/6281523834461"
+                target="_blank"
+                rel="noopener"
+              >
+                Hubungi Kami <i class="fa-brands fa-whatsapp"></i>
               </a>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+    <section class="service-list">
+      <div class="container">
+        <div class="service-list__box">
+          <div class="service-list__header">Layanan Ambulance 24 Jam</div>
+          <ul class="service-list__items">
+            <li class="service-list__item">
+              <span class="service-list__icon">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+              Ambulance Pasien
+            </li>
+            <li class="service-list__item">
+              <span class="service-list__icon">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+              Ambulance Jenazah
+            </li>
+            <li class="service-list__item">
+              <span class="service-list__icon">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+              Ambulance VIP / VVIP
+            </li>
+            <li class="service-list__item">
+              <span class="service-list__icon">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+              Ambulance Mini ICU / HCU
+            </li>
+            <li class="service-list__item">
+              <span class="service-list__icon">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+              Cargo Jenazah
+            </li>
+            <li class="service-list__item">
+              <span class="service-list__icon">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+              Peti Jenazah
+            </li>
+            <li class="service-list__item">
+              <span class="service-list__icon">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+              Standby Event
+            </li>
+            <li class="service-list__item">
+              <span class="service-list__icon">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+              Homecare
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="documentation">
+      <div class="container">
+        <h2 class="section-title">
+          Dokumentasi <span>Kami</span>
+        </h2>
+        <div class="doc-slider" aria-label="Dokumentasi layanan">
+          <button class="doc-nav doc-nav--prev" type="button" aria-label="Sebelumnya">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <div class="doc-track" id="docTrack">
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1001912310.jpg" alt="Dokumentasi layanan 1" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1002584390.jpg" alt="Dokumentasi layanan 2" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1001943161.jpg" alt="Dokumentasi layanan 3" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1002584393.jpg" alt="Dokumentasi layanan 4" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1001957472.jpg" alt="Dokumentasi layanan 5" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1001957463.jpg" alt="Dokumentasi layanan 6" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1002584386.jpg" alt="Dokumentasi layanan 7" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1002584388.jpg" alt="Dokumentasi layanan 8" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1002584396.jpg" alt="Dokumentasi layanan 9" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1002584394.jpg" alt="Dokumentasi layanan 10" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1001970704.jpg" alt="Dokumentasi layanan 11" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1002171713.jpg" alt="Dokumentasi layanan 12" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1001971689.jpg" alt="Dokumentasi layanan 13" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1002012820.jpg" alt="Dokumentasi layanan 14" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1002171712.jpg" alt="Dokumentasi layanan 15" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1002212938.jpg" alt="Dokumentasi layanan 16" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1002387978.jpg" alt="Dokumentasi layanan 17" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1002584395.jpg" alt="Dokumentasi layanan 18" />
+            </div>
+            <div class="doc-slide">
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/1002127356.jpg" alt="Dokumentasi layanan 19" />
+            </div>
+          </div>
+          <button class="doc-nav doc-nav--next" type="button" aria-label="Berikutnya">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
       </div>
     </section>
@@ -1359,6 +1611,50 @@
             panel.classList.toggle("is-active", panel.dataset.panel === target);
           });
         });
+      });
+
+      const docTrack = document.getElementById("docTrack");
+      const docSlides = docTrack ? Array.from(docTrack.children) : [];
+      const docPrev = document.querySelector(".doc-nav--prev");
+      const docNext = document.querySelector(".doc-nav--next");
+      let docIndex = 0;
+
+      const updateDoc = () => {
+        if (!docTrack) return;
+        docTrack.style.transform = `translateX(-${docIndex * 100}%)`;
+      };
+
+      const goNext = () => {
+        if (!docSlides.length) return;
+        docIndex = (docIndex + 1) % docSlides.length;
+        updateDoc();
+      };
+
+      const goPrev = () => {
+        if (!docSlides.length) return;
+        docIndex = (docIndex - 1 + docSlides.length) % docSlides.length;
+        updateDoc();
+      };
+
+      docNext?.addEventListener("click", goNext);
+      docPrev?.addEventListener("click", goPrev);
+
+      let startX = 0;
+      let isDragging = false;
+
+      docTrack?.addEventListener("touchstart", (event) => {
+        startX = event.touches[0].clientX;
+        isDragging = true;
+      });
+
+      docTrack?.addEventListener("touchend", (event) => {
+        if (!isDragging) return;
+        const endX = event.changedTouches[0].clientX;
+        const diff = endX - startX;
+        if (Math.abs(diff) > 40) {
+          diff < 0 ? goNext() : goPrev();
+        }
+        isDragging = false;
       });
 
       const handleHeader = () => {
