@@ -145,6 +145,116 @@
         flex-direction: column;
       }
     }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 6, 8, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 50;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal {
+      width: min(960px, 100%);
+      max-height: 90vh;
+      background: #0d1116;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(11, 12, 14, 0.95);
+      gap: 16px;
+    }
+
+    .modal-title {
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--sand);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .modal-tabs {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .modal-tab {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--sand);
+      padding: 6px 14px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .modal-tab.active {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+    }
+
+    .modal-body {
+      padding: 22px;
+      overflow-y: auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .modal-section {
+      display: none;
+    }
+
+    .modal-section.active {
+      display: block;
+    }
+
+    .modal-section h4 {
+      font-size: 16px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .modal-section p,
+    .modal-section li {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .modal-list {
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .detail-trigger {
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -163,11 +273,150 @@
         <div class="tour-subtitle">Discover the island sharing adventures with other travellers!</div>
         <p class="tour-desc">Explore some of the Sumba island's most beautiful attractions at an affordable price as the trip is shared with other travelers of the same interest. Who knows, you'll get new friends or networks!</p>
         <div class="tour-actions">
-          <a class="btn btn-secondary" href="#">Detail</a>
+          <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="open-4d3n">Detail</button>
           <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
         </div>
       </div>
     </article>
   </section>
+
+  <div class="modal-backdrop" data-modal="open-4d3n" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-open-4d3n">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modal-title-open-4d3n">Open Trip to Sumba Island (4D/3N)</div>
+          <div class="modal-tabs" role="tablist" aria-label="Tour details tabs">
+            <button class="modal-tab active" type="button" data-tab="itinerary">Itinerary</button>
+            <button class="modal-tab" type="button" data-tab="tnc">T&amp;C</button>
+          </div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section active" data-section="itinerary">
+          <h4>Day 1: Arrival, villages, and coastal highlights</h4>
+          <p>Arrive at Tambolaka (TMC) Airport and meet your driver and guide. After lunch, visit Ratenggaro Village to see the iconic high-roofed houses and learn about traditional life. Continue to Weekuri Lake for a swim or relaxing dip, then explore the rocks and reef with ocean views. End the day at Mandorak Beach, framed by dramatic rock ridges and clear water.</p>
+          <p>Meals: Lunch</p>
+          <p>Accommodation: Ella Hotel (Deluxe Room)</p>
+
+          <h4>Day 2: Market, villages, waterfall, and sunset hill</h4>
+          <p>After breakfast, check out and head to West Sumba. Stop at a local market to meet residents and see local products. Continue to Praijing Village, a hilltop traditional village surrounded by greenery. Lunch at a local restaurant, then visit Lapopu Waterfall for a short hike and bamboo bridge crossing to the natural pool.</p>
+          <p>Later, travel toward East Sumba and stop at Wairinding Hill for sunset views before checking in.</p>
+          <p>Meals: Breakfast, Lunch Box</p>
+          <p>Accommodation: Padadita Hotel (Superior Room)</p>
+
+          <h4>Day 3: Savannah, waterfalls, and Walakiri sunset</h4>
+          <p>After breakfast, explore East Sumba's savannahs and waterfalls. Stop at Puru Kambera Savannah to see the open landscape and roaming horses and cattle. Continue to Tanggedu Waterfall with a trek that includes flat paths and stair climbs. Afterward, relax at Walakiri Beach and enjoy the sunset.</p>
+          <p>Lunch is served at a local restaurant.</p>
+          <p>Meals: Breakfast, Lunch</p>
+          <p>Accommodation: Padadita Beach Hotel (Superior Room)</p>
+
+          <h4>Day 4: Ikat Tenun village and departure</h4>
+          <p>After breakfast and check-out, visit an Ikat Tenun weaving village. Try on traditional Sumbanese attire and take a family photo. Transfer to WGP Airport (Waingapu) for your flight home. End of trip.</p>
+          <p>Meals: Breakfast</p>
+        </div>
+
+        <div class="modal-section" data-section="tnc">
+          <h4>Start and finish point</h4>
+          <p>Start: TMC Airport (Tambolaka), ETA 10.00-12.15 | Finish: WGP Airport (Waingapu), ETD 12.30-16.00</p>
+
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Transfers as per itinerary</li>
+            <li>1 night accommodation in South West Sumba</li>
+            <li>2 nights accommodation in East Sumba</li>
+            <li>AC land transportation</li>
+            <li>Visits with English-speaking driver guide</li>
+            <li>Meals as per itinerary</li>
+            <li>All entrance fees and donations</li>
+            <li>Mineral water with a free tumbler</li>
+          </ul>
+
+          <h4>Not included</h4>
+          <ul class="modal-list">
+            <li>Flight tickets</li>
+            <li>Travel insurance</li>
+            <li>Soft drink, juice, and alcohol</li>
+            <li>Personal expenses such as tips to guide and/or driver, laundry, telephone calls, and alcoholic beverages</li>
+            <li>Extra costs due to causes beyond our control, such as delays or flight cancellations</li>
+            <li>Anything not mentioned in the Included section</li>
+          </ul>
+
+          <h4>FAQs</h4>
+          <p>Planning a trip to Sumba Island? Visit our Sumba Island Travel Information (FAQs) page for details on transportation, accommodations, local customs, and other practical tips. This will help you plan with confidence and prepare for an unforgettable journey.</p>
+
+          <h4>Terms and conditions</h4>
+          <p>Please review our Terms and Conditions before booking. These outline the expectations and responsibilities of both parties and help ensure a smooth travel experience. Thank you for choosing Explore Sumba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modalBackdrops = Array.from(document.querySelectorAll('[data-modal]'));
+    const modalOpeners = Array.from(document.querySelectorAll('[data-modal-open]'));
+    let activeModal = null;
+
+    const setActiveTab = (modal, tabName) => {
+      if (!modal) return;
+      const tabButtons = modal.querySelectorAll('.modal-tab');
+      const tabSections = modal.querySelectorAll('.modal-section');
+
+      tabButtons.forEach((tab) => {
+        tab.classList.toggle('active', tab.dataset.tab === tabName);
+      });
+      tabSections.forEach((section) => {
+        section.classList.toggle('active', section.dataset.section === tabName);
+      });
+    };
+
+    const openModal = (modalId) => {
+      const modal = modalBackdrops.find((item) => item.dataset.modal === modalId);
+      if (!modal) return;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      setActiveTab(modal, 'itinerary');
+      activeModal = modal;
+    };
+
+    const closeModal = () => {
+      if (!activeModal) return;
+      activeModal.classList.remove('active');
+      activeModal.setAttribute('aria-hidden', 'true');
+      activeModal = null;
+    };
+
+    modalOpeners.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        openModal(button.dataset.modalOpen);
+      });
+    });
+
+    modalBackdrops.forEach((modal) => {
+      const closeButton = modal.querySelector('.modal-close');
+      if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+      }
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      modal.querySelectorAll('.modal-tab').forEach((tab) => {
+        tab.addEventListener('click', () => {
+          setActiveTab(modal, tab.dataset.tab);
+        });
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>

@@ -145,6 +145,116 @@
         flex-direction: column;
       }
     }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 6, 8, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 50;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal {
+      width: min(960px, 100%);
+      max-height: 90vh;
+      background: #0d1116;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(11, 12, 14, 0.95);
+      gap: 16px;
+    }
+
+    .modal-title {
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--sand);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .modal-tabs {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .modal-tab {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--sand);
+      padding: 6px 14px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .modal-tab.active {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+    }
+
+    .modal-body {
+      padding: 22px;
+      overflow-y: auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .modal-section {
+      display: none;
+    }
+
+    .modal-section.active {
+      display: block;
+    }
+
+    .modal-section h4 {
+      font-size: 16px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .modal-section p,
+    .modal-section li {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .modal-list {
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .detail-trigger {
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -163,7 +273,7 @@
         <div class="tour-subtitle">An unforgettable honeymoon you’ll cherish forever!</div>
         <p class="tour-desc">A romantic journey through Sumba’s most enchanting landscapes, blending cultural visits, breathtaking waterfalls, relaxing spa moments, and a private candlelit dinner by the beach, all while staying in a cozy beach-suite resort.</p>
         <div class="tour-actions">
-          <a class="btn btn-secondary" href="#">Detail</a>
+          <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="honeymoon-adventure">Detail</button>
           <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
         </div>
       </div>
@@ -176,7 +286,7 @@
         <div class="tour-subtitle">A dreamy experience you’ll remember for a lifetime!</div>
         <p class="tour-desc">A tailor-made romantic escape for couples, featuring sunset beach strolls, cultural village tours, stunning natural scenery, rejuvenating couple’s spa time, and a dreamy beachfront dinner, designed to deepen your bond in paradise.</p>
         <div class="tour-actions">
-          <a class="btn btn-secondary" href="#">Detail</a>
+          <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="honeymoon-romantic">Detail</button>
           <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
         </div>
       </div>
@@ -189,11 +299,298 @@
         <div class="tour-subtitle">Beautiful moments that will stay in your hearts forever!</div>
         <p class="tour-desc">Celebrate love with an immersive blend of cultural discoveries, scenic waterfall treks, savannah views, serene beach moments, luxurious villa stays, and intimate dinners, all set against Sumba’s breathtaking backdrop.</p>
         <div class="tour-actions">
-          <a class="btn btn-secondary" href="#">Detail</a>
+          <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="honeymoon-getaway">Detail</button>
           <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
         </div>
       </div>
     </article>
   </section>
+
+  <div class="modal-backdrop" data-modal="honeymoon-adventure" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-honeymoon-adventure">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modal-title-honeymoon-adventure">Sumba Honeymoon Adventure (4D/3N)</div>
+          <div class="modal-tabs" role="tablist" aria-label="Tour details tabs">
+            <button class="modal-tab active" type="button" data-tab="itinerary">Itinerary</button>
+            <button class="modal-tab" type="button" data-tab="tnc">T&amp;C</button>
+          </div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section active" data-section="itinerary">
+          <h4>Day 1: Arrival, culture, and cashew & coffee experience</h4>
+          <p>Arrive at Tambolaka (TMC) Airport and meet your driver and guide. After lunch, visit Rumah Budaya Sumba to learn about the island's heritage and see traditional artifacts and Marapu stone carvings.</p>
+          <p>Continue to Talasi Estate Factory to see cashew and coffee production, explore the farm, and taste cashew milk and weejewa coffee. Check in to your resort.</p>
+          <p>Meals: Lunch</p>
+          <p>Accommodation: Cap Karoso Resort - Beach Suite</p>
+
+          <h4>Day 2: Weekuri, Mandorak, Ratenggaro, and Pero sunset</h4>
+          <p>Start at Mandorak Beach for coastal views and rocky cliffs, then visit Weekuri Lake for a swim in crystal-clear saltwater. Continue to Ratenggaro Village to see the iconic high-roofed houses and coastal setting. End the day with sunset at Pero Beach.</p>
+          <p>Meals: Breakfast, Lunch Box</p>
+          <p>Accommodation: Cap Karoso Resort - Beach Suite</p>
+
+          <h4>Day 3: A day of love</h4>
+          <p>Enjoy a relaxed day at the resort, followed by a 90-minute couple's spa treatment. In the evening, savor a romantic dinner prepared by the beach.</p>
+          <p>Meals: Breakfast, Dinner</p>
+          <p>Accommodation: Cap Karoso Resort - Beach Suite</p>
+
+          <h4>Day 4: Departure</h4>
+          <p>After breakfast, check out and transfer to TMC Airport based on your flight schedule. End of trip.</p>
+          <p>Meals: Breakfast</p>
+        </div>
+
+        <div class="modal-section" data-section="tnc">
+          <h4>Start and finish point</h4>
+          <p>Start: TMC Airport (Tambolaka) | Finish: TMC Airport (Tambolaka)</p>
+
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Transfers as per itinerary</li>
+            <li>3 nights accommodation at Cap Karoso Resort with honeymoon benefits</li>
+            <li>Tropical fruit basket and fresh flowers from the farm on arrival</li>
+            <li>Sweet or savoury sundowner</li>
+            <li>30-minute relaxing massage or private yoga session</li>
+            <li>Choice of curated 2-hour land or water experience</li>
+            <li>1x 1.5-hour spa</li>
+            <li>1x romantic dinner by the beach (beverages not included)</li>
+            <li>AC land transportation</li>
+            <li>Visits with English-speaking guide</li>
+            <li>Meals as per itinerary</li>
+            <li>All entrance fees and donations</li>
+            <li>Mineral water</li>
+          </ul>
+
+          <h4>Not included</h4>
+          <ul class="modal-list">
+            <li>Flight tickets</li>
+            <li>Travel insurance</li>
+            <li>Soft drink, juice, and alcohol</li>
+            <li>Personal expenses such as tips to guide and/or driver, laundry, telephone calls, and alcoholic beverages</li>
+            <li>Extra costs due to causes beyond our control, such as delays or flight cancellations</li>
+            <li>Anything not mentioned in the Included section</li>
+          </ul>
+
+          <h4>FAQs</h4>
+          <p>Planning a trip to Sumba Island? Visit our Sumba Island Travel Information (FAQs) page for details on transportation, accommodations, local customs, and other practical tips. This will help you plan with confidence and prepare for an unforgettable journey.</p>
+
+          <h4>Terms and conditions</h4>
+          <p>Please review our Terms and Conditions before booking. These outline the expectations and responsibilities of both parties and help ensure a smooth travel experience. Thank you for choosing Explore Sumba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" data-modal="honeymoon-romantic" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-honeymoon-romantic">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modal-title-honeymoon-romantic">Romantic Sumba Adventure (4D/3N)</div>
+          <div class="modal-tabs" role="tablist" aria-label="Tour details tabs">
+            <button class="modal-tab active" type="button" data-tab="itinerary">Itinerary</button>
+            <button class="modal-tab" type="button" data-tab="tnc">T&amp;C</button>
+          </div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section active" data-section="itinerary">
+          <h4>Day 1: Arrival, culture, and sunset views</h4>
+          <p>Arrive at Tambolaka (TMC) Airport and meet your driver and guide. After lunch, visit Rumah Budaya Sumba to explore the island's cultural heritage. Continue to Talasi Estate Factory to see cashew and coffee production and taste cashew milk and weejewa coffee. Check in to your villa and enjoy sunset views.</p>
+          <p>Meals: Lunch</p>
+          <p>Accommodation: Lelewatu Resort (Royal Honeymoon Pool Villa - Ocean View)</p>
+
+          <h4>Day 2: Market, Praijing Village, and Lapopu Waterfall</h4>
+          <p>After breakfast, visit a local market and connect with residents. Continue to Praijing Village, a hilltop traditional village with panoramic views. After lunch, visit Lapopu Waterfall with a short hike and bamboo bridge crossing. Return to your villa to relax.</p>
+          <p>Meals: Breakfast, Lunch</p>
+          <p>Accommodation: Lelewatu Resort (Royal Honeymoon Pool Villa - Ocean View)</p>
+
+          <h4>Day 3: A day of love</h4>
+          <p>Enjoy leisure time in your private villa, followed by a one-hour couple's spa treatment. In the evening, enjoy a romantic dinner prepared for you in your villa or at the poolside restaurant.</p>
+          <p>Meals: Breakfast, Lunch</p>
+          <p>Accommodation: Lelewatu Resort (Royal Honeymoon Pool Villa - Ocean View)</p>
+
+          <h4>Day 4: Departure</h4>
+          <p>After breakfast, check out and transfer to TMC Airport based on your flight schedule. End of trip.</p>
+          <p>Meals: Breakfast</p>
+        </div>
+
+        <div class="modal-section" data-section="tnc">
+          <h4>Start and finish point</h4>
+          <p>Start: TMC Airport (Tambolaka) | Finish: TMC Airport (Tambolaka)</p>
+
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Transfers as per itinerary</li>
+            <li>3 nights accommodation at Lelewatu Resort Sumba</li>
+            <li>1x 1-hour spa in the villa</li>
+            <li>1x romantic dinner with a bottle of local wine</li>
+            <li>AC land transportation</li>
+            <li>Visits with English-speaking guide</li>
+            <li>Meals as per itinerary</li>
+            <li>All entrance fees and donations</li>
+            <li>Mineral water</li>
+          </ul>
+
+          <h4>Not included</h4>
+          <ul class="modal-list">
+            <li>Flight tickets</li>
+            <li>Travel insurance</li>
+            <li>Soft drink, juice, and alcohol</li>
+            <li>Personal expenses such as tips to guide and/or driver, laundry, telephone calls, and alcoholic beverages</li>
+            <li>Extra costs due to causes beyond our control, such as delays or flight cancellations</li>
+            <li>Anything not mentioned in the Included section</li>
+          </ul>
+
+          <h4>FAQs</h4>
+          <p>Planning a trip to Sumba Island? Visit our Sumba Island Travel Information (FAQs) page for details on transportation, accommodations, local customs, and other practical tips. This will help you plan with confidence and prepare for an unforgettable journey.</p>
+
+          <h4>Terms and conditions</h4>
+          <p>Please review our Terms and Conditions before booking. These outline the expectations and responsibilities of both parties and help ensure a smooth travel experience. Thank you for choosing Explore Sumba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" data-modal="honeymoon-getaway" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-honeymoon-getaway">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modal-title-honeymoon-getaway">Sumba Love Getaway (4D/3N)</div>
+          <div class="modal-tabs" role="tablist" aria-label="Tour details tabs">
+            <button class="modal-tab active" type="button" data-tab="itinerary">Itinerary</button>
+            <button class="modal-tab" type="button" data-tab="tnc">T&amp;C</button>
+          </div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section active" data-section="itinerary">
+          <h4>Day 1: Arrival in East Sumba</h4>
+          <p>Arrive at Waingapu (WGP) Airport and meet your driver and guide. Enjoy sunset at Walakiri Beach, then check in to your resort and have dinner.</p>
+          <p>Meals: Dinner</p>
+          <p>Accommodation: Kandora Luxury Villa (Deluxe Ocean View)</p>
+
+          <h4>Day 2: Ikat culture, waterfall, and savannah coast</h4>
+          <p>Visit Prailu Late King Village to explore ikat weaving traditions and megalithic tombs. Continue to Tanggedu Waterfall, then trek through savannah landscapes before ending at Puru Kambera Beach.</p>
+          <p>Lunch at a local restaurant and dinner at the resort.</p>
+          <p>Meals: Breakfast, Lunch, Dinner</p>
+          <p>Accommodation: Kandora Luxury Villa (Deluxe Ocean View)</p>
+
+          <h4>Day 3: A day of love</h4>
+          <p>Enjoy a relaxing resort day and a 90-minute couple's spa treatment. Lunch is served at the villa, followed by an intimate romantic dinner by the beach.</p>
+          <p>Meals: Breakfast, Lunch, Dinner</p>
+          <p>Accommodation: Kandora Luxury Villa (Deluxe Ocean View)</p>
+
+          <h4>Day 4: Departure</h4>
+          <p>After breakfast, check out and transfer to WGP Airport based on your flight schedule. End of trip.</p>
+          <p>Meals: Breakfast</p>
+        </div>
+
+        <div class="modal-section" data-section="tnc">
+          <h4>Start and finish point</h4>
+          <p>Start: WGP Airport (Waingapu) | Finish: WGP Airport (Waingapu)</p>
+
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Transfers as per itinerary</li>
+            <li>3 nights accommodation at Kandora Luxury Villa with honeymoon benefits</li>
+            <li>Honeymoon room arrangement and complimentary honeymoon cake</li>
+            <li>1x 1.5-hour spa</li>
+            <li>1x romantic dinner by the beach (includes a bottle of wine)</li>
+            <li>AC land transportation</li>
+            <li>Visits with English-speaking guide</li>
+            <li>Meals as per itinerary</li>
+            <li>All entrance fees and donations</li>
+            <li>Mineral water</li>
+          </ul>
+
+          <h4>Not included</h4>
+          <ul class="modal-list">
+            <li>Flight tickets</li>
+            <li>Travel insurance</li>
+            <li>Soft drink, juice, and alcohol</li>
+            <li>Personal expenses such as tips to guide and/or driver, laundry, telephone calls, and alcoholic beverages</li>
+            <li>Extra costs due to causes beyond our control, such as delays or flight cancellations</li>
+            <li>Anything not mentioned in the Included section</li>
+          </ul>
+
+          <h4>FAQs</h4>
+          <p>Planning a trip to Sumba Island? Visit our Sumba Island Travel Information (FAQs) page for details on transportation, accommodations, local customs, and other practical tips. This will help you plan with confidence and prepare for an unforgettable journey.</p>
+
+          <h4>Terms and conditions</h4>
+          <p>Please review our Terms and Conditions before booking. These outline the expectations and responsibilities of both parties and help ensure a smooth travel experience. Thank you for choosing Explore Sumba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modalBackdrops = Array.from(document.querySelectorAll('[data-modal]'));
+    const modalOpeners = Array.from(document.querySelectorAll('[data-modal-open]'));
+    let activeModal = null;
+
+    const setActiveTab = (modal, tabName) => {
+      if (!modal) return;
+      const tabButtons = modal.querySelectorAll('.modal-tab');
+      const tabSections = modal.querySelectorAll('.modal-section');
+
+      tabButtons.forEach((tab) => {
+        tab.classList.toggle('active', tab.dataset.tab === tabName);
+      });
+      tabSections.forEach((section) => {
+        section.classList.toggle('active', section.dataset.section === tabName);
+      });
+    };
+
+    const openModal = (modalId) => {
+      const modal = modalBackdrops.find((item) => item.dataset.modal === modalId);
+      if (!modal) return;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      setActiveTab(modal, 'itinerary');
+      activeModal = modal;
+    };
+
+    const closeModal = () => {
+      if (!activeModal) return;
+      activeModal.classList.remove('active');
+      activeModal.setAttribute('aria-hidden', 'true');
+      activeModal = null;
+    };
+
+    modalOpeners.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        openModal(button.dataset.modalOpen);
+      });
+    });
+
+    modalBackdrops.forEach((modal) => {
+      const closeButton = modal.querySelector('.modal-close');
+      if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+      }
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      modal.querySelectorAll('.modal-tab').forEach((tab) => {
+        tab.addEventListener('click', () => {
+          setActiveTab(modal, tab.dataset.tab);
+        });
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>

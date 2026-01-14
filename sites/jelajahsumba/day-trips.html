@@ -145,6 +145,116 @@
         flex-direction: column;
       }
     }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 6, 8, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 50;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal {
+      width: min(960px, 100%);
+      max-height: 90vh;
+      background: #0d1116;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(11, 12, 14, 0.95);
+      gap: 16px;
+    }
+
+    .modal-title {
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--sand);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .modal-tabs {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .modal-tab {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--sand);
+      padding: 6px 14px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .modal-tab.active {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+    }
+
+    .modal-body {
+      padding: 22px;
+      overflow-y: auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .modal-section {
+      display: none;
+    }
+
+    .modal-section.active {
+      display: block;
+    }
+
+    .modal-section h4 {
+      font-size: 16px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .modal-section p,
+    .modal-section li {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .modal-list {
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .detail-trigger {
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -163,7 +273,7 @@
         <div class="tour-subtitle">A journey through ancient culture and stunning seascapes in Southwest Sumba</div>
         <p class="tour-desc">Uncover the living history and breathtaking landscapes of Southwest Sumba. Begin in Ratenggaro and Toda Villages, where towering traditional houses and ancient megalithic tombs tell stories of Sumba’s past. Meet the friendly locals, learn about their customs, and witness daily life in these timeless communities. Continue to the turquoise waters of Weekuri Lake for a refreshing swim, then relax on the pristine shores of Mandorak Beach as the sun sets over the Indian Ocean. A perfect balance of culture, adventure, and serenity.</p>
         <div class="tour-actions">
-          <a class="btn btn-secondary" href="#">Detail</a>
+          <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="day-heritage">Detail</button>
           <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
         </div>
       </div>
@@ -176,7 +286,7 @@
         <div class="tour-subtitle">Discover the Hidden Treasures of West Sumba on an Unforgettable Full-Day Adventure!</div>
         <p class="tour-desc">Embark on a scenic journey through the lush landscapes and timeless traditions of West Sumba. Begin your adventure with a tranquil trek at Waikelo Sawah, passing rice terraces, rivers, and hidden waterfalls. Enjoy a local lunch before exploring the cultural heart of Wanokaka, where villages like Waigali, Praigoli, and Waiwuang reveal Sumba’s living heritage. End the day at the serene Watubela Beach, a secluded gem perfect for relaxation and sunset views. A day of pure Sumbanese beauty and connection with nature.</p>
         <div class="tour-actions">
-          <a class="btn btn-secondary" href="#">Detail</a>
+          <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="day-wonders">Detail</button>
           <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
         </div>
       </div>
@@ -189,11 +299,252 @@
         <div class="tour-subtitle">Discover the Hidden Treasures of West Sumba on an Unforgettable Full-Day Adventure!</div>
         <p class="tour-desc">Discover the charm of Praijing Village with its panoramic hilltop views and traditional houses surrounded by lush nature. Visit a lively local market to meet the friendly Sumbanese people before continuing to the stunning Lapopu Waterfall, where you can enjoy a short hike, cross a bamboo bridge, and swim in the refreshing natural pool.</p>
         <div class="tour-actions">
-          <a class="btn btn-secondary" href="#">Detail</a>
+          <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="day-escape">Detail</button>
           <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
         </div>
       </div>
     </article>
   </section>
+
+  <div class="modal-backdrop" data-modal="day-heritage" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-day-heritage">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modal-title-day-heritage">Sumba Heritage & Coastal Bliss</div>
+          <div class="modal-tabs" role="tablist" aria-label="Tour details tabs">
+            <button class="modal-tab active" type="button" data-tab="itinerary">Itinerary</button>
+            <button class="modal-tab" type="button" data-tab="tnc">T&amp;C</button>
+          </div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section active" data-section="itinerary">
+          <h4>Full Day Tour: Traditional villages and coastal highlights</h4>
+          <p>After breakfast, explore the Kodi area of South West Sumba. Visit Ratenggaro Village to see the iconic high-roofed houses and hear stories of Sumbanese heritage. Continue to Toda Village, another traditional settlement with megalithic tombs and warm local welcomes.</p>
+          <p>Enjoy scenic stops along the road to see village tombstones and free-roaming horses. Visit Weekuri Lake for a swim and time around the rocks and reef with ocean views. A lunch box is provided. End the day at Mandorak Beach, framed by two dramatic rock ridges and crystal-clear water, then return to your resort.</p>
+          <p>Meals: Lunch Box</p>
+        </div>
+
+        <div class="modal-section" data-section="tnc">
+          <h4>Start time</h4>
+          <p>09.00 AM</p>
+
+          <h4>Pick up / drop off</h4>
+          <p>Hotel in Waitabula (South West Sumba): Mario Hotel, Ella Hotel, Maringi Eco Resort, Sumba Sejahtera Hotel, Sinar Tambolaka Hotel, Cap Karoso Resort.</p>
+          <p>Other places/hotels: please contact us.</p>
+
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Transfers as per itinerary</li>
+            <li>Tours and visits with English-speaking guide</li>
+            <li>1x lunch</li>
+            <li>All entrance fees and donations</li>
+            <li>Mineral water</li>
+          </ul>
+
+          <h4>Not included</h4>
+          <ul class="modal-list">
+            <li>Flight tickets and accommodation</li>
+            <li>Travel insurance</li>
+            <li>Dinner</li>
+            <li>Soft drink, juice, and alcohol</li>
+            <li>Personal expenses such as tips to guide and/or driver, laundry, telephone calls, and alcoholic beverages</li>
+            <li>Extra costs due to causes beyond our control, such as delays or flight cancellations</li>
+            <li>Anything not mentioned in the Included section</li>
+          </ul>
+
+          <h4>FAQs</h4>
+          <p>Planning a trip to Sumba Island? Visit our Sumba Island Travel Information (FAQs) page for details on transportation, accommodations, local customs, and other practical tips. This will help you plan with confidence and prepare for an unforgettable journey.</p>
+
+          <h4>Terms and conditions</h4>
+          <p>Please review our Terms and Conditions before booking. These outline the expectations and responsibilities of both parties and help ensure a smooth travel experience. Thank you for choosing Explore Sumba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" data-modal="day-wonders" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-day-wonders">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modal-title-day-wonders">West Sumba Wonders</div>
+          <div class="modal-tabs" role="tablist" aria-label="Tour details tabs">
+            <button class="modal-tab active" type="button" data-tab="itinerary">Itinerary</button>
+            <button class="modal-tab" type="button" data-tab="tnc">T&amp;C</button>
+          </div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section active" data-section="itinerary">
+          <h4>Full Day Tour: Ricefields, villages, and hidden beach</h4>
+          <p>After breakfast, head to Waikelo Sawah for a scenic trek through rice fields, river views, a natural spring in a cave, and a small waterfall. Lunch is served at a local restaurant.</p>
+          <p>Continue to Wanokaka to explore traditional villages: Waigali, Praigoli, and Waiwuang. End the day at Watubela Beach, a secluded coastal spot in West Sumba.</p>
+          <p>Meals: Lunch</p>
+        </div>
+
+        <div class="modal-section" data-section="tnc">
+          <h4>Start time</h4>
+          <p>08.00 AM</p>
+
+          <h4>Pick up / drop off</h4>
+          <p>Waikabubak, Lamboya, Wanokaka Area (West Sumba): Sumba Nautil Resort, Nihiwatu Resort, Lelewatu Resort, Rua Beach Resort, Alamayah Resort, The Sanubari Resort, Morika Hotel, Manandang Hotel, La Casa de Luna.</p>
+          <p>Other places/hotels: please contact us.</p>
+
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Transfers as per itinerary</li>
+            <li>Tours and visits with English-speaking guide</li>
+            <li>1x lunch</li>
+            <li>All entrance fees and donations</li>
+            <li>Mineral water</li>
+          </ul>
+
+          <h4>Not included</h4>
+          <ul class="modal-list">
+            <li>Flight tickets and accommodation</li>
+            <li>Travel insurance</li>
+            <li>Dinner</li>
+            <li>Soft drink, juice, and alcohol</li>
+            <li>Personal expenses such as tips to guide and/or driver, laundry, telephone calls, and alcoholic beverages</li>
+            <li>Extra costs due to causes beyond our control, such as delays or flight cancellations</li>
+            <li>Anything not mentioned in the Included section</li>
+          </ul>
+
+          <h4>FAQs</h4>
+          <p>Planning a trip to Sumba Island? Visit our Sumba Island Travel Information (FAQs) page for details on transportation, accommodations, local customs, and other practical tips. This will help you plan with confidence and prepare for an unforgettable journey.</p>
+
+          <h4>Terms and conditions</h4>
+          <p>Please review our Terms and Conditions before booking. These outline the expectations and responsibilities of both parties and help ensure a smooth travel experience. Thank you for choosing Explore Sumba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" data-modal="day-escape" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-day-escape">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modal-title-day-escape">Cultural & Nature Escape</div>
+          <div class="modal-tabs" role="tablist" aria-label="Tour details tabs">
+            <button class="modal-tab active" type="button" data-tab="itinerary">Itinerary</button>
+            <button class="modal-tab" type="button" data-tab="tnc">T&amp;C</button>
+          </div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section active" data-section="itinerary">
+          <h4>Full Day Tour: Praijing, market, and waterfall</h4>
+          <p>After breakfast, visit Praijing Village, a hilltop settlement with panoramic views of the village and surrounding landscapes. Explore the village and meet locals along the way.</p>
+          <p>Continue to a local market to see traditional trading and engage with residents. Lunch at a local restaurant, then head to Lapopu Waterfall for a short hike and bamboo bridge crossing to the natural pool. Bring swimwear if you want to take a dip.</p>
+          <p>Meals: Lunch</p>
+        </div>
+
+        <div class="modal-section" data-section="tnc">
+          <h4>Start time</h4>
+          <p>09.00 AM</p>
+
+          <h4>Pick up / drop off</h4>
+          <p>Waikabubak, Lamboya, Wanokaka Area (West Sumba): Sumba Nautil Resort, Nihiwatu Resort, Lelewatu Resort, Rua Beach Resort, Alamayah Resort, The Sanubari Resort, Morika Hotel, Manandang Hotel, La Casa de Luna.</p>
+          <p>Other places/hotels: please contact us.</p>
+
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Transfers as per itinerary</li>
+            <li>Tours and visits with English-speaking guide</li>
+            <li>1x lunch</li>
+            <li>All entrance fees and donations</li>
+            <li>Mineral water</li>
+          </ul>
+
+          <h4>Not included</h4>
+          <ul class="modal-list">
+            <li>Flight tickets and accommodation</li>
+            <li>Travel insurance</li>
+            <li>Dinner</li>
+            <li>Soft drink, juice, and alcohol</li>
+            <li>Personal expenses such as tips to guide and/or driver, laundry, telephone calls, and alcoholic beverages</li>
+            <li>Extra costs due to causes beyond our control, such as delays or flight cancellations</li>
+            <li>Anything not mentioned in the Included section</li>
+          </ul>
+
+          <h4>FAQs</h4>
+          <p>Planning a trip to Sumba Island? Visit our Sumba Island Travel Information (FAQs) page for details on transportation, accommodations, local customs, and other practical tips. This will help you plan with confidence and prepare for an unforgettable journey.</p>
+
+          <h4>Terms and conditions</h4>
+          <p>Please review our Terms and Conditions before booking. These outline the expectations and responsibilities of both parties and help ensure a smooth travel experience. Thank you for choosing Explore Sumba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modalBackdrops = Array.from(document.querySelectorAll('[data-modal]'));
+    const modalOpeners = Array.from(document.querySelectorAll('[data-modal-open]'));
+    let activeModal = null;
+
+    const setActiveTab = (modal, tabName) => {
+      if (!modal) return;
+      const tabButtons = modal.querySelectorAll('.modal-tab');
+      const tabSections = modal.querySelectorAll('.modal-section');
+
+      tabButtons.forEach((tab) => {
+        tab.classList.toggle('active', tab.dataset.tab === tabName);
+      });
+      tabSections.forEach((section) => {
+        section.classList.toggle('active', section.dataset.section === tabName);
+      });
+    };
+
+    const openModal = (modalId) => {
+      const modal = modalBackdrops.find((item) => item.dataset.modal === modalId);
+      if (!modal) return;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      setActiveTab(modal, 'itinerary');
+      activeModal = modal;
+    };
+
+    const closeModal = () => {
+      if (!activeModal) return;
+      activeModal.classList.remove('active');
+      activeModal.setAttribute('aria-hidden', 'true');
+      activeModal = null;
+    };
+
+    modalOpeners.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        openModal(button.dataset.modalOpen);
+      });
+    });
+
+    modalBackdrops.forEach((modal) => {
+      const closeButton = modal.querySelector('.modal-close');
+      if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+      }
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      modal.querySelectorAll('.modal-tab').forEach((tab) => {
+        tab.addEventListener('click', () => {
+          setActiveTab(modal, tab.dataset.tab);
+        });
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>

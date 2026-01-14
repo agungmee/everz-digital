@@ -189,6 +189,116 @@
         flex-direction: column;
       }
     }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 6, 8, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 50;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal {
+      width: min(960px, 100%);
+      max-height: 90vh;
+      background: #0d1116;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(11, 12, 14, 0.95);
+      gap: 16px;
+    }
+
+    .modal-title {
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--sand);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .modal-tabs {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .modal-tab {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--sand);
+      padding: 6px 14px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .modal-tab.active {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+    }
+
+    .modal-body {
+      padding: 22px;
+      overflow-y: auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .modal-section {
+      display: none;
+    }
+
+    .modal-section.active {
+      display: block;
+    }
+
+    .modal-section h4 {
+      font-size: 16px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .modal-section p,
+    .modal-section li {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .modal-list {
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .detail-trigger {
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -207,7 +317,7 @@
         <div class="tour-subtitle">The best of South West Sumba in one tour!</div>
         <p class="tour-desc">An unforgettable journey through one of the most beautiful and fascinating regions on the island of Sumba. This tour offers a unique opportunity to explore the stunning landscapes, rich culture, and ancient traditions of the South West Sumba area.</p>
         <div class="tour-actions">
-          <a class="btn btn-secondary" href="#">Detail</a>
+          <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="private-3d2n">Detail</button>
           <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
         </div>
       </div>
@@ -220,7 +330,7 @@
         <div class="tour-subtitle">Discover South West and West Sumba island!</div>
         <p class="tour-desc">This adventure will take you to two beautiful regions of Sumba Island. You will have the opportunity to explore the breathtaking beaches, witness the local culture and traditions, and interact with the friendly Sumbanese people.</p>
         <div class="tour-actions">
-          <a class="btn btn-secondary" href="#">Detail</a>
+          <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="private-4d3n">Detail</button>
           <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
         </div>
       </div>
@@ -233,11 +343,296 @@
         <div class="tour-subtitle">Discover South West, West and East of Sumba island!</div>
         <p class="tour-desc">This tour will take you on a journey through the diverse regions of South West, West, and East Sumba, each offering unique experiences and stunning natural landscapes. From pristine beaches and crystal-clear waters to rugged mountains and traditional villages, you will discover the rich culture and beauty of this enchanting island.</p>
         <div class="tour-actions">
-          <a class="btn btn-secondary" href="#">Detail</a>
+          <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="private-5d4n">Detail</button>
           <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
         </div>
       </div>
     </article>
   </section>
+
+  <div class="modal-backdrop" data-modal="private-3d2n" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-private-3d2n">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modal-title-private-3d2n">Explore Sumba Island (3D/2N)</div>
+          <div class="modal-tabs" role="tablist" aria-label="Tour details tabs">
+            <button class="modal-tab active" type="button" data-tab="itinerary">Itinerary</button>
+            <button class="modal-tab" type="button" data-tab="tnc">T&amp;C</button>
+          </div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section active" data-section="itinerary">
+          <h4>Day 1: Arrival, culture, and sunset views</h4>
+          <p>Arrive at Tambolaka (TMC) Airport and meet your driver and guide. Enjoy lunch at a local restaurant, then visit Rumah Budaya Sumba, a traditional Sumbanese-style cultural house with Marapu stone carvings and collections of ikat, wood carvings, jewelry, and daily artifacts.</p>
+          <p>Continue to Talasi Estate Factory to see how local cashew and coffee are produced, explore the farm, and taste cashew milk and weejewa coffee. Check in to your hotel, then head to Lendongara Hill for a calm sunset with panoramic hill and ocean views. Return to the hotel after sunset.</p>
+          <p>Meals: Lunch</p>
+          <p>Accommodation options: Maringi Eco Resort (Bamboo Pavilion) | Mario Beach Hotel (Superior Sea View) | Ella Hotel (Deluxe Room)</p>
+
+          <h4>Day 2: Lagoons, beaches, and villages</h4>
+          <p>After breakfast, travel to the Kodi area. Swim or relax at the crystal-clear Weekuri Lake and explore the surrounding rocks and reef with ocean views. Visit Mandorak Beach, framed by dramatic rock ridges and clear water. A lunch box is provided as there are no restaurants nearby.</p>
+          <p>Continue to Ratenggaro Village to see the iconic high-roofed houses and learn about traditional community life. End the day at Pero Beach for sunset, then return to the hotel.</p>
+          <p>Meals: Breakfast, Lunch Box</p>
+          <p>Accommodation options: Maringi Eco Resort (Bamboo Pavilion) | Mario Beach Hotel (Superior Sea View) | Ella Hotel (Deluxe Room)</p>
+
+          <h4>Day 3: Local market and departure</h4>
+          <p>After breakfast and check-out, visit a local market to see how residents sell their products and interact with the community. Transfer to Tambolaka Airport for your onward flight. End of trip.</p>
+          <p>Meals: Breakfast</p>
+        </div>
+
+        <div class="modal-section" data-section="tnc">
+          <h4>Start and finish point</h4>
+          <p>TMC Airport (Tambolaka)</p>
+
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Transfers as per itinerary</li>
+            <li>2 nights accommodation in South West Sumba</li>
+            <li>AC land transportation</li>
+            <li>Visits with English-speaking guide</li>
+            <li>Meals as per itinerary</li>
+            <li>All entrance fees and donations</li>
+          </ul>
+
+          <h4>Not included</h4>
+          <ul class="modal-list">
+            <li>Flight tickets</li>
+            <li>Travel insurance</li>
+            <li>Soft drink, juice, and alcohol</li>
+            <li>Personal expenses such as tips to guide and/or driver, laundry, telephone calls, and alcoholic beverages</li>
+            <li>Extra costs due to causes beyond our control, such as delays or flight cancellations</li>
+            <li>Anything not mentioned in the Included section</li>
+          </ul>
+
+          <h4>FAQs</h4>
+          <p>Planning a trip to Sumba Island? Visit our Sumba Island Travel Information (FAQs) page for details on transportation, accommodations, local customs, and other practical tips. This will help you plan with confidence and prepare for an unforgettable journey.</p>
+
+          <h4>Terms and conditions</h4>
+          <p>Please review our Terms and Conditions before booking. These outline the expectations and responsibilities of both parties and help ensure a smooth travel experience. Thank you for choosing Explore Sumba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" data-modal="private-4d3n" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-private-4d3n">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modal-title-private-4d3n">Explore Sumba Island (4D/3N)</div>
+          <div class="modal-tabs" role="tablist" aria-label="Tour details tabs">
+            <button class="modal-tab active" type="button" data-tab="itinerary">Itinerary</button>
+            <button class="modal-tab" type="button" data-tab="tnc">T&amp;C</button>
+          </div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section active" data-section="itinerary">
+          <h4>Day 1: Arrival, culture, and sunset views</h4>
+          <p>Arrive at Tambolaka (TMC) Airport and meet your driver and guide. Enjoy lunch at a local restaurant, then visit Rumah Budaya Sumba, a traditional Sumbanese-style cultural house with Marapu stone carvings and collections of ikat, wood carvings, jewelry, and daily artifacts.</p>
+          <p>Continue to Talasi Estate Factory to see how local cashew and coffee are produced, explore the farm, and taste cashew milk and weejewa coffee. Check in to your hotel, then head to Lendongara Hill for a calm sunset with panoramic hill and ocean views. Return to the hotel after sunset.</p>
+          <p>Meals: Lunch</p>
+          <p>Accommodation options: Maringi Eco Resort (Bamboo Pavilion) | Mario Beach Hotel (Superior Sea View) | Ella Hotel (Deluxe Room)</p>
+
+          <h4>Day 2: Lagoons, beaches, and villages</h4>
+          <p>After breakfast, travel to the Kodi area. Swim or relax at the crystal-clear Weekuri Lake and explore the surrounding rocks and reef with ocean views. Visit Mandorak Beach, framed by dramatic rock ridges and clear water. A lunch box is provided as there are no restaurants nearby.</p>
+          <p>Continue to Ratenggaro Village to see the iconic high-roofed houses and learn about traditional community life. End the day at Pero Beach for sunset, then return to the hotel.</p>
+          <p>Meals: Breakfast, Lunch Box</p>
+          <p>Accommodation options: Maringi Eco Resort (Bamboo Pavilion) | Mario Beach Hotel (Superior Sea View) | Ella Hotel (Deluxe Room)</p>
+
+          <h4>Day 3: West Sumba market, ricefields, and waterfall</h4>
+          <p>After breakfast, check out and head toward West Sumba. Stop at a local market to meet residents and see local products. Continue to Waikacura for a short ricefield trek with river views, then lunch at a local restaurant.</p>
+          <p>In the afternoon, visit Lapopu Waterfall. A short hike of about 15 minutes and a bamboo bridge lead you to a natural pool and a scenic viewing spot. Afterward, transfer to your hotel.</p>
+          <p>Meals: Breakfast, Lunch</p>
+          <p>Accommodation options: Rua Beach Resort (Deluxe Room) | Rua Beach Resort (Deluxe Room) | Morikka Inn (Deluxe Room)</p>
+
+          <h4>Day 4: Check-out and onward transfer</h4>
+          <p>After breakfast, check out from your hotel and continue your onward journey as arranged with the team.</p>
+          <p>Meals: Breakfast</p>
+        </div>
+
+        <div class="modal-section" data-section="tnc">
+          <h4>Start and finish point</h4>
+          <p>TMC Airport (Tambolaka)</p>
+
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Transfers as per itinerary</li>
+            <li>2 nights accommodation in South West Sumba</li>
+            <li>1 night accommodation in West Sumba</li>
+            <li>AC land transportation</li>
+            <li>Visits with English-speaking guide</li>
+            <li>Meals as per itinerary</li>
+            <li>All entrance fees and donations</li>
+            <li>Mineral water with free tumbler</li>
+          </ul>
+
+          <h4>Not included</h4>
+          <ul class="modal-list">
+            <li>Flight tickets</li>
+            <li>Travel insurance</li>
+            <li>Soft drink, juice, and alcohol</li>
+            <li>Personal expenses such as tips to guide and/or driver, laundry, telephone calls, and alcoholic beverages</li>
+            <li>Extra costs due to causes beyond our control, such as delays or flight cancellations</li>
+            <li>Anything not mentioned in the Included section</li>
+          </ul>
+
+          <h4>FAQs</h4>
+          <p>Planning a trip to Sumba Island? Visit our Sumba Island Travel Information (FAQs) page for details on transportation, accommodations, local customs, and other practical tips. This will help you plan with confidence and prepare for an unforgettable journey.</p>
+
+          <h4>Terms and conditions</h4>
+          <p>Please review our Terms and Conditions before booking. These outline the expectations and responsibilities of both parties and help ensure a smooth travel experience. Thank you for choosing Explore Sumba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" data-modal="private-5d4n" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-private-5d4n">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modal-title-private-5d4n">Explore Sumba Island (5D/4N)</div>
+          <div class="modal-tabs" role="tablist" aria-label="Tour details tabs">
+            <button class="modal-tab active" type="button" data-tab="itinerary">Itinerary</button>
+            <button class="modal-tab" type="button" data-tab="tnc">T&amp;C</button>
+          </div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section active" data-section="itinerary">
+          <h4>Day 1: Arrival, culture, and sunset views</h4>
+          <p>Arrive at Tambolaka (TMC) Airport and meet your driver and guide. Enjoy lunch at a local restaurant, then visit Rumah Budaya Sumba, a traditional Sumbanese-style cultural house with Marapu stone carvings and collections of ikat, wood carvings, jewelry, and daily artifacts.</p>
+          <p>Continue to Talasi Estate Factory to see how local cashew and coffee are produced, explore the farm, and taste cashew milk and weejewa coffee. Check in to your hotel, then head to Lendongara Hill for a calm sunset with panoramic hill and ocean views. Return to the hotel after sunset.</p>
+          <p>Meals: Lunch</p>
+          <p>Accommodation options: Maringi Eco Resort (Bamboo Pavilion) | Mario Beach Hotel (Superior Sea View) | Ella Hotel (Deluxe Room)</p>
+
+          <h4>Day 2: Lagoons, beaches, and villages</h4>
+          <p>After breakfast, travel to the Kodi area. Swim or relax at the crystal-clear Weekuri Lake and explore the surrounding rocks and reef with ocean views. Visit Mandorak Beach, framed by dramatic rock ridges and clear water. A lunch box is provided as there are no restaurants nearby.</p>
+          <p>Continue to Ratenggaro Village to see the iconic high-roofed houses and learn about traditional community life. End the day at Pero Beach for sunset, then return to the hotel.</p>
+          <p>Meals: Breakfast, Lunch Box</p>
+          <p>Accommodation options: Maringi Eco Resort (Bamboo Pavilion) | Mario Beach Hotel (Superior Sea View) | Ella Hotel (Deluxe Room)</p>
+
+          <h4>Day 3: West Sumba market, ricefields, and waterfall</h4>
+          <p>After breakfast, check out and head toward West Sumba. Stop at a local market to meet residents and see local products. Continue to Waikacura for a short ricefield trek with river views, then lunch at a local restaurant.</p>
+          <p>In the afternoon, visit Lapopu Waterfall. A short hike of about 15 minutes and a bamboo bridge lead you to a natural pool and a scenic viewing spot. Afterward, transfer to your hotel.</p>
+          <p>Meals: Breakfast, Lunch</p>
+          <p>Accommodation options: Rua Beach Resort (Deluxe Room) | Rua Beach Resort (Deluxe Room) | Morikka Inn (Deluxe Room)</p>
+
+          <h4>Day 4: East Sumba villages and Walakiri sunset</h4>
+          <p>After breakfast and check-out, travel to East Sumba with scenic stops along the way. Visit Praijing Village, a hilltop traditional village with lush surroundings and panoramic views. Continue to Anakalang in Central Sumba to see the megalithic tomb of the late king in Pasunga Village. Lunch boxes are provided.</p>
+          <p>Check in at your East Sumba hotel, then head to Walakiri Beach for sunset and explore the photogenic mangrove trees in the water. Return to the hotel after sunset. Lunch is served at a local restaurant.</p>
+          <p>Meals: Breakfast, Lunch</p>
+          <p>Accommodation options: Morinda Villa (Deluxe Hill View Room) | Kambaniru Beach Resort (Deluxe Garden Room) | Padadita Beach Hotel (Superior Room)</p>
+
+          <h4>Day 5: Ikat Tenun village and departure</h4>
+          <p>After breakfast and check-out, visit a village known for Ikat Tenun, the traditional Sumbanese fabric. Try wearing the local costume and take a family photo. Transfer to WGP Airport (Waingapu) for your onward flight. End of trip.</p>
+          <p>Meals: Breakfast</p>
+        </div>
+
+        <div class="modal-section" data-section="tnc">
+          <h4>Start and finish point</h4>
+          <p>Start: TMC Airport (Tambolaka) | Finish: WGP Airport (Waingapu)</p>
+
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Transfers as per itinerary</li>
+            <li>2 nights accommodation in South West Sumba</li>
+            <li>1 night accommodation in West Sumba</li>
+            <li>1 night accommodation in East Sumba</li>
+            <li>AC land transportation</li>
+            <li>Visits with English-speaking guide</li>
+            <li>Meals as per itinerary</li>
+            <li>All entrance fees and donations</li>
+            <li>Mineral water with free tumbler</li>
+          </ul>
+
+          <h4>Not included</h4>
+          <ul class="modal-list">
+            <li>Flight tickets</li>
+            <li>Travel insurance</li>
+            <li>Soft drink, juice, and alcohol</li>
+            <li>Personal expenses such as tips to guide and/or driver, laundry, telephone calls, and alcoholic beverages</li>
+            <li>Extra costs due to causes beyond our control, such as delays or flight cancellations</li>
+            <li>Anything not mentioned in the Included section</li>
+          </ul>
+
+          <h4>FAQs</h4>
+          <p>Planning a trip to Sumba Island? Visit our Sumba Island Travel Information (FAQs) page for details on transportation, accommodations, local customs, and other practical tips. This will help you plan with confidence and prepare for an unforgettable journey.</p>
+
+          <h4>Terms and conditions</h4>
+          <p>Please review our Terms and Conditions before booking. These outline the expectations and responsibilities of both parties and help ensure a smooth travel experience. Thank you for choosing Explore Sumba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modalBackdrops = Array.from(document.querySelectorAll('[data-modal]'));
+    const modalOpeners = Array.from(document.querySelectorAll('[data-modal-open]'));
+    let activeModal = null;
+
+    const setActiveTab = (modal, tabName) => {
+      if (!modal) return;
+      const tabButtons = modal.querySelectorAll('.modal-tab');
+      const tabSections = modal.querySelectorAll('.modal-section');
+
+      tabButtons.forEach((tab) => {
+        tab.classList.toggle('active', tab.dataset.tab === tabName);
+      });
+      tabSections.forEach((section) => {
+        section.classList.toggle('active', section.dataset.section === tabName);
+      });
+    };
+
+    const openModal = (modalId) => {
+      const modal = modalBackdrops.find((item) => item.dataset.modal === modalId);
+      if (!modal) return;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      setActiveTab(modal, 'itinerary');
+      activeModal = modal;
+    };
+
+    const closeModal = () => {
+      if (!activeModal) return;
+      activeModal.classList.remove('active');
+      activeModal.setAttribute('aria-hidden', 'true');
+      activeModal = null;
+    };
+
+    modalOpeners.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        openModal(button.dataset.modalOpen);
+      });
+    });
+
+    modalBackdrops.forEach((modal) => {
+      const closeButton = modal.querySelector('.modal-close');
+      if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+      }
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      modal.querySelectorAll('.modal-tab').forEach((tab) => {
+        tab.addEventListener('click', () => {
+          setActiveTab(modal, tab.dataset.tab);
+        });
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>

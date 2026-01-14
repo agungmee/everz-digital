@@ -145,6 +145,116 @@
         flex-direction: column;
       }
     }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 6, 8, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 50;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal {
+      width: min(960px, 100%);
+      max-height: 90vh;
+      background: #0d1116;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(11, 12, 14, 0.95);
+      gap: 16px;
+    }
+
+    .modal-title {
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--sand);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .modal-tabs {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .modal-tab {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--sand);
+      padding: 6px 14px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .modal-tab.active {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+    }
+
+    .modal-body {
+      padding: 22px;
+      overflow-y: auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .modal-section {
+      display: none;
+    }
+
+    .modal-section.active {
+      display: block;
+    }
+
+    .modal-section h4 {
+      font-size: 16px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .modal-section p,
+    .modal-section li {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .modal-list {
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .detail-trigger {
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -163,7 +273,7 @@
         <div class="tour-subtitle">Experience the Untamed Beauty of Sumba Island with World-Class Amenities, Exceptional Service, and Unforgettable Adventures at Nihi Sumba</div>
         <p class="tour-desc">Nihi Sumba is a world-renowned luxury resort. Unforgettable adventures are waiting for you here that will leave you breathless. Join us for an unparalleled luxury adventure!</p>
         <div class="tour-actions">
-          <a class="btn btn-secondary" href="#">Detail</a>
+          <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="luxury-nihi">Detail</button>
           <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
         </div>
       </div>
@@ -176,7 +286,7 @@
         <div class="tour-subtitle">Experience the Finest Accommodation, Gourmet Dining, and Spectacular Views on a 5-Day Getaway at Lelewatu Resort</div>
         <p class="tour-desc">With its world-class amenities, stunning natural beauty, and unparalleled hospitality, Lelewatu Resort offers a serene luxury escape from the hustle and bustle of daily life!</p>
         <div class="tour-actions">
-          <a class="btn btn-secondary" href="#">Detail</a>
+          <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="luxury-lelewatu">Detail</button>
           <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
         </div>
       </div>
@@ -189,11 +299,266 @@
         <div class="tour-subtitle">Experience a Tropical Oasis of Luxury and Relaxation: Enjoy Your Ultimate 5-Day Getaway at The Sanubari Beach Resort</div>
         <p class="tour-desc">The Sanubari Beach Resort is a true tropical oasis of luxury and relaxation. Our 5-day, 4-night package is the perfect opportunity to escape to paradise!</p>
         <div class="tour-actions">
-          <a class="btn btn-secondary" href="#">Detail</a>
+          <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="luxury-sanubari">Detail</button>
           <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
         </div>
       </div>
     </article>
   </section>
+
+  <div class="modal-backdrop" data-modal="luxury-nihi" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-luxury-nihi">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modal-title-luxury-nihi">Nihi Sumba Luxury Adventure (6D/5N)</div>
+          <div class="modal-tabs" role="tablist" aria-label="Tour details tabs">
+            <button class="modal-tab active" type="button" data-tab="itinerary">Itinerary</button>
+            <button class="modal-tab" type="button" data-tab="tnc">T&amp;C</button>
+          </div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section active" data-section="itinerary">
+          <h4>Day 1: Arrival and resort check-in</h4>
+          <p>Arrive at Tambolaka (TMC) Airport and meet your guide. Transfer to Nihi Sumba Resort for check-in and enjoy free time at the resort.</p>
+          <p>Meals: Lunch, Dinner</p>
+          <p>Accommodation: Nihi Sumba Resort (One Bedroom Pool Villa)</p>
+
+          <h4>Days 2-5: Resort leisure at your pace</h4>
+          <p>Enjoy the resort's world-class amenities, dining, and activities at your own pace.</p>
+
+          <h4>Day 6: Departure</h4>
+          <p>After breakfast, transfer back to TMC Airport for your onward flight.</p>
+          <p>Meals: Breakfast</p>
+        </div>
+
+        <div class="modal-section" data-section="tnc">
+          <h4>Start and finish point</h4>
+          <p>Start: TMC Airport (Tambolaka) | Finish: TMC Airport (Tambolaka)</p>
+
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Transfers as per itinerary</li>
+            <li>5 nights stay at Nihi Sumba Resort (One Bedroom Pool Villa) with full board meals</li>
+            <li>AC land transportation</li>
+            <li>Meals as mentioned in the program</li>
+            <li>All entrance fees and donations</li>
+            <li>Mineral water with free tumbler</li>
+          </ul>
+
+          <h4>Not included</h4>
+          <ul class="modal-list">
+            <li>Flight tickets</li>
+            <li>Travel insurance</li>
+            <li>Soft drink, juice, and alcohol</li>
+            <li>Personal expenses such as tips to guide and/or driver, laundry, telephone calls, and alcoholic beverages</li>
+            <li>Extra costs due to causes beyond our control, such as delays or flight cancellations</li>
+            <li>Anything not mentioned in the Included section</li>
+          </ul>
+
+          <h4>FAQs</h4>
+          <p>Planning a trip to Sumba Island? Visit our Sumba Island Travel Information (FAQs) page for details on transportation, accommodations, local customs, and other practical tips. This will help you plan with confidence and prepare for an unforgettable journey.</p>
+
+          <h4>Terms and conditions</h4>
+          <p>Please review our Terms and Conditions before booking. These outline the expectations and responsibilities of both parties and help ensure a smooth travel experience. Thank you for choosing Explore Sumba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" data-modal="luxury-lelewatu" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-luxury-lelewatu">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modal-title-luxury-lelewatu">Lelewatu Resort Getaway (5D/4N)</div>
+          <div class="modal-tabs" role="tablist" aria-label="Tour details tabs">
+            <button class="modal-tab active" type="button" data-tab="itinerary">Itinerary</button>
+            <button class="modal-tab" type="button" data-tab="tnc">T&amp;C</button>
+          </div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section active" data-section="itinerary">
+          <h4>Day 1: Arrival and resort check-in</h4>
+          <p>Arrive at Tambolaka (TMC) Airport and meet your guide. Transfer to Lelewatu Resort for check-in. The resort sits on a dramatic clifftop setting overlooking the Indian Ocean, surrounded by lush rainforest.</p>
+          <p>Meals: -</p>
+          <p>Accommodation: Lelewatu Resort</p>
+
+          <h4>Day 2: Ricefields, village views, and Lapopu Waterfall</h4>
+          <p>Start the day with a short trek through Waikacura rice fields, where local farmers work among river views and a small waterfall. Continue to Praijing Village, a hilltop traditional village with panoramic overlooks and beautiful natural surroundings.</p>
+          <p>In the afternoon, visit Lapopu Waterfall. A short hike and bamboo bridge lead to the falls and a refreshing pool for a swim if you wish.</p>
+          <p>Meals: Breakfast, Lunch</p>
+          <p>Accommodation: Lelewatu Resort</p>
+
+          <h4>Day 3: Market, villages, and Watubela Beach</h4>
+          <p>Visit a traditional market to see local products and daily life, then continue to Tarung/Waitabar Village. After lunch, explore Wanokaka and its traditional villages: Waigali, Praigoli, and Waiwuang. End the day at Watubela Beach, a hidden gem on the West Sumba coast.</p>
+          <p>Meals: Breakfast, Lunch</p>
+          <p>Accommodation: Lelewatu Resort</p>
+
+          <h4>Day 4: Resort staycation</h4>
+          <p>Free day to relax and enjoy the facilities at Lelewatu Resort.</p>
+          <p>Meals: Breakfast</p>
+          <p>Accommodation: Lelewatu Resort</p>
+
+          <h4>Day 5: Departure</h4>
+          <p>After breakfast, transfer from the resort to TMC Airport for your onward flight.</p>
+          <p>Meals: Breakfast</p>
+        </div>
+
+        <div class="modal-section" data-section="tnc">
+          <h4>Start and finish point</h4>
+          <p>Start: TMC Airport (Tambolaka) | Finish: TMC Airport (Tambolaka)</p>
+
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Transfers as per itinerary</li>
+            <li>4 nights stay at Lelewatu Resort (1 Bedroom Ocean View Pool Villa)</li>
+            <li>AC land transportation</li>
+            <li>Meals as mentioned in the program</li>
+            <li>All entrance fees and donations</li>
+            <li>Mineral water with free tumbler</li>
+          </ul>
+
+          <h4>Not included</h4>
+          <ul class="modal-list">
+            <li>Flight tickets</li>
+            <li>Travel insurance</li>
+            <li>Soft drink, juice, and alcohol</li>
+            <li>Personal expenses such as tips to guide and/or driver, laundry, telephone calls, and alcoholic beverages</li>
+            <li>Extra costs due to causes beyond our control, such as delays or flight cancellations</li>
+            <li>Anything not mentioned in the Included section</li>
+          </ul>
+
+          <h4>FAQs</h4>
+          <p>Planning a trip to Sumba Island? Visit our Sumba Island Travel Information (FAQs) page for details on transportation, accommodations, local customs, and other practical tips. This will help you plan with confidence and prepare for an unforgettable journey.</p>
+
+          <h4>Terms and conditions</h4>
+          <p>Please review our Terms and Conditions before booking. These outline the expectations and responsibilities of both parties and help ensure a smooth travel experience. Thank you for choosing Explore Sumba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" data-modal="luxury-sanubari" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-luxury-sanubari">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modal-title-luxury-sanubari">Sanubari Beach Resort Escape (5D/4N)</div>
+          <div class="modal-tabs" role="tablist" aria-label="Tour details tabs">
+            <button class="modal-tab active" type="button" data-tab="itinerary">Itinerary</button>
+            <button class="modal-tab" type="button" data-tab="tnc">T&amp;C</button>
+          </div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section active" data-section="itinerary">
+          <h4>Day 5: Departure</h4>
+          <p>After breakfast, transfer from the resort to TMC Airport for your onward flight.</p>
+          <p>Meals: Breakfast</p>
+        </div>
+
+        <div class="modal-section" data-section="tnc">
+          <h4>Start and finish point</h4>
+          <p>Start: TMC Airport (Tambolaka) | Finish: TMC Airport (Tambolaka)</p>
+
+          <h4>Included</h4>
+          <ul class="modal-list">
+            <li>Transfers as per itinerary</li>
+            <li>4 nights stay at The Sanubari Resort (1 Bedroom Oceanfront Pool Villa)</li>
+            <li>AC land transportation</li>
+            <li>Meals as mentioned in the program</li>
+            <li>All entrance fees and donations</li>
+            <li>Mineral water with free tumbler</li>
+          </ul>
+
+          <h4>Not included</h4>
+          <ul class="modal-list">
+            <li>Flight tickets</li>
+            <li>Travel insurance</li>
+            <li>Soft drink, juice, and alcohol</li>
+            <li>Personal expenses such as tips to guide and/or driver, laundry, telephone calls, and alcoholic beverages</li>
+            <li>Extra costs due to causes beyond our control, such as delays or flight cancellations</li>
+            <li>Anything not mentioned in the Included section</li>
+          </ul>
+
+          <h4>FAQs</h4>
+          <p>Planning a trip to Sumba Island? Visit our Sumba Island Travel Information (FAQs) page for details on transportation, accommodations, local customs, and other practical tips. This will help you plan with confidence and prepare for an unforgettable journey.</p>
+
+          <h4>Terms and conditions</h4>
+          <p>Please review our Terms and Conditions before booking. These outline the expectations and responsibilities of both parties and help ensure a smooth travel experience. Thank you for choosing Explore Sumba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modalBackdrops = Array.from(document.querySelectorAll('[data-modal]'));
+    const modalOpeners = Array.from(document.querySelectorAll('[data-modal-open]'));
+    let activeModal = null;
+
+    const setActiveTab = (modal, tabName) => {
+      if (!modal) return;
+      const tabButtons = modal.querySelectorAll('.modal-tab');
+      const tabSections = modal.querySelectorAll('.modal-section');
+
+      tabButtons.forEach((tab) => {
+        tab.classList.toggle('active', tab.dataset.tab === tabName);
+      });
+      tabSections.forEach((section) => {
+        section.classList.toggle('active', section.dataset.section === tabName);
+      });
+    };
+
+    const openModal = (modalId) => {
+      const modal = modalBackdrops.find((item) => item.dataset.modal === modalId);
+      if (!modal) return;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      setActiveTab(modal, 'itinerary');
+      activeModal = modal;
+    };
+
+    const closeModal = () => {
+      if (!activeModal) return;
+      activeModal.classList.remove('active');
+      activeModal.setAttribute('aria-hidden', 'true');
+      activeModal = null;
+    };
+
+    modalOpeners.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        openModal(button.dataset.modalOpen);
+      });
+    });
+
+    modalBackdrops.forEach((modal) => {
+      const closeButton = modal.querySelector('.modal-close');
+      if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+      }
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      modal.querySelectorAll('.modal-tab').forEach((tab) => {
+        tab.addEventListener('click', () => {
+          setActiveTab(modal, tab.dataset.tab);
+        });
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>
