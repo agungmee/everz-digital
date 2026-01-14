@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jelajah Sumba Rent Car | Sumba Tour & Travel</title>
+  <meta name="description" content="Jelajah Sumba Rent Car provides Sumba tours, car rental, and curated travel experiences with local drivers and flexible itineraries." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #0c0c0c;
+      --bg-soft: #11151a;
+      --gold: #d7b773;
+      --sand: #f3e6c8;
+      --text: #f5f5f5;
+      --muted: #b8b8b8;
+      --accent: #9ad0b4;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --nav-height: 92px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background: radial-gradient(circle at top, #1d2228, #090a0c 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Cinzel", serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .brand img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      background: #0b0b0b;
+      border-radius: 50%;
+      padding: 6px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .nav-link span {
+      color: var(--gold);
+      font-size: 10px;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(6, 6, 6, 0.98);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      padding: 18px 22px;
+      min-width: 240px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+    }
+
+    .dropdown::before {
+      content: "";
+      position: absolute;
+      top: -14px;
+      left: 0;
+      right: 0;
+      height: 14px;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--sand);
+      text-transform: none;
+    }
+
+    .dropdown a:hover {
+      color: var(--gold);
+    }
+
+    .nav-item:hover .dropdown,
+    .nav-item:focus-within .dropdown,
+    .dropdown:hover {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(6px);
+      transition-delay: 0s;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #111;
+      padding: 12px 20px;
+      border-radius: 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .cta::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #111;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-self: end;
+    }
+
+    .icon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .whatsapp-icon {
+      background: transparent;
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    .whatsapp-icon i {
+      font-size: 20px;
+    }
+
+    .menu-toggle {
+      display: none;
+      position: relative;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      position: absolute;
+      left: 9px;
+      right: 9px;
+      height: 2px;
+      background: var(--text);
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    .menu-toggle span:nth-child(1) {
+      top: 12px;
+    }
+
+    .menu-toggle span:nth-child(2) {
+      top: 19px;
+    }
+
+    .menu-toggle span:nth-child(3) {
+      top: 26px;
+    }
+
+    .menu-toggle.is-open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .hero {
+      position: relative;
+      padding: 24px;
+      width: 100%;
+      margin: 0;
+      min-height: calc(100vh - var(--nav-height));
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: #0a0a0a;
+    }
+
+    .hero-bg img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120%;
+      height: 120%;
+      object-fit: cover;
+      opacity: 0;
+      filter: blur(10px) saturate(1.1);
+      transform: translate(-50%, -50%) scale(1.05);
+      transform-origin: center;
+      animation: ninjaSlide 20s infinite;
+      animation-fill-mode: both;
+    }
+
+    .hero-bg img:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .hero-bg img:nth-child(2) {
+      animation-delay: 5s;
+    }
+
+    .hero-bg img:nth-child(3) {
+      animation-delay: 10s;
+    }
+
+    .hero-bg img:nth-child(4) {
+      animation-delay: 15s;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(5, 5, 5, 0.65), rgba(5, 5, 5, 0.25));
+      z-index: 0;
+    }
+
+    .hero > :not(.hero-bg) {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes ninjaSlide {
+      0% {
+        opacity: 0;
+        filter: blur(18px) saturate(1.1);
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+      10% {
+        opacity: 1;
+        filter: blur(0) saturate(1.1);
+        transform: translate(-50%, -50%) scale(1.03);
+      }
+      25% {
+        opacity: 1;
+        filter: blur(0) saturate(1.1);
+        transform: translate(-50%, -50%) scale(1);
+      }
+      35% {
+        opacity: 0;
+        filter: blur(12px) saturate(1.1);
+        transform: translate(-50%, -50%) scale(1.05);
+      }
+      100% {
+        opacity: 0;
+        filter: blur(14px);
+        transform: translate(-50%, -50%) scale(1.08);
+      }
+    }
+
+    .hero h1 {
+      font-family: "Cinzel", serif;
+      font-size: clamp(32px, 4vw, 54px);
+      text-transform: uppercase;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      color: var(--muted);
+      margin: 20px 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--sand);
+      color: var(--sand);
+      padding: 12px 20px;
+      border-radius: 0;
+      font-weight: 600;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 28px;
+      border-radius: 0;
+      box-shadow: var(--shadow);
+      max-width: 520px;
+      text-align: left;
+    }
+
+    .hero-card h3 {
+      font-family: "Cinzel", serif;
+      margin-bottom: 12px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 8px 14px;
+      border-radius: 0;
+      font-size: 13px;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-title {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      font-size: clamp(24px, 3vw, 36px);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .section-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition-delay: 0.1s;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tour-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .tour-tile {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0;
+      aspect-ratio: 1 / 1;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tour-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.02);
+      transition: transform 0.4s ease;
+    }
+
+    .tour-tile::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.65));
+    }
+
+    .tour-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 16px;
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      z-index: 1;
+    }
+
+    .tour-button {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      color: var(--text);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: rgba(5, 5, 5, 0.6);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    .tour-tile:hover img {
+      transform: scale(1.08);
+    }
+
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+      align-items: center;
+      min-height: 420px;
+    }
+
+    .quote-text {
+      font-family: "Cinzel", serif;
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1.35;
+      background: #050505;
+      color: var(--gold);
+      padding: clamp(32px, 6vw, 72px);
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .quote-image {
+      border-radius: 0;
+      overflow: hidden;
+      border: none;
+      box-shadow: none;
+    }
+
+    .quote-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      min-height: 420px;
+    }
+
+    @media (max-width: 900px) {
+      .tour-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .quote-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .tour-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cards {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 24px;
+      border-radius: 0;
+      min-height: 180px;
+    }
+
+    .card h4 {
+      font-family: "Cinzel", serif;
+      margin-bottom: 10px;
+    }
+
+    .about-cards .card {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 220px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .about-cards .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+    }
+
+    .about-cards .card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-cards .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    .package {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .package-item {
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(0, 0, 0, 0.2));
+      border-radius: 0;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .package-item span {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .package-item h4 {
+      font-family: "Cinzel", serif;
+      margin: 10px 0 12px;
+    }
+
+    .package-item ul {
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .experience {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .experience-card {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 0;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: var(--bg-soft);
+      padding: 24px;
+      border-radius: 0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    footer {
+      background: #050505;
+      padding: 48px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 1fr;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      align-items: start;
+      padding: 0 24px;
+      text-align: left;
+    }
+
+    .footer-brand {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .footer-logo {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      background: #0b0b0b;
+      padding: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .footer-list i {
+      color: var(--gold);
+      width: 18px;
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    .footer-inner h4 {
+      color: var(--text);
+      font-family: "Cinzel", serif;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-wrap {
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+      }
+
+      nav {
+        position: absolute;
+        top: 78px;
+        left: 16px;
+        right: 16px;
+        background: rgba(8, 8, 8, 0.98);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 16px 20px;
+        clip-path: circle(0 at 90% -10%);
+        opacity: 0;
+        pointer-events: none;
+        transition: clip-path 0.45s ease, opacity 0.3s ease;
+        z-index: 10;
+      }
+
+      nav.open {
+        opacity: 1;
+        pointer-events: auto;
+        clip-path: circle(150% at 90% -10%);
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 4px 0;
+        align-items: flex-start;
+      }
+
+      .dropdown {
+        position: static;
+        transform: none;
+        background: rgba(12, 12, 12, 0.95);
+        padding: 8px 12px;
+        margin-top: 6px;
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+
+      .nav-link {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 8px 0;
+      }
+
+      .nav-item:hover .dropdown,
+      .nav-item:focus-within .dropdown,
+      .dropdown:hover {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: none;
+      }
+
+      .nav-item.open .dropdown {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .cta {
+        display: none;
+      }
+
+      .whatsapp-icon {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .brand img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <a class="brand" href="#home">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/01/d9593be5-b7a7-426d-8d9e-c2dee3916664-removebg-preview.png" alt="Jelajah Sumba Rent Car logo" />
+        Jelajah Sumba
+      </a>
+
+      <nav id="main-menu">
+        <ul>
+          <li class="nav-item">
+            <a class="nav-link" href="#sumba-tours">Sumba Tours <span>▾</span></a>
+            <div class="dropdown">
+              <a href="#tours">Private Tours</a>
+              <a href="#tours">Special Trips</a>
+              <a href="#tours">Open Trips</a>
+              <a href="#tours">Day Trips</a>
+              <a href="#tours">Luxury Trips</a>
+              <a href="#tours">Honeymoon Tours</a>
+              <a href="#tours">Pasola Festival Tours</a>
+              <a href="#tours">Custom Itineraries</a>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="cta" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a class="icon-button whatsapp-icon" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/08/d1/2f/mandorak-beach.jpg?w=1200&h=700&s=1" alt="" referrerpolicy="no-referrer" loading="eager" />
+        <img src="https://zjglidcehtsqqqhbdxyp.supabase.co/storage/v1/object/public/atourin/images/wilayah/sumba-barat-daya-1750807092.jpeg" alt="" referrerpolicy="no-referrer" loading="eager" />
+        <img src="https://tempatwisataseru.com/wp-content/uploads/2020/10/Wisata-Danau-Malaikat-Laguna-Weekuri.jpg" alt="" referrerpolicy="no-referrer" loading="eager" />
+        <img src="https://cdn.antaranews.com/cache/1200x800/2016/12/20161221Screen_Shot_2016-12-21_at_9.41.30_AM.png" alt="" referrerpolicy="no-referrer" loading="eager" />
+      </div>
+      <div class="hero-content">
+        <div class="hero-copy">
+          <p style="color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: 13px;">Jelajah Sumba Rent Car</p>
+          <h1>Elegant, personal, and story-rich journeys across Sumba.</h1>
+          <p>
+            Jelajah Sumba Rent Car takes you to hidden beaches, vast savannas, and megalithic culture with
+            local drivers, flexible itineraries, and comfortable vehicles.
+          </p>
+        <div class="hero-actions">
+          <a class="cta" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Book a Tour</a>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sumba-tours">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <h2 class="section-title">Sumba Tours</h2>
+          <p class="section-subtitle">Curated routes, hidden shores, and cultural moments — pick a journey that matches your pace in Sumba.</p>
+        </div>
+        <div class="tour-grid">
+          <a class="tour-tile" href="#tours">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/08/d1/2f/mandorak-beach.jpg?w=1200&h=700&s=1" alt="Private tours in Sumba" loading="lazy" referrerpolicy="no-referrer" />
+            <div class="tour-label">Private Tours <span class="tour-button">Details</span></div>
+          </a>
+          <a class="tour-tile" href="#tours">
+            <img src="https://tempatwisataseru.com/wp-content/uploads/2020/10/Wisata-Danau-Malaikat-Laguna-Weekuri.jpg" alt="Special trips in Sumba" loading="lazy" referrerpolicy="no-referrer" />
+            <div class="tour-label">Special Trips <span class="tour-button">Details</span></div>
+          </a>
+          <a class="tour-tile" href="#tours">
+            <img src="https://cdn.antaranews.com/cache/1200x800/2016/12/20161221Screen_Shot_2016-12-21_at_9.41.30_AM.png" alt="Open trips in Sumba" loading="lazy" referrerpolicy="no-referrer" />
+            <div class="tour-label">Open Trips <span class="tour-button">Details</span></div>
+          </a>
+          <a class="tour-tile" href="#tours">
+            <img src="https://zjglidcehtsqqqhbdxyp.supabase.co/storage/v1/object/public/atourin/images/wilayah/sumba-barat-daya-1750807092.jpeg" alt="Day trips in Sumba" loading="lazy" referrerpolicy="no-referrer" />
+            <div class="tour-label">Day Trips <span class="tour-button">Details</span></div>
+          </a>
+          <a class="tour-tile" href="#tours">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Luxury trips in Sumba" loading="lazy" referrerpolicy="no-referrer" />
+            <div class="tour-label">Luxury Trips <span class="tour-button">Details</span></div>
+          </a>
+          <a class="tour-tile" href="#tours">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Honeymoon tours in Sumba" loading="lazy" referrerpolicy="no-referrer" />
+            <div class="tour-label">Honeymoon Tours <span class="tour-button">Details</span></div>
+          </a>
+          <a class="tour-tile" href="#tours">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80" alt="Pasola festival tours in Sumba" loading="lazy" referrerpolicy="no-referrer" />
+            <div class="tour-label">Pasola Festival Tours <span class="tour-button">Details</span></div>
+          </a>
+          <a class="tour-tile" href="#tours">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80" alt="Custom itineraries in Sumba" loading="lazy" referrerpolicy="no-referrer" />
+            <div class="tour-label">Custom Itineraries <span class="tour-button">Details</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <div class="quote-grid">
+        <div class="quote-text">
+          “Escape to the unspoiled paradise of Sumba island with us! Let us take you on an unforgettable adventure to discover the breathtaking natural beauty, vibrant culture, and warm hospitality of this hidden gem in Indonesia.”
+        </div>
+        <div class="quote-image">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/08/d1/2f/mandorak-beach.jpg?w=1200&h=700&s=1" alt="Mandorak Beach, Sumba" loading="lazy" referrerpolicy="no-referrer" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <h2 class="section-title">About Us</h2>
+          <p class="section-subtitle">
+            Jelajah Sumba Rent Car is a locally run travel partner delivering authentic Sumba journeys with flexible itineraries, reliable vehicles, and friendly guidance.
+          </p>
+        </div>
+        <div class="cards about-cards">
+          <div class="card" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/08/d1/2f/mandorak-beach.jpg?w=1200&h=700&s=1');">
+            <h4>Local Team</h4>
+            <p>Born-and-raised guides who know the best routes, seasons, and cultural highlights.</p>
+          </div>
+          <div class="card" style="background-image: url('https://tempatwisataseru.com/wp-content/uploads/2020/10/Wisata-Danau-Malaikat-Laguna-Weekuri.jpg');">
+            <h4>Comfortable Fleet</h4>
+            <p>Clean, air-conditioned vehicles ready for long island drives.</p>
+          </div>
+          <div class="card" style="background-image: url('https://zjglidcehtsqqqhbdxyp.supabase.co/storage/v1/object/public/atourin/images/wilayah/sumba-barat-daya-1750807092.jpeg');">
+            <h4>Personal Touch</h4>
+            <p>Trips shaped around your pace, from relaxed escapes to adventure-packed days.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-choose">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <h2 class="section-title">Why Choose Jelajah Sumba Rent Car</h2>
+          <p class="section-subtitle">Local expertise, dependable service, and itineraries built around your pace.</p>
+        </div>
+        <div class="cards about-cards">
+          <div class="card" style="background-image: url('https://cdn.antaranews.com/cache/1200x800/2016/12/20161221Screen_Shot_2016-12-21_at_9.41.30_AM.png');">
+            <h4>Local Knowledge</h4>
+            <p>Guides who know hidden beaches, scenic routes, and the best timing for every stop.</p>
+          </div>
+          <div class="card" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/08/d1/2f/mandorak-beach.jpg?w=1200&h=700&s=1');">
+            <h4>Flexible Itineraries</h4>
+            <p>Private trips tailored for families, honeymooners, or group adventures.</p>
+          </div>
+          <div class="card" style="background-image: url('https://tempatwisataseru.com/wp-content/uploads/2020/10/Wisata-Danau-Malaikat-Laguna-Weekuri.jpg');">
+            <h4>Comfort & Safety</h4>
+            <p>Well-maintained vehicles with experienced drivers for long island routes.</p>
+          </div>
+          <div class="card" style="background-image: url('https://zjglidcehtsqqqhbdxyp.supabase.co/storage/v1/object/public/atourin/images/wilayah/sumba-barat-daya-1750807092.jpeg');">
+            <h4>Fast Response</h4>
+            <p>Quick WhatsApp support for booking, updates, and on-trip assistance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="footer-logo" src="https://everz-digital.site/wp-content/uploads/2026/01/d9593be5-b7a7-426d-8d9e-c2dee3916664-removebg-preview.png" alt="Jelajah Sumba Rent Car logo" />
+        <div>
+          <h4>Jelajah Sumba Rent Car</h4>
+          <p>jelajahsumbarentcar.com</p>
+          <p>Tour & travel, car rental, and custom itineraries in Sumba.</p>
+        </div>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul class="footer-list">
+          <li><i class="fa-solid fa-map-location-dot"></i><a href="#sumba-tours">Sumba Tours</a></li>
+          <li><i class="fa-solid fa-people-group"></i><a href="#about">About Us</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#why-choose">Why Choose</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Quick Contact</h4>
+        <ul class="footer-list">
+          <li><i class="fa-brands fa-whatsapp"></i><span>+62 822-6619-8743</span></li>
+          <li><i class="fa-brands fa-tiktok"></i><span>@jelajahsumba12</span></li>
+          <li><i class="fa-brands fa-instagram"></i><span>@hans_sumba_landscapers</span></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    const dropdownLink = document.querySelector('.nav-item .nav-link[href="#sumba-tours"]');
+    const dropdownItem = dropdownLink ? dropdownLink.closest('.nav-item') : null;
+
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.classList.toggle('is-open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    if (dropdownLink && dropdownItem) {
+      dropdownLink.addEventListener('click', (event) => {
+        if (window.matchMedia('(max-width: 900px)').matches) {
+          event.preventDefault();
+          dropdownItem.classList.toggle('open');
+        }
+      });
+    }
+
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
