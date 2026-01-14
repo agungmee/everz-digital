@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxury Trips | Jelajah Sumba</title>
+  <meta name="description" content="Luxury trips in Sumba featuring world-class resorts, premium amenities, and unforgettable island adventures." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0c0c0c;
+      --bg-soft: #11151a;
+      --gold: #d7b773;
+      --sand: #f3e6c8;
+      --text: #f5f5f5;
+      --muted: #b8b8b8;
+      --accent: #9ad0b4;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background: radial-gradient(circle at top, #1d2228, #090a0c 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .hero {
+      padding: 70px 24px 30px;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero h1 {
+      font-family: "Cinzel", serif;
+      font-size: clamp(32px, 4vw, 52px);
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .tour-grid {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .tour-card {
+      background: linear-gradient(180deg, rgba(19, 23, 29, 0.95), rgba(10, 10, 10, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .tour-card img {
+      height: 210px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .tour-content {
+      padding: 20px 20px 22px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .tour-title {
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .tour-subtitle {
+      font-size: 14px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .tour-desc {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tour-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      flex: 1;
+      text-align: center;
+      padding: 10px 12px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid transparent;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .btn-secondary {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--sand);
+      background: transparent;
+    }
+
+    @media (max-width: 640px) {
+      .tour-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Luxury Trips in Sumba</h1>
+      <p>World-class resorts, impeccable service, and premium adventures curated for a refined Sumba escape.</p>
+    </div>
+  </section>
+
+  <section class="tour-grid">
+    <article class="tour-card">
+      <img src="https://exploresumba.com/wp-content/uploads/2023/04/Nihi-Sumba-Resort-Sumba-island-Luxury-Trip-Indonesia-Explore-Sumba-400x300.jpg" alt="Nihi Sumba Luxury Adventure" loading="lazy" referrerpolicy="no-referrer" />
+      <div class="tour-content">
+        <div class="tour-title">Discover the Ultimate in Luxury Adventure at Nihi Sumba (6D/5N)</div>
+        <div class="tour-subtitle">Experience the Untamed Beauty of Sumba Island with World-Class Amenities, Exceptional Service, and Unforgettable Adventures at Nihi Sumba</div>
+        <p class="tour-desc">Nihi Sumba is a world-renowned luxury resort. Unforgettable adventures are waiting for you here that will leave you breathless. Join us for an unparalleled luxury adventure!</p>
+        <div class="tour-actions">
+          <a class="btn btn-secondary" href="#">Detail</a>
+          <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tour-card">
+      <img src="https://exploresumba.com/wp-content/uploads/2023/04/Lelewatu-Resort-Sumba-%E2%80%93-Explore-Sumba-Island-Indonesia-Luxury-Trip-to-paradise-400x300.jpg" alt="Lelewatu Resort Luxury Escape" loading="lazy" referrerpolicy="no-referrer" />
+      <div class="tour-content">
+        <div class="tour-title">Immerse Yourself in Luxury at Lelewatu Resort (5D/4N)</div>
+        <div class="tour-subtitle">Experience the Finest Accommodation, Gourmet Dining, and Spectacular Views on a 5-Day Getaway at Lelewatu Resort</div>
+        <p class="tour-desc">With its world-class amenities, stunning natural beauty, and unparalleled hospitality, Lelewatu Resort offers a serene luxury escape from the hustle and bustle of daily life!</p>
+        <div class="tour-actions">
+          <a class="btn btn-secondary" href="#">Detail</a>
+          <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tour-card">
+      <img src="https://exploresumba.com/wp-content/uploads/2023/04/The-Sanubari-Beach-Resort-Sumba-island-Luxury-Trip-Indonesia-Explore-Sumba-400x300.jpg" alt="Sanubari Beach Resort Luxury Escape" loading="lazy" referrerpolicy="no-referrer" />
+      <div class="tour-content">
+        <div class="tour-title">Escape to Paradise in The Sanubari Beach Resort (5D/4N)</div>
+        <div class="tour-subtitle">Experience a Tropical Oasis of Luxury and Relaxation: Enjoy Your Ultimate 5-Day Getaway at The Sanubari Beach Resort</div>
+        <p class="tour-desc">The Sanubari Beach Resort is a true tropical oasis of luxury and relaxation. Our 5-day, 4-night package is the perfect opportunity to escape to paradise!</p>
+        <div class="tour-actions">
+          <a class="btn btn-secondary" href="#">Detail</a>
+          <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
+        </div>
+      </div>
+    </article>
+  </section>
+</body>
+</html>

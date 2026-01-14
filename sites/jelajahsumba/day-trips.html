@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day Trips | Jelajah Sumba</title>
+  <meta name="description" content="Day trips in Sumba featuring cultural villages, coastal sunsets, and natural escapes across West and Southwest Sumba." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0c0c0c;
+      --bg-soft: #11151a;
+      --gold: #d7b773;
+      --sand: #f3e6c8;
+      --text: #f5f5f5;
+      --muted: #b8b8b8;
+      --accent: #9ad0b4;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background: radial-gradient(circle at top, #1d2228, #090a0c 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .hero {
+      padding: 70px 24px 30px;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero h1 {
+      font-family: "Cinzel", serif;
+      font-size: clamp(32px, 4vw, 52px);
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .tour-grid {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .tour-card {
+      background: linear-gradient(180deg, rgba(19, 23, 29, 0.95), rgba(10, 10, 10, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .tour-card img {
+      height: 210px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .tour-content {
+      padding: 20px 20px 22px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .tour-title {
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .tour-subtitle {
+      font-size: 14px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .tour-desc {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tour-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      flex: 1;
+      text-align: center;
+      padding: 10px 12px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid transparent;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .btn-secondary {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--sand);
+      background: transparent;
+    }
+
+    @media (max-width: 640px) {
+      .tour-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Day Trips in Sumba</h1>
+      <p>Full-day journeys blending cultural heritage, coastal beauty, and natural escapes across West and Southwest Sumba.</p>
+    </div>
+  </section>
+
+  <section class="tour-grid">
+    <article class="tour-card">
+      <img src="https://exploresumba.com/wp-content/uploads/2023/02/Weekuri-Lake-%E2%80%93-Explore-Sumba-Island_2-400x300.jpg" alt="Sumba Heritage and Coastal Bliss" loading="lazy" referrerpolicy="no-referrer" />
+      <div class="tour-content">
+        <div class="tour-title">Sumba Heritage & Coastal Bliss: Megalithic Villages, Weekuri Lake & Mandorak Sunset</div>
+        <div class="tour-subtitle">A journey through ancient culture and stunning seascapes in Southwest Sumba</div>
+        <p class="tour-desc">Uncover the living history and breathtaking landscapes of Southwest Sumba. Begin in Ratenggaro and Toda Villages, where towering traditional houses and ancient megalithic tombs tell stories of Sumba’s past. Meet the friendly locals, learn about their customs, and witness daily life in these timeless communities. Continue to the turquoise waters of Weekuri Lake for a refreshing swim, then relax on the pristine shores of Mandorak Beach as the sun sets over the Indian Ocean. A perfect balance of culture, adventure, and serenity.</p>
+        <div class="tour-actions">
+          <a class="btn btn-secondary" href="#">Detail</a>
+          <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tour-card">
+      <img src="https://exploresumba.com/wp-content/uploads/2025/10/Waikelo-Sawah-Sumba-400x300.jpg" alt="West Sumba Wonders" loading="lazy" referrerpolicy="no-referrer" />
+      <div class="tour-content">
+        <div class="tour-title">West Sumba Wonders: Waikelo Sawah, Villages & Watubela Beach</div>
+        <div class="tour-subtitle">Discover the Hidden Treasures of West Sumba on an Unforgettable Full-Day Adventure!</div>
+        <p class="tour-desc">Embark on a scenic journey through the lush landscapes and timeless traditions of West Sumba. Begin your adventure with a tranquil trek at Waikelo Sawah, passing rice terraces, rivers, and hidden waterfalls. Enjoy a local lunch before exploring the cultural heart of Wanokaka, where villages like Waigali, Praigoli, and Waiwuang reveal Sumba’s living heritage. End the day at the serene Watubela Beach, a secluded gem perfect for relaxation and sunset views. A day of pure Sumbanese beauty and connection with nature.</p>
+        <div class="tour-actions">
+          <a class="btn btn-secondary" href="#">Detail</a>
+          <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tour-card">
+      <img src="https://exploresumba.com/wp-content/uploads/2023/02/Lapopu-waterfall-%E2%80%93-Explore-Sumba-Island-waterfalls-in-Indonesia-400x300.jpeg" alt="Cultural and Nature Escape" loading="lazy" referrerpolicy="no-referrer" />
+      <div class="tour-content">
+        <div class="tour-title">Cultural & Nature Escape: Praijing Village, Local Market & Lapopu Waterfall</div>
+        <div class="tour-subtitle">Discover the Hidden Treasures of West Sumba on an Unforgettable Full-Day Adventure!</div>
+        <p class="tour-desc">Discover the charm of Praijing Village with its panoramic hilltop views and traditional houses surrounded by lush nature. Visit a lively local market to meet the friendly Sumbanese people before continuing to the stunning Lapopu Waterfall, where you can enjoy a short hike, cross a bamboo bridge, and swim in the refreshing natural pool.</p>
+        <div class="tour-actions">
+          <a class="btn btn-secondary" href="#">Detail</a>
+          <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
+        </div>
+      </div>
+    </article>
+  </section>
+</body>
+</html>
