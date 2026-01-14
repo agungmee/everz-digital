@@ -524,6 +524,94 @@
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
     }
 
+    .fleet-section {
+      background: #0c0f13;
+    }
+
+    .fleet-card {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0;
+      align-items: center;
+      border: none;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .fleet-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: contain;
+      background: #0b0b0b;
+      display: block;
+      border: none;
+    }
+
+    .fleet-info h3 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .fleet-info {
+      padding: 28px;
+      background: rgba(8, 8, 8, 0.8);
+    }
+
+    .fleet-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .fleet-form label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+
+    .fleet-form input,
+    .fleet-form select {
+      width: 100%;
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text);
+      font-size: 14px;
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    .fleet-form select,
+    .fleet-form select option {
+      background-color: #0b0b0b;
+      color: #ffffff;
+    }
+
+    .fleet-form input:focus,
+    .fleet-form select:focus {
+      outline: 1px solid var(--gold);
+      border-color: var(--gold);
+    }
+
+    .fleet-cta {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      background: var(--gold);
+      color: #111;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4);
+      width: 100%;
+    }
+
     .tour-tile:hover img {
       transform: scale(1.08);
     }
@@ -913,9 +1001,58 @@
             Jelajah Sumba Rent Car takes you to hidden beaches, vast savannas, and megalithic culture with
             local drivers, flexible itineraries, and comfortable vehicles.
           </p>
-        <div class="hero-actions">
-          <a class="cta" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Book a Tour</a>
+          <div class="hero-actions">
+            <a class="cta" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Book a Tour</a>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section class="fleet-section" id="fleet">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <h2 class="section-title">Fleet Options</h2>
+          <p class="section-subtitle">Pick the perfect vehicle and lock your schedule in minutes.</p>
+        </div>
+        <div class="fleet-card">
+          <div class="fleet-media">
+            <img id="fleet-image" src="https://cvt.sgp1.cdn.digitaloceanspaces.com/file-1649756453562.jpg" alt="Hiace Commuter" loading="lazy" referrerpolicy="no-referrer" />
+          </div>
+          <div class="fleet-info">
+            <h3 id="fleet-title">Hiace Commuter</h3>
+            <p>Reliable, spacious, and ideal for group trips across Sumba.</p>
+            <div class="fleet-form">
+              <div>
+                <label for="fleet-type">Car Type</label>
+                <select id="fleet-type">
+                  <option value="Hiace Commuter" data-image="https://cvt.sgp1.cdn.digitaloceanspaces.com/file-1649756453562.jpg">Hiace Commuter</option>
+                  <option value="Hiace Premio" data-image="https://imgcdn.oto.com/large/gallery/exterior/28/2364/mitsubishi-pajero-sport-front-angle-low-view-216762.jpg?tr=w-510,h-340">Hiace Premio</option>
+                  <option value="Pajero Sport" data-image="https://imgcdn.oto.com/large/gallery/exterior/28/2364/mitsubishi-pajero-sport-front-angle-low-view-216762.jpg?tr=w-510,h-340">Pajero Sport</option>
+                  <option value="Fortuner" data-image="https://imgcdn.oto.com/large/gallery/exterior/38/894/toyota-fortuner-front-angle-low-view-580768.jpg">Fortuner</option>
+                  <option value="Hilux" data-image="https://imgcdn.oto.com/large/gallery/exterior/38/387/toyota-hilux-headlight-916291.jpg">Hilux</option>
+                </select>
+              </div>
+              <div>
+                <label for="fleet-date">Pickup Date</label>
+                <input id="fleet-date" type="date" />
+              </div>
+              <div>
+                <label for="fleet-duration">Duration</label>
+                <select id="fleet-duration">
+                  <option value="1 day">1 day</option>
+                  <option value="2 days">2 days</option>
+                  <option value="3 days">3 days</option>
+                  <option value="4 days">4 days</option>
+                  <option value="5 days">5 days</option>
+                </select>
+              </div>
+              <div>
+                <label for="fleet-notes">Notes / Pickup Point</label>
+                <input id="fleet-notes" type="text" placeholder="Hotel, airport, or custom location" />
+              </div>
+            </div>
+            <a id="fleet-book" class="fleet-cta" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Book This Car</a>
+          </div>
         </div>
       </div>
     </section>
@@ -1075,6 +1212,37 @@
           dropdownItem.classList.toggle('open');
         }
       });
+    }
+
+    const fleetType = document.getElementById('fleet-type');
+    const fleetImage = document.getElementById('fleet-image');
+    const fleetTitle = document.getElementById('fleet-title');
+    const fleetDate = document.getElementById('fleet-date');
+    const fleetDuration = document.getElementById('fleet-duration');
+    const fleetNotes = document.getElementById('fleet-notes');
+    const fleetBook = document.getElementById('fleet-book');
+
+    const updateFleet = () => {
+      if (!fleetType || !fleetImage || !fleetTitle || !fleetBook) return;
+      const selected = fleetType.options[fleetType.selectedIndex];
+      const carName = selected.value;
+      const imageUrl = selected.dataset.image;
+      fleetTitle.textContent = carName;
+      fleetImage.src = imageUrl;
+      fleetImage.alt = carName;
+
+      const dateText = fleetDate && fleetDate.value ? fleetDate.value : 'Not set';
+      const durationText = fleetDuration ? fleetDuration.value : 'Not set';
+      const notesText = fleetNotes && fleetNotes.value ? fleetNotes.value : 'No notes';
+      const message = `Booking request%0A%0ACar: ${encodeURIComponent(carName)}%0APickup date: ${encodeURIComponent(dateText)}%0ADuration: ${encodeURIComponent(durationText)}%0ANotes: ${encodeURIComponent(notesText)}`;
+      fleetBook.href = `https://wa.me/6282266198743?text=${message}`;
+    };
+
+    if (fleetType) {
+      [fleetType, fleetDate, fleetDuration, fleetNotes].forEach((el) => {
+        if (el) el.addEventListener('input', updateFleet);
+      });
+      updateFleet();
     }
 
     const revealElements = document.querySelectorAll('.reveal');
