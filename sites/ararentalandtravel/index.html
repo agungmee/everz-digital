@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ara Rental & Travel | Rental Mobil Bandara Silangit</title>
+  <meta name="description" content="Ara Rental & Travel melayani sewa mobil, antar jemput bandara, dan perjalanan wisata Danau Toba dari Bandara Silangit." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #0c0c0c;
+      --bg-soft: #11151a;
+      --gold: #d7b773;
+      --sand: #f3e6c8;
+      --text: #f5f5f5;
+      --muted: #b8b8b8;
+      --accent: #9ad0b4;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --nav-height: 92px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background: radial-gradient(circle at top, #1d2228, #090a0c 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Cinzel", serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .brand img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      background: #0b0b0b;
+      border-radius: 50%;
+      padding: 6px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #111;
+      padding: 12px 20px;
+      border-radius: 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-self: end;
+    }
+
+    .icon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .whatsapp-icon {
+      background: transparent;
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    .whatsapp-icon i {
+      font-size: 20px;
+    }
+
+    .menu-toggle {
+      display: none;
+      position: relative;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      position: absolute;
+      left: 9px;
+      right: 9px;
+      height: 2px;
+      background: var(--text);
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    .menu-toggle span:nth-child(1) {
+      top: 12px;
+    }
+
+    .menu-toggle span:nth-child(2) {
+      top: 19px;
+    }
+
+    .menu-toggle span:nth-child(3) {
+      top: 26px;
+    }
+
+    .menu-toggle.is-open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .hero {
+      position: relative;
+      padding: 24px;
+      width: 100%;
+      margin: 0;
+      min-height: calc(100vh - var(--nav-height));
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: #0a0a0a;
+    }
+
+    .hero-bg img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120%;
+      height: 120%;
+      object-fit: cover;
+      opacity: 0;
+      filter: blur(10px) saturate(1.1);
+      transform: translate(-50%, -50%) scale(1.05);
+      transform-origin: center;
+      animation: ninjaSlide 20s infinite;
+      animation-fill-mode: both;
+    }
+
+    .hero-bg img:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .hero-bg img:nth-child(2) {
+      animation-delay: 5s;
+    }
+
+    .hero-bg img:nth-child(3) {
+      animation-delay: 10s;
+    }
+
+    .hero-bg img:nth-child(4) {
+      animation-delay: 15s;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(5, 5, 5, 0.65), rgba(5, 5, 5, 0.25));
+      z-index: 0;
+    }
+
+    .hero > :not(.hero-bg) {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes ninjaSlide {
+      0% {
+        opacity: 0;
+        filter: blur(18px) saturate(1.1);
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+      10% {
+        opacity: 1;
+        filter: blur(0) saturate(1.1);
+        transform: translate(-50%, -50%) scale(1.03);
+      }
+      25% {
+        opacity: 1;
+        filter: blur(0) saturate(1.1);
+        transform: translate(-50%, -50%) scale(1);
+      }
+      35% {
+        opacity: 0;
+        filter: blur(12px) saturate(1.1);
+        transform: translate(-50%, -50%) scale(1.05);
+      }
+      100% {
+        opacity: 0;
+        filter: blur(14px);
+        transform: translate(-50%, -50%) scale(1.08);
+      }
+    }
+
+    .hero h1 {
+      font-family: "Cinzel", serif;
+      font-size: clamp(32px, 4vw, 54px);
+      text-transform: uppercase;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      color: var(--muted);
+      margin: 20px 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--sand);
+      color: var(--sand);
+      padding: 12px 20px;
+      border-radius: 0;
+      font-weight: 600;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      justify-content: center;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 8px 14px;
+      border-radius: 0;
+      font-size: 13px;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-title {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      font-size: clamp(24px, 3vw, 36px);
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      color: var(--sand);
+      max-width: 720px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .section-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition-delay: 0.1s;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-header.reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    .fleet-section {
+      background: #0c0f13;
+    }
+
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .fleet-item {
+      background: linear-gradient(180deg, rgba(19, 23, 29, 0.95), rgba(10, 10, 10, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .fleet-media img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #0b0b0b;
+      display: block;
+    }
+
+    .fleet-content {
+      padding: 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .fleet-content h3 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+
+    .fleet-content p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .fleet-pricing {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--sand);
+    }
+
+    .fleet-pricing span {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .package {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .package-item {
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(0, 0, 0, 0.2));
+      border-radius: 0;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .package-item span {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .package-item h4 {
+      font-family: "Cinzel", serif;
+      margin: 10px 0 12px;
+    }
+
+    .package-item ul {
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .cards {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 24px;
+      border-radius: 0;
+      min-height: 180px;
+    }
+
+    .card h4 {
+      font-family: "Cinzel", serif;
+      margin-bottom: 10px;
+    }
+
+    .about-cards .card {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 220px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .about-cards .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+    }
+
+    .about-cards .card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-cards .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    .contact-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: var(--bg-soft);
+      padding: 24px;
+      border-radius: 0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-card a {
+      color: var(--sand);
+    }
+
+    .map-section {
+      background: #0c0f13;
+    }
+
+    .map-wrap {
+      margin-top: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .map-embed {
+      width: 100%;
+      height: 360px;
+      border: 0;
+      display: block;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 6, 8, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 50;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal {
+      width: min(860px, 100%);
+      max-height: 90vh;
+      background: #0d1116;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .modal-title {
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      padding: 18px 22px 24px;
+      overflow-y: auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .modal-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .modal-form label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+
+    .modal-form input,
+    .modal-form select,
+    .modal-form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text);
+      font-size: 14px;
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    .modal-form textarea {
+      resize: vertical;
+    }
+
+    .modal-form input:focus,
+    .modal-form select:focus,
+    .modal-form textarea:focus {
+      outline: 1px solid var(--gold);
+      border-color: var(--gold);
+    }
+
+    .btn {
+      flex: 1;
+      text-align: center;
+      padding: 10px 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #111;
+    }
+
+    footer {
+      background: #050505;
+      padding: 48px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 1fr;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      align-items: start;
+      padding: 0 24px;
+      text-align: left;
+    }
+
+    .footer-brand {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .footer-logo {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      background: #0b0b0b;
+      padding: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-list li {
+      color: var(--muted);
+    }
+
+    .footer-list i {
+      color: var(--gold);
+      width: 18px;
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    .footer-inner h4 {
+      color: var(--text);
+      font-family: "Cinzel", serif;
+      margin-bottom: 10px;
+    }
+
+    .footer-inner a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-wrap {
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+      }
+
+      nav {
+        position: absolute;
+        top: 78px;
+        left: 16px;
+        right: 16px;
+        background: rgba(8, 8, 8, 0.98);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 16px 20px;
+        clip-path: circle(0 at 90% -10%);
+        opacity: 0;
+        pointer-events: none;
+        transition: clip-path 0.45s ease, opacity 0.3s ease;
+        z-index: 10;
+      }
+
+      nav.open {
+        opacity: 1;
+        pointer-events: auto;
+        clip-path: circle(150% at 90% -10%);
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 4px 0;
+        align-items: flex-start;
+      }
+
+      .nav-link {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 8px 0;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .cta {
+        display: none;
+      }
+
+      .whatsapp-icon {
+        display: inline-flex;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .brand img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .badge-row {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <a class="brand" href="https://ararentandtravel.com">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/01/53f607d7-6ef8-440a-abca-629810677545-removebg-preview-1.png" alt="Ara Rental & Travel logo" />
+        Ara Rental & Travel
+      </a>
+
+      <nav id="main-menu">
+        <ul>
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#fleet">Armada</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Layanan</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="cta" href="mailto:Arasihombing38@gmail.com">
+          <i class="fa-solid fa-envelope"></i>
+          Hubungi Kami
+        </a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="https://imgcdn.oto.com/large/gallery/exterior/14/1995/honda-brio-front-angle-low-view-700459.jpg" alt="" loading="eager" />
+        <img src="https://imgcdn.oto.com/large/gallery/exterior/7/2234/daihatsu-sigra-front-angle-low-view-282430.jpg" alt="" loading="eager" />
+        <img src="https://daihatsubandung.co.id/wp-content/uploads/2022/03/daihatsu-xenia-2022-front-side-view-861720.png" alt="" loading="eager" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTny_afqkPJdJZnZlUzIEBZzjyBGY_KLS4FA&s" alt="" loading="eager" />
+      </div>
+      <div class="hero-content">
+        <div class="hero-copy">
+          <p style="color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: 13px;">Ara Rental & Travel</p>
+          <h1>Rental mobil & perjalanan wisata dari Bandara Silangit & Kualanamu.</h1>
+          <p>
+            Ara Rental & Travel melayani kebutuhan sewa mobil, antar jemput bandara, hingga tour Danau Toba
+            dengan armada nyaman dan layanan cepat.
+          </p>
+          <div class="hero-actions">
+            <a class="cta" href="mailto:Arasihombing38@gmail.com">Hubungi Kami</a>
+            <a class="btn-outline" href="#fleet">Lihat Armada</a>
+          </div>
+          <div class="badge-row">
+            <span class="badge">Bandara Silangit</span>
+            <span class="badge">Antar Jemput & Tour</span>
+            <span class="badge">Armada Nyaman</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fleet-section" id="fleet">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <h2 class="section-title">Armada & Harga Sewa</h2>
+          <p class="section-subtitle">Pilihan mobil untuk perjalanan bandara, wisata, dan kebutuhan harian di Sumatra Utara.</p>
+        </div>
+        <div class="fleet-grid">
+          <article class="fleet-item">
+            <div class="fleet-media">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTny_afqkPJdJZnZlUzIEBZzjyBGY_KLS4FA&s" alt="Avanza" loading="lazy" />
+            </div>
+            <div class="fleet-content">
+              <h3>Harga Sewa Avanza</h3>
+              <p>MPV favorit untuk perjalanan bandara dan wisata.</p>
+              <ul class="fleet-pricing">
+                <li><span>Lepas kunci:</span> Rp300.000</li>
+                <li><span>Mobil & BBM + driver:</span> Rp800.000</li>
+              </ul>
+              <button class="btn btn-primary" type="button" data-fleet-booking="Avanza">Hubungi Kami</button>
+            </div>
+          </article>
+          <article class="fleet-item">
+            <div class="fleet-media">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnvh_uORAq9dBTPtnJVWl0M0mFFPIuAPnyuA&s" alt="Terios" loading="lazy" />
+            </div>
+            <div class="fleet-content">
+              <h3>Harga Sewa Terios</h3>
+              <p>SUV nyaman untuk rute kota dan luar kota.</p>
+              <ul class="fleet-pricing">
+                <li><span>Lepas kunci:</span> Rp350.000</li>
+                <li><span>Mobil & BBM + driver:</span> Rp850.000</li>
+              </ul>
+              <button class="btn btn-primary" type="button" data-fleet-booking="Terios">Hubungi Kami</button>
+            </div>
+          </article>
+          <article class="fleet-item">
+            <div class="fleet-media">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2JybMtiEaEBPDkXuV7Dljgqr6d4BEeM1iag&s" alt="Innova Reborn" loading="lazy" />
+            </div>
+            <div class="fleet-content">
+              <h3>Harga Sewa Inova Rebon</h3>
+              <p>MPV premium untuk perjalanan keluarga dan bisnis.</p>
+              <ul class="fleet-pricing">
+                <li><span>Lepas kunci:</span> Rp500.000</li>
+                <li><span>Mobil & BBM + driver:</span> Rp950.000</li>
+              </ul>
+              <button class="btn btn-primary" type="button" data-fleet-booking="Inova Rebon">Hubungi Kami</button>
+            </div>
+          </article>
+          <article class="fleet-item">
+            <div class="fleet-media">
+              <img src="https://toyotapontianak.com/wp-content/uploads/2024/02/WEB-HIACE-COMMUTER.png" alt="Hiace" loading="lazy" />
+            </div>
+            <div class="fleet-content">
+              <h3>Harga Sewa Haice</h3>
+              <p>Cocok untuk rombongan dan perjalanan wisata.</p>
+              <ul class="fleet-pricing">
+                <li><span>Mobil & BBM + driver:</span> Rp1.400.000</li>
+              </ul>
+              <button class="btn btn-primary" type="button" data-fleet-booking="Haice">Hubungi Kami</button>
+            </div>
+          </article>
+          <article class="fleet-item">
+            <div class="fleet-media">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-9jlxjIUie7x0OZ9UmCaPI7M0l3TrqUqMoQ&s" alt="ELF" loading="lazy" />
+            </div>
+            <div class="fleet-content">
+              <h3>Harga Sewa ELF</h3>
+              <p>Solusi transportasi untuk grup besar.</p>
+              <ul class="fleet-pricing">
+                <li><span>Mobil & BBM + driver:</span> Rp1.200.000</li>
+              </ul>
+              <button class="btn btn-primary" type="button" data-fleet-booking="ELF">Hubungi Kami</button>
+            </div>
+          </article>
+          <article class="fleet-item">
+            <div class="fleet-media">
+              <img src="https://www.agungtoyotabatam.com/wp-content/uploads/2024/08/Keunggulan-Mobil-New-Alphard-MPV-Pilihan-di-Toyota-Batam.jpg" alt="Alphard" loading="lazy" />
+            </div>
+            <div class="fleet-content">
+              <h3>Harga Sewa Alpard</h3>
+              <p>Kendaraan premium untuk tamu VIP.</p>
+              <ul class="fleet-pricing">
+                <li><span>Mobil & BBM + driver:</span> Rp3.500.000</li>
+              </ul>
+              <button class="btn btn-primary" type="button" data-fleet-booking="Alpard">Hubungi Kami</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal-backdrop" data-fleet-modal aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="fleet-modal-title">
+        <div class="modal-header">
+          <div class="modal-title" id="fleet-modal-title">Hubungi Ara Rental & Travel</div>
+          <button class="modal-close" type="button" aria-label="Close">✕</button>
+        </div>
+        <div class="modal-body">
+          <form class="modal-form" id="fleet-booking-form">
+            <div>
+              <label for="fleet-booking-vehicle">Armada</label>
+              <input id="fleet-booking-vehicle" name="vehicle" type="text" readonly />
+            </div>
+            <div>
+              <label for="fleet-booking-date">Tanggal Jemput</label>
+              <input id="fleet-booking-date" name="date" type="date" required />
+            </div>
+            <div>
+              <label for="fleet-booking-duration">Durasi</label>
+              <select id="fleet-booking-duration" name="duration">
+                <option value="1 hari">1 hari</option>
+                <option value="2 hari">2 hari</option>
+                <option value="3 hari">3 hari</option>
+                <option value="4 hari">4 hari</option>
+                <option value="5 hari">5 hari</option>
+              </select>
+            </div>
+            <div>
+              <label for="fleet-booking-notes">Catatan / Lokasi Jemput</label>
+              <textarea id="fleet-booking-notes" name="notes" rows="3" placeholder="Bandara, hotel, atau lokasi lain"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Kirim Email</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <section id="services">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <h2 class="section-title">Layanan Ara Rental & Travel</h2>
+          <p class="section-subtitle">Transportasi dari Bandara Silangit hingga perjalanan wisata Danau Toba.</p>
+        </div>
+        <div class="package">
+          <article class="package-item">
+            <span>Bandara</span>
+            <h4>Antar Jemput Silangit</h4>
+            <ul>
+              <li>Pickup dan drop off tepat waktu</li>
+              <li>Mobil nyaman dan bersih</li>
+              <li>Bisa booking sebelum kedatangan</li>
+            </ul>
+          </article>
+          <article class="package-item">
+            <span>Tour</span>
+            <h4>Wisata Danau Toba</h4>
+            <ul>
+              <li>Rute fleksibel sesuai destinasi</li>
+              <li>Driver ramah dan berpengalaman</li>
+              <li>Durasi bisa menyesuaikan kebutuhan</li>
+            </ul>
+          </article>
+          <article class="package-item">
+            <span>Sewa</span>
+            <h4>Harian Lepas Kunci</h4>
+            <ul>
+              <li>Pilihan Avanza, Terios, Innova</li>
+              <li>Harga jelas dan transparan</li>
+              <li>Unit terawat siap jalan</li>
+            </ul>
+          </article>
+          <article class="package-item">
+            <span>All In</span>
+            <h4>Mobil + Driver + BBM</h4>
+            <ul>
+              <li>Paket praktis tanpa ribet</li>
+              <li>Cocok untuk perjalanan wisata</li>
+              <li>Hubungi kami untuk detail paket</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <h2 class="section-title">Tentang Ara Rental & Travel</h2>
+          <p class="section-subtitle">
+            Ara Rental & Travel merupakan layanan transportasi di Bandara Silangit, Sumatra Utara. Melayani sewa mobil,
+            antar jemput bandara, hingga perjalanan wisata Danau Toba dengan armada lengkap.
+          </p>
+        </div>
+        <div class="cards about-cards">
+          <div class="card" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTny_afqkPJdJZnZlUzIEBZzjyBGY_KLS4FA&s');">
+            <h4>Armada Nyaman</h4>
+            <p>Unit bersih dan siap untuk perjalanan jauh.</p>
+          </div>
+          <div class="card" style="background-image: url('https://toyotapontianak.com/wp-content/uploads/2024/02/WEB-HIACE-COMMUTER.png');">
+            <h4>Layanan Bandara</h4>
+            <p>Antar jemput Silangit dengan jadwal fleksibel.</p>
+          </div>
+          <div class="card" style="background-image: url('https://www.agungtoyotabatam.com/wp-content/uploads/2024/08/Keunggulan-Mobil-New-Alphard-MPV-Pilihan-di-Toyota-Batam.jpg');">
+            <h4>Tour Wisata</h4>
+            <p>Pilihan kendaraan untuk trip Danau Toba.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-choose">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <h2 class="section-title">Kenapa Pilih Kami</h2>
+          <p class="section-subtitle">Harga jelas, armada lengkap, dan layanan cepat untuk perjalanan Anda.</p>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <h4>Harga Transparan</h4>
+            <p>Tarif sesuai daftar tanpa biaya tersembunyi.</p>
+          </div>
+          <div class="card">
+            <h4>Armada Lengkap</h4>
+            <p>Mulai city car sampai premium untuk VIP.</p>
+          </div>
+          <div class="card">
+            <h4>Respon Cepat</h4>
+            <p>Hubungi kami via email kapan saja.</p>
+          </div>
+          <div class="card">
+            <h4>Jalur Wisata</h4>
+            <p>Driver paham rute Danau Toba dan sekitarnya.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section" id="contact">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <h2 class="section-title">Kontak & Lokasi</h2>
+          <p class="section-subtitle">Jln.bunga herba raya no 20 medan selayang.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h4>Hubungi Kami</h4>
+            <p><i class="fa-solid fa-envelope"></i> <a href="mailto:Arasihombing38@gmail.com">Arasihombing38@gmail.com</a></p>
+            <p><i class="fa-solid fa-globe"></i> <a href="https://ararentandtravel.com" target="_blank" rel="noreferrer">ararentandtravel.com</a></p>
+          </div>
+          <div class="contact-card">
+            <h4>Media Sosial</h4>
+            <p><i class="fa-brands fa-tiktok"></i> BK 4124 HOM</p>
+            <p><i class="fa-brands fa-instagram"></i> ara sihombing</p>
+            <p><i class="fa-brands fa-facebook"></i> ara sihombing</p>
+          </div>
+          <div class="contact-card">
+            <h4>Info Layanan</h4>
+            <p>Hubungi kami untuk info jam operasional dan ketersediaan armada.</p>
+          </div>
+        </div>
+        <div class="map-wrap">
+          <iframe
+            class="map-embed"
+            title="Ara Rental & Travel location"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=3.5328553%2C98.6336627&z=17&hl=en&output=embed"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="footer-logo" src="https://everz-digital.site/wp-content/uploads/2026/01/53f607d7-6ef8-440a-abca-629810677545-removebg-preview-1.png" alt="Ara Rental & Travel logo" />
+        <div>
+          <h4>Ara Rental & Travel</h4>
+          <p>ararentandtravel.com</p>
+          <p>Rental mobil bandara, city transfer, dan tour Danau Toba.</p>
+        </div>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="#fleet"><i class="fa-solid fa-car-side"></i><span>Armada</span></a></li>
+          <li><a class="footer-link" href="#services"><i class="fa-solid fa-handshake"></i><span>Layanan</span></a></li>
+          <li><a class="footer-link" href="#about"><i class="fa-solid fa-people-group"></i><span>Tentang</span></a></li>
+          <li><a class="footer-link" href="#contact"><i class="fa-solid fa-envelope"></i><span>Kontak</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Quick Contact</h4>
+        <ul class="footer-list">
+          <li>
+            <a class="footer-link" href="mailto:Arasihombing38@gmail.com">
+              <i class="fa-solid fa-envelope"></i><span>Arasihombing38@gmail.com</span>
+            </a>
+          </li>
+          <li>
+            <span class="footer-link">
+              <i class="fa-brands fa-instagram"></i><span>ara sihombing</span>
+            </span>
+          </li>
+          <li>
+            <span class="footer-link">
+              <i class="fa-brands fa-tiktok"></i><span>BK 4124 HOM</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        toggle.classList.toggle('is-open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    const fleetModal = document.querySelector('[data-fleet-modal]');
+    const fleetBookingTriggers = document.querySelectorAll('[data-fleet-booking]');
+    const fleetBookingForm = document.getElementById('fleet-booking-form');
+    const fleetBookingVehicle = document.getElementById('fleet-booking-vehicle');
+    const fleetBookingDate = document.getElementById('fleet-booking-date');
+    const fleetBookingDuration = document.getElementById('fleet-booking-duration');
+    const fleetBookingNotes = document.getElementById('fleet-booking-notes');
+    const fleetBookingClose = fleetModal ? fleetModal.querySelector('.modal-close') : null;
+
+    const openFleetModal = (vehicle) => {
+      if (!fleetModal || !fleetBookingVehicle) return;
+      fleetBookingVehicle.value = vehicle;
+      fleetModal.classList.add('active');
+      fleetModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeFleetModal = () => {
+      if (!fleetModal) return;
+      fleetModal.classList.remove('active');
+      fleetModal.setAttribute('aria-hidden', 'true');
+    };
+
+    fleetBookingTriggers.forEach((button) => {
+      button.addEventListener('click', () => openFleetModal(button.dataset.fleetBooking));
+    });
+
+    if (fleetBookingClose) {
+      fleetBookingClose.addEventListener('click', closeFleetModal);
+    }
+
+    if (fleetModal) {
+      fleetModal.addEventListener('click', (event) => {
+        if (event.target === fleetModal) {
+          closeFleetModal();
+        }
+      });
+    }
+
+    if (fleetBookingForm) {
+      fleetBookingForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const vehicle = fleetBookingVehicle ? fleetBookingVehicle.value : '';
+        const dateText = fleetBookingDate && fleetBookingDate.value ? fleetBookingDate.value : 'Belum ditentukan';
+        const durationText = fleetBookingDuration ? fleetBookingDuration.value : 'Belum ditentukan';
+        const notesText = fleetBookingNotes && fleetBookingNotes.value ? fleetBookingNotes.value : 'Tidak ada catatan';
+        const subject = `Permintaan sewa mobil - ${vehicle}`;
+        const body = `Permintaan sewa mobil%0A%0AMobil: ${encodeURIComponent(vehicle)}%0ATanggal jemput: ${encodeURIComponent(dateText)}%0ADurasi: ${encodeURIComponent(durationText)}%0ACatatan: ${encodeURIComponent(notesText)}`;
+        const url = `mailto:Arasihombing38@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        window.location.href = url;
+        fleetBookingForm.reset();
+        if (fleetBookingVehicle) {
+          fleetBookingVehicle.value = vehicle;
+        }
+        closeFleetModal();
+      });
+    }
+
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
