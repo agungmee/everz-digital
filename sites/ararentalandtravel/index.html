@@ -57,7 +57,7 @@
     .nav-wrap {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 18px 24px;
+      padding: 12px 24px;
       display: grid;
       grid-template-columns: auto 1fr auto;
       align-items: center;
@@ -76,8 +76,8 @@
     }
 
     .brand img {
-      width: 56px;
-      height: 56px;
+      width: 80px;
+      height: 80px;
       object-fit: contain;
       background: #0b0b0b;
       border-radius: 50%;
@@ -199,9 +199,9 @@
       width: 100%;
       margin: 0;
       min-height: calc(100vh - var(--nav-height));
-      overflow: hidden;
       display: flex;
       align-items: center;
+      overflow: hidden;
     }
 
     .hero-content {
@@ -210,95 +210,112 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 32px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 40px;
       align-items: center;
-      justify-items: center;
-      text-align: center;
       width: 100%;
     }
 
     .hero-copy {
-      max-width: 720px;
-      margin: 0 auto;
+      max-width: 520px;
     }
 
-    .hero-bg {
+    .hero-ambient {
       position: absolute;
       inset: 0;
       z-index: 0;
-      background: #0a0a0a;
+      pointer-events: none;
+      overflow: hidden;
     }
 
-    .hero-bg img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 120%;
-      height: 120%;
-      object-fit: cover;
-      opacity: 0;
-      filter: blur(10px) saturate(1.1);
-      transform: translate(-50%, -50%) scale(1.05);
-      transform-origin: center;
-      animation: ninjaSlide 20s infinite;
-      animation-fill-mode: both;
-    }
-
-    .hero-bg img:nth-child(1) {
-      animation-delay: 0s;
-    }
-
-    .hero-bg img:nth-child(2) {
-      animation-delay: 5s;
-    }
-
-    .hero-bg img:nth-child(3) {
-      animation-delay: 10s;
-    }
-
-    .hero-bg img:nth-child(4) {
-      animation-delay: 15s;
-    }
-
-    .hero::after {
+    .hero-ambient::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(5, 5, 5, 0.65), rgba(5, 5, 5, 0.25));
-      z-index: 0;
+      inset: -20% 0 0 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(215, 183, 115, 0.22), transparent 55%),
+        radial-gradient(circle at 80% 30%, rgba(154, 208, 180, 0.18), transparent 60%),
+        radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.08), transparent 65%);
+      filter: blur(6px);
+      animation: glowDrift 16s ease-in-out infinite;
     }
 
-    .hero > :not(.hero-bg) {
-      position: relative;
-      z-index: 1;
+    .bubble {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      filter: blur(0.5px);
+      animation: floatUp 18s linear infinite;
+      opacity: 0.5;
     }
 
-    @keyframes ninjaSlide {
+    .bubble.b1 {
+      left: 6%;
+      bottom: -20%;
+      width: 200px;
+      height: 200px;
+      animation-duration: 22s;
+    }
+
+    .bubble.b2 {
+      left: 42%;
+      bottom: -30%;
+      width: 140px;
+      height: 140px;
+      animation-duration: 18s;
+      animation-delay: 2s;
+    }
+
+    .bubble.b3 {
+      left: 70%;
+      bottom: -25%;
+      width: 220px;
+      height: 220px;
+      animation-duration: 26s;
+      animation-delay: 4s;
+    }
+
+    .bubble.b4 {
+      left: 85%;
+      bottom: -18%;
+      width: 120px;
+      height: 120px;
+      animation-duration: 16s;
+      animation-delay: 1s;
+    }
+
+    @keyframes floatUp {
       0% {
-        opacity: 0;
-        filter: blur(18px) saturate(1.1);
-        transform: translate(-50%, -50%) scale(1.1);
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.25;
       }
-      10% {
-        opacity: 1;
-        filter: blur(0) saturate(1.1);
-        transform: translate(-50%, -50%) scale(1.03);
+      30% {
+        opacity: 0.55;
       }
-      25% {
-        opacity: 1;
-        filter: blur(0) saturate(1.1);
-        transform: translate(-50%, -50%) scale(1);
-      }
-      35% {
-        opacity: 0;
-        filter: blur(12px) saturate(1.1);
-        transform: translate(-50%, -50%) scale(1.05);
+      60% {
+        opacity: 0.35;
       }
       100% {
+        transform: translateY(-140vh) translateX(40px) scale(1.08);
         opacity: 0;
-        filter: blur(14px);
-        transform: translate(-50%, -50%) scale(1.08);
+      }
+    }
+
+    @keyframes glowDrift {
+      0% {
+        transform: translateY(0);
+        opacity: 0.6;
+      }
+      50% {
+        transform: translateY(-20px);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 0.6;
       }
     }
 
@@ -318,7 +335,18 @@
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
+    }
+
+    .hero-visual {
+      display: flex;
       justify-content: center;
+      align-items: center;
+    }
+
+    .hero-visual img {
+      width: min(560px, 100%);
+      height: auto;
+      filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.55));
     }
 
     .btn-outline {
@@ -484,6 +512,18 @@
       gap: 8px;
     }
 
+    #services .package-item {
+      text-align: center;
+    }
+
+    #why-choose .card {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
     .cards {
       margin-top: 32px;
       display: grid;
@@ -550,6 +590,8 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       display: grid;
       gap: 10px;
+      text-align: center;
+      justify-items: center;
     }
 
     .contact-card a {
@@ -663,6 +705,29 @@
       border-color: var(--gold);
     }
 
+    .wa-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #0b0b0b;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+      z-index: 1000;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .wa-float:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.45);
+    }
+
     .btn {
       flex: 1;
       text-align: center;
@@ -753,6 +818,16 @@
     }
 
     @media (max-width: 900px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
       .nav-wrap {
         grid-template-columns: auto 1fr auto;
         align-items: center;
@@ -811,8 +886,8 @@
 
     @media (max-width: 600px) {
       .brand img {
-        width: 48px;
-        height: 48px;
+        width: 68px;
+        height: 68px;
       }
 
       .hero {
@@ -845,7 +920,7 @@
 
       <div class="nav-actions">
         <a class="cta" href="mailto:Arasihombing38@gmail.com">
-          <i class="fa-solid fa-envelope"></i>
+          <i class="fa-brands fa-whatsapp"></i>
           Hubungi Kami
         </a>
         <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Open menu">
@@ -859,11 +934,11 @@
 
   <main>
     <section class="hero" id="home">
-      <div class="hero-bg" aria-hidden="true">
-        <img src="https://imgcdn.oto.com/large/gallery/exterior/14/1995/honda-brio-front-angle-low-view-700459.jpg" alt="" loading="eager" />
-        <img src="https://imgcdn.oto.com/large/gallery/exterior/7/2234/daihatsu-sigra-front-angle-low-view-282430.jpg" alt="" loading="eager" />
-        <img src="https://daihatsubandung.co.id/wp-content/uploads/2022/03/daihatsu-xenia-2022-front-side-view-861720.png" alt="" loading="eager" />
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTny_afqkPJdJZnZlUzIEBZzjyBGY_KLS4FA&s" alt="" loading="eager" />
+      <div class="hero-ambient" aria-hidden="true">
+        <span class="bubble b1"></span>
+        <span class="bubble b2"></span>
+        <span class="bubble b3"></span>
+        <span class="bubble b4"></span>
       </div>
       <div class="hero-content">
         <div class="hero-copy">
@@ -877,11 +952,9 @@
             <a class="cta" href="mailto:Arasihombing38@gmail.com">Hubungi Kami</a>
             <a class="btn-outline" href="#fleet">Lihat Armada</a>
           </div>
-          <div class="badge-row">
-            <span class="badge">Bandara Silangit</span>
-            <span class="badge">Antar Jemput & Tour</span>
-            <span class="badge">Armada Nyaman</span>
-          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="https://rentalmobilabditra.com/wp-content/uploads/2025/09/Sewa-Mobil-malang-jogja-magelang.png.webp" alt="Armada Ara Rental & Travel" loading="eager" />
         </div>
       </div>
     </section>
@@ -1192,6 +1265,10 @@
       </div>
     </div>
   </footer>
+
+  <a class="wa-float" href="https://wa.me/6281264626399" target="_blank" rel="noreferrer" aria-label="Chat WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
   <script>
     const toggle = document.querySelector('.menu-toggle');
