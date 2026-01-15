@@ -1,0 +1,266 @@
+<style>
+  :root {
+    --gold: #d7b773;
+    --sand: #f3e6c8;
+    --text: #f5f5f5;
+    --muted: #b8b8b8;
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    --nav-height: 92px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 0;
+  }
+
+  .nav-spacer {
+    height: var(--nav-height);
+  }
+
+  .nav-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .brand img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    background: #0b0b0b;
+    border-radius: 50%;
+    padding: 6px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: #111;
+    padding: 12px 20px;
+    border-radius: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+
+  .cta i {
+    font-size: 16px;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-self: end;
+  }
+
+  .menu-toggle {
+    display: none;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    left: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .menu-toggle span:nth-child(1) {
+    top: 14px;
+  }
+
+  .menu-toggle span:nth-child(2) {
+    top: 20px;
+  }
+
+  .menu-toggle span:nth-child(3) {
+    top: 26px;
+  }
+
+  .menu-toggle.is-open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .menu-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.is-open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  @media (max-width: 900px) {
+    .nav-wrap {
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+    }
+
+    nav {
+      position: absolute;
+      top: 78px;
+      left: 16px;
+      right: 16px;
+      background: rgba(8, 8, 8, 0.98);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 16px 20px;
+      clip-path: circle(0 at 90% -10%);
+      opacity: 0;
+      pointer-events: none;
+      transition: clip-path 0.45s ease, opacity 0.3s ease;
+      z-index: 10;
+    }
+
+    nav.open {
+      opacity: 1;
+      pointer-events: auto;
+      clip-path: circle(150% at 90% -10%);
+    }
+
+    nav ul {
+      flex-direction: column;
+      gap: 0;
+      padding: 4px 0;
+      align-items: flex-start;
+    }
+
+    .nav-link {
+      width: 100%;
+      justify-content: flex-start;
+      padding: 8px 0;
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+    }
+
+    .cta {
+      display: inline-flex;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .brand img {
+      width: 48px;
+      height: 48px;
+    }
+
+    .brand {
+      font-size: 12px;
+      letter-spacing: 0.6px;
+    }
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="https://wisatasumbarentcar.com">
+      <img src="https://everz-digital.site/wp-content/uploads/2026/01/d9593be5-b7a7-426d-8d9e-c2dee3916664-removebg-preview.png" alt="Jelajah Sumba Rent Car logo" />
+      Wisata Sumba
+    </a>
+
+    <nav id="main-menu">
+      <ul>
+        <li class="nav-item"><a class="nav-link" href="#fleet">Rent Car</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sumba-tours">Sumba Tours</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#why-choose">Why Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="cta" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+        WhatsApp
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="nav-spacer" aria-hidden="true"></div>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.classList.toggle('is-open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
+</script>

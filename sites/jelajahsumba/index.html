@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jelajah Sumba Rent Car | Sumba Tour & Travel</title>
-  <meta name="description" content="Jelajah Sumba Rent Car provides Sumba tours, car rental, and curated travel experiences with local drivers and flexible itineraries." />
+  <title>Wisata Sumba Rent Car | Sumba Tour & Travel</title>
+  <meta name="description" content="Wisata Sumba Rent Car provides Sumba tours, car rental, and curated travel experiences with local drivers and flexible itineraries." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -434,10 +434,11 @@
       text-transform: uppercase;
       font-size: clamp(24px, 3vw, 36px);
       margin-bottom: 12px;
+      color: var(--text);
     }
 
     .section-subtitle {
-      color: var(--muted);
+      color: var(--sand);
       max-width: 720px;
     }
 
@@ -462,120 +463,236 @@
       transform: translateY(0);
     }
 
-    .tour-grid {
+    .section-header.reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    .package-grid {
       margin-top: 32px;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
 
-    .tour-tile {
-      position: relative;
-      overflow: hidden;
-      border-radius: 0;
-      aspect-ratio: 1 / 1;
+    .package-card {
+      background: linear-gradient(180deg, rgba(19, 23, 29, 0.95), rgba(10, 10, 10, 0.98));
       border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
-    .tour-tile img {
+    .package-slider {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .package-slider img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      transform: scale(1.02);
-      transition: transform 0.4s ease;
+      opacity: 0;
+      transition: opacity 0.8s ease;
     }
 
-    .tour-tile::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.65));
+    .package-slider img.is-active {
+      opacity: 1;
     }
 
-    .tour-label {
-      position: absolute;
+    .package-body {
+      padding: 20px 20px 22px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .package-title {
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .package-price {
+      font-size: 14px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .package-note {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .package-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      flex: 1;
+      text-align: center;
+      padding: 10px 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .btn-secondary {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--sand);
+      background: transparent;
+    }
+
+    .modal-backdrop {
+      position: fixed;
       inset: 0;
+      background: rgba(5, 6, 8, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 50;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal {
+      width: min(860px, 100%);
+      max-height: 90vh;
+      background: #0d1116;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+    }
+
+    .modal-header {
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 16px;
-      font-family: "Cinzel", serif;
-      font-size: 20px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      z-index: 1;
+      justify-content: space-between;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .tour-button {
-      margin-top: 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
+    .modal-title {
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
       color: var(--text);
-      font-size: 12px;
-      letter-spacing: 1px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      padding: 18px 22px 24px;
+      overflow-y: auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .modal-body h4 {
+      font-family: "Cinzel", serif;
       text-transform: uppercase;
-      background: rgba(5, 5, 5, 0.6);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .modal-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .modal-list li::before {
+      content: "• ";
+      color: var(--gold);
     }
 
     .fleet-section {
       background: #0c0f13;
     }
 
-    .fleet-card {
+    .fleet-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 0;
-      align-items: center;
-      border: none;
-      padding: 0;
-      background: transparent;
-      box-shadow: none;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .fleet-item {
+      background: linear-gradient(180deg, rgba(19, 23, 29, 0.95), rgba(10, 10, 10, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
     .fleet-media img {
       width: 100%;
-      height: 100%;
-      min-height: 260px;
-      object-fit: contain;
+      height: 200px;
+      object-fit: cover;
       background: #0b0b0b;
       display: block;
-      border: none;
     }
 
-    .fleet-info h3 {
+    .fleet-content {
+      padding: 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .fleet-content h3 {
       font-family: "Cinzel", serif;
       text-transform: uppercase;
-      font-size: 26px;
-      margin-bottom: 12px;
+      font-size: 20px;
     }
 
-    .fleet-info {
-      padding: 28px;
-      background: rgba(8, 8, 8, 0.8);
+    .fleet-content p {
+      color: var(--muted);
+      font-size: 14px;
     }
 
-    .fleet-form {
+    .modal-form {
       display: grid;
       gap: 14px;
-      margin-top: 18px;
     }
 
-    .fleet-form label {
+    .modal-form label {
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--muted);
     }
 
-    .fleet-form input,
-    .fleet-form select {
+    .modal-form input,
+    .modal-form select,
+    .modal-form textarea {
       width: 100%;
       padding: 10px 12px;
       background: rgba(255, 255, 255, 0.04);
@@ -585,35 +702,15 @@
       font-family: "Plus Jakarta Sans", sans-serif;
     }
 
-    .fleet-form select,
-    .fleet-form select option {
-      background-color: #0b0b0b;
-      color: #ffffff;
+    .modal-form textarea {
+      resize: vertical;
     }
 
-    .fleet-form input:focus,
-    .fleet-form select:focus {
+    .modal-form input:focus,
+    .modal-form select:focus,
+    .modal-form textarea:focus {
       outline: 1px solid var(--gold);
       border-color: var(--gold);
-    }
-
-    .fleet-cta {
-      margin-top: 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      background: var(--gold);
-      color: #111;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4);
-      width: 100%;
-    }
-
-    .tour-tile:hover img {
-      transform: scale(1.08);
     }
 
     .quote-grid {
@@ -652,18 +749,14 @@
     }
 
     @media (max-width: 900px) {
-      .tour-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
       .quote-grid {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 600px) {
-      .tour-grid {
-        grid-template-columns: 1fr;
+      .package-actions {
+        flex-direction: column;
       }
     }
 
@@ -779,6 +872,24 @@
       padding: 24px;
       border-radius: 0;
       border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .map-section {
+      background: #0c0f13;
+    }
+
+    .map-wrap {
+      margin-top: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .map-embed {
+      width: 100%;
+      height: 360px;
+      border: 0;
+      display: block;
     }
 
     footer {
@@ -944,11 +1055,12 @@
   </style>
 </head>
 <body>
+  <!--
   <header>
     <div class="nav-wrap">
-      <a class="brand" href="#home">
+      <a class="brand" href="https://wisatasumbarentcar.com">
         <img src="https://everz-digital.site/wp-content/uploads/2026/01/d9593be5-b7a7-426d-8d9e-c2dee3916664-removebg-preview.png" alt="Jelajah Sumba Rent Car logo" />
-        Jelajah Sumba
+        Wisata Sumba
       </a>
 
       <nav id="main-menu">
@@ -984,21 +1096,22 @@
       </div>
     </div>
   </header>
+  -->
 
   <main>
     <section class="hero" id="home">
       <div class="hero-bg" aria-hidden="true">
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/08/d1/2f/mandorak-beach.jpg?w=1200&h=700&s=1" alt="" referrerpolicy="no-referrer" loading="eager" />
-        <img src="https://zjglidcehtsqqqhbdxyp.supabase.co/storage/v1/object/public/atourin/images/wilayah/sumba-barat-daya-1750807092.jpeg" alt="" referrerpolicy="no-referrer" loading="eager" />
-        <img src="https://tempatwisataseru.com/wp-content/uploads/2020/10/Wisata-Danau-Malaikat-Laguna-Weekuri.jpg" alt="" referrerpolicy="no-referrer" loading="eager" />
-        <img src="https://cdn.antaranews.com/cache/1200x800/2016/12/20161221Screen_Shot_2016-12-21_at_9.41.30_AM.png" alt="" referrerpolicy="no-referrer" loading="eager" />
+        <img src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.22.jpeg" alt="" referrerpolicy="no-referrer" loading="eager" />
+        <img src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.21-1.jpeg" alt="" referrerpolicy="no-referrer" loading="eager" />
+        <img src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.21.jpeg" alt="" referrerpolicy="no-referrer" loading="eager" />
+        <img src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.20-1.jpeg" alt="" referrerpolicy="no-referrer" loading="eager" />
       </div>
       <div class="hero-content">
         <div class="hero-copy">
-          <p style="color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: 13px;">Jelajah Sumba Rent Car</p>
+          <p style="color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: 13px;">Wisata Sumba Rent Car</p>
           <h1>Elegant, personal, and story-rich journeys across Sumba.</h1>
           <p>
-            Jelajah Sumba Rent Car takes you to hidden beaches, vast savannas, and megalithic culture with
+            Wisata Sumba Rent Car takes you to hidden beaches, vast savannas, and megalithic culture with
             local drivers, flexible itineraries, and comfortable vehicles.
           </p>
           <div class="hero-actions">
@@ -1014,49 +1127,106 @@
           <h2 class="section-title">Fleet Options</h2>
           <p class="section-subtitle">Pick the perfect vehicle and lock your schedule in minutes.</p>
         </div>
-        <div class="fleet-card">
-          <div class="fleet-media">
-            <img id="fleet-image" src="https://cvt.sgp1.cdn.digitaloceanspaces.com/file-1649756453562.jpg" alt="Hiace Commuter" loading="lazy" referrerpolicy="no-referrer" />
-          </div>
-          <div class="fleet-info">
-            <h3 id="fleet-title">Hiace Commuter</h3>
-            <p>Reliable, spacious, and ideal for group trips across Sumba.</p>
-            <div class="fleet-form">
-              <div>
-                <label for="fleet-type">Car Type</label>
-                <select id="fleet-type">
-                  <option value="Hiace Commuter" data-image="https://cvt.sgp1.cdn.digitaloceanspaces.com/file-1649756453562.jpg">Hiace Commuter</option>
-                  <option value="Hiace Premio" data-image="https://imgcdn.oto.com/large/gallery/exterior/28/2364/mitsubishi-pajero-sport-front-angle-low-view-216762.jpg?tr=w-510,h-340">Hiace Premio</option>
-                  <option value="Pajero Sport" data-image="https://imgcdn.oto.com/large/gallery/exterior/28/2364/mitsubishi-pajero-sport-front-angle-low-view-216762.jpg?tr=w-510,h-340">Pajero Sport</option>
-                  <option value="Fortuner" data-image="https://imgcdn.oto.com/large/gallery/exterior/38/894/toyota-fortuner-front-angle-low-view-580768.jpg">Fortuner</option>
-                  <option value="Hilux" data-image="https://imgcdn.oto.com/large/gallery/exterior/38/387/toyota-hilux-headlight-916291.jpg">Hilux</option>
-                  <option value="Innova" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2JybMtiEaEBPDkXuV7Dljgqr6d4BEeM1iag&s">Innova</option>
-                </select>
-              </div>
-              <div>
-                <label for="fleet-date">Pickup Date</label>
-                <input id="fleet-date" type="date" />
-              </div>
-              <div>
-                <label for="fleet-duration">Duration</label>
-                <select id="fleet-duration">
-                  <option value="1 day">1 day</option>
-                  <option value="2 days">2 days</option>
-                  <option value="3 days">3 days</option>
-                  <option value="4 days">4 days</option>
-                  <option value="5 days">5 days</option>
-                </select>
-              </div>
-              <div>
-                <label for="fleet-notes">Notes / Pickup Point</label>
-                <input id="fleet-notes" type="text" placeholder="Hotel, airport, or custom location" />
-              </div>
+        <div class="fleet-grid">
+          <article class="fleet-item">
+            <div class="fleet-media">
+              <img src="https://cvt.sgp1.cdn.digitaloceanspaces.com/file-1649756453562.jpg" alt="Hiace Commuter" loading="lazy" referrerpolicy="no-referrer" />
             </div>
-            <a id="fleet-book" class="fleet-cta" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Book This Car</a>
-          </div>
+            <div class="fleet-content">
+              <h3>Hiace Commuter</h3>
+              <p>Reliable, spacious, and ideal for group trips across Sumba.</p>
+              <button class="btn btn-primary" type="button" data-fleet-booking="Hiace Commuter">Booking</button>
+            </div>
+          </article>
+          <article class="fleet-item">
+            <div class="fleet-media">
+              <img src="https://imgcdn.oto.com/large/gallery/exterior/28/2364/mitsubishi-pajero-sport-front-angle-low-view-216762.jpg?tr=w-510,h-340" alt="Hiace Premio" loading="lazy" referrerpolicy="no-referrer" />
+            </div>
+            <div class="fleet-content">
+              <h3>Hiace Premio</h3>
+              <p>Comfortable premium van for family and business trips.</p>
+              <button class="btn btn-primary" type="button" data-fleet-booking="Hiace Premio">Booking</button>
+            </div>
+          </article>
+          <article class="fleet-item">
+            <div class="fleet-media">
+              <img src="https://imgcdn.oto.com/large/gallery/exterior/28/2364/mitsubishi-pajero-sport-front-angle-low-view-216762.jpg?tr=w-510,h-340" alt="Pajero Sport" loading="lazy" referrerpolicy="no-referrer" />
+            </div>
+            <div class="fleet-content">
+              <h3>Pajero Sport</h3>
+              <p>Strong SUV for rugged routes and long-distance comfort.</p>
+              <button class="btn btn-primary" type="button" data-fleet-booking="Pajero Sport">Booking</button>
+            </div>
+          </article>
+          <article class="fleet-item">
+            <div class="fleet-media">
+              <img src="https://imgcdn.oto.com/large/gallery/exterior/38/894/toyota-fortuner-front-angle-low-view-580768.jpg" alt="Fortuner" loading="lazy" referrerpolicy="no-referrer" />
+            </div>
+            <div class="fleet-content">
+              <h3>Fortuner</h3>
+              <p>Stylish, powerful, and ready for scenic island drives.</p>
+              <button class="btn btn-primary" type="button" data-fleet-booking="Fortuner">Booking</button>
+            </div>
+          </article>
+          <article class="fleet-item">
+            <div class="fleet-media">
+              <img src="https://imgcdn.oto.com/large/gallery/exterior/38/387/toyota-hilux-headlight-916291.jpg" alt="Hilux" loading="lazy" referrerpolicy="no-referrer" />
+            </div>
+            <div class="fleet-content">
+              <h3>Hilux</h3>
+              <p>Rugged pickup, perfect for adventure and gear-heavy trips.</p>
+              <button class="btn btn-primary" type="button" data-fleet-booking="Hilux">Booking</button>
+            </div>
+          </article>
+          <article class="fleet-item">
+            <div class="fleet-media">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2JybMtiEaEBPDkXuV7Dljgqr6d4BEeM1iag&s" alt="Innova" loading="lazy" referrerpolicy="no-referrer" />
+            </div>
+            <div class="fleet-content">
+              <h3>Innova</h3>
+              <p>Comfortable MPV for families and flexible itineraries.</p>
+              <button class="btn btn-primary" type="button" data-fleet-booking="Innova">Booking</button>
+            </div>
+          </article>
         </div>
       </div>
     </section>
+
+    <div class="modal-backdrop" data-fleet-modal aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="fleet-modal-title">
+        <div class="modal-header">
+          <div class="modal-title" id="fleet-modal-title">Book This Car</div>
+          <button class="modal-close" type="button" aria-label="Close">✕</button>
+        </div>
+        <div class="modal-body">
+          <form class="modal-form" id="fleet-booking-form">
+            <div>
+              <label for="fleet-booking-vehicle">Vehicle</label>
+              <input id="fleet-booking-vehicle" name="vehicle" type="text" readonly />
+            </div>
+            <div>
+              <label for="fleet-booking-date">Pickup Date</label>
+              <input id="fleet-booking-date" name="date" type="date" required />
+            </div>
+            <div>
+              <label for="fleet-booking-duration">Duration</label>
+              <select id="fleet-booking-duration" name="duration">
+                <option value="1 day">1 day</option>
+                <option value="2 days">2 days</option>
+                <option value="3 days">3 days</option>
+                <option value="4 days">4 days</option>
+                <option value="5 days">5 days</option>
+              </select>
+            </div>
+            <div>
+              <label for="fleet-booking-notes">Notes / Pickup Point</label>
+              <textarea id="fleet-booking-notes" name="notes" rows="3" placeholder="Hotel, airport, or custom location"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Send to WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <section id="sumba-tours">
       <div class="section-inner">
@@ -1064,42 +1234,136 @@
           <h2 class="section-title">Sumba Tours</h2>
           <p class="section-subtitle">Curated routes, hidden shores, and cultural moments — pick a journey that matches your pace in Sumba.</p>
         </div>
-        <div class="tour-grid">
-          <a class="tour-tile" href="private-tours.html">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/08/d1/2f/mandorak-beach.jpg?w=1200&h=700&s=1" alt="Private tours in Sumba" loading="lazy" referrerpolicy="no-referrer" />
-            <div class="tour-label">Private Tours <span class="tour-button">Details</span></div>
-          </a>
-          <a class="tour-tile" href="special-trips.html">
-            <img src="https://tempatwisataseru.com/wp-content/uploads/2020/10/Wisata-Danau-Malaikat-Laguna-Weekuri.jpg" alt="Special trips in Sumba" loading="lazy" referrerpolicy="no-referrer" />
-            <div class="tour-label">Special Trips <span class="tour-button">Details</span></div>
-          </a>
-          <a class="tour-tile" href="open-trips.html">
-            <img src="https://cdn.antaranews.com/cache/1200x800/2016/12/20161221Screen_Shot_2016-12-21_at_9.41.30_AM.png" alt="Open trips in Sumba" loading="lazy" referrerpolicy="no-referrer" />
-            <div class="tour-label">Open Trips <span class="tour-button">Details</span></div>
-          </a>
-          <a class="tour-tile" href="day-trips.html">
-            <img src="https://zjglidcehtsqqqhbdxyp.supabase.co/storage/v1/object/public/atourin/images/wilayah/sumba-barat-daya-1750807092.jpeg" alt="Day trips in Sumba" loading="lazy" referrerpolicy="no-referrer" />
-            <div class="tour-label">Day Trips <span class="tour-button">Details</span></div>
-          </a>
-          <a class="tour-tile" href="luxury-trips.html">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Luxury trips in Sumba" loading="lazy" referrerpolicy="no-referrer" />
-            <div class="tour-label">Luxury Trips <span class="tour-button">Details</span></div>
-          </a>
-          <a class="tour-tile" href="honeymoon-tours.html">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Honeymoon tours in Sumba" loading="lazy" referrerpolicy="no-referrer" />
-            <div class="tour-label">Honeymoon Tours <span class="tour-button">Details</span></div>
-          </a>
-          <a class="tour-tile" href="pasola-festival-tours.html">
-            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80" alt="Pasola festival tours in Sumba" loading="lazy" referrerpolicy="no-referrer" />
-            <div class="tour-label">Pasola Festival Tours <span class="tour-button">Details</span></div>
-          </a>
-          <a class="tour-tile" href="custom-itineraries.html">
-            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80" alt="Custom itineraries in Sumba" loading="lazy" referrerpolicy="no-referrer" />
-            <div class="tour-label">Custom Itineraries <span class="tour-button">Details</span></div>
-          </a>
+        <div class="package-grid">
+          <article class="package-card">
+            <div class="package-slider" data-slider>
+              <img class="is-active" src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.22.jpeg" alt="Private trip Sumba package scenery 1" loading="lazy" referrerpolicy="no-referrer" />
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.21-1.jpeg" alt="Private trip Sumba package scenery 2" loading="lazy" referrerpolicy="no-referrer" />
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.21.jpeg" alt="Private trip Sumba package scenery 3" loading="lazy" referrerpolicy="no-referrer" />
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.20-1.jpeg" alt="Private trip Sumba package scenery 4" loading="lazy" referrerpolicy="no-referrer" />
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.20.jpeg" alt="Private trip Sumba package scenery 5" loading="lazy" referrerpolicy="no-referrer" />
+            </div>
+            <div class="package-body">
+              <div class="package-title">Private Trip Sumba 4D/3N</div>
+              <div class="package-price">IDR 3,450,000 / person</div>
+              <div class="package-note">Guaranteed departure for 2 people</div>
+              <div class="package-actions">
+                <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="paket-1">Details</button>
+                <a class="btn btn-primary" href="https://wa.me/6282266198743?text=Booking%20Private%20Trip%20Sumba%204D%2F3N" target="_blank" rel="noreferrer">Booking</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="package-card">
+            <div class="package-slider" data-slider>
+              <img class="is-active" src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.14-2.jpeg" alt="Private trip Sumba 5D4N scenery 1" loading="lazy" referrerpolicy="no-referrer" />
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.14-1.jpeg" alt="Private trip Sumba 5D4N scenery 2" loading="lazy" referrerpolicy="no-referrer" />
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.14.jpeg" alt="Private trip Sumba 5D4N scenery 3" loading="lazy" referrerpolicy="no-referrer" />
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.13-2.jpeg" alt="Private trip Sumba 5D4N scenery 4" loading="lazy" referrerpolicy="no-referrer" />
+              <img src="https://everz-digital.site/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-14-at-15.18.13-1.jpeg" alt="Private trip Sumba 5D4N scenery 5" loading="lazy" referrerpolicy="no-referrer" />
+            </div>
+            <div class="package-body">
+              <div class="package-title">Private Trip Sumba 5D/4N</div>
+              <div class="package-price">IDR 5,500,000 / person</div>
+              <div class="package-note">Guaranteed departure for 2 people</div>
+              <div class="package-actions">
+                <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="paket-3">Details</button>
+                <a class="btn btn-primary" href="https://wa.me/6282266198743?text=Booking%20Private%20Trip%20Sumba%205D%2F4N" target="_blank" rel="noreferrer">Booking</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
+
+    <div class="modal-backdrop" data-modal="paket-1" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="paket-1-title">
+        <div class="modal-header">
+          <div class="modal-title" id="paket-1-title">Private Trip Sumba 4D/3N</div>
+          <button class="modal-close" type="button" aria-label="Close">✕</button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <h4>Included</h4>
+            <ul class="modal-list">
+              <li>Airport pick-up and drop-off</li>
+              <li>Transportation during the tour</li>
+              <li>Hotel (Ella Hotel &amp; Padadita Beach Hotel)</li>
+              <li>Meals (breakfast, lunch, dinner)</li>
+              <li>Mineral water</li>
+              <li>All entrance fees</li>
+              <li>Guide</li>
+              <li>Documentation with mirrorless camera &amp; DJI drone</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Excluded</h4>
+            <ul class="modal-list">
+              <li>Additional personal expenses outside the package</li>
+              <li>Round-trip airfare</li>
+              <li>Tips for local driver/guide</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Itinerary 4D 3N</h4>
+            <ul class="modal-list">
+              <li>Day 1: Arrival at TMC (Lede Kalumbang Airport, West Sumba) around 10:30, Ratenggaro Traditional Village, Waikuri Lake, Mandorak Beach</li>
+              <li>Day 2: Waikacura Waterfall, Praiijing Traditional Village, sunset at Wairinding Hill</li>
+              <li>Day 3: Purukambera Savanna, Tanggedu Waterfall, sunset at Walakiri Beach</li>
+              <li>Day 4: Shopping for Sumba souvenirs, finish at WGP (Umbu Mehang Kunda Airport, East Sumba) around 05:30/10:30</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" data-modal="paket-3" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="paket-3-title">
+        <div class="modal-header">
+          <div class="modal-title" id="paket-3-title">Private Trip Sumba 5D/4N</div>
+          <button class="modal-close" type="button" aria-label="Close">✕</button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <h4>Pricing</h4>
+            <ul class="modal-list">
+              <li>1 person IDR 5,500,000</li>
+              <li>Guaranteed departure for 2 people</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Included</h4>
+            <ul class="modal-list">
+              <li>Full AC hotel (Ella Hotel &amp; Padadita Hotel)</li>
+              <li>Full AC vehicle</li>
+              <li>Meals 3x daily</li>
+              <li>Mineral water</li>
+              <li>Entrance tickets</li>
+              <li>Documentation with drone &amp; mirrorless camera</li>
+              <li>Airport pick-up and drop-off</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Excluded</h4>
+            <ul class="modal-list">
+              <li>Round-trip airfare</li>
+              <li>Personal expenses</li>
+              <li>Tips for guide &amp; driver</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Itinerary 5D 4N</h4>
+            <ul class="modal-list">
+              <li>Day 1: Airport pick-up in Tambolaka, Ratenggaro Traditional Village, sunset at Lendongara Hill</li>
+              <li>Day 2: Mandorak Beach, Wekuri Lagoon, Weekacura Waterfall, Praiijing Village, sunset at Wairinding Hill</li>
+              <li>Day 3: Purukambera Savanna, Tanggedu Waterfall, sunset at Tenau Hill</li>
+              <li>Day 4: Hiliwuku Hill, Waimarang Waterfall, sunset at Walakiri Mangrove</li>
+              <li>Day 5: Shopping for Sumba souvenirs, airport transfer, trip ends</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <section class="quote-section">
       <div class="quote-grid">
@@ -1117,7 +1381,7 @@
         <div class="section-header reveal">
           <h2 class="section-title">About Us</h2>
           <p class="section-subtitle">
-            Jelajah Sumba Rent Car is a locally run travel partner delivering authentic Sumba journeys with flexible itineraries, reliable vehicles, and friendly guidance.
+            Wisata Sumba Rent Car is a locally run travel partner delivering authentic Sumba journeys with flexible itineraries, reliable vehicles, and friendly guidance.
           </p>
         </div>
         <div class="cards about-cards">
@@ -1140,7 +1404,7 @@
     <section id="why-choose">
       <div class="section-inner">
         <div class="section-header reveal">
-          <h2 class="section-title">Why Choose Jelajah Sumba Rent Car</h2>
+          <h2 class="section-title">Why Choose Wisata Sumba Rent Car</h2>
           <p class="section-subtitle">Local expertise, dependable service, and itineraries built around your pace.</p>
         </div>
         <div class="cards about-cards">
@@ -1163,14 +1427,34 @@
         </div>
       </div>
     </section>
+
+    <section class="map-section" id="contact">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <h2 class="section-title">Find Us</h2>
+          <p class="section-subtitle">Jalan Raya Waingapu Melolo KM32, Desa Palakahembi, Dusun Menggit Timbi, RT17/RW05, Kec. Pandawai, Kab. Sumba Timur.</p>
+        </div>
+        <div class="map-wrap">
+          <iframe
+            class="map-embed"
+            title="Wisata Sumba Rent Car location"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Jalan%20Raya%20Waingapu%20Melolo%20KM32%20Desa%20Palakahembi%20Dusun%20Menggit%20Timbi%20RT17%2FRW05%20Kec.%20Pandawai%20Kab.%20Sumba%20Timur&output=embed"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!--
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
         <img class="footer-logo" src="https://everz-digital.site/wp-content/uploads/2026/01/d9593be5-b7a7-426d-8d9e-c2dee3916664-removebg-preview.png" alt="Jelajah Sumba Rent Car logo" />
         <div>
-          <h4>Jelajah Sumba Rent Car</h4>
+          <h4>Wisata Sumba Rent Car</h4>
           <p>jelajahsumbarentcar.com</p>
           <p>Tour & travel, car rental, and custom itineraries in Sumba.</p>
         </div>
@@ -1193,6 +1477,7 @@
       </div>
     </div>
   </footer>
+  -->
 
   <script>
     const toggle = document.querySelector('.menu-toggle');
@@ -1200,11 +1485,13 @@
     const dropdownLink = document.querySelector('.nav-item .nav-link[href="#sumba-tours"]');
     const dropdownItem = dropdownLink ? dropdownLink.closest('.nav-item') : null;
 
-    toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('open');
-      toggle.classList.toggle('is-open', isOpen);
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        toggle.classList.toggle('is-open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
 
     if (dropdownLink && dropdownItem) {
       dropdownLink.addEventListener('click', (event) => {
@@ -1215,36 +1502,102 @@
       });
     }
 
-    const fleetType = document.getElementById('fleet-type');
-    const fleetImage = document.getElementById('fleet-image');
-    const fleetTitle = document.getElementById('fleet-title');
-    const fleetDate = document.getElementById('fleet-date');
-    const fleetDuration = document.getElementById('fleet-duration');
-    const fleetNotes = document.getElementById('fleet-notes');
-    const fleetBook = document.getElementById('fleet-book');
+    const fleetModal = document.querySelector('[data-fleet-modal]');
+    const fleetBookingTriggers = document.querySelectorAll('[data-fleet-booking]');
+    const fleetBookingForm = document.getElementById('fleet-booking-form');
+    const fleetBookingVehicle = document.getElementById('fleet-booking-vehicle');
+    const fleetBookingDate = document.getElementById('fleet-booking-date');
+    const fleetBookingDuration = document.getElementById('fleet-booking-duration');
+    const fleetBookingNotes = document.getElementById('fleet-booking-notes');
+    const fleetBookingClose = fleetModal ? fleetModal.querySelector('.modal-close') : null;
 
-    const updateFleet = () => {
-      if (!fleetType || !fleetImage || !fleetTitle || !fleetBook) return;
-      const selected = fleetType.options[fleetType.selectedIndex];
-      const carName = selected.value;
-      const imageUrl = selected.dataset.image;
-      fleetTitle.textContent = carName;
-      fleetImage.src = imageUrl;
-      fleetImage.alt = carName;
-
-      const dateText = fleetDate && fleetDate.value ? fleetDate.value : 'Not set';
-      const durationText = fleetDuration ? fleetDuration.value : 'Not set';
-      const notesText = fleetNotes && fleetNotes.value ? fleetNotes.value : 'No notes';
-      const message = `Booking request%0A%0ACar: ${encodeURIComponent(carName)}%0APickup date: ${encodeURIComponent(dateText)}%0ADuration: ${encodeURIComponent(durationText)}%0ANotes: ${encodeURIComponent(notesText)}`;
-      fleetBook.href = `https://wa.me/6282266198743?text=${message}`;
+    const openFleetModal = (vehicle) => {
+      if (!fleetModal || !fleetBookingVehicle) return;
+      fleetBookingVehicle.value = vehicle;
+      fleetModal.classList.add('active');
+      fleetModal.setAttribute('aria-hidden', 'false');
     };
 
-    if (fleetType) {
-      [fleetType, fleetDate, fleetDuration, fleetNotes].forEach((el) => {
-        if (el) el.addEventListener('input', updateFleet);
-      });
-      updateFleet();
+    const closeFleetModal = () => {
+      if (!fleetModal) return;
+      fleetModal.classList.remove('active');
+      fleetModal.setAttribute('aria-hidden', 'true');
+    };
+
+    fleetBookingTriggers.forEach((button) => {
+      button.addEventListener('click', () => openFleetModal(button.dataset.fleetBooking));
+    });
+
+    if (fleetBookingClose) {
+      fleetBookingClose.addEventListener('click', closeFleetModal);
     }
+
+    if (fleetModal) {
+      fleetModal.addEventListener('click', (event) => {
+        if (event.target === fleetModal) {
+          closeFleetModal();
+        }
+      });
+    }
+
+    if (fleetBookingForm) {
+      fleetBookingForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const vehicle = fleetBookingVehicle ? fleetBookingVehicle.value : '';
+        const dateText = fleetBookingDate && fleetBookingDate.value ? fleetBookingDate.value : 'Not set';
+        const durationText = fleetBookingDuration ? fleetBookingDuration.value : 'Not set';
+        const notesText = fleetBookingNotes && fleetBookingNotes.value ? fleetBookingNotes.value : 'No notes';
+        const message = `Car booking request%0A%0ACar: ${encodeURIComponent(vehicle)}%0APickup date: ${encodeURIComponent(dateText)}%0ADuration: ${encodeURIComponent(durationText)}%0ANotes: ${encodeURIComponent(notesText)}`;
+        const url = `https://wa.me/6282266198743?text=${message}`;
+        window.open(url, '_blank', 'noopener');
+        fleetBookingForm.reset();
+        if (fleetBookingVehicle) {
+          fleetBookingVehicle.value = vehicle;
+        }
+        closeFleetModal();
+      });
+    }
+
+    const sliders = document.querySelectorAll('[data-slider]');
+    sliders.forEach((slider) => {
+      const slides = Array.from(slider.querySelectorAll('img'));
+      if (slides.length < 2) return;
+      let index = 0;
+      setInterval(() => {
+        slides[index].classList.remove('is-active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('is-active');
+      }, 3500);
+    });
+
+    const modalTriggers = document.querySelectorAll('[data-modal-open]');
+    const modals = document.querySelectorAll('[data-modal]');
+
+    const closeModal = (modal) => {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    };
+
+    modalTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const modal = document.querySelector(`[data-modal="${trigger.dataset.modalOpen}"]`);
+        if (!modal) return;
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    modals.forEach((modal) => {
+      const closeButton = modal.querySelector('.modal-close');
+      if (closeButton) {
+        closeButton.addEventListener('click', () => closeModal(modal));
+      }
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal(modal);
+        }
+      });
+    });
 
     const revealElements = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(

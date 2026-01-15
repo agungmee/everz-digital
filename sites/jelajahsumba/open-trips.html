@@ -255,6 +255,29 @@
     .detail-trigger {
       cursor: pointer;
     }
+
+    .modal label {
+      color: var(--sand);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .modal input,
+    .modal select,
+    .modal textarea {
+      width: 100%;
+      margin-top: 6px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #111821;
+      color: var(--text);
+      font-family: inherit;
+    }
+
+    .modal textarea {
+      resize: vertical;
+    }
   </style>
 </head>
 <body>
@@ -267,14 +290,14 @@
 
   <section class="tour-grid">
     <article class="tour-card">
-      <img src="https://exploresumba.com/wp-content/uploads/2023/03/Open-Trip-Sumba-Island-Indonesia-Explore-Sumba-island-400x300.jpg" alt="Open Trip to Sumba Island 4D/3N" loading="lazy" referrerpolicy="no-referrer" />
+      <img src="https://mautraveling.com/wp-content/uploads/2020/08/Open-trip-Overland-Sumba.jpg" alt="Open Trip to Sumba Island 4D/3N" loading="lazy" referrerpolicy="no-referrer" />
       <div class="tour-content">
         <div class="tour-title">Open Trip to Sumba Island (4D/3N)</div>
         <div class="tour-subtitle">Discover the island sharing adventures with other travellers!</div>
         <p class="tour-desc">Explore some of the Sumba island's most beautiful attractions at an affordable price as the trip is shared with other travelers of the same interest. Who knows, you'll get new friends or networks!</p>
         <div class="tour-actions">
           <button class="btn btn-secondary detail-trigger" type="button" data-modal-open="open-4d3n">Detail</button>
-          <a class="btn btn-primary" href="https://wa.me/6282266198743" target="_blank" rel="noreferrer">Booking</a>
+          <button class="btn btn-primary booking-trigger" type="button" data-booking-package="Open Trip to Sumba Island (4D/3N)">Booking</button>
         </div>
       </div>
     </article>
@@ -352,6 +375,48 @@
     </div>
   </div>
 
+  <div class="modal-backdrop" data-booking-modal aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="booking-title">Booking Request</div>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="booking-form">
+          <div class="modal-section active">
+            <h4>Guest Details</h4>
+            <p><label for="booking-name">Name</label><br />
+              <input id="booking-name" name="name" type="text" required /></p>
+            <p><label for="booking-origin">Origin</label><br />
+              <input id="booking-origin" name="origin" type="text" required /></p>
+            <p><label for="booking-date">Booking Date & Time</label><br />
+              <input id="booking-date" name="date" type="datetime-local" required /></p>
+            <p><label for="booking-package">Package</label><br />
+              <input id="booking-package" name="package" type="text" readonly /></p>
+          </div>
+          <div class="modal-section active">
+            <h4>Trip Notes</h4>
+            <p><label for="booking-vehicle">Vehicle (Optional)</label><br />
+              <select id="booking-vehicle" name="vehicle">
+                <option value="">No preference</option>
+                <option value="Hiace Commuter">Hiace Commuter</option>
+                <option value="Hiace Premio">Hiace Premio</option>
+                <option value="Pajero Sport">Pajero Sport</option>
+                <option value="Fortuner">Fortuner</option>
+                <option value="Hilux">Hilux</option>
+                <option value="Innova">Innova</option>
+              </select></p>
+            <p><label for="booking-notes">Notes</label><br />
+              <textarea id="booking-notes" name="notes" rows="3" placeholder="Pickup point, special requests, etc."></textarea></p>
+            <button class="btn btn-primary" type="submit">Send to WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script>
     const modalBackdrops = Array.from(document.querySelectorAll('[data-modal]'));
     const modalOpeners = Array.from(document.querySelectorAll('[data-modal-open]'));
@@ -415,6 +480,75 @@
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
         closeModal();
+      }
+    });
+
+    const bookingModal = document.querySelector('[data-booking-modal]');
+    const bookingOpeners = document.querySelectorAll('[data-booking-package]');
+    const bookingForm = document.getElementById('booking-form');
+    const bookingPackage = document.getElementById('booking-package');
+    const bookingClose = bookingModal ? bookingModal.querySelector('.modal-close') : null;
+
+    const openBooking = (pkg) => {
+      if (!bookingModal) return;
+      bookingPackage.value = pkg;
+      bookingModal.classList.add('active');
+      bookingModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeBooking = () => {
+      if (!bookingModal) return;
+      bookingModal.classList.remove('active');
+      bookingModal.setAttribute('aria-hidden', 'true');
+    };
+
+    bookingOpeners.forEach((button) => {
+      button.addEventListener('click', () => {
+        openBooking(button.dataset.bookingPackage);
+      });
+    });
+
+    if (bookingClose) {
+      bookingClose.addEventListener('click', closeBooking);
+    }
+
+    if (bookingModal) {
+      bookingModal.addEventListener('click', (event) => {
+        if (event.target === bookingModal) {
+          closeBooking();
+        }
+      });
+    }
+
+    if (bookingForm) {
+      bookingForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = document.getElementById('booking-name').value.trim();
+        const origin = document.getElementById('booking-origin').value.trim();
+        const date = document.getElementById('booking-date').value;
+        const pkg = bookingPackage.value;
+        const vehicle = document.getElementById('booking-vehicle').value;
+        const notes = document.getElementById('booking-notes').value.trim();
+
+        const lines = [
+          `Booking Request`,
+          `Name: ${name}`,
+          `Origin: ${origin}`,
+          `Date/Time: ${date}`,
+          `Package: ${pkg}`,
+          vehicle ? `Vehicle: ${vehicle}` : null,
+          notes ? `Notes: ${notes}` : null,
+        ].filter(Boolean);
+
+        const message = encodeURIComponent(lines.join('\n'));
+        window.open(`https://wa.me/6282266198743?text=${message}`, '_blank');
+        closeBooking();
+      });
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeBooking();
       }
     });
   </script>
