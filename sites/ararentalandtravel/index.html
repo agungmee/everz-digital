@@ -425,6 +425,173 @@
       background: #0c0f13;
     }
 
+    .tour-section {
+      background: #10141a;
+    }
+
+    .tour-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .tour-card {
+      background: linear-gradient(180deg, rgba(19, 23, 29, 0.95), rgba(10, 10, 10, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .tour-media {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .tour-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0;
+      animation: tour-slide var(--slide-duration, 12s) infinite;
+      animation-delay: calc((var(--i) - 1) * (var(--slide-duration, 12s) / var(--slide-count, 1)));
+    }
+
+    @keyframes tour-slide {
+      0% {
+        opacity: 0;
+      }
+      8% {
+        opacity: 1;
+      }
+      30% {
+        opacity: 1;
+      }
+      38% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .tour-content {
+      padding: 24px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .tour-content h3 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+
+    .tour-content p,
+    .tour-content li {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tour-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .tour-form label {
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      color: var(--muted);
+    }
+
+    .tour-form select {
+      background: #0b0c10;
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 12px 14px;
+      border-radius: 0;
+      font-size: 14px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .tour-route {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .tour-price {
+      color: var(--sand);
+      font-weight: 600;
+    }
+
+    .tour-form .btn {
+      width: 100%;
+    }
+
+    .tariff-section {
+      background: linear-gradient(180deg, rgba(18, 22, 28, 0.9), rgba(9, 11, 14, 0.98));
+    }
+
+    .tariff-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .tariff-booking {
+      background: rgba(12, 15, 19, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .tariff-booking h3 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .tariff-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .tariff-form label {
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      color: var(--muted);
+    }
+
+    .tariff-form select {
+      background: #0b0c10;
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 12px 14px;
+      border-radius: 0;
+      font-size: 14px;
+    }
+
+    .tariff-price {
+      font-size: 16px;
+      color: var(--sand);
+    }
+
+    .tariff-price strong {
+      color: var(--gold);
+    }
+
     .fleet-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -911,6 +1078,7 @@
       <nav id="main-menu">
         <ul>
           <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tariff">Tarif</a></li>
           <li class="nav-item"><a class="nav-link" href="#fleet">Armada</a></li>
           <li class="nav-item"><a class="nav-link" href="#services">Layanan</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
@@ -955,6 +1123,59 @@
         </div>
         <div class="hero-visual">
           <img src="https://rentalmobilabditra.com/wp-content/uploads/2025/09/Sewa-Mobil-malang-jogja-magelang.png.webp" alt="Armada Ara Rental & Travel" loading="eager" />
+        </div>
+      </div>
+    </section>
+
+    <section class="tariff-section" id="tariff">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <h2 class="section-title">Daftar Tarif Antar Jemput</h2>
+          <p class="section-subtitle">Daftar harga drop off dari Silangit ke seluruh tujuan.</p>
+        </div>
+        <div class="tariff-layout">
+          <div class="tariff-booking">
+            <h3>Pilih Tujuan Drop Off</h3>
+            <p class="section-subtitle">Pilih tujuan, lalu klik booking untuk mengirim permintaan antar jemput.</p>
+            <form class="tariff-form">
+              <label for="tariff-destination">Tujuan</label>
+              <select id="tariff-destination" name="destination">
+                <option value="">Pilih tujuan drop off</option>
+                <option value="Balige" data-price="Rp200.000">Balige - Rp200.000</option>
+                <option value="Tarutung" data-price="Rp250.000">Tarutung - Rp250.000</option>
+                <option value="Dolok Sanggul" data-price="Rp200.000">Dolok Sanggul - Rp200.000</option>
+                <option value="Laguboti" data-price="Rp230.000">Laguboti - Rp230.000</option>
+                <option value="Porsea" data-price="Mulai Rp250.000">Porsea - Mulai Rp250.000</option>
+                <option value="Parapat" data-price="Rp450.000">Parapat - Rp450.000</option>
+                <option value="Sibisa" data-price="Rp350.000">Sibisa - Rp350.000</option>
+                <option value="Siborong-borong" data-price="Rp100.000">Siborong-borong - Rp100.000</option>
+                <option value="Samosir" data-price="Rp500.000">Samosir - Rp500.000</option>
+                <option value="Tuktuk Samosir" data-price="Rp700.000">Tuktuk Samosir - Rp700.000</option>
+                <option value="Tele" data-price="Rp350.000">Tele - Rp350.000</option>
+                <option value="Simalem" data-price="Rp900.000">Simalem - Rp900.000</option>
+                <option value="Sidempuan" data-price="Rp700.000">Sidempuan - Rp700.000</option>
+                <option value="Sidikalang" data-price="Rp550.000">Sidikalang - Rp550.000</option>
+                <option value="Siantar" data-price="Rp750.000">Siantar - Rp750.000</option>
+                <option value="Sibolga" data-price="Rp600.000">Sibolga - Rp600.000</option>
+                <option value="Pangaribuan" data-price="Rp350.000">Pangaribuan - Rp350.000</option>
+                <option value="Asahan" data-price="Rp500.000">Asahan - Rp500.000</option>
+                <option value="Meranti Pohan" data-price="Rp400.000">Meranti Pohan - Rp400.000</option>
+                <option value="Parsoburan" data-price="Rp450.000">Parsoburan - Rp450.000</option>
+                <option value="Silaen" data-price="Rp250.000">Silaen - Rp250.000</option>
+                <option value="Narumonda" data-price="Rp250.000">Narumonda - Rp250.000</option>
+                <option value="Lumban Julu" data-price="Rp350.000">Lumban Julu - Rp350.000</option>
+                <option value="Butar" data-price="Rp250.000">Butar - Rp250.000</option>
+                <option value="Barus" data-price="Rp600.000">Barus - Rp600.000</option>
+                <option value="Tiga Raja" data-price="Rp450.000">Tiga Raja - Rp450.000</option>
+                <option value="Sarulla" data-price="Rp450.000">Sarulla - Rp450.000</option>
+                <option value="Sipirok" data-price="Rp650.000">Sipirok - Rp650.000</option>
+                <option value="Pakkat" data-price="Rp450.000">Pakkat - Rp450.000</option>
+                <option value="Parlilitan" data-price="Rp500.000">Parlilitan - Rp500.000</option>
+              </select>
+              <div class="tariff-price" data-tariff-price>Tarif: <strong>-</strong></div>
+              <button class="btn btn-primary" type="button" id="tariff-booking-btn" disabled>Booking Sekarang</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -1045,6 +1266,64 @@
                 <li><span>Mobil & BBM + driver:</span> Rp3.500.000</li>
               </ul>
               <button class="btn btn-primary" type="button" data-fleet-booking="Alpard">Hubungi Kami</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tour-section" id="tour-packages">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <h2 class="section-title">Paket Wisata Keliling Danau Toba</h2>
+          <p class="section-subtitle">
+            Ara Rental &amp; Travel siap menemani anda dalam perjalanan anda menuju destinasi impian. Apapun destinasi nya Ara Rental &amp; Travel siap melayani anda.
+          </p>
+          <p class="section-subtitle">Paket wisata keliling danau Toba mulai harga 1.500.000 per package.</p>
+        </div>
+        <div class="tour-grid">
+          <article class="tour-card" data-tour-package="Paket 1 Malam">
+            <div class="tour-media" style="--slide-count: 3; --slide-duration: 12s;">
+              <img src="https://medanheadlines.com/wp-content/uploads/2018/10/keindahan-Huta-Ginjang.jpg" alt="Huta Ginjang" loading="lazy" style="--i: 1;" />
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/4f/24/53/sipinsur-park-geosite.jpg?w=1200&h=-1&s=1" alt="Sipinsur Park Geosite" loading="lazy" style="--i: 2;" />
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTx0ulmDSBepZfl2oFN8g_Re42jAprTkcSOQ&s" alt="Destinasi Danau Toba" loading="lazy" style="--i: 3;" />
+            </div>
+            <div class="tour-content">
+              <h3>Paket 1 Malam</h3>
+              <form class="tour-form">
+                <label for="tour-package-1">Pilih Opsi Paket</label>
+                <select id="tour-package-1" name="tour-package-1" data-tour-select>
+                  <option value="">Pilih rute paket 1 malam</option>
+                  <option value="Silangit - Huta Ginjang - Sipinsur - Hot Spring Tarutung" data-price="Rp1.500.000">Silangit - Huta Ginjang - Sipinsur - Hot Spring Tarutung</option>
+                  <option value="Silangit - Huta Ginjang - Sipinsur - Bakkara - Tipang Mas" data-price="Rp1.500.000">Silangit - Huta Ginjang - Sipinsur - Bakkara - Tipang Mas</option>
+                  <option value="Silangit - Tarabunga - Pantai Bul-Bul Balige - Parapat" data-price="Rp1.500.000">Silangit - Tarabunga - Pantai Bul-Bul Balige - Parapat</option>
+                  <option value="Silangit - Huta Ginjang - Sipinsur - Tele - Samosir" data-price="Rp1.600.000">Silangit - Huta Ginjang - Sipinsur - Tele - Samosir</option>
+                </select>
+                <div class="tour-price" data-tour-price>Harga mulai dari <strong>-</strong></div>
+                <button class="btn btn-primary" type="button" data-tour-booking disabled>Booking Paket</button>
+              </form>
+            </div>
+          </article>
+          <article class="tour-card" data-tour-package="Paket 3 Hari 2 Malam">
+            <div class="tour-media" style="--slide-count: 5; --slide-duration: 20s;">
+              <img src="https://medanheadlines.com/wp-content/uploads/2018/10/keindahan-Huta-Ginjang.jpg" alt="Huta Ginjang" loading="lazy" style="--i: 1;" />
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/4f/24/53/sipinsur-park-geosite.jpg?w=1200&h=-1&s=1" alt="Sipinsur Park Geosite" loading="lazy" style="--i: 2;" />
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTx0ulmDSBepZfl2oFN8g_Re42jAprTkcSOQ&s" alt="Destinasi Danau Toba" loading="lazy" style="--i: 3;" />
+              <img src="https://andarabus.com/wp-content/uploads/2023/06/Screenshot-2023-06-02-233945.jpg" alt="Pemandangan Danau Toba" loading="lazy" style="--i: 4;" />
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/04/06/2c/20160819110905-20160816.jpg?w=1200&h=-1&s=1" alt="Destinasi wisata" loading="lazy" style="--i: 5;" />
+            </div>
+            <div class="tour-content">
+              <h3>Paket 3 Hari 2 Malam</h3>
+              <form class="tour-form">
+                <label for="tour-package-2">Pilih Opsi Paket</label>
+                <select id="tour-package-2" name="tour-package-2" data-tour-select>
+                  <option value="">Pilih rute paket 3 hari 2 malam</option>
+                  <option value="Silangit - Sipinsur - Huta Ginjang - Hot Spring Tarutung - Air Soda - Salib Kasih - Pasir Putih Parparean - Bukit Gibeon - Parapat - Tuk Tuk - Tomok - Silangit" data-price="Rp3.200.000">Silangit - Sipinsur - Huta Ginjang - Hot Spring Tarutung - Air Soda - Salib Kasih - Pasir Putih Parparean - Bukit Gibeon - Parapat - Tuk Tuk - Tomok - Silangit</option>
+                  <option value="Silangit - Sipinsur - Salib Kasih - Pasir Putih Parparean - Parapat - Simalem - Berastagi - Silangit/Kualanamu" data-price="Rp3.200.000">Silangit - Sipinsur - Salib Kasih - Pasir Putih Parparean - Parapat - Simalem - Berastagi - Silangit/Kualanamu</option>
+                </select>
+                <div class="tour-price" data-tour-price>Harga mulai dari <strong>-</strong></div>
+                <button class="btn btn-primary" type="button" data-tour-booking disabled>Booking Paket</button>
+              </form>
             </div>
           </article>
         </div>
@@ -1237,6 +1516,7 @@
       <div>
         <h4>Menu</h4>
         <ul class="footer-list">
+          <li><a class="footer-link" href="#tariff"><i class="fa-solid fa-money-bill"></i><span>Tarif</span></a></li>
           <li><a class="footer-link" href="#fleet"><i class="fa-solid fa-car-side"></i><span>Armada</span></a></li>
           <li><a class="footer-link" href="#services"><i class="fa-solid fa-handshake"></i><span>Layanan</span></a></li>
           <li><a class="footer-link" href="#about"><i class="fa-solid fa-people-group"></i><span>Tentang</span></a></li>
@@ -1338,6 +1618,68 @@
         closeFleetModal();
       });
     }
+
+    const tariffSelect = document.getElementById('tariff-destination');
+    const tariffPrice = document.querySelector('[data-tariff-price]');
+    const tariffBookingBtn = document.getElementById('tariff-booking-btn');
+
+    const updateTariffInfo = () => {
+      if (!tariffSelect || !tariffPrice || !tariffBookingBtn) return;
+      const selectedOption = tariffSelect.selectedOptions[0];
+      const price = selectedOption ? selectedOption.dataset.price : '';
+      tariffPrice.innerHTML = price ? `Tarif: <strong>${price}</strong>` : 'Tarif: <strong>-</strong>';
+      tariffBookingBtn.disabled = !tariffSelect.value;
+    };
+
+    if (tariffSelect) {
+      updateTariffInfo();
+      tariffSelect.addEventListener('change', updateTariffInfo);
+    }
+
+    if (tariffBookingBtn && tariffSelect) {
+      tariffBookingBtn.addEventListener('click', () => {
+        const destination = tariffSelect.value;
+        if (!destination) return;
+        const selectedOption = tariffSelect.selectedOptions[0];
+        const price = selectedOption ? selectedOption.dataset.price : 'Belum ada';
+        const subject = `Booking antar jemput Silangit - ${destination}`;
+        const body = `Permintaan antar jemput bandara Silangit%0ATujuan: ${encodeURIComponent(destination)}%0ATarif: ${encodeURIComponent(price)}`;
+        const url = `mailto:Arasihombing38@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        window.location.href = url;
+      });
+    }
+
+    const tourCards = document.querySelectorAll('.tour-card');
+
+    tourCards.forEach((card) => {
+      const select = card.querySelector('[data-tour-select]');
+      const priceEl = card.querySelector('[data-tour-price]');
+      const bookingBtn = card.querySelector('[data-tour-booking]');
+      const packageName = card.dataset.tourPackage || 'Paket Wisata';
+
+      if (!select || !priceEl || !bookingBtn) return;
+
+      const updateTourPrice = () => {
+        const selectedOption = select.selectedOptions[0];
+        const price = selectedOption ? selectedOption.dataset.price : '';
+        priceEl.innerHTML = price ? `Harga mulai dari <strong>${price}</strong>` : 'Harga mulai dari <strong>-</strong>';
+        bookingBtn.disabled = !select.value;
+      };
+
+      updateTourPrice();
+      select.addEventListener('change', updateTourPrice);
+
+      bookingBtn.addEventListener('click', () => {
+        if (!select.value) return;
+        const selectedOption = select.selectedOptions[0];
+        const price = selectedOption ? selectedOption.dataset.price : 'Belum ada';
+        const route = select.value;
+        const subject = `Booking ${packageName}`;
+        const body = `Permintaan paket wisata Danau Toba%0APaket: ${encodeURIComponent(packageName)}%0ARute: ${encodeURIComponent(route)}%0AHarga: ${encodeURIComponent(price)}`;
+        const url = `mailto:Arasihombing38@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        window.location.href = url;
+      });
+    });
 
     const revealElements = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(
