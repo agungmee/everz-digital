@@ -1,0 +1,1689 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Belavista Art and Tourism & Lamalera Sport Fishing Charter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#0c1f2a;
+      --paper:#f7f7f2;
+      --sun:#f4c15d;
+      --sea:#0a5c6b;
+      --reef:#0f2a3a;
+      --glass:rgba(9,20,28,.62);
+      --line:rgba(255,255,255,.22);
+    }
+    *{ box-sizing:border-box; }
+    html, body{
+      margin:0;
+      padding:0;
+      width:100%;
+      height:100%;
+      overflow-x:hidden;
+      background:#0a1522;
+    }
+    body{
+      font-family:"Manrope", sans-serif;
+      color:var(--paper);
+    }
+    a{ color:inherit; text-decoration:none; }
+
+    .hero{
+      position:relative;
+      min-height:92vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      overflow:hidden;
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+    }
+    .hero-slider{
+      position:absolute;
+      inset:0;
+      z-index:0;
+    }
+    .hero-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity 1.2s ease, transform 1.2s ease;
+    }
+    .hero-slide.active{
+      opacity:1;
+      transform:scale(1.01);
+    }
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(120deg, rgba(4,10,16,.92), rgba(4,10,16,.62) 45%, rgba(4,10,16,.24)),
+        linear-gradient(0deg, rgba(4,10,16,.55), rgba(4,10,16,.08));
+      z-index:1;
+    }
+
+    .nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:5;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 6vw;
+      background:#ffffff;
+      transition:background .35s ease, box-shadow .35s ease, transform .35s ease;
+    }
+    .nav.is-top{
+      background:transparent;
+      box-shadow:none;
+    }
+    .nav.is-scrolled{ box-shadow:0 18px 40px rgba(15,23,42,.12); }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.06em;
+    }
+    .brand-logo{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.5);
+      object-fit:cover;
+      box-shadow:0 10px 26px rgba(0,0,0,.35);
+      background:#fff;
+    }
+    .brand-text{
+      font-size:13px;
+      line-height:1.2;
+    }
+    .brand-text span{
+      display:block;
+      font-size:14px;
+      letter-spacing:.04em;
+    }
+    .nav .brand-text{ color:#0b1220; }
+    .nav.is-top .brand-text{ color:var(--paper); }
+    .menu{
+      display:flex;
+      gap:18px;
+      font-size:14px;
+      font-weight:600;
+    }
+    .menu a{ opacity:.85; }
+    .menu a:hover{ opacity:1; }
+    .nav .menu a{ color:#0b1220; opacity:.8; }
+    .nav.is-top .menu a{ color:var(--paper); opacity:.85; }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .btn{
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      backdrop-filter: blur(6px);
+      background:rgba(255,255,255,.08);
+      font-weight:700;
+      font-size:13.5px;
+    }
+    .lang-toggle{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      padding:9px 12px;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .btn.primary{
+      background:var(--sun);
+      color:#1b1b1b;
+      border:0;
+      box-shadow:0 14px 30px rgba(244,193,93,.35);
+    }
+    .nav .btn{
+      background:#f3f4f6;
+      color:#0b1220;
+      border:1px solid #e5e7eb;
+    }
+    .nav .btn.primary{
+      background:var(--sun);
+      color:#1b1b1b;
+      border:0;
+    }
+    .nav.is-top .btn{
+      background:rgba(255,255,255,.08);
+      color:var(--paper);
+      border:1px solid var(--line);
+    }
+    .nav.is-top .btn.primary{
+      background:var(--sun);
+      color:#1b1b1b;
+      border:0;
+    }
+    .burger{
+      display:grid;
+      place-items:center;
+      border:0;
+      background:transparent;
+      color:#0b1220;
+      cursor:pointer;
+      padding:8px;
+    }
+    .nav.is-top .burger{ color:var(--paper); }
+    .burger-lines{
+      position:relative;
+      width:20px;
+      height:14px;
+    }
+    .burger-lines span{
+      position:absolute;
+      left:0;
+      height:2px;
+      background:currentColor;
+      border-radius:999px;
+      transition:transform .3s ease, opacity .2s ease, width .3s ease;
+    }
+    .burger-lines span:nth-child(1){ top:0; width:20px; }
+    .burger-lines span:nth-child(2){ top:6px; width:14px; }
+    .burger-lines span:nth-child(3){ bottom:0; width:18px; }
+    .burger.is-open .burger-lines span:nth-child(1){ transform:translateY(6px) rotate(45deg); width:20px; }
+    .burger.is-open .burger-lines span:nth-child(2){ opacity:0; transform:translateX(-6px); }
+    .burger.is-open .burger-lines span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); width:20px; }
+    .nav .burger{ color:var(--paper); }
+    .nav.is-scrolled .burger{ color:#0b1220; }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      padding:calc(5vh + 56px) 6vw 10vh;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:36px;
+      align-items:center;
+    }
+    .hero-content > div:first-child{
+      text-align:center;
+    }
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--glass);
+      border:1px solid var(--line);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .hero-title{
+      font-family:"Playfair Display", serif;
+      font-size:48px;
+      line-height:1.08;
+      margin:16px 0 14px;
+      text-shadow:0 12px 30px rgba(0,0,0,.45);
+    }
+    .hero-subtitle{
+      font-size:15.5px;
+      line-height:1.8;
+      color:#e5e7eb;
+      max-width:520px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:20px;
+      justify-content:center;
+    }
+
+    .info-card{
+      background:rgba(10,20,30,.72);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:20px;
+      padding:20px;
+      box-shadow:0 24px 60px rgba(0,0,0,.35);
+    }
+    .info-card h3{
+      margin:0 0 12px;
+      font-size:16px;
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+    .info-card ul{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+      font-size:14px;
+      color:#e5e7eb;
+    }
+    .info-card li span{ color:#fef3c7; font-weight:700; }
+
+    .slide-indicator{
+      position:absolute;
+      right:6vw;
+      bottom:6vh;
+      z-index:2;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .dot{
+      width:18px;
+      height:4px;
+      border-radius:999px;
+      background:rgba(255,255,255,.35);
+      transition:all .4s ease;
+    }
+    .dot.active{ background:var(--sun); width:32px; }
+
+    .section{
+      padding:70px 6vw;
+      background:#fff;
+      color:#0b1220;
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+    }
+    .section-title{
+      font-family:"Playfair Display", serif;
+      text-align:center;
+      font-size:34px;
+      margin:0 0 12px;
+      color:#0b1220;
+    }
+    .section-sub{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 34px;
+      color:#4b5563;
+      font-size:15px;
+      line-height:1.75;
+    }
+
+    .about{
+      background:
+        radial-gradient(circle at 12% 0%, rgba(244,193,93,.18), transparent 45%),
+        radial-gradient(circle at 86% 10%, rgba(11,92,107,.12), transparent 40%),
+        #fff;
+    }
+    .about-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:32px;
+      align-items:center;
+    }
+    .about-copy{
+      color:#1f2937;
+      font-size:15px;
+      line-height:1.8;
+    }
+    .about-copy h3{
+      margin:0 0 10px;
+      font-size:20px;
+      font-weight:800;
+    }
+    .about-slider{
+      position:relative;
+      border-radius:22px;
+      overflow:hidden;
+      min-height:320px;
+      background:#0b1220;
+      box-shadow:0 24px 60px rgba(15,23,42,.15);
+    }
+    .about-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity 1s ease, transform 1s ease;
+    }
+    .about-slide.active{ opacity:1; transform:scale(1.01); }
+    .about-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.28));
+      pointer-events:none;
+    }
+
+    .packages{
+      background:linear-gradient(120deg, #ffffff 0%, #f9fafb 55%, #f1f5f9 100%);
+    }
+    .package-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:18px;
+    }
+    .package-card{
+      background:#ffffff;
+      border:1px solid rgba(11,77,102,.12);
+      border-radius:20px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
+    .package-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 26px 50px rgba(15,23,42,.12);
+    }
+    .package-media{
+      position:relative;
+      height:170px;
+      background:#0b1220;
+      overflow:hidden;
+    }
+    .package-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.03);
+      transition:opacity .9s ease, transform .9s ease;
+    }
+    .package-slide.active{
+      opacity:1;
+      transform:scale(1.01);
+    }
+    .package-tag{
+      position:absolute;
+      left:14px;
+      bottom:14px;
+      background:rgba(11,27,43,.9);
+      color:#fff;
+      padding:8px 12px;
+      border-radius:14px;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+    .package-body{
+      padding:18px;
+      display:grid;
+      gap:10px;
+      flex:1;
+    }
+    .package-options{
+      margin:0;
+      padding-left:18px;
+      color:#4b5563;
+      font-size:13.5px;
+      line-height:1.6;
+    }
+    .package-actions{
+      margin-top:6px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      width:100%;
+    }
+    .package-body h3{
+      margin:0;
+      font-size:17px;
+      font-weight:800;
+      color:#111827;
+    }
+    .package-body p{
+      margin:0;
+      color:#4b5563;
+      font-size:13.5px;
+      line-height:1.6;
+    }
+    .package-body .btn{
+      background:#0b1220;
+      color:#f8faf9;
+      border:0;
+      width:100%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .package-body .btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 12px 24px rgba(15,23,42,.18);
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s ease;
+      z-index:20;
+    }
+    .modal.is-open{
+      opacity:1;
+      pointer-events:auto;
+    }
+    .modal-backdrop{
+      position:absolute;
+      inset:0;
+      background:rgba(7,12,18,.7);
+      backdrop-filter:blur(4px);
+    }
+    .modal-card{
+      position:relative;
+      z-index:2;
+      width:min(92vw, 480px);
+      background:#ffffff;
+      color:#0b1220;
+      border-radius:22px;
+      padding:22px;
+      box-shadow:0 30px 60px rgba(15,23,42,.24);
+      display:grid;
+      gap:14px;
+      max-height:84vh;
+      overflow:hidden;
+    }
+    .modal-card h3{
+      margin:0;
+      font-size:22px;
+      font-weight:800;
+    }
+    .modal-card p{
+      margin:0;
+      color:#4b5563;
+      font-size:13.5px;
+    }
+    .modal-close{
+      position:absolute;
+      top:14px;
+      right:14px;
+      border:0;
+      background:#f3f4f6;
+      width:32px;
+      height:32px;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:18px;
+      line-height:1;
+    }
+    .modal-form{
+      display:grid;
+      gap:12px;
+      overflow:auto;
+      padding-right:4px;
+      max-height:calc(84vh - 180px);
+    }
+    .modal-form label{
+      display:grid;
+      gap:6px;
+      font-size:12px;
+      font-weight:700;
+      color:#111827;
+    }
+    .modal-form input,
+    .modal-form textarea,
+    .modal-form select{
+      width:100%;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      font-family:inherit;
+      font-size:14px;
+    }
+    .modal-form textarea{
+      min-height:90px;
+      resize:vertical;
+    }
+    .modal-actions{
+      display:flex;
+      gap:10px;
+      justify-content:flex-end;
+      margin-top:4px;
+    }
+    .modal-actions .btn{
+      background:#0b1220;
+      color:#f8faf9;
+      border:0;
+    }
+    .modal-actions .btn.secondary{
+      background:#f3f4f6;
+      color:#0b1220;
+    }
+
+    .tradition{
+      background:linear-gradient(135deg, #0b1220 0%, #101b2c 60%, #0c1f2d 100%);
+      color:var(--paper);
+    }
+    .tradition .section-title{ color:#f8faf9; }
+    .tradition .section-sub{ color:#dbe4ef; }
+    .tradition-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:18px;
+    }
+    .tradition-card{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:18px;
+      padding:20px;
+      box-shadow:0 18px 40px rgba(3,10,20,.35);
+      display:grid;
+      gap:10px;
+    }
+    .tradition-card h4{
+      margin:0;
+      font-size:18px;
+      font-weight:800;
+    }
+    .tradition-card p{
+      margin:0;
+      color:#e5e7eb;
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:16px;
+    }
+    .why-card{
+      border-radius:18px;
+      border:1px solid #e5e7eb;
+      background:#f9fafb;
+      padding:18px;
+      box-shadow:0 12px 30px rgba(15,23,42,.06);
+    }
+    .why-card h4{
+      margin:0 0 8px;
+      font-size:16px;
+      font-weight:800;
+      color:#111827;
+    }
+    .why-card p{
+      margin:0;
+      color:#4b5563;
+      font-size:13.5px;
+      line-height:1.7;
+    }
+
+    .contact{
+      background:linear-gradient(120deg, #ffffff 0%, #f9fafb 55%, #f1f5f9 100%);
+    }
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1.1fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    .contact-card{
+      background:#ffffff;
+      border:1px solid #e5e7eb;
+      border-radius:20px;
+      padding:22px;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+    }
+    .contact-card h3{
+      margin:0 0 10px;
+      font-size:20px;
+      font-weight:800;
+      color:#111827;
+    }
+    .contact-card p{
+      margin:0 0 16px;
+      color:#4b5563;
+      font-size:14.5px;
+      line-height:1.7;
+    }
+    .contact-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:10px;
+      font-size:14px;
+      color:#111827;
+    }
+    .contact-list span{
+      color:#6b7280;
+      font-weight:600;
+      margin-right:6px;
+    }
+    .contact-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+    .map{
+      border:1px solid #e5e7eb;
+      border-radius:20px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+      min-height:320px;
+    }
+    .map iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    .footer{
+      background:#0b1220;
+      color:#e5e7eb;
+      padding:48px 6vw;
+      border-top:1px solid rgba(255,255,255,.08);
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+    }
+    .footer-wrap{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+      align-items:center;
+    }
+    .footer h3{
+      margin:0 0 8px;
+      font-size:18px;
+      color:#f8faf9;
+    }
+    .footer p{
+      margin:0;
+      font-size:14px;
+      color:#cbd5e1;
+      line-height:1.7;
+    }
+    .footer-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:8px;
+      font-size:14px;
+    }
+    .footer-list span{ color:#fef3c7; font-weight:700; }
+
+    .mobile{
+      position:fixed;
+      inset:0;
+      z-index:200;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .3s ease;
+    }
+    .mobile.is-open{ opacity:1; pointer-events:auto; }
+    .mobile-backdrop{
+      position:absolute;
+      inset:0;
+      background:rgba(2,6,23,.6);
+      backdrop-filter: blur(4px);
+    }
+    .mobile-panel{
+      position:absolute;
+      top:0;
+      right:0;
+      height:100%;
+      width:min(340px, 86vw);
+      background:linear-gradient(160deg, #0b1220 0%, #0f1a2b 55%, #0b2230 100%);
+      color:#f8faf9;
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      box-shadow:-18px 0 50px rgba(3,10,20,.35);
+      transform:translateX(12px);
+      transition:transform .3s ease;
+    }
+    .mobile.is-open .mobile-panel{ transform:translateX(0); }
+    .mobile-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .mobile-title{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:800;
+      opacity:.7;
+    }
+    .mobile-close{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(255,255,255,.08);
+      color:#f8faf9;
+      cursor:pointer;
+      font-size:16px;
+    }
+    .mobile-links{
+      display:grid;
+      gap:10px;
+    }
+    .mobile-links a{
+      color:#f8faf9;
+      font-weight:700;
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      text-align:left;
+    }
+
+    @media (max-width: 980px){
+      .about-grid{ grid-template-columns:1fr; }
+      .package-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .why-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .contact-grid{ grid-template-columns:1fr; }
+      .footer-wrap{ grid-template-columns:1fr; }
+    }
+    @media (max-width: 900px){
+      .hero-content{ grid-template-columns:1fr; align-items:flex-start; }
+      .hero-title{ font-size:40px; }
+      .menu{ display:none; }
+      .burger{ display:grid; }
+    }
+    @media (min-width: 901px){
+      .burger{ display:none; }
+    }
+    @media (max-width: 640px){
+      .hero{ min-height:96vh; }
+      .hero-title{ font-size:30px; line-height:1.12; }
+      .hero-subtitle{ font-size:14px; line-height:1.7; }
+      .brand-text{ display:none; }
+      .kicker{ display:none; }
+      #contact-card{ display:none; }
+      .info-card{ padding:16px; }
+      .nav{ padding:16px 5vw; }
+      .nav-actions .btn{ display:none; }
+      .nav-actions .lang-toggle{ display:inline-flex; }
+      .hero-content{ padding:calc(3vh + 52px) 5vw 8vh; gap:22px; }
+      .hero-actions .btn{ padding:11px 14px; }
+      .slide-indicator{ right:5vw; bottom:4vh; }
+      .section{ padding:56px 5vw; }
+      .section-title{ font-size:28px; }
+      .package-grid{ grid-template-columns:1fr; }
+      .tradition-grid{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-slider" aria-hidden="true">
+      <div class="hero-slide active" style="background-image:url('https://tourisminfo.nttprov.go.id/wp-content/uploads/2025/08/1-2.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('https://assets.pikiran-rakyat.com/crop/1378x789:2693x1489/1200x675/photo/2024/05/02/3090519893.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/01/78b7370f-305c-41c8-90ce-3b3225e53c53.jpeg')"></div>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <nav class="nav is-top">
+      <div class="brand">
+        <img class="brand-logo" src="https://everz-digital.site/wp-content/uploads/2026/01/logo_2-removebg-preview.png" alt="Belavista Art and Tourism logo" loading="lazy">
+        <img class="brand-logo" src="https://everz-digital.site/wp-content/uploads/2026/01/logo_1-removebg-preview.png" alt="Lamalera Sport Fishing Charter logo" loading="lazy">
+        <div class="brand-text">
+          Belavista Art and Tourism
+          <span>Lamalera Sport Fishing Charter</span>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="#about" data-i18n="nav_about">Tentang</a>
+        <a href="#packages" data-i18n="nav_packages">Paket Wisata</a>
+        <a href="#tradition" data-i18n="nav_tradition">Tradisi</a>
+        <a href="#why" data-i18n="nav_why">Keunggulan</a>
+        <a href="#contact" data-i18n="nav_contact">Kontak</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn" href="tel:081237144066" data-i18n="nav_phone">Telepon</a>
+        <a class="btn primary" href="https://wa.me/6281237144066?text=Halo%20Belavista%20Art%20and%20Tourism%2C%20saya%20ingin%20info%20paket%20wisata." data-i18n="nav_whatsapp" data-i18n-href="whatsapp_link" target="_blank" rel="noopener">WhatsApp</a>
+        <button class="btn lang-toggle" type="button" id="langToggle" data-i18n-aria-label="lang_toggle_aria">ID</button>
+        <button class="burger" type="button" aria-label="Buka menu" data-i18n-aria-label="menu_open_aria" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="burger-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-backdrop" data-close="1"></div>
+      <div class="mobile-panel">
+        <div class="mobile-head">
+          <div class="mobile-title" data-i18n="mobile_menu_title">Menu</div>
+          <button class="mobile-close" type="button" data-close="1" aria-label="Tutup menu" data-i18n-aria-label="menu_close_aria">✕</button>
+        </div>
+        <div class="mobile-links">
+          <a href="#about" data-i18n="nav_about">Tentang</a>
+          <a href="#packages" data-i18n="nav_packages">Paket Wisata</a>
+          <a href="#tradition" data-i18n="nav_tradition">Tradisi</a>
+          <a href="#why" data-i18n="nav_why">Keunggulan</a>
+          <a href="#contact" data-i18n="nav_contact">Kontak</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div>
+        <div class="kicker" data-i18n="hero_kicker">Petualangan Laut &amp; Budaya Lamalera</div>
+        <h1 class="hero-title" data-i18n-html="hero_title">
+          Belavista Art and Tourism<br>
+          Lamalera Sport Fishing Charter
+        </h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          Jelajahi Lamalera dengan pengalaman laut, budaya, dan alam yang autentik. Kami siap membantu
+          perjalanan wisata, kegiatan mancing sport fishing, hingga agenda budaya khas Lamalera.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#packages" data-i18n="hero_cta_packages">Lihat Paket</a>
+          <a class="btn" href="mailto:noel.beding@gmail.com" data-i18n="hero_cta_email">Email Kami</a>
+        </div>
+      </div>
+
+      <div class="info-card" id="contact-card">
+        <h3 data-i18n="quick_contact_title">Kontak Cepat</h3>
+        <ul>
+          <li><span data-i18n="label_phone">HP:</span> 081237144066</li>
+          <li><span data-i18n="label_email">Email:</span> noel.beding@gmail.com</li>
+          <li><span data-i18n="label_address">Alamat:</span> Jln. Lasitarda Wangatoa Selatan Timur, RT 003 / RW 002</li>
+          <li><span data-i18n="label_kelurahan">Kelurahan:</span> <span data-i18n="value_kelurahan">Selandoro, Kecamatan Nubatukan</span></li>
+          <li><span data-i18n="label_kabupaten">Kabupaten:</span> <span data-i18n="value_kabupaten">Lembata, Nusa Tenggara Timur</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide-indicator" aria-label="Indikator slide" data-i18n-aria-label="slide_indicator_aria">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </header>
+
+  <section class="section about" id="about">
+    <h2 class="section-title" data-i18n="about_title">Tentang Kami</h2>
+    <p class="section-sub" data-i18n="about_sub">
+      Belavista Art and Tourism &amp; Lamalera Sport Fishing Charter berfokus pada pengalaman wisata
+      yang hangat, aman, dan penuh cerita di Lamalera.
+    </p>
+    <div class="about-grid">
+      <div class="about-copy">
+        <h3 data-i18n="about_heading">Perpaduan Wisata Laut, Alam, dan Budaya</h3>
+        <p data-i18n="about_p1">
+          Kami menghadirkan paket wisata yang menonjolkan keindahan laut Lamalera, tradisi lokal,
+          dan petualangan alam. Tim lokal kami siap membantu perjalanan yang fleksibel, mulai dari
+          wisata melihat paus hingga eksplorasi kuliner khas daerah.
+        </p>
+        <p data-i18n="about_p2">
+          Gunakan layanan kami untuk rencana wisata keluarga, rombongan, maupun pengalaman sport
+          fishing yang seru dan berkesan.
+        </p>
+      </div>
+      <div class="about-slider" aria-label="Galeri Lamalera" data-i18n-aria-label="about_gallery_aria">
+        <div class="about-slide active" style="background-image:url('https://utiket.com/images/uploads/tpimages/Lumba-Lumba-di-Teluk-Kiluan.jpg')"></div>
+        <div class="about-slide" style="background-image:url('https://awsimages.detik.net.id/community/media/visual/2024/05/04/air-terjun-silima-lima-instagramdispardatapsel_169.jpeg?w=1200')"></div>
+        <div class="about-slide" style="background-image:url('https://asset.kompas.com/crops/34ytQv1CaJYMwnE2NJWtDdbqTgA=/0x6:720x486/1200x800/data/photo/2023/08/29/64ed8096be1b3.jpg')"></div>
+        <div class="about-overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section packages" id="packages">
+    <h2 class="section-title" data-i18n="packages_title">Paket Wisata &amp; Aktivitas</h2>
+    <p class="section-sub" data-i18n="packages_sub">
+      Pilih paket sesuai minat Anda, mulai dari wisata bahari, alam, budaya, hingga sport fishing.
+    </p>
+    <div class="package-grid">
+      <article class="package-card">
+        <div class="package-media">
+          <div class="package-slide active" role="img" aria-label="Wisata Ikan Paus" data-i18n-aria-label="aria_whale" style="background-image:url('https://tourisminfo.nttprov.go.id/wp-content/uploads/2025/08/1-2.jpg')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Ikan Paus" data-i18n-aria-label="aria_whale" style="background-image:url('https://floresa.co/wp-content/uploads/2015/07/Tradisi-penangkapan-ikan-paus-di-Lamalera-Kabupaten-Lembata.jpg')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Ikan Paus" data-i18n-aria-label="aria_whale" style="background-image:url('https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/p1/367/2023/10/13/pexels-silvana-palacios-3635870-2166880107.jpg')"></div>
+          <div class="package-tag" data-i18n="tag_bahari">Bahari</div>
+        </div>
+        <div class="package-body">
+          <h3 data-i18n="pkg_whale_title">Wisata Ikan Paus</h3>
+          <p data-i18n="pkg_whale_desc">Berlayar bersama pemandu lokal untuk menyaksikan paus di perairan Lamalera, lengkap dengan cerita tradisi pelautnya.</p>
+          <div class="package-actions">
+            <button class="btn booking-btn" type="button" data-i18n="booking_now" data-package-id="Wisata Ikan Paus" data-package-en="Whale Watching Tour">Booking Sekarang</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="package-card">
+        <div class="package-media">
+          <div class="package-slide active" role="img" aria-label="Wisata Lumba-lumba" data-i18n-aria-label="aria_dolphin" style="background-image:url('https://utiket.com/images/uploads/tpimages/Lumba-Lumba-di-Teluk-Kiluan.jpg')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Lumba-lumba" data-i18n-aria-label="aria_dolphin" style="background-image:url('https://www.baliagatour.co.id/wp-content/uploads/2025/05/Pantai-Lovina-Salah-Satu-Pantai-Wisata-Lumba-Lumba-di-Bali-Utara.jpg')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Lumba-lumba" data-i18n-aria-label="aria_dolphin" style="background-image:url('https://cdn.grid.id/crop/0x0:0x0/filters:format(webp):quality(100)/photo/intisarifoto/original/14946_bercanda-dengan-lumba-lumba-pantai-lovina.jpg')"></div>
+          <div class="package-tag" data-i18n="tag_bahari">Bahari</div>
+        </div>
+        <div class="package-body">
+          <h3 data-i18n="pkg_dolphin_title">Wisata Lumba Lumba</h3>
+          <p data-i18n="pkg_dolphin_desc">Berangkat pagi saat laut tenang untuk melihat lumba-lumba menari di habitat alaminya.</p>
+          <div class="package-actions">
+            <button class="btn booking-btn" type="button" data-i18n="booking_now" data-package-id="Wisata Lumba Lumba" data-package-en="Dolphin Watching Tour">Booking Sekarang</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="package-card">
+        <div class="package-media">
+          <div class="package-slide active" role="img" aria-label="Wisata Air Terjun" data-i18n-aria-label="aria_waterfall" style="background-image:url('https://www.mytrip.co.id/editor2023/images/1.%20Lodovavo.jpg')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Air Terjun" data-i18n-aria-label="aria_waterfall" style="background-image:url('https://awsimages.detik.net.id/community/media/visual/2024/05/04/air-terjun-silima-lima-instagramdispardatapsel_169.jpeg?w=1200')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Air Terjun" data-i18n-aria-label="aria_waterfall" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk9kfj32D2NhA0izB1P8nqj1cvHyebwCLLtw&s')"></div>
+          <div class="package-tag" data-i18n="tag_alam">Alam</div>
+        </div>
+        <div class="package-body">
+          <h3 data-i18n="pkg_waterfall_title">Wisata Air Terjun</h3>
+          <p data-i18n="pkg_waterfall_desc">Trekking ringan menuju air terjun tersembunyi dengan udara sejuk dan panorama hijau.</p>
+          <div class="package-actions">
+            <button class="btn booking-btn" type="button" data-i18n="booking_now" data-package-id="Wisata Air Terjun" data-package-en="Waterfall Tour">Booking Sekarang</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="package-card">
+        <div class="package-media">
+          <div class="package-slide active" role="img" aria-label="Misa Arwah Lamalera" data-i18n-aria-label="aria_misa_arwah" style="background-image:url('https://assets.pikiran-rakyat.com/crop/1417x702:2685x1614/720x0/webp/photo/2024/05/02/1376804612.jpg')"></div>
+          <div class="package-slide" role="img" aria-label="Misa Arwah Lamalera" data-i18n-aria-label="aria_misa_arwah" style="background-image:url('https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/05/01/FB_IMG_1682956080456-2062101917.jpg')"></div>
+          <div class="package-slide" role="img" aria-label="Misa Leva Lamalera" data-i18n-aria-label="aria_misa_leva" style="background-image:url('https://assets.pikiran-rakyat.com/crop/1378x789:2693x1489/1200x675/photo/2024/05/02/3090519893.jpg')"></div>
+          <div class="package-slide" role="img" aria-label="Misa Leva Lamalera" data-i18n-aria-label="aria_misa_leva" style="background-image:url('https://www.mytrip.co.id/editor/images/8.%20Lamalera-Misa%20Lefa.jpg')"></div>
+          <div class="package-slide" role="img" aria-label="Misa Leva Lamalera" data-i18n-aria-label="aria_misa_leva" style="background-image:url('https://assets.promediateknologi.id/crop/0x0:0x0/1200x800/webp/photo/2023/05/02/IMG_20230502_075638-3588332189.jpg')"></div>
+          <div class="package-tag" data-i18n="tag_budaya">Budaya</div>
+        </div>
+        <div class="package-body">
+          <h3 data-i18n="pkg_tradition_title">Wisata Tradisi &amp; Budaya Lamalera</h3>
+          <p data-i18n="pkg_tradition_desc">Mengenal ritual maritim Lamalera dengan dua opsi utama:</p>
+          <ul class="package-options">
+            <li data-i18n="pkg_tradition_opt1">Misa Leva: upacara pembukaan musim melaut.</li>
+            <li data-i18n="pkg_tradition_opt2">Misa Arwah: seremonial untuk para nelayan yang meninggal di laut.</li>
+          </ul>
+          <div class="package-actions">
+            <button class="btn booking-btn" type="button" data-i18n="booking_now" data-package-id="Wisata Tradisi dan Budaya Lamalera" data-package-en="Lamalera Traditions &amp; Culture">Booking Sekarang</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="package-card">
+        <div class="package-media">
+          <div class="package-slide active" role="img" aria-label="Wisata Gunung Batu Tara" data-i18n-aria-label="aria_batutura" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK1FcXcmXttJZs63HoiLhm3SsTcB7QQftgpg&s')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Gunung Batu Tara" data-i18n-aria-label="aria_batutura" style="background-image:url('https://picture.triptrus.com/image/2017/12/gunung-batu-tara-1.jpeg')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Gunung Batu Tara" data-i18n-aria-label="aria_batutura" style="background-image:url('https://bisniswisata.co.id/wp-content/uploads/2018/05/gunung-batu-tara1.jpg')"></div>
+          <div class="package-tag" data-i18n="tag_petualangan">Petualangan</div>
+        </div>
+        <div class="package-body">
+          <h3 data-i18n="pkg_batutura_title">Wisata Gunung Batu Tara</h3>
+          <p data-i18n="pkg_batutura_desc">Eksplorasi gunung api di tengah laut dengan jalur menantang dan panorama spektakuler.</p>
+          <div class="package-actions">
+            <button class="btn booking-btn" type="button" data-i18n="booking_now" data-package-id="Wisata Gunung Batu Tara" data-package-en="Batu Tara Volcano Tour">Booking Sekarang</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="package-card">
+        <div class="package-media">
+          <div class="package-slide active" role="img" aria-label="Wisata Fishing" data-i18n-aria-label="aria_fishing" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/01/78b7370f-305c-41c8-90ce-3b3225e53c53.jpeg')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Fishing" data-i18n-aria-label="aria_fishing" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/01/c1ae5d55-311a-42c7-b14d-3e1a4de02482.jpeg')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Fishing" data-i18n-aria-label="aria_fishing" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/01/68af4bcd-c08c-4c2d-a6e5-c2b01caeb9dd.jpeg')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Fishing" data-i18n-aria-label="aria_fishing" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/01/56430a8e-714e-482e-94b5-7b838156f46d.jpeg')"></div>
+          <div class="package-tag" data-i18n="tag_sport">Sport Fishing</div>
+        </div>
+        <div class="package-body">
+          <h3 data-i18n="pkg_fishing_title">Wisata Fishing</h3>
+          <p data-i18n="pkg_fishing_desc">Trip mancing dengan teknik jigging, popping, trolling, hingga spearfishing bersama tim berpengalaman.</p>
+          <div class="package-actions">
+            <button class="btn booking-btn" type="button" data-i18n="booking_now" data-package-id="Wisata Fishing" data-package-en="Fishing Tour">Booking Sekarang</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="package-card">
+        <div class="package-media">
+          <div class="package-slide active" role="img" aria-label="Wisata Aktivitas Laut" data-i18n-aria-label="aria_sea" style="background-image:url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2bBi7drxFSShMQOLBp3K_iBqOFXmuDCjxbUYtUcMkO-DXAlOCZZdy6VOYSOpXakdBT5o9upuw_FHT4G2Me04DqOf09NmBLSMMGzBD4c88tAseXvgDsmAn9rohyprgGyDb1fG9vRVznSs/s1600/Taman+Nasional+Takabonerate.jpg')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Aktivitas Laut" data-i18n-aria-label="aria_sea" style="background-image:url('https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/05/28/i-341850863.jpg')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Aktivitas Laut" data-i18n-aria-label="aria_sea" style="background-image:url('https://assets.pikiran-rakyat.com/crop/1433x710:2677x1599/1200x675/photo/2024/04/22/2389753126.jpg')"></div>
+          <div class="package-tag" data-i18n="tag_bahari">Bahari</div>
+        </div>
+        <div class="package-body">
+          <h3 data-i18n="pkg_sea_title">Wisata Aktivitas Laut</h3>
+          <p data-i18n="pkg_sea_desc">Snorkeling, diving, serta menikmati suasana dan pemandangan pantai Lamalera yang jernih.</p>
+          <div class="package-actions">
+            <button class="btn booking-btn" type="button" data-i18n="booking_now" data-package-id="Wisata Aktivitas Laut" data-package-en="Marine Activities Tour">Booking Sekarang</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="package-card">
+        <div class="package-media">
+          <div class="package-slide active" role="img" aria-label="Wisata Kuliner Khas Daerah" data-i18n-aria-label="aria_culinary" style="background-image:url('https://asset.kompas.com/crops/34ytQv1CaJYMwnE2NJWtDdbqTgA=/0x6:720x486/1200x800/data/photo/2023/08/29/64ed8096be1b3.jpg')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Kuliner Khas Daerah" data-i18n-aria-label="aria_culinary" style="background-image:url('https://api.parboaboa.com/public/image/main/makanan-lembata-khas.webp')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Kuliner Khas Daerah" data-i18n-aria-label="aria_culinary" style="background-image:url('https://awsimages.detik.net.id/content/2013/03/04/1383/kulinerlembata31800x600.jpg')"></div>
+          <div class="package-slide" role="img" aria-label="Wisata Kuliner Khas Daerah" data-i18n-aria-label="aria_culinary" style="background-image:url('https://assets.promediateknologi.id/crop/0x0:0x0/x/photo/2023/04/05/png_20230405_192557_0000-2267259105.png')"></div>
+          <div class="package-tag" data-i18n="tag_kuliner">Kuliner</div>
+        </div>
+        <div class="package-body">
+          <h3 data-i18n="pkg_culinary_title">Wisata Kuliner Khas Daerah</h3>
+          <p data-i18n="pkg_culinary_desc">Tur rasa kuliner Lembata, dari hidangan laut hingga sajian tradisional favorit warga lokal.</p>
+          <div class="package-actions">
+            <button class="btn booking-btn" type="button" data-i18n="booking_now" data-package-id="Wisata Kuliner Khas Daerah" data-package-en="Local Culinary Tour">Booking Sekarang</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="modal" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="document">
+      <button class="modal-close" type="button" data-close aria-label="Tutup" data-i18n-aria-label="modal_close_aria">x</button>
+      <h3 data-i18n="modal_title">Booking Sekarang</h3>
+      <p data-i18n="modal_sub">Isi data calon tamu agar tim kami bisa menyiapkan rekomendasi terbaik.</p>
+      <form class="modal-form">
+        <label>
+          <span data-i18n="modal_label_name">Nama lengkap</span>
+          <input type="text" name="name" placeholder="Nama calon tamu" data-i18n-placeholder="modal_placeholder_name" required>
+        </label>
+        <label>
+          <span data-i18n="modal_label_phone">Nomor WhatsApp</span>
+          <input type="tel" name="phone" placeholder="08xxxxxxxxxx" data-i18n-placeholder="modal_placeholder_phone" required>
+        </label>
+        <label>
+          <span data-i18n="modal_label_email">Email</span>
+          <input type="email" name="email" placeholder="nama@email.com" data-i18n-placeholder="modal_placeholder_email">
+        </label>
+        <label>
+          <span data-i18n="modal_label_package">Paket pilihan</span>
+          <input type="text" id="bookingPackage" name="package" readonly>
+        </label>
+        <label>
+          <span data-i18n="modal_label_date">Tanggal keberangkatan</span>
+          <input type="date" name="date">
+        </label>
+        <label>
+          <span data-i18n="modal_label_guests">Jumlah tamu</span>
+          <input type="number" name="guests" min="1" placeholder="Contoh: 4" data-i18n-placeholder="modal_placeholder_guests">
+        </label>
+        <label>
+          <span data-i18n="modal_label_notes">Catatan tambahan</span>
+          <textarea name="notes" placeholder="Kebutuhan khusus, preferensi kegiatan, atau pertanyaan" data-i18n-placeholder="modal_placeholder_notes"></textarea>
+        </label>
+        <div class="modal-actions">
+          <button class="btn secondary" type="button" data-close data-i18n="modal_cancel">Batal</button>
+          <button class="btn" type="submit" data-i18n="modal_submit">Kirim Permintaan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <section class="section tradition" id="tradition">
+    <h2 class="section-title" data-i18n="tradition_title">Tradisi &amp; Budaya Lamalera</h2>
+    <p class="section-sub" data-i18n="tradition_sub">
+      Kami siap membantu tamu untuk mengenal tradisi maritim Lamalera yang penuh makna.
+    </p>
+    <div class="tradition-grid">
+      <div class="tradition-card">
+        <h4 data-i18n="tradition_card1_title">Misa Leva</h4>
+        <p data-i18n="tradition_card1_desc">Upacara pembukaan musim melaut yang sarat doa dan kebersamaan masyarakat nelayan.</p>
+      </div>
+      <div class="tradition-card">
+        <h4 data-i18n="tradition_card2_title">Misa Arwah</h4>
+        <p data-i18n="tradition_card2_desc">Upacara seremonial untuk mengenang nelayan yang meninggal di laut.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why">
+    <h2 class="section-title" data-i18n="why_title">Kenapa Memilih Kami</h2>
+    <p class="section-sub" data-i18n="why_sub">
+      Layanan wisata yang ramah, aman, dan berfokus pada pengalaman lokal terbaik.
+    </p>
+    <div class="why-grid">
+      <div class="why-card">
+        <h4 data-i18n="why_card1_title">Tim Lokal Berpengalaman</h4>
+        <p data-i18n="why_card1_desc">Pendamping wisata dan pemandu fishing yang mengenal perairan Lamalera.</p>
+      </div>
+      <div class="why-card">
+        <h4 data-i18n="why_card2_title">Rencana Fleksibel</h4>
+        <p data-i18n="why_card2_desc">Jadwal bisa disesuaikan dengan kebutuhan tamu dan kondisi cuaca.</p>
+      </div>
+      <div class="why-card">
+        <h4 data-i18n="why_card3_title">Fokus Keselamatan</h4>
+        <p data-i18n="why_card3_desc">Perjalanan laut dan darat dengan standar keselamatan dan peralatan yang siap.</p>
+      </div>
+      <div class="why-card">
+        <h4 data-i18n="why_card4_title">Pengalaman Autentik</h4>
+        <p data-i18n="why_card4_desc">Wisata budaya dan kuliner yang memperlihatkan kehidupan asli Lamalera.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <h2 class="section-title" data-i18n="contact_title">Hubungi Kami</h2>
+    <p class="section-sub" data-i18n="contact_sub">
+      Informasi paket, jadwal, dan kebutuhan khusus bisa langsung kami bantu.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Belavista Art and Tourism &amp; Lamalera Sport Fishing Charter</h3>
+        <p data-i18n="contact_desc">Kami siap merancang perjalanan terbaik untuk Anda di Lamalera.</p>
+        <ul class="contact-list">
+          <li><span data-i18n="label_address">Alamat:</span> Jln. Lasitarda Wangatoa Selatan Timur, RT 003 / RW 002</li>
+          <li><span data-i18n="label_kelurahan">Kelurahan:</span> <span data-i18n="value_kelurahan">Selandoro, Kecamatan Nubatukan</span></li>
+          <li><span data-i18n="label_kabupaten">Kabupaten:</span> <span data-i18n="value_kabupaten">Lembata, Nusa Tenggara Timur</span></li>
+          <li><span data-i18n="label_phone">HP:</span> 081237144066</li>
+          <li><span data-i18n="label_email">Email:</span> noel.beding@gmail.com</li>
+        </ul>
+        <div class="contact-actions">
+          <a class="btn primary" href="https://wa.me/6281237144066?text=Halo%20Belavista%20Art%20and%20Tourism%2C%20saya%20ingin%20info%20paket%20wisata." data-i18n="contact_whatsapp" data-i18n-href="whatsapp_link" target="_blank" rel="noopener">Chat WhatsApp</a>
+          <a class="btn" href="tel:081237144066" data-i18n="contact_phone">Telepon</a>
+        </div>
+      </div>
+      <div class="map" aria-label="Peta lokasi" data-i18n-aria-label="map_aria">
+        <iframe title="Peta Lamalera" data-i18n-title="map_title" src="https://maps.google.com/maps?q=Jln.%20Lasitarda%20Wangatoa%20Selatan%20Timur%20Lembata%20Nusa%20Tenggara%20Timur&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-wrap">
+      <div>
+        <h3>Belavista Art and Tourism</h3>
+        <p data-i18n="footer_official_site">Website resmi: lamaleratourismfishingcharter.com</p>
+        <p data-i18n="footer_tagline">Wisata bahari, budaya, alam, dan sport fishing di Lamalera.</p>
+      </div>
+      <div>
+        <h3 data-i18n="footer_contact_title">Kontak</h3>
+        <ul class="footer-list">
+          <li><span data-i18n="label_phone">HP:</span> 081237144066</li>
+          <li><span data-i18n="label_email">Email:</span> noel.beding@gmail.com</li>
+          <li><span data-i18n="label_address">Alamat:</span> <span data-i18n="footer_address_value">Jln. Lasitarda Wangatoa Selatan Timur, Kel. Selandoro</span></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var translations = {
+        id: {
+          lang_toggle_aria: 'Ganti bahasa',
+          menu_open_aria: 'Buka menu',
+          menu_close_aria: 'Tutup menu',
+          mobile_menu_title: 'Menu',
+          nav_about: 'Tentang',
+          nav_packages: 'Paket Wisata',
+          nav_tradition: 'Tradisi',
+          nav_why: 'Keunggulan',
+          nav_contact: 'Kontak',
+          nav_phone: 'Telepon',
+          nav_whatsapp: 'WhatsApp',
+          hero_kicker: 'Petualangan Laut & Budaya Lamalera',
+          hero_title: 'Belavista Art and Tourism<br>Lamalera Sport Fishing Charter',
+          hero_subtitle: 'Jelajahi Lamalera dengan pengalaman laut, budaya, dan alam yang autentik. Kami siap membantu perjalanan wisata, kegiatan mancing sport fishing, hingga agenda budaya khas Lamalera.',
+          hero_cta_packages: 'Lihat Paket',
+          hero_cta_email: 'Email Kami',
+          quick_contact_title: 'Kontak Cepat',
+          label_phone: 'HP:',
+          label_email: 'Email:',
+          label_address: 'Alamat:',
+          label_kelurahan: 'Kelurahan:',
+          label_kabupaten: 'Kabupaten:',
+          value_kelurahan: 'Selandoro, Kecamatan Nubatukan',
+          value_kabupaten: 'Lembata, Nusa Tenggara Timur',
+          slide_indicator_aria: 'Indikator slide',
+          about_title: 'Tentang Kami',
+          about_sub: 'Belavista Art and Tourism & Lamalera Sport Fishing Charter berfokus pada pengalaman wisata yang hangat, aman, dan penuh cerita di Lamalera.',
+          about_heading: 'Perpaduan Wisata Laut, Alam, dan Budaya',
+          about_p1: 'Kami menghadirkan paket wisata yang menonjolkan keindahan laut Lamalera, tradisi lokal, dan petualangan alam. Tim lokal kami siap membantu perjalanan yang fleksibel, mulai dari wisata melihat paus hingga eksplorasi kuliner khas daerah.',
+          about_p2: 'Gunakan layanan kami untuk rencana wisata keluarga, rombongan, maupun pengalaman sport fishing yang seru dan berkesan.',
+          about_gallery_aria: 'Galeri Lamalera',
+          packages_title: 'Paket Wisata & Aktivitas',
+          packages_sub: 'Pilih paket sesuai minat Anda, mulai dari wisata bahari, alam, budaya, hingga sport fishing.',
+          tag_bahari: 'Bahari',
+          tag_alam: 'Alam',
+          tag_budaya: 'Budaya',
+          tag_petualangan: 'Petualangan',
+          tag_sport: 'Sport Fishing',
+          tag_kuliner: 'Kuliner',
+          aria_whale: 'Wisata Ikan Paus',
+          aria_dolphin: 'Wisata Lumba Lumba',
+          aria_waterfall: 'Wisata Air Terjun',
+          aria_misa_arwah: 'Misa Arwah Lamalera',
+          aria_misa_leva: 'Misa Leva Lamalera',
+          aria_batutura: 'Wisata Gunung Batu Tara',
+          aria_fishing: 'Wisata Fishing',
+          aria_sea: 'Wisata Aktivitas Laut',
+          aria_culinary: 'Wisata Kuliner Khas Daerah',
+          pkg_whale_title: 'Wisata Ikan Paus',
+          pkg_whale_desc: 'Berlayar bersama pemandu lokal untuk menyaksikan paus di perairan Lamalera, lengkap dengan cerita tradisi pelautnya.',
+          pkg_dolphin_title: 'Wisata Lumba Lumba',
+          pkg_dolphin_desc: 'Berangkat pagi saat laut tenang untuk melihat lumba-lumba menari di habitat alaminya.',
+          pkg_waterfall_title: 'Wisata Air Terjun',
+          pkg_waterfall_desc: 'Trekking ringan menuju air terjun tersembunyi dengan udara sejuk dan panorama hijau.',
+          pkg_tradition_title: 'Wisata Tradisi & Budaya Lamalera',
+          pkg_tradition_desc: 'Mengenal ritual maritim Lamalera dengan dua opsi utama:',
+          pkg_tradition_opt1: 'Misa Leva: upacara pembukaan musim melaut.',
+          pkg_tradition_opt2: 'Misa Arwah: seremonial untuk para nelayan yang meninggal di laut.',
+          pkg_batutura_title: 'Wisata Gunung Batu Tara',
+          pkg_batutura_desc: 'Eksplorasi gunung api di tengah laut dengan jalur menantang dan panorama spektakuler.',
+          pkg_fishing_title: 'Wisata Fishing',
+          pkg_fishing_desc: 'Trip mancing dengan teknik jigging, popping, trolling, hingga spearfishing bersama tim berpengalaman.',
+          pkg_sea_title: 'Wisata Aktivitas Laut',
+          pkg_sea_desc: 'Snorkeling, diving, serta menikmati suasana dan pemandangan pantai Lamalera yang jernih.',
+          pkg_culinary_title: 'Wisata Kuliner Khas Daerah',
+          pkg_culinary_desc: 'Tur rasa kuliner Lembata, dari hidangan laut hingga sajian tradisional favorit warga lokal.',
+          booking_now: 'Booking Sekarang',
+          modal_close_aria: 'Tutup',
+          modal_title: 'Booking Sekarang',
+          modal_sub: 'Isi data calon tamu agar tim kami bisa menyiapkan rekomendasi terbaik.',
+          modal_label_name: 'Nama lengkap',
+          modal_label_phone: 'Nomor WhatsApp',
+          modal_label_email: 'Email',
+          modal_label_package: 'Paket pilihan',
+          modal_label_date: 'Tanggal keberangkatan',
+          modal_label_guests: 'Jumlah tamu',
+          modal_label_notes: 'Catatan tambahan',
+          modal_placeholder_name: 'Nama calon tamu',
+          modal_placeholder_phone: '08xxxxxxxxxx',
+          modal_placeholder_email: 'nama@email.com',
+          modal_placeholder_guests: 'Contoh: 4',
+          modal_placeholder_notes: 'Kebutuhan khusus, preferensi kegiatan, atau pertanyaan',
+          modal_cancel: 'Batal',
+          modal_submit: 'Kirim Permintaan',
+          tradition_title: 'Tradisi & Budaya Lamalera',
+          tradition_sub: 'Kami siap membantu tamu untuk mengenal tradisi maritim Lamalera yang penuh makna.',
+          tradition_card1_title: 'Misa Leva',
+          tradition_card1_desc: 'Upacara pembukaan musim melaut yang sarat doa dan kebersamaan masyarakat nelayan.',
+          tradition_card2_title: 'Misa Arwah',
+          tradition_card2_desc: 'Upacara seremonial untuk mengenang nelayan yang meninggal di laut.',
+          why_title: 'Kenapa Memilih Kami',
+          why_sub: 'Layanan wisata yang ramah, aman, dan berfokus pada pengalaman lokal terbaik.',
+          why_card1_title: 'Tim Lokal Berpengalaman',
+          why_card1_desc: 'Pendamping wisata dan pemandu fishing yang mengenal perairan Lamalera.',
+          why_card2_title: 'Rencana Fleksibel',
+          why_card2_desc: 'Jadwal bisa disesuaikan dengan kebutuhan tamu dan kondisi cuaca.',
+          why_card3_title: 'Fokus Keselamatan',
+          why_card3_desc: 'Perjalanan laut dan darat dengan standar keselamatan dan peralatan yang siap.',
+          why_card4_title: 'Pengalaman Autentik',
+          why_card4_desc: 'Wisata budaya dan kuliner yang memperlihatkan kehidupan asli Lamalera.',
+          contact_title: 'Hubungi Kami',
+          contact_sub: 'Informasi paket, jadwal, dan kebutuhan khusus bisa langsung kami bantu.',
+          contact_desc: 'Kami siap merancang perjalanan terbaik untuk Anda di Lamalera.',
+          contact_whatsapp: 'Chat WhatsApp',
+          contact_phone: 'Telepon',
+          map_aria: 'Peta lokasi',
+          map_title: 'Peta Lamalera',
+          footer_official_site: 'Website resmi: lamaleratourismfishingcharter.com',
+          footer_tagline: 'Wisata bahari, budaya, alam, dan sport fishing di Lamalera.',
+          footer_contact_title: 'Kontak',
+          footer_address_value: 'Jln. Lasitarda Wangatoa Selatan Timur, Kel. Selandoro',
+          whatsapp_link: 'https://wa.me/6281237144066?text=Halo%20Belavista%20Art%20and%20Tourism%2C%20saya%20ingin%20info%20paket%20wisata.'
+        },
+        en: {
+          lang_toggle_aria: 'Switch language',
+          menu_open_aria: 'Open menu',
+          menu_close_aria: 'Close menu',
+          mobile_menu_title: 'Menu',
+          nav_about: 'About',
+          nav_packages: 'Packages',
+          nav_tradition: 'Tradition',
+          nav_why: 'Why Us',
+          nav_contact: 'Contact',
+          nav_phone: 'Call',
+          nav_whatsapp: 'WhatsApp',
+          hero_kicker: 'Lamalera Sea & Culture Adventures',
+          hero_title: 'Belavista Art and Tourism<br>Lamalera Sport Fishing Charter',
+          hero_subtitle: 'Explore Lamalera with authentic sea, cultural, and nature experiences. We can help with tours, sport fishing trips, and Lamalera cultural agendas.',
+          hero_cta_packages: 'View Packages',
+          hero_cta_email: 'Email Us',
+          quick_contact_title: 'Quick Contact',
+          label_phone: 'Phone:',
+          label_email: 'Email:',
+          label_address: 'Address:',
+          label_kelurahan: 'Village:',
+          label_kabupaten: 'Regency:',
+          value_kelurahan: 'Selandoro, Nubatukan District',
+          value_kabupaten: 'Lembata, East Nusa Tenggara',
+          slide_indicator_aria: 'Slide indicator',
+          about_title: 'About Us',
+          about_sub: 'Belavista Art and Tourism & Lamalera Sport Fishing Charter focuses on warm, safe, story-rich journeys in Lamalera.',
+          about_heading: 'A Blend of Sea, Nature, and Culture',
+          about_p1: 'We offer packages highlighting Lamalera\'s sea beauty, local traditions, and nature adventures. Our local team supports flexible trips, from whale watching to local culinary exploration.',
+          about_p2: 'Use our services for family trips, groups, and exciting sport fishing experiences.',
+          about_gallery_aria: 'Lamalera Gallery',
+          packages_title: 'Tour Packages & Activities',
+          packages_sub: 'Choose packages based on your interests, from marine, nature, and culture to sport fishing.',
+          tag_bahari: 'Marine',
+          tag_alam: 'Nature',
+          tag_budaya: 'Culture',
+          tag_petualangan: 'Adventure',
+          tag_sport: 'Sport Fishing',
+          tag_kuliner: 'Culinary',
+          aria_whale: 'Whale Watching Tour',
+          aria_dolphin: 'Dolphin Watching Tour',
+          aria_waterfall: 'Waterfall Tour',
+          aria_misa_arwah: 'Misa Arwah Ceremony',
+          aria_misa_leva: 'Misa Leva Ceremony',
+          aria_batutura: 'Batu Tara Volcano Tour',
+          aria_fishing: 'Fishing Tour',
+          aria_sea: 'Marine Activities Tour',
+          aria_culinary: 'Local Culinary Tour',
+          pkg_whale_title: 'Whale Watching Tour',
+          pkg_whale_desc: 'Sail with local guides to spot whales in Lamalera waters, complete with stories of seafaring traditions.',
+          pkg_dolphin_title: 'Dolphin Watching Tour',
+          pkg_dolphin_desc: 'Depart early when the sea is calm to watch dolphins dance in their natural habitat.',
+          pkg_waterfall_title: 'Waterfall Tour',
+          pkg_waterfall_desc: 'A light trek to hidden waterfalls with cool air and lush scenery.',
+          pkg_tradition_title: 'Lamalera Traditions & Culture',
+          pkg_tradition_desc: 'Discover Lamalera\'s maritime rituals through two main options:',
+          pkg_tradition_opt1: 'Misa Leva: ceremony opening the sea season.',
+          pkg_tradition_opt2: 'Misa Arwah: a ceremony honoring fishermen who passed at sea.',
+          pkg_batutura_title: 'Batu Tara Volcano Tour',
+          pkg_batutura_desc: 'Explore the mid-sea volcano with challenging trails and spectacular views.',
+          pkg_fishing_title: 'Fishing Tour',
+          pkg_fishing_desc: 'Fishing trip with jigging, popping, trolling, and spearfishing with an experienced team.',
+          pkg_sea_title: 'Marine Activities Tour',
+          pkg_sea_desc: 'Snorkeling, diving, and enjoying Lamalera\'s clear beach scenery.',
+          pkg_culinary_title: 'Local Culinary Tour',
+          pkg_culinary_desc: 'Taste Lembata cuisine, from seafood to local traditional favorites.',
+          booking_now: 'Book Now',
+          modal_close_aria: 'Close',
+          modal_title: 'Book Now',
+          modal_sub: 'Fill in guest details so our team can prepare the best recommendations.',
+          modal_label_name: 'Full name',
+          modal_label_phone: 'WhatsApp number',
+          modal_label_email: 'Email',
+          modal_label_package: 'Selected package',
+          modal_label_date: 'Departure date',
+          modal_label_guests: 'Number of guests',
+          modal_label_notes: 'Additional notes',
+          modal_placeholder_name: 'Guest name',
+          modal_placeholder_phone: '08xxxxxxxxxx',
+          modal_placeholder_email: 'name@email.com',
+          modal_placeholder_guests: 'Example: 4',
+          modal_placeholder_notes: 'Special requests, activity preferences, or questions',
+          modal_cancel: 'Cancel',
+          modal_submit: 'Send Request',
+          tradition_title: 'Lamalera Traditions & Culture',
+          tradition_sub: 'We help guests understand Lamalera\'s meaningful maritime traditions.',
+          tradition_card1_title: 'Misa Leva',
+          tradition_card1_desc: 'A ceremony opening the sea season, filled with prayers and fishermen community togetherness.',
+          tradition_card2_title: 'Misa Arwah',
+          tradition_card2_desc: 'A ceremonial rite to remember fishermen who died at sea.',
+          why_title: 'Why Choose Us',
+          why_sub: 'Friendly, safe, and focused on the best local experience.',
+          why_card1_title: 'Experienced Local Team',
+          why_card1_desc: 'Tour companions and fishing guides who know Lamalera waters.',
+          why_card2_title: 'Flexible Plans',
+          why_card2_desc: 'Schedules can be adjusted to guest needs and weather conditions.',
+          why_card3_title: 'Safety First',
+          why_card3_desc: 'Sea and land trips with safety standards and ready equipment.',
+          why_card4_title: 'Authentic Experience',
+          why_card4_desc: 'Cultural and culinary tours that reflect real Lamalera life.',
+          contact_title: 'Contact Us',
+          contact_sub: 'We can help with packages, schedules, and special requests.',
+          contact_desc: 'We are ready to plan the best Lamalera trip for you.',
+          contact_whatsapp: 'WhatsApp Chat',
+          contact_phone: 'Call',
+          map_aria: 'Location map',
+          map_title: 'Lamalera Map',
+          footer_official_site: 'Official website: lamaleratourismfishingcharter.com',
+          footer_tagline: 'Marine, cultural, nature, and sport fishing tours in Lamalera.',
+          footer_contact_title: 'Contact',
+          footer_address_value: 'Jln. Lasitarda Wangatoa Selatan Timur, Selandoro Village',
+          whatsapp_link: 'https://wa.me/6281237144066?text=Hello%20Belavista%20Art%20and%20Tourism%2C%20I%20would%20like%20information%20about%20tour%20packages.'
+        }
+      };
+
+      function applyLang(lang){
+        var dict = translations[lang] || translations.id;
+        document.documentElement.lang = lang;
+        document.documentElement.setAttribute('data-lang', lang);
+        Array.prototype.slice.call(document.querySelectorAll('[data-i18n]')).forEach(function(el){
+          var key = el.getAttribute('data-i18n');
+          if (dict[key]){ el.textContent = dict[key]; }
+        });
+        Array.prototype.slice.call(document.querySelectorAll('[data-i18n-html]')).forEach(function(el){
+          var key = el.getAttribute('data-i18n-html');
+          if (dict[key]){ el.innerHTML = dict[key]; }
+        });
+        Array.prototype.slice.call(document.querySelectorAll('[data-i18n-placeholder]')).forEach(function(el){
+          var key = el.getAttribute('data-i18n-placeholder');
+          if (dict[key]){ el.setAttribute('placeholder', dict[key]); }
+        });
+        Array.prototype.slice.call(document.querySelectorAll('[data-i18n-aria-label]')).forEach(function(el){
+          var key = el.getAttribute('data-i18n-aria-label');
+          if (dict[key]){ el.setAttribute('aria-label', dict[key]); }
+        });
+        Array.prototype.slice.call(document.querySelectorAll('[data-i18n-title]')).forEach(function(el){
+          var key = el.getAttribute('data-i18n-title');
+          if (dict[key]){ el.setAttribute('title', dict[key]); }
+        });
+        Array.prototype.slice.call(document.querySelectorAll('[data-i18n-href]')).forEach(function(el){
+          var key = el.getAttribute('data-i18n-href');
+          if (dict[key]){ el.setAttribute('href', dict[key]); }
+        });
+        var toggle = document.getElementById('langToggle');
+        if (toggle){ toggle.textContent = lang === 'id' ? 'ID' : 'EN'; }
+      }
+
+      var initial = 'id';
+      try {
+        var stored = localStorage.getItem('siteLang');
+        if (stored === 'en'){ initial = 'en'; }
+      } catch (e) {}
+      applyLang(initial);
+
+      var toggleBtn = document.getElementById('langToggle');
+      if (toggleBtn){
+        toggleBtn.addEventListener('click', function(){
+          var current = document.documentElement.getAttribute('data-lang') || 'id';
+          var next = current === 'id' ? 'en' : 'id';
+          applyLang(next);
+          try { localStorage.setItem('siteLang', next); } catch (e) {}
+        });
+      }
+    })();
+
+    (function(){
+      var slides = Array.prototype.slice.call(document.querySelectorAll('.hero-slide'));
+      var dots = Array.prototype.slice.call(document.querySelectorAll('.dot'));
+      var index = 0;
+      function setActive(next){
+        slides.forEach(function(slide, i){ slide.classList.toggle('active', i === next); });
+        dots.forEach(function(dot, i){ dot.classList.toggle('active', i === next); });
+      }
+      setInterval(function(){
+        index = (index + 1) % slides.length;
+        setActive(index);
+      }, 5000);
+    })();
+
+    (function(){
+      var slides = Array.prototype.slice.call(document.querySelectorAll('.about-slide'));
+      var index = 0;
+      if (!slides.length){ return; }
+      setInterval(function(){
+        slides.forEach(function(slide, i){ slide.classList.toggle('active', i === index); });
+        index = (index + 1) % slides.length;
+      }, 4200);
+    })();
+
+    (function(){
+      var nav = document.querySelector('.nav');
+      if (!nav){ return; }
+      var brandText = nav.querySelector('.brand-text');
+      var menuLinks = Array.prototype.slice.call(nav.querySelectorAll('.menu a'));
+      var buttons = Array.prototype.slice.call(nav.querySelectorAll('.btn'));
+      var burger = nav.querySelector('.burger');
+      function applyState(isTop){
+        nav.classList.toggle('is-top', isTop);
+        nav.classList.toggle('is-scrolled', !isTop);
+        nav.style.background = isTop ? 'transparent' : '#ffffff';
+        nav.style.boxShadow = isTop ? 'none' : '0 18px 40px rgba(15,23,42,.12)';
+        if (brandText){
+          brandText.style.color = isTop ? 'var(--paper)' : '#0b1220';
+        }
+        menuLinks.forEach(function(link){
+          link.style.color = isTop ? 'var(--paper)' : '#0b1220';
+          link.style.opacity = isTop ? '.85' : '.8';
+        });
+        buttons.forEach(function(btn){
+          var isPrimary = btn.classList.contains('primary');
+          if (isTop){
+            if (isPrimary){
+              btn.style.background = 'var(--sun)';
+              btn.style.color = '#1b1b1b';
+              btn.style.border = '0';
+            } else {
+              btn.style.background = 'rgba(255,255,255,.08)';
+              btn.style.color = 'var(--paper)';
+              btn.style.border = '1px solid var(--line)';
+            }
+          } else {
+            if (isPrimary){
+              btn.style.background = 'var(--sun)';
+              btn.style.color = '#1b1b1b';
+              btn.style.border = '0';
+            } else {
+              btn.style.background = '#f3f4f6';
+              btn.style.color = '#0b1220';
+              btn.style.border = '1px solid #e5e7eb';
+            }
+          }
+        });
+        if (burger){
+          burger.style.color = isTop ? 'var(--paper)' : '#0b1220';
+        }
+      }
+      function getScrollTop(){
+        return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      }
+      function tick(){
+        applyState(getScrollTop() <= 2);
+      }
+      if ('IntersectionObserver' in window){
+        var hero = document.querySelector('.hero');
+        if (hero){
+          var observer = new IntersectionObserver(function(entries){
+            var entry = entries[0];
+            var isTop = entry.isIntersecting && entry.boundingClientRect.top >= -2;
+            applyState(isTop);
+          }, { root:null, threshold:[0, 1], rootMargin:'-2px 0px 0px 0px' });
+          observer.observe(hero);
+        }
+      }
+      window.addEventListener('scroll', tick, { passive:true });
+      document.addEventListener('scroll', tick, { passive:true });
+      window.addEventListener('load', tick);
+      window.addEventListener('resize', tick);
+      setInterval(tick, 250);
+      tick();
+    })();
+
+    (function(){
+      var burger = document.querySelector('.burger');
+      var mobile = document.getElementById('mobileMenu');
+      if (!burger || !mobile){ return; }
+      function open(){
+        mobile.classList.add('is-open');
+        mobile.setAttribute('aria-hidden', 'false');
+        burger.classList.add('is-open');
+        burger.setAttribute('aria-expanded', 'true');
+      }
+      function close(){
+        mobile.classList.remove('is-open');
+        mobile.setAttribute('aria-hidden', 'true');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+      burger.addEventListener('click', function(){
+        if (mobile.classList.contains('is-open')){ close(); }
+        else { open(); }
+      });
+      mobile.addEventListener('click', function(event){
+        if (event.target.hasAttribute('data-close')){ close(); }
+      });
+      Array.prototype.slice.call(mobile.querySelectorAll('a')).forEach(function(link){
+        link.addEventListener('click', close);
+      });
+    })();
+
+    (function(){
+      var mediaList = Array.prototype.slice.call(document.querySelectorAll('.package-media'));
+      if (!mediaList.length){ return; }
+      mediaList.forEach(function(media){
+        var slides = Array.prototype.slice.call(media.querySelectorAll('.package-slide'));
+        if (slides.length < 2){ return; }
+        var index = 0;
+        setInterval(function(){
+          slides[index].classList.remove('active');
+          index = (index + 1) % slides.length;
+          slides[index].classList.add('active');
+        }, 4200);
+      });
+    })();
+
+    (function(){
+      var modal = document.getElementById('bookingModal');
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('.booking-btn'));
+      if (!modal || !buttons.length){ return; }
+      var packageInput = modal.querySelector('#bookingPackage');
+      var form = modal.querySelector('.modal-form');
+      function getLang(){
+        return document.documentElement.getAttribute('data-lang') || 'id';
+      }
+      function getPackageName(btn){
+        var attr = getLang() === 'en' ? 'data-package-en' : 'data-package-id';
+        return btn.getAttribute(attr) || btn.getAttribute('data-package-id') || '';
+      }
+      function openModal(name){
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        if (packageInput){ packageInput.value = name || ''; }
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal(){
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+      buttons.forEach(function(btn){
+        btn.addEventListener('click', function(){
+          openModal(getPackageName(btn));
+        });
+      });
+      modal.addEventListener('click', function(event){
+        if (event.target.hasAttribute('data-close')){ closeModal(); }
+      });
+      document.addEventListener('keydown', function(event){
+        if (event.key === 'Escape' && modal.classList.contains('is-open')){ closeModal(); }
+      });
+      if (form){
+        form.addEventListener('submit', function(event){
+          event.preventDefault();
+          closeModal();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
