@@ -90,16 +90,16 @@
       gap:16px;
       font-family:"Sora", sans-serif;
       border-radius:999px;
-      background:rgba(12,18,28,0.88);
-      border:1px solid rgba(255,255,255,0.24);
-      box-shadow:0 18px 40px rgba(15,31,23,0.22);
+      background:rgba(255,255,255,0.92);
+      border:1px solid rgba(15,31,23,0.14);
+      box-shadow:0 18px 40px rgba(15,31,23,0.16);
       backdrop-filter:blur(14px) saturate(140%);
       transition:background .25s ease, box-shadow .25s ease, border-color .25s ease;
     }
     .rs-navbar.scrolled .rs-nav-inner{
-      background:rgba(8,12,20,0.95);
-      border-color:rgba(255,255,255,0.26);
-      box-shadow:0 22px 44px rgba(15,31,23,0.26);
+      background:rgba(255,255,255,0.96);
+      border-color:rgba(15,31,23,0.18);
+      box-shadow:0 22px 44px rgba(15,31,23,0.18);
     }
 
     .rs-brand{
@@ -107,7 +107,7 @@
       align-items:center;
       gap:12px;
       text-decoration:none;
-      color:#fff;
+      color:var(--rs-ink);
     }
     .rs-brand img{
       height:40px;
@@ -132,7 +132,7 @@
       text-decoration:none;
       font-weight:600;
       font-size:14px;
-      color:#fff;
+      color:var(--rs-ink);
       position:relative;
     }
     .rs-menu a::after{
@@ -142,7 +142,7 @@
       bottom:-6px;
       width:0;
       height:2px;
-      background:rgba(255,255,255,0.75);
+      background:rgba(15,31,23,0.4);
       transition:width .2s ease;
     }
     .rs-menu a:hover::after{ width:100%; }
@@ -159,15 +159,15 @@
       align-items:center;
       justify-content:center;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,0.3);
-      background:rgba(255,255,255,0.12);
-      color:#fff;
+      border:1px solid rgba(15,31,23,0.2);
+      background:rgba(15,31,23,0.06);
+      color:var(--rs-ink);
       transition:transform .2s ease, background .2s ease, border-color .2s ease;
     }
     .rs-socials a:hover{
       transform:translateY(-1px);
-      background:rgba(255,255,255,0.2);
-      border-color:rgba(255,255,255,0.5);
+      background:rgba(15,31,23,0.12);
+      border-color:rgba(15,31,23,0.28);
     }
     .rs-socials svg{
       width:16px;
@@ -181,8 +181,8 @@
       width:42px;
       height:42px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,0.3);
-      background:rgba(255,255,255,0.16);
+      border:1px solid rgba(15,31,23,0.2);
+      background:rgba(15,31,23,0.06);
       align-items:center;
       justify-content:center;
       flex-direction:column;
@@ -194,7 +194,7 @@
     .rs-burger span{
       width:18px;
       height:2px;
-      background:#fff;
+      background:var(--rs-ink);
       border-radius:999px;
     }
     .rs-burger::after{
@@ -417,6 +417,13 @@
       flex-direction:column;
       gap:10px;
       min-height:190px;
+    }
+    .sb-card-media{
+      width:100%;
+      height:160px;
+      border-radius:14px;
+      object-fit:cover;
+      display:block;
     }
     .sb-card h4{
       margin:0;
@@ -702,6 +709,7 @@
       <div class="sb-grid">
         <article class="sb-card">
           <div class="sb-tag">Gateway</div>
+          <img class="sb-card-media" src="https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/p1/10/2023/10/12/bandara1-3349103908.png" alt="Travel Gate - Bandara Internasional Minangkabau">
           <h4>Bandara Internasional Minangkabau</h4>
           <p>West Sumatra's main airport with Rumah Gadang architecture, welcoming visitors with Minang ambience from the start.</p>
         </article>
@@ -720,26 +728,31 @@
       <div class="sb-grid">
         <article class="sb-card">
           <div class="sb-tag">Education</div>
+          <img class="sb-card-media" src="https://gajahmaharamphotography.co.id/wp-content/uploads/2020/12/PDIKM11.jpg" alt="PDIKM - Pusat Dokumentasi dan Informasi Kebudayaan Minangkabau">
           <h4>PDIKM (Pusat Dokumentasi dan Informasi Kebudayaan Minangkabau)</h4>
           <p>An educational destination presenting Minang history, customs, and cultural development inside a Rumah Gadang-inspired building.</p>
         </article>
         <article class="sb-card">
           <div class="sb-tag">History</div>
+          <img class="sb-card-media" src="https://zjglidcehtsqqqhbdxyp.supabase.co/storage/v1/object/public/atourin/images/destination/tanah-datar/istana-pagaruyung-profile1665875673.jpeg?x-image-process=image/resize,p_100,limit_1/imageslim" alt="Istano Basa Pagaruyung">
           <h4>Istano Basa Pagaruyung</h4>
           <p>A grand Minangkabau palace rich in history, symbolizing the greatness of Minang culture.</p>
         </article>
         <article class="sb-card">
           <div class="sb-tag">Attire</div>
+          <img class="sb-card-media" src="https://i.pinimg.com/736x/94/6a/8d/946a8d2d4442aa1c23414711ae7facb7.jpg" alt="Baju Pengantin Adat Minangkabau">
           <h4>Baju Pengantin Adat Minangkabau</h4>
           <p>Traditional wedding attire with a suntiang headpiece symbolizing honor, responsibility, and beauty.</p>
         </article>
         <article class="sb-card">
           <div class="sb-tag">Craft</div>
+          <img class="sb-card-media" src="https://indonesiakaya.com/wp-content/uploads/2020/10/4_Kekhasan_motif_Pandai_Sikek_menjadikannya_kerajinan_bernilai_estetika_tinggi.jpg" alt="Songket Pandai Sikek">
           <h4>Songket Pandai Sikek</h4>
           <p>A high-quality traditional weaving center using gold-threaded songket, reflecting patience and cultural values.</p>
         </article>
         <article class="sb-card">
           <div class="sb-tag">Craft</div>
+          <img class="sb-card-media" src="https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tFyQ7EFAJWIzfCukkhDFN0uzIGfkOjC_qaRS99jeXvW9wJQCDcWvNFOe-6shHjPyr7J8lVDDqBbU6ILUyNqTfXukouElotyUn-z322pASP09NGbIpdTbUh8WoZrcexfO8xK29XM3MAA18JLNwv=s0-d" alt="Sulaman Minangkabau">
           <h4>Sulaman Minangkabau</h4>
           <p>Intricate embroidery with refined craftsmanship, often used in traditional attire and souvenirs.</p>
         </article>
@@ -758,26 +771,31 @@
       <div class="sb-grid">
         <article class="sb-card">
           <div class="sb-tag">Nature</div>
+          <img class="sb-card-media" src="https://cdn.antaranews.com/cache/1200x800/2025/06/20/Destinasi-Wisata-Berbasis-Pertanian-Di-Lembah-Harau-200625-Ief-5.jpg" alt="Lembah Harau">
           <h4>Lembah Harau</h4>
           <p>Towering granite cliffs, natural waterfalls, and a calming green landscape.</p>
         </article>
         <article class="sb-card">
           <div class="sb-tag">Lake</div>
+          <img class="sb-card-media" src="https://tribratanews.polri.go.id/web/image/blog.post/62825/image" alt="Danau Singkarak">
           <h4>Danau Singkarak</h4>
           <p>The second-largest lake in Sumatra, known as the habitat of endemic bilih fish.</p>
         </article>
         <article class="sb-card">
           <div class="sb-tag">Panorama</div>
+          <img class="sb-card-media" src="https://cdn.rri.co.id/berita/Bukittinggi/o/1754961943993-panorama_baru/et69gdtl0alb64a.webp" alt="Panorama Baru">
           <h4>Panorama Baru</h4>
           <p>Elevated views of Bukittinggi and its refreshing highland air.</p>
         </article>
         <article class="sb-card">
           <div class="sb-tag">Beach</div>
+          <img class="sb-card-media" src="https://indonesiakaya.com/wp-content/uploads/2020/10/9__IMG_0714_Pantai_Air_Manis_menggabungkan_panorama_laut_pesisir_barat_Sumatera_dengan_kisah_legenda_Malin_Kundang.jpg" alt="Pantai Air Manis - Legenda Malin Kundang">
           <h4>Pantai Air Manis (Legenda Malin Kundang)</h4>
           <p>A beach tied to the Malin Kundang legend, complete with the iconic folklore stone.</p>
         </article>
         <article class="sb-card">
           <div class="sb-tag">Beach</div>
+          <img class="sb-card-media" src="https://www.wonderverseindonesia.com/storage/app/uploads/public/668/e39/24e/668e3924e0cc5159015136.jpg" alt="Pantai Padang">
           <h4>Pantai Padang</h4>
           <p>A beach near the city center, perfect for sunsets and local culinary treats.</p>
         </article>
@@ -796,21 +814,25 @@
       <div class="sb-grid">
         <article class="sb-card">
           <div class="sb-tag">Landmark</div>
+          <img class="sb-card-media" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxmXpunRbf65DAv9am1xxRsNDYSswa-orPiA&s" alt="Jam Gadang">
           <h4>Jam Gadang</h4>
           <p>The main icon of Bukittinggi with high historical value and a lively tourism hub.</p>
         </article>
         <article class="sb-card">
           <div class="sb-tag">Shopping</div>
+          <img class="sb-card-media" src="https://asset.kompas.com/crops/vEpKznSdh9YdFH7Afn_0T9W7Ih4=/0x133:1600x1200/750x500/data/photo/2022/08/08/62f08f47b4680.jpeg" alt="Pasar Atas Bukittinggi">
           <h4>Pasar Atas Bukittinggi</h4>
           <p>A bustling market for Minang souvenirs and crafts with a lively local vibe.</p>
         </article>
         <article class="sb-card">
           <div class="sb-tag">Legend</div>
+          <img class="sb-card-media" src="https://cdn.rri.co.id/berita/Bukittinggi/o/1725091959069-image_default_621cdac243335/nq7k1qa451vpttk.jpeg" alt="Jembatan Siti Nurbaya">
           <h4>Jembatan Siti Nurbaya</h4>
           <p>A historic bridge in Padang tied to the Siti Nurbaya legend with views of the Batang Arau River.</p>
         </article>
         <article class="sb-card">
           <div class="sb-tag">Religious</div>
+          <img class="sb-card-media" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXY7UMtz6g22YJQNkvwo1T598BVsTc_wvkPA&s" alt="Masjid Raya Syekh Khatib Al Minangkabawi">
           <h4>Masjid Raya Syekh Khatib Al Minangkabawi</h4>
           <p>A grand mosque with a Rumah Gadang roof design, a religious icon and pride of West Sumatra.</p>
         </article>
@@ -829,11 +851,13 @@
       <div class="sb-grid">
         <article class="sb-card">
           <div class="sb-tag">Cuisine</div>
+          <img class="sb-card-media" src="https://media.zcreators.id/crop/photo/p2/94/2025/04/10/download-1241873040.jpg" alt="Restoran Padang - Menu Khas Minangkabau">
           <h4>Restoran Padang - Menu Khas Minangkabau</h4>
           <p>Rendang, gulai, dendeng, and Minang sambal served with a unique spread worth trying.</p>
         </article>
         <article class="sb-card">
           <div class="sb-tag">Souvenir</div>
+          <img class="sb-card-media" src="https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/193c0f3b-084f-435f-a19d-5f7d91d3dc71.jpg" alt="Kerupuk Sanjai">
           <h4>Kerupuk Sanjai</h4>
           <p>Crispy cassava crackers with flavors from original to sweet-spicy balado.</p>
         </article>
