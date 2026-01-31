@@ -1,0 +1,1947 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ROYAL TRANS MANADO — CV. Royal Multi Group</title>
+  <link rel="icon" type="image/png" href="https://everz-digital.site/wp-content/uploads/2026/01/358b97ec-d542-4809-a496-a3e14336dfa2-removebg-preview.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#071527;
+      --paper:#f8faf9;
+      --sun:#f3cf6a;
+      --sea:#0b5fa3;
+      --glass:rgba(7,20,35,.55);
+      --line:rgba(255,255,255,.22);
+      --nav-h:78px;
+      --brand:#0b5fa3;
+      --brand-deep:#0a4b86;
+      --brand-soft:#e9f3ff;
+    }
+    *{ box-sizing:border-box; }
+    html, body{
+      margin:0;
+      padding:0;
+      width:100%;
+      height:100%;
+      overflow-x:hidden;
+      background:#0b1220;
+    }
+    body{
+      font-family:"Manrope", sans-serif;
+      color:var(--paper);
+    }
+    .elementor,
+    .elementor-section,
+    .elementor-section-wrap,
+    .elementor-container,
+    .elementor-top-section,
+    .elementor-column,
+    .elementor-widget-wrap,
+    .elementor-widget-container{
+      margin:0 !important;
+      padding:0 !important;
+      max-width:100% !important;
+      width:100% !important;
+    }
+    .elementor-section,
+    .elementor-top-section,
+    .elementor-section-wrap{
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+    .elementor-section > .elementor-container{
+      padding-left:0 !important;
+      padding-right:0 !important;
+      max-width:100% !important;
+    }
+    body > .elementor{
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+    body > .elementor .elementor-section:first-child,
+    body > .elementor .elementor-top-section:first-child{
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+    body > .elementor .elementor-section:first-child > .elementor-container{
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+    a{ color:inherit; text-decoration:none; }
+
+    .aha-hero{
+      position:relative;
+      min-height:92vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      overflow:hidden;
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+      margin-top:0 !important;
+      padding-top:var(--nav-h) !important;
+    }
+
+    .aha-slider{
+      position:absolute;
+      inset:0;
+      z-index:0;
+    }
+    .aha-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity 1.2s ease, transform 1.2s ease;
+    }
+    .aha-slide.active{
+      opacity:1;
+      transform:scale(1.01);
+    }
+    .aha-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(120deg, rgba(6,12,20,.92), rgba(6,12,20,.62) 45%, rgba(6,12,20,.25)),
+        linear-gradient(0deg, rgba(6,12,20,.55), rgba(6,12,20,.15));
+      z-index:1;
+    }
+
+    .aha-nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:5;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 6vw;
+      background:#ffffff;
+      box-shadow:none;
+      transition:background .35s ease, box-shadow .35s ease, transform .35s ease;
+    }
+    .aha-nav .aha-menu a{ color:#0b1220; opacity:.8; }
+    .aha-nav .aha-brand-text{ color:#0b1220; }
+    .aha-nav .aha-btn{
+      background:#f3f4f6;
+      color:#0b1220;
+      border:1px solid #e5e7eb;
+    }
+    .aha-nav .aha-btn.primary{
+      background:linear-gradient(135deg, var(--sun) 0%, #f0b94a 100%);
+      color:#1b1b1b;
+      border:0;
+    }
+    .aha-nav.is-scrolled{
+      background:#ffffff !important;
+      box-shadow:0 18px 40px rgba(15,23,42,.12) !important;
+    }
+    .aha-nav.is-scrolled .aha-btn.primary{
+      background:linear-gradient(135deg, var(--sun) 0%, #f0b94a 100%);
+      color:#1b1b1b;
+      border:0;
+    }
+    .aha-brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.06em;
+    }
+    .aha-logo{
+      width:44px;height:44px;
+      border-radius:50% !important;
+      border:2px solid rgba(255,255,255,.5);
+      object-fit:cover;
+      overflow:hidden;
+      box-shadow:0 10px 26px rgba(0,0,0,.35);
+    }
+    .aha-menu{
+      display:flex;
+      gap:18px;
+      font-size:14px;
+      font-weight:600;
+    }
+    .aha-menu a{ opacity:.85; }
+    .aha-menu a:hover{ opacity:1; }
+    .aha-dropdown{
+      position:relative;
+      padding-bottom:6px;
+    }
+    .aha-dropdown > a{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+    .aha-caret{
+      font-size:11px;
+      opacity:.7;
+    }
+    .aha-dropdown-menu{
+      position:absolute;
+      top:calc(100% + 12px);
+      left:0;
+      min-width:200px;
+      background:#ffffff;
+      color:#0b1220;
+      border:1px solid #e5e7eb;
+      border-radius:14px;
+      box-shadow:0 18px 40px rgba(15,23,42,.12);
+      padding:8px;
+      display:grid;
+      gap:4px;
+      opacity:0;
+      pointer-events:none;
+      transform:translateY(8px);
+      transition:opacity .25s ease, transform .25s ease;
+      z-index:999;
+    }
+    .aha-dropdown:hover .aha-dropdown-menu,
+    .aha-dropdown-menu:hover{
+      opacity:1;
+      pointer-events:auto;
+      transform:translateY(0);
+    }
+    .aha-dropdown-menu::before{
+      content:"";
+      position:absolute;
+      top:-12px;
+      left:0;
+      right:0;
+      height:12px;
+    }
+    .aha-dropdown-menu a{
+      color:#0b1220 !important;
+      padding:8px 10px;
+      border-radius:10px;
+      font-weight:600;
+      opacity:1 !important;
+    }
+    .aha-dropdown-menu a:hover{
+      background:#f3f4f6;
+    }
+
+    .aha-nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .aha-cta{
+      display:flex;gap:10px;align-items:center;
+    }
+    .aha-btn{
+      padding:10px 16px;border-radius:999px;
+      border:1px solid var(--line);
+      backdrop-filter: blur(6px);
+      background:rgba(255,255,255,.06);
+      font-weight:700;font-size:13.5px;
+    }
+    .aha-btn.primary{
+      background:linear-gradient(135deg, var(--sun) 0%, #f0b94a 100%);
+      color:#1b1b1b;
+      border:0;
+      box-shadow:0 14px 30px rgba(243,207,106,.35);
+    }
+    .aha-burger{
+      display:grid;
+      place-items:center;
+      border:0;
+      background:transparent;
+      color:var(--paper);
+      cursor:pointer;
+      padding:8px;
+    }
+    .aha-burger:hover{
+      transform:none;
+      box-shadow:none;
+    }
+    .aha-burger-lines{
+      position:relative;
+      width:20px;
+      height:14px;
+    }
+    .aha-burger-lines span{
+      position:absolute;
+      left:0;
+      height:2px;
+      background:currentColor;
+      border-radius:999px;
+      transition:transform .3s ease, opacity .2s ease, width .3s ease;
+    }
+    .aha-burger-lines span:nth-child(1){ top:0; width:20px; }
+    .aha-burger-lines span:nth-child(2){ top:6px; width:14px; }
+    .aha-burger-lines span:nth-child(3){ bottom:0; width:18px; }
+    .aha-burger.is-open .aha-burger-lines span:nth-child(1){
+      transform:translateY(6px) rotate(45deg);
+      width:20px;
+    }
+    .aha-burger.is-open .aha-burger-lines span:nth-child(2){
+      opacity:0;
+      transform:translateX(-6px);
+    }
+    .aha-burger.is-open .aha-burger-lines span:nth-child(3){
+      transform:translateY(-6px) rotate(-45deg);
+      width:20px;
+    }
+    .aha-nav .aha-burger{
+      background:transparent;
+      color:#0b1220;
+      border:0;
+    }
+
+    .aha-content{
+      position:relative;
+      z-index:2;
+      padding:calc(5vh + 56px) 6vw 10vh;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:36px;
+      align-items:center;
+      margin-top:0;
+    }
+    .aha-kicker{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:8px 14px;border-radius:999px;
+      background:var(--glass);
+      border:1px solid var(--line);
+      font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    }
+    .aha-title{
+      font-family:"Playfair Display", serif;
+      font-size:48px;
+      line-height:1.08;
+      margin:16px 0 14px;
+      text-shadow:0 12px 30px rgba(0,0,0,.45);
+    }
+    .aha-subtitle{
+      font-size:15.5px;
+      line-height:1.8;
+      color:#e5e7eb;
+      max-width:520px;
+    }
+    .aha-subtitle .aha-sub-short{ display:none; }
+    .aha-actions{
+      display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;
+    }
+    .aha-actions .aha-btn{ padding:12px 18px; }
+
+    .aha-card{
+      background:rgba(10,20,30,.72);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:20px;
+      padding:20px;
+      box-shadow:0 24px 60px rgba(0,0,0,.35);
+    }
+    .aha-card h3{
+      margin:0 0 12px;font-size:16px;font-weight:800;letter-spacing:.02em;
+    }
+    .aha-card ul{
+      margin:0;padding:0;list-style:none;display:grid;gap:10px;
+      font-size:14px;color:#e5e7eb;
+    }
+    .aha-card li span{ color:#fef3c7; font-weight:700; }
+
+    .aha-slide-indicator{
+      position:absolute;
+      right:6vw;
+      bottom:6vh;
+      z-index:2;
+      display:flex;gap:8px;align-items:center;
+    }
+    .aha-dot{
+      width:18px;height:4px;border-radius:999px;
+      background:rgba(255,255,255,.35);
+      transition:all .4s ease;
+    }
+    .aha-dot.active{ background:var(--sun); width:32px; }
+
+    @media (max-width: 900px){
+      .aha-hero{ min-height:100vh; }
+      .aha-content{ grid-template-columns:1fr; align-items:flex-start; }
+      .aha-title{ font-size:40px; }
+      .aha-menu{ display:none; }
+      .aha-burger{ display:grid; }
+    }
+    @media (min-width: 901px){
+      .aha-burger{ display:none; }
+    }
+    @media (max-width: 640px){
+      .aha-hero{
+        min-height:auto;
+        height:auto;
+        padding-top:var(--nav-h);
+        padding-bottom:0;
+      }
+      .aha-slider{
+        position:relative;
+        aspect-ratio:3 / 2;
+        margin-top:0;
+      }
+      .aha-slide{
+        background-size:contain;
+        background-position:center;
+        background-repeat:no-repeat;
+      }
+      .aha-title{ font-size:30px; line-height:1.12; }
+      .aha-subtitle{ font-size:14px; line-height:1.7; }
+      .aha-subtitle .aha-sub-full{ display:none; }
+      .aha-subtitle .aha-sub-short{ display:inline; }
+      .aha-brand-text{ display:none; }
+      .aha-card{ padding:16px; }
+      .aha-nav{ padding:16px 5vw; }
+      .aha-content{ padding:calc(3vh + 52px) 5vw 8vh; gap:22px; }
+      .aha-cta .aha-btn{ padding:9px 12px; font-size:12.5px; }
+      .aha-actions{ margin-top:16px; }
+      .aha-actions .aha-btn{ padding:11px 14px; }
+      .aha-slide-indicator{ right:5vw; bottom:4vh; }
+    }
+
+    .aha-section{
+      padding:70px 6vw;
+      background:#fff;
+      color:#0b1220;
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+    }
+    .aha-section-title{
+      font-family:"Playfair Display", serif;
+      text-align:center;
+      font-size:34px;
+      margin:0 0 12px;
+      color:#0b1220;
+    }
+    .aha-section-sub{
+      text-align:center;
+      max-width:720px;
+      margin:0 auto 34px;
+      color:#4b5563;
+      font-size:15px;
+      line-height:1.75;
+    }
+    .aha-activity{
+      background:
+        radial-gradient(circle at 12% 0%, rgba(243,207,106,.22), transparent 45%),
+        radial-gradient(circle at 85% 10%, rgba(11,95,163,.12), transparent 38%),
+        #fff;
+    }
+    .aha-activity-wrap{
+      position:relative;
+    }
+    .aha-activity-track{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+      max-width:960px;
+      margin:0 auto;
+    }
+    .aha-activity-card{
+      background:#ffffff;
+      border:1px solid #e5e7eb;
+      border-radius:0;
+      overflow:hidden;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+    }
+    .aha-activity-head{
+      background:linear-gradient(140deg, var(--brand-deep) 0%, var(--brand) 55%, #0f3b5a 100%);
+      padding:16px 18px;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .aha-activity-head b{
+      font-size:16px;
+      letter-spacing:.02em;
+    }
+    .aha-activity-media{
+      position:relative;
+      background:#f8fafc;
+    }
+    .aha-activity-media img{
+      width:100%;
+      height:auto;
+      object-fit:cover;
+      display:block;
+    }
+    .aha-activity-body{
+      padding:16px 18px 10px;
+      display:grid;
+      gap:8px;
+    }
+    .aha-activity-body h3{
+      margin:0;
+      font-size:18px;
+      font-weight:800;
+      color:#111827;
+      text-align:center;
+    }
+    .aha-activity-features{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:10px;
+      padding:0 18px 14px;
+    }
+    .aha-activity-feature{
+      display:grid;
+      place-items:center;
+      gap:6px;
+      text-align:center;
+      font-size:12.5px;
+      color:#4b5563;
+      border-right:1px solid #e5e7eb;
+      padding:8px 6px;
+    }
+    .aha-activity-feature:last-child{ border-right:0; }
+    .aha-activity-feature i{
+      color:#22c55e;
+      font-size:18px;
+    }
+    .aha-activity-action{
+      padding:0;
+    }
+    .aha-activity-action .aha-btn{
+      width:100%;
+      text-align:center;
+      justify-content:center;
+      border-radius:0;
+      padding:14px 16px;
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      background:linear-gradient(135deg, var(--sun) 0%, #f0b94a 55%, #eea531 100%);
+      color:#1b1b1b;
+      border:0;
+      box-shadow:0 12px 26px rgba(243,207,106,.35);
+      display:block;
+      margin:0;
+    }
+    .aha-activity-dots{ display:none; }
+
+    .aha-mobile{
+      position:fixed;
+      inset:0;
+      z-index:200;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .3s ease;
+    }
+    .aha-mobile.is-open{
+      opacity:1;
+      pointer-events:auto;
+    }
+    .aha-mobile-backdrop{
+      position:absolute;
+      inset:0;
+      background:rgba(2,6,23,.6);
+      backdrop-filter: blur(4px);
+    }
+    .aha-mobile-panel{
+      position:absolute;
+      top:0;
+      right:0;
+      height:100%;
+      width:min(340px, 86vw);
+      background:linear-gradient(160deg, #0b1220 0%, #0f1a2b 55%, #0b2230 100%);
+      color:#f8faf9;
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      box-shadow:-18px 0 50px rgba(3,10,20,.35);
+      transform:translateX(12px);
+      transition:transform .3s ease;
+    }
+    .aha-mobile.is-open .aha-mobile-panel{
+      transform:translateX(0);
+    }
+    .aha-mobile-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .aha-mobile-title{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:800;
+      opacity:.7;
+    }
+    .aha-mobile-close{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(255,255,255,.08);
+      color:#f8faf9;
+      cursor:pointer;
+      font-size:16px;
+    }
+    .aha-mobile-links{
+      display:grid;
+      gap:10px;
+    }
+    .aha-mobile-links a,
+    .aha-mobile-toggle{
+      color:#f8faf9;
+      font-weight:700;
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      text-align:left;
+      font-family:inherit;
+    }
+    .aha-mobile-toggle{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      cursor:pointer;
+    }
+    .aha-mobile-sub{
+      display:grid;
+      gap:8px;
+      padding-left:10px;
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .3s ease;
+    }
+    .aha-mobile-sub.is-open{
+      max-height:400px;
+    }
+    .aha-mobile-sub a{
+      font-weight:600;
+      background:rgba(255,255,255,.03);
+    }
+
+    .aha-contact{
+      background:linear-gradient(120deg, #ffffff 0%, #f9fafb 55%, #f1f5f9 100%);
+    }
+    .aha-contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1.1fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    .aha-contact-card{
+      background:#ffffff;
+      border:1px solid #e5e7eb;
+      border-radius:20px;
+      padding:22px;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+    }
+    .aha-contact-card h3{
+      margin:0 0 10px;
+      font-size:20px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-contact-card p{
+      margin:0 0 16px;
+      color:#4b5563;
+      font-size:14.5px;
+      line-height:1.7;
+    }
+    .aha-contact-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:10px;
+      font-size:14px;
+      color:#111827;
+    }
+    .aha-contact-item{
+      display:grid;
+      grid-template-columns:88px 10px 1fr;
+      gap:6px;
+      align-items:start;
+    }
+    .aha-contact-label{
+      color:#6b7280;
+      font-weight:600;
+    }
+    .aha-contact-colon{
+      color:#9ca3af;
+      font-weight:600;
+    }
+    .aha-contact-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+    .aha-map{
+      border:1px solid #e5e7eb;
+      border-radius:20px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+      min-height:320px;
+    }
+    .aha-map iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    .aha-testimonial{
+      background:linear-gradient(135deg, #0b1220 0%, #101b2c 60%, #0c1f2d 100%);
+      color:var(--paper);
+    }
+    .aha-testimonial .aha-section-title{ color:#f8faf9; }
+    .aha-testimonial .aha-section-sub{ color:#dbe4ef; }
+    .aha-testimonial-wrap{
+      position:relative;
+      margin-top:30px;
+    }
+    .aha-testimonial-track{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:18px;
+    }
+    .aha-testimonial-card{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 18px 40px rgba(3,10,20,.35);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:210px;
+    }
+    .aha-testimonial-stars{
+      color:var(--sun);
+      letter-spacing:2px;
+      font-size:14px;
+    }
+    .aha-testimonial-card p{
+      margin:0;
+      color:#e5e7eb;
+      font-size:14px;
+      line-height:1.7;
+    }
+    .aha-testimonial-name{
+      font-weight:800;
+      color:#f8faf9;
+    }
+    .aha-testimonial-meta{
+      font-size:12.5px;
+      color:#c7d2e3;
+    }
+    .aha-testimonial-dots{
+      display:none;
+      margin-top:16px;
+      gap:8px;
+      justify-content:center;
+    }
+    .aha-testimonial-dot{
+      width:18px;height:4px;border-radius:999px;
+      background:rgba(255,255,255,.3);
+      transition:all .4s ease;
+    }
+    .aha-testimonial-dot.active{ background:var(--sun); width:32px; }
+
+    .aha-footer{
+      background:#0b1220;
+      color:#e5e7eb;
+      padding:48px 6vw;
+      border-top:1px solid rgba(255,255,255,.08);
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+    }
+    .aha-footer-wrap{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+      align-items:center;
+    }
+    .aha-footer h3{
+      margin:0 0 8px;
+      font-size:18px;
+      color:#f8faf9;
+    }
+    .aha-footer p{
+      margin:0;
+      font-size:14px;
+      color:#cbd5e1;
+      line-height:1.7;
+    }
+    .aha-footer-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:8px;
+      font-size:14px;
+    }
+    .aha-footer-item{
+      display:grid;
+      grid-template-columns:88px 10px 1fr;
+      gap:6px;
+      align-items:start;
+    }
+    .aha-footer-label{
+      color:#cbd5e1;
+      font-weight:600;
+    }
+    .aha-footer-colon{
+      color:#94a3b8;
+      font-weight:600;
+    }
+    .aha-footer-brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .aha-footer-logo{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.35);
+      object-fit:cover;
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+      flex:0 0 auto;
+    }
+    .aha-footer-copy{
+      text-align:center;
+      margin-top:26px;
+      font-size:12.5px;
+      color:#94a3b8;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:14px;
+    }
+
+    .aha-wa-sticky{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:999;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      background:linear-gradient(135deg, #25D366 0%, #1fae53 100%);
+      color:#ffffff;
+      font-weight:800;
+      font-size:13.5px;
+      box-shadow:0 16px 36px rgba(37,211,102,.35);
+    }
+    .aha-wa-sticky i{
+      font-size:18px;
+    }
+    @media (max-width: 640px){
+      .aha-wa-sticky{
+        right:14px;
+        bottom:14px;
+        padding:12px 14px;
+      }
+      .aha-wa-sticky span{ display:none; }
+    }
+
+    .aha-about-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:32px;
+      align-items:center;
+    }
+    .aha-about-copy{
+      color:#1f2937;
+      font-size:15px;
+      line-height:1.8;
+    }
+    .aha-about-copy h3{
+      margin:0 0 10px;
+      font-size:20px;
+      font-weight:800;
+    }
+    .aha-about-slider{
+      position:relative;
+      border-radius:22px;
+      overflow:hidden;
+      min-height:320px;
+      background:#0b1220;
+      box-shadow:0 24px 60px rgba(15,23,42,.15);
+    }
+    .aha-about-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity 1s ease, transform 1s ease;
+    }
+    .aha-about-slide.active{ opacity:1; transform:scale(1.01); }
+    .aha-about-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.28));
+      pointer-events:none;
+    }
+
+    .aha-why-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:16px;
+      max-width:760px;
+      margin:0 auto;
+    }
+    .aha-why-card{
+      border-radius:18px;
+      border:1px solid #d7e6f7;
+      background:var(--brand-soft);
+      padding:16px 18px;
+      box-shadow:0 12px 30px rgba(15,23,42,.06);
+      display:grid;
+      grid-template-columns:48px 1fr;
+      gap:14px;
+      align-items:start;
+      position:relative;
+    }
+    .aha-why-card::before{
+      content:"";
+      position:absolute;
+      left:71px;
+      top:16px;
+      bottom:16px;
+      width:1px;
+      background:#e2e8f0;
+    }
+    .aha-why-icon{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      background:var(--brand);
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-size:18px;
+      box-shadow:0 10px 22px rgba(11,95,163,.25);
+    }
+    .aha-why-card h4{
+      margin:0 0 8px;
+      font-size:16px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-why-card p{
+      margin:0;
+      color:#4b5563;
+      font-size:13.5px;
+      line-height:1.7;
+    }
+    .aha-swipe-hint{
+      display:none;
+      text-align:center;
+      font-size:12.5px;
+      font-weight:700;
+      color:#6b7280;
+      margin:-12px auto 20px;
+      letter-spacing:.02em;
+    }
+
+    @media (max-width: 980px){
+      .aha-about-grid{ grid-template-columns:1fr; }
+      .aha-about-slider{ min-height:280px; }
+      .aha-why-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .aha-testimonial-track{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .aha-contact-grid{ grid-template-columns:1fr; }
+      .aha-transfer-grid{ grid-template-columns:1fr; }
+    }
+    @media (max-width: 680px){
+      .aha-section{ padding:56px 5vw; }
+      .aha-section-title{ font-size:28px; }
+      .aha-why-grid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:14px;
+        overflow:visible;
+        padding:0;
+      }
+      .aha-why-card{
+        min-width:0;
+      }
+      .aha-swipe-hint{ display:none; }
+      .aha-footer-wrap{ grid-template-columns:1fr; }
+    }
+    @media (max-width: 760px){
+      .aha-activity-track{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:16px;
+      }
+      .aha-testimonial-track{
+        display:flex;
+        gap:16px;
+        overflow-x:auto;
+        padding:4px 4px 14px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+      }
+      .aha-testimonial-track::-webkit-scrollbar{ display:none; }
+      .aha-testimonial-track{ scrollbar-width:none; }
+      .aha-testimonial-card{
+        min-width:86%;
+        scroll-snap-align:center;
+      }
+      .aha-testimonial-dots{ display:flex; }
+    }
+
+    .aha-transfer-grid{
+      display:grid;
+      gap:24px;
+      grid-template-columns:minmax(0, 1fr);
+    }
+    .aha-transfer-card{
+      border-radius:20px;
+      border:1px solid #e5e7eb;
+      overflow:hidden;
+      background:#ffffff;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+      display:grid;
+      grid-template-columns:1fr 1.2fr;
+      gap:0;
+      max-width:980px;
+      margin:0 auto;
+    }
+    .aha-transfer-media{
+      min-height:260px;
+      background:#eef2f6;
+      display:grid;
+      place-items:center;
+      padding:16px;
+    }
+    .aha-transfer-media img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+    .aha-transfer-body{
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .aha-transfer-body h4{
+      margin:0;
+      font-size:18px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-transfer-desc{
+      margin:0;
+      color:#4b5563;
+      font-size:14px;
+      line-height:1.7;
+    }
+    .aha-transfer-select{
+      display:grid;
+      gap:8px;
+    }
+    .aha-transfer-select label{
+      font-size:12.5px;
+      font-weight:700;
+      color:#111827;
+    }
+    .aha-select-wrap{
+      position:relative;
+      display:grid;
+    }
+    .aha-select-wrap::after{
+      content:"▾";
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      color:#9ca3af;
+      pointer-events:none;
+      font-size:12px;
+    }
+    .aha-transfer-select select{
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      font-size:14px;
+      outline:none;
+      background:#fff;
+      appearance:none;
+      padding-right:34px;
+    }
+    .aha-vehicle-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:12px;
+    }
+    .aha-vehicle-card{
+      border:1px solid #e5e7eb;
+      border-radius:14px;
+      padding:10px;
+      background:#fff;
+      text-align:center;
+      cursor:pointer;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      display:grid;
+      gap:6px;
+    }
+    .aha-vehicle-card img{
+      width:100%;
+      height:70px;
+      object-fit:contain;
+      display:block;
+    }
+    .aha-vehicle-title{
+      font-size:12.5px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-vehicle-meta{
+      font-size:11.5px;
+      color:#6b7280;
+    }
+    .aha-vehicle-price{
+      font-size:12.5px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-vehicle-card.is-active{
+      border-color:var(--sun);
+      box-shadow:0 14px 30px rgba(246,196,83,.25);
+      transform:translateY(-2px);
+    }
+    @media (max-width: 900px){
+      .aha-vehicle-grid{
+        display:flex;
+        gap:12px;
+        overflow-x:auto;
+        padding:4px 4px 10px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+      }
+      .aha-vehicle-grid::-webkit-scrollbar{ display:none; }
+      .aha-vehicle-grid{ scrollbar-width:none; }
+      .aha-vehicle-card{
+        min-width:70%;
+        scroll-snap-align:start;
+      }
+      .aha-vehicle-card img{ height:90px; }
+    }
+    .aha-transfer-price{
+      display:grid;
+      gap:8px;
+      font-size:13px;
+      color:#6b7280;
+    }
+    .aha-transfer-price b{
+      font-size:18px;
+      color:#111827;
+    }
+    .aha-transfer-price span{
+      font-size:11.5px;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      color:#6b7280;
+      font-weight:700;
+    }
+    .aha-transfer-note{
+      font-size:12.5px;
+      color:#6b7280;
+    }
+    .aha-transfer-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .aha-book-tabs{
+      display:flex;
+      gap:8px;
+      margin-top:4px;
+    }
+    .aha-tab{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid #e5e7eb;
+      background:#f3f4f6;
+      color:#111827;
+      font-weight:700;
+      font-size:12.5px;
+      cursor:pointer;
+    }
+    .aha-tab.is-active{
+      background:var(--sun);
+      border-color:transparent;
+      color:#1b1b1b;
+      box-shadow:0 10px 24px rgba(246,196,83,.28);
+    }
+    .aha-vehicle-select{
+      display:grid;
+      gap:8px;
+      margin-top:12px;
+    }
+    .aha-vehicle-select label{
+      font-size:12px;
+      font-weight:700;
+      color:#111827;
+    }
+    .aha-vehicle-select select{
+      padding:9px 10px;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      font-size:12px;
+      outline:none;
+      background:#fff;
+    }
+    @media (max-width: 900px){
+      .aha-transfer-grid{ grid-template-columns:1fr; }
+    }
+
+    .aha-modal{
+      position:fixed;
+      inset:0;
+      z-index:999;
+      display:none;
+    }
+    .aha-modal.is-open{ display:block; }
+    .aha-modal-backdrop{
+      position:absolute;
+      inset:0;
+      background:rgba(2,6,23,.6);
+      backdrop-filter: blur(3px);
+    }
+    .aha-modal-panel{
+      position:relative;
+      margin:8vh auto 0;
+      width:min(560px, 92vw);
+      background:#ffffff;
+      color:#111827;
+      border-radius:18px;
+      box-shadow:0 24px 70px rgba(0,0,0,.35);
+      overflow:hidden;
+      max-height:82vh;
+      display:flex;
+      flex-direction:column;
+    }
+    .aha-modal-head{
+      padding:14px 16px;
+      background:#f8fafc;
+      border-bottom:1px solid #e5e7eb;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .aha-modal-head b{
+      font-size:14.5px;
+      color:#111827;
+    }
+    .aha-modal-close{
+      width:34px;height:34px;border-radius:999px;
+      border:1px solid #e5e7eb;background:#fff;
+      cursor:pointer;font-size:16px;
+      display:grid;place-items:center;
+    }
+    .aha-modal-body{
+      padding:16px;
+      overflow:auto;
+    }
+    .aha-detail-slider{
+      position:relative;
+      height:220px;
+      border-radius:14px;
+      overflow:hidden;
+      margin-bottom:12px;
+      background:#0b1220;
+    }
+    .aha-detail-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity .9s ease, transform .9s ease;
+    }
+    .aha-detail-slide.active{
+      opacity:1;
+      transform:scale(1.01);
+    }
+    .aha-form{
+      display:grid;
+      gap:12px;
+    }
+    #ahaPkgSelectField,
+    #ahaPkgDailyVehicleField{
+      display:none;
+    }
+    .aha-modal.is-daily-package #ahaPkgNameField,
+    .aha-modal.is-daily-package .aha-pkg-unit,
+    .aha-modal.is-daily-package #ahaPkgVehicleField{
+      display:none;
+    }
+    .aha-modal.is-daily-package #ahaPkgSelectField,
+    .aha-modal.is-daily-package #ahaPkgDailyVehicleField{
+      display:grid;
+    }
+    .aha-transfer-fields{
+      display:grid;
+      gap:12px;
+    }
+    .aha-daily-fields{
+      display:none;
+    }
+    .aha-modal.is-daily .aha-transfer-fields{
+      display:none;
+    }
+    .aha-modal.is-daily .aha-daily-fields{
+      display:block;
+    }
+    .aha-field label{
+      display:block;
+      font-size:12.5px;
+      font-weight:700;
+      color:#111827;
+      margin-bottom:6px;
+    }
+    .aha-field-note{
+      font-size:12px;
+      color:#6b7280;
+      margin-top:6px;
+    }
+    .aha-field input,
+    .aha-field textarea,
+    .aha-field select{
+      width:100%;
+      padding:11px 12px;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      font-size:14px;
+      outline:none;
+      font-family:inherit;
+      background:#fff;
+      color:#111827;
+    }
+    .aha-field input::placeholder,
+    .aha-field textarea::placeholder{
+      color:#9ca3af;
+    }
+    .aha-field textarea{ min-height:90px; resize:vertical; }
+    .aha-form-actions{
+      display:flex;
+      gap:10px;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+    .aha-btn.secondary{
+      background:#f3f4f6;
+      color:#111827;
+      border:1px solid #e5e7eb;
+    }
+    @media (max-width: 900px){
+      .aha-transfer-card{ grid-template-columns:1fr; }
+      .aha-transfer-media{ min-height:220px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="aha-hero">
+    <div class="aha-slider" aria-hidden="true">
+      <div class="aha-slide active" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/01/task_01kga70296fv1s9tg8tx9x8drw_1769869481_img_0.webp')"></div>
+    </div>
+
+    <nav class="aha-nav">
+      <div class="aha-brand">
+        <img class="aha-logo" src="https://everz-digital.site/wp-content/uploads/2026/01/358b97ec-d542-4809-a496-a3e14336dfa2-removebg-preview.png" alt="Royal Trans Manado logo" loading="lazy">
+        <div class="aha-brand-text">
+          <div style="font-size:13px;opacity:.7;">ROYAL TRANS MANADO</div>
+          <div style="font-size:15px;">CV. Royal Multi Group</div>
+        </div>
+      </div>
+      <div class="aha-menu">
+        <a href="#about">Tentang</a>
+        <a href="#armada">Armada</a>
+        <a href="#why-choose">Kenapa Kami</a>
+        <a href="#contact-section">Kontak</a>
+        <a href="#testimonials">Testimoni</a>
+      </div>
+      <div class="aha-nav-actions">
+        <div class="aha-cta">
+          <a class="aha-btn" href="tel:085190677895">Hubungi</a>
+          <a class="aha-btn primary" href="https://wa.me/6285190677895?text=Halo%20Royal%20Trans%20Manado%2C%20saya%20ingin%20booking%20transport." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <button class="aha-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="ahaMobileMenu">
+          <span class="aha-burger-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="aha-mobile" id="ahaMobileMenu" aria-hidden="true">
+      <div class="aha-mobile-backdrop" data-close="1"></div>
+      <div class="aha-mobile-panel">
+        <div class="aha-mobile-head">
+          <div class="aha-mobile-title">Menu</div>
+          <button class="aha-mobile-close" type="button" data-close="1" aria-label="Close menu">✕</button>
+        </div>
+        <div class="aha-mobile-links">
+          <a href="#about">Tentang</a>
+          <a href="#armada">Armada</a>
+          <a href="#why-choose">Kenapa Kami</a>
+          <a href="#contact-section">Kontak</a>
+          <a href="#testimonials">Testimoni</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="aha-section" id="about">
+    <h2 class="aha-section-title">Tentang Royal Trans Manado</h2>
+    <p class="aha-section-sub">
+      CV. Royal Multi Group melayani rental kendaraan dan transport di Manado dengan armada premium dan driver profesional.
+    </p>
+    <div class="aha-about-grid">
+      <div class="aha-about-copy">
+        <h3>Transport Nyaman untuk Semua Kebutuhan</h3>
+        <p>
+          Royal Trans Manado menyediakan layanan sewa kendaraan, antar-jemput bandara, dan perjalanan
+          harian untuk kebutuhan pribadi maupun bisnis. Armada terawat, jadwal fleksibel, dan komunikasi
+          cepat untuk memastikan perjalanan Anda aman dan tepat waktu.
+        </p>
+      </div>
+      <div class="aha-about-slider" aria-label="About image slider">
+        <div class="aha-about-slide active" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/01/task_01kga89sajev2tcag1r13djanm_1769870805_img_1.webp')"></div>
+        <div class="aha-about-overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aha-section" id="why-choose">
+    <h2 class="aha-section-title">Kenapa Pilih Royal Trans Manado</h2>
+    <p class="aha-section-sub">
+      Layanan transport yang rapi dari pertama kali kontak sampai perjalanan selesai.
+    </p>
+    <div class="aha-swipe-hint">Swipe untuk lihat keunggulan →</div>
+    <div class="aha-why-grid">
+      <div class="aha-why-card">
+        <div class="aha-why-icon"><i class="fa-solid fa-car-side"></i></div>
+        <div>
+          <h4>Armada Premium &amp; Terawat</h4>
+          <p>Unit bersih, nyaman, dan siap jalan untuk kebutuhan harian maupun event.</p>
+        </div>
+      </div>
+      <div class="aha-why-card">
+        <div class="aha-why-icon"><i class="fa-solid fa-user-tie"></i></div>
+        <div>
+          <h4>Driver Profesional</h4>
+          <p>Ramah, rapi, dan paham rute terbaik di Manado serta sekitarnya.</p>
+        </div>
+      </div>
+      <div class="aha-why-card">
+        <div class="aha-why-icon"><i class="fa-solid fa-calendar-check"></i></div>
+        <div>
+          <h4>Jadwal Fleksibel</h4>
+          <p>Siap untuk antar-jemput bandara, city tour, atau perjalanan luar kota.</p>
+        </div>
+      </div>
+      <div class="aha-why-card">
+        <div class="aha-why-icon"><i class="fa-solid fa-headset"></i></div>
+        <div>
+          <h4>Respon Cepat</h4>
+          <p>Konsultasi dan booking mudah melalui WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aha-section aha-activity" id="armada">
+    <h2 class="aha-section-title">Daftar Armada</h2>
+    <p class="aha-section-sub">
+      Pilih kendaraan sesuai kebutuhan perjalanan Anda di Manado. Tanpa harga di website—hubungi kami untuk penawaran terbaik.
+    </p>
+    <div class="aha-activity-wrap">
+      <div class="aha-activity-track" id="ahaActivityTrack">
+        <article class="aha-activity-card">
+          <div class="aha-activity-head">
+            <div>
+              <div style="font-size:12px;opacity:.8;">Armada Premium</div>
+              <b>Alphard</b>
+            </div>
+            <i class="fa-solid fa-crown"></i>
+          </div>
+          <div class="aha-activity-media">
+            <img src="https://imgcdn.oto.com/large/gallery/exterior/38/2789/toyota-alphard-2023-front-side-view-519963.jpg" alt="Toyota Alphard" loading="lazy">
+          </div>
+          <div class="aha-activity-body">
+            <h3>Alphard</h3>
+          </div>
+          <div class="aha-activity-features">
+            <div class="aha-activity-feature"><i class="fa-solid fa-check"></i>Terpercaya</div>
+            <div class="aha-activity-feature"><i class="fa-solid fa-shield"></i>Mobil Terawat</div>
+            <div class="aha-activity-feature"><i class="fa-solid fa-tag"></i>Terjangkau</div>
+          </div>
+          <div class="aha-activity-action">
+            <a class="aha-btn primary" href="https://wa.me/6285190677895?text=Halo%20Royal%20Trans%20Manado%2C%20saya%20ingin%20booking%20Alphard." target="_blank" rel="noopener">Sewa Sekarang</a>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-head">
+            <div>
+              <div style="font-size:12px;opacity:.8;">Armada Rombongan</div>
+              <b>Hiace Premio</b>
+            </div>
+            <i class="fa-solid fa-van-shuttle"></i>
+          </div>
+          <div class="aha-activity-media">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/01/task_01kga9zfm3fyn962sgd5n881vd_1769872598_img_0.webp" alt="Toyota Hiace Premio" loading="lazy">
+          </div>
+          <div class="aha-activity-body">
+            <h3>Hiace Premio</h3>
+          </div>
+          <div class="aha-activity-features">
+            <div class="aha-activity-feature"><i class="fa-solid fa-check"></i>Terpercaya</div>
+            <div class="aha-activity-feature"><i class="fa-solid fa-shield"></i>Mobil Terawat</div>
+            <div class="aha-activity-feature"><i class="fa-solid fa-tag"></i>Terjangkau</div>
+          </div>
+          <div class="aha-activity-action">
+            <a class="aha-btn primary" href="https://wa.me/6285190677895?text=Halo%20Royal%20Trans%20Manado%2C%20saya%20ingin%20booking%20Hiace%20Premio." target="_blank" rel="noopener">Sewa Sekarang</a>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-head">
+            <div>
+              <div style="font-size:12px;opacity:.8;">Armada Rombongan</div>
+              <b>Hiace Commuter</b>
+            </div>
+            <i class="fa-solid fa-van-shuttle"></i>
+          </div>
+          <div class="aha-activity-media">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/01/task_01kgaa3d4pep9ta43c1znedswx_1769872724_img_0.webp" alt="Toyota Hiace Commuter" loading="lazy">
+          </div>
+          <div class="aha-activity-body">
+            <h3>Hiace Commuter</h3>
+          </div>
+          <div class="aha-activity-features">
+            <div class="aha-activity-feature"><i class="fa-solid fa-check"></i>Terpercaya</div>
+            <div class="aha-activity-feature"><i class="fa-solid fa-shield"></i>Mobil Terawat</div>
+            <div class="aha-activity-feature"><i class="fa-solid fa-tag"></i>Terjangkau</div>
+          </div>
+          <div class="aha-activity-action">
+            <a class="aha-btn primary" href="https://wa.me/6285190677895?text=Halo%20Royal%20Trans%20Manado%2C%20saya%20ingin%20booking%20Hiace%20Commuter." target="_blank" rel="noopener">Sewa Sekarang</a>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-head">
+            <div>
+              <div style="font-size:12px;opacity:.8;">Armada SUV</div>
+              <b>Fortuner</b>
+            </div>
+            <i class="fa-solid fa-car-side"></i>
+          </div>
+          <div class="aha-activity-media">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/01/ChatGPT-Image-Jan-31-2026-10_33_34-PM.png" alt="Toyota Fortuner" loading="lazy">
+          </div>
+          <div class="aha-activity-body">
+            <h3>Fortuner</h3>
+          </div>
+          <div class="aha-activity-features">
+            <div class="aha-activity-feature"><i class="fa-solid fa-check"></i>Terpercaya</div>
+            <div class="aha-activity-feature"><i class="fa-solid fa-shield"></i>Mobil Terawat</div>
+            <div class="aha-activity-feature"><i class="fa-solid fa-tag"></i>Terjangkau</div>
+          </div>
+          <div class="aha-activity-action">
+            <a class="aha-btn primary" href="https://wa.me/6285190677895?text=Halo%20Royal%20Trans%20Manado%2C%20saya%20ingin%20booking%20Fortuner." target="_blank" rel="noopener">Sewa Sekarang</a>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-head">
+            <div>
+              <div style="font-size:12px;opacity:.8;">Armada MPV</div>
+              <b>Zenix</b>
+            </div>
+            <i class="fa-solid fa-car"></i>
+          </div>
+          <div class="aha-activity-media">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/01/task_01kgaaan4eeefts9jm4fqtbxp3_1769872968_img_0.webp" alt="Toyota Zenix" loading="lazy">
+          </div>
+          <div class="aha-activity-body">
+            <h3>Zenix</h3>
+          </div>
+          <div class="aha-activity-features">
+            <div class="aha-activity-feature"><i class="fa-solid fa-check"></i>Terpercaya</div>
+            <div class="aha-activity-feature"><i class="fa-solid fa-shield"></i>Mobil Terawat</div>
+            <div class="aha-activity-feature"><i class="fa-solid fa-tag"></i>Terjangkau</div>
+          </div>
+          <div class="aha-activity-action">
+            <a class="aha-btn primary" href="https://wa.me/6285190677895?text=Halo%20Royal%20Trans%20Manado%2C%20saya%20ingin%20booking%20Zenix." target="_blank" rel="noopener">Sewa Sekarang</a>
+          </div>
+        </article>
+
+        <article class="aha-activity-card">
+          <div class="aha-activity-head">
+            <div>
+              <div style="font-size:12px;opacity:.8;">Armada MPV</div>
+              <b>Innova Reborn</b>
+            </div>
+            <i class="fa-solid fa-car"></i>
+          </div>
+          <div class="aha-activity-media">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/01/task_01kgaaan4eeefts9jm4fqtbxp3_1769872968_img_01.webp" alt="Toyota Innova Reborn" loading="lazy">
+          </div>
+          <div class="aha-activity-body">
+            <h3>Innova Reborn</h3>
+          </div>
+          <div class="aha-activity-features">
+            <div class="aha-activity-feature"><i class="fa-solid fa-check"></i>Terpercaya</div>
+            <div class="aha-activity-feature"><i class="fa-solid fa-shield"></i>Mobil Terawat</div>
+            <div class="aha-activity-feature"><i class="fa-solid fa-tag"></i>Terjangkau</div>
+          </div>
+          <div class="aha-activity-action">
+            <a class="aha-btn primary" href="https://wa.me/6285190677895?text=Halo%20Royal%20Trans%20Manado%2C%20saya%20ingin%20booking%20Innova%20Reborn." target="_blank" rel="noopener">Sewa Sekarang</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="aha-section aha-contact" id="contact-section">
+    <h2 class="aha-section-title">Kontak Royal Trans Manado</h2>
+    <p class="aha-section-sub">
+      Hubungi kami untuk booking, perjalanan dinas, event, atau antar-jemput bandara. Respon cepat via WhatsApp.
+    </p>
+    <div class="aha-contact-grid">
+      <div class="aha-contact-card">
+        <h3>Hubungi kami</h3>
+        <p>Konsultasi rute dan kebutuhan armada Anda—kami siap membantu.</p>
+        <ul class="aha-contact-list">
+          <li class="aha-contact-item">
+            <span class="aha-contact-label">WhatsApp</span>
+            <span class="aha-contact-colon">:</span>
+            <span><a href="https://wa.me/6285190677895" target="_blank" rel="noopener">0851 9067 7895</a> / <a href="https://wa.me/6285255402001" target="_blank" rel="noopener">0852 5540 2001</a></span>
+          </li>
+          <li class="aha-contact-item">
+            <span class="aha-contact-label">Phone</span>
+            <span class="aha-contact-colon">:</span>
+            <span><a href="tel:085190677895">0851 9067 7895</a></span>
+          </li>
+          <li class="aha-contact-item">
+            <span class="aha-contact-label">Email</span>
+            <span class="aha-contact-colon">:</span>
+            <span><a href="mailto:info@royaltransmanado.com">info@royaltransmanado.com</a></span>
+          </li>
+          <li class="aha-contact-item">
+            <span class="aha-contact-label">Alamat</span>
+            <span class="aha-contact-colon">:</span>
+            <span><a href="https://www.google.com/maps?q=Lingk.%20V%20Malalayang%20Dua%2C%20Kec.%20Malalayang%20Kota%20Manado%2C%20Sulawesi%20Utara" target="_blank" rel="noopener">Lingk. V Malalayang Dua, Kec. Malalayang Kota Manado, Sulawesi Utara</a></span>
+          </li>
+          <li class="aha-contact-item">
+            <span class="aha-contact-label">Instagram</span>
+            <span class="aha-contact-colon">:</span>
+            <span><a href="https://www.instagram.com/rental.hiace.royal_manado?igsh=ZWlxMjJiNm54Nm5l&utm_source=qr" target="_blank" rel="noopener">@rental.hiace.royal_manado</a></span>
+          </li>
+          <li class="aha-contact-item">
+            <span class="aha-contact-label">Facebook</span>
+            <span class="aha-contact-colon">:</span>
+            <span><a href="https://www.facebook.com/share/1F5wJ3FQeb/?mibextid=wwXIfr" target="_blank" rel="noopener">Royal Trans Manado</a></span>
+          </li>
+          <li class="aha-contact-item">
+            <span class="aha-contact-label">TikTok</span>
+            <span class="aha-contact-colon">:</span>
+            <span><a href="https://www.tiktok.com/@royal.trans.manado?_r=1&_t=ZS-93TcfDQng6z" target="_blank" rel="noopener">@royal.trans.manado</a></span>
+          </li>
+        </ul>
+        <div class="aha-contact-actions">
+          <a class="aha-btn primary" href="https://wa.me/6285190677895?text=Halo%20Royal%20Trans%20Manado%2C%20saya%20ingin%20konsultasi%20armada." target="_blank" rel="noopener">Chat WhatsApp</a>
+          <a class="aha-btn" href="mailto:info@royaltransmanado.com">Kirim Email</a>
+        </div>
+      </div>
+      <div class="aha-map" aria-label="Royal Trans Manado location map">
+        <iframe title="Royal Trans Manado map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Lingk.%20V%20Malalayang%20Dua%2C%20Kec.%20Malalayang%20Kota%20Manado%2C%20Sulawesi%20Utara&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="aha-section aha-testimonial" id="testimonials">
+    <h2 class="aha-section-title">Testimoni Pelanggan</h2>
+    <p class="aha-section-sub">
+      Cerita singkat dari pelanggan Royal Trans Manado.
+    </p>
+    <div class="aha-testimonial-wrap">
+      <div class="aha-testimonial-track" id="ahaTestimonialTrack">
+        <article class="aha-testimonial-card">
+          <div class="aha-testimonial-stars">★★★★★</div>
+          <p>Driver tepat waktu, unit bersih, dan perjalanan sangat nyaman.</p>
+          <div class="aha-testimonial-name">Nadia P.</div>
+          <div class="aha-testimonial-meta">Antar-jemput bandara</div>
+        </article>
+        <article class="aha-testimonial-card">
+          <div class="aha-testimonial-stars">★★★★★</div>
+          <p>Respon WhatsApp cepat dan pelayanan ramah. Recommended.</p>
+          <div class="aha-testimonial-name">Rizky A.</div>
+          <div class="aha-testimonial-meta">Sewa harian</div>
+        </article>
+        <article class="aha-testimonial-card">
+          <div class="aha-testimonial-stars">★★★★★</div>
+          <p>Armada nyaman dan driver profesional. Perjalanan jadi aman.</p>
+          <div class="aha-testimonial-name">Dewi S.</div>
+          <div class="aha-testimonial-meta">City tour Manado</div>
+        </article>
+        <article class="aha-testimonial-card">
+          <div class="aha-testimonial-stars">★★★★★</div>
+          <p>Antar jemput bandara lancar dan koordinasi rapi.</p>
+          <div class="aha-testimonial-name">Andre K.</div>
+          <div class="aha-testimonial-meta">Antar-jemput bandara</div>
+        </article>
+        <article class="aha-testimonial-card">
+          <div class="aha-testimonial-stars">★★★★★</div>
+          <p>Full day sewa mobil nyaman, driver sabar dan membantu.</p>
+          <div class="aha-testimonial-name">Maya L.</div>
+          <div class="aha-testimonial-meta">Perjalanan harian</div>
+        </article>
+        <article class="aha-testimonial-card">
+          <div class="aha-testimonial-stars">★★★★★</div>
+          <p>Jadwal fleksibel dan unit sangat bersih. Puas.</p>
+          <div class="aha-testimonial-name">Bagas W.</div>
+          <div class="aha-testimonial-meta">Trip luar kota</div>
+        </article>
+      </div>
+      <div class="aha-testimonial-dots" id="ahaTestimonialDots" aria-hidden="true">
+        <span class="aha-testimonial-dot active"></span>
+        <span class="aha-testimonial-dot"></span>
+        <span class="aha-testimonial-dot"></span>
+        <span class="aha-testimonial-dot"></span>
+        <span class="aha-testimonial-dot"></span>
+        <span class="aha-testimonial-dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="aha-footer" id="footer">
+    <div class="aha-footer-wrap">
+      <div>
+        <div class="aha-footer-brand">
+          <img class="aha-footer-logo" src="https://everz-digital.site/wp-content/uploads/2026/01/358b97ec-d542-4809-a496-a3e14336dfa2-removebg-preview.png" alt="Royal Trans Manado logo" loading="lazy">
+          <h3>ROYAL TRANS MANADO</h3>
+        </div>
+        <p>CV. Royal Multi Group — layanan rental kendaraan dan transport terpercaya di Manado.</p>
+      </div>
+      <ul class="aha-footer-list">
+        <li class="aha-footer-item">
+          <span class="aha-footer-label">WhatsApp</span>
+          <span class="aha-footer-colon">:</span>
+          <span>0851 9067 7895 / 0852 5540 2001</span>
+        </li>
+        <li class="aha-footer-item">
+          <span class="aha-footer-label">Phone</span>
+          <span class="aha-footer-colon">:</span>
+          <span>0851 9067 7895</span>
+        </li>
+        <li class="aha-footer-item">
+          <span class="aha-footer-label">Email</span>
+          <span class="aha-footer-colon">:</span>
+          <span>info@royaltransmanado.com</span>
+        </li>
+        <li class="aha-footer-item">
+          <span class="aha-footer-label">Alamat</span>
+          <span class="aha-footer-colon">:</span>
+          <span>Lingk. V Malalayang Dua, Kec. Malalayang Kota Manado, Sulawesi Utara</span>
+        </li>
+      </ul>
+    </div>
+    <div class="aha-footer-copy">© 2026 Royal Trans Manado. All rights reserved.</div>
+  </footer>
+
+  <a class="aha-wa-sticky" href="https://wa.me/6285190677895?text=Halo%20Royal%20Trans%20Manado%2C%20saya%20ingin%20konsultasi%20armada." target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>WhatsApp</span>
+  </a>
+
+  <script>
+    (function(){
+      const slides = Array.from(document.querySelectorAll('.aha-slide'));
+      const dots = Array.from(document.querySelectorAll('.aha-dot'));
+      if(slides.length <= 1) return;
+
+      let idx = 0;
+      const INTERVAL = 5200;
+
+      function render(){
+        slides.forEach((slide,i)=> slide.classList.toggle('active', i===idx));
+        dots.forEach((dot,i)=> dot.classList.toggle('active', i===idx));
+      }
+
+      setInterval(function(){
+        idx = (idx + 1) % slides.length;
+        render();
+      }, INTERVAL);
+    })();
+
+    (function(){
+      const aboutSlides = Array.from(document.querySelectorAll('.aha-about-slide'));
+      if(aboutSlides.length <= 1) return;
+
+      let idx = 0;
+      const INTERVAL = 4200;
+
+      setInterval(function(){
+        aboutSlides[idx].classList.remove('active');
+        idx = (idx + 1) % aboutSlides.length;
+        aboutSlides[idx].classList.add('active');
+      }, INTERVAL);
+    })();
+
+    (function(){
+      const nav = document.querySelector('.aha-nav');
+      if(!nav) return;
+
+      function getScrollTop(){
+        return Math.max(
+          window.pageYOffset || 0,
+          document.documentElement.scrollTop || 0,
+          document.body.scrollTop || 0
+        );
+      }
+
+      function applyState(isScrolled){
+        nav.classList.toggle('is-scrolled', isScrolled);
+        nav.style.background = "#ffffff";
+        nav.style.boxShadow = isScrolled ? "0 18px 40px rgba(15,23,42,.12)" : "none";
+      }
+
+      let last = -1;
+      function tick(){
+        const current = getScrollTop();
+        if(current !== last){
+          applyState(current > 2);
+          last = current;
+        }
+        requestAnimationFrame(tick);
+      }
+      applyState(getScrollTop() > 2);
+      requestAnimationFrame(tick);
+    })();
+
+    (function(){
+      const track = document.getElementById('ahaTestimonialTrack');
+      const dotsWrap = document.getElementById('ahaTestimonialDots');
+      if(!track || !dotsWrap) return;
+
+      const cards = Array.from(track.querySelectorAll('.aha-testimonial-card'));
+      const dots = Array.from(dotsWrap.querySelectorAll('.aha-testimonial-dot'));
+      if(!cards.length || !dots.length) return;
+
+      let idx = 0;
+      let timer = null;
+
+      function setActive(index){
+        dots.forEach((dot, i)=> dot.classList.toggle('active', i === index));
+      }
+
+      function updateActive(){
+        if(track.scrollWidth <= track.clientWidth) return;
+        const trackRect = track.getBoundingClientRect();
+        const trackCenter = trackRect.left + trackRect.width / 2;
+        let closest = 0;
+        let minDistance = Infinity;
+
+        cards.forEach((card, i)=>{
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.left + rect.width / 2;
+          const distance = Math.abs(trackCenter - cardCenter);
+          if(distance < minDistance){
+            minDistance = distance;
+            closest = i;
+          }
+        });
+        idx = closest;
+        setActive(closest);
+      }
+
+      function scrollToIndex(index){
+        if(track.scrollWidth <= track.clientWidth) return;
+        const card = cards[index];
+        const left = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
+        track.scrollTo({left, behavior:'smooth'});
+      }
+
+      function startAuto(){
+        if(track.scrollWidth <= track.clientWidth) return;
+        if(timer) clearInterval(timer);
+        timer = setInterval(()=>{
+          idx = (idx + 1) % cards.length;
+          scrollToIndex(idx);
+          setActive(idx);
+        }, 4200);
+      }
+
+      let rafId = null;
+      track.addEventListener('scroll', ()=>{
+        if(rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(updateActive);
+      }, {passive:true});
+
+      window.addEventListener('resize', ()=>{
+        updateActive();
+        startAuto();
+      });
+
+      updateActive();
+      startAuto();
+    })();
+
+    (function(){
+      const burger = document.querySelector('.aha-burger');
+      const mobile = document.getElementById('ahaMobileMenu');
+      if(!burger || !mobile) return;
+
+      function openMobile(){
+        mobile.classList.add('is-open');
+        burger.classList.add('is-open');
+        burger.setAttribute('aria-expanded', 'true');
+        mobile.setAttribute('aria-hidden', 'false');
+      }
+      function closeMobile(){
+        mobile.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        mobile.setAttribute('aria-hidden', 'true');
+      }
+
+      burger.addEventListener('click', ()=>{
+        if(mobile.classList.contains('is-open')){
+          closeMobile();
+        }else{
+          openMobile();
+        }
+      });
+
+      mobile.addEventListener('click', (e)=>{
+        if(e.target.dataset.close){ closeMobile(); }
+      });
+
+      mobile.querySelectorAll('a').forEach((link)=>{
+        link.addEventListener('click', closeMobile);
+      });
+    })();
+  </script>
+</body>
+</html>
