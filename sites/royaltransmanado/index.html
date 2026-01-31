@@ -17,7 +17,7 @@
       --sea:#0b5fa3;
       --glass:rgba(7,20,35,.55);
       --line:rgba(255,255,255,.22);
-      --nav-h:78px;
+      --nav-h:100px;
       --brand:#0b5fa3;
       --brand-deep:#0a4b86;
       --brand-soft:#e9f3ff;
@@ -156,8 +156,27 @@
       font-weight:800;
       letter-spacing:.06em;
     }
+    .aha-brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .aha-brand-title{
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.04em;
+      white-space:nowrap;
+      text-transform:uppercase;
+    }
+    .aha-brand-subtitle{
+      font-size:12px;
+      font-weight:600;
+      opacity:.7;
+      letter-spacing:.02em;
+      text-transform:lowercase;
+    }
     .aha-logo{
-      width:44px;height:44px;
+      width:64px;height:64px;
       border-radius:50% !important;
       border:2px solid rgba(255,255,255,.5);
       object-fit:cover;
@@ -238,11 +257,28 @@
       display:flex;gap:10px;align-items:center;
     }
     .aha-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
       padding:10px 16px;border-radius:999px;
       border:1px solid var(--line);
       backdrop-filter: blur(6px);
       background:rgba(255,255,255,.06);
       font-weight:700;font-size:13.5px;
+    }
+    .aha-btn.icon{
+      width:42px;
+      height:42px;
+      padding:0;
+      font-size:18px;
+      border-radius:50%;
+    }
+    .aha-btn.whatsapp{
+      background:#25D366;
+      color:#ffffff;
+      border:0;
+      box-shadow:0 12px 26px rgba(37,211,102,.35);
     }
     .aha-btn.primary{
       background:linear-gradient(135deg, var(--sun) 0%, #f0b94a 100%);
@@ -369,11 +405,15 @@
       .aha-title{ font-size:40px; }
       .aha-menu{ display:none; }
       .aha-burger{ display:grid; }
+      .aha-btn-call{ display:none; }
     }
     @media (min-width: 901px){
       .aha-burger{ display:none; }
     }
     @media (max-width: 640px){
+      :root{
+        --nav-h:88px;
+      }
       .aha-hero{
         min-height:auto;
         height:auto;
@@ -394,7 +434,16 @@
       .aha-subtitle{ font-size:14px; line-height:1.7; }
       .aha-subtitle .aha-sub-full{ display:none; }
       .aha-subtitle .aha-sub-short{ display:inline; }
-      .aha-brand-text{ display:none; }
+      .aha-brand-text{
+        display:flex;
+      }
+      .aha-brand-title{
+        font-size:14px;
+      }
+      .aha-brand-subtitle{
+        font-size:11.5px;
+      }
+      .aha-logo{ width:52px;height:52px; }
       .aha-card{ padding:16px; }
       .aha-nav{ padding:16px 5vw; }
       .aha-content{ padding:calc(3vh + 52px) 5vw 8vh; gap:22px; }
@@ -678,6 +727,35 @@
       gap:10px;
       flex-wrap:wrap;
       margin-top:16px;
+    }
+    .aha-btn.is-static{
+      pointer-events:none;
+      cursor:default;
+      box-shadow:none;
+    }
+    .aha-social-row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin-top:14px;
+    }
+    .aha-social-link{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:#f3f4f6;
+      color:#111827;
+      border:1px solid #e5e7eb;
+      transition:transform .2s ease, background .2s ease, color .2s ease;
+      font-size:16px;
+    }
+    .aha-social-link:hover{
+      background:var(--brand);
+      color:#ffffff;
+      transform:translateY(-1px);
     }
     .aha-map{
       border:1px solid #e5e7eb;
@@ -1359,16 +1437,16 @@
 <body>
   <header class="aha-hero">
     <div class="aha-slider" aria-hidden="true">
-      <div class="aha-slide active" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/01/task_01kga70296fv1s9tg8tx9x8drw_1769869481_img_0.webp')"></div>
+      <div class="aha-slide active" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/01/ChatGPT-Image-Feb-1-2026-06_29_57-AM.png')"></div>
     </div>
 
     <nav class="aha-nav">
       <div class="aha-brand">
         <img class="aha-logo" src="https://everz-digital.site/wp-content/uploads/2026/01/358b97ec-d542-4809-a496-a3e14336dfa2-removebg-preview.png" alt="Royal Trans Manado logo" loading="lazy">
-        <div class="aha-brand-text">
-          <div style="font-size:13px;opacity:.7;">ROYAL TRANS MANADO</div>
-          <div style="font-size:15px;">CV. Royal Multi Group</div>
-        </div>
+      <div class="aha-brand-text">
+        <div class="aha-brand-title">Royal Trans Manado</div>
+        <div class="aha-brand-subtitle">royaltransmanado.com</div>
+      </div>
       </div>
       <div class="aha-menu">
         <a href="#about">Tentang</a>
@@ -1379,8 +1457,10 @@
       </div>
       <div class="aha-nav-actions">
         <div class="aha-cta">
-          <a class="aha-btn" href="tel:085190677895">Hubungi</a>
-          <a class="aha-btn primary" href="https://wa.me/6285190677895?text=Halo%20Royal%20Trans%20Manado%2C%20saya%20ingin%20booking%20transport." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="aha-btn aha-btn-call" href="tel:085190677895">Hubungi</a>
+          <a class="aha-btn icon whatsapp" href="https://wa.me/6285190677895?text=Halo%20Royal%20Trans%20Manado%2C%20saya%20ingin%20booking%20transport." target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </a>
         </div>
         <button class="aha-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="ahaMobileMenu">
           <span class="aha-burger-lines">
@@ -1557,7 +1637,7 @@
             <i class="fa-solid fa-car-side"></i>
           </div>
           <div class="aha-activity-media">
-            <img src="https://everz-digital.site/wp-content/uploads/2026/01/ChatGPT-Image-Jan-31-2026-10_33_34-PM.png" alt="Toyota Fortuner" loading="lazy">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/01/ChatGPT-Image-Feb-1-2026-06_19_45-AM.png" alt="Toyota Fortuner" loading="lazy">
           </div>
           <div class="aha-activity-body">
             <h3>Fortuner</h3>
@@ -1636,42 +1716,33 @@
           <li class="aha-contact-item">
             <span class="aha-contact-label">WhatsApp</span>
             <span class="aha-contact-colon">:</span>
-            <span><a href="https://wa.me/6285190677895" target="_blank" rel="noopener">0851 9067 7895</a> / <a href="https://wa.me/6285255402001" target="_blank" rel="noopener">0852 5540 2001</a></span>
-          </li>
-          <li class="aha-contact-item">
-            <span class="aha-contact-label">Phone</span>
-            <span class="aha-contact-colon">:</span>
-            <span><a href="tel:085190677895">0851 9067 7895</a></span>
+            <span>0851 9067 7895 / 0852 5540 2001</span>
           </li>
           <li class="aha-contact-item">
             <span class="aha-contact-label">Email</span>
             <span class="aha-contact-colon">:</span>
-            <span><a href="mailto:info@royaltransmanado.com">info@royaltransmanado.com</a></span>
+            <span>info@royaltransmanado.com</span>
           </li>
           <li class="aha-contact-item">
             <span class="aha-contact-label">Alamat</span>
             <span class="aha-contact-colon">:</span>
-            <span><a href="https://www.google.com/maps?q=Lingk.%20V%20Malalayang%20Dua%2C%20Kec.%20Malalayang%20Kota%20Manado%2C%20Sulawesi%20Utara" target="_blank" rel="noopener">Lingk. V Malalayang Dua, Kec. Malalayang Kota Manado, Sulawesi Utara</a></span>
-          </li>
-          <li class="aha-contact-item">
-            <span class="aha-contact-label">Instagram</span>
-            <span class="aha-contact-colon">:</span>
-            <span><a href="https://www.instagram.com/rental.hiace.royal_manado?igsh=ZWlxMjJiNm54Nm5l&utm_source=qr" target="_blank" rel="noopener">@rental.hiace.royal_manado</a></span>
-          </li>
-          <li class="aha-contact-item">
-            <span class="aha-contact-label">Facebook</span>
-            <span class="aha-contact-colon">:</span>
-            <span><a href="https://www.facebook.com/share/1F5wJ3FQeb/?mibextid=wwXIfr" target="_blank" rel="noopener">Royal Trans Manado</a></span>
-          </li>
-          <li class="aha-contact-item">
-            <span class="aha-contact-label">TikTok</span>
-            <span class="aha-contact-colon">:</span>
-            <span><a href="https://www.tiktok.com/@royal.trans.manado?_r=1&_t=ZS-93TcfDQng6z" target="_blank" rel="noopener">@royal.trans.manado</a></span>
+            <span>Lingk. V Malalayang Dua, Kec. Malalayang Kota Manado, Sulawesi Utara</span>
           </li>
         </ul>
+        <div class="aha-social-row" aria-label="Media sosial Royal Trans Manado">
+          <a class="aha-social-link" href="https://www.instagram.com/rental.hiace.royal_manado?igsh=ZWlxMjJiNm54Nm5l&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a class="aha-social-link" href="https://www.facebook.com/share/1F5wJ3FQeb/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a class="aha-social-link" href="https://www.tiktok.com/@royal.trans.manado?_r=1&_t=ZS-93TcfDQng6z" target="_blank" rel="noopener" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+          </a>
+        </div>
         <div class="aha-contact-actions">
-          <a class="aha-btn primary" href="https://wa.me/6285190677895?text=Halo%20Royal%20Trans%20Manado%2C%20saya%20ingin%20konsultasi%20armada." target="_blank" rel="noopener">Chat WhatsApp</a>
-          <a class="aha-btn" href="mailto:info@royaltransmanado.com">Kirim Email</a>
+          <span class="aha-btn primary is-static">Chat WhatsApp</span>
+          <span class="aha-btn is-static">Kirim Email</span>
         </div>
       </div>
       <div class="aha-map" aria-label="Royal Trans Manado location map">
