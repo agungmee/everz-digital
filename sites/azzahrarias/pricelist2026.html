@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Azzahra Rias - Pricelist 2026</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;600;700&display=swap');
+
+    :root {
+      --bg-1: #101010;
+      --bg-2: #1a1a1a;
+      --accent: #e6e6e6;
+      --ink: #f4f4f4;
+      --muted: #c9c9c9;
+      --card: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(255, 255, 255, 0.28);
+      --shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+      --radius: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Manrope", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(500px 260px at 15% 10%, rgba(255, 255, 255, 0.08), transparent 70%),
+        radial-gradient(420px 240px at 88% 12%, rgba(255, 255, 255, 0.06), transparent 70%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
+      padding: 40px 20px 80px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero {
+      margin-top: 22px;
+      padding: 28px 26px 34px;
+      border-radius: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 65%);
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+
+    .social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      color: var(--ink);
+      font-size: 32px;
+      text-decoration: none;
+    }
+
+    .social a:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .social i {
+      line-height: 1;
+    }
+
+    .links {
+      margin-top: 26px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .link-card {
+      display: grid;
+      place-items: center;
+      padding: 18px 22px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+      border: none;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      animation: fadeUp 0.8s ease both;
+      box-shadow: none;
+    }
+
+    .link-card:hover {
+      transform: translateY(-2px) scale(1.01);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .link-label {
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      font-size: 12px;
+      color: var(--muted);
+      opacity: 0.8;
+    }
+
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .links .link-card:nth-child(1) { animation-delay: 0.05s; }
+    .links .link-card:nth-child(2) { animation-delay: 0.1s; }
+    .links .link-card:nth-child(3) { animation-delay: 0.15s; }
+    .links .link-card:nth-child(4) { animation-delay: 0.2s; }
+
+    @media (max-width: 520px) {
+      h1 { font-size: 28px; }
+      .hero { padding: 24px 20px 28px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <span class="badge">Pricelist 2026</span>
+
+    <section class="hero">
+      <div class="logo">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/02/46422387-c023-4f15-afa6-accd2c791857-removebg-preview.png" alt="Logo Azzahra Rias" />
+      </div>
+      <h1>Azzahra Rias</h1>
+      <p class="subtitle">Klik ikon WhatsApp di bawah untuk chat langsung dengan admin, tanya pricelist, dan cek tanggal kosong.</p>
+
+      <div class="social">
+        <a href="https://www.instagram.com/azzahrarias_?igsh=MTFqbTh3eDN4YXhiNg%3D%3D&utm_source=qr" aria-label="Instagram">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/6285720329581" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.tiktok.com/@azzahra_rias?_r=1&_t=ZS-93aBQT0OD96" aria-label="TikTok">
+          <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="links">
+        <a class="link-card" href="syarat-ketentuan.html">
+          <div class="link-label">Syarat Dan Ketentuan</div>
+        </a>
+        <a class="link-card" href="wedding-all-in.html">
+          <div class="link-label">Paket Wedding All In</div>
+        </a>
+        <a class="link-card" href="khitan-all-in.html">
+          <div class="link-label">Paket Khitan All In</div>
+        </a>
+        <a class="link-card" href="regular-makeup.html">
+          <div class="link-label">Regular Makeup</div>
+        </a>
+        <a class="link-card" href="paket-akad-only.html">
+          <div class="link-label">Paket Akad Only</div>
+        </a>
+        <a class="link-card" href="paket-all-in-siraman.html">
+          <div class="link-label">Paket All In Siraman</div>
+        </a>
+        <a class="link-card" href="paket-all-in-engagement.html">
+          <div class="link-label">Paket All In Engagement</div>
+        </a>
+      </div>
+
+      <p class="footer-note">Copyright © 2026 Azzahra Rias. All rights reserved.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Azzahra Rias - Paket Khitan All In</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@300;400;600&display=swap');
+
+    :root {
+      --gold: #d7b467;
+      --gold-2: #f0d59b;
+      --ink: #f3e7c9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Manrope", system-ui, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(520px 300px at 20% 10%, rgba(215, 180, 103, 0.15), transparent 70%),
+        radial-gradient(380px 240px at 85% 12%, rgba(240, 213, 155, 0.12), transparent 70%),
+        linear-gradient(170deg, #050505, #111111 40%, #070707 100%);
+      padding: 32px 18px 60px;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .frame {
+      border: 2px solid rgba(215, 180, 103, 0.5);
+      border-radius: 18px;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.0));
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+    }
+
+    .frame + .frame {
+      margin-top: 28px;
+    }
+
+    .ornament {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(160px 160px at 8% 8%, rgba(215, 180, 103, 0.35), transparent 70%),
+        radial-gradient(160px 160px at 92% 6%, rgba(215, 180, 103, 0.25), transparent 70%);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .back-link {
+      color: var(--gold-2);
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .logo-card {
+      border: 2px solid rgba(215, 180, 103, 0.6);
+      border-radius: 16px;
+      padding: 18px 20px;
+      text-align: center;
+      margin-bottom: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+    }
+
+    .logo-card img {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+    }
+
+    .logo-card h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .logo-card p {
+      font-size: 11px;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: rgba(243, 231, 201, 0.7);
+      margin: 0;
+    }
+
+    .logo-card .khitan {
+      font-size: 12px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold-2);
+    }
+
+    .price-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      border: 2px solid rgba(215, 180, 103, 0.6);
+      padding: 10px 16px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      margin: 0 auto 22px;
+      color: var(--gold-2);
+      background: rgba(215, 180, 103, 0.08);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 20px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-2);
+      margin-bottom: 12px;
+    }
+
+    .section {
+      margin-bottom: 18px;
+    }
+
+    ul {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(243, 231, 201, 0.85);
+    }
+
+    ul li::before {
+      content: "•";
+      margin-right: 8px;
+      color: var(--gold);
+    }
+
+    .note-box {
+      margin-top: 16px;
+      border: 2px solid rgba(215, 180, 103, 0.6);
+      background: rgba(215, 180, 103, 0.15);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 12px;
+    }
+
+    .note-box ul {
+      margin-top: 8px;
+      gap: 6px;
+      font-size: 12px;
+      color: rgba(243, 231, 201, 0.9);
+    }
+
+    .bank-box {
+      margin-top: 14px;
+      border: 2px solid rgba(215, 180, 103, 0.6);
+      padding: 10px 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-2);
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="frame">
+      <div class="ornament" aria-hidden="true"></div>
+      <div class="topbar">
+        <a class="back-link" href="pricelist2026.html">Kembali</a>
+        <span></span>
+      </div>
+
+      <div class="logo-card">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/02/46422387-c023-4f15-afa6-accd2c791857-removebg-preview.png" alt="Logo Azzahra Rias" />
+        <h1>Azzahra Rias</h1>
+        <p>Service Pricelist</p>
+        <div class="khitan">Khitan</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="price-tag">Paket A <span>22.000.000</span></div>
+      </div>
+
+      <div class="grid">
+        <div>
+          <div class="section">
+            <div class="badge">Make Up</div>
+            <ul>
+              <li>Make Up ibu pengantin sunat</li>
+              <li>Attire 1x (Attire ibu pengantin sunat, bapa pengantin sunat, dan pengantin sunat)</li>
+              <li>Pagar Ayu 2 orang</li>
+              <li>Pagar Bagus 2 orang</li>
+              <li>Free Henna putih & Nailart</li>
+              <li>Soflens Normal</li>
+              <li>Handbucket</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <div class="badge">Dekorasi</div>
+            <ul>
+              <li>Tenda 150 meter</li>
+              <li>Panggung pelaminan 3x6</li>
+              <li>Panggung hiburan 4x4</li>
+              <li>Dekorasi pelaminan 3x6</li>
+              <li>Kursi 100 di cover</li>
+              <li>Photoboth</li>
+              <li>Pergola Masuk</li>
+              <li>Karpet Jalan</li>
+              <li>Lantai Kaca 2x4</li>
+              <li>Piring Keramik 100</li>
+              <li>Sendok Garpu 100</li>
+              <li>Pemanas Besar</li>
+              <li>Meja Prasmanan</li>
+              <li>Meja Stand 3</li>
+              <li>Meja Tamu</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <div class="badge">Hiburan</div>
+            <ul>
+              <li>Dangdut</li>
+              <li>Semi / Akustik / Gambus / khasidah</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="section">
+            <div class="badge">Dokumentasi</div>
+            <ul>
+              <li>Photo Magazine (box Exkusive)</li>
+              <li>Cetak Pembesaran 16 rp</li>
+              <li>Video Cinematic / Video Liputan</li>
+              <li>Flashdisk 16 gb</li>
+            </ul>
+          </div>
+
+          <div class="bank-box">Transfer ke rekening dibawah<br />Mandri - 1310016232920<br />A.N. Imas Siti Masitoh</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame">
+      <div class="ornament" aria-hidden="true"></div>
+      <div class="topbar">
+        <a class="back-link" href="pricelist2026.html">Kembali</a>
+        <span></span>
+      </div>
+
+      <div class="logo-card">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/02/46422387-c023-4f15-afa6-accd2c791857-removebg-preview.png" alt="Logo Azzahra Rias" />
+        <h1>Azzahra Rias</h1>
+        <p>Service Pricelist</p>
+        <div class="khitan">Khitan</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="price-tag">Paket B <span>18.000.000</span></div>
+      </div>
+
+      <div class="grid">
+        <div>
+          <div class="section">
+            <div class="badge">Make Up</div>
+            <ul>
+              <li>Make Up ibu pengantin sunat</li>
+              <li>Attire 1x (Attire ibu pengantin sunat, bapa pengantin sunat, dan pengantin sunat)</li>
+              <li>Pagar Ayu 2 orang</li>
+              <li>Pagar Bagus 2 orang</li>
+              <li>Free Henna putih & Nailart</li>
+              <li>Soflens Normal</li>
+              <li>Handbucket</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <div class="badge">Dekorasi</div>
+            <ul>
+              <li>Tenda 100 meter</li>
+              <li>Panggung pelaminan 3x6</li>
+              <li>Panggung Hiburan 4x4</li>
+              <li>Dekorasi pelaminan 3x6</li>
+              <li>Kursi 100 di Cover</li>
+              <li>Photoboth</li>
+              <li>Pergola Masuk</li>
+              <li>Lantai kaca</li>
+              <li>Karpet Jalan</li>
+              <li>Piring Keramik 100</li>
+              <li>Sendok Garpu 100</li>
+              <li>Pemanas Sedang</li>
+              <li>Meja Prasmanan</li>
+              <li>Meja Stand 3</li>
+              <li>Meja Tamu</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <div class="badge">Hiburan</div>
+            <ul>
+              <li>Dangdut</li>
+              <li>Semi / Akustik / Gambus / khasidah</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="section">
+            <div class="badge">Dokumentasi</div>
+            <ul>
+              <li>Photo Magazine (box Exkusive)</li>
+              <li>Cetak Pembesaran 16 rp</li>
+              <li>Video Cinematic / Video Liputan</li>
+              <li>Flashdisk 16 gb</li>
+            </ul>
+          </div>
+
+          <div class="bank-box">Transfer ke rekening dibawah<br />Mandri - 1310016232920<br />A.N. Imas Siti Masitoh</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame">
+      <div class="ornament" aria-hidden="true"></div>
+      <div class="topbar">
+        <a class="back-link" href="pricelist2026.html">Kembali</a>
+        <span></span>
+      </div>
+
+      <div class="logo-card">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/02/46422387-c023-4f15-afa6-accd2c791857-removebg-preview.png" alt="Logo Azzahra Rias" />
+        <h1>Azzahra Rias</h1>
+        <p>Service Pricelist</p>
+        <div class="khitan">Khitan</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="price-tag">Paket C <span>14.500.000</span></div>
+      </div>
+
+      <div class="grid">
+        <div>
+          <div class="section">
+            <div class="badge">Make Up</div>
+            <ul>
+              <li>Make Up ibu pengantin sunat</li>
+              <li>Attire 1x (Attire ibu pengantin sunat, bapa pengantin sunat, dan pengantin sunat)</li>
+              <li>Pagar Ayu 2 orang</li>
+              <li>Pagar Bagus 2 orang</li>
+              <li>Soflens Normal</li>
+              <li>Handbucket</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <div class="badge">Dekorasi</div>
+            <ul>
+              <li>Tenda 70 meter</li>
+              <li>Panggung pelaminan 3x6</li>
+              <li>Panggung Hiburan 4x4</li>
+              <li>Dekorasi pelaminan 3x6</li>
+              <li>Kursi 100 di Cover</li>
+              <li>Pergola Masuk</li>
+              <li>Piring (Keramik / rotan) 100</li>
+              <li>Sendok Garpu 100</li>
+              <li>Pemanas Sedang</li>
+              <li>Meja Prasmanan</li>
+              <li>Meja Stand 2</li>
+              <li>Meja Tamu</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <div class="badge">Hiburan</div>
+            <ul>
+              <li>Dangdut</li>
+              <li>Semi / Akustik / Gambus / khasidah</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="section">
+            <div class="badge">Dokumentasi</div>
+            <ul>
+              <li>Photo Magnetik 2 Roll</li>
+              <li>Video Liputan Flashdisk 16 gb</li>
+            </ul>
+          </div>
+
+          <div class="bank-box">Transfer ke rekening dibawah<br />Mandri - 1310016232920<br />A.N. Imas Siti Masitoh</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame">
+      <div class="ornament" aria-hidden="true"></div>
+      <div class="topbar">
+        <a class="back-link" href="pricelist2026.html">Kembali</a>
+        <span></span>
+      </div>
+
+      <div class="logo-card">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/02/46422387-c023-4f15-afa6-accd2c791857-removebg-preview.png" alt="Logo Azzahra Rias" />
+        <h1>Azzahra Rias</h1>
+        <p>Service Pricelist</p>
+        <div class="khitan">Khitan</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="price-tag">Paket D <span>12.500.000</span></div>
+      </div>
+
+      <div class="grid">
+        <div>
+          <div class="section">
+            <div class="badge">Make Up</div>
+            <ul>
+              <li>Make Up ibu pengantin sunat</li>
+              <li>Attire 1x (Attire ibu pengantin sunat, bapa pengantin sunat, dan pengantin sunat)</li>
+              <li>Pagar Ayu 2 orang</li>
+              <li>Pagar Bagus 2 orang</li>
+              <li>Soflens Normal</li>
+              <li>Handbucket</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <div class="badge">Dekorasi</div>
+            <ul>
+              <li>Tenda 60 meter</li>
+              <li>Panggung pelaminan 3x6</li>
+              <li>Panggung Hiburan 4x4</li>
+              <li>Dekorasi pelaminan 3x6</li>
+              <li>Kursi 100</li>
+              <li>Pergola Masuk</li>
+              <li>Piring (Keramik / rotan) 100</li>
+              <li>Sendok Garpu 100</li>
+              <li>Pemanas Sedang</li>
+              <li>Meja Prasmanan</li>
+              <li>Meja Stand 2</li>
+              <li>Meja Tamu</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <div class="badge">Hiburan</div>
+            <ul>
+              <li>Dangdut</li>
+              <li>Semi / Akustik / Gambus / khasidah</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="section">
+            <div class="badge">Dokumentasi</div>
+            <ul>
+              <li>Photo Magnetik 2 Roll</li>
+              <li>Video Liputan Flashdisk 16 gb</li>
+            </ul>
+          </div>
+
+          <div class="bank-box">Transfer ke rekening dibawah<br />Mandri - 1310016232920<br />A.N. Imas Siti Masitoh</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
