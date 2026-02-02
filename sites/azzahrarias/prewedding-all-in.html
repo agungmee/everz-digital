@@ -24,6 +24,7 @@
     }
 
     body {
+      position: relative;
       min-height: 100vh;
       font-family: "Manrope", system-ui, sans-serif;
       color: var(--ink);
@@ -34,7 +35,22 @@
       padding: 32px 18px 60px;
     }
 
+    body::before {
+      background-image: url("https://everz-digital.site/wp-content/uploads/2026/02/46422387-c023-4f15-afa6-accd2c791857-removebg-preview.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 420px auto;
+      content: "";
+      inset: 0;
+      opacity: 0.06;
+      pointer-events: none;
+      position: fixed;
+      z-index: 0;
+    }
+
     .page {
+      position: relative;
+      z-index: 1;
       max-width: 720px;
       margin: 0 auto;
     }
