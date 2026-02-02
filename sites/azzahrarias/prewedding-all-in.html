@@ -5,16 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Azzahra Rias - Prewedding All In</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@300;400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@300;400;600&display=swap');
 
     :root {
-      --bg: #f6e6e6;
-      --rose: #c58d8d;
-      --rose-dark: #8c6060;
-      --card: #ffffff;
-      --ink: #3f2f2f;
-      --muted: #6f5b5b;
-      --gold: #f0d59b;
+      --bg-1: #101010;
+      --bg-2: #1a1a1a;
+      --gold: #d7b467;
+      --gold-2: #f0d59b;
+      --ink: #f3e7c9;
+      --muted: #c9c9c9;
     }
 
     * {
@@ -24,15 +23,15 @@
     }
 
     body {
-      position: relative;
       min-height: 100vh;
       font-family: "Manrope", system-ui, sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(360px 360px at 10% 10%, rgba(197, 141, 141, 0.18), transparent 70%),
-        radial-gradient(420px 420px at 90% 12%, rgba(197, 141, 141, 0.2), transparent 70%),
-        linear-gradient(160deg, #f8e7ea, #f3dcdc 65%, #f6e6e6);
+        radial-gradient(520px 300px at 20% 10%, rgba(215, 180, 103, 0.15), transparent 70%),
+        radial-gradient(380px 240px at 85% 12%, rgba(240, 213, 155, 0.12), transparent 70%),
+        linear-gradient(170deg, #050505, #111111 40%, #070707 100%);
       padding: 32px 18px 60px;
+      position: relative;
     }
 
     body::before {
@@ -49,10 +48,10 @@
     }
 
     .page {
-      position: relative;
-      z-index: 1;
       max-width: 720px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .topbar {
@@ -64,84 +63,114 @@
     }
 
     .back-link {
-      color: var(--rose-dark);
+      color: var(--gold-2);
       text-decoration: none;
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.2em;
     }
 
-    .heading {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .heading h1 {
-      font-family: "Playfair Display", serif;
-      font-size: 40px;
-      color: var(--rose-dark);
-      margin-bottom: 8px;
-    }
-
-    .heading p {
-      text-transform: uppercase;
-      letter-spacing: 0.4em;
-      color: var(--rose);
-      font-size: 12px;
-    }
-
     .card {
-      background: var(--card);
-      border-radius: 24px;
-      padding: 26px 22px 24px;
-      box-shadow: 0 24px 60px rgba(140, 96, 96, 0.18);
-      border: 1px solid rgba(197, 141, 141, 0.2);
+      border: 2px solid rgba(215, 180, 103, 0.6);
+      border-radius: 18px;
+      padding: 22px 20px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
     }
 
     .card + .card {
       margin-top: 20px;
     }
 
-    .card h2 {
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(160px 160px at 8% 8%, rgba(215, 180, 103, 0.35), transparent 70%),
+        radial-gradient(160px 160px at 92% 6%, rgba(215, 180, 103, 0.25), transparent 70%);
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .logo-card {
+      border: 2px solid rgba(215, 180, 103, 0.6);
+      border-radius: 16px;
+      padding: 18px 20px;
       text-align: center;
-      font-size: 18px;
-      letter-spacing: 0.3em;
+      margin-bottom: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+    }
+
+    .logo-card img {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+    }
+
+    .logo-card h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--rose);
-      margin-bottom: 14px;
+      margin: 0;
+      color: var(--gold-2);
+    }
+
+    .logo-card p {
+      font-size: 11px;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: rgba(243, 231, 201, 0.7);
+      margin: 0;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 26px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--gold-2);
+      margin-bottom: 12px;
     }
 
     .price {
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 12px;
+      text-align: center;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      color: var(--gold-2);
+      letter-spacing: 0.14em;
     }
 
     ul {
       list-style: none;
       display: grid;
-      gap: 8px;
-      color: var(--muted);
+      gap: 10px;
       font-size: 14px;
+      color: rgba(243, 231, 201, 0.9);
     }
 
     ul li::before {
       content: "•";
       margin-right: 8px;
-      color: var(--rose);
+      color: var(--gold);
     }
 
     .bank-box {
       margin-top: 16px;
-      border: 1px solid rgba(197, 141, 141, 0.35);
+      border: 2px solid rgba(215, 180, 103, 0.6);
       padding: 10px 12px;
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--rose-dark);
+      color: var(--gold-2);
       text-align: center;
-      background: #fff7f7;
     }
 
     .wa-button {
@@ -149,11 +178,11 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      margin: 14px 0 0;
+      margin: 16px 0 0;
       padding: 12px 18px;
       border-radius: 0;
-      border: 2px solid var(--gold);
-      background: var(--gold);
+      border: 2px solid var(--gold-2);
+      background: var(--gold-2);
       color: #111111;
       text-decoration: none;
       text-transform: uppercase;
@@ -170,17 +199,17 @@
       <span></span>
     </div>
 
-    <div class="heading">
-      <h1>Price list</h1>
-      <p>Azzahra Rias</p>
-    </div>
-
     <section class="card">
-      <h2>Paket Prewedding Outdoor</h2>
+      <div class="logo-card">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/02/46422387-c023-4f15-afa6-accd2c791857-removebg-preview.png" alt="Logo Azzahra Rias" />
+        <h2>Azzahra Rias</h2>
+        <p>Service Pricelist</p>
+      </div>
+      <h1>Paket Prewedding Outdoor</h1>
       <div class="price">Rp 2.500.000</div>
       <ul>
         <li>Makeup 1x</li>
-        <li>Attire Cpp dan Cpw</li>
+        <li>Attire CPP dan CPW</li>
         <li>Busana Adat / Modern</li>
         <li>Fotografer (belum termasuk uang transport + biaya masuk + makan)</li>
         <li>Cetak Photo Frame 20r (1) 5r (4)</li>
@@ -190,11 +219,16 @@
     </section>
 
     <section class="card">
-      <h2>Paket Prewedding Indoor</h2>
+      <div class="logo-card">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/02/46422387-c023-4f15-afa6-accd2c791857-removebg-preview.png" alt="Logo Azzahra Rias" />
+        <h2>Azzahra Rias</h2>
+        <p>Service Pricelist</p>
+      </div>
+      <h1>Paket Prewedding Indoor</h1>
       <div class="price">Rp 2.000.000</div>
       <ul>
         <li>Makeup 1x</li>
-        <li>Attire Cpp dan Cpw</li>
+        <li>Attire CPP dan CPW</li>
         <li>Busana Adat / Modern</li>
         <li>Photo studio dan fotografer disiapkan</li>
         <li>Cetak Photo Frame 20r (1) 5r (4)</li>
