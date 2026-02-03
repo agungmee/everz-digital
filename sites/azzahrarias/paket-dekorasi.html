@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Azzahra Rias - Paket Dekorasi</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@300;400;600&display=swap');
+
+    :root {
+      --bg-1: #101010;
+      --bg-2: #1a1a1a;
+      --gold: #d7b467;
+      --gold-2: #f0d59b;
+      --ink: #f3e7c9;
+      --muted: #c9c9c9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Manrope", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(520px 300px at 20% 10%, rgba(215, 180, 103, 0.15), transparent 70%),
+        radial-gradient(380px 240px at 85% 12%, rgba(240, 213, 155, 0.12), transparent 70%),
+        linear-gradient(170deg, #050505, #111111 40%, #070707 100%);
+      padding: 32px 18px 60px;
+      position: relative;
+    }
+
+    body::before {
+      background-image: url("https://everz-digital.site/wp-content/uploads/2026/02/46422387-c023-4f15-afa6-accd2c791857-removebg-preview.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 420px auto;
+      content: "";
+      inset: 0;
+      opacity: 0.06;
+      pointer-events: none;
+      position: fixed;
+      z-index: 0;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .back-link {
+      color: var(--gold-2);
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .card {
+      border: 2px solid rgba(215, 180, 103, 0.6);
+      border-radius: 18px;
+      padding: 22px 20px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+    }
+
+    .card + .card {
+      margin-top: 20px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(160px 160px at 8% 8%, rgba(215, 180, 103, 0.35), transparent 70%),
+        radial-gradient(160px 160px at 92% 6%, rgba(215, 180, 103, 0.25), transparent 70%);
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .logo-card {
+      border: 2px solid rgba(215, 180, 103, 0.6);
+      border-radius: 16px;
+      padding: 18px 20px;
+      text-align: center;
+      margin-bottom: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+    }
+
+    .logo-card img {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+    }
+
+    .logo-card h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin: 0;
+      color: var(--gold-2);
+    }
+
+    .logo-card p {
+      font-size: 11px;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: rgba(243, 231, 201, 0.7);
+      margin: 0;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 26px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--gold-2);
+      margin-bottom: 12px;
+    }
+
+    .price {
+      text-align: center;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      color: var(--gold-2);
+      letter-spacing: 0.14em;
+    }
+
+    ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(243, 231, 201, 0.9);
+    }
+
+    ul li::before {
+      content: "•";
+      margin-right: 8px;
+      color: var(--gold);
+    }
+
+    .bank-box {
+      margin-top: 16px;
+      border: 2px solid rgba(215, 180, 103, 0.6);
+      padding: 10px 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-2);
+      text-align: center;
+    }
+
+    .wa-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 16px 0 0;
+      padding: 12px 18px;
+      border-radius: 0;
+      border: 2px solid var(--gold-2);
+      background: var(--gold-2);
+      color: #111111;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="topbar">
+      <a class="back-link" href="pricelist2026.html">Kembali</a>
+      <span></span>
+    </div>
+
+    <section class="card">
+      <div class="logo-card">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/02/46422387-c023-4f15-afa6-accd2c791857-removebg-preview.png" alt="Logo Azzahra Rias" />
+        <h2>Azzahra Rias</h2>
+        <p>Service Pricelist</p>
+      </div>
+      <h1>Paket Dekorasi A</h1>
+      <div class="price">Rp 13.000.000</div>
+      <ul>
+        <li>Tenda 150 meter</li>
+        <li>Panggung pelaminan 3x10</li>
+        <li>Panggung hiburan 4x4</li>
+        <li>Dekor pelaminan 3x10</li>
+        <li>Kursi 150 (cover)</li>
+        <li>Foto booth & gallery</li>
+        <li>Pergola masuk</li>
+        <li>Karpet jalan</li>
+        <li>Lantai kaca 2x4</li>
+        <li>Piring keramik 150</li>
+        <li>Sendok garpu 150</li>
+        <li>Pemanas rolltop</li>
+        <li>Meja prasmanan</li>
+        <li>Meja stand 4</li>
+        <li>Meja akad</li>
+        <li>Meja VIP 1</li>
+        <li>Pelaminan ready stock</li>
+        <li>Pelaminan max 8 m</li>
+        <li>1 set kursi pengantin</li>
+        <li>2 kotak angpau</li>
+        <li>Bunga di pelaminan 5 titik</li>
+        <li>Bunga artificial</li>
+        <li>Taman pelaminan</li>
+        <li>Red karpet sepanjang venue</li>
+        <li>Standing flowers 6 (artificial)</li>
+        <li>Standing daun melengkung 1</li>
+        <li>Backdrop meja tamu</li>
+        <li>Meja tamu 2</li>
+        <li>Janur 1</li>
+      </ul>
+      <div class="bank-box">Transfer ke rekening dibawah<br />Mandri - 1310016232920<br />A.N. Imas Siti Masitoh</div>
+      <a class="wa-button" href="https://wa.me/6285720329581">Booking via WhatsApp</a>
+    </section>
+
+    <section class="card">
+      <div class="logo-card">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/02/46422387-c023-4f15-afa6-accd2c791857-removebg-preview.png" alt="Logo Azzahra Rias" />
+        <h2>Azzahra Rias</h2>
+        <p>Service Pricelist</p>
+      </div>
+      <h1>Paket Dekorasi B</h1>
+      <div class="price">Rp 10.000.000</div>
+      <ul>
+        <li>Tenda 120 meter</li>
+        <li>Panggung pelaminan 3x8</li>
+        <li>Panggung hiburan 4x4</li>
+        <li>Dekor pelaminan 3x8</li>
+        <li>Kursi 120 (cover)</li>
+        <li>Foto booth & gallery</li>
+        <li>Pergola masuk</li>
+        <li>Karpet jalan</li>
+        <li>Lantai kaca 2x4</li>
+        <li>Piring keramik 100</li>
+        <li>Sendok garpu 100</li>
+        <li>Pemanas besar</li>
+        <li>Meja prasmanan</li>
+        <li>Meja stand 4</li>
+        <li>Meja akad</li>
+        <li>Pelaminan ready stock</li>
+        <li>Pelaminan max 8 m</li>
+        <li>1 set kursi pengantin</li>
+        <li>2 kotak angpau</li>
+        <li>Bunga di pelaminan 5 titik</li>
+        <li>Bunga artificial</li>
+        <li>Taman pelaminan</li>
+        <li>Karpet jalan sepanjang venue</li>
+        <li>Standing flowers 6 (artificial)</li>
+        <li>Standing daun melengkung 1</li>
+        <li>Backdrop meja tamu</li>
+        <li>Meja tamu 1</li>
+        <li>Janur 1</li>
+      </ul>
+      <div class="bank-box">Transfer ke rekening dibawah<br />Mandri - 1310016232920<br />A.N. Imas Siti Masitoh</div>
+      <a class="wa-button" href="https://wa.me/6285720329581">Booking via WhatsApp</a>
+    </section>
+
+    <section class="card">
+      <div class="logo-card">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/02/46422387-c023-4f15-afa6-accd2c791857-removebg-preview.png" alt="Logo Azzahra Rias" />
+        <h2>Azzahra Rias</h2>
+        <p>Service Pricelist</p>
+      </div>
+      <h1>Paket Dekorasi C</h1>
+      <div class="price">Rp 8.000.000</div>
+      <ul>
+        <li>Tenda 80 meter</li>
+        <li>Panggung pelaminan 2x6</li>
+        <li>Panggung hiburan 4x4</li>
+        <li>Dekor pelaminan 2x6</li>
+        <li>Kursi plastik 100</li>
+        <li>Pergola masuk</li>
+        <li>Karpet jalan</li>
+        <li>Piring 100</li>
+        <li>Sendok garpu 100</li>
+        <li>Pemanas biasa</li>
+        <li>Meja prasmanan</li>
+        <li>Meja stand 2</li>
+      </ul>
+      <div class="bank-box">Transfer ke rekening dibawah<br />Mandri - 1310016232920<br />A.N. Imas Siti Masitoh</div>
+      <a class="wa-button" href="https://wa.me/6285720329581">Booking via WhatsApp</a>
+    </section>
+  </main>
+</body>
+</html>
