@@ -649,7 +649,7 @@
     }
     .gallery-grid{
       display:grid;
-      grid-template-columns:repeat(2, 1fr);
+      grid-template-columns:repeat(4, 1fr);
       gap:16px;
     }
     .gallery-card{
@@ -922,6 +922,7 @@
     @media (max-width: 980px){
       .hero-grid, .split, .contact{ grid-template-columns:1fr; }
       .service-mini, .portfolio, .service-grid, .stats-strip, .testimonials, .blog-grid, .service-cards{ grid-template-columns:1fr 1fr; }
+      .gallery-grid{ grid-template-columns:repeat(2, 1fr); }
       .nav-links{ display:none; }
       .btn{ display:none; }
       .service-card-visual .btn{ display:inline-flex; }
@@ -965,7 +966,7 @@
       .featured-slider{ padding:0; }
       .featured-slider{ padding:0 10%; scroll-padding:0 10%; }
       .gallery-section{ padding:50px 0 30px; }
-      .gallery-grid{ grid-template-columns:repeat(2, 1fr); }
+      .gallery-grid{ grid-template-columns:1fr; }
       .cta-band h3{ font-size:16px; }
       .section-title{ flex-direction:column; align-items:flex-start; }
       .stats-strip{ text-align:left; }
@@ -1229,7 +1230,7 @@
 
     <section class="featured-work reveal">
       <div class="container featured-title">
-        <h2 class="featured-heading">Hasil Karya Kami</h2>
+        <h2 class="featured-heading">Dokumentasi Kerja Kami</h2>
       </div>
       <div class="container featured-slider">
         <button class="featured-nav prev" type="button" aria-label="Sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
@@ -1243,19 +1244,41 @@
       </div>
     </section>
 
-    <section class="gallery-section reveal" id="gallery">
+    <section class="gallery-section" id="gallery">
       <div class="container gallery-title">
         <h2 class="gallery-heading">Gallery</h2>
       </div>
-      <div class="container gallery-filter" id="gallery-filter">
-        <button class="active" data-filter="all">All</button>
-        <button data-filter="upvc">UPVC Kusen</button>
-        <button data-filter="service">Service</button>
-        <button data-filter="relief">Relif Tangga</button>
-        <button data-filter="patri">Kaca Patri</button>
-        <button data-filter="curtain">Curtain Wall</button>
-      </div>
       <div class="container gallery-grid" id="gallery-grid">
+        <div class="gallery-card" data-cat="fasad">
+          <div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/84053e25be8f797e75e08f8beddc4617.jpg');"></div>
+        </div>
+        <div class="gallery-card" data-cat="fasad">
+          <div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/516a4fc507cabe755a2810956e3aa004.jpg');"></div>
+        </div>
+        <div class="gallery-card" data-cat="fasad">
+          <div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/793ab3cb7188e3de2747c3bc92119873.jpg');"></div>
+        </div>
+        <div class="gallery-card" data-cat="fasad">
+          <div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/840f12e52a5afe01ada6c19f39c5c0e3.jpg');"></div>
+        </div>
+        <div class="gallery-card" data-cat="fasad">
+          <div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/6c3dbe5a4d0249c991305bbc85f1af73.jpg');"></div>
+        </div>
+        <div class="gallery-card" data-cat="fasad">
+          <div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/cf3351cf26782ab495a709659fdabb3e.jpg');"></div>
+        </div>
+        <div class="gallery-card" data-cat="fasad">
+          <div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/fb63edb10bd9b7c3ba0a5f5795db034e.jpg');"></div>
+        </div>
+        <div class="gallery-card" data-cat="fasad">
+          <div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/46f265d09896089f47afba209e2b0e9e.jpg');"></div>
+        </div>
+        <div class="gallery-card" data-cat="fasad">
+          <div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/7325caac86047b0bded34f33618c5349.jpg');"></div>
+        </div>
+        <div class="gallery-card" data-cat="fasad">
+          <div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/57f3d521ffcb7a3e0da6fb74c48c35f3.jpg');"></div>
+        </div>
         <div class="gallery-card" data-cat="upvc">
           <div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/WhatsApp-Image-2023-04-14-at-14.28.42.jpeg');"></div>
         </div>
@@ -1596,69 +1619,28 @@
       }
     }
 
-    const galleryFilter = document.getElementById('gallery-filter');
     const galleryGrid = document.getElementById('gallery-grid');
     const galleryMore = document.getElementById('gallery-more');
-    if (galleryFilter && galleryGrid) {
-      const filterButtons = Array.from(galleryFilter.querySelectorAll('button'));
-      let galleryCards = Array.from(galleryGrid.querySelectorAll('.gallery-card'));
-      const initialLimit = 6;
+    if (galleryGrid) {
+      const galleryCards = Array.from(galleryGrid.querySelectorAll('.gallery-card'));
+      const initialLimit = 8;
       let visibleLimit = initialLimit;
-      const extraImages = [
-        {
-          cat: 'upvc',
-          url: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop'
-        },
-        {
-          cat: 'service',
-          url: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop'
-        }
-      ];
 
-      function applyGalleryFilter(filter) {
+      function applyLimit() {
         galleryCards.forEach((card, index) => {
-          const show = filter === 'all' || card.dataset.cat === filter;
-          const withinLimit = index < visibleLimit;
-          card.style.display = show && withinLimit ? 'block' : 'none';
+          card.style.display = index < visibleLimit ? 'block' : 'none';
         });
         if (galleryMore) {
           galleryMore.style.display = visibleLimit < galleryCards.length ? 'inline-flex' : 'none';
         }
       }
 
-      applyGalleryFilter('all');
-
-      galleryFilter.addEventListener('click', (event) => {
-        const button = event.target.closest('button');
-        if (!button) return;
-        filterButtons.forEach((btn) => btn.classList.remove('active'));
-        button.classList.add('active');
-        visibleLimit = initialLimit;
-        applyGalleryFilter(button.dataset.filter || 'all');
-      });
+      applyLimit();
 
       if (galleryMore) {
         galleryMore.addEventListener('click', () => {
-          galleryMore.disabled = true;
-          galleryMore.textContent = 'Memuat...';
-          setTimeout(() => {
-            extraImages.splice(0, 2).forEach((item) => {
-              const card = document.createElement('div');
-              card.className = 'gallery-card';
-              card.dataset.cat = item.cat;
-              card.innerHTML = `<div class="gallery-img" style="background-image:url('${item.url}')"></div>`;
-              galleryGrid.appendChild(card);
-            });
-            galleryCards = Array.from(galleryGrid.querySelectorAll('.gallery-card'));
-            visibleLimit += 2;
-            const activeFilter = galleryFilter.querySelector('button.active');
-            applyGalleryFilter(activeFilter ? activeFilter.dataset.filter : 'all');
-            galleryMore.disabled = false;
-            galleryMore.textContent = 'Lainnya';
-            if (!extraImages.length) {
-              galleryMore.style.display = 'none';
-            }
-          }, 600);
+          visibleLimit += 8;
+          applyLimit();
         });
       }
     }
