@@ -739,6 +739,27 @@
     .social-icons .fb { color: #1877f2; }
     .social-icons .tt { color: #010101; }
 
+    .whatsapp-sticky {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #25d366;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-decoration: none;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      z-index: 50;
+    }
+
+    .whatsapp-sticky i {
+      font-size: 26px;
+    }
+
     @media (min-width: 600px) {
       .hero {
         min-height: 384px;
@@ -1084,5 +1105,9 @@
       </div>
     </section>
   </main>
+
+  <a class="whatsapp-sticky" href="#" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 </body>
 </html>
