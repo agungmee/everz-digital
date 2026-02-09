@@ -1,0 +1,1088 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bali Wedding - Mobile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --pink: #ff2d8f;
+      --white: #ffffff;
+      --soft-white: rgba(255, 255, 255, 0.85);
+      --overlay: rgba(0, 0, 0, 0.35);
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Source Sans 3", sans-serif;
+      background: #f2f2f2;
+    }
+
+    .phone {
+      max-width: 420px;
+      margin: 0 auto;
+      background: #ffffff;
+      min-height: 100vh;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 336px;
+      color: var(--white);
+      background-image:
+        linear-gradient(var(--overlay), var(--overlay)),
+        url("https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1400&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px 18px 18px;
+    }
+
+    .hero-content {
+      text-align: center;
+      padding: 0 12px;
+      margin: auto 0;
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: 16px;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+      line-height: 1.6;
+    }
+
+    .hero-subtitle {
+      font-size: 11px;
+      line-height: 1.55;
+      color: var(--soft-white);
+      margin: 0 auto 16px;
+      max-width: 250px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: var(--pink);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      box-shadow: var(--shadow);
+    }
+
+    .cta:hover {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    .info-section {
+      position: relative;
+      background: #ffffff;
+      padding: 28px 18px 24px;
+      text-align: center;
+      border-top: 1px solid #e9e9e9;
+    }
+
+    .logo-flower {
+      width: 110px;
+      height: 90px;
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Playfair Display", serif;
+      font-size: 44px;
+      letter-spacing: 0.18em;
+      color: #e21124;
+    }
+
+    .logo-flower span {
+      display: inline-block;
+      transform: translateX(4px);
+    }
+
+    .brand-title {
+      margin: 6px 0 2px;
+      font-family: "Playfair Display", serif;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: #3d3d3d;
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      margin: 6px 0 18px;
+      font-size: 10px;
+      color: #8a8a8a;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .menu-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #d6458d;
+      text-decoration: none;
+    }
+
+    .menu-link span {
+      font-weight: 600;
+    }
+
+    .quote-section {
+      padding: 22px 18px 28px;
+      text-align: center;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .quote-mark {
+      display: inline-block;
+      font-size: 24px;
+      color: #ff2d8f;
+      margin-bottom: 6px;
+    }
+
+    .quote-text {
+      margin: 0 auto 8px;
+      max-width: 260px;
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #6a6a6a;
+    }
+
+    .quote-author {
+      font-size: 11px;
+      color: #9a9a9a;
+    }
+
+    .video-card {
+      margin: 18px auto 0;
+      width: 100%;
+      max-width: 300px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      background: #000000;
+      position: relative;
+    }
+
+    .video-thumb {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.5));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-align: center;
+      padding: 18px;
+    }
+
+    .play-button {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #ff0000;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .play-button::before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 16px solid #ffffff;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      margin-left: 3px;
+    }
+
+    .video-meta {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #ffffff;
+      text-align: left;
+    }
+
+    .video-title {
+      font-size: 12px;
+      font-weight: 600;
+      margin: 0 0 2px;
+    }
+
+    .video-subtitle {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.75);
+      margin: 0;
+    }
+
+    .about-section {
+      padding: 26px 18px 40px;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+      color: #4a4a4a;
+    }
+
+    .about-title {
+      font-family: "Playfair Display", serif;
+      font-size: 16px;
+      margin: 0 0 10px;
+      color: #3a3a3a;
+    }
+
+    .about-text {
+      font-size: 11.5px;
+      line-height: 1.8;
+      margin: 0 0 10px;
+      color: #6a6a6a;
+    }
+
+    .about-text:last-child {
+      margin-bottom: 0;
+    }
+
+    .services-section {
+      padding: 26px 18px 44px;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+      color: #4a4a4a;
+    }
+
+    .services-title {
+      font-family: "Playfair Display", serif;
+      font-size: 16px;
+      margin: 0 0 12px;
+      color: #3a3a3a;
+    }
+
+    .service-item {
+      margin: 0 0 12px;
+    }
+
+    .service-name {
+      font-size: 12px;
+      font-weight: 600;
+      margin: 0 0 4px;
+      color: #3a3a3a;
+    }
+
+    .service-desc {
+      font-size: 11.5px;
+      line-height: 1.8;
+      margin: 0;
+      color: #6a6a6a;
+    }
+
+    .contact-section {
+      padding: 26px 18px 44px;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+      color: #4a4a4a;
+    }
+
+    .contact-title {
+      font-family: "Playfair Display", serif;
+      font-size: 16px;
+      margin: 0 0 10px;
+      color: #3a3a3a;
+    }
+
+    .contact-text {
+      font-size: 11.5px;
+      line-height: 1.8;
+      margin: 0 0 18px;
+      color: #6a6a6a;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .contact-grid img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .luxury-section {
+      padding: 26px 18px 44px;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+      color: #4a4a4a;
+    }
+
+    .luxury-title {
+      font-family: "Playfair Display", serif;
+      font-size: 14.5px;
+      margin: 0 0 10px;
+      color: #3a3a3a;
+    }
+
+    .luxury-text {
+      font-size: 11.5px;
+      line-height: 1.8;
+      margin: 0 0 10px;
+      color: #6a6a6a;
+    }
+
+    .luxury-link {
+      font-size: 11px;
+      color: #6a6a6a;
+      text-decoration: none;
+      border-bottom: 1px solid #d7d7d7;
+      padding-bottom: 1px;
+    }
+
+    .flag-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .flag-card {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #d9d9d9;
+    }
+
+    .flag-card img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .flag {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .flag::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(#ffffff 0 50%, #e11d2a 50% 100%);
+    }
+
+    .flag.jp::before {
+      background: #ffffff;
+    }
+
+    .flag.jp::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d91f2a;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .flag.de::before {
+      background: linear-gradient(#000000 0 33%, #dd0000 33% 66%, #ffce00 66% 100%);
+    }
+
+    .flag.my::before {
+      background: linear-gradient(#cc0000 0 50%, #ffffff 50% 100%);
+    }
+
+    .flag.au::before {
+      background: linear-gradient(#00008b 0 50%, #ffffff 50% 100%);
+    }
+
+    .mix-section {
+      padding: 26px 18px 44px;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+      color: #4a4a4a;
+    }
+
+    .mix-title {
+      font-family: "Playfair Display", serif;
+      font-size: 14.5px;
+      margin: 0 0 10px;
+      color: #3a3a3a;
+    }
+
+    .mix-text {
+      font-size: 11.5px;
+      line-height: 1.8;
+      margin: 0 0 10px;
+      color: #6a6a6a;
+    }
+
+    .mix-link {
+      font-size: 11px;
+      color: #6a6a6a;
+      text-decoration: none;
+      border-bottom: 1px solid #d7d7d7;
+      padding-bottom: 1px;
+    }
+
+    .testimonial-section {
+      padding: 26px 18px 44px;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+      color: #4a4a4a;
+    }
+
+    .testimonial-title {
+      font-family: "Playfair Display", serif;
+      font-size: 16px;
+      margin: 0 0 8px;
+      color: #3a3a3a;
+    }
+
+    .testimonial-lead {
+      font-size: 11.5px;
+      line-height: 1.7;
+      margin: 0 0 14px;
+      color: #6a6a6a;
+      max-width: 280px;
+    }
+
+    .testimonial-card {
+      border: 1px solid #eeeeee;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      margin-bottom: 12px;
+    }
+
+    .testimonial-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .testimonial-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: #3a3a3a;
+      margin: 0 0 6px;
+    }
+
+    .testimonial-text {
+      font-size: 11px;
+      line-height: 1.8;
+      color: #6a6a6a;
+      margin: 0 0 6px;
+    }
+
+    .testimonial-more {
+      font-size: 11px;
+      color: #6a6a6a;
+      text-decoration: none;
+      border-bottom: 1px solid #d7d7d7;
+      padding-bottom: 1px;
+    }
+
+    .testimonial-secondary {
+      padding: 26px 18px 44px;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+      color: #4a4a4a;
+    }
+
+    .latest-section {
+      padding: 26px 18px 44px;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+      color: #4a4a4a;
+      text-align: center;
+    }
+
+    .latest-title {
+      font-family: "Playfair Display", serif;
+      font-size: 16px;
+      margin: 0 0 8px;
+      color: #3a3a3a;
+    }
+
+    .latest-lead {
+      font-size: 11.5px;
+      line-height: 1.7;
+      margin: 0 auto 14px;
+      color: #6a6a6a;
+      max-width: 280px;
+    }
+
+    .latest-quote-mark {
+      display: inline-block;
+      font-size: 24px;
+      color: #ff2d8f;
+      margin-bottom: 6px;
+    }
+
+    .latest-quote {
+      font-size: 12px;
+      font-style: italic;
+      line-height: 1.8;
+      color: #6a6a6a;
+      max-width: 260px;
+      margin: 0 auto 10px;
+    }
+
+    .latest-text {
+      font-size: 11.5px;
+      line-height: 1.8;
+      color: #6a6a6a;
+      max-width: 260px;
+      margin: 0 auto;
+    }
+
+    .gallery-section {
+      padding: 20px 18px 44px;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .contact-simple {
+      padding: 26px 18px 44px;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+      color: #4a4a4a;
+    }
+
+    .contact-simple h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 16px;
+      margin: 0 0 10px;
+      color: #3a3a3a;
+    }
+
+    .contact-simple p {
+      font-size: 11.5px;
+      line-height: 1.8;
+      margin: 0 0 14px;
+      color: #6a6a6a;
+    }
+
+    .association-section {
+      padding: 26px 18px 44px;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+      text-align: center;
+      color: #4a4a4a;
+    }
+
+    .association-title {
+      font-family: "Playfair Display", serif;
+      font-size: 16px;
+      margin: 0 0 10px;
+      color: #3a3a3a;
+    }
+
+    .association-text {
+      font-size: 11.5px;
+      line-height: 1.8;
+      margin: 0 auto 18px;
+      color: #6a6a6a;
+      max-width: 260px;
+    }
+
+    .association-logo {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      border: 2px solid #333333;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: "Playfair Display", serif;
+      font-size: 12px;
+      color: #333333;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      position: relative;
+    }
+
+    .association-logo::before {
+      content: "";
+      position: absolute;
+      width: 76px;
+      height: 76px;
+      border: 2px solid #333333;
+      border-radius: 50%;
+    }
+
+    .association-logo span {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+    }
+
+    .association-logo .top {
+      top: 18px;
+    }
+
+    .association-logo .bottom {
+      bottom: 18px;
+    }
+
+    .association-logo .center {
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    .profile-section {
+      padding: 26px 18px 44px;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+      color: #4a4a4a;
+    }
+
+    .profile-label {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #9a9a9a;
+      margin: 0 0 10px;
+    }
+
+    .profile-video {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      background: #000000;
+      margin-bottom: 18px;
+    }
+
+    .profile-video iframe {
+      width: 100%;
+      height: 180px;
+      border: 0;
+      display: block;
+    }
+
+    .social-title {
+      font-size: 11px;
+      color: #6a6a6a;
+      margin: 0 0 8px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .social-icons a {
+      font-size: 22px;
+      text-decoration: none;
+    }
+
+    .social-icons .yt { color: #ff0000; }
+    .social-icons .ig { color: #e4405f; }
+    .social-icons .fb { color: #1877f2; }
+    .social-icons .tt { color: #010101; }
+
+    @media (min-width: 600px) {
+      .hero {
+        min-height: 384px;
+      }
+
+      .hero-title {
+        font-size: 18px;
+      }
+
+      .hero-subtitle {
+        font-size: 12px;
+      }
+
+      .cta {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="phone">
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Planning to get married in Bali</h1>
+        <p class="hero-subtitle">
+          Bali Top Wedding Offers the Best Bali Wedding Planner, Wedding Organizer
+          Services and Various Bali Wedding Package.
+        </p>
+        <a class="cta" href="#">Our Wedding Packages</a>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="logo-flower" aria-label="BW logo">
+        <span>BW</span>
+      </div>
+
+      <div class="brand-title">Bali Top Wedding</div>
+
+      <p class="tagline">Create, Care, Commit</p>
+      <a class="menu-link" href="#"><span>≡</span> Menu</a>
+    </section>
+
+    <section class="quote-section">
+      <div class="quote-mark">“</div>
+      <p class="quote-text">
+        Dicintai memberimu kekuatan, sementara mencintai memberimu keberanian
+      </p>
+      <div class="quote-author">Lao Tzu</div>
+
+      <div class="video-card" aria-label="Wedding video preview">
+        <img
+          class="video-thumb"
+          src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=900&auto=format&fit=crop"
+          alt="Wedding video thumbnail"
+        />
+        <div class="video-meta">
+          <p class="video-title">Cliff Villa Wedding | Gorgeous C</p>
+          <p class="video-subtitle">Bali Top Wedding</p>
+        </div>
+        <div class="video-overlay">
+          <div class="play-button" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2 class="about-title">Tentang Kami</h2>
+      <p class="about-text">
+        Berdiri di tahun 2010, Bali Top Wedding adalah wedding organizer dan
+        wedding planner yang berbasis di Bali. Pada tahun 2014, Bali Top Wedding
+        telah mendapat sertifikat profesional dibawah payung hukum CV. Vinako.
+        Sukses Makmur. Dua tahun setelahnya, yaitu tahun 2016, kami dipercaya
+        untuk bergabung dan menjadi anggota di Bali Wedding Association, sebuah
+        asosiasi resmi para penyelenggara pernikahan profesional di Bali.
+      </p>
+      <p class="about-text">
+        Bali Top Wedding menyediakan berbagai paket wedding di Bali yang tidak
+        hanya untuk para pengantin domestik, bahkan juga internasional. Paket -
+        paket wedding tersebut telah dirancang sedemikian rupa untuk mengurangi
+        bahkan menghilangkan stress pengantin dalam mempersiapkan weddingnya.
+        Wedding jadi praktis adalah kesan yang selalu ingin kami tinggalkan pada
+        setiap pengantin yang memakai jasa kami.
+      </p>
+      <p class="about-text">
+        Hingga saat ini, ratusan wedding domestik dan wedding internasional di
+        Bali telah sukses kami selenggarakan. Tingginya rating dan banyaknya
+        bintang 5 yang kami peroleh di beberapa website dan mesin pencari di
+        internet menjadi bukti keseriusan kami dalam mengerjakan sebuah wedding.
+        Tidak lupa kami mengucapkan terima kasih untuk semua pengantin yang telah
+        mempercayakan penyelenggaraan acaranya kepada Bali Top Wedding.
+      </p>
+    </section>
+
+    <section class="services-section">
+      <h2 class="services-title">Pelayanan Kami</h2>
+
+      <div class="service-item">
+        <div class="service-name">1. Paket All In</div>
+        <p class="service-desc">
+          Pada paket ALL IN, kami menyediakan semua atau sebagian besar hal -
+          hal yang dibutuhkan untuk sebuah wedding di Bali sehingga sangat cocok
+          untuk pengantin (terutama dari luar Bali) yang ingin weddingnya jadi
+          praktis namun tetap berkesan.
+        </p>
+      </div>
+
+      <div class="service-item">
+        <div class="service-name">2. Paket Religious Wedding atau Menikah Secara Agama</div>
+        <p class="service-desc">
+          Menikah dengan tata cara salah satu agama yang di Indonesia (Islam,
+          Kristen, Katolik, Hindu, Budha). Kami akan membantu pengurusan surat -
+          surat untuk yang di Bali, hingga pengantin mendapatkan akta nikah
+          agama atau buku nikahnya. Paket ini tidak hanya untuk warga negara
+          Indonesia saja, tapi dapat juga bagi mereka yang menikah dengan warga
+          negara asing.
+        </p>
+      </div>
+
+      <div class="service-item">
+        <div class="service-name">3. Paket Renewal Vow atau Pengulangan Janji Nikah</div>
+        <p class="service-desc">
+          Paket ini adalah pilihan tepat bagi mereka yang sudah menikah sekian
+          lama dan ingin mengulang janji nikahnya dengan disaksikan kerabat
+          dekat. Tentunya momen ini akan sangat berkesan dengan latar belakang
+          keindahan pulau Bali.
+        </p>
+      </div>
+
+      <div class="service-item">
+        <div class="service-name">4. Commitment Ceremony (Non Legal)</div>
+        <p class="service-desc">
+          Paket ini paling banyak dipilih oleh warga negara asing atau pengantin
+          yang ingin pernikahannya dilakukan di luar negeri (tentunya tidak bisa
+          menggunakan banyak kerabat). Ide acara ini sebagai pelengkap saling
+          tukar janji (commitment) disaksikan oleh undangan tanpa menggunakan
+          tata cara agama ataupun akta. Paket ini adalah bersifat non legal atau
+          tidak resmi.
+        </p>
+      </div>
+
+      <div class="service-item">
+        <div class="service-name">5. Paket Resepsi</div>
+        <p class="service-desc">
+          Bagi para pengantin yang ingin melakukan hanya resepsi saja di Bali,
+          tentunya sangat cocok mengambil paket ini. Tim Bali Top Wedding dengan
+          senang hati akan memberikan ide - ide kreatif untuk membuat acara
+          selalu dikenang.
+        </p>
+      </div>
+
+      <div class="service-item">
+        <div class="service-name">6. Custom Package atau Paket Khusus</div>
+        <p class="service-desc">
+          Kami memahami bahwa keadaan dan kebutuhan tiap pengantin adalah berbeda
+          - beda. Paket Khusus atau custom paket ini adalah untuk kami sebisa
+          mungkin menyesuaikan dengan keadaan dan kebutuhan pengantin. Jadi
+          jangan ragu - ragu untuk berkonsultasi dengan para wedding planner kami.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <h2 class="contact-title">Hubungi Kami</h2>
+      <p class="contact-text">
+        Alamat : Jl. Tukad Balian No.99, Sidakarya, Denpasar Selatan, Kota
+        Denpasar, Bali 80234<br />
+        Hotline &amp; WhatsApp : +6281238490222<br />
+        Email : wedding.btw@gmail.com<br />
+        Website : www.balitopwedding.com
+      </p>
+
+      <div class="contact-grid">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=600&auto=format&fit=crop" alt="Outdoor wedding aisle" />
+        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=600&auto=format&fit=crop" alt="Evening wedding setup" />
+        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=600&auto=format&fit=crop" alt="Wedding lights" />
+        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=600&auto=format&fit=crop" alt="Wedding reception area" />
+      </div>
+    </section>
+
+    <section class="luxury-section">
+      <h2 class="luxury-title">Luxury and Private Villa Wedding Bali</h2>
+      <p class="luxury-text">
+        Bali Top Wedding memiliki banyak partner luxury and private villa yang
+        sangat cocok dijadikan sebagai venue wedding di Bali. Wedding di private
+        villa di Bali saat ini semakin digemari terutama pengantin yang
+        menginginkan acara lebih private dan flexible. Mulai dari villa - villa
+        diatas tebing, villa - villa dengan taman hijau yang cantik, hingga villa
+        - villa tepi pantai dengan keindahan sunset, dapat kami rekomendasikan
+        sebagai venue \"dream wedding\" kalian.
+      </p>
+      <a class="luxury-link" href="#">Lebih detail</a>
+
+      <div class="flag-grid">
+        <div class="flag-card">
+          <span class="flag jp" aria-hidden="true"></span>
+          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=600&auto=format&fit=crop" alt="Wedding couple in Bali" />
+        </div>
+        <div class="flag-card">
+          <span class="flag my" aria-hidden="true"></span>
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop" alt="Bride and groom" />
+        </div>
+        <div class="flag-card">
+          <span class="flag au" aria-hidden="true"></span>
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=600&auto=format&fit=crop" alt="Wedding ceremony" />
+        </div>
+        <div class="flag-card">
+          <span class="flag de" aria-hidden="true"></span>
+          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=600&auto=format&fit=crop" alt="Wedding reception" />
+        </div>
+      </div>
+    </section>
+
+    <section class="mix-section">
+      <h2 class="mix-title">Mix Nationality Wedding di Bali</h2>
+      <p class="mix-text">
+        Warga Negara Indonesia menikah atau dinikahi oleh warga Negara asing
+        adalah hal wajar di wedding atau nikah campur. Berpengalaman sejak 2014,
+        Bali Top Wedding telah menangani banyak mix nationality wedding baik dari
+        Negara - Negara Asia, Australia, Amerika, hingga Eropa. Untuk
+        mempermudah pasangan - pasangan yang nikah campur, kami menyediakan
+        berbagai paket wedding yang sudah lengkap ataupun custom sesuai
+        permintaan pengantin.
+      </p>
+      <a class="mix-link" href="#">Lebih detail</a>
+    </section>
+
+    <section class="testimonial-section">
+      <h2 class="testimonial-title">Testimonial</h2>
+      <p class="testimonial-lead">
+        Berikut beberapa testimoni beberapa pasangan yang menggelar hari
+        bahagianya bersama kami di Bali.
+      </p>
+
+      <div class="testimonial-card">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=900&auto=format&fit=crop" alt="Wedding testimonial" />
+      </div>
+
+      <div class="testimonial-name">David &amp; Angeline</div>
+      <p class="testimonial-text">
+        Dear Bali Top Wedding, makasih banget kemarin pesta saya sukses sekali.
+        Dekorasinya juga bagus. Wedding planning service pada saat saya wedding
+        sangat memuaskan. Plannernya teratur, tepat waktu, dan sangat membantu
+        saat di Bali. Semoga sukses!
+      </p>
+      <a class="testimonial-more" href="#">More Testimonial</a>
+    </section>
+
+    <section class="testimonial-secondary">
+      <div class="testimonial-card">
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=900&auto=format&fit=crop" alt="Wedding ceremony" />
+      </div>
+
+      <div class="testimonial-name">Chris &amp; Yenny</div>
+      <p class="testimonial-text">
+        Dear Bali Top Wedding, Terima kasih sebanyak banyaknya. Its beyond our
+        expectation the service, decor, mc, singer, documentation. Its not easy
+        having a wedding when u have small baby plus influenza, but it went well.
+        So blessed. For us, our guest impression is important. They all had a
+        good time. Thank you so much to all. The best for you guys.
+      </p>
+      <a class="testimonial-more" href="#">More Testimonial</a>
+    </section>
+
+    <section class="latest-section">
+      <h2 class="latest-title">Latest Client</h2>
+      <p class="latest-lead">
+        Terima kasih sudah mempercayakan acara bahagianya bersama Bali Top
+        Wedding sebagai wedding organizer dan planner terbaik di Bali
+      </p>
+
+      <div class="latest-quote-mark">“</div>
+      <p class="latest-quote">
+        Cinta adalah rahasia sekaligus hadiah yang paling indah dari semesta.
+        Tidak akan tahu kapan, kapan, atau kepada siapa ia akan datang, Ia akan
+        pergi. Maka bersyukurlah dan jaga baik - baik apabila ia sudah
+        mendatangimu.
+      </p>
+      <p class="latest-text">
+        Kami ucapkan selamat atas pernikahannya, semoga selalu berbahagia,
+        romantis, dan selalu saling mendukung hingga hari tua.
+      </p>
+    </section>
+
+    <section class="gallery-section">
+      <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=900&auto=format&fit=crop" alt="Wedding couple portrait" />
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=900&auto=format&fit=crop" alt="Wedding dinner setting" />
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=900&auto=format&fit=crop" alt="Bride and groom table" />
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=900&auto=format&fit=crop" alt="Wedding aisle" />
+        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=900&auto=format&fit=crop" alt="Wedding reception lights" />
+        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=900&auto=format&fit=crop" alt="Wedding couple by the sea" />
+      </div>
+    </section>
+
+    <section class="contact-simple">
+      <h2>Contact Us</h2>
+      <p>
+        CV.VINAYAKA SUKSES MAKMUR<br />
+        Jl. Tukad Balian No.99, Sidakarya, Denpasar Selatan, Kota Denpasar, Bali
+        80234<br />
+        Email : wedding.btw@gmail.com
+      </p>
+      <p>
+        Whats App &amp; Hotline<br />
+        Planner 1 +6281237495930<br />
+        Planner 2 +6281238490222<br />
+        Instagram : balitopwedding
+      </p>
+    </section>
+
+    <section class="association-section">
+      <h2 class="association-title">Tentang Kami</h2>
+      <p class="association-text">
+        Bali Top Wedding adalah badan penyelenggara pernikahan profesional
+        berbasis di Bali. Dibawah badan hukum CV. Vinayaka Sukses Makmur (Nomor:
+        1272 / 22-09 / PK / XI / 2018).
+      </p>
+      <div class="association-logo" aria-label="Bali Wedding Association">
+        <span class="top">Bali Wedding</span>
+        <span class="bottom">Association</span>
+        <span class="center">BW</span>
+      </div>
+    </section>
+
+    <section class="profile-section">
+      <div class="profile-label">Our Profile</div>
+      <div class="profile-video">
+        <iframe
+          src="https://www.youtube.com/embed/aqz-KE-bpKQ"
+          title="Bali Top Wedding - Profile"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="social-title">Social Media</div>
+      <div class="social-icons">
+        <a class="yt" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a class="ig" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a class="fb" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a class="tt" href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
