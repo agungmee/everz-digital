@@ -111,6 +111,10 @@
         <input id="mcHp" name="hp" type="tel" required>
       </label>
 
+      <label for="mcMerk">Merk (Tipe Mobil)
+        <input id="mcMerk" name="merk" type="text" required>
+      </label>
+
       <label for="mcPlat">No Polisi (Plat No)
         <input id="mcPlat" name="plat" type="text" required>
       </label>
@@ -134,6 +138,7 @@
 
       var nama = form.querySelector('[name="nama"]').value.trim();
       var hp = form.querySelector('[name="hp"]').value.trim();
+      var merk = form.querySelector('[name="merk"]').value.trim();
       var plat = form.querySelector('[name="plat"]').value.trim();
       var keluhan = form.querySelector('[name="keluhan"]').value.trim();
 
@@ -142,11 +147,12 @@
         '',
         'Nama Lengkap: ' + nama,
         'No HP: ' + hp,
+        'Merk (Tipe Mobil): ' + merk,
         'No Polisi (Plat No): ' + plat,
         'Keluhan: ' + keluhan
       ].join('\n');
 
-      window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
+      window.open('https://wa.me/628525858626 2?text=' + encodeURIComponent(text), '_blank');
     });
   })();
 </script>
