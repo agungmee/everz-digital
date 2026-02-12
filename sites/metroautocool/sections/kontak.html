@@ -1,0 +1,139 @@
+<style>
+  .mc-contact{
+    background:#050505;
+    color:#ffffff;
+    padding:72px 20px;
+    border-top:1px solid #1f1f1f;
+  }
+
+  .mc-contact-inner{
+    max-width:1120px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+
+  .mc-contact-card{
+    border:1px solid #2a2a2a;
+    background:#111111;
+    padding:20px 18px;
+  }
+
+  .mc-contact-title{
+    margin:0 0 16px;
+    font-size:clamp(34px, 6vw, 56px);
+    line-height:.95;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    font-weight:800;
+  }
+
+  .mc-contact-title span{
+    color:#dc2626;
+  }
+
+  .mc-contact-list{
+    display:grid;
+    gap:10px;
+  }
+
+  .mc-contact-item{
+    border:1px solid #2b2b2b;
+    background:#0a0a0a;
+    padding:10px 12px;
+  }
+
+  .mc-contact-item strong{
+    display:block;
+    color:#dc2626;
+    font-size:18px;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    margin-bottom:3px;
+  }
+
+  .mc-contact-item p,
+  .mc-contact-item a{
+    margin:0;
+    color:#f1f1f1;
+    font-size:20px;
+    line-height:1.2;
+    font-weight:600;
+    text-decoration:none;
+    word-break:break-word;
+  }
+
+  .mc-contact-item a:hover{
+    color:#dc2626;
+  }
+
+  .mc-map-wrap{
+    border:1px solid #2a2a2a;
+    background:#0a0a0a;
+    min-height:420px;
+  }
+
+  .mc-map-wrap iframe{
+    width:100%;
+    height:100%;
+    min-height:420px;
+    border:0;
+    display:block;
+  }
+
+  @media (max-width: 960px){
+    .mc-contact{
+      padding:58px 16px;
+    }
+
+    .mc-contact-inner{
+      grid-template-columns:1fr;
+    }
+
+    .mc-contact-item p,
+    .mc-contact-item a{
+      font-size:18px;
+    }
+
+    .mc-map-wrap,
+    .mc-map-wrap iframe{
+      min-height:320px;
+    }
+  }
+</style>
+
+<section class="mc-contact" id="kontak" aria-label="Kontak Metro Autocool">
+  <div class="mc-contact-inner">
+    <article class="mc-contact-card">
+      <h2 class="mc-contact-title"><span>Kontak</span> Kami</h2>
+      <div class="mc-contact-list">
+        <div class="mc-contact-item">
+          <strong>Alamat</strong>
+          <p>Sutorejo Utara 5 No 12 Surabaya</p>
+        </div>
+        <div class="mc-contact-item">
+          <strong>No HP / WhatsApp</strong>
+          <a href="https://wa.me/?text=Halo%20Metro%20Autocool" target="_blank" rel="noopener">Klik untuk Hubungi via WhatsApp</a>
+        </div>
+        <div class="mc-contact-item">
+          <strong>Email</strong>
+          <a href="mailto:metroautocool512@gmail.com">metroautocool512@gmail.com</a>
+        </div>
+        <div class="mc-contact-item">
+          <strong>Jam Operasional</strong>
+          <p>08.00 - 17.00 (Setiap Hari)</p>
+        </div>
+      </div>
+    </article>
+
+    <div class="mc-map-wrap" aria-label="Peta Lokasi Metro Autocool">
+      <iframe
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Sutorejo+Utara+5+No+12+Surabaya&output=embed">
+      </iframe>
+    </div>
+  </div>
+</section>

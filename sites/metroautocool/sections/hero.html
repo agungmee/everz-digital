@@ -1,0 +1,221 @@
+<style>
+  .mc-hero{
+    position:relative;
+    min-height:calc(100vh - 84px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:64px 20px;
+    overflow:hidden;
+    background:#050505;
+  }
+
+  .mc-hero-bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    filter:brightness(0.45);
+  }
+
+  .mc-hero-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(5,5,5,0.35) 0%, rgba(5,5,5,0.68) 100%);
+  }
+
+  .mc-hero-content{
+    position:relative;
+    z-index:1;
+    max-width:860px;
+    text-align:center;
+    color:#ffffff;
+    margin-top:18px;
+  }
+
+  .mc-hero-content h1{
+    margin:0;
+    font-size:clamp(36px, 7vw, 78px);
+    line-height:0.95;
+    font-weight:800;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+  }
+
+  .mc-hero-content h1 span{
+    color:#dc2626;
+  }
+
+  .mc-hero-subhead{
+    margin:10px 0 0;
+    font-size:clamp(28px, 5vw, 56px);
+    line-height:0.98;
+    font-weight:800;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    color:#ffffff;
+  }
+
+  .mc-hero-subhead span{
+    color:#dc2626;
+  }
+
+  .mc-hero-content p{
+    margin:18px auto 0;
+    max-width:700px;
+    font-size:clamp(18px, 2.3vw, 28px);
+    line-height:1.28;
+    color:#f1f1f1;
+    font-weight:600;
+  }
+
+  .mc-hero-actions{
+    margin-top:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+
+  .mc-hero-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:13px 22px;
+    border-radius:0;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    transition:transform .2s ease, opacity .2s ease;
+  }
+
+  .mc-hero-btn:hover{
+    transform:translateY(-1px);
+    opacity:.95;
+  }
+
+  .mc-hero-btn.primary{
+    background:#dc2626;
+    color:#ffffff;
+    border:1px solid #ef4444;
+  }
+
+  .mc-hero-btn.secondary{
+    background:rgba(5,5,5,0.56);
+    color:#ffffff;
+    border:1px solid rgba(255,255,255,0.48);
+  }
+
+  .mc-hero-meta{
+    margin:16px auto 0;
+    display:grid;
+    gap:6px;
+    justify-items:center;
+  }
+
+  .mc-hero-meta p{
+    margin:0;
+    color:#f3f3f3;
+    font-size:clamp(16px, 2vw, 22px);
+    line-height:1.2;
+    font-weight:700;
+    letter-spacing:.02em;
+  }
+
+  .mc-hero-meta i{
+    color:#dc2626;
+    margin-right:6px;
+  }
+
+  @media (max-width: 900px){
+    .mc-hero{
+      min-height:0;
+      padding:0;
+      align-items:stretch;
+      justify-content:flex-start;
+    }
+
+    .mc-hero-bg{
+      position:relative;
+      display:block;
+      width:200%;
+      max-width:none;
+      height:auto;
+      object-fit:contain;
+      object-position:center top;
+      left:50%;
+      transform:translateX(-50%);
+    }
+
+    .mc-hero-overlay{
+      z-index:1;
+      background:linear-gradient(180deg, rgba(5,5,5,0.22) 0%, rgba(5,5,5,0.85) 82%);
+    }
+
+    .mc-hero-content{
+      position:absolute;
+      left:16px;
+      right:16px;
+      top:50%;
+      bottom:auto;
+      transform:translateY(-50%);
+      z-index:2;
+      margin-top:0;
+    }
+
+    .mc-hero-content p{
+      margin-top:12px;
+      font-size:20px;
+      line-height:1.25;
+    }
+
+    .mc-hero-actions{
+      margin-top:18px;
+      width:100%;
+    }
+
+    .mc-hero-btn{
+      width:100%;
+      font-size:20px;
+      padding:12px 14px;
+    }
+
+    .mc-hero-meta{
+      margin-top:14px;
+      justify-items:start;
+    }
+
+    .mc-hero-meta p{
+      font-size:18px;
+      text-align:left;
+    }
+  }
+</style>
+
+<section class="mc-hero" id="home" aria-label="Hero Metro Autocool">
+  <img class="mc-hero-bg" src="https://halobengkel.com/blog/wp-content/uploads/2024/05/service-ac-mobil-samarinda.jpg" alt="Layanan service AC mobil Metro Autocool">
+  <div class="mc-hero-overlay"></div>
+
+  <div class="mc-hero-content">
+    <h1><span>Metro</span> Autocool</h1>
+    <h2 class="mc-hero-subhead">Service AC Mobil <span>Surabaya</span></h2>
+    <p>Metro Autocool siap bantu AC mobil kamu kembali dingin, nyaman, dan optimal dengan penanganan cepat, detail, dan rapi.</p>
+    <div class="mc-hero-actions">
+      <a class="mc-hero-btn primary" href="https://wa.me/?text=Halo%20Metro%20Autocool" target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        <span>Hubungi Kami</span>
+      </a>
+      <a class="mc-hero-btn secondary" href="#pendaftaran">Daftar Sekarang</a>
+    </div>
+    <div class="mc-hero-meta">
+      <p><i class="fa-regular fa-clock" aria-hidden="true"></i>08.00 - 17.00 Setiap Hari</p>
+      <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Sutorejo Utara 5 No 12 Surabaya</p>
+    </div>
+  </div>
+</section>

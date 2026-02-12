@@ -1,0 +1,149 @@
+<style>
+  .mc-articles{
+    background:#0a0a0a;
+    color:#ffffff;
+    padding:72px 20px;
+    border-top:1px solid #1f1f1f;
+  }
+
+  .mc-articles-inner{
+    max-width:1120px;
+    margin:0 auto;
+  }
+
+  .mc-articles-head{
+    margin:0 0 28px;
+    font-size:clamp(36px, 6vw, 62px);
+    line-height:.95;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    font-weight:800;
+    text-align:center;
+  }
+
+  .mc-articles-head span{
+    color:#dc2626;
+  }
+
+  .mc-articles-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:14px;
+  }
+
+  .mc-article-card{
+    border:1px solid #2a2a2a;
+    background:#111111;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .mc-article-card img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+    display:block;
+  }
+
+  .mc-article-body{
+    padding:14px 14px 16px;
+    display:grid;
+    gap:10px;
+  }
+
+  .mc-article-meta{
+    margin:0;
+    color:#d0d0d0;
+    font-size:15px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+  }
+
+  .mc-article-title{
+    margin:0;
+    color:#ffffff;
+    font-size:29px;
+    line-height:1;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.01em;
+  }
+
+  .mc-article-excerpt{
+    margin:0;
+    color:#e7e7e7;
+    font-size:19px;
+    line-height:1.25;
+    font-weight:600;
+  }
+
+  .mc-article-link{
+    margin-top:2px;
+    display:inline-block;
+    color:#dc2626;
+    font-size:18px;
+    font-weight:800;
+    text-transform:uppercase;
+    text-decoration:none;
+    letter-spacing:.02em;
+  }
+
+  .mc-article-link:hover{
+    color:#ef4444;
+  }
+
+  @media (max-width: 960px){
+    .mc-articles{
+      padding:58px 16px;
+    }
+
+    .mc-articles-grid{
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+
+    .mc-article-card img{
+      height:220px;
+    }
+  }
+</style>
+
+<section class="mc-articles" id="artikel" aria-label="Artikel Terbaru">
+  <div class="mc-articles-inner">
+    <h2 class="mc-articles-head"><span>Artikel</span> Terbaru</h2>
+
+    <div class="mc-articles-grid">
+      <article class="mc-article-card">
+        <img src="https://halobengkel.com/blog/wp-content/uploads/2024/05/service-ac-mobil-samarinda.jpg" alt="Tips merawat AC mobil agar tetap dingin">
+        <div class="mc-article-body">
+          <p class="mc-article-meta">Oleh Admin Metro Autocool • 12 Februari 2026 • 4 Menit Baca</p>
+          <h3 class="mc-article-title">5 Tanda AC Mobil Perlu Segera Diservis</h3>
+          <p class="mc-article-excerpt">Kenali gejala awal seperti hembusan kurang dingin, bau tidak sedap, dan suara tidak normal sebelum kerusakan makin parah.</p>
+          <a class="mc-article-link" href="#kontak">Baca Selengkapnya</a>
+        </div>
+      </article>
+
+      <article class="mc-article-card">
+        <img src="https://repairsmith-prod-wordpress.s3.amazonaws.com/2024/08/car-ac-compressor.jpg" alt="Penyebab kompresor AC mobil bermasalah">
+        <div class="mc-article-body">
+          <p class="mc-article-meta">Oleh Admin Metro Autocool • 10 Februari 2026 • 5 Menit Baca</p>
+          <h3 class="mc-article-title">Penyebab Kompresor AC Mobil Cepat Rusak</h3>
+          <p class="mc-article-excerpt">Mulai dari perawatan yang terlewat sampai kualitas freon, ini faktor penting yang sering memicu performa kompresor menurun.</p>
+          <a class="mc-article-link" href="#kontak">Baca Selengkapnya</a>
+        </div>
+      </article>
+
+      <article class="mc-article-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMUtCbfh3TeMp5QiuE_8l7guyQkhg5TIzEsw&s" alt="Panduan isi freon AC mobil yang tepat">
+        <div class="mc-article-body">
+          <p class="mc-article-meta">Oleh Admin Metro Autocool • 8 Februari 2026 • 3 Menit Baca</p>
+          <h3 class="mc-article-title">Kapan Waktu yang Tepat Isi Freon AC?</h3>
+          <p class="mc-article-excerpt">Isi freon tidak bisa asal tambah. Pahami kapan harus refill dan kapan perlu pengecekan kebocoran agar hasil tetap maksimal.</p>
+          <a class="mc-article-link" href="#kontak">Baca Selengkapnya</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,139 @@
+<style>
+  .mc-tools{
+    background:#050505;
+    color:#ffffff;
+    padding:72px 20px;
+    border-top:1px solid #1f1f1f;
+  }
+
+  .mc-tools-inner{
+    max-width:1120px;
+    margin:0 auto;
+  }
+
+  .mc-tools-head{
+    margin:0 0 28px;
+    font-size:clamp(36px, 6vw, 64px);
+    line-height:0.95;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    font-weight:800;
+    text-align:center;
+  }
+
+  .mc-tools-head span{
+    color:#dc2626;
+  }
+
+  .mc-tools-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:14px;
+  }
+
+  .mc-tool-card{
+    position:relative;
+    min-height:320px;
+    border:1px solid #2a2a2a;
+    overflow:hidden;
+    display:flex;
+    align-items:flex-end;
+    isolation:isolate;
+    background:#111;
+  }
+
+  .mc-tool-bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+    transform:scale(1.02);
+  }
+
+  .mc-tool-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,0.12) 24%, rgba(0,0,0,0.9) 100%);
+    z-index:-1;
+  }
+
+  .mc-tool-body{
+    width:100%;
+    padding:16px 14px;
+  }
+
+  .mc-tool-body h3{
+    margin:0;
+    font-size:30px;
+    line-height:1;
+    font-weight:800;
+    letter-spacing:.01em;
+    text-transform:uppercase;
+    color:#fff;
+  }
+
+  .mc-tool-body p{
+    margin:8px 0 0;
+    color:#e5e5e5;
+    font-size:18px;
+    line-height:1.2;
+    font-weight:600;
+  }
+
+  @media (max-width: 960px){
+    .mc-tools{
+      padding:58px 16px;
+    }
+
+    .mc-tools-grid{
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+
+    .mc-tool-card{
+      min-height:280px;
+    }
+
+    .mc-tool-body h3{
+      font-size:24px;
+    }
+
+    .mc-tool-body p{
+      font-size:17px;
+    }
+  }
+</style>
+
+<section class="mc-tools" id="fasilitas" aria-label="Peralatan dan Fasilitas">
+  <div class="mc-tools-inner">
+    <h2 class="mc-tools-head"><span>Peralatan</span> dan Fasilitas</h2>
+    <div class="mc-tools-grid">
+      <article class="mc-tool-card">
+        <img class="mc-tool-bg" src="https://halobengkel.com/blog/wp-content/uploads/2024/08/flushing-ac-adalah.jpg" alt="Mesin Flushing AC">
+        <div class="mc-tool-body">
+          <h3>Mesin Flushing AC</h3>
+          <p>Membersihkan sirkulasi AC secara menyeluruh agar performa kembali optimal.</p>
+        </div>
+      </article>
+
+      <article class="mc-tool-card">
+        <img class="mc-tool-bg" src="https://www.hondabanyuwangi.xyz/wp-content/uploads/2022/12/WhatsApp-Image-2022-11-22-at-11.53.41-2.jpeg" alt="Ruang tunggu nyaman">
+        <div class="mc-tool-body">
+          <h3>Ruang Tunggu Nyaman</h3>
+          <p>Area tunggu bersih, nyaman, dan aman saat kendaraan kamu sedang dikerjakan.</p>
+        </div>
+      </article>
+
+      <article class="mc-tool-card">
+        <img class="mc-tool-bg" src="https://pjaacmobil.id/wp-content/uploads/2022/08/sparepart-ac-mobil-cibubur.png" alt="Spare Part Lengkap">
+        <div class="mc-tool-body">
+          <h3>Spare Part Lengkap</h3>
+          <p>Ketersediaan part lengkap untuk mempercepat proses servis dan perbaikan.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

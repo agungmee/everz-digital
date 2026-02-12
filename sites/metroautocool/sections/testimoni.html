@@ -1,0 +1,107 @@
+<style>
+  .mc-testi{
+    background:#050505;
+    color:#ffffff;
+    padding:72px 20px;
+    border-top:1px solid #1f1f1f;
+  }
+
+  .mc-testi-inner{
+    max-width:1120px;
+    margin:0 auto;
+    text-align:center;
+  }
+
+  .mc-testi-head{
+    margin:0 0 28px;
+    font-size:clamp(36px, 6vw, 62px);
+    line-height:.95;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    font-weight:800;
+  }
+
+  .mc-testi-head span{
+    color:#dc2626;
+  }
+
+  .mc-testi-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:14px;
+  }
+
+  .mc-testi-card{
+    border:1px solid #2a2a2a;
+    background:#111111;
+    padding:18px 16px;
+    text-align:center;
+  }
+
+  .mc-testi-card .mc-testi-stars{
+    margin:0 0 10px;
+    color:#dc2626;
+    font-size:20px;
+    letter-spacing:2px;
+    line-height:1;
+  }
+
+  .mc-testi-card p{
+    margin:0;
+    color:#e5e5e5;
+    font-size:20px;
+    line-height:1.25;
+    font-weight:600;
+    text-align:center;
+  }
+
+  .mc-testi-card .mc-testi-name{
+    margin:12px 0 0;
+    color:#dc2626;
+    font-size:22px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+  }
+
+  @media (max-width: 960px){
+    .mc-testi{
+      padding:58px 16px;
+    }
+
+    .mc-testi-grid{
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+
+    .mc-testi-card p{
+      font-size:18px;
+    }
+  }
+</style>
+
+<section class="mc-testi" id="testimoni" aria-label="Testimoni Pelanggan">
+  <div class="mc-testi-inner">
+    <h2 class="mc-testi-head"><span>Testimoni</span> Pelanggan</h2>
+
+    <div class="mc-testi-grid">
+      <article class="mc-testi-card">
+        <p class="mc-testi-stars">★★★★★</p>
+        <p>AC mobil saya yang tadinya kurang dingin sekarang jadi dingin maksimal lagi, pengerjaan cepat dan hasilnya memuaskan.</p>
+        <p class="mc-testi-name">Andi Pratama</p>
+      </article>
+
+      <article class="mc-testi-card">
+        <p class="mc-testi-stars">★★★★★</p>
+        <p>Teknisi komunikatif, diagnosa jelas, dan biaya transparan. Sangat rekomendasi untuk service AC mobil di Surabaya.</p>
+        <p class="mc-testi-name">Rina Wulandari</p>
+      </article>
+
+      <article class="mc-testi-card">
+        <p class="mc-testi-stars">★★★★★</p>
+        <p>Datang pas hari libur tetap buka, ruang tunggu nyaman, dan setelah service hembusan AC langsung terasa lebih dingin.</p>
+        <p class="mc-testi-name">Budi Santoso</p>
+      </article>
+    </div>
+  </div>
+</section>

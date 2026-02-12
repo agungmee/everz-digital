@@ -1,0 +1,152 @@
+<style>
+  .mc-register{
+    background:#0a0a0a;
+    color:#ffffff;
+    padding:72px 20px;
+    border-top:1px solid #1f1f1f;
+  }
+
+  .mc-register-inner{
+    max-width:900px;
+    margin:0 auto;
+  }
+
+  .mc-register-head{
+    margin:0 0 24px;
+    font-size:clamp(36px, 6vw, 62px);
+    line-height:.95;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    font-weight:800;
+    text-align:center;
+  }
+
+  .mc-register-head span{
+    color:#dc2626;
+  }
+
+  .mc-register-form{
+    border:1px solid #2a2a2a;
+    background:#111111;
+    padding:20px 18px;
+    display:grid;
+    gap:12px;
+  }
+
+  .mc-register-form label{
+    display:grid;
+    gap:6px;
+    font-size:18px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    color:#f3f3f3;
+  }
+
+  .mc-register-form input,
+  .mc-register-form textarea{
+    width:100%;
+    border:1px solid #333;
+    background:#0a0a0a;
+    color:#ffffff;
+    padding:12px 10px;
+    font:inherit;
+    border-radius:0;
+    outline:none;
+  }
+
+  .mc-register-form input:focus,
+  .mc-register-form textarea:focus{
+    border-color:#dc2626;
+  }
+
+  .mc-register-form textarea{
+    min-height:120px;
+    resize:vertical;
+  }
+
+  .mc-register-submit{
+    margin-top:4px;
+    border:1px solid #ef4444;
+    background:#dc2626;
+    color:#ffffff;
+    padding:12px 14px;
+    font:inherit;
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    cursor:pointer;
+  }
+
+  .mc-register-submit:hover{
+    background:#b91c1c;
+  }
+
+  @media (max-width: 900px){
+    .mc-register{
+      padding:58px 16px;
+    }
+
+    .mc-register-form label{
+      font-size:16px;
+    }
+
+    .mc-register-submit{
+      font-size:20px;
+    }
+  }
+</style>
+
+<section class="mc-register" id="pendaftaran" aria-label="Daftar Servis">
+  <div class="mc-register-inner">
+    <h2 class="mc-register-head"><span>Daftar</span> Servis</h2>
+
+    <form class="mc-register-form" id="mcRegisterForm">
+      <label for="mcNama">Nama Lengkap
+        <input id="mcNama" name="nama" type="text" required>
+      </label>
+
+      <label for="mcHp">No HP
+        <input id="mcHp" name="hp" type="tel" required>
+      </label>
+
+      <label for="mcPlat">No Polisi (Plat No)
+        <input id="mcPlat" name="plat" type="text" required>
+      </label>
+
+      <label for="mcKeluhan">Keluhan
+        <textarea id="mcKeluhan" name="keluhan" required></textarea>
+      </label>
+
+      <button class="mc-register-submit" type="submit">Kirim ke WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var form = document.getElementById('mcRegisterForm');
+    if (!form) return;
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var nama = form.querySelector('[name="nama"]').value.trim();
+      var hp = form.querySelector('[name="hp"]').value.trim();
+      var plat = form.querySelector('[name="plat"]').value.trim();
+      var keluhan = form.querySelector('[name="keluhan"]').value.trim();
+
+      var text = [
+        'Halo Metro Autocool, saya mau daftar servis.',
+        '',
+        'Nama Lengkap: ' + nama,
+        'No HP: ' + hp,
+        'No Polisi (Plat No): ' + plat,
+        'Keluhan: ' + keluhan
+      ].join('\n');
+
+      window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
+    });
+  })();
+</script>

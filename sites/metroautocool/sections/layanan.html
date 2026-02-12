@@ -1,0 +1,196 @@
+<style>
+  .mc-services{
+    background:#0a0a0a;
+    color:#ffffff;
+    padding:72px 20px;
+  }
+
+  .mc-services-inner{
+    max-width:1120px;
+    margin:0 auto;
+  }
+
+  .mc-services-head{
+    margin:0 0 28px;
+    font-size:clamp(36px, 6vw, 64px);
+    line-height:0.95;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    font-weight:800;
+    text-align:center;
+  }
+
+  .mc-services-head span{
+    color:#dc2626;
+  }
+
+  .mc-services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:14px;
+  }
+
+  .mc-service-card{
+    position:relative;
+    min-height:310px;
+    border:1px solid #2a2a2a;
+    background:#111111;
+    overflow:hidden;
+    display:flex;
+    align-items:flex-end;
+    isolation:isolate;
+  }
+
+  .mc-service-bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+    transform:scale(1.02);
+  }
+
+  .mc-service-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,0.12) 24%, rgba(0,0,0,0.88) 100%);
+    z-index:-1;
+  }
+
+  .mc-service-body{
+    width:100%;
+    padding:16px 14px;
+  }
+
+  .mc-service-card h3{
+    margin:0;
+    color:#ffffff;
+    font-size:28px;
+    line-height:1;
+    letter-spacing:.01em;
+    text-transform:uppercase;
+    font-weight:800;
+  }
+
+  .mc-service-card p{
+    margin:8px 0 0;
+    color:#e7e7e7;
+    font-size:18px;
+    line-height:1.2;
+    font-weight:600;
+  }
+
+  .mc-service-book{
+    margin-top:12px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    text-decoration:none;
+    color:#ffffff;
+    background:#dc2626;
+    border:1px solid #ef4444;
+    padding:8px 12px;
+    font-size:18px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+  }
+
+  .mc-service-book:hover{
+    background:#b91c1c;
+  }
+
+  @media (max-width: 960px){
+    .mc-services{
+      padding:58px 16px;
+    }
+
+    .mc-services-grid{
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:12px;
+    }
+  }
+
+  @media (max-width: 640px){
+    .mc-services-grid{
+      grid-template-columns:1fr;
+    }
+
+    .mc-service-card{
+      min-height:280px;
+    }
+
+    .mc-service-card h3{
+      font-size:24px;
+    }
+
+    .mc-service-card p{
+      font-size:18px;
+    }
+  }
+</style>
+
+<section class="mc-services" id="layanan" aria-label="Layanan Kami">
+  <div class="mc-services-inner">
+    <h2 class="mc-services-head"><span>6</span> Layanan Utama</h2>
+
+    <div class="mc-services-grid">
+      <article class="mc-service-card">
+        <img class="mc-service-bg" src="https://halobengkel.com/blog/wp-content/uploads/2024/05/service-ac-mobil-samarinda.jpg" alt="Cek dan Service AC">
+        <div class="mc-service-body">
+          <h3>Cek &amp; Service AC</h3>
+          <p>Pemeriksaan menyeluruh dan servis rutin agar AC mobil tetap dingin stabil.</p>
+          <a class="mc-service-book" href="https://wa.me/?text=Halo%20Metro%20Autocool%2C%20saya%20mau%20booking%20Cek%20%26%20Service%20AC" target="_blank" rel="noopener">Booking</a>
+        </div>
+      </article>
+
+      <article class="mc-service-card">
+        <img class="mc-service-bg" src="https://repairsmith-prod-wordpress.s3.amazonaws.com/2024/08/car-ac-compressor.jpg" alt="Perbaikan Kompresor AC">
+        <div class="mc-service-body">
+          <h3>Perbaikan Kompresor</h3>
+          <p>Perbaikan kompresor AC bermasalah untuk mengembalikan performa pendinginan.</p>
+          <a class="mc-service-book" href="https://wa.me/?text=Halo%20Metro%20Autocool%2C%20saya%20mau%20booking%20Perbaikan%20Kompresor" target="_blank" rel="noopener">Booking</a>
+        </div>
+      </article>
+
+      <article class="mc-service-card">
+        <img class="mc-service-bg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMUtCbfh3TeMp5QiuE_8l7guyQkhg5TIzEsw&s" alt="Isi Freon AC">
+        <div class="mc-service-body">
+          <h3>Isi Freon AC</h3>
+          <p>Pengisian freon sesuai standar tekanan agar hembusan kembali maksimal.</p>
+          <a class="mc-service-book" href="https://wa.me/?text=Halo%20Metro%20Autocool%2C%20saya%20mau%20booking%20Isi%20Freon%20AC" target="_blank" rel="noopener">Booking</a>
+        </div>
+      </article>
+
+      <article class="mc-service-card">
+        <img class="mc-service-bg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJYMyHnYNZP9rXXJAuBj7E9u51HdrXZQ-XhA&s" alt="Ganti Evaporator">
+        <div class="mc-service-body">
+          <h3>Ganti Evaporator</h3>
+          <p>Penggantian evaporator bocor atau rusak dengan pemasangan rapi dan presisi.</p>
+          <a class="mc-service-book" href="https://wa.me/?text=Halo%20Metro%20Autocool%2C%20saya%20mau%20booking%20Ganti%20Evaporator" target="_blank" rel="noopener">Booking</a>
+        </div>
+      </article>
+
+      <article class="mc-service-card">
+        <img class="mc-service-bg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjqZSd25ExdRFRjFJG8ByCXX7blmAydp7nww&s" alt="Bersih Filter Kabin">
+        <div class="mc-service-body">
+          <h3>Bersih Filter Kabin</h3>
+          <p>Pembersihan filter kabin untuk udara kabin lebih bersih dan sehat setiap hari.</p>
+          <a class="mc-service-book" href="https://wa.me/?text=Halo%20Metro%20Autocool%2C%20saya%20mau%20booking%20Bersih%20Filter%20Kabin" target="_blank" rel="noopener">Booking</a>
+        </div>
+      </article>
+
+      <article class="mc-service-card">
+        <img class="mc-service-bg" src="https://asset.kompas.com/crops/_w7mqQp8aTDoGGfjBZx3l400kY8=/60x25:979x637/750x500/data/photo/2025/03/25/67e1b84908f62.jpg" alt="Diagnosa Elektrikal AC Mobil">
+        <div class="mc-service-body">
+          <h3>Diagnosa Elektrikal</h3>
+          <p>Deteksi gangguan kelistrikan AC mobil secara cepat, akurat, dan tepat solusi.</p>
+          <a class="mc-service-book" href="https://wa.me/?text=Halo%20Metro%20Autocool%2C%20saya%20mau%20booking%20Diagnosa%20Elektrikal" target="_blank" rel="noopener">Booking</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

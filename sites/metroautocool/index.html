@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metro Autocool | acmobilsurabaya.com</title>
+  <meta name="description" content="Metro Autocool - Service AC Mobil Surabaya.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --mc-bg:#ffffff;
+      --mc-ink:#050505;
+      --mc-line:#e7e7e7;
+      --mc-accent:#dc2626;
+    }
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    body{
+      font-family:"Barlow Condensed","Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+      color:var(--mc-ink);
+      background:var(--mc-bg);
+      letter-spacing:.02em;
+    }
+    main{
+      padding-top:84px;
+    }
+    @media (max-width: 900px){
+      main{
+        padding-top:72px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div data-include="sections/navbar.html"></div>
+    <div data-include="sections/hero.html"></div>
+    <div data-include="sections/layanan.html"></div>
+    <div data-include="sections/peralatan.html"></div>
+    <div data-include="sections/tentang.html"></div>
+    <div data-include="sections/testimoni.html"></div>
+    <div data-include="sections/artikel.html"></div>
+    <div data-include="sections/pendaftaran.html"></div>
+    <div data-include="sections/kontak.html"></div>
+    <div data-include="sections/footer.html"></div>
+  </main>
+
+  <script>
+    (function () {
+      function runScripts(scripts) {
+        scripts.forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+
+          if (oldScript.src) {
+            newScript.src = oldScript.src;
+          } else {
+            newScript.textContent = oldScript.textContent;
+          }
+
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      }
+
+      function includeSection(node) {
+        var file = node.getAttribute('data-include');
+        if (!file) return Promise.resolve();
+
+        return fetch(file)
+          .then(function (res) {
+            if (!res.ok) throw new Error('Gagal memuat: ' + file);
+            return res.text();
+          })
+          .then(function (html) {
+            var wrapper = document.createElement('div');
+            wrapper.innerHTML = html;
+            var sectionScripts = Array.prototype.slice.call(wrapper.querySelectorAll('script'));
+
+            var frag = document.createDocumentFragment();
+            while (wrapper.firstChild) {
+              frag.appendChild(wrapper.firstChild);
+            }
+
+            node.replaceWith(frag);
+            runScripts(sectionScripts);
+          })
+          .catch(function () {
+            node.innerHTML = '<p style="color:#b91c1c;padding:12px 0;">Section tidak bisa dimuat: ' + file + '</p>';
+          });
+      }
+
+      var includeNodes = Array.prototype.slice.call(document.querySelectorAll('[data-include]'));
+      Promise.all(includeNodes.map(includeSection));
+    })();
+  </script>
+</body>
+</html>
