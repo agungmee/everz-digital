@@ -1,0 +1,273 @@
+<!-- Modals -->
+<div class="aha-modal" id="ahaPackageModal" aria-hidden="true">
+  <div class="aha-modal-backdrop" data-close="1"></div>
+  <div class="aha-modal-panel" role="dialog" aria-modal="true" aria-label="Package booking">
+    <div class="aha-modal-head">
+      <b id="ahaPackageModalTitle">Package Booking</b>
+      <button class="aha-modal-close" type="button" data-close="1" aria-label="Close">✕</button>
+    </div>
+    <div class="aha-modal-body">
+      <form class="aha-form" id="ahaPackageForm">
+        <div class="aha-field" id="ahaPkgNameField">
+          <label for="ahaPkgName">Selected package</label>
+          <input id="ahaPkgName" name="package" type="text" readonly>
+        </div>
+        <div class="aha-field" id="ahaPkgSelectField">
+          <label for="ahaPkgSelect">Select package</label>
+          <select id="ahaPkgSelect" name="package-select">
+            <option value="Ubud Tour A">Ubud Tour A</option>
+            <option value="Ubud Tour B">Ubud Tour B</option>
+            <option value="Kintamani Tour">Kintamani Tour</option>
+            <option value="Tanah Lot Temple + Handara Gate">Tanah Lot Temple + Handara Gate</option>
+            <option value="Lempuyang Temple Heaven Gate">Lempuyang Temple Heaven Gate</option>
+          </select>
+        </div>
+        <div class="aha-field aha-pkg-unit">
+          <label for="ahaPkgPrice">Unit price</label>
+          <input id="ahaPkgPrice" name="unit-price" type="text" readonly>
+        </div>
+        <div class="aha-field" id="ahaPkgVehicleField">
+          <label for="ahaPkgVehicle">Vehicle option</label>
+          <select id="ahaPkgVehicle" name="vehicle">
+            <option value="New Avanza - 6 Seater - IDR 600.000 / 10 Hours">New Avanza - 6 Seater - IDR 600.000 / 10 Hours</option>
+            <option value="Hiace Commuter - 15 Seater - IDR 1.200.000 / 10 Hours">Hiace Commuter - 15 Seater - IDR 1.200.000 / 10 Hours</option>
+            <option value="Innova Reborn - 7 Seater - IDR 1.000.000 / Hours">Innova Reborn - 7 Seater - IDR 1.000.000 / Hours</option>
+            <option value="Elf - 17 Seater - IDR 1.400.000 / Hours">Elf - 17 Seater - IDR 1.400.000 / Hours</option>
+          </select>
+        </div>
+        <div class="aha-field" id="ahaPkgDailyVehicleField">
+          <label>Select vehicle option</label>
+          <div class="aha-vehicle-grid" id="ahaPkgDailyVehicleGrid">
+            <button class="aha-vehicle-card is-active" type="button" data-name="New Avanza" data-seater="6 Seater" data-price="600000" data-image="https://d1g6w7sntckt92.cloudfront.net/public/images/color_option_images/3JloGadsmWh5OPk36rQe3VxbJXbKbO9SinbBAuL1.png">
+              <img src="https://d1g6w7sntckt92.cloudfront.net/public/images/color_option_images/3JloGadsmWh5OPk36rQe3VxbJXbKbO9SinbBAuL1.png" alt="New Avanza">
+              <div class="aha-vehicle-title">New Avanza</div>
+              <div class="aha-vehicle-meta">6 Seater</div>
+              <div class="aha-vehicle-price">IDR 600.000 / 10 hours</div>
+            </button>
+            <button class="aha-vehicle-card" type="button" data-name="Innova Reborn" data-seater="7 Seater" data-price="1000000" data-image="https://res.cloudinary.com/mufautoshow/image/upload/f_auto,f_auto/w_1200/v1608086374/moas/news/1604391565_toyota-innova-reborn-ini-dia-spesifikasi-dan-fitur-barunya.jpg">
+              <img src="https://res.cloudinary.com/mufautoshow/image/upload/f_auto,f_auto/w_1200/v1608086374/moas/news/1604391565_toyota-innova-reborn-ini-dia-spesifikasi-dan-fitur-barunya.jpg" alt="Innova Reborn">
+              <div class="aha-vehicle-title">Innova Reborn</div>
+              <div class="aha-vehicle-meta">7 Seater</div>
+              <div class="aha-vehicle-price">IDR 1.000.000 / 10 hours</div>
+            </button>
+            <button class="aha-vehicle-card" type="button" data-name="Hiace Commuter" data-seater="15 Seater" data-price="1200000" data-image="https://d1g6w7sntckt92.cloudfront.net/public/images/car_gallery_images/NyAkRE6YcSKvUKH7M8i8PCVoQ4uuqkBFpaG4Piy2.jpg">
+              <img src="https://d1g6w7sntckt92.cloudfront.net/public/images/car_gallery_images/NyAkRE6YcSKvUKH7M8i8PCVoQ4uuqkBFpaG4Piy2.jpg" alt="Hiace Commuter">
+              <div class="aha-vehicle-title">Hiace Commuter</div>
+              <div class="aha-vehicle-meta">15 Seater</div>
+              <div class="aha-vehicle-price">IDR 1.200.000 / 10 hours</div>
+            </button>
+            <button class="aha-vehicle-card" type="button" data-name="Elf" data-seater="17 Seater" data-price="1400000" data-image="https://solidtransmalang.com/wp-content/uploads/2018/02/Isuzu-Elf-Long.png">
+              <img src="https://solidtransmalang.com/wp-content/uploads/2018/02/Isuzu-Elf-Long.png" alt="Elf">
+              <div class="aha-vehicle-title">Elf</div>
+              <div class="aha-vehicle-meta">17 Seater</div>
+              <div class="aha-vehicle-price">IDR 1.400.000 / 10 hours</div>
+            </button>
+          </div>
+        </div>
+        <div class="aha-field">
+          <label for="ahaPkgNameInput">Name</label>
+          <input id="ahaPkgNameInput" name="name" type="text" placeholder="Your name" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaPkgPhone">Phone (WhatsApp)</label>
+          <input id="ahaPkgPhone" name="phone" type="tel" placeholder="08xxxxxxxxxx" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaPkgEmail">Email</label>
+          <input id="ahaPkgEmail" name="email" type="email" placeholder="you@email.com" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaPkgDate">Booking date</label>
+          <input id="ahaPkgDate" name="date" type="date" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaPkgPax">Guests (pax)</label>
+          <input id="ahaPkgPax" name="pax" type="number" min="1" value="1" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaPkgTotal" id="ahaPkgTotalLabel">Total price</label>
+          <input id="ahaPkgTotal" name="total" type="text" readonly>
+        </div>
+        <div class="aha-field">
+          <label for="ahaPkgNote">Notes</label>
+          <textarea id="ahaPkgNote" name="note" placeholder="Pickup location, special requests, etc"></textarea>
+        </div>
+        <div class="aha-form-actions">
+          <button class="aha-btn secondary" type="button" data-close="1">Cancel</button>
+          <button class="aha-btn primary" type="submit">Send to WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="aha-modal" id="ahaTransferModal" aria-hidden="true">
+  <div class="aha-modal-backdrop" data-close="1"></div>
+  <div class="aha-modal-panel" role="dialog" aria-modal="true" aria-label="Airport transfer booking">
+    <div class="aha-modal-head">
+      <b id="ahaTransferModalTitle">Airport Transfer Booking</b>
+      <button class="aha-modal-close" type="button" data-close="1" aria-label="Close">✕</button>
+    </div>
+    <div class="aha-modal-body">
+      <div class="aha-book-tabs" role="tablist" aria-label="Booking type">
+        <button class="aha-tab is-active" type="button" data-mode="transfer">Airport Transfer</button>
+        <button class="aha-tab" type="button" data-mode="daily">Daily Tour</button>
+      </div>
+      <form class="aha-form" id="ahaTransferForm">
+        <div class="aha-field">
+          <label for="ahaTfName">Name</label>
+          <input id="ahaTfName" name="name" type="text" placeholder="Your name" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaTfPhone">Phone (WhatsApp)</label>
+          <input id="ahaTfPhone" name="phone" type="tel" placeholder="08xxxxxxxxxx" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaTfEmail">Email</label>
+          <input id="ahaTfEmail" name="email" type="email" placeholder="you@email.com" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaTfVehicle">Vehicle</label>
+          <input id="ahaTfVehicle" name="vehicle" type="text" readonly>
+        </div>
+        <div class="aha-transfer-fields">
+          <div class="aha-field">
+            <label for="ahaTfFrom">From</label>
+            <input id="ahaTfFrom" name="from" type="text" placeholder="Airport (DPS) or pickup location">
+          </div>
+          <div class="aha-field">
+            <label for="ahaTfTo">To</label>
+            <input id="ahaTfTo" name="to" type="text" placeholder="Hotel or destination">
+          </div>
+        </div>
+        <div class="aha-field aha-daily-fields">
+          <label for="ahaTfDailyPackage">Select Daily Tour Package</label>
+          <select id="ahaTfDailyPackage" name="daily-package">
+            <option value="Ubud Tour A">Ubud Tour A</option>
+            <option value="Ubud Tour B">Ubud Tour B</option>
+            <option value="Kintamani Tour">Kintamani Tour</option>
+            <option value="Tanah Lot Temple + Handara Gate">Tanah Lot Temple + Handara Gate</option>
+            <option value="Lempuyang Temple Heaven Gate">Lempuyang Temple Heaven Gate</option>
+          </select>
+        </div>
+        <div class="aha-field">
+          <label for="ahaTfDate">Booking date</label>
+          <input id="ahaTfDate" name="date" type="date">
+        </div>
+        <div class="aha-field">
+          <label for="ahaTfTime">Estimated time</label>
+          <input id="ahaTfTime" name="time" type="time">
+        </div>
+        <div class="aha-field">
+          <label for="ahaTfPrice">Price (Start from)</label>
+          <input id="ahaTfPrice" name="price" type="text" readonly>
+          <div class="aha-field-note">Final price will be confirmed via WhatsApp.</div>
+        </div>
+        <div class="aha-field">
+          <label for="ahaTfNote">Notes</label>
+          <textarea id="ahaTfNote" name="note" placeholder="Flight time, pickup details, etc"></textarea>
+        </div>
+        <div class="aha-form-actions">
+          <button class="aha-btn secondary" type="button" data-close="1">Cancel</button>
+          <button class="aha-btn primary" type="submit">Send to WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="aha-modal" id="ahaInquiryModal" aria-hidden="true">
+  <div class="aha-modal-backdrop" data-close="1"></div>
+  <div class="aha-modal-panel" role="dialog" aria-modal="true" aria-label="Tour or service inquiry">
+    <div class="aha-modal-head">
+      <b id="ahaInquiryTitle">Book This Tour</b>
+      <button class="aha-modal-close" type="button" data-close="1" aria-label="Close">✕</button>
+    </div>
+    <div class="aha-modal-body">
+      <form class="aha-form" id="ahaInquiryForm">
+        <div class="aha-field">
+          <label for="ahaInquiryCategory">Category</label>
+          <input id="ahaInquiryCategory" name="category" type="text" readonly>
+        </div>
+        <div class="aha-field">
+          <label for="ahaInquiryItem">Selected Item</label>
+          <input id="ahaInquiryItem" name="item" type="text" readonly>
+        </div>
+        <div class="aha-field">
+          <label for="ahaInquiryName">Full Name</label>
+          <input id="ahaInquiryName" name="name" type="text" placeholder="Your name" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaInquiryPhone">WhatsApp Number</label>
+          <input id="ahaInquiryPhone" name="phone" type="tel" placeholder="08xxxxxxxxxx" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaInquiryDate">Preferred Date</label>
+          <input id="ahaInquiryDate" name="date" type="date">
+        </div>
+        <div class="aha-field">
+          <label for="ahaInquiryPax">Number of Guests</label>
+          <input id="ahaInquiryPax" name="pax" type="number" min="1" value="1">
+        </div>
+        <div class="aha-field">
+          <label for="ahaInquiryNote">Notes</label>
+          <textarea id="ahaInquiryNote" name="note" placeholder="Pickup area, preferred time, or special request"></textarea>
+        </div>
+        <div class="aha-form-actions">
+          <button class="aha-btn secondary" type="button" data-close="1">Cancel</button>
+          <button class="aha-btn primary" type="submit">Continue to WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="aha-modal" id="ahaBikeBookingModal" aria-hidden="true">
+  <div class="aha-modal-backdrop" data-close="1"></div>
+  <div class="aha-modal-panel" role="dialog" aria-modal="true" aria-label="Bike booking form">
+    <div class="aha-modal-head">
+      <b>Book This Bike</b>
+      <button class="aha-modal-close" type="button" data-close="1" aria-label="Close">✕</button>
+    </div>
+    <div class="aha-modal-body">
+      <form class="aha-form" id="ahaBikeBookingForm">
+        <div class="aha-field">
+          <label for="ahaBikeModel">Selected Bike</label>
+          <input id="ahaBikeModel" name="bike-model" type="text" readonly>
+        </div>
+        <div class="aha-field">
+          <label for="ahaBikeName">Full Name</label>
+          <input id="ahaBikeName" name="name" type="text" placeholder="Your name" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaBikePhone">WhatsApp Number</label>
+          <input id="ahaBikePhone" name="phone" type="tel" placeholder="08xxxxxxxxxx" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaBikeStartDate">Rental Start Date</label>
+          <input id="ahaBikeStartDate" name="start-date" type="date" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaBikeDuration">Rental Duration (Days)</label>
+          <input id="ahaBikeDuration" name="duration" type="number" min="1" value="1" required>
+        </div>
+        <div class="aha-field">
+          <label for="ahaBikePickupTime">Pickup Time</label>
+          <input id="ahaBikePickupTime" name="pickup-time" type="time">
+        </div>
+        <div class="aha-field">
+          <label for="ahaBikePickupLocation">Pickup/Drop-off Location</label>
+          <input id="ahaBikePickupLocation" name="pickup-location" type="text" placeholder="Hotel, airport, or meeting point">
+        </div>
+        <div class="aha-field">
+          <label for="ahaBikeNote">Additional Notes</label>
+          <textarea id="ahaBikeNote" name="note" placeholder="Helmet size, luggage, special request, etc"></textarea>
+        </div>
+        <div class="aha-form-actions">
+          <button class="aha-btn secondary" type="button" data-close="1">Cancel</button>
+          <button class="aha-btn primary" type="submit">Continue to WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
