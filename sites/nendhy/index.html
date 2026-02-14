@@ -896,13 +896,14 @@
       border-radius:22px;
       overflow:hidden;
       min-height:320px;
-      background:#0b1220;
-      box-shadow:0 24px 60px rgba(15,23,42,.15);
+      background:transparent;
+      box-shadow:none;
     }
     .aha-about-slide{
       position:absolute;
       inset:0;
-      background-size:cover;
+      background-size:contain;
+      background-repeat:no-repeat;
       background-position:center;
       opacity:0;
       transform:scale(1.02);
@@ -910,10 +911,7 @@
     }
     .aha-about-slide.active{ opacity:1; transform:scale(1.01); }
     .aha-about-overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.28));
-      pointer-events:none;
+      display:none;
     }
 
     .aha-why-grid{
