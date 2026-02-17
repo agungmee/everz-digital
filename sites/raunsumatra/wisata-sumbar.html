@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>West Sumatra Travel - Raun Sumatra</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/png" href="https://everz-digital.site/wp-content/uploads/2026/01/logo-RAUN-SUMATRA-768x132-removebg-preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -339,6 +340,9 @@
       grid-template-columns:1.1fr 0.9fr;
       align-items:center;
     }
+    .sb-hero-grid > div:first-child{
+      text-align:center;
+    }
     .sb-hero h1{
       margin:0 0 16px;
       font-family:"Fraunces", serif;
@@ -379,14 +383,19 @@
     .sb-section-head{
       display:flex;
       align-items:flex-end;
-      justify-content:space-between;
+      justify-content:center;
       gap:16px;
       margin-bottom:18px;
+      text-align:center;
+    }
+    .sb-section-head > div{
+      text-align:center;
     }
     .sb-section h2{
       margin:0;
       font-family:"Fraunces", serif;
       font-size:30px;
+      text-align:center;
     }
     .sb-chip{
       display:inline-flex;
@@ -469,6 +478,73 @@
       padding:10px 16px;
       border-radius:999px;
       font-size:13px;
+    }
+
+    .sb-consultant{
+      padding:70px 0 30px;
+    }
+
+    .sb-consultant-card{
+      background:rgba(255,255,255,0.92);
+      border-radius:var(--sb-radius);
+      padding:24px 20px;
+      border:1px solid rgba(21,34,26,0.1);
+      box-shadow:var(--sb-shadow);
+      text-align:center;
+    }
+
+    .sb-consultant-title{
+      font-family:"DM Serif Display", serif;
+      font-weight:400;
+      font-size:clamp(22px, 2.4vw, 28px);
+      color:var(--sb-copper);
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      margin:0 0 18px;
+    }
+
+    .sb-consultant-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:14px;
+    }
+
+    .sb-consultant-item{
+      background:#fff;
+      border-radius:16px;
+      padding:16px 10px;
+      border:1px solid rgba(21,34,26,0.08);
+      box-shadow:0 10px 24px rgba(21,34,26,0.14);
+    }
+
+    .sb-consultant-item img{
+      width:78px;
+      height:78px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid rgba(201,106,69,0.25);
+      display:block;
+      margin:0 auto 10px;
+    }
+
+    .sb-consultant-name{
+      margin:0;
+      font-size:14px;
+      font-weight:600;
+      color:#2f6fa3;
+    }
+
+    .sb-consultant-phone{
+      display:inline-block;
+      margin-top:4px;
+      font-size:13px;
+      font-weight:700;
+      color:#2f6fa3;
+      text-decoration:none;
+    }
+
+    .sb-consultant-phone:hover{
+      text-decoration:underline;
     }
 
     .rs-footer{
@@ -581,13 +657,19 @@
       .sb-hero-grid{ grid-template-columns:1fr; }
       .sb-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
       .rs-footer-grid{ grid-template-columns:1fr 1fr; }
+      .sb-consultant-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
     }
     @media(max-width:640px){
       .sb-hero h1{ font-size:34px; }
       .sb-grid{ grid-template-columns:1fr; }
-      .sb-section-head{ flex-direction:column; align-items:flex-start; }
+      .sb-section-head{ flex-direction:column; align-items:center; }
       .sb-banner{ flex-direction:column; align-items:flex-start; }
       .rs-footer-grid{ grid-template-columns:1fr; }
+      .sb-consultant-grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
+      .sb-consultant-item{ padding:10px 6px; }
+      .sb-consultant-item img{ width:58px; height:58px; }
+      .sb-consultant-name{ font-size:12px; }
+      .sb-consultant-phone{ font-size:11px; }
     }
   </style>
 </head>
@@ -603,7 +685,7 @@
           <li><a href="index.html#home">Home</a></li>
           <li><a href="index.html#paket">Packages</a></li>
           <li><a href="wisata-sumbar.html">West Sumatra Travel</a></li>
-          <li><a href="index.html#destinasi">Destinations</a></li>
+          <li><a href="index.html#gallery">Destinations</a></li>
           <li><a href="index.html#tentang">About</a></li>
           <li><a href="index.html#kontak">Contact</a></li>
         </ul>
@@ -631,7 +713,7 @@
       <a href="index.html#home">Home</a>
       <a href="index.html#paket">Packages</a>
       <a href="wisata-sumbar.html">West Sumatra Travel</a>
-      <a href="index.html#destinasi">Destinations</a>
+      <a href="index.html#gallery">Destinations</a>
       <a href="index.html#tentang">About</a>
       <a href="index.html#kontak">Contact</a>
     </nav>
@@ -668,12 +750,17 @@
           void burger.offsetWidth;
           burger.classList.add('bubble');
         });
+        mobile.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobile.classList.remove('open');
+            burger.setAttribute('aria-expanded', 'false');
+          });
+        });
       }
 
-      window.addEventListener('scroll', setScrolled);
+      window.addEventListener('scroll', setScrolled, { passive:true });
       window.addEventListener('resize', syncMobileTop);
-      setScrolled();
-      syncMobileTop();
+      window.addEventListener('load', () => { setScrolled(); syncMobileTop(); });
     })();
   </script>
 
@@ -866,6 +953,31 @@
       <div class="sb-banner">
         <strong>Need a custom West Sumatra route?</strong>
         <a href="index.html#paket">See Tour Packages</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sb-section sb-consultant">
+    <div class="sb-container">
+      <div class="sb-consultant-card" aria-label="Tour Consultant">
+        <h2 class="sb-consultant-title">Tour Consultan</h2>
+        <div class="sb-consultant-grid">
+          <div class="sb-consultant-item">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/02/638c2aab-3307-4eaf-abbf-db9b3eb11783.jpeg" alt="Ms Amie">
+            <p class="sb-consultant-name">Ms. Amie</p>
+            <a class="sb-consultant-phone" href="https://wa.me/628116602898" target="_blank" rel="noopener">08116602898</a>
+          </div>
+          <div class="sb-consultant-item">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/02/523590bc-c41c-40f0-9d2a-393421e099cd.jpeg" alt="Ms Ika">
+            <p class="sb-consultant-name">Ms. Ika</p>
+            <a class="sb-consultant-phone" href="https://wa.me/6281375296122" target="_blank" rel="noopener">081375296122</a>
+          </div>
+          <div class="sb-consultant-item">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/02/b5a5382a-78bf-4e25-b556-cca732a7c793.jpeg" alt="Ms Widia">
+            <p class="sb-consultant-name">Ms. Widia</p>
+            <a class="sb-consultant-phone" href="https://wa.me/628116622898" target="_blank" rel="noopener">08116622898</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
