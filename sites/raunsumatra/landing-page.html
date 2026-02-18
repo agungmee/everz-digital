@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raun Sumatra | Private West Sumatra Tour Packages</title>
+  <meta name="description" content="Book private West Sumatra tour packages with Raun Sumatra. Flexible itineraries, trusted local support, and fast WhatsApp response.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#122015;
+      --ink-soft:#324438;
+      --paper:#f6f1e8;
+      --paper-2:#eee4d1;
+      --leaf:#1f6d4d;
+      --leaf-deep:#165339;
+      --terracotta:#c55b3c;
+      --sand:#dbbf86;
+      --white:#ffffff;
+      --wrap:1120px;
+      --radius:18px;
+      --shadow:0 18px 46px rgba(18,32,21,0.14);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; }
+    body{
+      font-family:"Sora", sans-serif;
+      color:var(--ink);
+      background:linear-gradient(180deg, #f8f3ea 0%, #fff 45%);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:-1;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(31,109,77,0.08), transparent 36%),
+        radial-gradient(circle at 85% 75%, rgba(197,91,60,0.08), transparent 34%);
+    }
+    img{ max-width:100%; display:block; }
+    a{ color:inherit; }
+
+    .container{
+      width:min(var(--wrap), calc(100% - 32px));
+      margin:0 auto;
+      text-align:center;
+    }
+    .btn{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+      border-radius:999px;
+      padding:11px 16px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      border:1px solid transparent;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover{ transform:translateY(-1px); }
+    .btn::after{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-140%;
+      width:120%;
+      height:100%;
+      background:linear-gradient(100deg, transparent 10%, rgba(255,255,255,0.45) 50%, transparent 90%);
+      transition:left .45s ease;
+    }
+    .btn:hover::after{ left:130%; }
+    .btn-primary{
+      background:var(--leaf);
+      color:var(--white);
+      box-shadow:0 12px 26px rgba(31,109,77,0.32);
+    }
+    .btn-primary:hover{ background:var(--leaf-deep); }
+    .btn-ghost{
+      border-color:rgba(18,32,21,0.2);
+      background:rgba(255,255,255,0.9);
+    }
+
+    section{
+      padding:72px 0;
+      position:relative;
+    }
+    h1,h2,h3{
+      margin:0 0 14px;
+      line-height:1.1;
+      font-family:"DM Serif Display", serif;
+      font-weight:400;
+    }
+    h1{ font-size:clamp(34px, 7vw, 62px); }
+    h2{ font-size:clamp(28px, 5vw, 46px); }
+    h3{ font-size:clamp(20px, 3vw, 30px); }
+    p{ margin:0 0 14px; color:var(--ink-soft); }
+
+    .hero{
+      padding-top:72px;
+      background:
+        radial-gradient(720px 360px at 10% 10%, rgba(31,109,77,0.24), transparent 65%),
+        radial-gradient(600px 300px at 90% 0%, rgba(197,91,60,0.2), transparent 60%),
+        linear-gradient(180deg, #f6f1e8 0%, #f2e9dc 100%);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:26px;
+      align-items:center;
+    }
+    .hero-copy p{
+      font-size:18px;
+      max-width:620px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
+      justify-content:center;
+    }
+    .badge-row{
+      margin-top:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:center;
+    }
+    .badge{
+      font-size:12px;
+      font-weight:600;
+      color:var(--ink);
+      background:rgba(255,255,255,0.86);
+      border:1px solid rgba(18,32,21,0.1);
+      border-radius:999px;
+      padding:8px 11px;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .badge:hover{
+      transform:translateY(-2px);
+      border-color:rgba(31,109,77,0.25);
+      box-shadow:0 10px 20px rgba(18,32,21,0.1);
+    }
+    .hero-card{
+      background:rgba(255,255,255,0.86);
+      border:1px solid rgba(18,32,21,0.12);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:18px;
+      transition:transform .28s ease, box-shadow .28s ease;
+    }
+    .hero-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 26px 54px rgba(18,32,21,0.2);
+    }
+    .hero-card img{
+      border-radius:14px;
+      aspect-ratio:4/3;
+      object-fit:cover;
+      margin-bottom:12px;
+      transition:transform .45s ease;
+    }
+    .hero-card:hover img{ transform:scale(1.035); }
+    .hero-mini{
+      font-size:13px;
+      font-weight:600;
+      color:var(--ink-soft);
+      margin-bottom:8px;
+    }
+    .hero-points{
+      margin:0;
+      padding-left:0;
+      list-style-position:inside;
+      text-align:center;
+    }
+    .hero-points li{
+      margin:6px 0;
+      color:var(--ink-soft);
+      font-size:14px;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+    .panel{
+      background:var(--white);
+      border:1px solid rgba(18,32,21,0.09);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 10px 30px rgba(18,32,21,0.07);
+      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+    .panel:hover{
+      transform:translateY(-5px);
+      box-shadow:0 18px 38px rgba(18,32,21,0.13);
+      border-color:rgba(31,109,77,0.2);
+    }
+    .list{
+      margin:12px auto 0;
+      padding-left:0;
+      list-style-position:inside;
+      color:var(--ink-soft);
+      max-width:560px;
+    }
+    .list li{ margin:8px 0; }
+
+    .solution{
+      background:
+        radial-gradient(600px 300px at 75% 40%, rgba(217,180,108,0.25), transparent 65%),
+        #fff;
+    }
+    .steps{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:14px;
+    }
+    .step{
+      border:1px solid rgba(18,32,21,0.1);
+      border-radius:16px;
+      background:#fff;
+      padding:16px;
+      transition:transform .26s ease, box-shadow .26s ease, border-color .26s ease;
+    }
+    .step:hover{
+      transform:translateY(-5px);
+      border-color:rgba(31,109,77,0.24);
+      box-shadow:0 14px 28px rgba(18,32,21,0.1);
+    }
+    .step-num{
+      width:30px;
+      height:30px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:12px;
+      font-weight:800;
+      background:rgba(31,109,77,0.12);
+      color:var(--leaf);
+      margin-bottom:8px;
+      transition:transform .26s ease, background .26s ease;
+    }
+    .step:hover .step-num{
+      transform:scale(1.08);
+      background:rgba(31,109,77,0.2);
+    }
+    .step h3{
+      font-family:"Sora", sans-serif;
+      font-size:17px;
+      font-weight:700;
+      margin:0 0 6px;
+    }
+    .step p{
+      margin:0;
+      font-size:14px;
+    }
+
+    .proof-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      align-items:start;
+    }
+    .stats{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-bottom:14px;
+    }
+    .stat{
+      border-radius:14px;
+      background:var(--paper);
+      border:1px solid rgba(18,32,21,0.08);
+      padding:14px;
+      transition:transform .24s ease, box-shadow .24s ease;
+    }
+    .stat:hover{
+      transform:translateY(-4px);
+      box-shadow:0 12px 24px rgba(18,32,21,0.1);
+    }
+    .stat strong{
+      display:block;
+      font-size:30px;
+      line-height:1;
+      margin-bottom:4px;
+      font-family:"DM Serif Display", serif;
+    }
+    .quote{
+      border-top:3px solid var(--leaf);
+      padding-top:12px;
+      margin:0 0 14px;
+      text-align:center;
+    }
+    .quote-stars{
+      color:#f4b400;
+      letter-spacing:2px;
+      font-size:15px;
+      margin-bottom:6px;
+      line-height:1;
+    }
+    .quote p{
+      font-size:15px;
+      margin:0 0 5px;
+    }
+    .quote span{
+      font-size:13px;
+      color:var(--ink-soft);
+      font-weight:600;
+    }
+    .proof-media img{
+      border-radius:var(--radius);
+      border:1px solid rgba(18,32,21,0.12);
+      box-shadow:var(--shadow);
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+      transition:transform .45s ease, box-shadow .32s ease;
+    }
+    .proof-media img:hover{
+      transform:scale(1.03);
+      box-shadow:0 24px 52px rgba(18,32,21,0.18);
+    }
+
+    .offer{
+      background:linear-gradient(180deg, #fff 0%, #fbf7f0 100%);
+    }
+    .offers{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:14px;
+      margin-top:16px;
+    }
+    .offer-card{
+      background:#fff;
+      border:1px solid rgba(18,32,21,0.1);
+      border-radius:16px;
+      overflow:hidden;
+      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+    .offer-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 20px 42px rgba(18,32,21,0.14);
+      border-color:rgba(31,109,77,0.24);
+    }
+    .offer-card img{
+      width:100%;
+      aspect-ratio:16/9;
+      object-fit:cover;
+      transition:transform .5s ease;
+    }
+    .offer-card:hover img{
+      transform:scale(1.05);
+    }
+    .offer-body{ padding:16px; }
+    .offer-title{
+      margin:0 0 5px;
+      font-family:"Sora", sans-serif;
+      font-size:17px;
+      font-weight:700;
+      line-height:1.35;
+    }
+    .offer-sub{
+      margin:0 0 9px;
+      font-size:13px;
+      color:var(--ink-soft);
+    }
+    .offer-price{
+      margin:0;
+      font-size:18px;
+      font-weight:700;
+      color:var(--leaf);
+    }
+    .offer-meta{
+      margin-top:5px;
+      font-size:12px;
+      color:var(--ink-soft);
+    }
+
+    .faq-wrap{
+      max-width:860px;
+      margin:0 auto;
+    }
+    .faq{
+      border:1px solid rgba(18,32,21,0.12);
+      border-radius:14px;
+      background:#fff;
+      margin-bottom:10px;
+      overflow:hidden;
+      transition:border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+    }
+    .faq:hover{
+      border-color:rgba(31,109,77,0.28);
+      box-shadow:0 10px 22px rgba(18,32,21,0.09);
+      transform:translateY(-2px);
+    }
+    .faq summary{
+      list-style:none;
+      cursor:pointer;
+      padding:14px 16px;
+      font-weight:700;
+      font-size:15px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      text-align:left;
+      transition:color .22s ease, background .22s ease;
+    }
+    .faq summary::-webkit-details-marker{ display:none; }
+    .faq summary::after{
+      content:"+";
+      width:24px;
+      height:24px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      font-size:16px;
+      font-weight:700;
+      color:var(--leaf-deep);
+      background:rgba(31,109,77,0.12);
+      border:1px solid rgba(31,109,77,0.18);
+      transition:transform .25s ease, background .25s ease, color .25s ease;
+    }
+    .faq-body{
+      max-height:0;
+      opacity:0;
+      overflow:hidden;
+      transform:translateY(-6px);
+      transition:max-height .35s ease, opacity .3s ease, transform .3s ease;
+    }
+    .faq p{
+      padding:0 16px 16px;
+      margin:0;
+      font-size:14px;
+      text-align:left;
+    }
+    .faq[open] summary{
+      color:var(--leaf-deep);
+      background:rgba(31,109,77,0.05);
+    }
+    .faq[open] summary::after{
+      content:"−";
+      color:#fff;
+      background:var(--leaf);
+      transform:rotate(180deg);
+    }
+    .faq[open] .faq-body{
+      max-height:180px;
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .final-cta{
+      background:
+        radial-gradient(560px 300px at 15% 80%, rgba(31,109,77,0.26), transparent 70%),
+        radial-gradient(560px 300px at 90% 0%, rgba(197,91,60,0.18), transparent 65%),
+        #0f1f17;
+      color:#fff;
+      text-align:center;
+    }
+    .final-cta p{
+      color:rgba(255,255,255,0.86);
+      max-width:780px;
+      margin:0 auto 18px;
+    }
+    .final-actions{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .reveal{
+      opacity:0;
+      transform:translateY(24px) scale(.985);
+      transition:opacity .65s ease, transform .65s ease;
+      will-change:opacity, transform;
+    }
+    .reveal.is-visible{
+      opacity:1;
+      transform:translateY(0) scale(1);
+    }
+
+    @media (max-width:980px){
+      .hero-grid,.split,.proof-grid{ grid-template-columns:1fr; }
+      .steps{ grid-template-columns:1fr 1fr; }
+      .offers{ grid-template-columns:1fr; }
+    }
+    @media (max-width:680px){
+      section{ padding:58px 0; }
+      .hero{ padding-top:58px; }
+      .hero-copy p{ font-size:16px; }
+      .steps,.stats{ grid-template-columns:1fr; }
+    }
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
+      }
+      .reveal{
+        opacity:1;
+        transform:none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Enjoy West Sumatra without the planning stress.</h1>
+          <p>
+            Private itineraries, local experts, and responsive support from Raun Sumatra.
+            You focus on the experience, we handle the route, timing, and trip flow.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/628116602898?text=Hello%20Raun%20Sumatra%2C%20I%20want%20to%20book%20a%20West%20Sumatra%20tour." target="_blank" rel="noopener noreferrer">Start My Trip Plan</a>
+            <a class="btn btn-ghost" href="#offer">See Packages</a>
+          </div>
+          <div class="badge-row">
+            <span class="badge">Trusted by 1,000+ guests</span>
+            <span class="badge">Fast WhatsApp response</span>
+            <span class="badge">Flexible route options</span>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <img src="http://raunsumatra.com/wp-content/uploads/2026/02/padang-sumatra-indonesia-travel-photo-20240703182607902-main-image.jpg" alt="Padang West Sumatra landscape">
+          <div class="hero-mini">What you get with every package</div>
+          <ul class="hero-points">
+            <li>Private tour basis with local support</li>
+            <li>Clear itinerary before booking</li>
+            <li>Friendly guides and reliable transport</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="problem">
+      <div class="container split">
+        <article class="panel">
+          <h2>Most West Sumatra trips fail before they start.</h2>
+          <ul class="list">
+            <li>Unclear route and timing across many destinations.</li>
+            <li>No confidence in transport quality and guide reliability.</li>
+            <li>Slow communication when you need quick decisions.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <h2>One weak plan can waste your entire holiday.</h2>
+          <ul class="list">
+            <li>You lose time in transit and skip top destinations.</li>
+            <li>Budget grows because of last-minute changes.</li>
+            <li>The trip feels rushed instead of memorable.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="solution" id="solution">
+      <div class="container">
+        <h2>Raun Sumatra builds your route from local experience.</h2>
+        <p>
+          We design the trip around your pace, group type, and available days.
+          You review a clear itinerary first, then travel with on-ground support.
+        </p>
+        <div class="steps">
+          <article class="step">
+            <span class="step-num">01</span>
+            <h3>Share your dates</h3>
+            <p>Tell us your travel window and group size.</p>
+          </article>
+          <article class="step">
+            <span class="step-num">02</span>
+            <h3>Get route options</h3>
+            <p>Pick your preferred package and flow.</p>
+          </article>
+          <article class="step">
+            <span class="step-num">03</span>
+            <h3>Travel with support</h3>
+            <p>Our team handles coordination from start to finish.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof">
+      <div class="container proof-grid">
+        <div>
+          <h2>Guests trust us because the trip runs as promised.</h2>
+          <div class="stats">
+            <div class="stat">
+              <strong>1,000+</strong>
+              <span>Guests served</span>
+            </div>
+            <div class="stat">
+              <strong>4</strong>
+              <span>Private tour packages ready</span>
+            </div>
+          </div>
+          <blockquote class="quote">
+            <div class="quote-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"The itinerary was smooth and beautifully paced. Every stop was exactly as promised."</p>
+            <span>Alice Morgan, Bukittinggi Highland Escape</span>
+          </blockquote>
+          <blockquote class="quote">
+            <div class="quote-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"Our guide was kind, knowledgeable, and knew the best photo spots."</p>
+            <span>James Lee, Padang City &amp; Culture Tour</span>
+          </blockquote>
+        </div>
+        <div class="proof-media">
+          <img src="http://raunsumatra.com/wp-content/uploads/2026/02/jam-gadang_1999979717.jpg" alt="Jam Gadang Bukittinggi">
+        </div>
+      </div>
+    </section>
+
+    <section class="offer" id="offer">
+      <div class="container">
+        <h2>Choose your private West Sumatra package.</h2>
+        <p>All package details are valid until 20 December 2026.</p>
+        <div class="offers">
+          <article class="offer-card">
+            <img src="http://raunsumatra.com/wp-content/uploads/2026/02/padang-sumatra-indonesia-travel-photo-20240703182607902-main-image.jpg" alt="Padang West Sumatra landscape">
+            <div class="offer-body">
+              <h3 class="offer-title">5D 4N Explore Alahan Panjang - Bukittinggi - Padang</h3>
+              <p class="offer-sub">1 nite Alahan Panjang / 2 nites Bukittinggi / 1 nite Padang</p>
+              <p class="offer-price">From Rp. 4.140.000 / pax</p>
+              <p class="offer-meta">Private tour basis</p>
+            </div>
+          </article>
+          <article class="offer-card">
+            <img src="http://raunsumatra.com/wp-content/uploads/2026/02/jam-gadang_1999979717.jpg" alt="Jam Gadang Bukittinggi">
+            <div class="offer-body">
+              <h3 class="offer-title">4D 3N Explore Alahan Panjang - Bukittinggi</h3>
+              <p class="offer-sub">1 nite Alahan / 1 nite Bukittinggi / 1 nite Padang</p>
+              <p class="offer-price">From Rp. 3.375.000 / pax</p>
+              <p class="offer-meta">Private tour basis</p>
+            </div>
+          </article>
+          <article class="offer-card">
+            <img src="https://astradigitaldigiroomuat.blob.core.windows.net/storage-uat-001/tempat-wisata-di-padang.jpg" alt="Padang coastal scenery">
+            <div class="offer-body">
+              <h3 class="offer-title">4D 3N Explore Padang - Bukittinggi</h3>
+              <p class="offer-sub">2 nites Bukittinggi / 1 nite Padang</p>
+              <p class="offer-price">From Rp. 3.015.000 / pax</p>
+              <p class="offer-meta">Private tour basis</p>
+            </div>
+          </article>
+          <article class="offer-card">
+            <img src="http://raunsumatra.com/wp-content/uploads/2026/02/db9f488ba033c63667e6e056ad55e5c0.jpg" alt="Pandai Sikek village">
+            <div class="offer-body">
+              <h3 class="offer-title">5D 4N Explore Padang - Bukittinggi</h3>
+              <p class="offer-sub">3 nites Bukittinggi / 1 nite Padang</p>
+              <p class="offer-price">From Rp. 3.895.000 / pax</p>
+              <p class="offer-meta">Private tour basis</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container faq-wrap">
+        <h2>Common questions before booking.</h2>
+        <details class="faq" open>
+          <summary>Are these private or group tours?</summary>
+          <div class="faq-body">
+            <p>These packages are arranged on a private tour basis with local support.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>How fast can I get a response?</summary>
+          <div class="faq-body">
+            <p>Raun Sumatra provides fast response on WhatsApp during online hours: Mon-Sat, 08:00-17:00 UTC+7.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>Can we request a custom itinerary?</summary>
+          <div class="faq-body">
+            <p>Yes. You can ask for a custom route based on your dates, group size, and destination preferences.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>How do I start booking?</summary>
+          <div class="faq-body">
+            <p>Click the WhatsApp button, share your preferred package and travel date, and our consultant will guide you.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="final-cta" id="cta">
+      <div class="container">
+        <h2>Secure your West Sumatra trip with a clear plan today.</h2>
+        <p>
+          Chat with our team on WhatsApp to get package recommendations, date availability,
+          and your booking steps in one quick conversation.
+        </p>
+        <div class="final-actions">
+          <a class="btn btn-primary" href="https://wa.me/628116602898?text=Hello%20Raun%20Sumatra%2C%20please%20help%20me%20choose%20the%20best%20tour%20package." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    (function(){
+      var selectors = [
+        ".hero-copy",
+        ".hero-card",
+        ".panel",
+        ".step",
+        ".stat",
+        ".quote",
+        ".proof-media",
+        ".offer-card",
+        ".faq",
+        ".final-cta .container > *"
+      ];
+      var nodes = document.querySelectorAll(selectors.join(","));
+      nodes.forEach(function(node){ node.classList.add("reveal"); });
+      if(!("IntersectionObserver" in window)){
+        nodes.forEach(function(node){ node.classList.add("is-visible"); });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16, rootMargin: "0px 0px -6% 0px" });
+      nodes.forEach(function(node){ observer.observe(node); });
+    })();
+  </script>
+</body>
+</html>
