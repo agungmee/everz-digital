@@ -38,7 +38,7 @@
       color: var(--white);
       background-image:
         linear-gradient(var(--overlay), var(--overlay)),
-        url("https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1400&auto=format&fit=crop");
+        url("https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1600");
       background-size: cover;
       background-position: center;
       display: flex;
@@ -99,21 +99,19 @@
     }
 
     .logo-flower {
-      width: 110px;
+      width: 120px;
       height: 90px;
       margin: 0 auto 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: "Playfair Display", serif;
-      font-size: 44px;
-      letter-spacing: 0.18em;
-      color: #e21124;
     }
 
-    .logo-flower span {
-      display: inline-block;
-      transform: translateX(4px);
+    .logo-flower img {
+      width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .brand-title {
@@ -133,19 +131,110 @@
       text-transform: uppercase;
     }
 
+    .menu-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
     .menu-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-size: 11px;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #d6458d;
       text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 0;
     }
 
     .menu-link span {
       font-weight: 600;
+    }
+
+    .menu-list {
+      list-style: none;
+      margin: 10px 0 0;
+      padding: 8px 0;
+      min-width: 220px;
+      background: #ffffff;
+      border: 1px solid #f0d3e1;
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      text-align: left;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: none;
+    }
+
+    .menu-dropdown.is-open .menu-list {
+      display: block;
+    }
+
+    .menu-list a {
+      display: block;
+      padding: 9px 14px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: #6a2f50;
+      text-decoration: none;
+    }
+
+    .menu-list a:hover {
+      background: #fff1f8;
+    }
+
+    .submenu {
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid #f7e8f0;
+    }
+
+    .submenu summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 9px 14px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: #6a2f50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .submenu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .submenu summary::after {
+      content: "+";
+      font-weight: 700;
+      color: #8d5a76;
+    }
+
+    .submenu[open] summary::after {
+      content: "-";
+    }
+
+    .submenu-list {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 6px;
+      background: #fff8fc;
+      border-top: 1px solid #f2dce8;
+    }
+
+    .submenu-list a {
+      padding-left: 22px;
+      font-size: 11.5px;
     }
 
     .quote-section {
@@ -389,52 +478,6 @@
       display: block;
     }
 
-    .flag {
-      position: absolute;
-      top: 6px;
-      left: 6px;
-      width: 20px;
-      height: 14px;
-      border-radius: 2px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-    }
-
-    .flag::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(#ffffff 0 50%, #e11d2a 50% 100%);
-    }
-
-    .flag.jp::before {
-      background: #ffffff;
-    }
-
-    .flag.jp::after {
-      content: "";
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #d91f2a;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .flag.de::before {
-      background: linear-gradient(#000000 0 33%, #dd0000 33% 66%, #ffce00 66% 100%);
-    }
-
-    .flag.my::before {
-      background: linear-gradient(#cc0000 0 50%, #ffffff 50% 100%);
-    }
-
-    .flag.au::before {
-      background: linear-gradient(#00008b 0 50%, #ffffff 50% 100%);
-    }
-
     .mix-section {
       padding: 26px 18px 44px;
       background: #ffffff;
@@ -643,46 +686,18 @@
 
     .association-logo {
       width: 150px;
-      height: 150px;
+      height: 120px;
       margin: 0 auto;
-      border: 2px solid #333333;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-family: "Playfair Display", serif;
-      font-size: 12px;
-      color: #333333;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .association-logo::before {
-      content: "";
-      position: absolute;
-      width: 76px;
-      height: 76px;
-      border: 2px solid #333333;
-      border-radius: 50%;
-    }
-
-    .association-logo span {
-      position: absolute;
+    .association-logo img {
       width: 100%;
-      text-align: center;
-    }
-
-    .association-logo .top {
-      top: 18px;
-    }
-
-    .association-logo .bottom {
-      bottom: 18px;
-    }
-
-    .association-logo .center {
-      font-size: 20px;
-      letter-spacing: 0;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .profile-section {
@@ -690,6 +705,7 @@
       background: #ffffff;
       border-top: 1px solid #f0f0f0;
       color: #4a4a4a;
+      text-align: center;
     }
 
     .profile-label {
@@ -698,23 +714,6 @@
       text-transform: uppercase;
       color: #9a9a9a;
       margin: 0 0 10px;
-    }
-
-    .profile-video {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-      background: #000000;
-      margin-bottom: 18px;
-    }
-
-    .profile-video iframe {
-      width: 100%;
-      height: 180px;
-      border: 0;
-      display: block;
     }
 
     .social-title {
@@ -727,6 +726,7 @@
       display: flex;
       gap: 12px;
       align-items: center;
+      justify-content: center;
     }
 
     .social-icons a {
@@ -738,6 +738,17 @@
     .social-icons .ig { color: #e4405f; }
     .social-icons .fb { color: #1877f2; }
     .social-icons .tt { color: #010101; }
+
+    .site-footer {
+      padding: 14px 18px 24px;
+      text-align: center;
+      font-size: 10.5px;
+      color: #8b8b8b;
+      border-top: 1px solid #f0f0f0;
+      background: #ffffff;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
 
     .whatsapp-sticky {
       position: fixed;
@@ -785,7 +796,7 @@
       <div class="hero-content">
         <h1 class="hero-title">Planning to get married in Bali</h1>
         <p class="hero-subtitle">
-          Bali Top Wedding Offers the Best Bali Wedding Planner, Wedding Organizer
+          Bali Best Wedding Offers the Best Bali Wedding Planner, Wedding Organizer
           Services and Various Bali Wedding Package.
         </p>
         <a class="cta" href="#">Our Wedding Packages</a>
@@ -794,13 +805,47 @@
 
     <section class="info-section">
       <div class="logo-flower" aria-label="BW logo">
-        <span>BW</span>
+        <img src="https://everz-digital.site/wp-content/uploads/2026/02/7282d7b3-a806-4a12-b2ad-9c800461c6dd-removebg-preview.png" alt="Bali Best Wedding logo" />
       </div>
 
-      <div class="brand-title">Bali Top Wedding</div>
+      <div class="brand-title">Bali Best Wedding</div>
 
       <p class="tagline">Create, Care, Commit</p>
-      <a class="menu-link" href="#"><span>≡</span> Menu</a>
+      <div class="menu-dropdown" id="menuDropdown">
+        <button class="menu-link" id="menuTrigger" type="button" aria-expanded="false" aria-controls="menuList">
+          <span>≡</span> Menu
+        </button>
+        <ul class="menu-list" id="menuList" role="menu">
+          <li role="none"><a role="menuitem" href="paket-awal-2026.html">Paket Awal 2026</a></li>
+          <li role="none">
+            <details class="submenu">
+              <summary>Paket Wedding 2026</summary>
+              <ul class="submenu-list">
+                <li role="none"><a role="menuitem" href="paket-wedding-2026-100juta.html">Paket Wedding 100Juta</a></li>
+                <li role="none"><a role="menuitem" href="paket-wedding-2026-200juta.html">Paket Wedding 200Juta</a></li>
+                <li role="none"><a role="menuitem" href="paket-wedding-2026-300juta.html">Paket Wedding 300Juta</a></li>
+                <li role="none"><a role="menuitem" href="paket-wedding-2026-400juta.html">Paket Wedding 400Juta</a></li>
+                <li role="none"><a role="menuitem" href="paket-wdding-diatas-500juta.html">Paket Wdding Diatas 500juta</a></li>
+              </ul>
+            </details>
+          </li>
+          <li role="none">
+            <details class="submenu">
+              <summary>Packages</summary>
+              <ul class="submenu-list">
+                <li role="none"><a role="menuitem" href="paket-elopment-2026.html">Paket Elopment</a></li>
+                <li role="none"><a role="menuitem" href="paket-pernikahan-resepsi.html">Paket Pernikahan &amp; Resepsi</a></li>
+              </ul>
+            </details>
+          </li>
+          <li role="none"><a role="menuitem" href="foto-video-prewedding-bali.html">Foto &amp; Video Prewedding di Bali</a></li>
+          <li role="none"><a role="menuitem" href="about-us.html">About Us</a></li>
+          <li role="none"><a role="menuitem" href="promo-wedding-katolik-2026.html">Promo Wedding Katolik 2026</a></li>
+          <li role="none"><a role="menuitem" href="paket-terbaik-2026.html">Paket Terbaik 2026</a></li>
+          <li role="none"><a role="menuitem" href="paket-wedding-2027.html">Paket Wedding 2027</a></li>
+          <li role="none"><a role="menuitem" href="paket-prewedding.html">Paket Prewedding</a></li>
+        </ul>
+      </div>
     </section>
 
     <section class="quote-section">
@@ -813,12 +858,12 @@
       <div class="video-card" aria-label="Wedding video preview">
         <img
           class="video-thumb"
-          src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=900&auto=format&fit=crop"
+          src="https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=1200"
           alt="Wedding video thumbnail"
         />
         <div class="video-meta">
           <p class="video-title">Cliff Villa Wedding | Gorgeous C</p>
-          <p class="video-subtitle">Bali Top Wedding</p>
+          <p class="video-subtitle">Bali Best Wedding</p>
         </div>
         <div class="video-overlay">
           <div class="play-button" aria-hidden="true"></div>
@@ -829,15 +874,15 @@
     <section class="about-section">
       <h2 class="about-title">Tentang Kami</h2>
       <p class="about-text">
-        Berdiri di tahun 2010, Bali Top Wedding adalah wedding organizer dan
-        wedding planner yang berbasis di Bali. Pada tahun 2014, Bali Top Wedding
-        telah mendapat sertifikat profesional dibawah payung hukum CV. Vinako.
-        Sukses Makmur. Dua tahun setelahnya, yaitu tahun 2016, kami dipercaya
+        Berdiri di tahun 2010, Bali Best Wedding adalah wedding organizer dan
+        wedding planner yang berbasis di Bali. Sejak 2014, Bali Best Wedding
+        terus berkembang dengan standar kerja profesional. Dua tahun setelahnya,
+        yaitu tahun 2016, kami dipercaya
         untuk bergabung dan menjadi anggota di Bali Wedding Association, sebuah
         asosiasi resmi para penyelenggara pernikahan profesional di Bali.
       </p>
       <p class="about-text">
-        Bali Top Wedding menyediakan berbagai paket wedding di Bali yang tidak
+        Bali Best Wedding menyediakan berbagai paket wedding di Bali yang tidak
         hanya untuk para pengantin domestik, bahkan juga internasional. Paket -
         paket wedding tersebut telah dirancang sedemikian rupa untuk mengurangi
         bahkan menghilangkan stress pengantin dalam mempersiapkan weddingnya.
@@ -850,7 +895,7 @@
         bintang 5 yang kami peroleh di beberapa website dan mesin pencari di
         internet menjadi bukti keseriusan kami dalam mengerjakan sebuah wedding.
         Tidak lupa kami mengucapkan terima kasih untuk semua pengantin yang telah
-        mempercayakan penyelenggaraan acaranya kepada Bali Top Wedding.
+        mempercayakan penyelenggaraan acaranya kepada Bali Best Wedding.
       </p>
     </section>
 
@@ -905,7 +950,7 @@
         <div class="service-name">5. Paket Resepsi</div>
         <p class="service-desc">
           Bagi para pengantin yang ingin melakukan hanya resepsi saja di Bali,
-          tentunya sangat cocok mengambil paket ini. Tim Bali Top Wedding dengan
+          tentunya sangat cocok mengambil paket ini. Tim Bali Best Wedding dengan
           senang hati akan memberikan ide - ide kreatif untuk membuat acara
           selalu dikenang.
         </p>
@@ -927,23 +972,23 @@
       <p class="contact-text">
         Alamat : Jl. Tukad Balian No.99, Sidakarya, Denpasar Selatan, Kota
         Denpasar, Bali 80234<br />
-        Hotline &amp; WhatsApp : +6281238490222<br />
-        Email : wedding.btw@gmail.com<br />
-        Website : www.balitopwedding.com
+        Hotline &amp; WhatsApp : +62 822-6647-6876<br />
+        Email : info@balibestwedding.com<br />
+        Website : balibestwedding.com
       </p>
 
       <div class="contact-grid">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=600&auto=format&fit=crop" alt="Outdoor wedding aisle" />
-        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=600&auto=format&fit=crop" alt="Evening wedding setup" />
-        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=600&auto=format&fit=crop" alt="Wedding lights" />
-        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=600&auto=format&fit=crop" alt="Wedding reception area" />
+        <img src="https://unsplash.com/photos/Ikm6d70CBuA/download?force=true&w=900" alt="Outdoor wedding aisle" />
+        <img src="https://unsplash.com/photos/SZhc5vXcE8I/download?force=true&w=900" alt="Evening wedding setup" />
+        <img src="https://unsplash.com/photos/PEBYTP0jzps/download?force=true&w=900" alt="Wedding lights" />
+        <img src="https://unsplash.com/photos/8hOc0cL-fbE/download?force=true&w=900" alt="Wedding reception area" />
       </div>
     </section>
 
     <section class="luxury-section">
       <h2 class="luxury-title">Luxury and Private Villa Wedding Bali</h2>
       <p class="luxury-text">
-        Bali Top Wedding memiliki banyak partner luxury and private villa yang
+        Bali Best Wedding memiliki banyak partner luxury and private villa yang
         sangat cocok dijadikan sebagai venue wedding di Bali. Wedding di private
         villa di Bali saat ini semakin digemari terutama pengantin yang
         menginginkan acara lebih private dan flexible. Mulai dari villa - villa
@@ -955,20 +1000,16 @@
 
       <div class="flag-grid">
         <div class="flag-card">
-          <span class="flag jp" aria-hidden="true"></span>
-          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=600&auto=format&fit=crop" alt="Wedding couple in Bali" />
+          <img src="https://unsplash.com/photos/rPTaijbN4-s/download?force=true&w=900" alt="Wedding couple in Bali" />
         </div>
         <div class="flag-card">
-          <span class="flag my" aria-hidden="true"></span>
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop" alt="Bride and groom" />
+          <img src="https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=900" alt="Bride and groom" />
         </div>
         <div class="flag-card">
-          <span class="flag au" aria-hidden="true"></span>
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=600&auto=format&fit=crop" alt="Wedding ceremony" />
+          <img src="https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=900" alt="Wedding ceremony" />
         </div>
         <div class="flag-card">
-          <span class="flag de" aria-hidden="true"></span>
-          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=600&auto=format&fit=crop" alt="Wedding reception" />
+          <img src="https://unsplash.com/photos/PEBYTP0jzps/download?force=true&w=900" alt="Wedding reception" />
         </div>
       </div>
     </section>
@@ -978,7 +1019,7 @@
       <p class="mix-text">
         Warga Negara Indonesia menikah atau dinikahi oleh warga Negara asing
         adalah hal wajar di wedding atau nikah campur. Berpengalaman sejak 2014,
-        Bali Top Wedding telah menangani banyak mix nationality wedding baik dari
+        Bali Best Wedding telah menangani banyak mix nationality wedding baik dari
         Negara - Negara Asia, Australia, Amerika, hingga Eropa. Untuk
         mempermudah pasangan - pasangan yang nikah campur, kami menyediakan
         berbagai paket wedding yang sudah lengkap ataupun custom sesuai
@@ -995,12 +1036,12 @@
       </p>
 
       <div class="testimonial-card">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=900&auto=format&fit=crop" alt="Wedding testimonial" />
+        <img src="https://unsplash.com/photos/FRMgWWQg_2U/download?force=true&w=1400" alt="Wedding testimonial" />
       </div>
 
       <div class="testimonial-name">David &amp; Angeline</div>
       <p class="testimonial-text">
-        Dear Bali Top Wedding, makasih banget kemarin pesta saya sukses sekali.
+        Dear Bali Best Wedding, makasih banget kemarin pesta saya sukses sekali.
         Dekorasinya juga bagus. Wedding planning service pada saat saya wedding
         sangat memuaskan. Plannernya teratur, tepat waktu, dan sangat membantu
         saat di Bali. Semoga sukses!
@@ -1010,12 +1051,12 @@
 
     <section class="testimonial-secondary">
       <div class="testimonial-card">
-        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=900&auto=format&fit=crop" alt="Wedding ceremony" />
+        <img src="https://unsplash.com/photos/d3dgCUcX4Nw/download?force=true&w=1400" alt="Wedding ceremony" />
       </div>
 
       <div class="testimonial-name">Chris &amp; Yenny</div>
       <p class="testimonial-text">
-        Dear Bali Top Wedding, Terima kasih sebanyak banyaknya. Its beyond our
+        Dear Bali Best Wedding, Terima kasih sebanyak banyaknya. Its beyond our
         expectation the service, decor, mc, singer, documentation. Its not easy
         having a wedding when u have small baby plus influenza, but it went well.
         So blessed. For us, our guest impression is important. They all had a
@@ -1046,12 +1087,12 @@
 
     <section class="gallery-section">
       <div class="gallery-grid">
-        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=900&auto=format&fit=crop" alt="Wedding couple portrait" />
-        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=900&auto=format&fit=crop" alt="Wedding dinner setting" />
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=900&auto=format&fit=crop" alt="Bride and groom table" />
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=900&auto=format&fit=crop" alt="Wedding aisle" />
-        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=900&auto=format&fit=crop" alt="Wedding reception lights" />
-        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=900&auto=format&fit=crop" alt="Wedding couple by the sea" />
+        <img src="https://unsplash.com/photos/dNULboQ3Tlk/download?force=true&w=1200" alt="Wedding couple portrait" />
+        <img src="https://unsplash.com/photos/JP7KJ2mhYiM/download?force=true&w=1200" alt="Wedding dinner setting" />
+        <img src="https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=1200" alt="Bride and groom table" />
+        <img src="https://unsplash.com/photos/Ikm6d70CBuA/download?force=true&w=1200" alt="Wedding aisle" />
+        <img src="https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1200" alt="Wedding reception lights" />
+        <img src="https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1200" alt="Wedding couple by the sea" />
       </div>
     </section>
 
@@ -1061,41 +1102,31 @@
         CV.VINAYAKA SUKSES MAKMUR<br />
         Jl. Tukad Balian No.99, Sidakarya, Denpasar Selatan, Kota Denpasar, Bali
         80234<br />
-        Email : wedding.btw@gmail.com
+        Email : info@balibestwedding.com
       </p>
       <p>
         Whats App &amp; Hotline<br />
-        Planner 1 +6281237495930<br />
-        Planner 2 +6281238490222<br />
-        Instagram : balitopwedding
+        Planner 1 +62 822-6647-6876<br />
+        Planner 2 +62 822-6647-6876<br />
+        Instagram : @balibestwedding
       </p>
     </section>
 
     <section class="association-section">
       <h2 class="association-title">Tentang Kami</h2>
       <p class="association-text">
-        Bali Top Wedding adalah badan penyelenggara pernikahan profesional
-        berbasis di Bali. Dibawah badan hukum CV. Vinayaka Sukses Makmur (Nomor:
-        1272 / 22-09 / PK / XI / 2018).
+        Bali Best Wedding adalah tim wedding planner dan wedding organizer di
+        Bali yang berfokus menciptakan pernikahan elegan, hangat, dan berkesan.
+        Kami membantu setiap pasangan menyiapkan momen spesial dengan layanan
+        yang rapi, personal, dan penuh perhatian.
       </p>
       <div class="association-logo" aria-label="Bali Wedding Association">
-        <span class="top">Bali Wedding</span>
-        <span class="bottom">Association</span>
-        <span class="center">BW</span>
+        <img src="https://everz-digital.site/wp-content/uploads/2026/02/7282d7b3-a806-4a12-b2ad-9c800461c6dd-removebg-preview.png" alt="Bali Best Wedding logo" />
       </div>
     </section>
 
     <section class="profile-section">
       <div class="profile-label">Our Profile</div>
-      <div class="profile-video">
-        <iframe
-          src="https://www.youtube.com/embed/aqz-KE-bpKQ"
-          title="Bali Top Wedding - Profile"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-
       <div class="social-title">Social Media</div>
       <div class="social-icons">
         <a class="yt" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
@@ -1104,10 +1135,30 @@
         <a class="tt" href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
     </section>
+
+    <footer class="site-footer">
+      Copyright &copy; 2026 Bali Best Wedding. All Rights Reserved.
+    </footer>
   </main>
 
   <a class="whatsapp-sticky" href="#" aria-label="WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
+  <script>
+    const menuDropdown = document.getElementById("menuDropdown");
+    const menuTrigger = document.getElementById("menuTrigger");
+
+    menuTrigger.addEventListener("click", () => {
+      const isOpen = menuDropdown.classList.toggle("is-open");
+      menuTrigger.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!menuDropdown.contains(event.target)) {
+        menuDropdown.classList.remove("is-open");
+        menuTrigger.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
 </body>
 </html>

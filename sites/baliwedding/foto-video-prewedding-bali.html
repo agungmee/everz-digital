@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foto & Video Prewedding di Bali | Bali Wedding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ecf1f0;
+      --ink: #223444;
+      --muted: #5f7180;
+      --card: #f8fbff;
+      --line: #d7e1e8;
+      --accent: #4f6790;
+      --shadow: 0 14px 34px rgba(24, 42, 59, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 0% 0%, #dfebec 0%, transparent 32%),
+        radial-gradient(circle at 100% 100%, #e1e8f5 0%, transparent 30%),
+        var(--bg);
+    }
+
+    .container {
+      width: min(1260px, calc(100% - 20px));
+      margin: 0 auto;
+      padding: 20px 0 38px;
+    }
+
+    .back {
+      display: inline-flex;
+      text-decoration: none;
+      color: #365568;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(40px, 7vw, 70px);
+      line-height: 0.95;
+      color: #1f3f58;
+    }
+
+    .hero p {
+      margin: 8px auto 0;
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card {
+      background: linear-gradient(180deg, #f9fcff 0%, #eef2f6 100%);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .photos img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 2px solid #f7fbff;
+    }
+
+    .head {
+      text-align: center;
+      padding: 10px 10px 4px;
+    }
+
+    .head .title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 52px;
+      line-height: 0.92;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .head .tier {
+      margin-top: 2px;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: 48px;
+      line-height: 0.9;
+      color: var(--accent);
+    }
+
+    .price {
+      margin: 8px auto 0;
+      width: fit-content;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #d6dee5;
+      border-radius: 14px;
+      padding: 8px 16px;
+      font-size: 46px;
+      line-height: 0.9;
+      font-weight: 900;
+      color: #1d2d39;
+      text-transform: uppercase;
+    }
+
+    .benefit {
+      padding: 10px 12px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.5;
+      color: #273a47;
+      text-transform: uppercase;
+    }
+
+    .custom-note {
+      padding: 10px 14px 4px;
+      text-align: center;
+      color: #273a47;
+      font-size: 13px;
+      line-height: 1.55;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .custom-note .soft {
+      margin-top: 8px;
+      text-transform: none;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.4;
+      color: #2f4250;
+    }
+
+    .footer {
+      background: #5e78a4;
+      color: #fff;
+      margin-top: 8px;
+      padding: 8px 10px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .footer .label {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: 13px;
+      opacity: 0.95;
+    }
+
+    .contact {
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .contact strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+
+    .contact a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .container { width: calc(100% - 10px); padding: 12px 0 24px; }
+      .photos img { height: 188px; }
+      .head .title { font-size: 44px; }
+      .head .tier { font-size: 40px; }
+      .price { font-size: 34px; }
+    }
+  </style>
+<style>
+  .mobile-menu-shell {
+    width: min(420px, calc(100% - 24px));
+    margin: 14px auto 0;
+    background: #ffffff;
+    border: 1px solid #ececec;
+    text-align: center;
+    padding: 14px 12px 12px;
+  }
+
+  .mobile-logo {
+    display: inline-block;
+    text-decoration: none;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 46px;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    color: #d90f1a;
+    margin-bottom: 8px;
+  }
+
+  .mobile-brand {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 17px;
+    letter-spacing: 0.08em;
+    color: #2f2f2f;
+    text-transform: uppercase;
+  }
+
+  .mobile-tagline {
+    margin-top: 3px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7f7f7f;
+  }
+
+  .mobile-menu {
+    position: relative;
+    display: inline-block;
+    margin-top: 12px;
+  }
+
+  .mobile-menu-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 0;
+    background: none;
+    color: #d6458d;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: inherit;
+  }
+
+  .mobile-menu-list {
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 8px 0;
+    min-width: 220px;
+    background: #ffffff;
+    border: 1px solid #f0d3e1;
+    border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    text-align: left;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: none;
+  }
+
+  .mobile-menu.is-open .mobile-menu-list {
+    display: block;
+  }
+
+  .mobile-menu-list a {
+    display: block;
+    padding: 9px 14px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: #6a2f50;
+    text-decoration: none;
+  }
+
+  .mobile-menu-list a:hover {
+    background: #fff1f8;
+  }
+
+  .mobile-submenu {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #f7e8f0;
+  }
+
+  .mobile-submenu summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 14px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: #6a2f50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .mobile-submenu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-submenu summary::after {
+    content: "+";
+    font-weight: 700;
+    color: #8d5a76;
+  }
+
+  .mobile-submenu[open] summary::after {
+    content: "-";
+  }
+
+  .mobile-submenu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 6px;
+    background: #fff8fc;
+    border-top: 1px solid #f2dce8;
+  }
+
+  .mobile-submenu-list a {
+    padding-left: 22px;
+    font-size: 11.5px;
+  }
+</style>
+<style>
+  /* header-bg-sync: samakan background header dengan halaman */
+  .hero,
+  .head,
+  header.hero,
+  header.head {
+    background: transparent !important;
+  }
+</style>
+<style>
+  /* contact-center-sync: rata tengah blok Hubungi Kami di card */
+  .promo-card .contact {
+    text-align: center !important;
+    justify-items: center !important;
+  }
+
+  .promo-card .contact strong,
+  .promo-card .contact span,
+  .promo-card .contact a {
+    text-align: center !important;
+  }
+</style>
+</head>
+<body>
+<div class="mobile-menu-shell">
+  <a class="mobile-logo" href="index.html" aria-label="Bali Best Wedding">BW</a>
+  <div class="mobile-brand">Bali Best Wedding</div>
+  <div class="mobile-tagline">Create, Care, Commit</div>
+  <div class="mobile-menu">
+    <button class="mobile-menu-trigger" type="button" aria-expanded="false" aria-controls="mobileMenuList">
+      <span>≡</span> Menu
+    </button>
+    <ul class="mobile-menu-list" id="mobileMenuList" role="menu">
+      <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+      <li role="none"><a role="menuitem" href="paket-awal-2026.html">Paket Awal 2026</a></li>
+      <li role="none">
+        <details class="mobile-submenu">
+          <summary>Paket Wedding 2026</summary>
+          <ul class="mobile-submenu-list">
+            <li role="none"><a role="menuitem" href="paket-wedding-2026-100juta.html">Paket Wedding 100Juta</a></li>
+            <li role="none"><a role="menuitem" href="paket-wedding-2026-200juta.html">Paket Wedding 200Juta</a></li>
+            <li role="none"><a role="menuitem" href="paket-wedding-2026-300juta.html">Paket Wedding 300Juta</a></li>
+            <li role="none"><a role="menuitem" href="paket-wedding-2026-400juta.html">Paket Wedding 400Juta</a></li>
+            <li role="none"><a role="menuitem" href="paket-wdding-diatas-500juta.html">Paket Wdding Diatas 500juta</a></li>
+          </ul>
+        </details>
+      </li>
+      <li role="none">
+        <details class="mobile-submenu">
+          <summary>Packages</summary>
+          <ul class="mobile-submenu-list">
+            <li role="none"><a role="menuitem" href="paket-elopment-2026.html">Paket Elopment</a></li>
+            <li role="none"><a role="menuitem" href="paket-pernikahan-resepsi.html">Paket Pernikahan &amp; Resepsi</a></li>
+          </ul>
+        </details>
+      </li>
+      <li role="none"><a role="menuitem" href="foto-video-prewedding-bali.html">Foto &amp; Video Prewedding di Bali</a></li>
+      <li role="none"><a role="menuitem" href="about-us.html">About Us</a></li>
+      <li role="none"><a role="menuitem" href="promo-wedding-katolik-2026.html">Promo Wedding Katolik 2026</a></li>
+      <li role="none"><a role="menuitem" href="paket-terbaik-2026.html">Paket Terbaik 2026</a></li>
+      <li role="none"><a role="menuitem" href="paket-wedding-2027.html">Paket Wedding 2027</a></li>
+      <li role="none"><a role="menuitem" href="paket-prewedding.html">Paket Prewedding</a></li>
+    </ul>
+  </div>
+</div>
+<main class="container">
+    <header class="hero">
+      <h1>Foto &amp; Video Prewedding di Bali</h1>
+      <p>Pilihan paket prewedding Gold, Silver, dan Custom sesuai materi promo yang kamu kirim.</p>
+    </header>
+
+    <section class="grid" aria-label="Daftar paket prewedding">
+      <article class="card">
+        <div class="photos">
+          <img src="https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1400" alt="Prewedding Gold foto 1" loading="lazy" />
+          <img src="https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=1400" alt="Prewedding Gold foto 2" loading="lazy" />
+        </div>
+        <div class="head">
+          <div class="title">Paket Prewedding</div>
+          <div class="tier">Gold</div>
+          <div class="price">Rp. 15 Jt / 2 Pax</div>
+        </div>
+        <div class="benefit">
+          MAKEUP DAN HAIRDO + FOLLOW<br />
+          PHOTO &amp; VIDEO + DRONE<br />
+          3 PILIHAN VENUE TERMASUK BIAYA TIKET MASUK<br />
+          1 UNIT MOBIL UNTUK PENGANTIN + DRIVER<br />
+          WEDDING ASSISTAN
+        </div>
+        <div class="footer">
+          <div class="label">Syarat &amp; Ketentuan Berlaku</div>
+          <div class="contact"><strong>Hubungi Kami:</strong>
+            <a href="https://wa.me/6282266476876" target="_blank" rel="noopener">+62 822-6647-6876</a>
+            <a href="https://wa.me/6282266476876" target="_blank" rel="noopener">+62 822-6647-6876</a>
+            <a href="https://wa.me/6282266476876" target="_blank" rel="noopener">+62 822-6647-6876</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="photos">
+          <img src="https://unsplash.com/photos/Ikm6d70CBuA/download?force=true&w=1400" alt="Prewedding Silver foto 1" loading="lazy" />
+          <img src="https://unsplash.com/photos/PEBYTP0jzps/download?force=true&w=1400" alt="Prewedding Silver foto 2" loading="lazy" />
+        </div>
+        <div class="head">
+          <div class="title">Paket Prewedding</div>
+          <div class="tier">Silver</div>
+          <div class="price">Rp. 13 Jt / 2 Pax</div>
+        </div>
+        <div class="benefit">
+          MAKEUP DAN HAIRDO + FOLLOW<br />
+          PHOTO &amp; VIDEO<br />
+          2 PILIHAN VENUE TERMASUK BIAYA TIKET MASUK<br />
+          WEDDING ASSISTAN
+        </div>
+        <div class="footer">
+          <div class="label">Syarat &amp; Ketentuan Berlaku</div>
+          <div class="contact"><strong>Hubungi Kami:</strong>
+            <a href="https://wa.me/6282266476876" target="_blank" rel="noopener">+62 822-6647-6876</a>
+            <a href="https://wa.me/6282266476876" target="_blank" rel="noopener">+62 822-6647-6876</a>
+            <a href="https://wa.me/6282266476876" target="_blank" rel="noopener">+62 822-6647-6876</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="photos">
+          <img src="https://unsplash.com/photos/SZhc5vXcE8I/download?force=true&w=1400" alt="Prewedding Custom foto 1" loading="lazy" />
+          <img src="https://unsplash.com/photos/8hOc0cL-fbE/download?force=true&w=1400" alt="Prewedding Custom foto 2" loading="lazy" />
+        </div>
+        <div class="head">
+          <div class="title">Paket Prewedding</div>
+          <div class="tier">Custom</div>
+          <div class="price">Rp. Custom</div>
+        </div>
+        <div class="custom-note">
+          PAKET CUSTOM INI DAPAT DIBUATKAN APABILA ADA KONSEP / PERMINTAAN KHUSUS OLEH CALON PENGANTIN.
+          <div class="soft">Silahkan Berkonsultasi Dengan Planner Kami Di Kontak Dibawah Ini.</div>
+        </div>
+        <div class="footer">
+          <div class="label">Syarat &amp; Ketentuan Berlaku</div>
+          <div class="contact"><strong>Hubungi Kami:</strong>
+            <a href="https://wa.me/6282266476876" target="_blank" rel="noopener">+62 822-6647-6876</a>
+            <a href="https://wa.me/6282266476876" target="_blank" rel="noopener">+62 822-6647-6876</a>
+            <a href="https://wa.me/6282266476876" target="_blank" rel="noopener">+62 822-6647-6876</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+<script>
+  (() => {
+    const menuRoot = document.querySelector(".mobile-menu");
+    if (!menuRoot) return;
+
+    const trigger = menuRoot.querySelector(".mobile-menu-trigger");
+    if (!trigger) return;
+
+    trigger.addEventListener("click", () => {
+      const isOpen = menuRoot.classList.toggle("is-open");
+      trigger.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!menuRoot.contains(event.target)) {
+        menuRoot.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+      }
+    });
+  })();
+</script>
+</body>
+</html>

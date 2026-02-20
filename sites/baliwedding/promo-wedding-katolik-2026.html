@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Promo Wedding Katolik 2026 | Bali Wedding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #eef5f3;
+      --ink: #253742;
+      --muted: #5a6d78;
+      --line: #d2dfdb;
+      --panel: #f0efee;
+      --mint: #dbe9e2;
+      --mint-dark: #d0e1d8;
+      --stroke: #63778b;
+      --card-shadow: 0 18px 40px rgba(24, 42, 55, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 0% 0%, #e0efe9 0%, transparent 30%),
+        radial-gradient(circle at 100% 100%, #dfeaf2 0%, transparent 30%),
+        var(--bg);
+    }
+
+    .container {
+      width: min(1320px, calc(100% - 30px));
+      margin: 0 auto;
+      padding: 28px 0 50px;
+    }
+
+    .back {
+      display: inline-flex;
+      text-decoration: none;
+      color: #345262;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .head {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .head-label {
+      display: inline-block;
+      padding: 7px 13px;
+      border: 1px solid #c3d7cf;
+      border-radius: 999px;
+      background: #e8f0ed;
+      color: #395868;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(42px, 7vw, 74px);
+      line-height: 0.95;
+      color: #1f3b4a;
+    }
+
+    .head p {
+      max-width: 780px;
+      margin: 12px auto 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .promo-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .promo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 45px rgba(20, 39, 52, 0.22);
+    }
+
+    .poster-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      aspect-ratio: 4 / 3;
+      background: #ebf1ef;
+    }
+
+    .poster-top img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .price-strip {
+      background: var(--panel);
+      border-top: 1px solid #e0e0de;
+      border-bottom: 1px solid #dfdfdd;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+    }
+
+    .free-box {
+      text-align: center;
+      color: #111;
+      font-family: "Archivo Black", sans-serif;
+      line-height: 0.9;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .free-box small {
+      display: block;
+      margin-top: 6px;
+      letter-spacing: 0.03em;
+      font-size: 10px;
+    }
+
+    .price-main {
+      text-align: center;
+      line-height: 0.92;
+      min-width: 112px;
+    }
+
+    .price-main .amount-row {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+    }
+
+    .price-main .amount {
+      font-family: "Archivo Black", sans-serif;
+      font-size: clamp(54px, 8vw, 80px);
+      color: #ffffff;
+      -webkit-text-stroke: 2px var(--stroke);
+      text-shadow: 0 2px 0 rgba(255, 255, 255, 0.35);
+    }
+
+    .price-main .unit {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 24px;
+      letter-spacing: 0.01em;
+      color: #000;
+      text-transform: lowercase;
+      margin-bottom: 8px;
+    }
+
+    .price-main .terms {
+      display: block;
+      margin-top: 2px;
+      font-size: 10px;
+      font-style: italic;
+      color: #1c1c1c;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .promo-strip {
+      background: linear-gradient(180deg, var(--mint) 0%, var(--mint-dark) 100%);
+      text-align: center;
+      padding: 10px 10px 8px;
+      border-bottom: 1px solid #cfddd6;
+    }
+
+    .promo-strip .title {
+      font-family: "Archivo Black", sans-serif;
+      font-size: clamp(52px, 7vw, 74px);
+      color: #eaf1ed;
+      -webkit-text-stroke: 2px #6b8092;
+      letter-spacing: 0.01em;
+      line-height: 0.84;
+    }
+
+    .promo-strip .sub {
+      margin-top: 4px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 16px;
+      letter-spacing: 0.03em;
+      color: #445c6d;
+      line-height: 1;
+    }
+
+    .detail-strip {
+      background: #f6f6f6;
+      padding: 10px 10px 12px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 10px;
+      border-top: 1px solid #e4e4e4;
+    }
+
+    .features {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 12px;
+      color: #5b6a74;
+      line-height: 1.45;
+      column-count: 2;
+      column-gap: 18px;
+    }
+
+    .contact {
+      border-left: 2px solid #7a8da0;
+      padding-left: 10px;
+      color: #5e707c;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      font-size: 12px;
+    }
+
+    .contact strong {
+      color: #4d6576;
+      font-size: 14px;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background: linear-gradient(135deg, #25d366, #1faa54);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 9px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .note {
+      margin-top: 18px;
+      text-align: center;
+      color: #6a7a83;
+      font-size: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .container { width: calc(100% - 16px); padding: 18px 0 28px; }
+      .grid { grid-template-columns: 1fr; gap: 14px; }
+      .price-main .amount { font-size: 70px; }
+      .promo-strip .title { font-size: 64px; }
+      .detail-strip { grid-template-columns: 1fr; }
+      .contact { border-left: 0; border-top: 2px solid #7a8da0; padding-left: 0; padding-top: 8px; }
+    }
+  </style>
+<style>
+  .hero h1,
+  .head h1,
+  main > h1,
+  .box > h1 {
+    font-family: "Great Vibes", "Cormorant Garamond", serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: #8e4b67;
+    line-height: 1.12;
+  }
+
+  .hero p,
+  .head p,
+  .lead,
+  .box > p {
+    color: #6e6270;
+    line-height: 1.8;
+  }
+</style><style>
+  .mobile-menu-shell {
+    width: min(420px, calc(100% - 24px));
+    margin: 14px auto 0;
+    background: #ffffff;
+    border: 1px solid #ececec;
+    text-align: center;
+    padding: 14px 12px 12px;
+  }
+
+  .mobile-logo {
+    display: inline-block;
+    text-decoration: none;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 46px;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    color: #d90f1a;
+    margin-bottom: 8px;
+  }
+
+  .mobile-brand {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 17px;
+    letter-spacing: 0.08em;
+    color: #2f2f2f;
+    text-transform: uppercase;
+  }
+
+  .mobile-tagline {
+    margin-top: 3px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7f7f7f;
+  }
+
+  .mobile-menu {
+    position: relative;
+    display: inline-block;
+    margin-top: 12px;
+  }
+
+  .mobile-menu-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 0;
+    background: none;
+    color: #d6458d;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: inherit;
+  }
+
+  .mobile-menu-list {
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 8px 0;
+    min-width: 220px;
+    background: #ffffff;
+    border: 1px solid #f0d3e1;
+    border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    text-align: left;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: none;
+  }
+
+  .mobile-menu.is-open .mobile-menu-list {
+    display: block;
+  }
+
+  .mobile-menu-list a {
+    display: block;
+    padding: 9px 14px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: #6a2f50;
+    text-decoration: none;
+  }
+
+  .mobile-menu-list a:hover {
+    background: #fff1f8;
+  }
+
+  .mobile-submenu {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #f7e8f0;
+  }
+
+  .mobile-submenu summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 14px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: #6a2f50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .mobile-submenu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-submenu summary::after {
+    content: "+";
+    font-weight: 700;
+    color: #8d5a76;
+  }
+
+  .mobile-submenu[open] summary::after {
+    content: "-";
+  }
+
+  .mobile-submenu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 6px;
+    background: #fff8fc;
+    border-top: 1px solid #f2dce8;
+  }
+
+  .mobile-submenu-list a {
+    padding-left: 22px;
+    font-size: 11.5px;
+  }
+</style>
+<style>
+  /* header-bg-sync: samakan background header dengan halaman */
+  .hero,
+  .head,
+  header.hero,
+  header.head {
+    background: transparent !important;
+  }
+</style>
+<style>
+  /* contact-center-sync: rata tengah blok Hubungi Kami di card */
+  .promo-card .contact {
+    text-align: center !important;
+    justify-items: center !important;
+  }
+
+  .promo-card .contact strong,
+  .promo-card .contact span,
+  .promo-card .contact a {
+    text-align: center !important;
+  }
+</style>
+</head>
+<body>
+<div class="mobile-menu-shell">
+  <a class="mobile-logo" href="index.html" aria-label="Bali Best Wedding">BW</a>
+  <div class="mobile-brand">Bali Best Wedding</div>
+  <div class="mobile-tagline">Create, Care, Commit</div>
+  <div class="mobile-menu">
+    <button class="mobile-menu-trigger" type="button" aria-expanded="false" aria-controls="mobileMenuList">
+      <span>≡</span> Menu
+    </button>
+    <ul class="mobile-menu-list" id="mobileMenuList" role="menu">
+      <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+      <li role="none"><a role="menuitem" href="paket-awal-2026.html">Paket Awal 2026</a></li>
+      <li role="none">
+        <details class="mobile-submenu">
+          <summary>Paket Wedding 2026</summary>
+          <ul class="mobile-submenu-list">
+            <li role="none"><a role="menuitem" href="paket-wedding-2026-100juta.html">Paket Wedding 100Juta</a></li>
+            <li role="none"><a role="menuitem" href="paket-wedding-2026-200juta.html">Paket Wedding 200Juta</a></li>
+            <li role="none"><a role="menuitem" href="paket-wedding-2026-300juta.html">Paket Wedding 300Juta</a></li>
+            <li role="none"><a role="menuitem" href="paket-wedding-2026-400juta.html">Paket Wedding 400Juta</a></li>
+            <li role="none"><a role="menuitem" href="paket-wdding-diatas-500juta.html">Paket Wdding Diatas 500juta</a></li>
+          </ul>
+        </details>
+      </li>
+      <li role="none">
+        <details class="mobile-submenu">
+          <summary>Packages</summary>
+          <ul class="mobile-submenu-list">
+            <li role="none"><a role="menuitem" href="paket-elopment-2026.html">Paket Elopment</a></li>
+            <li role="none"><a role="menuitem" href="paket-pernikahan-resepsi.html">Paket Pernikahan &amp; Resepsi</a></li>
+          </ul>
+        </details>
+      </li>
+      <li role="none"><a role="menuitem" href="foto-video-prewedding-bali.html">Foto &amp; Video Prewedding di Bali</a></li>
+      <li role="none"><a role="menuitem" href="about-us.html">About Us</a></li>
+      <li role="none"><a role="menuitem" href="promo-wedding-katolik-2026.html">Promo Wedding Katolik 2026</a></li>
+      <li role="none"><a role="menuitem" href="paket-terbaik-2026.html">Paket Terbaik 2026</a></li>
+      <li role="none"><a role="menuitem" href="paket-wedding-2027.html">Paket Wedding 2027</a></li>
+      <li role="none"><a role="menuitem" href="paket-prewedding.html">Paket Prewedding</a></li>
+    </ul>
+  </div>
+</div>
+<main class="container">
+    <header class="head">
+      <span class="head-label">Promo Wedding Bali</span>
+      <h1>Promo Wedding Katolik 2026</h1>
+      <p>
+        Pilihan paket wedding Katolik tersusun dari harga paling terjangkau,
+        dirancang untuk menghadirkan sakralitas, kehangatan keluarga, dan dekor yang memikat.
+      </p>
+    </header>
+
+    <section class="grid" id="packageGrid" aria-label="Daftar promo wedding katolik 2026"></section>
+
+    <p class="note">Urutan paket ditampilkan dari harga termurah ke tertinggi.</p>
+  </main>
+
+  <script>
+    const packages = [
+      { price: "146", left: "https://unsplash.com/photos/dNULboQ3Tlk/download?force=true&w=1200", right: "https://unsplash.com/photos/FRMgWWQg_2U/download?force=true&w=1200" },
+      { price: "151", left: "https://unsplash.com/photos/d3dgCUcX4Nw/download?force=true&w=1200", right: "https://unsplash.com/photos/_EgB4RJryTY/download?force=true&w=1200" },
+      { price: "159", left: "https://unsplash.com/photos/PEBYTP0jzps/download?force=true&w=1200", right: "https://unsplash.com/photos/rPTaijbN4-s/download?force=true&w=1200" },
+      { price: "162", left: "https://unsplash.com/photos/Ikm6d70CBuA/download?force=true&w=1200", right: "https://unsplash.com/photos/JP7KJ2mhYiM/download?force=true&w=1200" },
+      { price: "165", left: "https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1200", right: "https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=1200" },
+      { price: "237", left: "https://unsplash.com/photos/8hOc0cL-fbE/download?force=true&w=1200", right: "https://unsplash.com/photos/SZhc5vXcE8I/download?force=true&w=1200" },
+      { price: "286", left: "https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1200", right: "https://unsplash.com/photos/PEBYTP0jzps/download?force=true&w=1200" },
+      { price: "287", left: "https://unsplash.com/photos/rPTaijbN4-s/download?force=true&w=1200", right: "https://unsplash.com/photos/FRMgWWQg_2U/download?force=true&w=1200" }
+    ];
+
+    const features = [
+      "WO Service",
+      "Make Up & Hair Do",
+      "Pastor / Romo",
+      "Dekor Ceremony & Resepsi",
+      "Foto & Video Entertainment",
+      "MC",
+      "Sound & Lighting",
+      "Buffet Dinner",
+      "50 Pax"
+    ];
+
+    const featureList = features.map((item) => `<li>${item}</li>`).join("");
+
+    const sortedPackages = [...packages].sort((a, b) => parseFloat(a.price.replace(",", ".")) - parseFloat(b.price.replace(",", ".")));
+
+    const cardHtml = sortedPackages.map((pkg, idx) => `
+      <article class="promo-card" aria-label="Paket katolik ${idx + 1} harga ${pkg.price} juta">
+        <div class="poster-top">
+          <img src="${pkg.left}" alt="Foto wedding katolik paket ${idx + 1} sisi kiri" loading="lazy" />
+          <img src="${pkg.right}" alt="Foto wedding katolik paket ${idx + 1} sisi kanan" loading="lazy" />
+        </div>
+
+        <div class="price-strip">
+          <div class="free-box">FREE<small>KONTEN KREATOR</small></div>
+
+          <div class="price-main">
+            <div class="amount-row">
+              <span class="amount">${pkg.price}</span>
+              <span class="unit">jt</span>
+            </div>
+            <span class="terms">50 Pax | S&amp;K Berlaku</span>
+          </div>
+
+          <div class="free-box">FREE<small>PYROTECH</small></div>
+        </div>
+
+        <div class="promo-strip">
+          <div class="title">PROMO</div>
+          <div class="sub">WEDDING KATOLIK 2026</div>
+        </div>
+
+        <div class="detail-strip">
+          <ul class="features">${featureList}</ul>
+          <div class="contact">
+            <strong>Hubungi Kami:</strong>
+            <a class="contact-btn" href="https://wa.me/6282266476876" target="_blank" rel="noopener">Chat WA +62 822-6647-6876</a>
+          </div>
+        </div>
+      </article>
+    `).join("");
+
+    document.getElementById("packageGrid").innerHTML = cardHtml;
+  </script>
+<script>
+  (() => {
+    const menuRoot = document.querySelector(".mobile-menu");
+    if (!menuRoot) return;
+
+    const trigger = menuRoot.querySelector(".mobile-menu-trigger");
+    if (!trigger) return;
+
+    trigger.addEventListener("click", () => {
+      const isOpen = menuRoot.classList.toggle("is-open");
+      trigger.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!menuRoot.contains(event.target)) {
+        menuRoot.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+      }
+    });
+  })();
+</script>
+</body>
+</html>

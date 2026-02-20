@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paket Elopment 2026 | Bali Wedding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #edf3f2;
+      --ink: #2a3e4d;
+      --muted: #5f7480;
+      --accent: #4f6892;
+      --panel: #5d77a3;
+      --light: #f4f7fb;
+      --line: #d9e2e8;
+      --shadow: 0 16px 36px rgba(25, 45, 64, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, #dfeef0 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #e7edf8 0%, transparent 30%),
+        var(--bg);
+    }
+
+    .container {
+      width: min(1250px, calc(100% - 20px));
+      margin: 0 auto;
+      padding: 20px 0 36px;
+    }
+
+    .back {
+      text-decoration: none;
+      color: #365568;
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      margin-bottom: 10px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(40px, 7vw, 68px);
+      line-height: 0.95;
+      color: #1f3f58;
+    }
+
+    .hero p {
+      margin: 8px auto 0;
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+
+    .card {
+      background: linear-gradient(180deg, #f8fbff 0%, #eef3f8 100%);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .photos {
+      border: 2px solid #f7fbff;
+      border-bottom: 0;
+    }
+
+    .photos img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 2px solid #f7fbff;
+    }
+
+    .title {
+      text-align: center;
+      padding: 12px 12px 6px;
+    }
+
+    .title .main {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 56px;
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .title .year {
+      margin-top: 2px;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: 56px;
+      line-height: 0.9;
+      color: var(--accent);
+    }
+
+    .middle {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: stretch;
+      padding: 8px 10px 10px;
+    }
+
+    .price {
+      align-self: center;
+      background: var(--accent);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 62px;
+      line-height: 0.85;
+      min-width: 122px;
+      text-align: center;
+    }
+
+    .price small {
+      display: block;
+      font-size: 30px;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .feature-box {
+      background: var(--panel);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 12px 12px 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .feature-box ul {
+      margin: 0;
+      padding-left: 16px;
+      display: grid;
+      gap: 3px;
+    }
+
+    .footer {
+      background: var(--panel);
+      color: #ffffff;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 10px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .terms {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: 13px;
+    }
+
+    .contact {
+      text-align: right;
+      font-size: 11px;
+      line-height: 1.3;
+    }
+
+    .contact a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .container { width: calc(100% - 10px); padding: 12px 0 24px; }
+      .photos img { height: 190px; }
+      .title .main { font-size: 44px; }
+      .title .year { font-size: 46px; }
+      .price { font-size: 50px; min-width: 102px; }
+      .price small { font-size: 24px; }
+      .feature-box { grid-template-columns: 1fr; }
+      .footer { grid-template-columns: 1fr; }
+      .contact { text-align: left; }
+      .contact a { margin-left: 0; margin-right: 10px; }
+    }
+  </style>
+<style>
+  .promo-card {
+    background: #ffffff;
+    border: 1px solid #d2dfdb;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(24, 42, 55, 0.16);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  .promo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 45px rgba(20, 39, 52, 0.22);
+  }
+
+  .promo-card .poster-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    aspect-ratio: 4 / 3;
+    background: #ebf1ef;
+  }
+
+  .promo-card .poster-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .promo-card .price-strip {
+    background: #f0efee;
+    border-top: 1px solid #e0e0de;
+    border-bottom: 1px solid #dfdfdd;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .promo-card .free-box {
+    text-align: center;
+    color: #111;
+    font-family: "Archivo Black", sans-serif;
+    line-height: 0.9;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  .promo-card .free-box small {
+    display: block;
+    margin-top: 6px;
+    letter-spacing: 0.03em;
+    font-size: 10px;
+  }
+
+  .promo-card .price-main {
+    text-align: center;
+    line-height: 0.92;
+    min-width: 112px;
+  }
+
+  .promo-card .price-main .amount-row {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 2px;
+  }
+
+  .promo-card .price-main .amount {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(54px, 8vw, 80px);
+    color: #ffffff;
+    -webkit-text-stroke: 2px #63778b;
+    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.35);
+  }
+
+  .promo-card .price-main .unit {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.01em;
+    color: #000;
+    text-transform: lowercase;
+    margin-bottom: 8px;
+  }
+
+  .promo-card .price-main .terms {
+    display: block;
+    margin-top: 2px;
+    font-size: 10px;
+    font-style: italic;
+    color: #1c1c1c;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .promo-card .promo-strip {
+    background: linear-gradient(180deg, #dbe9e2 0%, #d0e1d8 100%);
+    text-align: center;
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #cfddd6;
+  }
+
+  .promo-card .promo-strip .title {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(52px, 7vw, 74px);
+    color: #eaf1ed;
+    -webkit-text-stroke: 2px #6b8092;
+    letter-spacing: 0.01em;
+    line-height: 0.84;
+  }
+
+  .promo-card .promo-strip .sub {
+    margin-top: 4px;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.03em;
+    color: #445c6d;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .promo-card .detail-strip {
+    background: #f6f6f6;
+    padding: 10px 10px 12px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 10px;
+    border-top: 1px solid #e4e4e4;
+  }
+
+  .promo-card .features {
+    margin: 0;
+    padding-left: 16px;
+    font-size: 12px;
+    color: #5b6a74;
+    line-height: 1.45;
+    column-count: 2;
+    column-gap: 18px;
+  }
+
+  .promo-card .contact {
+    border-left: 2px solid #7a8da0;
+    padding-left: 10px;
+    color: #5e707c;
+    display: grid;
+    align-content: center;
+    gap: 5px;
+    font-size: 12px;
+  }
+
+  .promo-card .contact strong {
+    color: #4d6576;
+    font-size: 14px;
+  }
+
+  .promo-card .contact a {
+    color: #5f7386;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .promo-card .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient(135deg, #25d366, #1faa54);
+    color: #ffffff !important;
+    border-radius: 10px;
+    padding: 9px 10px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+  }
+
+  @media (max-width: 640px) {
+    .promo-card .detail-strip { grid-template-columns: 1fr; }
+    .promo-card .contact { border-left: 0; border-top: 2px solid #7a8da0; padding-left: 0; padding-top: 8px; }
+  }
+</style>
+<style>
+  .hero h1,
+  .head h1,
+  main > h1,
+  .box > h1 {
+    font-family: "Great Vibes", "Cormorant Garamond", serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: #8e4b67;
+    line-height: 1.12;
+  }
+
+  .hero p,
+  .head p,
+  .lead,
+  .box > p {
+    color: #6e6270;
+    line-height: 1.8;
+  }
+</style><style>
+  .mobile-menu-shell {
+    width: min(420px, calc(100% - 24px));
+    margin: 14px auto 0;
+    background: #ffffff;
+    border: 1px solid #ececec;
+    text-align: center;
+    padding: 14px 12px 12px;
+  }
+
+  .mobile-logo {
+    display: inline-block;
+    text-decoration: none;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 46px;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    color: #d90f1a;
+    margin-bottom: 8px;
+  }
+
+  .mobile-brand {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 17px;
+    letter-spacing: 0.08em;
+    color: #2f2f2f;
+    text-transform: uppercase;
+  }
+
+  .mobile-tagline {
+    margin-top: 3px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7f7f7f;
+  }
+
+  .mobile-menu {
+    position: relative;
+    display: inline-block;
+    margin-top: 12px;
+  }
+
+  .mobile-menu-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 0;
+    background: none;
+    color: #d6458d;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: inherit;
+  }
+
+  .mobile-menu-list {
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 8px 0;
+    min-width: 220px;
+    background: #ffffff;
+    border: 1px solid #f0d3e1;
+    border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    text-align: left;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: none;
+  }
+
+  .mobile-menu.is-open .mobile-menu-list {
+    display: block;
+  }
+
+  .mobile-menu-list a {
+    display: block;
+    padding: 9px 14px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: #6a2f50;
+    text-decoration: none;
+  }
+
+  .mobile-menu-list a:hover {
+    background: #fff1f8;
+  }
+
+  .mobile-submenu {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #f7e8f0;
+  }
+
+  .mobile-submenu summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 14px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: #6a2f50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .mobile-submenu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-submenu summary::after {
+    content: "+";
+    font-weight: 700;
+    color: #8d5a76;
+  }
+
+  .mobile-submenu[open] summary::after {
+    content: "-";
+  }
+
+  .mobile-submenu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 6px;
+    background: #fff8fc;
+    border-top: 1px solid #f2dce8;
+  }
+
+  .mobile-submenu-list a {
+    padding-left: 22px;
+    font-size: 11.5px;
+  }
+</style>
+<style>
+  /* header-bg-sync: samakan background header dengan halaman */
+  .hero,
+  .head,
+  header.hero,
+  header.head {
+    background: transparent !important;
+  }
+</style>
+<style>
+  /* contact-center-sync: rata tengah blok Hubungi Kami di card */
+  .promo-card .contact {
+    text-align: center !important;
+    justify-items: center !important;
+  }
+
+  .promo-card .contact strong,
+  .promo-card .contact span,
+  .promo-card .contact a {
+    text-align: center !important;
+  }
+</style>
+</head>
+<body>
+<div class="mobile-menu-shell">
+  <a class="mobile-logo" href="index.html" aria-label="Bali Best Wedding">BW</a>
+  <div class="mobile-brand">Bali Best Wedding</div>
+  <div class="mobile-tagline">Create, Care, Commit</div>
+  <div class="mobile-menu">
+    <button class="mobile-menu-trigger" type="button" aria-expanded="false" aria-controls="mobileMenuList">
+      <span>≡</span> Menu
+    </button>
+    <ul class="mobile-menu-list" id="mobileMenuList" role="menu">
+      <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+      <li role="none"><a role="menuitem" href="paket-awal-2026.html">Paket Awal 2026</a></li>
+      <li role="none">
+        <details class="mobile-submenu">
+          <summary>Paket Wedding 2026</summary>
+          <ul class="mobile-submenu-list">
+            <li role="none"><a role="menuitem" href="paket-wedding-2026-100juta.html">Paket Wedding 100Juta</a></li>
+            <li role="none"><a role="menuitem" href="paket-wedding-2026-200juta.html">Paket Wedding 200Juta</a></li>
+            <li role="none"><a role="menuitem" href="paket-wedding-2026-300juta.html">Paket Wedding 300Juta</a></li>
+            <li role="none"><a role="menuitem" href="paket-wedding-2026-400juta.html">Paket Wedding 400Juta</a></li>
+            <li role="none"><a role="menuitem" href="paket-wdding-diatas-500juta.html">Paket Wdding Diatas 500juta</a></li>
+          </ul>
+        </details>
+      </li>
+      <li role="none">
+        <details class="mobile-submenu">
+          <summary>Packages</summary>
+          <ul class="mobile-submenu-list">
+            <li role="none"><a role="menuitem" href="paket-elopment-2026.html">Paket Elopment</a></li>
+            <li role="none"><a role="menuitem" href="paket-pernikahan-resepsi.html">Paket Pernikahan &amp; Resepsi</a></li>
+          </ul>
+        </details>
+      </li>
+      <li role="none"><a role="menuitem" href="foto-video-prewedding-bali.html">Foto &amp; Video Prewedding di Bali</a></li>
+      <li role="none"><a role="menuitem" href="about-us.html">About Us</a></li>
+      <li role="none"><a role="menuitem" href="promo-wedding-katolik-2026.html">Promo Wedding Katolik 2026</a></li>
+      <li role="none"><a role="menuitem" href="paket-terbaik-2026.html">Paket Terbaik 2026</a></li>
+      <li role="none"><a role="menuitem" href="paket-wedding-2027.html">Paket Wedding 2027</a></li>
+      <li role="none"><a role="menuitem" href="paket-prewedding.html">Paket Prewedding</a></li>
+    </ul>
+  </div>
+</div>
+<main class="container">
+    <header class="hero">
+      <h1>Paket Elopement 2026</h1>
+      <p>Paket elopement ditata dari harga termurah, ideal untuk pasangan yang menginginkan momen intim, romantis, dan tetap berkelas di Bali.</p>
+    </header>
+
+    <section class="grid" id="elopementGrid" aria-label="Daftar paket elopment 2026"></section>
+  </main>
+
+  <script>
+    const items = [
+      { price: "26", top: "https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1400", bottom: "https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=1400" },
+      { price: "30", top: "https://unsplash.com/photos/Ikm6d70CBuA/download?force=true&w=1400", bottom: "https://unsplash.com/photos/PEBYTP0jzps/download?force=true&w=1400" },
+      { price: "40", top: "https://unsplash.com/photos/SZhc5vXcE8I/download?force=true&w=1400", bottom: "https://unsplash.com/photos/8hOc0cL-fbE/download?force=true&w=1400" },
+      { price: "33.5", top: "https://unsplash.com/photos/rPTaijbN4-s/download?force=true&w=1400", bottom: "https://unsplash.com/photos/_EgB4RJryTY/download?force=true&w=1400" },
+      { price: "26", top: "https://unsplash.com/photos/FRMgWWQg_2U/download?force=true&w=1400", bottom: "https://unsplash.com/photos/d3dgCUcX4Nw/download?force=true&w=1400" },
+      { price: "33", top: "https://unsplash.com/photos/dNULboQ3Tlk/download?force=true&w=1400", bottom: "https://unsplash.com/photos/JP7KJ2mhYiM/download?force=true&w=1400" },
+      { price: "31", top: "https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1400", bottom: "https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=1400" },
+      { price: "36", top: "https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=1400", bottom: "https://unsplash.com/photos/Ikm6d70CBuA/download?force=true&w=1400" },
+      { price: "35", top: "https://unsplash.com/photos/PEBYTP0jzps/download?force=true&w=1400", bottom: "https://unsplash.com/photos/SZhc5vXcE8I/download?force=true&w=1400" }
+    ];
+
+    const services = [
+      "WO Service",
+      "Fotographer",
+      "Romantic Dinner",
+      "Simple Decoration",
+      "1 Night Stay",
+      "Wedding Celebrant",
+      "Make Up Bride",
+      "Dll"
+    ];
+    const serviceHtml = services.map((item) => `<li>${item}</li>`).join("");
+
+    const sorteditems = [...items].sort((a, b) => parseFloat(a.price.replace(',', '.')) - parseFloat(b.price.replace(',', '.')));
+
+    const html = sorteditems.map((item, i) => `
+      <article class="promo-card" aria-label="Paket elopment ${i + 1} harga ${item.price} juta">
+        <div class="poster-top">
+          <img src="${item.top}" alt="Elopement ${i + 1} foto utama" loading="lazy" />
+          <img src="${item.bottom}" alt="Elopement ${i + 1} foto kedua" loading="lazy" />
+        </div>
+
+        <div class="price-strip">
+          <div class="free-box">FREE<small>KONTEN KREATOR</small></div>
+          <div class="price-main">
+            <div class="amount-row">
+              <span class="amount">${item.price}</span>
+              <span class="unit">jt</span>
+            </div>
+            <span class="terms">S&amp;K Berlaku</span>
+          </div>
+          <div class="free-box">FREE<small>PYROTECH</small></div>
+        </div>
+
+        <div class="promo-strip">
+          <div class="title">PROMO</div>
+          <div class="sub">PAKET ELOPEMENT 2026</div>
+        </div>
+
+        <div class="detail-strip">
+          <ul class="features">${serviceHtml}</ul>
+          <div class="contact">
+            <strong>Hubungi Kami:</strong>
+            <a class="contact-btn" href="https://wa.me/6282266476876" target="_blank" rel="noopener">Chat WA +62 822-6647-6876</a>
+          </div>
+        </div>
+      </article>
+    `).join("");
+
+    document.getElementById("elopementGrid").innerHTML = html;
+  </script>
+<script>
+  (() => {
+    const menuRoot = document.querySelector(".mobile-menu");
+    if (!menuRoot) return;
+
+    const trigger = menuRoot.querySelector(".mobile-menu-trigger");
+    if (!trigger) return;
+
+    trigger.addEventListener("click", () => {
+      const isOpen = menuRoot.classList.toggle("is-open");
+      trigger.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!menuRoot.contains(event.target)) {
+        menuRoot.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+      }
+    });
+  })();
+</script>
+</body>
+</html>
