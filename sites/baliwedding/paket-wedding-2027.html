@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
     :root {
+    --page-illustration: url("https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg");
       --bg: #eff4f2;
       --ink: #1f303b;
       --muted: #5f6f79;
@@ -223,17 +224,37 @@
   }
 
   .promo-card .poster-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    position: relative;
     aspect-ratio: 4 / 3;
-    background: #ebf1ef;
+    background-image: linear-gradient(rgba(16, 25, 31, 0.02), rgba(16, 25, 31, 0.02)), var(--page-illustration);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
   }
 
   .promo-card .poster-top img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    display: none;
+  }
+
+  .promo-card .poster-top::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    background-image: var(--page-illustration);
+    background-size: cover;
+    background-position: center;
+    filter: none;
+    transform: scale(1.06);
+    z-index: 0;
+    opacity: 1;
+  }
+
+  .promo-card .poster-top::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(24, 36, 44, 0.03), rgba(24, 36, 44, 0.08));
+    z-index: 1;
   }
 
   .promo-card .price-strip {
@@ -417,6 +438,9 @@
   }
 
   .mobile-logo {
+    width: 116px;
+    height: 68px;
+    margin: 0 auto 8px;
     display: inline-block;
     text-decoration: none;
     font-family: "Cormorant Garamond", serif;
@@ -425,6 +449,13 @@
     letter-spacing: 0.12em;
     color: #d90f1a;
     margin-bottom: 8px;
+  }
+
+  .mobile-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
   }
 
   .mobile-brand {
@@ -570,9 +601,9 @@
 </head>
 <body>
 <div class="mobile-menu-shell">
-  <a class="mobile-logo" href="index.html" aria-label="Bali Best Wedding">BW</a>
+  <a class="mobile-logo" href="index.html" aria-label="Bali Best Wedding"><img src="https://everz-digital.site/wp-content/uploads/2026/02/2026-02-21_13-17-removebg-preview.png" alt="Bali Best Wedding logo" loading="lazy" /></a>
   <div class="mobile-brand">Bali Best Wedding</div>
-  <div class="mobile-tagline">Create, Care, Commit</div>
+  
   <div class="mobile-menu">
     <button class="mobile-menu-trigger" type="button" aria-expanded="false" aria-controls="mobileMenuList">
       <span>≡</span> Menu
@@ -592,19 +623,10 @@
           </ul>
         </details>
       </li>
-      <li role="none">
-        <details class="mobile-submenu">
-          <summary>Packages</summary>
-          <ul class="mobile-submenu-list">
-            <li role="none"><a role="menuitem" href="paket-elopment-2026.html">Paket Elopment</a></li>
-            <li role="none"><a role="menuitem" href="paket-pernikahan-resepsi.html">Paket Pernikahan &amp; Resepsi</a></li>
-          </ul>
-        </details>
-      </li>
+      <li role="none"><a role="menuitem" href="paket-elopment-2026.html">Paket Elopment</a></li>
       <li role="none"><a role="menuitem" href="foto-video-prewedding-bali.html">Foto &amp; Video Prewedding di Bali</a></li>
       <li role="none"><a role="menuitem" href="about-us.html">About Us</a></li>
-      <li role="none"><a role="menuitem" href="promo-wedding-katolik-2026.html">Promo Wedding Katolik 2026</a></li>
-      <li role="none"><a role="menuitem" href="paket-terbaik-2026.html">Paket Terbaik 2026</a></li>
+<li role="none"><a role="menuitem" href="paket-terbaik-2026.html">Paket Terbaik 2026</a></li>
       <li role="none"><a role="menuitem" href="paket-wedding-2027.html">Paket Wedding 2027</a></li>
       <li role="none"><a role="menuitem" href="paket-prewedding.html">Paket Prewedding</a></li>
     </ul>
@@ -624,30 +646,30 @@
 
   <script>
     const packages2027 = [
-      { venue: "The Samaya", p50: "217 Juta 50 Pax", p100: "298 Juta 100 Pax" },
-      { venue: "W Hotel Seminyak", p50: "183 Juta 50 Pax", p100: "256 Juta 100 Pax" },
-      { venue: "Anantara Uluwatu", p50: "182 Juta 50 Pax", p100: "235 Juta 100 Pax" },
-      { venue: "Merusaka Nusa Dua", p50: "171 Juta 50 Pax", p100: "227 Juta 100 Pax" },
-      { venue: "Maya Ubud", p50: "172 Juta 50 Pax", p100: "226 Juta 100 Pax" },
-      { venue: "Blue Point Uluwatu", p50: "160 Juta 50 Pax", p100: "203 Juta 100 Pax" },
-      { venue: "Nusa Dua 100", p50: "166 Juta 50 Pax", p100: "221 Juta 100 Pax" },
-      { venue: "Le Meridien Jimbaran", p50: "150 Juta 50 Pax", p100: "190 Juta 100 Pax" },
-      { venue: "Sadara Resort", p50: "147 Juta 50 Pax", p100: "188 Juta 100 Pax" },
-      { venue: "Four Points Ungasan", p50: "134 Juta 50 Pax", p100: "170 Juta 100 Pax" },
-      { venue: "Mercure Kuta", p50: "121 Juta 50 Pax", p100: "149 Juta 100 Pax" },
-      { venue: "The Anvaya", p50: "149 Juta 50 Pax", p100: "189 Juta 100 Pax" },
-      { venue: "Aryaduta", p50: "155 Juta 50 Pax", p100: "165 Juta 100 Pax" }
+      { venue: "The Samaya", p50: "216 Juta 50 Pax", p100: "297 Juta 100 Pax" },
+      { venue: "W Hotel Seminyak", p50: "182 Juta 50 Pax", p100: "255 Juta 100 Pax" },
+      { venue: "Anantara Uluwatu", p50: "181 Juta 50 Pax", p100: "234 Juta 100 Pax" },
+      { venue: "Merusaka Nusa Dua", p50: "170 Juta 50 Pax", p100: "226 Juta 100 Pax" },
+      { venue: "Maya Ubud", p50: "171 Juta 50 Pax", p100: "225 Juta 100 Pax" },
+      { venue: "Blue Point Uluwatu", p50: "159 Juta 50 Pax", p100: "202 Juta 100 Pax" },
+      { venue: "Nusa Dua 100", p50: "165 Juta 50 Pax", p100: "220 Juta 100 Pax" },
+      { venue: "Le Meridien Jimbaran", p50: "149 Juta 50 Pax", p100: "189 Juta 100 Pax" },
+      { venue: "Sadara Resort", p50: "146 Juta 50 Pax", p100: "187 Juta 100 Pax" },
+      { venue: "Four Points Ungasan", p50: "133 Juta 50 Pax", p100: "169 Juta 100 Pax" },
+      { venue: "Mercure Kuta", p50: "120 Juta 50 Pax", p100: "148 Juta 100 Pax" },
+      { venue: "The Anvaya", p50: "148 Juta 50 Pax", p100: "188 Juta 100 Pax" },
+      { venue: "Aryaduta", p50: "154 Juta 50 Pax", p100: "164 Juta 100 Pax" }
     ];
 
     const photoSets = [
-      ["https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1200", "https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=1200", "https://unsplash.com/photos/Ikm6d70CBuA/download?force=true&w=1200", "https://unsplash.com/photos/PEBYTP0jzps/download?force=true&w=1200"],
-      ["https://unsplash.com/photos/SZhc5vXcE8I/download?force=true&w=1200", "https://unsplash.com/photos/8hOc0cL-fbE/download?force=true&w=1200", "https://unsplash.com/photos/rPTaijbN4-s/download?force=true&w=1200", "https://unsplash.com/photos/_EgB4RJryTY/download?force=true&w=1200"],
-      ["https://unsplash.com/photos/FRMgWWQg_2U/download?force=true&w=1200", "https://unsplash.com/photos/d3dgCUcX4Nw/download?force=true&w=1200", "https://unsplash.com/photos/dNULboQ3Tlk/download?force=true&w=1200", "https://unsplash.com/photos/JP7KJ2mhYiM/download?force=true&w=1200"],
-      ["https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1200", "https://unsplash.com/photos/PEBYTP0jzps/download?force=true&w=1200", "https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=1200", "https://unsplash.com/photos/Ikm6d70CBuA/download?force=true&w=1200"],
-      ["https://unsplash.com/photos/PEBYTP0jzps/download?force=true&w=1200", "https://unsplash.com/photos/SZhc5vXcE8I/download?force=true&w=1200", "https://unsplash.com/photos/8hOc0cL-fbE/download?force=true&w=1200", "https://unsplash.com/photos/rPTaijbN4-s/download?force=true&w=1200"],
-      ["https://unsplash.com/photos/_EgB4RJryTY/download?force=true&w=1200", "https://unsplash.com/photos/FRMgWWQg_2U/download?force=true&w=1200", "https://unsplash.com/photos/d3dgCUcX4Nw/download?force=true&w=1200", "https://unsplash.com/photos/dNULboQ3Tlk/download?force=true&w=1200"],
-      ["https://unsplash.com/photos/JP7KJ2mhYiM/download?force=true&w=1200", "https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1200", "https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1200", "https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=1200"],
-      ["https://unsplash.com/photos/Ikm6d70CBuA/download?force=true&w=1200", "https://unsplash.com/photos/PEBYTP0jzps/download?force=true&w=1200", "https://unsplash.com/photos/SZhc5vXcE8I/download?force=true&w=1200", "https://unsplash.com/photos/8hOc0cL-fbE/download?force=true&w=1200"]
+      ["https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg"],
+      ["https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg"],
+      ["https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg"],
+      ["https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg"],
+      ["https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg"],
+      ["https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg"],
+      ["https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg"],
+      ["https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg"]
     ];
 
     const features = [
@@ -681,7 +703,7 @@
           </div>
 
           <div class="price-strip">
-            <div class="free-box">FREE<small>KONTEN KREATOR</small></div>
+            <div class="free-box">HARGA<small>SUDAH DISKON</small></div>
             <div class="price-main">
               <div class="amount-row">
                 <span class="amount">${mainPrice}</span>
@@ -689,7 +711,7 @@
               </div>
               <span class="terms">${pkg.venue} | ${pkg.p50} | ${pkg.p100}</span>
             </div>
-            <div class="free-box">FREE<small>PYROTECH</small></div>
+            <div class="free-box">HARGA<small>SUDAH DISKON</small></div>
           </div>
 
           <div class="promo-strip">

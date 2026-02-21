@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
     :root {
+    --page-illustration: url("https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg");
       --bg: #eef4f2;
       --ink: #1f2f39;
       --muted: #5f7079;
@@ -218,17 +219,37 @@
   }
 
   .promo-card .poster-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    position: relative;
     aspect-ratio: 4 / 3;
-    background: #ebf1ef;
+    background-image: linear-gradient(rgba(16, 25, 31, 0.02), rgba(16, 25, 31, 0.02)), var(--page-illustration);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
   }
 
   .promo-card .poster-top img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    display: none;
+  }
+
+  .promo-card .poster-top::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    background-image: var(--page-illustration);
+    background-size: cover;
+    background-position: center;
+    filter: none;
+    transform: scale(1.06);
+    z-index: 0;
+    opacity: 1;
+  }
+
+  .promo-card .poster-top::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(24, 36, 44, 0.03), rgba(24, 36, 44, 0.08));
+    z-index: 1;
   }
 
   .promo-card .price-strip {
@@ -412,6 +433,9 @@
   }
 
   .mobile-logo {
+    width: 116px;
+    height: 68px;
+    margin: 0 auto 8px;
     display: inline-block;
     text-decoration: none;
     font-family: "Cormorant Garamond", serif;
@@ -420,6 +444,13 @@
     letter-spacing: 0.12em;
     color: #d90f1a;
     margin-bottom: 8px;
+  }
+
+  .mobile-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
   }
 
   .mobile-brand {
@@ -565,9 +596,9 @@
 </head>
 <body>
 <div class="mobile-menu-shell">
-  <a class="mobile-logo" href="index.html" aria-label="Bali Best Wedding">BW</a>
+  <a class="mobile-logo" href="index.html" aria-label="Bali Best Wedding"><img src="https://everz-digital.site/wp-content/uploads/2026/02/2026-02-21_13-17-removebg-preview.png" alt="Bali Best Wedding logo" loading="lazy" /></a>
   <div class="mobile-brand">Bali Best Wedding</div>
-  <div class="mobile-tagline">Create, Care, Commit</div>
+  
   <div class="mobile-menu">
     <button class="mobile-menu-trigger" type="button" aria-expanded="false" aria-controls="mobileMenuList">
       <span>≡</span> Menu
@@ -587,19 +618,10 @@
           </ul>
         </details>
       </li>
-      <li role="none">
-        <details class="mobile-submenu">
-          <summary>Packages</summary>
-          <ul class="mobile-submenu-list">
-            <li role="none"><a role="menuitem" href="paket-elopment-2026.html">Paket Elopment</a></li>
-            <li role="none"><a role="menuitem" href="paket-pernikahan-resepsi.html">Paket Pernikahan &amp; Resepsi</a></li>
-          </ul>
-        </details>
-      </li>
+      <li role="none"><a role="menuitem" href="paket-elopment-2026.html">Paket Elopment</a></li>
       <li role="none"><a role="menuitem" href="foto-video-prewedding-bali.html">Foto &amp; Video Prewedding di Bali</a></li>
       <li role="none"><a role="menuitem" href="about-us.html">About Us</a></li>
-      <li role="none"><a role="menuitem" href="promo-wedding-katolik-2026.html">Promo Wedding Katolik 2026</a></li>
-      <li role="none"><a role="menuitem" href="paket-terbaik-2026.html">Paket Terbaik 2026</a></li>
+<li role="none"><a role="menuitem" href="paket-terbaik-2026.html">Paket Terbaik 2026</a></li>
       <li role="none"><a role="menuitem" href="paket-wedding-2027.html">Paket Wedding 2027</a></li>
       <li role="none"><a role="menuitem" href="paket-prewedding.html">Paket Prewedding</a></li>
     </ul>
@@ -616,14 +638,14 @@
 
   <script>
     const data200 = [
-      { price: "292", top: "https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1200", bottom: "https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=1200" },
-      { price: "296", top: "https://unsplash.com/photos/Ikm6d70CBuA/download?force=true&w=1200", bottom: "https://unsplash.com/photos/PEBYTP0jzps/download?force=true&w=1200" },
-      { price: "285", top: "https://unsplash.com/photos/SZhc5vXcE8I/download?force=true&w=1200", bottom: "https://unsplash.com/photos/8hOc0cL-fbE/download?force=true&w=1200" },
-      { price: "281", top: "https://unsplash.com/photos/rPTaijbN4-s/download?force=true&w=1200", bottom: "https://unsplash.com/photos/_EgB4RJryTY/download?force=true&w=1200" },
-      { price: "243", top: "https://unsplash.com/photos/FRMgWWQg_2U/download?force=true&w=1200", bottom: "https://unsplash.com/photos/d3dgCUcX4Nw/download?force=true&w=1200" },
-      { price: "240", top: "https://unsplash.com/photos/dNULboQ3Tlk/download?force=true&w=1200", bottom: "https://unsplash.com/photos/JP7KJ2mhYiM/download?force=true&w=1200" },
-      { price: "215", top: "https://unsplash.com/photos/4xx4jRX2ncE/download?force=true&w=1200", bottom: "https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=1200" },
-      { price: "259", top: "https://unsplash.com/photos/Nr4zfULh4r8/download?force=true&w=1200", bottom: "https://unsplash.com/photos/Ikm6d70CBuA/download?force=true&w=1200" }
+      { price: "291", top: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", bottom: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg" },
+      { price: "295", top: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", bottom: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg" },
+      { price: "284", top: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", bottom: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg" },
+      { price: "280", top: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", bottom: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg" },
+      { price: "242", top: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", bottom: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg" },
+      { price: "239", top: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", bottom: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg" },
+      { price: "214", top: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", bottom: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg" },
+      { price: "258", top: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg", bottom: "https://images.weddingku.com/images/upload/articles/images/aeu2xlj88ry741820231018.jpg" }
     ];
 
     const services = [
@@ -649,7 +671,7 @@
         </div>
 
         <div class="price-strip">
-          <div class="free-box">FREE<small>KONTEN KREATOR</small></div>
+          <div class="free-box">HARGA<small>SUDAH DISKON</small></div>
           <div class="price-main">
             <div class="amount-row">
               <span class="amount">${pkg.price}</span>
@@ -657,7 +679,7 @@
             </div>
             <span class="terms">100 Pax</span>
           </div>
-          <div class="free-box">FREE<small>PYROTECH</small></div>
+          <div class="free-box">HARGA<small>SUDAH DISKON</small></div>
         </div>
 
         <div class="promo-strip">
