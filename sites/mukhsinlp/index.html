@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les Private Sekolah | Kak Mukhsin Private</title>
+  <meta name="description" content="Les private TK, SD, SMP, SMA, UTBK-SNBT, Cambridge, IB, dan pelajaran internasional. Trial gratis, jadwal fleksibel, guru terseleksi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f9ff;
+      --ink: #1f2433;
+      --muted: #4b5774;
+      --brand: #6b3b88;
+      --brand-2: #eeae2f;
+      --mint: #dff6f7;
+      --white: #ffffff;
+      --line: #dbe3f4;
+      --ok: #0f9f74;
+      --shadow: 0 14px 38px rgba(34, 52, 93, 0.12);
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 10px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(130% 120% at 50% -20%, #edf2ff 0%, var(--bg) 45%, #f4f8ff 100%);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    header {
+      padding: 14px 0 10px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      background: linear-gradient(108deg, #ffffff 0%, #f6f9ff 100%);
+      border: 1px solid #e6ecf8;
+      border-radius: 999px;
+      padding: 10px 14px;
+      box-shadow: 0 8px 24px rgba(35, 59, 109, 0.08);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand img {
+      width: 260px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .chip-link {
+      text-decoration: none;
+      color: #304061;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 999px;
+      padding: 9px 12px;
+      transition: .18s ease;
+    }
+
+    .chip-link:hover {
+      background: #ecf3ff;
+      color: #1b2f58;
+    }
+
+    .hero {
+      padding: 18px 0 30px;
+    }
+
+    .hero-wrap {
+      background: linear-gradient(132deg, #fefaf3 0%, #fff 30%, #ecf7ff 100%);
+      border: 1px solid #e9e5dd;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      min-height: 520px;
+      animation: floatIn .55s ease both;
+    }
+
+    .hero-copy {
+      padding: 42px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy::before {
+      content: "";
+      position: absolute;
+      right: -90px;
+      top: -90px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(238,174,47,.28), rgba(238,174,47,0));
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border: 1px solid #efe8d5;
+      color: #7a5a10;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    h1 {
+      font-family: "Sora", sans-serif;
+      font-size: clamp(28px, 5vw, 47px);
+      line-height: 1.1;
+      margin: 14px 0 10px;
+      letter-spacing: -.8px;
+      color: #1f1d35;
+    }
+
+    .hero-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 20px 0 24px;
+      padding-left: 20px;
+      list-style: disc;
+    }
+
+    .hero-points li {
+      padding: 2px 0;
+      font-size: 13px;
+      font-weight: 700;
+      color: #2e3853;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      border-radius: 12px;
+      padding: 13px 16px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      transition: transform .12s ease, box-shadow .2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #f6bc45 0%, #e7a21e 100%);
+      color: #2f2100;
+      box-shadow: 0 8px 20px rgba(238, 174, 47, 0.28);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      border: 1px solid #e0e8f8;
+      color: #2f3f67;
+    }
+
+    .hero-visual {
+      background:
+        radial-gradient(120% 120% at 85% 15%, #e6efff 0%, #e6efff00 42%),
+        linear-gradient(180deg, #f5f2ff 0%, #ffffff 72%);
+      padding: 26px;
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .snap {
+      padding: 4px 0;
+    }
+
+    .snap h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: #27345a;
+    }
+
+    .snap p {
+      margin: 0;
+      color: #64708f;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .stat {
+      border-radius: 12px;
+      padding: 8px 0;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 20px;
+      color: var(--brand);
+      font-family: "Sora", sans-serif;
+    }
+
+    .stat span {
+      font-size: 12px;
+      color: #6a7594;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 28px 0;
+    }
+
+    .section-head {
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(23px, 4vw, 34px);
+      font-family: "Sora", sans-serif;
+      line-height: 1.12;
+      color: #242745;
+      letter-spacing: -.3px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: #61708f;
+      max-width: 660px;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .section-head.centered {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e6ecfa;
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 8px 24px rgba(25, 43, 82, 0.07);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: #27365b;
+    }
+
+    .card p {
+      margin: 0;
+      color: #5f6e8e;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0,1fr));
+      gap: 12px;
+    }
+
+    .value-item {
+      background: #fff;
+      border: 1px solid #e3eaf9;
+      border-radius: 14px;
+      padding: 14px;
+      min-height: 146px;
+      box-shadow: 0 8px 24px rgba(25, 43, 82, 0.06);
+    }
+
+    .value-item b {
+      display: block;
+      font-size: 14px;
+      color: #28365b;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .value-item span {
+      color: #657392;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .curriculum {
+      background: linear-gradient(180deg, #eaf8fa 0%, #f9fdff 100%);
+      border-top: 1px solid #d6eef1;
+      border-bottom: 1px solid #d6eef1;
+    }
+
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .list-box {
+      padding: 0;
+    }
+
+    .list-box h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #233157;
+    }
+
+    .list-box ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #5e6e8f;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .city-wrap {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 10px;
+    }
+
+    .city {
+      padding: 6px 0;
+      text-align: left;
+      font-weight: 700;
+      color: #664200;
+      font-size: 14px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0,1fr));
+      gap: 8px;
+      padding: 0;
+    }
+
+    .gallery-item {
+      margin: 0;
+      min-height: 120px;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #dbe5f6;
+      box-shadow: 0 8px 18px rgba(36, 56, 98, 0.08);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .28s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .promo {
+      padding: 18px;
+      background: linear-gradient(120deg, #662f85 0%, #7c42a0 55%, #8f52b4 100%);
+      border-radius: 16px;
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .promo strong {
+      font-family: "Sora", sans-serif;
+      font-size: clamp(30px, 6vw, 58px);
+      line-height: .9;
+      display: block;
+      color: #ffd978;
+      margin: 4px 0;
+    }
+
+    .promo p {
+      margin: 0;
+      color: #f3eaff;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .promo .btn {
+      width: min(340px, 100%);
+      margin-inline: auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .contact-item {
+      padding: 0;
+    }
+
+    .contact-item h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: #25345a;
+    }
+
+    .contact-item p, .contact-item a {
+      margin: 0;
+      color: #5f6e8d;
+      font-size: 13px;
+      text-decoration: none;
+      line-height: 1.55;
+    }
+
+    footer {
+      margin-top: 24px;
+      background: linear-gradient(180deg, #92cced 0%, #7bbce2 100%);
+      color: #f6fdff;
+      text-align: center;
+      padding: 34px 20px 80px;
+      font-weight: 700;
+    }
+
+    .sticky-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 99;
+      background: rgba(15, 22, 39, 0.90);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #293352;
+      padding: 10px 12px;
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .sticky-cta .btn { padding: 12px 10px; font-size: 13px; }
+
+    .sticky-note {
+      grid-column: 1 / -1;
+      color: #eef4ff;
+      font-size: 11px;
+      line-height: 1.35;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 10px;
+      padding: 7px 8px;
+      font-weight: 700;
+    }
+
+    .sticky-note b {
+      color: #ffd978;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .45s ease, transform .45s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(.995);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (max-width: 1050px) {
+      .hero-wrap { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .value-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .city-wrap { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .gallery { grid-template-columns: repeat(4, minmax(0,1fr)); }
+      .contact-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        border-radius: 18px;
+        justify-content: center;
+      }
+      .nav-links { display: none; }
+      .brand img { width: 210px; }
+      .hero .cta-row {
+        flex-wrap: nowrap;
+      }
+      .hero .cta-row .btn {
+        flex: 1;
+        padding: 12px 8px;
+        font-size: 12px;
+      }
+      .hero-copy { padding: 24px; }
+      .hero-points { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .cards {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 10px;
+      }
+      .card {
+        padding: 12px;
+      }
+      .card h3 {
+        font-size: 15px;
+      }
+      .card p {
+        font-size: 12px;
+      }
+      .value-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 10px;
+      }
+      .value-item {
+        min-height: auto;
+        padding: 12px;
+      }
+      .value-item b {
+        font-size: 14px;
+      }
+      .value-item span {
+        font-size: 12px;
+      }
+      .curriculum-grid { grid-template-columns: 1fr; }
+      .city-wrap { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .gallery {
+        grid-template-columns: repeat(3, minmax(0,1fr));
+        gap: 10px;
+      }
+      .gallery-item:last-child:nth-child(3n + 1) {
+        grid-column: 2;
+      }
+      .promo { grid-template-columns: 1fr; }
+      .sticky-cta { display: grid; }
+      footer { padding-bottom: 98px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <nav class="nav">
+      <a href="#home" class="brand">
+        <img src="https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-logo-1.png" alt="Logo Kak Mukhsin Private">
+      </a>
+      <div class="nav-links">
+        <a class="chip-link" href="#program">Program</a>
+        <a class="chip-link" href="#keunggulan">Keunggulan</a>
+        <a class="chip-link" href="#kurikulum">Kurikulum</a>
+        <a class="chip-link" href="#kontak">Kontak</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div class="hero-copy">
+          <span class="eyebrow">Les Private Pelajaran Sekolah</span>
+          <h1>Guru Private Datang ke Rumah, Belajar Jadi Lebih Fokus</h1>
+          <p>
+            Melayani les private untuk TK, SD, SMP, SMA, UTBK-SNBT sampai kurikulum internasional
+            (Cambridge, IGCSE/O Level, A Level, IB). Jadwal fleksibel, trial gratis, dan guru terseleksi.
+          </p>
+          <ul class="hero-points">
+            <li>Semua mapel sekolah + persiapan ujian</li>
+            <li>Bisa pilih tutor pria/wanita</li>
+            <li>Online &amp; offline sesuai kebutuhan</li>
+            <li>Bisa ganti guru bila kurang cocok</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://wa.me/6282264441822" target="_blank" rel="noopener">Daftar Trial Gratis</a>
+            <a class="btn btn-secondary" href="#promo">Lihat Promo 40%</a>
+          </div>
+          <div class="stat-row">
+            <div class="stat"><strong>10+</strong><span>Program Les</span></div>
+            <div class="stat"><strong>16</strong><span>Kota Layanan</span></div>
+            <div class="stat"><strong>1x</strong><span>Trial Gratis</span></div>
+            <div class="stat"><strong>24 Jam</strong><span>Respon Konsultasi</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <article class="snap">
+            <h3>Diskon Khusus Pendaftaran Awal</h3>
+            <p>Dapatkan potongan biaya les hingga 40% untuk periode promo. Berlaku untuk paket private pilihan.</p>
+          </article>
+          <article class="snap">
+            <h3>Fleksibel &amp; Personal</h3>
+            <p>Jam les diatur orang tua, materi disesuaikan kebutuhan murid, dan progres dipantau berkala.</p>
+          </article>
+          <article class="snap">
+            <h3>Fokus Hasil</h3>
+            <p>Persiapan ulangan, UTS/UAS, UN, OSN, masuk sekolah favorit, sampai UTBK-SNBT dan SIMAK UI.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="program" class="container">
+      <div class="section-head">
+        <h2>Program Les yang Ditawarkan</h2>
+        <p>Pilih program belajar paling tepat untuk anak Anda, dari penguatan dasar, persiapan ujian, hingga target masuk sekolah dan kampus favorit.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal"><h3>Les Private TK</h3><p>Baca, tulis, hitung (calistung) dengan tutor sabar dan pendekatan fun learning.</p></article>
+        <article class="card reveal"><h3>Les Private SD</h3><p>Semua pelajaran + persiapan ulangan, UTS/UAS, dan ujian nasional.</p></article>
+        <article class="card reveal"><h3>Les Private SMP</h3><p>Pendampingan mapel inti, penguatan konsep, dan target masuk SMA favorit.</p></article>
+        <article class="card reveal"><h3>Les Private SMA</h3><p>Pendalaman materi IPA/IPS/Bahasa, persiapan ujian sekolah dan PTN favorit.</p></article>
+        <article class="card reveal"><h3>UTBK-SNBT &amp; SIMAK UI</h3><p>Strategi soal, pembahasan intensif, latihan berkala, dan evaluasi progres.</p></article>
+        <article class="card reveal"><h3>Cambridge IGCSE/O Level</h3><p>Dibimbing tutor berpengalaman dengan bahan past paper dan teknik ujian.</p></article>
+        <article class="card reveal"><h3>International A Level</h3><p>Penguatan konsep dan latihan soal terstruktur sesuai standar A Level.</p></article>
+        <article class="card reveal"><h3>Kelas Skill Tambahan</h3><p>Bahasa Inggris, Arab, Mandarin, komputer, desain, musik, renang, dan mengaji.</p></article>
+      </div>
+    </section>
+
+    <section id="keunggulan" class="container">
+      <div class="section-head">
+        <h2>Kenapa Memilih Kak Mukhsin Private?</h2>
+        <p>Kami fokus pada hasil belajar yang terukur: tutor berkualitas, metode personal, jadwal fleksibel, dan sistem pendampingan yang konsisten.</p>
+      </div>
+      <div class="value-grid">
+        <article class="value-item reveal"><b>Guru Private Berkualitas</b><span>Seleksi ketat, alumni universitas ternama, dan berpengalaman mengajar.</span></article>
+        <article class="value-item reveal"><b>Sistem Kontrol Belajar</b><span>Progres murid dipantau agar target akademik lebih terukur.</span></article>
+        <article class="value-item reveal"><b>Kurikulum Lengkap</b><span>Nasional, Nasional Plus, Cambridge, hingga IB International.</span></article>
+        <article class="value-item reveal"><b>Penyesuaian Tutor</b><span>Tutor disesuaikan kebutuhan pelajaran dan karakter murid.</span></article>
+        <article class="value-item reveal"><b>Jadwal Sangat Fleksibel</b><span>Waktu les ditentukan orang tua agar tidak bentrok aktivitas murid.</span></article>
+        <article class="value-item reveal"><b>Metode Personal</b><span>Pembelajaran disesuaikan kemampuan dan ritme belajar murid.</span></article>
+        <article class="value-item reveal"><b>Harga Terjangkau</b><span>Biaya kompetitif dengan pilihan durasi 2 jam atau sesuai kebutuhan.</span></article>
+        <article class="value-item reveal"><b>Bisa Ganti Guru</b><span>Jika dirasa kurang cocok, tersedia opsi penggantian tutor.</span></article>
+        <article class="value-item reveal"><b>Trial Gratis</b><span>Percobaan 1x pertemuan tanpa biaya untuk uji kecocokan.</span></article>
+        <article class="value-item reveal"><b>Pendaftaran Gratis</b><span>Konsultasi dan pendaftaran awal tidak dipungut biaya.</span></article>
+      </div>
+    </section>
+
+    <section id="kurikulum" class="curriculum">
+      <div class="container">
+        <div class="section-head">
+          <h2>Kurikulum &amp; Level Murid</h2>
+          <p>Melayani level TK, SD, SMP, SMA hingga mahasiswa umum dengan opsi kurikulum nasional dan internasional.</p>
+        </div>
+        <div class="curriculum-grid">
+          <article class="list-box">
+            <h3>Kurikulum Internasional</h3>
+            <ul>
+              <li>Cambridge: Kindergarten, Primary, Secondary, IGCSE/O Level, AS/A Level</li>
+              <li>International Baccalaureate (IB): PYP, MYP, DP</li>
+              <li>Singapore Curriculum: Primary, Lower Secondary, GCSE O Level, A Level</li>
+            </ul>
+          </article>
+          <article class="list-box">
+            <h3>Kurikulum Nasional</h3>
+            <ul>
+              <li>K13 / Kurikulum Nasional</li>
+              <li>Persiapan Ujian Nasional</li>
+              <li>Masuk sekolah favorit &amp; OSN</li>
+              <li>SBMPTN/UTBK-SNBT &amp; SIMAK UI</li>
+              <li>Les kedinasan: AKMIL, AKPOL, STAN, STIS, IPDN</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-head">
+        <h2>Sebaran Cabang Layanan</h2>
+        <p>Kak Mukhsin Private telah tersebar di beberapa kota di Indonesia.</p>
+      </div>
+      <div class="city-wrap">
+        <div class="city">Jakarta</div>
+        <div class="city">Banda Aceh</div>
+        <div class="city">Medan</div>
+        <div class="city">Padang</div>
+        <div class="city">Pekanbaru</div>
+        <div class="city">Batam</div>
+        <div class="city">Palembang</div>
+        <div class="city">Lampung</div>
+        <div class="city">Bandung</div>
+        <div class="city">Semarang</div>
+        <div class="city">Yogyakarta</div>
+        <div class="city">Surabaya</div>
+        <div class="city">Malang</div>
+        <div class="city">Makassar</div>
+        <div class="city">Balikpapan</div>
+        <div class="city">Denpasar</div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-head centered">
+        <h2>Dokumentasi Aktivitas Les</h2>
+        <p>Aktivitas belajar real bersama murid dan tutor untuk menunjukkan proses pembelajaran yang aktif, terarah, dan nyaman.</p>
+      </div>
+      <div class="gallery">
+        <figure class="gallery-item reveal"><img src="https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-les-sekolah-1.jpg" alt="Dokumentasi les private 1" loading="lazy"></figure>
+        <figure class="gallery-item reveal"><img src="https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-les-sekolah-2.jpg" alt="Dokumentasi les private 2" loading="lazy"></figure>
+        <figure class="gallery-item reveal"><img src="https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-les-sekolah-3.jpg" alt="Dokumentasi les private 3" loading="lazy"></figure>
+        <figure class="gallery-item reveal"><img src="https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-les-sekolah-18.jpg" alt="Dokumentasi les private 4" loading="lazy"></figure>
+        <figure class="gallery-item reveal"><img src="https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-les-sekolah-17.jpg" alt="Dokumentasi les private 5" loading="lazy"></figure>
+        <figure class="gallery-item reveal"><img src="https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-les-sekolah-16.jpg" alt="Dokumentasi les private 6" loading="lazy"></figure>
+        <figure class="gallery-item reveal"><img src="https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-les-sekolah-15.jpg" alt="Dokumentasi les private 7" loading="lazy"></figure>
+        <figure class="gallery-item reveal"><img src="https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-les-sekolah-14.jpg" alt="Dokumentasi les private 8" loading="lazy"></figure>
+        <figure class="gallery-item reveal"><img src="https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-les-sekolah-9.jpg" alt="Dokumentasi les private 9" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section id="promo" class="container">
+      <div class="promo">
+        <div>
+          <p>Daftarkan segera untuk mendapatkan guru les terbaik dengan harga terjangkau.</p>
+          <strong>DISKON 40%</strong>
+          <p>Promo berlaku untuk pendaftaran paket private tertentu. Konsultasikan kebutuhan anak Anda sekarang.</p>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/6282264441822" target="_blank" rel="noopener">Klaim Promo Sekarang</a>
+      </div>
+    </section>
+
+    <section id="kontak" class="container">
+      <div class="section-head centered">
+        <h2>Kontak &amp; Pendaftaran</h2>
+        <p>Konsultasi kebutuhan belajar anak Anda tanpa biaya. Tim akan bantu rekomendasikan tutor dan paket yang sesuai.</p>
+      </div>
+      <div class="contact-grid">
+        <article class="contact-item">
+          <h3>Hubungi Kami</h3>
+          <p>Senin - Jumat: 08.00 - 20.00 WIB</p>
+          <p>Sabtu - Minggu: 08.00 - 22.00 WIB</p>
+        </article>
+        <article class="contact-item">
+          <h3>Kantor Pusat</h3>
+          <p>Jl. H. Juanda, Ciputat Timur</p>
+          <p>Tangerang Selatan, Banten 15412</p>
+        </article>
+        <article class="contact-item">
+          <h3>Kontak Kami</h3>
+          <a href="https://wa.me/6282264441822" target="_blank" rel="noopener">0822-6444-1822 (WhatsApp)</a><br>
+          <a href="tel:+6282264441822">0822-6444-1822 (Phone)</a>
+        </article>
+        <article class="contact-item">
+          <h3>Email Kami</h3>
+          <a href="mailto:mukhtar_mukhsin@yahoo.co.id">mukhtar_mukhsin@yahoo.co.id</a>
+        </article>
+      </div>
+      <div class="cta-row" style="margin-top:14px; justify-content:center;">
+        <a class="btn btn-primary" href="https://wa.me/6282264441822" target="_blank" rel="noopener">Pendaftaran</a>
+        <a class="btn btn-secondary" href="https://wa.me/6282264441822" target="_blank" rel="noopener">Konsultasi</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p style="margin:0 0 6px;font-family:'Sora',sans-serif;font-size:24px;">KAK MUKHSIN PRIVATE</p>
+    <p style="margin:0;font-size:12px;opacity:.95;">&copy; 2026 Mukhsin. Private Jakarta - Les Private Online &amp; Offline.</p>
+  </footer>
+
+  <div class="sticky-cta">
+    <div class="sticky-note">
+      <b>Diskon 40%</b> berakhir dalam <span id="sticky-deadline">--:--:--</span>
+    </div>
+    <a class="btn btn-primary" href="https://wa.me/6282264441822" target="_blank" rel="noopener">Daftar Sekarang</a>
+    <a class="btn btn-secondary" href="https://wa.me/6282264441822" target="_blank" rel="noopener">Konsultasi</a>
+  </div>
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('show'), Math.min(index * 35, 280));
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+    reveals.forEach((el) => observer.observe(el));
+
+    const stickyDeadline = document.getElementById('sticky-deadline');
+    const formatNum = (n) => String(n).padStart(2, '0');
+    const tickDeadline = () => {
+      const now = new Date();
+      const target = new Date(now);
+      target.setHours(23, 59, 59, 999);
+      const diff = target - now;
+      if (diff <= 0) {
+        stickyDeadline.textContent = '00:00:00';
+        return;
+      }
+      const h = Math.floor(diff / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+      stickyDeadline.textContent = `${formatNum(h)}:${formatNum(m)}:${formatNum(s)}`;
+    };
+    tickDeadline();
+    setInterval(tickDeadline, 1000);
+  </script>
+</body>
+</html>
