@@ -37,7 +37,7 @@
       "logo": "https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-logo-1.png",
       "image": "https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-les-sekolah-1.jpg",
       "description": "Layanan les private online dan offline untuk TK, SD, SMP, SMA, UTBK-SNBT, Cambridge, dan IB.",
-      "telephone": "+62-822-6444-1822",
+      "telephone": "+62-822-6844-1822",
       "email": "mukhtar_mukhsin@yahoo.co.id",
       "areaServed": ["Jakarta", "Bandung", "Surabaya", "Yogyakarta", "Medan", "Makassar", "Denpasar"],
       "sameAs": [
@@ -573,6 +573,104 @@
       color: #ffd978;
     }
 
+    .reg-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 25, 43, 0.56);
+      backdrop-filter: blur(4px);
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .reg-modal.open {
+      display: flex;
+    }
+
+    .reg-panel {
+      width: min(620px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #dce4f5;
+      box-shadow: 0 22px 48px rgba(19, 34, 66, 0.3);
+      padding: 18px;
+    }
+
+    .reg-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .reg-top h3 {
+      margin: 0;
+      color: #2c2a52;
+      font-size: 20px;
+      font-family: "Sora", sans-serif;
+    }
+
+    .reg-close {
+      border: 0;
+      border-radius: 10px;
+      background: #f1f4fc;
+      color: #3d4c73;
+      font-weight: 700;
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+      line-height: 1;
+      font-size: 20px;
+    }
+
+    .reg-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .reg-field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .reg-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .reg-field label {
+      font-size: 13px;
+      color: #2f3c5f;
+      font-weight: 700;
+    }
+
+    .reg-field input,
+    .reg-field textarea,
+    .reg-field select {
+      width: 100%;
+      border: 1px solid #d7e0f3;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font: inherit;
+      color: #263558;
+      background: #fff;
+    }
+
+    .reg-field textarea {
+      min-height: 78px;
+      resize: vertical;
+    }
+
+    .reg-submit {
+      grid-column: 1 / -1;
+      margin-top: 4px;
+    }
+
     .reveal {
       opacity: 0;
       transform: translateY(18px);
@@ -661,6 +759,7 @@
       .promo { grid-template-columns: 1fr; }
       .sticky-cta { display: grid; }
       footer { padding-bottom: 98px; }
+      .reg-form { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -696,7 +795,7 @@
             <li>Bisa ganti guru bila kurang cocok</li>
           </ul>
           <div class="cta-row">
-            <a class="btn btn-primary" href="https://wa.me/6282264441822" target="_blank" rel="noopener">Daftar Trial Gratis</a>
+            <a class="btn btn-primary register-trigger" href="#" data-register-trigger="1">Daftar Trial Gratis</a>
             <a class="btn btn-secondary" href="#promo">Lihat Promo 40%</a>
           </div>
           <div class="stat-row">
@@ -838,7 +937,7 @@
           <strong>DISKON 40%</strong>
           <p>Promo berlaku untuk pendaftaran paket private tertentu. Konsultasikan kebutuhan anak Anda sekarang.</p>
         </div>
-        <a class="btn btn-primary" href="https://wa.me/6282264441822" target="_blank" rel="noopener">Klaim Promo Sekarang</a>
+        <a class="btn btn-primary register-trigger" href="#" data-register-trigger="1">Klaim Promo Sekarang</a>
       </div>
     </section>
 
@@ -860,8 +959,8 @@
         </article>
         <article class="contact-item">
           <h3>Kontak Kami</h3>
-          <a href="https://wa.me/6282264441822" target="_blank" rel="noopener">0822-6444-1822 (WhatsApp)</a><br>
-          <a href="tel:+6282264441822">0822-6444-1822 (Phone)</a>
+          <a href="https://wa.me/6282268441822" target="_blank" rel="noopener">0822-6844-1822 (WhatsApp)</a><br>
+          <a href="tel:+6282268441822">0822-6844-1822 (Phone)</a>
         </article>
         <article class="contact-item">
           <h3>Email Kami</h3>
@@ -869,8 +968,8 @@
         </article>
       </div>
       <div class="cta-row" style="margin-top:14px; justify-content:center;">
-        <a class="btn btn-primary" href="https://wa.me/6282264441822" target="_blank" rel="noopener">Pendaftaran</a>
-        <a class="btn btn-secondary" href="https://wa.me/6282264441822" target="_blank" rel="noopener">Konsultasi</a>
+        <a class="btn btn-primary register-trigger" href="#" data-register-trigger="1">Pendaftaran</a>
+        <a class="btn btn-secondary" href="https://wa.me/6282268441822" target="_blank" rel="noopener">Konsultasi</a>
       </div>
     </section>
   </main>
@@ -884,8 +983,53 @@
     <div class="sticky-note">
       <b>Diskon 40%</b> berakhir dalam <span id="sticky-deadline">--:--:--</span>
     </div>
-    <a class="btn btn-primary" href="https://wa.me/6282264441822" target="_blank" rel="noopener">Daftar Sekarang</a>
-    <a class="btn btn-secondary" href="https://wa.me/6282264441822" target="_blank" rel="noopener">Konsultasi</a>
+    <a class="btn btn-primary register-trigger" href="#" data-register-trigger="1">Daftar Sekarang</a>
+    <a class="btn btn-secondary" href="https://wa.me/6282268441822" target="_blank" rel="noopener">Konsultasi</a>
+  </div>
+
+  <div class="reg-modal" id="reg-modal" aria-hidden="true">
+    <div class="reg-panel" role="dialog" aria-modal="true" aria-labelledby="reg-title">
+      <div class="reg-top">
+        <h3 id="reg-title">🌼 Formulir Pendaftaran 🌼</h3>
+        <button class="reg-close" type="button" id="reg-close" aria-label="Tutup form">&times;</button>
+      </div>
+      <form class="reg-form" id="reg-form">
+        <div class="reg-field">
+          <label for="murid_nama">Nama Murid</label>
+          <input id="murid_nama" name="murid_nama" required />
+        </div>
+        <div class="reg-field">
+          <label for="murid_kelas">Kelas</label>
+          <input id="murid_kelas" name="murid_kelas" required />
+        </div>
+        <div class="reg-field">
+          <label for="murid_umur">Umur</label>
+          <input id="murid_umur" name="murid_umur" required />
+        </div>
+        <div class="reg-field full">
+          <label for="murid_alamat">Alamat</label>
+          <textarea id="murid_alamat" name="murid_alamat" required></textarea>
+        </div>
+        <div class="reg-field full">
+          <label for="murid_target">Target bljr hari dan jam</label>
+          <input id="murid_target" name="murid_target" placeholder="Contoh: Senin & Rabu, 16.00-18.00" required />
+        </div>
+        <div class="reg-field full">
+          <label for="murid_pelajaran">Mata Pelajaran Yang Diajarkan</label>
+          <input id="murid_pelajaran" name="murid_pelajaran" required />
+        </div>
+        <div class="reg-field full">
+          <label for="murid_tutor">Tutor : Bebas atau laki-laki/Perempuan</label>
+          <select id="murid_tutor" name="murid_tutor" required>
+            <option value="">Pilih preferensi tutor</option>
+            <option value="Bebas">Bebas</option>
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
+          </select>
+        </div>
+        <button class="btn btn-primary reg-submit" type="submit">Kirim Form ke WhatsApp</button>
+      </form>
+    </div>
   </div>
   <script>
     const reveals = document.querySelectorAll('.reveal');
@@ -917,6 +1061,68 @@
     };
     tickDeadline();
     setInterval(tickDeadline, 1000);
+
+    const regModal = document.getElementById('reg-modal');
+    const regClose = document.getElementById('reg-close');
+    const regForm = document.getElementById('reg-form');
+    const regTriggers = document.querySelectorAll('[data-register-trigger]');
+    const waNumber = '6282268441822';
+
+    const openRegModal = () => {
+      regModal.classList.add('open');
+      regModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('murid_nama').focus();
+    };
+
+    const closeRegModal = () => {
+      regModal.classList.remove('open');
+      regModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    regTriggers.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openRegModal();
+      });
+    });
+
+    regClose.addEventListener('click', closeRegModal);
+    regModal.addEventListener('click', (e) => {
+      if (e.target === regModal) closeRegModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && regModal.classList.contains('open')) closeRegModal();
+    });
+
+    regForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = {
+        nama: document.getElementById('murid_nama').value.trim(),
+        kelas: document.getElementById('murid_kelas').value.trim(),
+        umur: document.getElementById('murid_umur').value.trim(),
+        alamat: document.getElementById('murid_alamat').value.trim(),
+        target: document.getElementById('murid_target').value.trim(),
+        pelajaran: document.getElementById('murid_pelajaran').value.trim(),
+        tutor: document.getElementById('murid_tutor').value.trim()
+      };
+
+      const message =
+        `🌼 Formulir Pendaftaran 🌼\n\n` +
+        `*Nama Murid* = ${data.nama}\n` +
+        `*Kelas* = ${data.kelas}\n` +
+        `*Umur* = ${data.umur}\n` +
+        `*Alamat* = ${data.alamat}\n` +
+        `*Target bljr hari dan jam* = ${data.target}\n` +
+        `*Pilihan Pelajaran* = ${data.pelajaran}\n` +
+        `*Tutor : Bebas atau laki-laki/Perempuan* = ${data.tutor}`;
+
+      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank', 'noopener');
+      closeRegModal();
+      regForm.reset();
+    });
   </script>
 </body>
 </html>
