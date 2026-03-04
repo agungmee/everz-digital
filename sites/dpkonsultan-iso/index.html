@@ -329,6 +329,31 @@
     .insight-card h4 { margin: 0 0 10px; text-align: left; font-size: var(--h3-size); line-height: 1.25; }
     .insight-card p { margin: 0; text-align: left; color: var(--muted); line-height: 1.65; font-size: var(--body-size); }
 
+    .testimonial-wrap { max-width: 980px; margin: 0 auto; }
+    .testimonial-slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+    .testimonial-track { display: flex; transition: transform .6s ease; }
+    .testimonial-slide { min-width: 100%; }
+    .testimonial-slide img { width: 100%; display: block; height: auto; }
+
+    .slider-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      border: 0;
+      background: #c5d2ef;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+    .dot.active { width: 24px; background: var(--primary); }
+
     .doc-list {
       list-style: none;
       margin: 0;
@@ -822,6 +847,24 @@
     </section>
 
     <section style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+      <div class="wrap testimonial-wrap">
+        <h2 class="section-title">Testimoni Klien DPKonsultan</h2>
+        <p class="section-sub">Dokumentasi hasil dan pengalaman klien yang sudah didampingi untuk kebutuhan sertifikasi.</p>
+
+        <div class="testimonial-slider" id="testimonialSliderIso" aria-label="Slider testimoni ISO">
+          <div class="testimonial-track" id="testimonialTrackIso">
+            <div class="testimonial-slide"><img src="https://everz-digital.site/wp-content/uploads/2026/03/2026-03-03_22-26_3.png" alt="Testimoni klien DPKonsultan 1" loading="lazy" /></div>
+            <div class="testimonial-slide"><img src="https://everz-digital.site/wp-content/uploads/2026/03/2026-03-03_22-26_2.png" alt="Testimoni klien DPKonsultan 2" loading="lazy" /></div>
+            <div class="testimonial-slide"><img src="https://everz-digital.site/wp-content/uploads/2026/03/2026-03-03_22-26_1.png" alt="Testimoni klien DPKonsultan 3" loading="lazy" /></div>
+            <div class="testimonial-slide"><img src="https://everz-digital.site/wp-content/uploads/2026/03/2026-03-03_22-26.png" alt="Testimoni klien DPKonsultan 4" loading="lazy" /></div>
+          </div>
+        </div>
+
+        <div class="slider-dots" id="sliderDotsIso" aria-label="Navigasi slider testimoni ISO"></div>
+      </div>
+    </section>
+
+    <section style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
       <div class="wrap">
         <h2 class="section-title">FAQ Singkat</h2>
         <p class="section-sub">Pertanyaan yang paling sering ditanyakan calon klien sebelum memulai pendampingan.</p>
@@ -898,6 +941,69 @@
     }, { threshold: 0.12 });
 
     revealItems.forEach((el) => observer.observe(el));
+
+    const slider = document.getElementById("testimonialSliderIso");
+    const track = document.getElementById("testimonialTrackIso");
+    const dotsWrap = document.getElementById("sliderDotsIso");
+
+    if (slider && track && dotsWrap) {
+      const slides = Array.from(track.children);
+      let current = 0;
+      let autoPlay;
+
+      function renderDots() {
+        slides.forEach((_, idx) => {
+          const dot = document.createElement("button");
+          dot.className = "dot" + (idx === 0 ? " active" : "");
+          dot.setAttribute("aria-label", "Slide " + (idx + 1));
+          dot.addEventListener("click", () => goTo(idx));
+          dotsWrap.appendChild(dot);
+        });
+      }
+
+      function updateDots() {
+        const dots = dotsWrap.querySelectorAll(".dot");
+        dots.forEach((d, i) => d.classList.toggle("active", i === current));
+      }
+
+      function goTo(index) {
+        current = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        updateDots();
+      }
+
+      function startAuto() {
+        autoPlay = setInterval(() => goTo(current + 1), 3200);
+      }
+
+      function stopAuto() {
+        clearInterval(autoPlay);
+      }
+
+      let startX = 0;
+      let isTouching = false;
+
+      slider.addEventListener("touchstart", (e) => {
+        isTouching = true;
+        startX = e.touches[0].clientX;
+        stopAuto();
+      }, { passive: true });
+
+      slider.addEventListener("touchend", (e) => {
+        if (!isTouching) return;
+        const diff = e.changedTouches[0].clientX - startX;
+        if (diff > 40) goTo(current - 1);
+        if (diff < -40) goTo(current + 1);
+        isTouching = false;
+        startAuto();
+      }, { passive: true });
+
+      slider.addEventListener("mouseenter", stopAuto);
+      slider.addEventListener("mouseleave", startAuto);
+
+      renderDots();
+      startAuto();
+    }
   </script>
 </body>
 </html>
