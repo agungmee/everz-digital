@@ -1,0 +1,2246 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Capture Wisata - Paket Wisata Batu Malang</title>
+  <meta name="description" content="Capture Wisata menyediakan paket wisata Batu Malang Bromo, sewa villa, dan sewa mobil.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0d1c2c;
+      --paper: #f7faf9;
+      --white: #ffffff;
+      --accent: #f6c453;
+      --sea: #0b4d66;
+      --muted: #5f6773;
+      --line: rgba(12, 25, 41, 0.12);
+      --radius: 18px;
+      --shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+      --container: min(1120px, calc(100% - 32px));
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .wrap {
+      width: var(--container);
+      margin-inline: auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      overflow: hidden;
+      color: var(--paper);
+      background: #0b1220;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(112deg, rgba(6, 14, 24, 0.88), rgba(6, 14, 24, 0.54) 45%, rgba(6, 14, 24, 0.24)),
+        linear-gradient(0deg, rgba(6, 14, 24, 0.50), rgba(6, 14, 24, 0.16));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transform: scale(1.04);
+      animation: hero-slide-fade 18s infinite;
+    }
+
+    .hero-slide:nth-child(1) { animation-delay: 0s; }
+    .hero-slide:nth-child(2) { animation-delay: 6s; }
+    .hero-slide:nth-child(3) { animation-delay: 12s; }
+
+    @keyframes hero-slide-fade {
+      0% {
+        opacity: 1;
+        transform: scale(1.06);
+      }
+      30% {
+        opacity: 1;
+        transform: scale(1.02);
+      }
+      38% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.04);
+      }
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      transition: background .28s ease, box-shadow .28s ease, padding .28s ease;
+      padding: 10px 0;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.1);
+      backdrop-filter: blur(6px);
+    }
+
+    .nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.1);
+      padding: 10px 0;
+      backdrop-filter: blur(6px);
+    }
+
+    .nav-row {
+      width: var(--container);
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: block;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav.scrolled .brand { color: var(--ink); }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .menu a { opacity: 0.88; }
+    .menu a:hover { opacity: 1; }
+    .nav.scrolled .menu { color: var(--ink); }
+
+    .burger {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      border: 1px solid #e3e8ef;
+      background: #f5f7fa;
+      color: var(--ink);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 0;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .burger:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 16px rgba(15, 23, 42, 0.12);
+    }
+
+    .burger-lines {
+      position: relative;
+      width: 18px;
+      height: 12px;
+    }
+
+    .burger-lines span {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transform-origin: center;
+      transition: transform .28s ease, opacity .2s ease, top .28s ease;
+    }
+
+    .burger-lines span:nth-child(1) { top: 0; }
+    .burger-lines span:nth-child(2) { top: 5px; }
+    .burger-lines span:nth-child(3) { top: 10px; }
+
+    .burger.is-open .burger-lines span:nth-child(1) {
+      top: 5px;
+      transform: rotate(45deg);
+    }
+
+    .burger.is-open .burger-lines span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0.3);
+    }
+
+    .burger.is-open .burger-lines span:nth-child(3) {
+      top: 5px;
+      transform: rotate(-45deg);
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: max(16px, calc((100vw - var(--container)) / 2));
+      width: min(270px, calc(100vw - 32px));
+      background: #ffffff;
+      border: 1px solid #e4e9ef;
+      border-radius: 14px;
+      box-shadow: 0 22px 40px rgba(15, 23, 42, 0.14);
+      padding: 8px;
+      display: grid;
+      gap: 4px;
+      opacity: 0;
+      transform: translateY(-8px) scale(0.98);
+      pointer-events: none;
+      transition: opacity .22s ease, transform .24s ease;
+    }
+
+    .mobile-menu a {
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: 10px;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: background .2s ease, opacity .2s ease, transform .24s ease;
+    }
+
+    .mobile-menu a:hover {
+      background: #f1f5f9;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .mobile-menu.open a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu.open a:nth-child(1) { transition-delay: .03s; }
+    .mobile-menu.open a:nth-child(2) { transition-delay: .06s; }
+    .mobile-menu.open a:nth-child(3) { transition-delay: .09s; }
+    .mobile-menu.open a:nth-child(4) { transition-delay: .12s; }
+    .mobile-menu.open a:nth-child(5) { transition-delay: .15s; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding-top: 84px;
+      width: var(--container);
+      margin-inline: auto;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(8, 18, 30, 0.5);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(33px, 4.4vw, 58px);
+      line-height: 1.07;
+      margin: 16px 0 14px;
+      text-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero p {
+      max-width: 610px;
+      color: #dbe6ed;
+      font-size: 15px;
+      margin-inline: auto;
+    }
+
+    .hero-actions {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 11px 16px;
+      font-size: 13px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #1a1a1a;
+      box-shadow: 0 12px 24px rgba(246, 196, 83, 0.3);
+    }
+
+    .btn-soft {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.26);
+      color: var(--paper);
+    }
+
+    .section {
+      padding: 68px 0;
+    }
+
+    .section.alt {
+      background:
+        radial-gradient(circle at 15% 0%, rgba(246, 196, 83, 0.20), transparent 45%),
+        radial-gradient(circle at 88% 4%, rgba(11, 77, 102, 0.12), transparent 40%),
+        #ffffff;
+    }
+
+    .head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 28px;
+    }
+
+    .head h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(30px, 3.2vw, 42px);
+      line-height: 1.12;
+      margin-bottom: 10px;
+    }
+
+    .head p {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .highlight-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      min-height: 225px;
+      box-shadow: var(--shadow);
+    }
+
+    .highlight-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.74));
+    }
+
+    .caption {
+      position: absolute;
+      z-index: 2;
+      left: 14px;
+      right: 14px;
+      bottom: 13px;
+      color: #fff;
+    }
+
+    .caption small {
+      display: block;
+      font-size: 11px;
+      opacity: 0.86;
+      margin-bottom: 2px;
+    }
+
+    .caption h3 {
+      font-size: clamp(20px, 2.2vw, 30px);
+      line-height: 1.12;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 42px rgba(15, 23, 42, 0.12);
+    }
+
+    .card-img {
+      aspect-ratio: 16 / 10;
+      background: #d8dde4;
+    }
+
+    .card-body {
+      padding: 14px;
+      display: grid;
+      gap: 9px;
+      flex: 1;
+    }
+
+    .card-body .cat {
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--sea);
+      font-weight: 800;
+    }
+
+    .card-body h3 {
+      font-size: 19px;
+      line-height: 1.3;
+      min-height: 48px;
+    }
+
+    .price {
+      display: inline-block;
+      width: fit-content;
+      border-radius: 999px;
+      background: #f2f4f6;
+      color: #2f3743;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: auto;
+      width: 100%;
+    }
+
+    .card-btn {
+      border: 1px solid #d8dde4;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+      width: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .card-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.12);
+    }
+
+    .card-btn.book {
+      background: var(--accent);
+      border-color: #e0b13f;
+      color: #1a1a1a;
+    }
+
+    .card-btn.detail {
+      background: #ffffff;
+      color: #10243d;
+    }
+
+    .feature-card {
+      border: 1px solid rgba(8, 34, 57, 0.14);
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.14);
+      background:
+        linear-gradient(180deg, rgba(246, 196, 83, 0.08), rgba(255, 255, 255, 0.98) 38%);
+    }
+
+    .feature-card .card-img {
+      position: relative;
+    }
+
+    .feature-card .card-img::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 72px;
+      background: linear-gradient(180deg, transparent, rgba(4, 15, 30, 0.26));
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+    }
+
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 14, 24, 0.62);
+      backdrop-filter: blur(2px);
+    }
+
+    .modal-dialog {
+      position: relative;
+      width: min(700px, 100%);
+      max-height: min(86vh, 820px);
+      overflow-y: auto;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #dde5ee;
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.28);
+      padding: 22px 20px 16px;
+      z-index: 1;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 50%;
+      background: #eef2f6;
+      color: #1e293b;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .modal h3 {
+      font-size: 24px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      padding-right: 36px;
+    }
+
+    .modal-list {
+      display: grid;
+      gap: 10px;
+      font-size: 14px;
+      color: #334155;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .detail-panel {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fffbf5;
+    }
+
+    .detail-panel h4 {
+      background: #1e293b;
+      color: #f8fafc;
+      font-size: 18px;
+      text-align: center;
+      padding: 8px 10px;
+      line-height: 1.1;
+    }
+
+    .detail-body {
+      padding: 10px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .detail-body p strong {
+      color: #0f172a;
+    }
+
+    .detail-body ul {
+      margin: 4px 0 0 16px;
+      display: grid;
+      gap: 2px;
+    }
+
+    .detail-body ol {
+      margin: 4px 0 0 20px;
+      display: grid;
+      gap: 2px;
+    }
+
+    .detail-price {
+      margin-top: 6px;
+      border-radius: 10px;
+      background: #0f172a;
+      color: #ffffff;
+      text-align: center;
+      padding: 7px 8px;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+
+    .detail-price small {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: #facc15;
+    }
+
+    .detail-book {
+      margin-top: 8px;
+      width: 100%;
+      border-radius: 10px;
+      font-size: 13px;
+      padding: 10px 12px;
+    }
+
+    .detail-section-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-top: 6px;
+    }
+
+    .detail-scroll {
+      overflow-x: auto;
+    }
+
+    .detail-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      background: #ffffff;
+    }
+
+    .detail-table th,
+    .detail-table td {
+      border: 1px solid #d6dee7;
+      padding: 8px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .detail-table th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 800;
+    }
+
+    .center {
+      text-align: center;
+      margin-top: 22px;
+    }
+
+    .footer {
+      background: #060d16;
+      color: #f6f8fa;
+      margin-top: 34px;
+    }
+
+    .foot-grid {
+      width: var(--container);
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 26px;
+      padding: 40px 0 26px;
+    }
+
+    .footer h4 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer li {
+      color: #c7d0d9;
+      font-size: 13px;
+      margin-bottom: 5px;
+      list-style: none;
+    }
+
+    .copy {
+      text-align: center;
+      font-size: 12px;
+      color: #bcc7d1;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 14px 0;
+    }
+
+    .wa {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 25px;
+      color: #fff;
+      background: #25d366;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+      z-index: 25;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .4s ease, transform .4s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        padding-top: 96px;
+        padding-bottom: 48px;
+        min-height: 88vh;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .foot-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .burger {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        min-height: 85vh;
+      }
+
+      .highlight-grid,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 52px 0;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="beranda">
+    <div class="hero-slides" aria-hidden="true">
+      <div class="hero-slide" style="background-image:url('https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2021/05/03/74ee294e-4cca-4a40-abad-6e87900248d7-1620051831317-a263001baf18fb600b39d3acd7becf29.jpg');"></div>
+      <div class="hero-slide" style="background-image:url('https://tugumalang.id/wp-content/uploads/2024/11/WhatsApp-Image-2024-11-28-at-14.01.56.jpeg');"></div>
+      <div class="hero-slide" style="background-image:url('https://www.rukita.co/stories/wp-content/uploads/2022/09/wisata-bromo-terbaru.jpg');"></div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <div class="nav-row">
+        <a class="brand" href="#beranda">
+          <span class="brand-badge">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/03/7267341f-26ad-4b39-bee4-58bba3af6575.png" alt="Logo CaptureWisata" loading="lazy">
+          </span>
+          <span>CaptureWisata</span>
+        </a>
+        <div class="menu" aria-label="Menu utama">
+          <a href="#beranda">Beranda</a>
+          <a href="#lokasi">Wisata Batu</a>
+          <a href="#paket">Paket Wisata</a>
+          <a href="#villa">Sewa Villa</a>
+          <a href="#kontak">Kontak</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="burger-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#beranda">Beranda</a>
+        <a href="#lokasi">Wisata Batu</a>
+        <a href="#paket">Paket Wisata</a>
+        <a href="#villa">Sewa Villa</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <div>
+        <p class="kicker">Tour & Travel Terpercaya</p>
+        <h1>Paket Wisata Batu, Malang, Bromo & Banyuwangi</h1>
+        <p>Kami menyediakan paket-paket wisata yang memudahkan liburan Anda tanpa ribet, dengan keberangkatan jelas dan pelayanan yang rapi.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#paket">Lihat Paket</a>
+          <a class="btn btn-soft" href="https://wa.me/6285706756978" target="_blank" rel="noopener">Chat WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section alt" id="paket">
+    <div class="wrap">
+      <header class="head fade-up">
+        <h2>Paket Fun Jeep Adventure</h2>
+        <p>Jelajah jalur off-road Batu dengan armada jeep yang aman dan driver berpengalaman.</p>
+      </header>
+
+      <div class="cards">
+        <article class="card feature-card fade-up">
+          <div class="card-img"><img src="https://i0.wp.com/wisata-batumalang.com/wp-content/uploads/2024/11/Jeep-Adventure.webp?fit=1000%2C563&ssl=1" alt="Fun Jeep Adventure Trek Pendek" loading="lazy"></div>
+          <div class="card-body">
+            <p class="cat">Fun Jeep Adventure</p>
+            <h3>Offroad Obyek Wisata Coban Talun</h3>
+            <span class="price">Mulai Rp. 650K / Jeep</span>
+            <div class="card-actions">
+              <button class="card-btn detail detail-trigger" type="button" data-package-title="Offroad Obyek Wisata Coban Talun" data-detail-template="coban-talun">Detail</button>
+              <a class="card-btn book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20paket%20Offroad%20Coban%20Talun." target="_blank" rel="noopener">Booking</a>
+            </div>
+          </div>
+        </article>
+        <article class="card feature-card fade-up">
+          <div class="card-img"><img src="https://jalankebromo.com/wp-content/uploads/2025/10/Omah-Kayu-Malang.webp" alt="Fun Jeep Adventure Trek Panjang" loading="lazy"></div>
+          <div class="card-body">
+            <p class="cat">Fun Jeep Adventure</p>
+            <h3>Fun Offroad Budug Asu Singosari</h3>
+            <span class="price">Mulai Rp. 750K / Jip</span>
+            <div class="card-actions">
+              <button class="card-btn detail detail-trigger" type="button" data-package-title="Fun Offroad Budug Asu Singosari" data-detail-template="budug-asu">Detail</button>
+              <a class="card-btn book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20paket%20Budug%20Asu%20Singosari." target="_blank" rel="noopener">Booking</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="outbound">
+    <div class="wrap">
+      <header class="head fade-up">
+        <h2>Paket Fun Outbound</h2>
+        <p>Program outbound seru untuk gathering kantor, sekolah, dan komunitas dengan fasilitator profesional.</p>
+      </header>
+
+      <div class="cards">
+        <article class="card fade-up">
+          <div class="card-img"><img src="https://beadoutbound.com/wp-content/uploads/2025/09/IMG_5919-1024x768.jpg" alt="Outbound" loading="lazy"></div>
+          <div class="card-body">
+            <p class="cat">Fun Outbound</p>
+            <h3>OUTBOUND</h3>
+            <p>Paket Outbound Dengan Harga Yang Terjangkau Dengan Banyak Pilihan Paket Sesuai Kebutuhan Anda. Promo Outbound Free Offroad dan Dokumentasi</p>
+            <div class="card-actions">
+              <button class="card-btn detail detail-trigger" type="button" data-package-title="Paket Fun Outbound" data-detail-template="outbound-paket">Detail</button>
+              <a class="card-btn book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paket%20Fun%20Outbound." target="_blank" rel="noopener">Booking</a>
+            </div>
+          </div>
+        </article>
+        <article class="card fade-up">
+          <div class="card-img"><img src="https://www.outboundmalang.co.id/wp-content/uploads/2017/10/paintball-indonesia-paintball-batu-malang-paintball-paintball-war-game-085649658600-7.jpg" alt="Paintball" loading="lazy"></div>
+          <div class="card-body">
+            <p class="cat">Fun Outbound</p>
+            <h3>PAINTBALL</h3>
+            <p>Sensasi War Game Yang Menarik Dengan Pilihan Paket Yang Sesuai Dengan Kebutuhan Anda dan Dengan Harga Terjangkau Promo Free Outbound dan Dokumentasi</p>
+            <div class="card-actions">
+              <button class="card-btn detail detail-trigger" type="button" data-package-title="Paket Paintball" data-detail-template="paintball-paket">Detail</button>
+              <a class="card-btn book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paket%20Paintball." target="_blank" rel="noopener">Booking</a>
+            </div>
+          </div>
+        </article>
+        <article class="card fade-up">
+          <div class="card-img"><img src="https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2022/04/22/8202e8b0-f3bc-4e79-860b-f2a49068f5ad-1650609281198-26b9f5679a917f0000a1cb41f6ca9707.jpg" alt="Offroad" loading="lazy"></div>
+          <div class="card-body">
+            <p class="cat">Fun Outbound</p>
+            <h3>OFFROAD</h3>
+            <p>Pilihan Paket Berwisata Menjelajah Alam Dengan Sensasi Offroad Dengan Harga Yang Terjangkau Promo Offroad Free Outbound dan Dokumentasi</p>
+            <div class="card-actions">
+              <button class="card-btn detail detail-trigger" type="button" data-package-title="Paket Offroad" data-detail-template="offroad-paket">Detail</button>
+              <a class="card-btn book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paket%20Offroad." target="_blank" rel="noopener">Booking</a>
+            </div>
+          </div>
+        </article>
+        <article class="card fade-up">
+          <div class="card-img"><img src="https://labirutour.com/wp-content/uploads/2024/11/Ndayung-Rafting.webp" alt="Rafting" loading="lazy"></div>
+          <div class="card-body">
+            <p class="cat">Fun Outbound</p>
+            <h3>RAFTING</h3>
+            <p>Sungai Terpanjang di Batu Malang dan dengan Harga Terjangkau, Promo Rafting Free Outbound dan Dokumentasi</p>
+            <div class="card-actions">
+              <button class="card-btn detail detail-trigger" type="button" data-package-title="Paket Rafting" data-detail-template="rafting-paket">Detail</button>
+              <a class="card-btn book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paket%20Rafting." target="_blank" rel="noopener">Booking</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="batu-bromo">
+    <div class="wrap">
+      <header class="head fade-up">
+        <h2>Paket Wisata Batu Bromo</h2>
+        <p>Kombinasi destinasi favorit Batu dan Bromo untuk perjalanan keluarga maupun rombongan.</p>
+      </header>
+
+      <div class="cards">
+        <article class="card fade-up">
+          <div class="card-img"><img src="https://nalatour.com/wp-content/uploads/2023/02/PAKET-GATHERING-RAFTING-MALANG-%E2%80%93-BATU-BROMO-3D2N-300x200.webp" alt="Paket Gathering Rafting Malang Batu Bromo 3D2N" loading="lazy"></div>
+          <div class="card-body">
+            <p class="cat">Wisata Batu Bromo</p>
+            <h3>Paket Gathering Rafting Malang - Batu - Bromo (3D 2N) Reddorz/Villa</h3>
+            <span class="price">Mulai Rp. 1.700.000 / Pax</span>
+            <div class="card-actions">
+              <button class="card-btn detail detail-trigger" type="button" data-package-title="Paket Gathering Rafting Malang - Batu - Bromo (3D 2N)" data-detail-template="bromo-gathering-3d2n">Detail</button>
+              <a class="card-btn book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paket%20Gathering%20Rafting%20Malang-Batu-Bromo%203D2N%20(Reddorz%2FVilla)." target="_blank" rel="noopener">Booking</a>
+            </div>
+          </div>
+        </article>
+        <article class="card fade-up">
+          <div class="card-img"><img src="https://nalatour.com/wp-content/uploads/2023/02/PAKET-GATHERING-OFFROAD-MALANG-%E2%80%93-BATU-BROMO-3D2N-300x200.webp" alt="Paket Gathering Offroad Malang Batu Bromo 3D2N" loading="lazy"></div>
+          <div class="card-body">
+            <p class="cat">Wisata Batu Bromo</p>
+            <h3>Paket Gathering Offroad Malang Batu Bromo (3D 2N)</h3>
+            <span class="price">Mulai Rp. 1.650.000 / Pax</span>
+            <div class="card-actions">
+              <button class="card-btn detail detail-trigger" type="button" data-package-title="Paket Gathering Offroad Malang Batu Bromo (3D 2N)" data-detail-template="bromo-offroad-3d2n">Detail</button>
+              <a class="card-btn book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paket%20Gathering%20Offroad%20Malang%20Batu%20Bromo%203D2N." target="_blank" rel="noopener">Booking</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="villa">
+    <div class="wrap">
+      <header class="head fade-up">
+        <h2>Paket Sewa Villa Batu</h2>
+        <p>Pilihan villa strategis dekat destinasi wisata utama Batu untuk keluarga dan grup.</p>
+      </header>
+
+      <div class="cards">
+        <article class="card fade-up">
+          <div class="card-img"><img src="https://i0.wp.com/wisata-batumalang.com/wp-content/uploads/2026/02/MOMMI-1_800px.webp" alt="Villa Mommi dekat Museum Angkut" loading="lazy"></div>
+          <div class="card-body">
+            <p class="cat">Sewa Villa Batu</p>
+            <h3>Villa 5 Kamar Murah dekat Museum Angkut, Villa Mommi</h3>
+            <span class="price">Rp. 2.300.000 / Malam</span>
+            <div class="card-actions">
+              <button class="card-btn detail detail-trigger" type="button" data-package-title="Villa 5 Kamar Murah dekat Museum Angkut, Villa Mommi" data-detail-template="villa-mommi">Detail</button>
+              <a class="card-btn book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Villa%20Mommi%205%20Kamar%20dekat%20Museum%20Angkut." target="_blank" rel="noopener">Booking</a>
+            </div>
+          </div>
+        </article>
+        <article class="card fade-up">
+          <div class="card-img"><img src="https://i0.wp.com/wisata-batumalang.com/wp-content/uploads/2026/01/LANDSCAPE-DP-BATU-2_800px.webp?fit=800%2C400&ssl=1" alt="Villa DC Batu dekat Jatim Park 3" loading="lazy"></div>
+          <div class="card-body">
+            <p class="cat">Sewa Villa Batu</p>
+            <h3>Villa 5 Kamar Full AC Dekat Jatim Park 3, Villa DC Batu</h3>
+            <span class="price">Rp. 3.500.000 / Malam</span>
+            <div class="card-actions">
+              <button class="card-btn detail detail-trigger" type="button" data-package-title="Villa 5 Kamar Full AC Dekat Jatim Park 3, Villa DC Batu" data-detail-template="villa-dc-batu">Detail</button>
+              <a class="card-btn book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Villa%20DC%20Batu%205%20Kamar%20Full%20AC%20dekat%20Jatim%20Park%203." target="_blank" rel="noopener">Booking</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-tour">
+    <div class="wrap">
+      <header class="head fade-up">
+        <h2>Paket City Tour Batu</h2>
+        <p>Rute city tour populer untuk menikmati ikon wisata Batu dalam perjalanan singkat.</p>
+      </header>
+
+      <div class="cards">
+        <article class="card fade-up">
+          <div class="card-img"><img src="https://m.lepassuntuk.com/photos/tours/3/3/city-tour-malang-batu-lepas-suntuk%20(4).jpg" alt="Private Trip City Tour Malang dan Batu" loading="lazy"></div>
+          <div class="card-body">
+            <p class="cat">City Tour Batu</p>
+            <h3>Private Trip City Tour Malang & Batu</h3>
+            <span class="price">Mulai 240K / Orang</span>
+            <div class="card-actions">
+              <button class="card-btn detail detail-trigger" type="button" data-package-title="Private Trip City Tour Malang & Batu" data-detail-template="city-tour-private-trip">Detail</button>
+              <a class="card-btn book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Private%20Trip%20City%20Tour%20Malang%20%26%20Batu." target="_blank" rel="noopener">Booking</a>
+            </div>
+          </div>
+        </article>
+        <article class="card fade-up">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1516298773066-c48f8e9bd92b?q=80&w=1000&auto=format&fit=crop" alt="City Tour Batu full day" loading="lazy"></div>
+          <div class="card-body">
+            <p class="cat">City Tour Batu</p>
+            <h3>City Tour Batu Full Day + Driver + BBM</h3>
+            <span class="price">Rp. 1.050.000 / Mobil</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal" id="jeepDetailModal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="jeepModalTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="Tutup detail paket">&times;</button>
+      <h3 id="jeepModalTitle">Detail Paket Fun Jeep Adventure</h3>
+      <div class="modal-list" id="jeepModalContent"></div>
+    </div>
+  </div>
+
+  <div id="detailTemplates" hidden>
+    <div data-template="coban-talun">
+      <p><strong>Jadwal:</strong> Setiap hari, berdasar pesanan atau booking sebelumnya</p>
+      <p><strong>Lokasi:</strong> Obyek Wisata Coban Talun (OYOT), Tulungrejo, Bumiaji, Kota Batu, Jawa Timur</p>
+      <p><strong>Meeting Point:</strong> 1) Coban Talun atau 2) Rest Area Tulung Rejo</p>
+      <p><strong>Tipe Jeep:</strong> Taft atau Jimny 4x4 | <strong>Kapasitas:</strong> Maksimal 3 orang | <strong>Start:</strong> 07.00 - 08.00 WIB</p>
+      <div class="detail-grid">
+        <div class="detail-panel">
+          <h4>Trek Pendek</h4>
+          <div class="detail-body">
+            <p><strong>Durasi:</strong> 2-3 jam</p>
+            <p><strong>Destinasi:</strong></p>
+            <ul>
+              <li>Kebun Sayur Coban Talun</li>
+              <li>Hutan Pinus</li>
+              <li>Sungai Coban Talun</li>
+            </ul>
+            <p><strong>Rute:</strong></p>
+            <ul>
+              <li>Perkebunan</li>
+              <li>Jalur lumpur</li>
+              <li>Hutan Pinus</li>
+              <li>Sungai Coban Talun</li>
+            </ul>
+            <p><strong>Fasilitas:</strong></p>
+            <ul>
+              <li>Mobil Offroad 4x4 Taft/Jimny</li>
+              <li>Driver berpengalaman Offroad</li>
+              <li>Bahan bakar</li>
+            </ul>
+            <p class="detail-price">Rp 650K/Jeep</p>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Offroad%20Coban%20Talun%20-%20Trek%20Pendek%20(Rp%20650K%2FJeep)." target="_blank" rel="noopener">Booking Trek Pendek</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Trek Panjang</h4>
+          <div class="detail-body">
+            <p><strong>Durasi:</strong> 3-4 jam</p>
+            <p><strong>Destinasi:</strong></p>
+            <ul>
+              <li>Pura Giri Arjuna</li>
+              <li>Kebun Apel</li>
+              <li>Lapangan Junggo</li>
+              <li>Kebun sayur Coban Talun</li>
+              <li>Hutan Pinus</li>
+              <li>Sungai Coban Talun</li>
+            </ul>
+            <p><strong>Rute:</strong></p>
+            <ul>
+              <li>Jalan raya</li>
+              <li>Pedesaan</li>
+              <li>Lumpur</li>
+              <li>Sungai Coban Talun</li>
+            </ul>
+            <p><strong>Fasilitas:</strong></p>
+            <ul>
+              <li>Mobil Offroad 4x4 Taft/Jimny</li>
+              <li>Driver berpengalaman Offroad</li>
+              <li>Bahan bakar</li>
+              <li>Petik Apel di perkebunan</li>
+            </ul>
+            <p class="detail-price">Rp 900K/Jeep</p>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Offroad%20Coban%20Talun%20-%20Trek%20Panjang%20(Rp%20900K%2FJeep)." target="_blank" rel="noopener">Booking Trek Panjang</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Trek Komplit</h4>
+          <div class="detail-body">
+            <p><strong>Durasi:</strong> 4-5 jam</p>
+            <p><strong>Destinasi:</strong></p>
+            <ul>
+              <li>Pura Giri Arjuna</li>
+              <li>Kebun Apel</li>
+              <li>Lapangan Junggo</li>
+              <li>Kebun sayur Coban Talun</li>
+              <li>Hutan Pinus</li>
+              <li>Sungai Coban Talun</li>
+            </ul>
+            <p><strong>Rute:</strong></p>
+            <ul>
+              <li>Jalan raya</li>
+              <li>Pedesaan</li>
+              <li>Lumpur</li>
+              <li>Sungai Coban Talun</li>
+            </ul>
+            <p><strong>Fasilitas:</strong></p>
+            <ul>
+              <li>Mobil Offroad 4x4 Taft/Jimny</li>
+              <li>Driver berpengalaman Offroad</li>
+              <li>Bahan bakar</li>
+              <li>Petik Apel di perkebunan</li>
+              <li>Snack / Coffee Break</li>
+            </ul>
+            <p class="detail-price">Rp 1.150K/Jeep</p>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Offroad%20Coban%20Talun%20-%20Trek%20Komplit%20(Rp%201.150K%2FJeep)." target="_blank" rel="noopener">Booking Trek Komplit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-template="budug-asu">
+      <p><strong>Jadwal:</strong> Setiap hari, berdasar pesanan atau booking sebelumnya</p>
+      <p><strong>Lokasi:</strong> Budug Asu, Singosari, Malang</p>
+      <p><strong>Tipe Jeep:</strong> Mobil Offroad 4x4 Jip Willys</p>
+      <div class="detail-grid">
+        <div class="detail-panel">
+          <h4>Trek Pendek</h4>
+          <div class="detail-body">
+            <p><strong>Durasi / Jarak:</strong> 4 jam / 7 km</p>
+            <p><strong>Destinasi:</strong></p>
+            <ul>
+              <li>Wisata Budug Asu</li>
+            </ul>
+            <p><strong>Rute:</strong></p>
+            <ul>
+              <li>Kebun Teh</li>
+              <li>Kebun Kopi</li>
+              <li>Jalur Bebatuan</li>
+              <li>Jalur Lumpur</li>
+            </ul>
+            <p><strong>Fasilitas:</strong></p>
+            <ul>
+              <li>Mobil Offroad 4x4 Jip Willys</li>
+              <li>Driver berpengalaman Offroad</li>
+              <li>Bahan bakar</li>
+              <li>Tiket masuk wisata</li>
+            </ul>
+            <p class="detail-price">Rp 750K/Jip <small>Rp 250K/orang</small></p>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Budug%20Asu%20-%20Trek%20Pendek%20(Rp%20750K%2FJip)." target="_blank" rel="noopener">Booking Trek Pendek</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Trek Medium</h4>
+          <div class="detail-body">
+            <p><strong>Durasi / Jarak:</strong> 7 jam / 9 km</p>
+            <p><strong>Destinasi:</strong></p>
+            <ul>
+              <li>Wisata Budug Asu</li>
+              <li>Bukit Kembar</li>
+              <li>BIBB Singosari</li>
+            </ul>
+            <p><strong>Rute:</strong></p>
+            <ul>
+              <li>Kebun Teh</li>
+              <li>Kebun Kopi</li>
+              <li>Jalur Bebatuan</li>
+              <li>Jalur Lumpur</li>
+              <li>Jalan Pedesaan / Jalan Raya</li>
+            </ul>
+            <p><strong>Fasilitas:</strong></p>
+            <ul>
+              <li>Mobil Offroad 4x4 Jip Willys</li>
+              <li>Driver berpengalaman Offroad</li>
+              <li>Bahan bakar</li>
+              <li>Tiket masuk wisata</li>
+              <li>Makan siang 1 x</li>
+            </ul>
+            <p class="detail-price">Rp 900K/Jip <small>Rp 300K/orang</small></p>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Budug%20Asu%20-%20Trek%20Medium%20(Rp%20900K%2FJip)." target="_blank" rel="noopener">Booking Trek Medium</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Trek Panjang</h4>
+          <div class="detail-body">
+            <p><strong>Durasi / Jarak:</strong> 8 jam / 20 km</p>
+            <p><strong>Destinasi:</strong></p>
+            <ul>
+              <li>Wisata Budug Asu</li>
+              <li>Bukit Kembar</li>
+              <li>BIBB Singosari</li>
+              <li>Candi Sumberawan</li>
+              <li>Candi Singosari</li>
+            </ul>
+            <p><strong>Rute:</strong></p>
+            <ul>
+              <li>Kebun Teh</li>
+              <li>Kebun Kopi</li>
+              <li>Jalur Bebatuan</li>
+              <li>Jalur Lumpur</li>
+              <li>Jalan Pedesaan / Jalan Raya</li>
+            </ul>
+            <p><strong>Fasilitas:</strong></p>
+            <ul>
+              <li>Mobil Offroad 4x4 Jip Willys</li>
+              <li>Driver berpengalaman Offroad</li>
+              <li>Bahan bakar</li>
+              <li>Tiket masuk wisata</li>
+              <li>Sarapan Pagi 1 x</li>
+              <li>Makan siang 1 x</li>
+            </ul>
+            <p class="detail-price">Rp 1.125K/Jip <small>Rp 375K/orang</small></p>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Budug%20Asu%20-%20Trek%20Panjang%20(Rp%201.125K%2FJip)." target="_blank" rel="noopener">Booking Trek Panjang</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-template="outbound-paket">
+      <p><strong>Rincian Paket Outbound:</strong> Pilih paket sesuai kebutuhan tim/perusahaan Anda.</p>
+      <div class="detail-grid">
+        <div class="detail-panel">
+          <h4>Outbound High Rope</h4>
+          <div class="detail-body">
+            <p><strong>Harga Mulai:</strong> Rp.150.000/PAX</p>
+            <p><strong>Detail Paket:</strong></p>
+            <ul>
+              <li>Instrukture & Fasilitator Berpengalaman</li>
+              <li>Ground & Fasilitas Peralatan Outbound</li>
+              <li>Outbound Fun Game</li>
+              <li>Outbound Team Building</li>
+              <li>Effective Comunication</li>
+              <li>Problem Solving</li>
+              <li>Game High Rope, Game Air, Flying Fox, Spidernet, Jembatan Treetop</li>
+              <li>Ice Breaking, Tiket Masuk, Tiem Profesional</li>
+              <li>Makan Siang Prasmanan, Coffe Break, Air Mineral & Snack</li>
+            </ul>
+            <p><strong>Promo:</strong> Free Dokumentasi</p>
+            <p><strong>Lokasi:</strong> Coban Talun Batu, Coban Rondo, Coban Rais, atau sesuai request</p>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Outbound%20High%20Rope%20(Rp150.000%2FPAX)." target="_blank" rel="noopener">Booking High Rope</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Fun Game Company</h4>
+          <div class="detail-body">
+            <p><strong>Harga Mulai:</strong> Rp.120.000/Pax</p>
+            <p><strong>Detail Paket:</strong></p>
+            <ul>
+              <li>Instrukture & Fasilitator Berpengalaman</li>
+              <li>Ground & Fasilitas Peralatan Outbound</li>
+              <li>Outbound Fun Game</li>
+              <li>Outbound Team Building</li>
+              <li>Effective Comunication, Problem Solving, Game Air</li>
+              <li>Ice Breaking, Tiket Masuk, Tiem Profesional</li>
+              <li>Makan Siang Prasmanan, Coffe Break, Air mineral & Snack</li>
+            </ul>
+            <p><strong>Promo:</strong> Free Dokumentasi</p>
+            <p><strong>Lokasi:</strong> Coban Talun Batu, Coban Rondo, Coban Rais, atau sesuai request</p>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Fun%20Game%20Company%20(Rp120.000%2FPax)." target="_blank" rel="noopener">Booking Fun Game</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Outbound Hemat</h4>
+          <div class="detail-body">
+            <p><strong>Harga Mulai:</strong> Rp.95.000/Pax</p>
+            <p><strong>Detail Paket:</strong></p>
+            <ul>
+              <li>Instrukture & Fasilitator Berpengalaman</li>
+              <li>Ground & Fasilitas Peralatan Outbound</li>
+              <li>Outbound Fun Game</li>
+              <li>Ice Breaking, Tiket Masuk, Tiem Profesional</li>
+              <li>Makan Siang, Air Mineral & Snack</li>
+            </ul>
+            <p><strong>Promo:</strong> Free Dokumentasi</p>
+            <p><strong>Lokasi:</strong> Coban Talun Batu, Coban Rondo, Coban Rais, atau sesuai request</p>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Outbound%20Hemat%20(Rp95.000%2FPax)." target="_blank" rel="noopener">Booking Outbound Hemat</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-template="paintball-paket">
+      <p><strong>Detail Paket Paintball:</strong> Pilih paket sesuai kebutuhan event Anda.</p>
+      <div class="detail-grid">
+        <div class="detail-panel">
+          <h4>Paket Hemat</h4>
+          <div class="detail-body">
+            <p><strong>Mulai dari:</strong> Rp.130.000</p>
+            <ul>
+              <li>50 peluru</li>
+              <li>Tiket Masuk</li>
+              <li>Air Mineral</li>
+              <li>Google</li>
+              <li>Marker</li>
+              <li>Loader</li>
+              <li>Jersey</li>
+              <li>Rompi Protektor</li>
+              <li>Benner Backdrop</li>
+              <li>Instuktur & Wasit</li>
+              <li>Battle ground</li>
+            </ul>
+            <p><strong>Promo:</strong> Dokumentasi</p>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paintball%20Paket%20Hemat%20(Rp130.000)." target="_blank" rel="noopener">Booking Paket Hemat</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Paket Regular</h4>
+          <div class="detail-body">
+            <p><strong>Mulai dari:</strong> Rp.200.000</p>
+            <ul>
+              <li>70 peluru</li>
+              <li>Tiket Masuk</li>
+              <li>Air Mineral</li>
+              <li>Google</li>
+              <li>Marker</li>
+              <li>Loader</li>
+              <li>Jersey</li>
+              <li>Rompi Protektor</li>
+              <li>Benner Backdrop</li>
+              <li>Instuktur & Wasit</li>
+              <li>Battle ground</li>
+              <li>Makan Prasmanan</li>
+            </ul>
+            <p><strong>Promo:</strong> Dokumentasi</p>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paintball%20Paket%20Regular%20(Rp200.000)." target="_blank" rel="noopener">Booking Paket Regular</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Paket Seru</h4>
+          <div class="detail-body">
+            <p><strong>Mulai dari:</strong> Rp.250.000</p>
+            <ul>
+              <li>100 peluru</li>
+              <li>Tiket Masuk</li>
+              <li>Air Mineral</li>
+              <li>Google</li>
+              <li>Marker</li>
+              <li>Loader</li>
+              <li>Jersey</li>
+              <li>Rompi Protektor</li>
+              <li>Benner Backdrop</li>
+              <li>Instuktur & Wasit</li>
+              <li>Battle ground</li>
+              <li>Makan Prasmanan</li>
+            </ul>
+            <p><strong>Promo:</strong> Dokumentasi</p>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paintball%20Paket%20Seru%20(Rp250.000)." target="_blank" rel="noopener">Booking Paket Seru</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Paintball Rafting</h4>
+          <div class="detail-body">
+            <p><strong>Mulai dari:</strong> Rp.375.000</p>
+            <ul>
+              <li>50 peluru</li>
+              <li>battle ground</li>
+              <li>intrukstur profesional</li>
+              <li>tiket masuk coban talun</li>
+              <li>Rafting 12 Km</li>
+              <li>Makan 1 kali</li>
+              <li>Snack 1 kali</li>
+              <li>Dokumentasi Foto</li>
+            </ul>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paintball%20Rafting%20(Rp375.000)." target="_blank" rel="noopener">Booking Paintball Rafting</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Paintball Outbound</h4>
+          <div class="detail-body">
+            <p><strong>Mulai dari:</strong> Rp.175.000</p>
+            <ul>
+              <li>50 peluru</li>
+              <li>Battle ground</li>
+              <li>Intrukstur Profesional</li>
+              <li>Tiket Masuk Coban talun</li>
+              <li>Makan siang</li>
+              <li>Outbound Team Building</li>
+            </ul>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paintball%20Outbound%20(Rp175.000)." target="_blank" rel="noopener">Booking Paintball Outbound</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Paintball Offroad</h4>
+          <div class="detail-body">
+            <p><strong>Mulai dari:</strong> Rp.285.000</p>
+            <ul>
+              <li>50 peluru</li>
+              <li>tournament Battle</li>
+              <li>Fun Game</li>
+              <li>Offroad Jalut Extrime</li>
+              <li>intrukstur Profesional</li>
+              <li>tiket Coban talun</li>
+              <li>makan siang</li>
+              <li>coffe break</li>
+            </ul>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paintball%20Offroad%20(Rp285.000)." target="_blank" rel="noopener">Booking Paintball Offroad</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-template="offroad-paket">
+      <p><strong>Detail Paket Offroad:</strong> Pilih paket sesuai kebutuhan aktivitas tim Anda.</p>
+      <div class="detail-grid">
+        <div class="detail-panel">
+          <h4>Paket Offroad Hemat</h4>
+          <div class="detail-body">
+            <p><strong>Mulai Dari:</strong> Rp.195.000/Pax</p>
+            <p><strong>Detail Paket:</strong></p>
+            <ul>
+              <li>Tiket masuk</li>
+              <li>Rute Pendek</li>
+              <li>Driver & BBM</li>
+              <li>Guide</li>
+              <li>Benner</li>
+              <li>Atraksi Air</li>
+              <li>Jalur Sungai</li>
+              <li>Jalur Perkebunan</li>
+              <li>makan siang box</li>
+              <li>kapasitas jeep 3 -4 orang</li>
+            </ul>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paket%20Offroad%20Hemat%20(Rp195.000%2FPax)." target="_blank" rel="noopener">Booking Offroad Hemat</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Paket Offroad Regular</h4>
+          <div class="detail-body">
+            <p><strong>Mulai Dari:</strong> Rp.255.000/Pax</p>
+            <p><strong>Detail Paket:</strong></p>
+            <ul>
+              <li>Tiket masuk</li>
+              <li>Rute Panjang 3-5 Jam</li>
+              <li>Driver & BBM</li>
+              <li>Guide</li>
+              <li>Benner</li>
+              <li>Atraksi Air</li>
+              <li>Jalur Sungai</li>
+              <li>Jalur Perkebunan</li>
+              <li>makan siang box</li>
+              <li>kapasitas jeep 3 -4 orang</li>
+              <li>Dokumentasi</li>
+            </ul>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paket%20Offroad%20Regular%20(Rp255.000%2FPax)." target="_blank" rel="noopener">Booking Offroad Regular</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Offroad + Outbound</h4>
+          <div class="detail-body">
+            <p><strong>Mulai Dari:</strong> Rp.275.000</p>
+            <p><strong>Detail Paket:</strong></p>
+            <ul>
+              <li>Tiket Masuk Coban talun</li>
+              <li>Rute Panjang 3-5 jam</li>
+              <li>Driver, & BBM</li>
+              <li>outbound fun game</li>
+              <li>Ice Breaking</li>
+              <li>Ground & Instruktur</li>
+              <li>Peralatan Standart Outbound</li>
+              <li>Benner</li>
+              <li>1 kali makan</li>
+              <li>coffe break</li>
+              <li>Dokumentasi</li>
+              <li>atraksi air</li>
+            </ul>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paket%20Offroad%20%2B%20Outbound%20(Rp275.000)." target="_blank" rel="noopener">Booking Offroad + Outbound</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Camping Offroad Camping</h4>
+          <div class="detail-body">
+            <p><strong>Mulai dari:</strong> Rp.475.000</p>
+            <p><strong>Detail Paket:</strong></p>
+            <ul>
+              <li>Tiket masuk Coban talun</li>
+              <li>Rute Panjang 3-5 jam</li>
+              <li>Driver & BBM</li>
+              <li>Benner</li>
+              <li>Jalur Perkebunan</li>
+              <li>Peralatan Camping</li>
+              <li>Instruture</li>
+              <li>Peralatan Kegiatan</li>
+              <li>atraksi air</li>
+              <li>Outbound fun Game</li>
+              <li>3 kali makan</li>
+              <li>Api Unggung</li>
+              <li>BBQ</li>
+              <li>Petik Apel</li>
+              <li>Dokumentasi</li>
+            </ul>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paket%20Camping%20Offroad%20Camping%20(Rp475.000)." target="_blank" rel="noopener">Booking Camping Offroad</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-template="rafting-paket">
+      <p><strong>Detail Paket Rafting:</strong> Pilih paket rafting sesuai kebutuhan dan kombinasi aktivitas Anda.</p>
+      <div class="detail-grid">
+        <div class="detail-panel">
+          <h4>Rafting Hemat</h4>
+          <div class="detail-body">
+            <p><strong>Mulai dari:</strong> Rp. 200.000</p>
+            <ol>
+              <li>Welcome Drink</li>
+              <li>Rafting</li>
+              <li>Guide & rescue</li>
+              <li>Tea break dan snack</li>
+              <li>Peralatan standar keamanan (perahu, pelampung, dayung dan helm)</li>
+              <li>kendaraan shuttle</li>
+            </ol>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Rafting%20Hemat%20(Rp%20200.000)." target="_blank" rel="noopener">Booking Rafting Hemat</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Rafting Seru</h4>
+          <div class="detail-body">
+            <p><strong>Mulai dari:</strong> Rp. 210.000</p>
+            <ol>
+              <li>Welcome Drink</li>
+              <li>makan siang</li>
+              <li>Rafting</li>
+              <li>Guide & rescue</li>
+              <li>Tea break dan snack</li>
+              <li>Peralatan standar keamanan (perahu, pelampung, dayung dan helm)</li>
+              <li>kendaraan shuttle</li>
+            </ol>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Rafting%20Seru%20(Rp%20210.000)." target="_blank" rel="noopener">Booking Rafting Seru</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Rafting + Outbound/Paintball</h4>
+          <div class="detail-body">
+            <p><strong>Mulai dari:</strong> Rp. 275.000</p>
+            <ol>
+              <li>Outbound fun game atau Paintball War Game</li>
+              <li>Tiket Coban talun</li>
+              <li>Welcome Drink</li>
+              <li>Rafting 12 km</li>
+              <li>Guide & rescue Team</li>
+              <li>Makan 1 kali Prasmanan</li>
+              <li>Snack box coffe break</li>
+              <li>Tea break dan snack di rest area</li>
+              <li>Peralatan standart keamanan (pelampung, dayung dan helm)</li>
+              <li>kendaraan shuttle</li>
+            </ol>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Rafting%20%2B%20Outbound%2FPaintball%20(Rp%20275.000)." target="_blank" rel="noopener">Booking Rafting + Outbound/Paintball</a>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h4>Rafting + Outbound + Paintball</h4>
+          <div class="detail-body">
+            <p><strong>Mulai dari:</strong> Rp. 375.000</p>
+            <ol>
+              <li>Outbound fun game</li>
+              <li>Paintball War Game</li>
+              <li>Tiket Coban talun</li>
+              <li>Welcome Drink</li>
+              <li>Rafting 12 km</li>
+              <li>Guide & rescue Team</li>
+              <li>Makan 1 kali Prasmanan</li>
+              <li>Snack box coffe break</li>
+              <li>Tea break dan snack di rest area</li>
+              <li>Peralatan standart keamanan (pelampung, dayung dan helm)</li>
+              <li>kendaraan shuttle</li>
+            </ol>
+            <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Rafting%20%2B%20Outbound%20%2B%20Paintball%20(Rp%20375.000)." target="_blank" rel="noopener">Booking Rafting + Outbound + Paintball</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-template="bromo-gathering-3d2n">
+      <p><strong>Paket:</strong> Paket Gathering Rafting Malang - Batu - Bromo (3D 2N)</p>
+      <p class="detail-section-title">Harga Paket ALL IN</p>
+      <div class="detail-scroll">
+        <table class="detail-table">
+          <thead>
+            <tr>
+              <th>Jumlah Peserta</th>
+              <th>Reddorz / Villa</th>
+              <th>Bintang 3</th>
+              <th>Bintang 4</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>17 - 25</td>
+              <td>Rp. 1.950.000,-</td>
+              <td>Rp. 2.150.000,-</td>
+              <td>Rp. 2.375.000,-</td>
+              <td>Paket ALL IN</td>
+            </tr>
+            <tr>
+              <td>25 - 35</td>
+              <td>Rp. 1.785.000,-</td>
+              <td>Rp. 1.975.000,-</td>
+              <td>Rp. 2.225.000,-</td>
+              <td>Paket ALL IN</td>
+            </tr>
+            <tr>
+              <td>36 - 40</td>
+              <td>Rp. 1.725.000,-</td>
+              <td>Rp. 1.925.000,-</td>
+              <td>Rp. 2.150.000,-</td>
+              <td>Paket ALL IN</td>
+            </tr>
+            <tr>
+              <td>40 - 50</td>
+              <td>Rp. 1.700.000,-</td>
+              <td>Rp. 1.885.000,-</td>
+              <td>Rp. 2.100.000,-</td>
+              <td>Paket ALL IN</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="detail-section-title">Fasilitas</p>
+      <ul>
+        <li>Bus standart Pariwisata seat 2 - 2</li>
+        <li>Parkir , tol, retribusi</li>
+        <li>Jeep Bromo 4x4</li>
+        <li>Guide & TL yang ramah dan Professional</li>
+        <li>Tiket Masuk Semua Obyek Wisata</li>
+        <li>Inap 2 Malam di Hotel pilihan</li>
+        <li>Meals 7x ( BF : 3x , Lunch 2x , Dinner 2x)</li>
+        <li>Snack Bromo 1x</li>
+        <li>Air Mineral selama tour</li>
+        <li>Free Dokumentasi selama kegiatan (Foto + video)</li>
+        <li>Free Souvenir Tour + Free Banner</li>
+        <li>Free lokasi transit pengguna kereta</li>
+      </ul>
+
+      <p class="detail-section-title">Destinasi</p>
+      <ul>
+        <li>RAFTING ( Sesuai Request untuk lokasi )</li>
+        <li>Museum Angkut</li>
+        <li>The Legend / Milenial Glow</li>
+        <li>Petik Kebun Apel</li>
+        <li>Gunung Bromo: Sunrise Point, Kawah Bromo, Bukit Widodaren, Pura Luhur Poten, Savana, Pasir Berbisik</li>
+        <li>Pusat Oleh - oleh</li>
+      </ul>
+
+      <p class="detail-section-title">Itinerary Day 1</p>
+      <div class="detail-scroll">
+        <table class="detail-table">
+          <tbody>
+            <tr><td>05.00 – 06.00</td><td>Penjemputan Stasiun / Bandara</td></tr>
+            <tr><td>06.00 – 06.30</td><td>Perjalanan menuju Resto Lokal</td></tr>
+            <tr><td>06.30 – 07.30</td><td>Makan Pagi Resto Lokal</td></tr>
+            <tr><td>07.30 – 08.30</td><td>Perjalanan menuju lokasi Rafting</td></tr>
+            <tr><td>09.00 – 11.00</td><td>Explore Rafting ( Sesuai Pilihan )</td></tr>
+            <tr><td>11.00 – 12.00</td><td>Kembali Basecamp</td></tr>
+            <tr><td>12.00 – 12.30</td><td>Makan Siang</td></tr>
+            <tr><td>12.30 – 14.00</td><td>Perjalanan menuju Museum Angkut</td></tr>
+            <tr><td>14.00 – 14.30</td><td>Explore Museum Angkut</td></tr>
+            <tr><td>14.30 – 17.00</td><td>Perjalanan Menuju Resto Lokal</td></tr>
+            <tr><td>17.00 – 17.30</td><td>Makan Malam</td></tr>
+            <tr><td>17.30 – 18.30</td><td>Perjalanan Menuju Hotel</td></tr>
+            <tr><td>18.30 – 19.00</td><td>Cek in Hotel – Istirahat</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="detail-section-title">Itinerary Day 2</p>
+      <div class="detail-scroll">
+        <table class="detail-table">
+          <tbody>
+            <tr><td>00.00 – 00.30</td><td>Morning Call – Persiapan Explore Bromo – Pembagian Snack Perjalanan menuju suttle Jeep</td></tr>
+            <tr><td>00.30 – 02.30</td><td>Suttle Jeep</td></tr>
+            <tr><td>02.30 – 03.00</td><td>Perjalanan Menuju Sunrise Point</td></tr>
+            <tr><td>03.00 – 04.30</td><td>Explore Sunrise</td></tr>
+            <tr><td>04.30 – 06.00</td><td>Perjalanan menuju Kawah</td></tr>
+            <tr><td>06.00 – 06.30</td><td>Explore kawah - Bukit widodaren – pura luhur poten</td></tr>
+            <tr><td>06.30 – 08.30</td><td>Perjalanan menuju Pasir Berbisik Explore Pasir Berbisik</td></tr>
+            <tr><td>08.30 – 09.00</td><td>Perjalanan menuju Savana - Explore Savana Perjalanan kembali menuju Basecamp</td></tr>
+            <tr><td>09.00 – 09.45</td><td>Makan Siang</td></tr>
+            <tr><td>09.45 – 11.00</td><td>Perjalanan menuju Hotel</td></tr>
+            <tr><td>11.00 – 12.00</td><td>Istirahat</td></tr>
+            <tr><td>12.00 – 14.00</td><td>Perjalanan menuju Milenial / The legend</td></tr>
+            <tr><td>14.00 – 16.00</td><td>Explore Milenial / The Legend</td></tr>
+            <tr><td>16.00 – 16.30</td><td>Perjalanan Menuju Resto Lokal</td></tr>
+            <tr><td>16.30 – 18.30</td><td>Makan Malam Resto Lokal</td></tr>
+            <tr><td>18.30 – 19.00</td><td>Perjalanan kembali ke Hotel</td></tr>
+            <tr><td>19.00 –</td><td>ISTIRAHAT</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="detail-section-title">Itinerary Day 3</p>
+      <div class="detail-scroll">
+        <table class="detail-table">
+          <tbody>
+            <tr><td>06.00 – 07.00</td><td>Breakfast Hotel</td></tr>
+            <tr><td>07.00 – 07.30</td><td>Persiapan Cek Out</td></tr>
+            <tr><td>07.30 – 08.00</td><td>Perjalanan menuju Petik Kebun Apel</td></tr>
+            <tr><td>08.00 – 09.30</td><td>Explore Petik Apel</td></tr>
+            <tr><td>09.30 – 10.00</td><td>Perjalanan Menuju Pusat Oleh – oleh</td></tr>
+            <tr><td>10.00 – 11.00</td><td>Belanja Oleh – oleh</td></tr>
+            <tr><td>11.00 – 11.30</td><td>Perjalanan menuju Bakso Damas</td></tr>
+            <tr><td>11.30 – 12.30</td><td>Kuliner Bakso Damas</td></tr>
+            <tr><td>12.30 – 13.00</td><td>Perjalanan menuju Bandara / Stasiun</td></tr>
+            <tr><td>13.00 -</td><td>Finish Trip</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paket%20Gathering%20Rafting%20Malang-Batu-Bromo%203D2N." target="_blank" rel="noopener">Booking Paket Ini</a>
+    </div>
+
+    <div data-template="bromo-offroad-3d2n">
+      <p><strong>Paket:</strong> Paket Gathering Offroad Malang Batu Bromo (3D 2N)</p>
+      <p class="detail-section-title">Harga Paket ALL IN</p>
+      <div class="detail-scroll">
+        <table class="detail-table">
+          <thead>
+            <tr>
+              <th>Jumlah Peserta</th>
+              <th>Reddorz / Villa</th>
+              <th>Bintang 3</th>
+              <th>Bintang 4</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>17 - 25</td>
+              <td>Rp. 1.900.000,-</td>
+              <td>Rp. 2.100.000,-</td>
+              <td>Rp. 2.325.000,-</td>
+              <td>Paket ALL IN</td>
+            </tr>
+            <tr>
+              <td>25 - 35</td>
+              <td>Rp. 1.775.000,-</td>
+              <td>Rp. 1.975.000,-</td>
+              <td>Rp. 2.175.000,-</td>
+              <td>Paket ALL IN</td>
+            </tr>
+            <tr>
+              <td>36 - 40</td>
+              <td>Rp. 1.675.000,-</td>
+              <td>Rp. 1.875.000,-</td>
+              <td>Rp. 2.075.000,-</td>
+              <td>Paket ALL IN</td>
+            </tr>
+            <tr>
+              <td>40 - 50</td>
+              <td>Rp. 1.650.000,-</td>
+              <td>Rp. 1.850.000,-</td>
+              <td>Rp. 2.050.000,-</td>
+              <td>Paket ALL IN</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><em>Harga dengan jumlah peserta diatas 50 orang hubungi CS kami untuk harga terbaik / By Custom</em></p>
+
+      <p class="detail-section-title">Fasilitas</p>
+      <ul>
+        <li>Bus standart Pariwisata seat 2 - 2</li>
+        <li>Parkir , tol, retribusi</li>
+        <li>Jeep Bromo 4x4 & Jeep OFFROAD</li>
+        <li>Guide & TL yang ramah dan Professional</li>
+        <li>Tiket Masuk Semua Obyek Wisata</li>
+        <li>Inap 2 Malam di Hotel pilihan</li>
+        <li>Meals 7x ( BF : 3x , Lunch 2x , Dinner 2x)</li>
+        <li>Snack Bromo 1x</li>
+        <li>Air Mineral selama tour</li>
+        <li>Free Dokumentasi selama kegiatan (Foto + video)</li>
+        <li>Free Souvenir Tour + Free Banner</li>
+        <li>Free lokasi transit pengguna kereta</li>
+      </ul>
+
+      <p class="detail-section-title">Destinasi</p>
+      <ul>
+        <li>OFFROAD COBAN TALUN</li>
+        <li>Petik Apel</li>
+        <li>Museum Angkut</li>
+        <li>The Legend / Milenial Glow</li>
+        <li>Gunung Bromo : Sunrise Point ,Kawah Bromo ,Bukit Widodaren,Pura luhur poten,Savana,Pasir Berbisik.</li>
+        <li>Pusat Oleh -oleh</li>
+      </ul>
+
+      <p class="detail-section-title">Itinerary Day 1</p>
+      <div class="detail-scroll">
+        <table class="detail-table">
+          <tbody>
+            <tr><td>05.00 – 06.00</td><td>Penjemputan Stasiun / Bandara</td></tr>
+            <tr><td>06.00 – 06.30</td><td>Perjalanan menuju Resto Lokal</td></tr>
+            <tr><td>06.30 – 07.30</td><td>Makan Pagi Resto Lokal</td></tr>
+            <tr><td>07.30 – 08.30</td><td>Perjalanan menuju coban talun</td></tr>
+            <tr><td>08.30 – 09.00</td><td>Suttle Jeep Offroad</td></tr>
+            <tr><td>09.00 – 11.00</td><td>Explore Coban Talun & Offroad</td></tr>
+            <tr><td>11.00 – 12.00</td><td>Explore Petik Apel</td></tr>
+            <tr><td>12.00 – 12.30</td><td>Kembali Basecamp</td></tr>
+            <tr><td>12.30 – 14.00</td><td>Makan Siang</td></tr>
+            <tr><td>14.00 – 14.30</td><td>Perjalanan menuju Museum Angkut</td></tr>
+            <tr><td>14.30 – 17.00</td><td>Explore Museum Angkut</td></tr>
+            <tr><td>17.00 – 17.30</td><td>Perjalanan Menuju Resto Lokal</td></tr>
+            <tr><td>17.30 – 18.30</td><td>Makan Malam</td></tr>
+            <tr><td>18.30 – 19.00</td><td>Perjalanan Menuju Hotel</td></tr>
+            <tr><td>19.00 –</td><td>Cek in Hotel – Istirahat</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="detail-section-title">Itinerary Day 2</p>
+      <div class="detail-scroll">
+        <table class="detail-table">
+          <tbody>
+            <tr><td>00.00 – 00.30</td><td>Morning Call – Persiapan Explore Bromo - Pembagian Snack Perjalanan menuju suttle Jeep</td></tr>
+            <tr><td>00.30 – 02.30</td><td>Suttle Jeep</td></tr>
+            <tr><td>02.30 – 03.00</td><td>Perjalanan Menuju Sunrise Point</td></tr>
+            <tr><td>03.00 – 04.30</td><td>Explore Sunrise</td></tr>
+            <tr><td>04.30 – 06.00</td><td>Perjalanan menuju Kawah</td></tr>
+            <tr><td>06.00 – 06.30</td><td>Explore kawah - Bukit widodaren – pura luhur poten</td></tr>
+            <tr><td>06.30 – 08.30</td><td>Perjalanan menuju Pasir Berbisik Explore Pasir Berbisik</td></tr>
+            <tr><td>08.30 – 09.00</td><td>Perjalanan menuju Savana - Explore Savana Perjalanan kembali menuju Basecamp</td></tr>
+            <tr><td>09.00 – 09.45</td><td>Makan Siang</td></tr>
+            <tr><td>09.45 – 11.00</td><td>Perjalanan menuju Hotel</td></tr>
+            <tr><td>11.00 – 12.00</td><td>Istirahat</td></tr>
+            <tr><td>12.00 – 14.00</td><td>Perjalanan menuju Milenial / The legend</td></tr>
+            <tr><td>14.00 – 16.00</td><td>Explore Milenial / The Legend</td></tr>
+            <tr><td>16.00 – 16.30</td><td>Perjalanan Menuju Resto Lokal</td></tr>
+            <tr><td>16.30 – 18.30</td><td>Makan Malam Resto Lokal</td></tr>
+            <tr><td>18.30 – 19.00</td><td>Perjalanan kembali ke Hotel</td></tr>
+            <tr><td>19.00 –</td><td>ISTIRAHAT</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="detail-section-title">Itinerary Day 3</p>
+      <div class="detail-scroll">
+        <table class="detail-table">
+          <tbody>
+            <tr><td>06.00 – 07.00</td><td>Breakfast Hotel</td></tr>
+            <tr><td>07.00 – 07.30</td><td>Persiapan Cek Out</td></tr>
+            <tr><td>07.30 – 08.00</td><td>Perjalanan menuju Petik Kebun Apel</td></tr>
+            <tr><td>08.00 – 09.30</td><td>Explore Petik Apel</td></tr>
+            <tr><td>09.30 – 10.00</td><td>Perjalanan Menuju Pusat Oleh – oleh</td></tr>
+            <tr><td>10.00 – 11.00</td><td>Belanja Oleh – oleh</td></tr>
+            <tr><td>11.00 – 11.30</td><td>Perjalanan menuju Bakso Damas</td></tr>
+            <tr><td>11.30 – 12.30</td><td>Kuliner Bakso Damas</td></tr>
+            <tr><td>12.30 – 13.00</td><td>Perjalanan menuju Bandara / Stasiun</td></tr>
+            <tr><td>13.00 -</td><td>Finish Trip</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Paket%20Gathering%20Offroad%20Malang%20Batu%20Bromo%203D2N." target="_blank" rel="noopener">Booking Paket Ini</a>
+    </div>
+
+    <div data-template="villa-mommi">
+      <p><strong>Paket Villa:</strong> Villa 5 Kamar Murah dekat Museum Angkut, Villa Mommi</p>
+      <p>Villa Mommi ini merupakan salah satu villa yang ada di Kota Batu. Konsep villa ini cocok untuk akomodasi liburan keluarga maupun teman dengan fasilitas yang dimiliki.</p>
+
+      <p class="detail-section-title">Fasilitas Villa 5 Kamar Murah dekat Museum Angkut</p>
+      <ul>
+        <li>5 kamar tidur</li>
+        <li>4 kamar mandi</li>
+        <li>Ruang tamu & ruang keluarga</li>
+        <li>Karaoke</li>
+        <li>Kolam Renang</li>
+        <li>Meja Billard</li>
+        <li>Dapur</li>
+        <li>Balkon</li>
+        <li>BBQ tools</li>
+        <li>Carport</li>
+      </ul>
+
+      <p class="detail-section-title">Wisata Unggulan Terdekat</p>
+      <ul>
+        <li>Jatimpark 3</li>
+        <li>Jatimpark 1</li>
+        <li>Jatimpark 2</li>
+        <li>Museum Angkut</li>
+        <li>BNS</li>
+        <li>Alun-Alun Kota Batu</li>
+        <li>dll</li>
+      </ul>
+
+      <p class="detail-section-title">Terms and Condition</p>
+      <ul>
+        <li>DP 50% untuk mengikat tanggal yang dipilih</li>
+        <li>Reschedule seminggu H-14</li>
+        <li>Pelunasan H-7</li>
+        <li>Cancel H-7, DP dan Pelunasan tidak bisa dikembalikan</li>
+      </ul>
+
+      <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Villa%20Mommi%205%20Kamar%20dekat%20Museum%20Angkut." target="_blank" rel="noopener">Booking Villa Mommi</a>
+    </div>
+
+    <div data-template="villa-dc-batu">
+      <p><strong>Paket Villa:</strong> Villa 5 Kamar Full AC Dekat Jatim Park 3, Villa DC Batu</p>
+      <p>Villa DC Batu ini merupakan salah satu villa yang ada di Kota Batu. Konsep villa ini cocok untuk akomodasi liburan keluarga maupun teman dan fasilitasnya lengkap seperti hotel berbintang.</p>
+
+      <p class="detail-section-title">Fasilitas Villa 5 Kamar Full AC Dekat Jatim Park 3</p>
+      <ul>
+        <li>5 kamar tidur</li>
+        <li>4 kamar mandi (3 di dalam)</li>
+        <li>Full AC</li>
+        <li>Ruang tamu & ruang keluarga</li>
+        <li>Ruang karaoke</li>
+        <li>Kolam renang</li>
+        <li>Meja bilyard</li>
+        <li>Dapur</li>
+        <li>Balkon</li>
+        <li>BBQ tools</li>
+        <li>Carport</li>
+      </ul>
+
+      <p class="detail-section-title">Wisata Unggulan Terdekat</p>
+      <ul>
+        <li>Jatimpark 3</li>
+        <li>Jatimpark 1</li>
+        <li>Jatimpark 2</li>
+        <li>Museum Angkut</li>
+        <li>BNS</li>
+        <li>Alun-Alun Kota Batu</li>
+        <li>dll</li>
+      </ul>
+
+      <p class="detail-section-title">Terms and Condition</p>
+      <ul>
+        <li>DP 50% untuk mengikat tanggal yang dipilih</li>
+        <li>Reschedule sampai H-14</li>
+        <li>Pelunasan H-7</li>
+        <li>Cancel H-7, DP dan Pelunasan tidak bisa dikembalikan</li>
+      </ul>
+
+      <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Villa%20DC%20Batu%205%20Kamar%20Full%20AC%20dekat%20Jatim%20Park%203." target="_blank" rel="noopener">Booking Villa DC Batu</a>
+    </div>
+
+    <div data-template="city-tour-private-trip">
+      <p><strong>Paket:</strong> Private Trip City Tour Malang & Batu</p>
+      <p>Private trip city tour Malang & Batu menawarkan kemudahan untuk menikmati berbagai wisata favourite di kota Malang dan kota Batu dengan trip santai sesuai request peserta.</p>
+      <p><strong>Start:</strong> Kota Malang / Kota Batu</p>
+      <p><strong>Durasi:</strong> 07.00 - 20.00 WIB</p>
+      <p><strong>Keberangkatan:</strong> Setiap Hari</p>
+
+      <p class="detail-section-title">Destinasi</p>
+      <ul>
+        <li>Taman Selecta</li>
+        <li>Petik Apel</li>
+        <li>Paralayang</li>
+        <li>Coban Rondo</li>
+        <li>Coban Rais</li>
+        <li>Coban Talun</li>
+        <li>Alun-alun Kota Batu</li>
+        <li>Jodipan</li>
+        <li>Dan lain-lain</li>
+      </ul>
+
+      <p class="detail-section-title">Harga</p>
+      <div class="detail-scroll">
+        <table class="detail-table">
+          <tbody>
+            <tr><td>1 orang</td><td>1070K /orang</td></tr>
+            <tr><td>2 orang</td><td>570K /orang</td></tr>
+            <tr><td>3 orang</td><td>405K /orang</td></tr>
+            <tr><td>4 orang</td><td>320K /orang</td></tr>
+            <tr><td>5 orang</td><td>270K /orang</td></tr>
+            <tr><td>6 orang</td><td>240K /orang</td></tr>
+            <tr><td>7 orang</td><td>235K /orang</td></tr>
+            <tr><td>8 orang</td><td>320K /orang</td></tr>
+            <tr><td>9 orang</td><td>300K /orang</td></tr>
+            <tr><td>10 orang</td><td>270K /orang</td></tr>
+            <tr><td>11 orang</td><td>255K /orang</td></tr>
+            <tr><td>12 orang</td><td>240K /orang</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><em>Disclaimer: Harga dapat berubah sewaktu-waktu tanpa pemberitahuan sebelumnya. Hubungi Admin WA untuk info lanjut.</em></p>
+
+      <p class="detail-section-title">Fasilitas</p>
+      <p><strong>Sudah Termasuk:</strong></p>
+      <ul>
+        <li>Mobil</li>
+        <li>BBM</li>
+        <li>Driver as Guide</li>
+        <li>Antar Jemput</li>
+        <li>Tiket Masuk 2 Destinasi</li>
+      </ul>
+      <p><strong>Tidak Termasuk:</strong></p>
+      <ul>
+        <li>Transport dari Kota Asal ke Meeting Point</li>
+        <li>Hotel</li>
+        <li>Keperluan Pribadi</li>
+        <li>Tiket WNA (Warga Negara Asing)</li>
+      </ul>
+      <p><strong>Fasilitas Tambahan:</strong></p>
+      <ul>
+        <li>Penjemputan Surabaya +300.000/mobil</li>
+      </ul>
+
+      <p class="detail-section-title">Itinerary</p>
+      <div class="detail-scroll">
+        <table class="detail-table">
+          <tbody>
+            <tr><td>07.00-08.00</td><td>Penjemputan Peserta</td></tr>
+            <tr><td>08.00-09.00</td><td>Perjalanan ke tempat wisata</td></tr>
+            <tr><td>09.00-18.00</td><td>Explore Wisata</td></tr>
+            <tr><td>18.00</td><td>Trip Selesai</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><em>P.S.: Itinerary di atas merupakan gambaran trip dan dapat berubah menyesuaikan kondisi di lapang.</em></p>
+
+      <p class="detail-section-title">Catatan</p>
+      <ul>
+        <li>Dapat menentukan tanggal sesuai permintaan</li>
+        <li>Dapat menentukan destinasi sesuai permintaan</li>
+        <li>Total destinasi dibebaskan</li>
+        <li>Tiket masuk include 2 tempat, jika lebih dari 2 tempat wisata maka tiket ditanggung peserta</li>
+        <li>Free tiket masuk 2 destinasi kategori alam (tidak termasuk wahana)</li>
+      </ul>
+
+      <a class="card-btn book detail-book" href="https://wa.me/6285706756978?text=Halo%20CaptureWisata%2C%20saya%20mau%20booking%20Private%20Trip%20City%20Tour%20Malang%20%26%20Batu." target="_blank" rel="noopener">Booking Private Trip</a>
+    </div>
+  </div>
+
+  <footer class="footer" id="kontak">
+    <div class="foot-grid">
+      <div>
+        <h4>CaptureWisata.com</h4>
+        <p>PT. Legacy Tourism Indonesia</p>
+        <p>Nomor HP: 085706756978</p>
+        <p>Website: capturewisata.com</p>
+        <p>Tour and travel memberikan pelayanan yang terbaik buat Anda.</p>
+      </div>
+      <div>
+        <h4>Site Map</h4>
+        <ul>
+          <li>Beranda</li>
+          <li>Paket Wisata Malang Batu Bromo</li>
+          <li>Villa Batu Malang</li>
+          <li>Sewa Mobil Batu Malang</li>
+          <li>Open Trip</li>
+          <li>Blog</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <p>Jl. Oro Oro Ombo No 8, Kota Batu</p>
+        <p>Tlp: 085706756978</p>
+        <p>WA: 085706756978</p>
+        <p>Email: wonderfull.batumalang@gmail.com</p>
+      </div>
+    </div>
+    <div class="copy">Copyright &copy; 2026 CaptureWisata.com | PT. Legacy Tourism Indonesia</div>
+  </footer>
+
+  <a class="wa" href="https://wa.me/6285706756978" target="_blank" rel="noopener" aria-label="Hubungi WhatsApp">&#128172;</a>
+
+  <script>
+    (function () {
+      var nav = document.getElementById("nav");
+      var burger = document.getElementById("burger");
+      var mobileMenu = document.getElementById("mobileMenu");
+      var fadeEls = document.querySelectorAll(".fade-up");
+      var mobileLinks = mobileMenu ? mobileMenu.querySelectorAll("a") : [];
+      var detailButtons = document.querySelectorAll(".detail-trigger");
+      var jeepDetailModal = document.getElementById("jeepDetailModal");
+      var jeepModalTitle = document.getElementById("jeepModalTitle");
+      var jeepModalContent = document.getElementById("jeepModalContent");
+      var closeModalButtons = document.querySelectorAll("[data-close-modal]");
+      var detailTemplates = document.getElementById("detailTemplates");
+
+      function closeMobileMenu() {
+        if (!burger || !mobileMenu) return;
+        burger.classList.remove("is-open");
+        burger.setAttribute("aria-expanded", "false");
+        mobileMenu.classList.remove("open");
+      }
+
+      function toggleMobileMenu() {
+        if (!burger || !mobileMenu) return;
+        var opened = mobileMenu.classList.toggle("open");
+        burger.classList.toggle("is-open", opened);
+        burger.setAttribute("aria-expanded", opened ? "true" : "false");
+      }
+
+      function onScroll() {
+        if (window.scrollY > 14) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      }
+
+      function openJeepModal(title, templateKey) {
+        if (!jeepDetailModal) return;
+        if (jeepModalTitle && title) {
+          jeepModalTitle.textContent = "Detail " + title;
+        }
+        if (jeepModalContent && detailTemplates && templateKey) {
+          var template = detailTemplates.querySelector("[data-template=\"" + templateKey + "\"]");
+          jeepModalContent.innerHTML = template ? template.innerHTML : "<p>Detail paket belum tersedia.</p>";
+        }
+        jeepDetailModal.hidden = false;
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeJeepModal() {
+        if (!jeepDetailModal) return;
+        jeepDetailModal.hidden = true;
+        document.body.style.overflow = "";
+      }
+
+      if (burger && mobileMenu) {
+        burger.addEventListener("click", function () {
+          toggleMobileMenu();
+        });
+
+        mobileLinks.forEach(function (link) {
+          link.addEventListener("click", function () {
+            closeMobileMenu();
+          });
+        });
+
+        document.addEventListener("click", function (event) {
+          if (!mobileMenu.classList.contains("open")) return;
+          if (nav.contains(event.target)) return;
+          closeMobileMenu();
+        });
+
+        window.addEventListener("resize", function () {
+          if (window.innerWidth > 980) {
+            closeMobileMenu();
+          }
+        });
+      }
+
+      if (detailButtons.length && jeepDetailModal) {
+        detailButtons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            openJeepModal(btn.getAttribute("data-package-title"), btn.getAttribute("data-detail-template"));
+          });
+        });
+
+        closeModalButtons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            closeJeepModal();
+          });
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && !jeepDetailModal.hidden) {
+            closeJeepModal();
+          }
+        });
+      }
+
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08 });
+
+        fadeEls.forEach(function (el) { io.observe(el); });
+      } else {
+        fadeEls.forEach(function (el) { el.classList.add("show"); });
+      }
+
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+  </script>
+</body>
+</html>
