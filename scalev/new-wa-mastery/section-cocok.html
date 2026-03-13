@@ -1,0 +1,149 @@
+<section class="cocok">
+  <div class="container cocok-inner">
+    <h1 class="reveal">Tehnik Ini Cocok Untuk <span class="headline-strong">Semua</span> Jenis Usaha</h1>
+    <p class="sub reveal">dan sudah di tes di beberapa usaha seperti :</p>
+
+    <div class="grid reveal">
+      <div class="card"><span class="badge">✓</span><span class="label">Service AC</span></div>
+      <div class="card"><span class="badge">✓</span><span class="label">Tour & Travel</span></div>
+      <div class="card"><span class="badge">✓</span><span class="label">Sales Internet Kabel</span></div>
+      <div class="card"><span class="badge">✓</span><span class="label">Rental Mobil</span></div>
+      <div class="card"><span class="badge">✓</span><span class="label">Kontraktor</span></div>
+      <div class="card"><span class="badge">✓</span><span class="label">Agen Properti</span></div>
+      <div class="card"><span class="badge">✓</span><span class="label">Wedding & Event Organizer</span></div>
+      <div class="card"><span class="badge">✓</span><span class="label">Produk Skincare</span></div>
+    </div>
+
+    <div class="banner reveal">Dan pasti 100% cocok juga untuk usaha kamu</div>
+  </div>
+</section>
+
+<style>
+  :root{
+    --ink:#3b2a1b;
+    --ink-soft:#5f4938;
+    --gold:#f7d37a;
+    --gold-deep:#d39c3c;
+    --paper:#fff7e6;
+    --shadow:0 22px 50px rgba(92, 63, 24, 0.22);
+    --radius:22px;
+    --wrap:980px;
+  }
+
+  .cocok{
+    padding:70px 0 80px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    background:#ffffff;
+  }
+  .cocok::after{
+    content:"";
+    position:absolute;
+    inset:18% 0 auto 0;
+    margin:0 auto;
+    width:360px;
+    height:360px;
+    background:radial-gradient(circle, rgba(247,211,122,0.55), rgba(247,211,122,0));
+    filter:blur(4px);
+    opacity:0.65;
+  }
+
+  .cocok-inner{
+    position:relative;
+    z-index:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+  }
+
+  .cocok h1{
+    margin:0;
+    font-family:"Playfair Display", serif;
+    font-size:clamp(30px, 5vw, 48px);
+    line-height:1.08;
+    text-transform:capitalize;
+    color:var(--ink);
+  }
+  .cocok .headline-strong{ color:#5b3b17; }
+
+  .cocok .sub{
+    margin:0;
+    font-size:clamp(14px, 2vw, 17px);
+    color:var(--ink-soft);
+  }
+
+  .cocok .grid{
+    margin-top:18px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap:14px;
+    width:100%;
+  }
+
+  .cocok .card{
+    background:rgba(255,255,255,0.95);
+    border:1px solid rgba(179, 120, 34, 0.18);
+    border-radius:16px;
+    padding:14px 12px;
+    text-align:left;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    box-shadow:var(--shadow);
+    color:var(--ink);
+  }
+  .cocok .badge{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:#1fb15a;
+    display:grid;
+    place-items:center;
+    color:white;
+    font-size:12px;
+    flex:0 0 auto;
+  }
+  .cocok .label{
+    font-weight:700;
+    font-size:13px;
+  }
+
+  .cocok .banner{
+    margin-top:18px;
+    background:linear-gradient(120deg, #f7d37a 0%, #d39c3c 100%);
+    color:#3b260a;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:12px 14px;
+    border-radius:12px;
+    box-shadow:0 16px 36px rgba(138, 91, 22, 0.25);
+  }
+
+  .cocok .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .cocok .reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+  @media (max-width: 720px){
+    .cocok{ padding:60px 0 70px; }
+    .cocok .card{ padding:12px; }
+  }
+</style>
+
+<script>
+  const cocokObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        cocokObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18 });
+
+  document.querySelectorAll('.cocok .reveal').forEach((el) => cocokObserver.observe(el));
+</script>

@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Labuan Rental | labuanrental.com</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="icon" type="image/png" href="https://everz-digital.site/wp-content/uploads/2026/01/logo_labuanrent-removebg-preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -2824,11 +2825,16 @@
       }
     }
 
-    const modalTriggers = document.querySelectorAll("[data-modal-target]");
     const modals = document.querySelectorAll(".modal");
+    const modalMap = new Map();
     const bookingState = {
       packageName: "Trip Seharian Komodo dengan Kapal Cepat",
     };
+    modals.forEach((modal) => {
+      if (modal.id) {
+        modalMap.set(`#${modal.id}`, modal);
+      }
+    });
 
     const armadaNames = Array.from(document.querySelectorAll(".armada-card h3")).map(
       (item) => item.textContent.trim()
@@ -2969,36 +2975,50 @@
       document.body.style.overflow = "";
     };
 
-    modalTriggers.forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        const target = document.querySelector(trigger.dataset.modalTarget);
-        if (!target) return;
-        if (trigger.dataset.package) {
-          bookingState.packageName = trigger.dataset.package;
-          const bookingTitle = document.getElementById("paketBookingTitle");
-          if (bookingTitle) {
-            bookingTitle.textContent = `Pemesanan ${bookingState.packageName}`;
-          }
-          const bookingPackage = document.getElementById("bookingPackage");
-          if (bookingPackage) {
-            bookingPackage.value = bookingState.packageName;
-          }
+    const openModal = (selector) => {
+      const target = modalMap.get(selector) || document.querySelector(selector);
+      if (!target) return;
+      closeModals();
+      target.classList.add("is-open");
+      target.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+
+    document.addEventListener("click", (event) => {
+      const trigger = event.target.closest("[data-modal-target]");
+      if (!trigger) return;
+      event.preventDefault();
+      event.stopPropagation();
+      const targetSelector = trigger.dataset.modalTarget;
+      if (!targetSelector) return;
+
+      if (trigger.dataset.package) {
+        bookingState.packageName = trigger.dataset.package;
+        const bookingTitle = document.getElementById("paketBookingTitle");
+        if (bookingTitle) {
+          bookingTitle.textContent = `Pemesanan ${bookingState.packageName}`;
         }
-        if (trigger.dataset.car) {
-          const rentalCar = document.getElementById("rentalCar");
-          if (rentalCar) {
-            rentalCar.value = trigger.dataset.car;
-          }
+        const bookingPackage = document.getElementById("bookingPackage");
+        if (bookingPackage) {
+          bookingPackage.value = bookingState.packageName;
         }
-        closeModals();
-        target.classList.add("is-open");
-        target.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
-      });
+      }
+
+      if (trigger.dataset.car) {
+        const rentalCar = document.getElementById("rentalCar");
+        if (rentalCar) {
+          rentalCar.value = trigger.dataset.car;
+        }
+      }
+
+      openModal(targetSelector);
     });
 
-    document.querySelectorAll("[data-close-modal]").forEach((closeBtn) => {
-      closeBtn.addEventListener("click", closeModals);
+    document.addEventListener("click", (event) => {
+      if (event.target.closest("[data-close-modal]")) {
+        event.preventDefault();
+        closeModals();
+      }
     });
 
     window.addEventListener("keydown", (event) => {

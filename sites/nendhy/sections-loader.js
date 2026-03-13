@@ -7,6 +7,7 @@ async function loadSections() {
       { id: 'services-placeholder', file: 'sections/services.html' },
       { id: 'about-placeholder', file: 'sections/about.html' },
       { id: 'why-placeholder', file: 'sections/why-choose.html' },
+      { id: 'gallery-placeholder', file: 'sections/gallery.html' },
       { id: 'contact-placeholder', file: 'sections/contact.html' },
       { id: 'testimonials-placeholder', file: 'sections/testimonials.html' },
       { id: 'footer-placeholder', file: 'sections/footer.html' },
@@ -370,6 +371,90 @@ async function loadSections() {
       window.addEventListener('resize', setInitial);
     })();
 
+    // Gallery carousel (mobile swipe + desktop auto slide with center focus)
+    (function(){
+      const carousel = document.getElementById('ahaGalleryCarousel');
+      if(!carousel) return;
+      const track = carousel.querySelector('.aha-gallery-track');
+      if(!track) return;
+
+      const cards = Array.from(track.querySelectorAll('.aha-gallery-item'));
+      if(!cards.length) return;
+
+      let activeIndex = 0;
+      let autoTimer = null;
+      let rafId = null;
+
+      function setActiveByIndex(index){
+        cards.forEach((card, i)=> card.classList.toggle('is-active', i === index));
+        activeIndex = index;
+      }
+
+      function getClosestToCenter(){
+        const trackRect = track.getBoundingClientRect();
+        const center = trackRect.left + trackRect.width / 2;
+        let closest = 0;
+        let minDistance = Infinity;
+
+        cards.forEach((card, i)=>{
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.left + rect.width / 2;
+          const distance = Math.abs(center - cardCenter);
+          if(distance < minDistance){
+            minDistance = distance;
+            closest = i;
+          }
+        });
+
+        return closest;
+      }
+
+      function centerCard(index, behavior = 'smooth'){
+        const card = cards[index];
+        if(!card) return;
+        const left = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
+        track.scrollTo({left, behavior});
+      }
+
+      function updateActiveByPosition(){
+        const index = getClosestToCenter();
+        setActiveByIndex(index);
+      }
+
+      function stopAuto(){
+        if(autoTimer){
+          clearInterval(autoTimer);
+          autoTimer = null;
+        }
+      }
+
+      function startAuto(){
+        stopAuto();
+        if(window.innerWidth < 900) return;
+        autoTimer = setInterval(()=>{
+          const next = (activeIndex + 1) % cards.length;
+          setActiveByIndex(next);
+          centerCard(next, 'smooth');
+        }, 3200);
+      }
+
+      track.addEventListener('scroll', ()=>{
+        if(rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(updateActiveByPosition);
+      }, {passive:true});
+
+      setTimeout(()=>{
+        centerCard(0, 'auto');
+        setActiveByIndex(0);
+        startAuto();
+      }, 60);
+
+      window.addEventListener('resize', ()=>{
+        updateActiveByPosition();
+        startAuto();
+      });
+    })();
+
     // Testimonial carousel
     (function(){
       const track = document.getElementById('ahaTestimonialTrack');
@@ -729,6 +814,51 @@ Notes: ${note || "-"}
         const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
         window.open(url, "_blank", "noopener,noreferrer");
         closeModal();
+      });
+    })();
+
+    // Shuttle private car price list modal
+    (function(){
+      const WA_NUMBER = "6283850102934";
+      const modal = document.getElementById('ahaPriceListModal');
+      if(!modal) return;
+
+      function closeModal(){
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+
+      function openModal(){
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+
+      document.addEventListener('click', (e)=>{
+        const openBtn = e.target.closest('.aha-price-list-btn');
+        if(openBtn){
+          e.preventDefault();
+          openModal();
+          return;
+        }
+
+        const bookBtn = e.target.closest('.aha-price-book');
+        if(bookBtn){
+          const destination = bookBtn.dataset.destination || "-";
+          const price = bookBtn.dataset.price || "-";
+          const msg =
+`Hello Nendhy Holiday Lombok Transport, I want to book Shuttle Private Car.
+
+Destination: ${destination}
+Price: ${price}
+`;
+          const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+          window.open(url, "_blank", "noopener,noreferrer");
+          closeModal();
+        }
+      });
+
+      modal.addEventListener('click', (e)=>{
+        if(e.target.dataset.close){ closeModal(); }
       });
     })();
   }

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apa yang Akan Kamu Pelajari</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f1e8;
+        --bg-2: #fff7ee;
+        --ink: #1f1b16;
+        --muted: #5d574f;
+        --accent: #e46f2a;
+        --accent-2: #0f5e58;
+        --gold: #d19b32;
+        --card: #fffaf4;
+        --border: rgba(28, 26, 23, 0.14);
+        --shadow: 0 18px 40px rgba(28, 26, 23, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Work Sans", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: radial-gradient(
+            circle at 15% 10%,
+            rgba(228, 111, 42, 0.18),
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at 85% 0%,
+            rgba(15, 94, 88, 0.2),
+            transparent 48%
+          ),
+          linear-gradient(180deg, var(--bg), var(--bg-2));
+        min-height: 100vh;
+      }
+
+      .page {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 24px 16px 80px;
+        display: grid;
+        gap: 24px;
+      }
+
+      .section {
+        position: relative;
+        padding: 4px 2px 16px;
+      }
+
+      .section-header {
+        display: grid;
+        gap: 10px;
+        position: relative;
+        z-index: 1;
+        text-align: left;
+        justify-items: start;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+        background: rgba(15, 94, 88, 0.12);
+        padding: 6px 12px;
+        border-radius: 999px;
+        width: fit-content;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: "Fraunces", serif;
+        font-size: clamp(26px, 6vw, 38px);
+        line-height: 1.15;
+      }
+
+      .lead {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .tracks {
+        margin-top: 18px;
+        display: grid;
+        gap: 14px;
+        text-align: left;
+      }
+
+      details.track {
+        border-bottom: 1px solid var(--border);
+        padding: 6px 0 14px;
+      }
+
+      details.track:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      summary {
+        list-style: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 16px;
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.85);
+        text-align: left;
+        transition: box-shadow 0.2s ease, border-color 0.2s ease,
+          background 0.2s ease;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details[open] summary {
+        border-color: rgba(228, 111, 42, 0.45);
+        box-shadow: 0 10px 18px rgba(228, 111, 42, 0.12);
+        background: #fff;
+      }
+
+      .tracks > details.track:nth-of-type(1) summary {
+        background: #fff1e8;
+      }
+
+      .tracks > details.track:nth-of-type(2) summary {
+        background: #eef6f3;
+      }
+
+      .tracks > details.track:nth-of-type(3) summary {
+        background: #fff6dd;
+      }
+
+      .tracks > details.track:nth-of-type(4) summary {
+        background: #edf3ff;
+      }
+
+      .tracks > details.track:nth-of-type(5) summary {
+        background: #f5efff;
+      }
+
+      .tracks > details.track:nth-of-type(6) summary {
+        background: #fff1f4;
+      }
+
+      .tracks > details.track:nth-of-type(7) summary {
+        background: #eef7ff;
+      }
+
+      .track-title {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--accent-2);
+      }
+
+      .track-subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .track-label {
+        margin-top: 10px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--accent);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .track-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--accent-2);
+        font-size: 12px;
+        transition: transform 0.25s ease, color 0.2s ease,
+          border-color 0.2s ease;
+        flex: 0 0 auto;
+      }
+
+      details[open] .track-toggle {
+        transform: rotate(180deg);
+        color: var(--accent);
+        border-color: rgba(228, 111, 42, 0.45);
+      }
+
+      .accordion-body {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.3s ease;
+      }
+
+      details[open] .accordion-body {
+        grid-template-rows: 1fr;
+      }
+
+      .accordion-inner {
+        overflow: hidden;
+        padding: 10px 6px 0;
+        text-align: left;
+      }
+
+      .track-list {
+        margin: 0;
+        padding-left: 0;
+        color: var(--muted);
+        display: grid;
+        gap: 8px;
+        line-height: 1.55;
+        font-size: 13px;
+        list-style: none;
+        text-align: left;
+      }
+
+      .track-list li,
+      .closing-list li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .track-list i,
+      .closing-list i {
+        color: var(--accent);
+        margin-top: 2px;
+        font-size: 12px;
+      }
+
+      .closing {
+        margin-top: 18px;
+        background: linear-gradient(135deg, #fff1e0, #fffaf4);
+        border: 1px solid rgba(209, 155, 50, 0.4);
+        border-radius: 18px;
+        padding: 16px 14px;
+        display: grid;
+        gap: 10px;
+        text-align: left;
+      }
+
+      .closing-title {
+        margin: 0;
+        font-weight: 700;
+        color: var(--accent-2);
+      }
+
+      .closing-list {
+        margin: 0;
+        padding-left: 0;
+        color: var(--muted);
+        display: grid;
+        gap: 8px;
+        line-height: 1.55;
+        font-size: 13px;
+        list-style: none;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="section">
+        <div class="section-header">
+          <span class="kicker">APA YANG AKAN KAMU PELAJARI</span>
+          <h1>Di Tour &amp; Travel Super Sales, kamu belajar cara bikin orang pengen beli.</h1>
+          <p class="lead">
+            Bukan cuma soal bikin paket, tapi nyusun strategi biar makin gampang closing.
+          </p>
+          <p class="lead">
+            Banyak usaha tour &amp; travel sepi bukan karena produknya jelek. Paket wisatanya
+            sebenarnya oke. Destinasinya menarik. Niat bangunnya juga serius.
+          </p>
+          <p class="lead">
+            Tapi di lapangan yang kejadian sering begini: promosi sudah jalan, hasilnya
+            nggak tentu. Chat masuk, tapi jarang jadi booking. Kadang rame, seringnya sepi.
+          </p>
+          <p class="lead">
+            Lama-lama muncul rasa bingung: “Ini bisnisnya yang susah, atau gue yang salah
+            jalan?” Padahal masalahnya bukan di usahanya. Kebanyakan bisnis tour &amp; travel
+            sepi karena tidak dibangun dengan alur yang jelas — mulai dari paket, promosi,
+            sampai cara menghadapi calon tamu. Akibatnya, setiap bulan harus mulai dari nol
+            lagi.
+          </p>
+          <p class="lead">
+            <strong>Kalau kamu lagi ada di fase ini, artinya bisnismu butuh dibenahi, bukan
+              ditinggalkan.</strong>
+          </p>
+        </div>
+
+        <div class="tracks">
+          <details class="track">
+            <summary>
+              <h2 class="track-title">Menyusun paket wisata yang lebih gampang dijual</h2>
+              <span class="track-toggle">
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="track-label">Yang akan kamu pelajari</div>
+                <ul class="track-list">
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>
+                      Cara menentukan jenis paket berdasarkan kebutuhan market
+                      (family, honeymoon, corporate, dll)
+                    </span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>
+                      Cara menyusun paket Good &ndash; Better &ndash; Best biar
+                      closing lebih gampang
+                    </span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>
+                      Cara menjelaskan value paket tanpa ribet dan tanpa banting
+                      harga
+                    </span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Kesalahan umum paket wisata yang bikin calon tamu ragu</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <details class="track">
+            <summary>
+              <h2 class="track-title">Menentukan harga paket tanpa takut kemahalan</h2>
+              <span class="track-toggle">
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="track-label">Yang akan kamu pelajari</div>
+                <ul class="track-list">
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Cara menentukan harga yang sehat tapi tetap kompetitif</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Strategi main harga tanpa merusak margin</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Cara menjawab keberatan soal harga saat chat</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Kapan diskon boleh dipakai, kapan justru bahaya</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <details class="track">
+            <summary>
+              <h2 class="track-title">Strategi marketing organik untuk bisnis tour &amp; travel</h2>
+              <span class="track-toggle">
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="track-label">Yang akan kamu pelajari</div>
+                <ul class="track-list">
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Jenis konten yang paling efektif untuk travel</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Cara bikin konten tanpa ribet dan tetap konsisten</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Pola konten yang bikin calon tamu hangat sebelum chat</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>
+                      Cara memanfaatkan konten trip, testimoni, dan story customer
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <details class="track">
+            <summary>
+              <h2 class="track-title">Iklan berbayar yang lebih aman &amp; terarah</h2>
+              <span class="track-toggle">
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="track-label">Yang akan kamu pelajari</div>
+                <ul class="track-list">
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Platform iklan yang cocok untuk bisnis tour &amp; travel</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Cara menyusun iklan biar nggak langsung boncos</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>
+                      Struktur iklan dari pemancing &rarr; pertimbangan &rarr; closing
+                    </span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Kesalahan fatal yang sering bikin iklan travel rugi</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <details class="track">
+            <summary>
+              <h2 class="track-title">Alur chat yang mengarah ke closing (bukan sekadar balas chat)</h2>
+              <span class="track-toggle">
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="track-label">Yang akan kamu pelajari</div>
+                <ul class="track-list">
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Cara menyaring chat serius &amp; sekadar tanya</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Cara menggali kebutuhan calon tamu dengan cepat</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Cara merekomendasikan paket tanpa terlihat maksa</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Contoh alur chat yang lebih rapi &amp; enak dibaca</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <details class="track">
+            <summary>
+              <h2 class="track-title">Cara mendapatkan review &amp; mengubahnya jadi mesin penjualan</h2>
+              <span class="track-toggle">
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="track-label">Yang akan kamu pelajari</div>
+                <ul class="track-list">
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Kapan waktu terbaik minta review</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Cara minta review tanpa canggung</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Cara mengelola review supaya terus mendatangkan tamu baru</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Cara menjadikan review sebagai konten &amp; bahan promosi</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <details class="track">
+            <summary>
+              <h2 class="track-title">Menyusun alur penjualan tour &amp; travel dari awal sampai akhir</h2>
+              <span class="track-toggle">
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="track-label">Yang akan kamu pelajari</div>
+                <ul class="track-list">
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>
+                      Alur lengkap dari orang kenal &rarr; chat &rarr; booking
+                      &rarr; trip &rarr; review
+                    </span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Cara menyambungkan paket, marketing, chat, dan review</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Cara bikin bisnis lebih rapi dan mudah dikontrol</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <aside class="closing">
+            <p class="track-subtitle">
+              Semua materi disusun pakai bahasa praktisi, bukan teori marketing
+              ribet.
+            </p>
+            <div class="track-label">Cocok buat</div>
+            <ul class="closing-list">
+              <li>
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                <span>Pemula di bisnis tour &amp; travel</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                <span>Owner yang lagi sepi tamu</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                <span>Yang pengen bisnisnya lebih stabil dan terarah</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

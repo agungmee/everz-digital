@@ -1,0 +1,143 @@
+<section class="pain">
+  <div class="container pain-inner">
+    <div class="badge reveal">Masalah Umum Service AC</div>
+    <h2 class="reveal">Ini Pasti Kamu Banget</h2>
+    <p class="sub reveal">Kalau poin di bawah ini kamu alami, berarti kamu tidak sendirian.</p>
+
+    <div class="pain-list reveal">
+      <div class="pain-item"><span class="dot">!</span><span>Order sepi kalau bukan musim panas</span></div>
+      <div class="pain-item"><span class="dot">!</span><span>Chat banyak tanya harga, tapi jarang closing</span></div>
+      <div class="pain-item"><span class="dot">!</span><span>Pelanggan lama hilang, repeat order hampir ga ada</span></div>
+      <div class="pain-item"><span class="dot">!</span><span>Kompetitor tiba-tiba muncul dan ambil pasar sekitar</span></div>
+      <div class="pain-item"><span class="dot">!</span><span>Order numpuk di satu minggu, lalu 2 minggu kosong</span></div>
+      <div class="pain-item"><span class="dot">!</span><span>Sudah posting di medsos, tapi tetap sepi chat</span></div>
+    </div>
+
+    <div class="punchline reveal">
+      Masalahnya bukan di skill service AC kamu, tapi di pelanggan yang
+      <span>ga tahu, ga ingat, dan ga kepikiran</span> usaha kamu saat butuh servis.
+    </div>
+  </div>
+</section>
+
+<style>
+  :root{
+    --ink:#1f2430;
+    --ink-soft:#4d5668;
+    --blue:#3349ff;
+    --blue-dark:#1a2ad6;
+    --paper:#ffffff;
+    --shadow:0 18px 40px rgba(24, 38, 80, 0.12);
+    --wrap:980px;
+  }
+
+  .pain{
+    padding:70px 0 80px;
+    background:#ffffff;
+    position:relative;
+    overflow:hidden;
+    color:var(--ink);
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  .pain-inner{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    text-align:center;
+  }
+
+  .pain .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 12px;
+    border-radius:999px;
+    background:rgba(51,73,255,0.1);
+    color:var(--blue-dark);
+    font-weight:700;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    align-self:center;
+  }
+
+  .pain h2{
+    margin:0;
+    font-family:"Playfair Display", serif;
+    font-size:clamp(26px, 4.2vw, 40px);
+    line-height:1.2;
+  }
+
+  .pain .sub{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:14px;
+  }
+
+  .pain-list{
+    margin-top:6px;
+    display:grid;
+    gap:10px;
+    background:var(--paper);
+    border:1px solid rgba(51,73,255,0.12);
+    border-radius:16px;
+    padding:16px;
+    box-shadow:var(--shadow);
+    text-align:left;
+  }
+
+  .pain-item{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:14px;
+    color:var(--ink);
+  }
+
+  .pain-item .dot{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:#ff6b4a;
+    color:#ffffff;
+    font-weight:700;
+    display:grid;
+    place-items:center;
+    flex:0 0 auto;
+    font-size:12px;
+  }
+
+  .punchline{
+    margin-top:8px;
+    background:rgba(51,73,255,0.08);
+    border:1px solid rgba(51,73,255,0.14);
+    padding:14px 16px;
+    border-radius:14px;
+    font-weight:700;
+    color:#1a2ad6;
+    line-height:1.6;
+  }
+  .punchline span{ color:#1f2430; }
+
+  .pain .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .pain .reveal.is-visible{ opacity:1; transform:translateY(0); }
+</style>
+
+<script>
+  const painObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        painObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18 });
+
+  document.querySelectorAll('.pain .reveal').forEach((el) => painObserver.observe(el));
+</script>

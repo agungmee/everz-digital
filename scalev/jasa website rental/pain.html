@@ -1,0 +1,92 @@
+<section id="pain" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;600;700&display=swap");
+
+    #pain {
+      padding: 90px 0;
+      background: linear-gradient(180deg, #f9f6ff 0%, #ffffff 100%);
+    }
+
+    #pain .wrap {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+    }
+
+    #pain h2 {
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(1.8rem, 2.2vw + 0.9rem, 2.6rem);
+      margin: 0;
+      color: #141622;
+      text-align: center;
+    }
+
+    #pain .lead {
+      font-family: "Manrope", sans-serif;
+      color: #43475c;
+      max-width: 720px;
+      line-height: 1.7;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    #pain .pain-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    #pain .pain-item {
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px 18px;
+      border: 1px solid rgba(16, 24, 40, 0.08);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.06);
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 10px;
+      align-items: start;
+      font-family: "Manrope", sans-serif;
+      color: #3f445b;
+      line-height: 1.6;
+    }
+
+    #pain .icon {
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    #pain .closing {
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      color: #0b7a6b;
+      text-align: center;
+      margin: 8px 0 0;
+    }
+
+    @media (max-width: 720px) {
+      #pain {
+        padding: 70px 0;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <div>
+      <h2>Masalah yang sering dialami pemilik rental mobil:</h2>
+      <p class="lead">Kalau kamu pernah merasakan ini, berarti kamu bukan sendiri.</p>
+    </div>
+
+    <ul class="pain-list">
+      <li class="pain-item"><span class="icon">❌</span><span>Mau bikin website tapi mahal</span></li>
+      <li class="pain-item"><span class="icon">❌</span><span>Ribet harus jelasin ke developer</span></li>
+      <li class="pain-item"><span class="icon">❌</span><span>Sudah chat panjang tapi gak jadi</span></li>
+      <li class="pain-item"><span class="icon">❌</span><span>Butuh website cepat buat kirim ke calon customer</span></li>
+    </ul>
+
+    <p class="closing">Karena itu kami buat solusi website rental mobil siap pakai &amp; hemat.</p>
+  </div>
+</section>

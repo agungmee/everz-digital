@@ -13,7 +13,7 @@
 
   .mc-tools-head{
     margin:0 0 28px;
-    font-size:clamp(36px, 6vw, 64px);
+    font-size:clamp(32px, 5vw, 62px);
     line-height:0.95;
     text-transform:uppercase;
     letter-spacing:.02em;
@@ -85,7 +85,12 @@
 
   @media (max-width: 960px){
     .mc-tools{
-      padding:58px 16px;
+      padding:48px 16px;
+    }
+
+    .mc-tools-head{
+      font-size:clamp(28px, 4.5vw, 48px);
+      margin-bottom:24px;
     }
 
     .mc-tools-grid{
@@ -94,15 +99,37 @@
     }
 
     .mc-tool-card{
-      min-height:280px;
+      min-height:260px;
     }
 
     .mc-tool-body h3{
-      font-size:24px;
+      font-size:clamp(20px, 3vw, 24px);
     }
 
     .mc-tool-body p{
-      font-size:17px;
+      font-size:clamp(15px, 2.2vw, 17px);
+    }
+  }
+
+  @media (max-width: 480px){
+    .mc-tools{
+      padding:40px 12px;
+    }
+
+    .mc-tools-grid{
+      gap:10px;
+    }
+
+    .mc-tool-card{
+      min-height:220px;
+    }
+
+    .mc-tool-body h3{
+      font-size:18px;
+    }
+
+    .mc-tool-body p{
+      font-size:14px;
     }
   }
 </style>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fajar Arsitektur - Featured Work</title>
+  <style>
+    body{margin:0;font-family:system-ui,sans-serif;background:#fff;color:#0f172a}
+    .container{width:min(92vw,1150px);margin:0 auto}
+    .featured-work{padding:60px 0 40px}
+    .featured-title{text-align:center;margin-bottom:26px}
+    .featured-heading{margin:0;font-size:clamp(28px,5vw,40px);letter-spacing:.02em}
+    .featured-slider{overflow-x:auto;position:relative;padding:0 12%;scroll-snap-type:x mandatory;scroll-padding:0 12%;-webkit-overflow-scrolling:touch}
+    .featured-track{display:flex;gap:18px;align-items:stretch;padding:0}
+    .featured-slider::-webkit-scrollbar{display:none}
+    .featured-slider{scrollbar-width:none}
+    .featured-nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:1px solid rgba(15,23,42,.2);background:#fff;box-shadow:0 8px 18px rgba(15,23,42,.12);display:grid;place-items:center;cursor:pointer;z-index:2}
+    .featured-nav.prev{left:8px}
+    .featured-nav.next{right:8px}
+    .featured-item{border-radius:16px;overflow:hidden;position:relative;min-height:210px;aspect-ratio:3/4;flex:0 0 70%;background:center/cover no-repeat;box-shadow:0 12px 28px rgba(15,23,42,.12);scroll-snap-align:center}
+    .featured-item.is-active{transform:translateY(-6px) scale(1.04);z-index:1;box-shadow:0 18px 40px rgba(15,23,42,.22)}
+    @media(min-width:1024px){.featured-slider{padding:0;scroll-padding:0}.featured-track{gap:16px}.featured-item{flex:0 0 calc((100% - 48px)/4);min-height:170px;aspect-ratio:4/3}}
+    @media(max-width:640px){.featured-item{flex:0 0 78%}.featured-slider{padding:0 10%;scroll-padding:0 10%}}
+  </style>
+</head>
+<body>
+  <section class="featured-work">
+    <div class="container featured-title">
+      <h2 class="featured-heading">Dokumentasi Kerja Kami</h2>
+    </div>
+    <div class="container featured-slider">
+      <button class="featured-nav prev" type="button" aria-label="Sebelumnya">&lt;</button>
+      <button class="featured-nav next" type="button" aria-label="Berikutnya">&gt;</button>
+      <div class="featured-track" id="featured-track">
+        <div class="featured-item" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/WhatsApp-Image-2023-04-14-at-14.25.14.jpeg')"></div>
+        <div class="featured-item" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/WhatsApp-Image-2023-04-14-at-14.24.45.jpeg')"></div>
+        <div class="featured-item" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/WhatsApp-Image-2023-04-14-at-14.25.37.jpeg')"></div>
+        <div class="featured-item" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/WhatsApp-Image-2023-04-14-at-14.23.50.jpeg')"></div>
+      </div>
+    </div>
+  </section>
+  <script>
+    const featuredSlider = document.querySelector('.featured-slider');
+    const featuredTrack = document.getElementById('featured-track');
+    const featuredPrev = document.querySelector('.featured-nav.prev');
+    const featuredNext = document.querySelector('.featured-nav.next');
+
+    if (featuredSlider && featuredTrack) {
+      const originalSlides = Array.from(featuredTrack.children);
+      let slides = [];
+      let slideIndex = 0;
+      let scrollTimer = null;
+      let setWidth = 0;
+
+      function rebuildLoop() {
+        featuredTrack.innerHTML = '';
+        originalSlides.forEach((slide) => featuredTrack.appendChild(slide.cloneNode(true)));
+        originalSlides.forEach((slide) => featuredTrack.appendChild(slide.cloneNode(true)));
+        originalSlides.forEach((slide) => featuredTrack.appendChild(slide.cloneNode(true)));
+        slides = Array.from(featuredTrack.children);
+
+        const firstSetStart = slides[originalSlides.length].offsetLeft;
+        const lastInSet = slides[originalSlides.length * 2 - 1];
+        setWidth = lastInSet.offsetLeft + lastInSet.offsetWidth - firstSetStart;
+        featuredSlider.scrollLeft = firstSetStart;
+        slideIndex = originalSlides.length;
+        setActive();
+      }
+
+      function setActive() {
+        slides.forEach((slide, index) => slide.classList.toggle('is-active', index === slideIndex));
+      }
+
+      function goTo(index) {
+        if (!slides.length) return;
+        slideIndex = index;
+        const slide = slides[slideIndex];
+        const target = slide.offsetLeft - (featuredSlider.clientWidth - slide.offsetWidth) / 2;
+        featuredSlider.scrollTo({ left: target, behavior: 'smooth' });
+        setActive();
+      }
+
+      function normalizeLoop() {
+        const firstSetStart = slides[originalSlides.length].offsetLeft;
+        if (featuredSlider.scrollLeft <= firstSetStart - setWidth * 0.5) {
+          featuredSlider.scrollLeft += setWidth;
+        } else if (featuredSlider.scrollLeft >= firstSetStart + setWidth * 1.5) {
+          featuredSlider.scrollLeft -= setWidth;
+        }
+      }
+
+      function updateIndexFromScroll() {
+        normalizeLoop();
+        const center = featuredSlider.scrollLeft + featuredSlider.clientWidth / 2;
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+        slides.forEach((slide, index) => {
+          const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+          const distance = Math.abs(center - slideCenter);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = index;
+          }
+        });
+        slideIndex = closestIndex;
+        setActive();
+      }
+
+      featuredSlider.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(updateIndexFromScroll, 80);
+      });
+
+      window.addEventListener('resize', rebuildLoop);
+      rebuildLoop();
+
+      let autoTimer = null;
+      const sliderObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !autoTimer) {
+            autoTimer = setInterval(() => goTo(slideIndex + 1), 4200);
+          } else if (!entry.isIntersecting && autoTimer) {
+            clearInterval(autoTimer);
+            autoTimer = null;
+          }
+        });
+      }, { threshold: 0.2 });
+      sliderObserver.observe(featuredSlider);
+
+      if (featuredPrev) {
+        featuredPrev.addEventListener('click', () => {
+          if (autoTimer) {
+            clearInterval(autoTimer);
+            autoTimer = null;
+          }
+          goTo(slideIndex - 1);
+        });
+      }
+      if (featuredNext) {
+        featuredNext.addEventListener('click', () => {
+          if (autoTimer) {
+            clearInterval(autoTimer);
+            autoTimer = null;
+          }
+          goTo(slideIndex + 1);
+        });
+      }
+    }
+  </script>
+</body>
+</html>

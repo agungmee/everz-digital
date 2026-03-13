@@ -1,0 +1,321 @@
+<section id="flash-sale" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&display=swap");
+
+    #flash-sale {
+      padding: 90px 0;
+      background: radial-gradient(circle at top, #eafff4 0%, #f6fffb 55%, #e2f5ec 100%);
+      text-align: center;
+    }
+
+    #flash-sale .wrap {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 18px;
+      text-align: center;
+      justify-items: center;
+    }
+
+    #flash-sale h2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(2.3rem, 3.2vw + 0.8rem, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: #0b4bff;
+    }
+
+    #flash-sale .headline-2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(1.7rem, 2vw + 0.8rem, 2.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #0b4bff;
+      margin: 0;
+      padding: 10px 18px;
+      background: #d7f7e8;
+      border-radius: 16px;
+      box-shadow: 0 16px 34px rgba(15, 176, 106, 0.25);
+    }
+
+    #flash-sale .subhead {
+      font-size: 1.08rem;
+      color: #4f3f36;
+      margin: 0 auto;
+      max-width: 700px;
+    }
+
+    #flash-sale .flash-label {
+      display: inline-block;
+      background: #0fb06a;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin: 0 auto;
+    }
+
+    #flash-sale .content-grid {
+      display: grid;
+      gap: 16px;
+      width: min(820px, 92vw);
+    }
+
+    #flash-sale .content-card {
+      background: #1e1a17;
+      color: #fff;
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: 0 20px 40px rgba(30, 26, 23, 0.25);
+      text-align: left;
+    }
+
+    #flash-sale .card-title {
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    #flash-sale .learn-list,
+    #flash-sale .fit-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+      color: #f5e9df;
+    }
+
+    #flash-sale .learn-list li::before,
+    #flash-sale .fit-list li::before {
+      content: "✓";
+      color: #93e7c7;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    #flash-sale .price-box {
+      background: #1e1a17;
+      color: #fff;
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 20px 40px rgba(30, 26, 23, 0.25);
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+      width: min(520px, 92vw);
+    }
+
+    #flash-sale .flash-title {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      color: #93e7c7;
+    }
+
+    #flash-sale .flash-date {
+      font-size: 0.95rem;
+      color: #f5e9df;
+    }
+
+    #flash-sale .countdown {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+    }
+
+    #flash-sale .old-price {
+      color: #93e7c7;
+      text-decoration: line-through;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    #flash-sale .new-price {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    #flash-sale .note {
+      background: #d7f7e8;
+      color: #5b2d18;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      box-shadow: 0 12px 26px rgba(15, 176, 106, 0.2);
+      max-width: 720px;
+    }
+
+    #flash-sale .cta-row {
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+    }
+
+    #flash-sale .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 34px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      background: #0fb06a;
+      color: #fff;
+      box-shadow: 0 16px 36px rgba(15, 176, 106, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #flash-sale .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(15, 176, 106, 0.4);
+    }
+
+    #flash-sale .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      color: #5c4f46;
+      font-size: 0.9rem;
+    }
+
+    #flash-sale .value-stack {
+      background: #1e1a17;
+      border-radius: 16px;
+      padding: 14px 16px;
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      color: #f5e9df;
+      display: grid;
+      gap: 6px;
+      width: min(720px, 92vw);
+    }
+
+    #flash-sale .value-stack strong {
+      color: #fff;
+    }
+
+    @media (max-width: 700px) {
+      #flash-sale {
+        padding: 70px 0;
+      }
+
+      #flash-sale .content-card {
+        text-align: left;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <div class="flash-label">Promo Terbatas Hari Ini</div>
+    <h2>Siap Rapikan Chat WhatsApp CCTV?</h2>
+    <div class="headline-2">Blueprint WA untuk jasa pasang CCTV yang bisa langsung dipakai</div>
+    <div class="subhead">
+      Dari pemantik chat, iklan click-to-WhatsApp, landing singkat, sampai auto-reply + follow up yang bantu
+      jadwalkan survey.
+      Targetnya jelas: jumlah chat harian naik signifikan.
+    </div>
+
+    <div class="content-grid">
+      <div class="content-card">
+        <div class="card-title">Yang kamu pelajari</div>
+        <ul class="learn-list">
+          <li>Pemantik penawaran + copy CTA WhatsApp yang bikin klik berkualitas</li>
+          <li>Set iklan Click-to-WhatsApp (Meta Ads) dengan budget terukur</li>
+          <li>Auto-reply cepat + skrip kualifikasi (lokasi, jumlah titik, kebutuhan indoor/outdoor)</li>
+          <li>Framework follow up 24 jam + retargeting audience WA</li>
+        </ul>
+      </div>
+      <div class="content-card">
+        <div class="card-title">Cocok untuk</div>
+        <ul class="fit-list">
+          <li>Jasa pasang CCTV yang ingin pindahin semua trafik ke WA</li>
+          <li>Lead masih naik turun dan butuh chat lebih stabil</li>
+          <li>Modal promosi terbatas tapi butuh alur rapi</li>
+          <li>Tim kecil yang perlu skrip balas + follow up siap pakai</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="price-box" id="checkout">
+      <div class="flash-title">Harga Spesial Hari Ini</div>
+      <div class="flash-date" id="flash-date">23 Januari 2026</div>
+      <div class="countdown" id="flash-countdown" aria-live="polite">02:34:56</div>
+      <div class="old-price">Rp. 58.000</div>
+      <div class="new-price">Rp. 38.000</div>
+    </div>
+
+    <div class="note">
+      Harga spesial berlaku selama kuota tersedia. Setelah kuota habis, harga kembali ke Rp 58.000.
+    </div>
+
+    <div class="cta-row">
+      <a class="cta-btn" href="#page-bottom">Ambil Blueprint WA CCTV</a>
+      <div class="trust-row">
+        <span>Akses instan via email/WA</span>
+        <span>Bisa dipelajari lewat HP</span>
+        <span>Materi ringkas &amp; praktis</span>
+      </div>
+    </div>
+
+    <div class="value-stack">
+      <strong>Isi paket blueprint:</strong>
+      <span>Modul iklan, skrip chat, checklist kebutuhan CCTV, dan alur follow up khusus pemasangan CCTV.</span>
+    </div>
+  </div>
+
+  <script>
+    const flashBox = document.querySelector("#flash-sale .price-box");
+    if (flashBox) {
+      flashBox.style.opacity = "0";
+      flashBox.style.transform = "translateY(16px)";
+      setTimeout(() => {
+        flashBox.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        flashBox.style.opacity = "1";
+        flashBox.style.transform = "translateY(0)";
+      }, 120);
+    }
+
+    const flashDate = document.getElementById("flash-date");
+    if (flashDate) {
+      const now = new Date();
+      flashDate.textContent = now.toLocaleDateString("id-ID", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+    }
+
+    const countdownEl = document.getElementById("flash-countdown");
+    if (countdownEl) {
+      const startSeconds = 2 * 3600 + 34 * 60 + 56;
+      let remaining = startSeconds;
+
+      const format = (value) => String(value).padStart(2, "0");
+
+      const tick = () => {
+        if (remaining < 0) {
+          remaining = startSeconds;
+        }
+        const hours = Math.floor(remaining / 3600);
+        const minutes = Math.floor((remaining % 3600) / 60);
+        const seconds = remaining % 60;
+        countdownEl.textContent = `${format(hours)}:${format(minutes)}:${format(seconds)}`;
+        remaining -= 1;
+      };
+
+      tick();
+      setInterval(tick, 1000);
+    }
+  </script>
+  <div id="page-bottom" aria-hidden="true"></div>
+</section>

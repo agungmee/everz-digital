@@ -1,0 +1,148 @@
+<section id="contoh" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;600;700&display=swap");
+
+    #contoh {
+      padding: 90px 0;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f2ff 100%);
+    }
+
+    #contoh .wrap {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 24px;
+    }
+
+    #contoh h2 {
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(1.8rem, 2.2vw + 0.9rem, 2.6rem);
+      margin: 0;
+      color: #121323;
+      text-align: center;
+    }
+
+    #contoh .lead {
+      font-family: "Manrope", sans-serif;
+      color: #3f445b;
+      max-width: 720px;
+      line-height: 1.7;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    #contoh .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    #contoh .demo-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid rgba(16, 24, 40, 0.08);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.06);
+      display: grid;
+      gap: 12px;
+    }
+
+    #contoh .preview {
+      height: 220px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(11, 122, 107, 0.12), rgba(255, 209, 102, 0.18));
+      border: 1px dashed rgba(16, 24, 40, 0.2);
+      display: grid;
+      place-items: center;
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      color: #0b7a6b;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+    }
+
+    #contoh .demo-card h3 {
+      margin: 0;
+      font-family: "Unbounded", sans-serif;
+      font-size: 1.05rem;
+      color: #121323;
+    }
+
+    #contoh .demo-card p {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      color: #4a4f67;
+      line-height: 1.6;
+    }
+
+    #contoh .demo-card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      color: #fff;
+      background: #0b7a6b;
+      box-shadow: 0 12px 24px rgba(11, 122, 107, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      width: fit-content;
+    }
+
+    #contoh .demo-card a:hover {
+      transform: translateY(-2px);
+    }
+
+    #contoh .note {
+      font-family: "Manrope", sans-serif;
+      color: #4a4f67;
+      text-align: center;
+      margin: 0;
+    }
+
+    @media (max-width: 720px) {
+      #contoh {
+        padding: 70px 0;
+      }
+
+      #contoh .preview {
+        height: 200px;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <div>
+      <h2>Contoh Website Rental Mobil</h2>
+      <p class="lead">Pilih salah satu demo untuk lihat tampilan dan alur booking yang siap dipakai.</p>
+    </div>
+
+    <div class="demo-grid">
+      <article class="demo-card">
+        <div class="preview">Demo Jakarta</div>
+        <h3>Rental Mobil Jakarta</h3>
+        <p>Layout premium dengan hero promo, list unit, dan CTA booking langsung.</p>
+        <a href="#">🔍 Lihat Demo Website</a>
+      </article>
+
+      <article class="demo-card">
+        <div class="preview">Demo Jogja</div>
+        <h3>Rental Mobil Jogja</h3>
+        <p>Desain clean, fokus ke harga paket, FAQ, dan tombol WA yang menonjol.</p>
+        <a href="#">🔍 Lihat Demo Website</a>
+      </article>
+
+      <article class="demo-card">
+        <div class="preview">Demo Bali</div>
+        <h3>Rental Mobil Bali</h3>
+        <p>Highlight pilihan driver, galeri, dan section trust builder.</p>
+        <a href="#">🔍 Lihat Demo Website</a>
+      </article>
+    </div>
+
+    <p class="note">Demo bisa dibuka di HP. Tinggal pilih yang paling cocok dengan gaya rental kamu.</p>
+  </div>
+</section>

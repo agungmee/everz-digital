@@ -13,7 +13,7 @@
 
   .mc-register-head{
     margin:0 0 24px;
-    font-size:clamp(36px, 6vw, 62px);
+    font-size:clamp(32px, 5vw, 62px);
     line-height:.95;
     text-transform:uppercase;
     letter-spacing:.02em;
@@ -85,15 +85,46 @@
 
   @media (max-width: 900px){
     .mc-register{
-      padding:58px 16px;
+      padding:48px 16px;
+    }
+
+    .mc-register-head{
+      font-size:clamp(28px, 4.5vw, 48px);
+      margin-bottom:20px;
     }
 
     .mc-register-form label{
-      font-size:16px;
+      font-size:clamp(15px, 2vw, 16px);
     }
 
     .mc-register-submit{
-      font-size:20px;
+      font-size:clamp(18px, 2.5vw, 20px);
+      padding:11px 12px;
+    }
+  }
+
+  @media (max-width: 480px){
+    .mc-register{
+      padding:40px 12px;
+    }
+
+    .mc-register-form{
+      padding:16px 12px;
+    }
+
+    .mc-register-form label{
+      font-size:14px;
+      margin-bottom:8px;
+    }
+
+    .mc-register-form input,
+    .mc-register-form textarea{
+      padding:10px 8px;
+    }
+
+    .mc-register-submit{
+      font-size:16px;
+      padding:10px 10px;
     }
   }
 </style>

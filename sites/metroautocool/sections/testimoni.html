@@ -14,7 +14,7 @@
 
   .mc-testi-head{
     margin:0 0 28px;
-    font-size:clamp(36px, 6vw, 62px);
+    font-size:clamp(32px, 5vw, 62px);
     line-height:.95;
     text-transform:uppercase;
     letter-spacing:.02em;
@@ -75,6 +75,36 @@
     }
 
     .mc-testi-card p{
+      font-size:clamp(16px, 2vw, 20px);
+    }
+
+    .mc-testi-card .mc-testi-name{
+      font-size:clamp(18px, 2.5vw, 22px);
+    }
+  }
+
+  @media (max-width: 480px){
+    .mc-testi{
+      padding:40px 12px;
+    }
+
+    .mc-testi-head{\n      font-size:clamp(28px, 4.5vw, 48px);
+      margin-bottom:20px;
+    }
+
+    .mc-testi-grid{
+      gap:10px;
+    }
+
+    .mc-testi-card p{
+      font-size:15px;
+    }
+
+    .mc-testi-card .mc-testi-stars{
+      font-size:clamp(16px, 2vw, 20px);
+    }
+
+    .mc-testi-card .mc-testi-name{
       font-size:18px;
     }
   }

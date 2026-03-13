@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Service AC Sales Mastery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#1f2430;
+      --ink-soft:#4d5668;
+      --blue:#3349ff;
+      --blue-dark:#1a2ad6;
+      --green:#18b566;
+      --paper:#ffffff;
+      --shadow:0 18px 40px rgba(24, 38, 80, 0.12);
+      --wrap:980px;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:"Sora", system-ui, sans-serif;
+      color:var(--ink);
+      background:#ffffff;
+      line-height:1.6;
+    }
+    body{ padding-bottom:64px; }
+    h1,h2,h3,p{ margin:0; }
+    img{ max-width:100%; display:block; }
+    section{
+      padding:40px 0 45px;
+      padding-left:10px;
+      padding-right:10px;
+      background:#ffffff;
+      text-align:center;
+    }
+    .container{
+      width:min(92vw, var(--wrap));
+      margin:0 auto;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(51,73,255,0.1);
+      color:var(--blue-dark);
+      font-weight:700;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+    }
+    .headline{
+      font-family:"Playfair Display", serif;
+      font-size:clamp(30px, 5vw, 52px);
+      line-height:1.1;
+      text-align:center;
+    }
+    .subhead{
+      font-size:clamp(15px, 2vw, 18px);
+      color:var(--ink-soft);
+      text-align:center;
+      margin-top:12px;
+    }
+    .box{
+      background:var(--paper);
+      border:1px solid rgba(51,73,255,0.12);
+      border-radius:16px;
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+    .list{
+      display:grid;
+      gap:10px;
+      margin-top:16px;
+      text-align:left;
+    }
+    .box{
+      text-align:center;
+    }
+    .list-item{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      font-size:14px;
+    }
+    .dot{
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      background:#ff6b4a;
+      color:#ffffff;
+      font-weight:700;
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+      font-size:12px;
+    }
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 22px;
+      border-radius:999px;
+      background:#0f1115;
+      color:#ffffff !important;
+      font-weight:700;
+      text-decoration:none !important;
+      box-shadow:0 14px 28px rgba(24, 120, 70, 0.22);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .cta:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 36px rgba(15, 17, 21, 0.28);
+    }
+    .cta:visited,
+    .cta:active{
+      color:#ffffff !important;
+      text-decoration:none !important;
+    }
+    .cta:hover{
+      text-decoration:none !important;
+    }
+    .center{
+      text-align:center;
+    }
+    .keyline{
+      margin-top:12px;
+      font-weight:800;
+      color:#1a2ad6;
+      text-transform:uppercase;
+      letter-spacing:0.04em;
+      text-align:center;
+    }
+    .note{
+      color:var(--ink-soft);
+      font-size:14px;
+    }
+    .section-title{
+      font-family:"Playfair Display", serif;
+      font-size:clamp(24px, 4.2vw, 38px);
+      line-height:1.2;
+      text-align:center;
+      margin-bottom:8px;
+    }
+    .price-card{
+      background:#ffffff;
+      border:1px solid rgba(15,17,21,0.12);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 18px 40px rgba(24, 38, 80, 0.12);
+      text-align:center;
+      max-width:640px;
+      margin:0 auto;
+    }
+    .price-row{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+    .price-old{
+      position:relative;
+      color:#9a7a55;
+      font-size:18px;
+    }
+    .price-old::after{
+      content:"";
+      position:absolute;
+      left:-4px;
+      right:-4px;
+      top:50%;
+      height:3px;
+      background:#c83a2a;
+      transform:rotate(-6deg);
+    }
+    .price-now{
+      font-size:34px;
+      font-weight:800;
+      color:#0f1115;
+    }
+    .price-note{
+      margin-top:6px;
+      font-size:12px;
+      color:var(--ink-soft);
+    }
+    .price-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(15,17,21,0.08);
+      color:#0f1115;
+      font-weight:700;
+      font-size:12px;
+      margin-top:10px;
+    }
+    .urgency{
+      margin-top:10px;
+      font-size:12px;
+      color:#8a5a2b;
+      background:rgba(255, 208, 123, 0.25);
+      border:1px solid rgba(255, 208, 123, 0.45);
+      border-radius:10px;
+      padding:8px 10px;
+      display:inline-block;
+    }
+    .split{
+      display:grid;
+      gap:14px;
+    }
+    @media (min-width: 840px){
+      .split{ grid-template-columns: repeat(2, 1fr); }
+    }
+    .ad-grid{
+      display:grid;
+      gap:16px;
+      align-items:start;
+    }
+    @media (min-width: 900px){
+      .ad-grid{ grid-template-columns: 1fr 1fr; }
+    }
+    .ad-image{
+      width:100%;
+      border-radius:16px;
+      border:1px solid rgba(51,73,255,0.12);
+      box-shadow:var(--shadow);
+    }
+    .adcopy-card{
+      text-align:left;
+      background:#ffffff;
+      border:1px solid rgba(51,73,255,0.12);
+      border-radius:16px;
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+    .adcopy-title{
+      font-weight:800;
+      color:#1a2ad6;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      margin-bottom:6px;
+    }
+    .adcopy-block{
+      margin-bottom:14px;
+      font-size:14px;
+      color:var(--ink);
+      line-height:1.7;
+    }
+    .adcopy-block:last-child{ margin-bottom:0; }
+    .adcopy-headline{
+      font-weight:800;
+      font-size:16px;
+      color:#0f1115;
+      margin-top:6px;
+    }
+    .adcopy-desc{
+      font-size:13px;
+      color:var(--ink-soft);
+      margin-top:6px;
+    }
+    .adcopy-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 14px;
+      border-radius:999px;
+      background:#0f1115;
+      color:#ffffff !important;
+      font-weight:700;
+      font-size:12px;
+      text-decoration:none !important;
+      margin-top:8px;
+    }
+    .proof-slider{
+      position:relative;
+      margin-top:14px;
+    }
+    .proof-track{
+      display:grid;
+      grid-auto-flow:column;
+      grid-auto-columns:80%;
+      gap:14px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+      padding-bottom:8px;
+    }
+    .proof-track::-webkit-scrollbar{ height:8px; }
+    .proof-track::-webkit-scrollbar-thumb{ background:rgba(15,17,21,0.2); border-radius:999px; }
+    .proof-card{
+      scroll-snap-align:center;
+      background:#ffffff;
+      border:1px solid rgba(51,73,255,0.12);
+      border-radius:16px;
+      padding:12px;
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+    .proof-card img{
+      width:100%;
+      border-radius:12px;
+      border:1px solid rgba(51,73,255,0.12);
+    }
+    .proof-title{
+      font-weight:700;
+      margin-bottom:8px;
+      font-size:14px;
+    }
+    .proof-nav{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      margin-top:12px;
+    }
+    .proof-btn{
+      border:none;
+      background:#0f1115;
+      color:#ffffff;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    @media (min-width: 900px){
+      .proof-track{ grid-auto-columns:45%; }
+    }
+
+    .sticky-bar{
+      position:fixed;
+      bottom:0;
+      left:0;
+      right:0;
+      background:linear-gradient(120deg, #0f1115 0%, #1b2230 100%);
+      border-top:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 -10px 24px rgba(15, 17, 21, 0.25);
+      z-index:999;
+    }
+    .sticky-inner{
+      width:min(92vw, var(--wrap));
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+      flex-wrap:wrap;
+    }
+    .sticky-title{
+      font-weight:800;
+      color:#ffffff;
+      font-size:14px;
+    }
+    .sticky-sub{
+      font-size:12px;
+      color:rgba(255,255,255,0.7);
+    }
+    .sticky-cta{
+      padding:8px 14px;
+      border-radius:999px;
+      background:#0f1115;
+      color:#ffffff !important;
+      text-decoration:none !important;
+      font-weight:700;
+      font-size:13px;
+    }
+    .sticky-cta:visited,
+    .sticky-cta:active,
+    .sticky-cta:hover{
+      color:#ffffff !important;
+      text-decoration:none !important;
+    }
+    @media (max-width: 600px){
+      body{ padding-bottom:76px; }
+      .sticky-inner{ justify-content:center; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sticky-bar">
+    <div class="sticky-inner">
+      <div>
+        <div class="sticky-title">🟢 Mulai Iklan Servis AC</div>
+        <div class="sticky-sub">Rp197.000 • Sekali bayar • Akses instan • Garansi 7 hari</div>
+      </div>
+      <a class="sticky-cta" href="#harga">Ambil Paket</a>
+    </div>
+  </div>
+
+  <section>
+    <div class="container center">
+      <h1 class="headline">Mau Usaha Servis AC Kamu Dapet Customer Baru dari Iklan?</h1>
+      <p class="subhead">Bukan nunggu rekomendasi. Bukan berharap musim panas.</p>
+      <p class="note" style="margin-top:10px;">
+        Tapi punya cara sederhana buat kenalin usaha kamu ke orang sekitar yang lagi butuh servis AC — lewat iklan lokal.
+      </p>
+      <div class="box" style="margin-top:16px; text-align:left;">
+        <div class="list">
+          <div class="list-item"><span class="dot">✓</span><span>Template iklan servis AC siap pakai</span></div>
+          <div class="list-item"><span class="dot">✓</span><span>Cara set iklan lokal (radius) yang simpel</span></div>
+          <div class="list-item"><span class="dot">✓</span><span>Bonus script chat biar chat dari iklan nggak bocor</span></div>
+        </div>
+      </div>
+      <div class="center" style="margin-top:18px;">
+        <a class="cta" href="#harga">🟢 Ambil Paket Iklan Servis AC</a>
+      </div>
+      <p class="note" style="margin-top:8px;">Rp197.000 (sekali bayar)</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Biasanya masalahnya bukan kamu nggak jago servis</h2>
+      <div class="box">
+        <p>Yang sering kejadian itu:</p>
+        <div class="list">
+          <div class="list-item"><span class="dot">•</span><span>Orang di sekitar kamu sebenarnya butuh servis AC</span></div>
+          <div class="list-item"><span class="dot">•</span><span>Tapi mereka nggak tau usaha kamu ada</span></div>
+          <div class="list-item"><span class="dot">•</span><span>Atau iklannya nggak pernah muncul di mereka</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:12px;">Akhirnya order naik-turun. Bukan karena kurang skill, tapi karena kurang kelihatan.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Paket ini dibuat untuk satu tujuan sederhana</h2>
+      <div class="box">
+        <p>Supaya usaha servis AC kamu:</p>
+        <div class="list">
+          <div class="list-item"><span class="dot">•</span><span>Muncul di orang yang lokasinya dekat</span></div>
+          <div class="list-item"><span class="dot">•</span><span>Lagi butuh servis AC</span></div>
+          <div class="list-item"><span class="dot">•</span><span>Dan langsung chat buat nanya jadwal</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:12px;">Paket Rp197k ini fokus ke cara mulai iklan yang rapi & masuk akal, tanpa ribet dan tanpa teori aneh-aneh.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Biar kebayang, ini contoh iklan yang kamu pakai</h2>
+      <img src="https://everz-digital.site/wp-content/uploads/2026/02/task_01kgywx0z4f11a9tjg1tynzmrx_1770563551_img_1.webp" alt="Contoh konten iklan servis AC" style="width:100%; max-width:760px; display:block; margin:14px auto 0; border-radius:16px; border:1px solid rgba(51,73,255,0.12); box-shadow:0 18px 40px rgba(24, 38, 80, 0.12);">
+      <pre style="white-space:pre-wrap; text-align:left; background:#ffffff; border:1px solid rgba(51,73,255,0.12); border-radius:16px; padding:16px; box-shadow:0 18px 40px rgba(24, 38, 80, 0.12); max-width:760px; margin:16px auto 0; font-family:'Sora', system-ui, sans-serif; font-size:14px; line-height:1.7;">
+Primary Text (Caption)
+AC mulai kurang dingin / bau / netes?
+Kita bantu service & cuci AC untuk rumah/kantor di area [NAMA AREA].
+
+✅ Teknisi datang ke lokasi
+✅ Bisa booking hari ini / besok (sesuai slot)
+✅ Chat dulu untuk cek jadwal & estimasi
+
+Klik Chat ya.
+
+Headline
+Service & Cuci AC – Area [NAMA AREA]
+
+Description (Optional)
+Booking cepat • Respon via chat
+
+CTA Button
+Send Message / Kirim Pesan
+      </pre>
+      <p class="note" style="margin-top:12px;">Kamu tinggal ganti: nama usaha, area layanan, jenis layanan utama. Iklannya sederhana, tapi jelas ngajak orang buat chat.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Cara pakainya nggak ribet</h2>
+      <div class="box">
+        <div class="list">
+          <div class="list-item"><span class="dot">1</span><span>Pilih template iklan yang paling cocok</span></div>
+          <div class="list-item"><span class="dot">2</span><span>Set area layanan + budget harian</span></div>
+          <div class="list-item"><span class="dot">3</span><span>Begitu chat masuk, tinggal ikuti alurnya sampai jadi jadwal</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:12px;">Di paket ini juga ada script balasan supaya chat dari iklan nggak berhenti di harga doang.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Apa yang kamu dapat di Paket Rp197.000?</h2>
+      <div class="split">
+        <div class="box">
+          <p><strong>A. Template Iklan Servis AC (inti utama)</strong></p>
+          <div class="list">
+            <div class="list-item"><span class="dot">•</span><span>Untuk cuci AC, service rutin, isi freon</span></div>
+            <div class="list-item"><span class="dot">•</span><span>Format iklan lokal yang gampang dipakai</span></div>
+          </div>
+        </div>
+        <div class="box">
+          <p><strong>B. Panduan Setting Iklan (bahasa gampang)</strong></p>
+          <div class="list">
+            <div class="list-item"><span class="dot">•</span><span>Cara set radius area</span></div>
+            <div class="list-item"><span class="dot">•</span><span>Cara mulai dari budget kecil</span></div>
+            <div class="list-item"><span class="dot">•</span><span>Tujuan iklan yang tepat untuk dapet chat</span></div>
+          </div>
+        </div>
+        <div class="box">
+          <p><strong>C. Bonus Anti-Bocor Chat</strong></p>
+          <div class="list">
+            <div class="list-item"><span class="dot">•</span><span>Script balasan cepat</span></div>
+            <div class="list-item"><span class="dot">•</span><span>Panduan follow-up 3 hari</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:12px;">Semua disusun biar langsung bisa dipraktikkan, bukan cuma dibaca.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Ini bukan janji, ini isi filenya</h2>
+      <div class="box">
+        <p>Contoh file yang akan kamu dapat:</p>
+      </div>
+      <div class="proof-slider">
+        <div class="proof-track" id="proofTrack">
+          <div class="proof-card">
+            <div class="proof-title">Template Follow Up Chat</div>
+            <img src="https://everz-digital.site/wp-content/uploads/2026/02/task_01kgz0615devcagpkr1cemyw1f_1770566942_img_1.webp" alt="Template follow up chat">
+          </div>
+          <div class="proof-card">
+            <div class="proof-title">Template Chat Cepat</div>
+            <img src="https://everz-digital.site/wp-content/uploads/2026/02/task_01kgz02bsfed0vje1y54fy0z6a_1770566861_img_0.webp" alt="Template chat cepat">
+          </div>
+          <div class="proof-card">
+            <div class="proof-title">Template Panduan Setting Iklan</div>
+            <img src="https://everz-digital.site/wp-content/uploads/2026/02/task_01kgyzz4hrfk7ay25d83x3q3v3_1770566753_img_1.webp" alt="Template panduan setting iklan">
+          </div>
+          <div class="proof-card">
+            <div class="proof-title">Template Iklan Service AC</div>
+            <img src="https://everz-digital.site/wp-content/uploads/2026/02/task_01kgyzz4hrfk7ay25d83x3q3v3_1770566753_img_1.webp" alt="Template iklan service AC">
+          </div>
+        </div>
+        <div class="proof-nav">
+          <button class="proof-btn" type="button" id="proofPrev">‹ Sebelumnya</button>
+          <button class="proof-btn" type="button" id="proofNext">Berikutnya ›</button>
+        </div>
+      </div>
+      <p class="note" style="margin-top:12px;">Nanti kamu juga akan mendapatkan video course yang menjelaskan tiap bagian langkah demi langkah.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Coba kita hitung sebentar, berapa order yang mungkin hilang?</h2>
+      <div class="box">
+        <p>Misalnya keuntungan bersih dari 1 kali servis AC sekitar <strong>Rp100.000</strong>.</p>
+        <p class="note" style="margin-top:10px;">Kalau karena kamu belum jalanin iklan:</p>
+        <div class="list">
+          <div class="list-item"><span class="dot">•</span><span>Usaha kamu jarang kelihatan</span></div>
+          <div class="list-item"><span class="dot">•</span><span>Kamu kehilangan 2 order saja dalam seminggu</span></div>
+        </div>
+      </div>
+      <p style="margin-top:12px;">Artinya: Rp200.000 × 4 minggu = <strong>Rp1.200.000 per bulan</strong></p>
+      <p class="note" style="margin-top:6px;">Kalau yang hilang 3 order: <strong>Rp1.800.000 per bulan</strong></p>
+      <p class="note" style="margin-top:10px;">Harga paket ini Rp197.000. Balik modal cukup dari 1-2 customer tambahan.</p>
+    </div>
+  </section>
+
+  <section id="harga">
+    <div class="container center">
+      <h2 class="section-title">Ambil Paket Iklan Servis AC</h2>
+      <div class="price-card">
+        <div class="price-badge">Harga Spesial Minggu Ini</div>
+        <div class="price-row">
+          <span class="price-old">Rp 699.000</span>
+          <span class="price-now">Rp 197.000</span>
+        </div>
+        <div class="price-note">Sekali bayar • Akses instan • Bisa langsung dipakai</div>
+        <div class="list" style="margin-top:14px;">
+          <div class="list-item"><span class="dot">✔</span><span>Template iklan</span></div>
+          <div class="list-item"><span class="dot">✔</span><span>Panduan setting</span></div>
+          <div class="list-item"><span class="dot">✔</span><span>Bonus script & follow-up</span></div>
+        </div>
+        <div class="urgency">Harga bisa kembali normal kapan saja.</div>
+      </div>
+      <div class="center" style="margin-top:18px;">
+        <a class="cta" href="#penutup-end">🟢 Saya Mau Mulai Iklan Sekarang</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Kalau ternyata nggak cocok?</h2>
+      <div class="box">
+        <p>Tenang. Ada garansi 7 hari.</p>
+        <p class="note" style="margin-top:6px;">Kalau dalam 7 hari kamu sudah ikutin tutorialnya belum dapat hasil, kita akan pandu private sampai dapat chat. 100% aman buat kamu!</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Kalau mau dibantu langsung</h2>
+      <div class="box">
+        <p>Sebelum checkout, di bagian paling bawah kamu bisa ambil opsional upgrade ke: <strong>Sesi Zoom 1-on-1 (Rp399.000)</strong></p>
+        <div class="list">
+          <div class="list-item"><span class="dot">•</span><span>Dibantu setting iklan dari awal</span></div>
+          <div class="list-item"><span class="dot">•</span><span>Bebas tanya sampai ada hasil</span></div>
+          <div class="list-item"><span class="dot">•</span><span>Bantu Rapihin iklan kamu</span></div>
+          <div class="list-item"><span class="dot">•</span><span>Sesuaikan penawaran & area</span></div>
+          <div class="list-item"><span class="dot">•</span><span>Bantu supaya nggak banyak trial-error</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="penutup">
+    <div class="container center">
+      <p>Kalau kamu:</p>
+      <div class="box" style="margin-top:12px;">
+        <div class="list">
+          <div class="list-item"><span class="dot">•</span><span>Pengen usaha lebih kelihatan</span></div>
+          <div class="list-item"><span class="dot">•</span><span>Capek nunggu order musiman</span></div>
+          <div class="list-item"><span class="dot">•</span><span>Dan mau mulai dapet customer baru dari iklan</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:12px;">Paket ini bisa jadi langkah kecil yang masuk akal buat mulai.</p>
+      <div class="center" style="margin-top:18px;">
+        <a class="cta" href="#penutup-end">🟢 Ambil Paket Rp197.000</a>
+      </div>
+      <div id="penutup-end"></div>
+    </div>
+  </section>
+  <script>
+    const proofTrack = document.getElementById('proofTrack');
+    const proofPrev = document.getElementById('proofPrev');
+    const proofNext = document.getElementById('proofNext');
+    if (proofTrack && proofPrev && proofNext) {
+      const scrollByCard = () => {
+        const card = proofTrack.querySelector('.proof-card');
+        return card ? card.getBoundingClientRect().width + 14 : 320;
+      };
+      proofPrev.addEventListener('click', () => {
+        proofTrack.scrollBy({ left: -scrollByCard(), behavior: 'smooth' });
+      });
+      proofNext.addEventListener('click', () => {
+        proofTrack.scrollBy({ left: scrollByCard(), behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>

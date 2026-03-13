@@ -1,0 +1,131 @@
+<section id="trust" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;600;700&display=swap");
+
+    #trust {
+      padding: 90px 0;
+      background: linear-gradient(180deg, #fff 0%, #f3f6fb 100%);
+    }
+
+    #trust .wrap {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 26px;
+    }
+
+    #trust h2 {
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(1.8rem, 2.2vw + 0.9rem, 2.5rem);
+      margin: 0;
+      color: #121323;
+    }
+
+    #trust .lead {
+      font-family: "Manrope", sans-serif;
+      color: #3f445b;
+      max-width: 720px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    #trust .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    #trust .proof-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 18px 18px;
+      border: 1px solid rgba(16, 24, 40, 0.08);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.07);
+      display: grid;
+      gap: 12px;
+    }
+
+    #trust .proof-card p {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      color: #4a4f67;
+      line-height: 1.6;
+    }
+
+    #trust .proof-card strong {
+      font-family: "Unbounded", sans-serif;
+      color: #121323;
+      font-size: 0.95rem;
+    }
+
+    #trust .mockup {
+      height: 160px;
+      border-radius: 14px;
+      border: 1px dashed rgba(16, 24, 40, 0.2);
+      background: linear-gradient(135deg, rgba(11, 122, 107, 0.12), rgba(255, 209, 102, 0.18));
+      display: grid;
+      place-items: center;
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      color: #0b7a6b;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+    }
+
+    #trust .quick-trust {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+      font-family: "Manrope", sans-serif;
+      color: #3f445b;
+    }
+
+    #trust .quick-trust li {
+      display: grid;
+      grid-template-columns: 16px 1fr;
+      gap: 8px;
+      align-items: start;
+    }
+
+    @media (max-width: 720px) {
+      #trust {
+        padding: 70px 0;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <div>
+      <h2>Dipercaya oleh rental mobil di berbagai kota</h2>
+      <p class="lead">
+        Ini contoh tampilan website rental mobil yang sudah kami buat. Fokusnya jelas: tampil profesional dan mudah booking.
+      </p>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="mockup">Mockup Jakarta</div>
+        <strong>Rental Mobil Jakarta</strong>
+        <p>Hero promo, tombol WA, daftar unit, dan form booking siap pakai.</p>
+      </div>
+      <div class="proof-card">
+        <div class="mockup">Mockup Jogja</div>
+        <strong>Rental Mobil Jogja</strong>
+        <p>Desain ringan, fokus listing paket, plus FAQ yang menjawab keberatan.</p>
+      </div>
+      <div class="proof-card">
+        <div class="mockup">Mockup Bali</div>
+        <strong>Rental Mobil Bali</strong>
+        <p>Galeri unit, highlight sopir, dan CTA booking yang selalu terlihat.</p>
+      </div>
+    </div>
+
+    <ul class="quick-trust">
+      <li><span>*</span><span>Digunakan oleh pemilik rental mobil skala kecil & menengah</span></li>
+      <li><span>*</span><span>Cocok untuk pemula yang ingin langsung punya website</span></li>
+    </ul>
+  </div>
+</section>

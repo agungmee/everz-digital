@@ -10,20 +10,71 @@
     background:#050505;
   }
 
-  .mc-hero-bg{
+  .mc-hero-slider{
     position:absolute;
     inset:0;
     width:100%;
     height:100%;
-    object-fit:cover;
-    object-position:center;
-    filter:brightness(0.45);
   }
 
-  .mc-hero-overlay{
+  .mc-hero-slide{
     position:absolute;
     inset:0;
-    background:linear-gradient(180deg, rgba(5,5,5,0.35) 0%, rgba(5,5,5,0.68) 100%);
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    transition:opacity 0.8s ease-in-out;
+  }
+
+  .mc-hero-slide.active{
+    opacity:1;
+  }
+
+  .mc-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(5,5,5,0.85) 0%, rgba(5,5,5,0.98) 100%);
+    filter:brightness(0.15);
+    z-index:0;
+  }
+
+  .mc-hero-bg{
+    display:none;
+  }
+
+  .mc-hero-indicators{
+    position:absolute;
+    bottom:24px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+    display:flex;
+    gap:8px;
+    align-items:center;
+  }
+
+  .mc-hero-indicator{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.4);
+    cursor:pointer;
+    transition:all 0.3s ease;
+    border:none;
+    padding:0;
+  }
+
+  .mc-hero-indicator.active{
+    background:#dc2626;
+    width:28px;
+    border-radius:5px;
+  }
+
+  .mc-hero-indicator:hover{
+    background:rgba(255,255,255,0.8);
   }
 
   .mc-hero-content{
@@ -135,79 +186,131 @@
 
   @media (max-width: 900px){
     .mc-hero{
-      min-height:0;
-      padding:0;
-      align-items:stretch;
-      justify-content:flex-start;
+      min-height:90vh;
+      padding:30px 16px;
+      align-items:center;
+      justify-content:center;
+      background-attachment:scroll;
     }
 
     .mc-hero-bg{
-      position:relative;
-      display:block;
-      width:200%;
-      max-width:none;
-      height:auto;
-      object-fit:contain;
-      object-position:center top;
-      left:50%;
-      transform:translateX(-50%);
+      display:none;
     }
 
     .mc-hero-overlay{
-      z-index:1;
-      background:linear-gradient(180deg, rgba(5,5,5,0.22) 0%, rgba(5,5,5,0.85) 82%);
+      display:none;
     }
 
     .mc-hero-content{
-      position:absolute;
-      left:16px;
-      right:16px;
-      top:50%;
-      bottom:auto;
-      transform:translateY(-50%);
+      position:relative;
       z-index:2;
       margin-top:0;
+      max-width:100%;
+      left:auto;
+      right:auto;
+      top:auto;
+      bottom:auto;
+      transform:none;
+    }
+
+    .mc-hero-content h1{
+      font-size:clamp(32px, 7vw, 56px);
+      line-height:1;
+    }
+
+    .mc-hero-subhead{
+      margin:12px 0 0;
+      font-size:clamp(22px, 5vw, 40px);
     }
 
     .mc-hero-content p{
-      margin-top:12px;
-      font-size:20px;
-      line-height:1.25;
+      margin-top:16px;
+      font-size:clamp(16px, 2.2vw, 20px);
+      line-height:1.3;
     }
 
     .mc-hero-actions{
-      margin-top:18px;
-      width:100%;
+      margin-top:24px;
+      gap:10px;
     }
 
     .mc-hero-btn{
       width:100%;
-      font-size:20px;
-      padding:12px 14px;
+      font-size:clamp(16px, 2.5vw, 20px);
+      padding:13px 16px;
     }
 
     .mc-hero-meta{
-      margin-top:14px;
+      margin-top:18px;
       justify-items:start;
     }
 
     .mc-hero-meta p{
-      font-size:18px;
+      font-size:clamp(15px, 2vw, 18px);
       text-align:left;
+    }
+  }
+
+  @media (max-width: 480px){
+    .mc-hero{
+      min-height:85vh;
+      padding:30px 14px;
+    }
+
+    .mc-hero-content h1{
+      font-size:clamp(26px, 6vw, 40px);
+    }
+
+    .mc-hero-subhead{
+      font-size:clamp(20px, 4.5vw, 32px);
+      margin:10px 0 0;
+    }
+
+    .mc-hero-content p{
+      margin-top:14px;
+      font-size:clamp(15px, 2vw, 18px);
+    }
+
+    .mc-hero-actions{
+      margin-top:20px;
+    }
+
+    .mc-hero-btn{
+      font-size:clamp(14px, 2.2vw, 18px);
+      padding:12px 14px;
+    }
+
+    .mc-hero-meta{
+      margin-top:16px;
+    }
+
+    .mc-hero-meta p{
+      font-size:clamp(14px, 1.8vw, 16px);
     }
   }
 </style>
 
 <section class="mc-hero" id="home" aria-label="Hero Metro Autocool">
-  <img class="mc-hero-bg" src="https://halobengkel.com/blog/wp-content/uploads/2024/05/service-ac-mobil-samarinda.jpg" alt="Layanan service AC mobil Metro Autocool">
-  <div class="mc-hero-overlay"></div>
+  <div class="mc-hero-slider">
+    <div class="mc-hero-slide active" style="background-image:url('https://cdn.setirkanan.co.id/images/2023/12/26/4e0c4ce1ecb899d0e232a91d403055dd6c55f429/filter-dryer-ac-mobil.jpg')"></div>
+    <div class="mc-hero-slide" style="background-image:url('https://suzukicdn.com/uploads/news/service_ac_mobil.webp')"></div>
+    <div class="mc-hero-slide" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_S-bwF3Sw36P8VFhgMoyQo4gid2hSHwYB0A&s')"></div>
+    <div class="mc-hero-slide" style="background-image:url('https://cdn.8mediatech.com/gambar/89199069030-service_ac_mobil.jpg')"></div>
+  </div>
+
+  <div class="mc-hero-indicators">
+    <button class="mc-hero-indicator active" data-slide="0" aria-label="Slide 1"></button>
+    <button class="mc-hero-indicator" data-slide="1" aria-label="Slide 2"></button>
+    <button class="mc-hero-indicator" data-slide="2" aria-label="Slide 3"></button>
+    <button class="mc-hero-indicator" data-slide="3" aria-label="Slide 4"></button>
+  </div>
 
   <div class="mc-hero-content">
     <h1><span>Metro</span> Autocool</h1>
     <h2 class="mc-hero-subhead">Service AC Mobil <span>Surabaya</span></h2>
     <p>Metro Autocool siap bantu AC mobil kamu kembali dingin, nyaman, dan optimal dengan penanganan cepat, detail, dan rapi.</p>
     <div class="mc-hero-actions">
-      <a class="mc-hero-btn primary" href="https://wa.me/628525858626 2?text=Halo%20Metro%20Autocool" target="_blank" rel="noopener">
+      <a class="mc-hero-btn primary" href="https://wa.me/62852585862620?text=Halo%20Metro%20Autocool" target="_blank" rel="noopener">
         <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
         <span>Hubungi Kami</span>
       </a>
@@ -219,3 +322,52 @@
     </div>
   </div>
 </section>
+
+<script>
+(function() {
+  const slides = document.querySelectorAll('.mc-hero-slide');
+  const indicators = document.querySelectorAll('.mc-hero-indicator');
+  let currentSlide = 0;
+  const slideInterval = 5000; // 5 detik per slide
+  let autoPlayTimer;
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    showSlide((currentSlide + 1) % slides.length);
+  }
+
+  function startAutoPlay() {
+    autoPlayTimer = setInterval(nextSlide, slideInterval);
+  }
+
+  function resetAutoPlay() {
+    clearInterval(autoPlayTimer);
+    startAutoPlay();
+  }
+
+  // Click handlers untuk indicators
+  indicators.forEach(indicator => {
+    indicator.addEventListener('click', () => {
+      const slideIndex = parseInt(indicator.getAttribute('data-slide'));
+      showSlide(slideIndex);
+      resetAutoPlay();
+    });
+  });
+
+  // Pause autoplay on mouse enter, resume on mouse leave
+  const heroSection = document.querySelector('.mc-hero');
+  heroSection.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+  heroSection.addEventListener('mouseleave', startAutoPlay);
+
+  // Start autoplay
+  startAutoPlay();
+})();
+</script>

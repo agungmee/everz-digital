@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fajar Arsitektur - Gallery</title>
+  <style>
+    :root{--ink:#0f172a;--stroke:#e3eaf5;--blue:#2f6ce0}
+    body{margin:0;font-family:system-ui,sans-serif;background:#fff;color:var(--ink)}
+    .container{width:min(92vw,1150px);margin:0 auto}
+    .gallery-section{padding:60px 0 40px}
+    .gallery-title{text-align:center;margin-bottom:18px}
+    .gallery-heading{margin:0;font-size:clamp(30px,6vw,44px)}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .gallery-card{overflow:hidden;background:#fff;border:1px solid var(--stroke);box-shadow:0 12px 28px rgba(15,23,42,.12)}
+    .gallery-img{aspect-ratio:3/4;height:auto;background:center/cover no-repeat}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid var(--blue);background:transparent;color:var(--blue);cursor:pointer}
+    @media(max-width:980px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){.gallery-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <section class="gallery-section" id="gallery">
+    <div class="container gallery-title"><h2 class="gallery-heading">Gallery</h2></div>
+    <div class="container gallery-grid" id="gallery-grid">
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/84053e25be8f797e75e08f8beddc4617.jpg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/516a4fc507cabe755a2810956e3aa004.jpg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/793ab3cb7188e3de2747c3bc92119873.jpg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/840f12e52a5afe01ada6c19f39c5c0e3.jpg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/6c3dbe5a4d0249c991305bbc85f1af73.jpg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/cf3351cf26782ab495a709659fdabb3e.jpg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/fb63edb10bd9b7c3ba0a5f5795db034e.jpg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/46f265d09896089f47afba209e2b0e9e.jpg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/7325caac86047b0bded34f33618c5349.jpg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/57f3d521ffcb7a3e0da6fb74c48c35f3.jpg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/WhatsApp-Image-2023-04-14-at-14.28.42.jpeg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/WhatsApp-Image-2023-04-14-at-14.28.36.jpeg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/WhatsApp-Image-2023-04-14-at-14.28.37.jpeg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/WhatsApp-Image-2023-04-14-at-14.28.43.jpeg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/WhatsApp-Image-2023-04-07-at-12.09.14.jpeg')"></div></div>
+      <div class="gallery-card"><div class="gallery-img" style="background-image:url('https://everz-digital.site/wp-content/uploads/2026/02/WhatsApp-Image-2023-04-14-at-14.28.38.jpeg')"></div></div>
+    </div>
+    <div class="container" style="text-align:center; margin-top:20px;">
+      <button class="btn" id="gallery-more" type="button">Lainnya</button>
+    </div>
+  </section>
+
+  <script>
+    const galleryGrid = document.getElementById('gallery-grid');
+    const galleryMore = document.getElementById('gallery-more');
+
+    if (galleryGrid) {
+      const galleryCards = Array.from(galleryGrid.querySelectorAll('.gallery-card'));
+      const initialLimit = 8;
+      let visibleLimit = initialLimit;
+
+      function applyLimit() {
+        galleryCards.forEach((card, index) => {
+          card.style.display = index < visibleLimit ? 'block' : 'none';
+        });
+        if (galleryMore) {
+          galleryMore.style.display = visibleLimit < galleryCards.length ? 'inline-flex' : 'none';
+        }
+      }
+
+      applyLimit();
+
+      if (galleryMore) {
+        galleryMore.addEventListener('click', () => {
+          visibleLimit += 8;
+          applyLimit();
+        });
+      }
+    }
+  </script>
+</body>
+</html>

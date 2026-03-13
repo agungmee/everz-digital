@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Masalah Utama</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f2ea;
+        --bg-2: #fff7ef;
+        --ink: #1d1a16;
+        --muted: #5d574f;
+        --accent: #e46f2a;
+        --accent-2: #0f5e58;
+        --gold: #d19b32;
+        --card: #fffaf4;
+        --border: rgba(28, 26, 23, 0.14);
+        --shadow: 0 18px 40px rgba(28, 26, 23, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Work Sans", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: radial-gradient(
+            circle at 12% 8%,
+            rgba(228, 111, 42, 0.16),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 88% 0%,
+            rgba(15, 94, 88, 0.2),
+            transparent 48%
+          ),
+          linear-gradient(180deg, var(--bg), var(--bg-2));
+        min-height: 100vh;
+      }
+
+      .page {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 24px 16px 80px;
+        display: grid;
+        gap: 24px;
+      }
+
+      .section {
+        position: relative;
+        padding: 28px 22px;
+        border-radius: 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+        background: rgba(15, 94, 88, 0.12);
+        padding: 6px 12px;
+        border-radius: 999px;
+      }
+
+      h1 {
+        margin: 10px 0 6px;
+        font-family: "Fraunces", serif;
+        font-size: clamp(26px, 6vw, 40px);
+        line-height: 1.15;
+      }
+
+      .subhead {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .grid {
+        margin-top: 22px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .text-block {
+        display: grid;
+        gap: 10px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .point-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 16px 18px;
+        display: grid;
+        gap: 10px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .panel-title {
+        margin: 0;
+        font-weight: 600;
+        color: var(--accent-2);
+        font-size: 14px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .text-block p,
+      .point-card p {
+        margin: 0;
+        line-height: 1.65;
+        color: var(--ink);
+      }
+
+      .highlight {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+
+      .list li {
+        padding-left: 22px;
+        position: relative;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .list li::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--gold));
+        position: absolute;
+        left: 0;
+        top: 7px;
+      }
+
+      .flow {
+        margin-top: 18px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .flow-step {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: rgba(15, 94, 88, 0.08);
+        border: 1px solid rgba(15, 94, 88, 0.12);
+      }
+
+      .flow-step span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        background: var(--accent-2);
+        color: #fff;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+
+      .flow-step p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .split {
+        display: grid;
+        gap: 16px;
+      }
+
+      .panel-accent {
+        border-left: 4px solid var(--accent);
+        background: #fff3e9;
+      }
+
+      .panel-accent strong {
+        color: var(--accent);
+      }
+
+      .panel-emerald {
+        border-left: 4px solid var(--accent-2);
+        background: #eef6f3;
+      }
+
+      .panel-emerald strong {
+        color: var(--accent-2);
+      }
+
+      .footer-note {
+        margin-top: 18px;
+        font-weight: 600;
+        color: var(--accent-2);
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .footer-note::before {
+        content: "";
+        width: 26px;
+        height: 2px;
+        background: linear-gradient(135deg, var(--accent), var(--gold));
+        display: inline-block;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        animation: rise 0.8s ease forwards;
+      }
+
+      .reveal:nth-child(2) {
+        animation-delay: 0.12s;
+      }
+
+      .reveal:nth-child(3) {
+        animation-delay: 0.24s;
+      }
+
+      .reveal:nth-child(4) {
+        animation-delay: 0.36s;
+      }
+
+      @keyframes rise {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (min-width: 860px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          align-items: start;
+        }
+
+        .split {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="section">
+        <span class="kicker">Masalah Utama</span>
+        <h1>Kenapa usaha tour &amp; travel bisa sepi?</h1>
+        <p class="subhead">
+          Akar masalahnya bukan cuma satu. Banyak titik bocor yang bikin
+          langkah terasa berat dari awal.
+        </p>
+
+        <div class="grid">
+          <article class="text-block reveal">
+            <p class="panel-title">Bukan semata paket</p>
+            <p>
+              Bukan semata paket, promosi, atau harga. Persoalannya, semuanya
+              <span class="highlight">bergerak sendiri-sendiri</span>.
+            </p>
+            <p>
+              Banyak owner menyusun paket tanpa bertanya: “Ini gampang dijual
+              nggak?”
+            </p>
+          </article>
+
+          <article class="text-block reveal">
+            <p class="panel-title">Promosi tanpa arah</p>
+            <p>Promosi sudah jalan, tapi:</p>
+            <div class="point-card">
+              <ul class="list">
+                <li>Targetnya kabur</li>
+                <li>Ajakan aksinya nggak jelas</li>
+                <li>
+                  Chat masuk, tapi bingung jawabnya takut terlalu nge-push
+                </li>
+                <li>Ujungnya ngobrol panjang, tapi nggak closing</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="text-block reveal">
+          <p class="panel-title">Begitu trip selesai?</p>
+          <p>
+            Tamu puas, tapi dibiarkan pergi. Nggak diminta review, nggak dibangun
+            hubungan. Jadi wajar kalau tiap bulan harus mulai dari nol lagi.
+          </p>
+        </div>
+
+        <div class="flow">
+          <div class="flow-step">
+            <span>1</span>
+            <p>
+              Tour &amp; Travel Super Sales disusun untuk bantu kamu merapikan itu
+              semua <strong>selangkah demi selangkah</strong>.
+            </p>
+          </div>
+          <div class="flow-step">
+            <span>2</span>
+            <p>
+              Bukan supaya kamu jadi jago teori atau sibuk nambah kerjaan, tapi
+              supaya kamu punya arah yang jelas.
+            </p>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="point-card panel-accent">
+            <p class="panel-title">Bukan biar kamu</p>
+            <ul class="list">
+              <li>Tenggelam di teori</li>
+              <li>Tambah kerjaan tanpa hasil</li>
+            </ul>
+          </div>
+          <div class="point-card panel-emerald">
+            <p class="panel-title">Tapi biar kamu</p>
+            <ul class="list">
+              <li>Tahu titik mulai yang tepat</li>
+              <li>Ngerti urutan yang benar</li>
+              <li>Punya pegangan saat jalanin bisnis</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-note">
+          Semua titiknya saling nyambung, jadi solusinya harus rapi dari awal.
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

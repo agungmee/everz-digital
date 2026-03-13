@@ -1,0 +1,227 @@
+<section id="attention" class="section hero">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;600;700&display=swap");
+
+    #attention {
+      position: relative;
+      padding: 90px 0 80px;
+      background: radial-gradient(circle at top, #fff7df 0%, #fff2f3 45%, #f7f3ff 100%);
+      overflow: hidden;
+    }
+
+    #attention .hero-wrap {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 26px;
+      position: relative;
+      z-index: 1;
+      justify-items: center;
+      text-align: center;
+    }
+
+    #attention h1 {
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(2rem, 3vw + 1rem, 3.1rem);
+      line-height: 1.15;
+      margin: 0;
+      color: #111018;
+    }
+
+    #attention .headline-highlight {
+      color: #0b7a6b;
+    }
+
+    #attention .subheadline {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.05rem;
+      color: #3c3a4c;
+      max-width: 640px;
+      line-height: 1.7;
+      margin: 0;
+      text-align: center;
+    }
+
+    #attention .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      align-items: start;
+      width: 100%;
+    }
+
+    #attention .benefits {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+      font-family: "Manrope", sans-serif;
+      color: #2e2b3a;
+      justify-items: center;
+    }
+
+    #attention .benefits li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      align-items: start;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(30, 30, 30, 0.06);
+      width: min(360px, 100%);
+    }
+
+    #attention .benefits span:first-child {
+      font-size: 1rem;
+    }
+
+    #attention .cta-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 10px;
+      justify-content: center;
+    }
+
+    #attention .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #attention .cta-primary {
+      background: #19a28f;
+      color: #fff;
+      box-shadow: 0 16px 30px rgba(25, 162, 143, 0.32);
+    }
+
+    #attention .cta-secondary {
+      background: #fff;
+      color: #1a1d2b;
+      border: 1px solid rgba(20, 20, 20, 0.12);
+    }
+
+    #attention .cta-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    #attention .hero-card {
+      background: #121323;
+      color: #fff;
+      border-radius: 20px;
+      padding: 20px 22px;
+      display: grid;
+      gap: 12px;
+      box-shadow: 0 20px 40px rgba(14, 16, 40, 0.35);
+    }
+
+    #attention .hero-card h3 {
+      margin: 0;
+      font-family: "Unbounded", sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    #attention .hero-card p {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      color: #d7d9f1;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    #attention .price-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      font-weight: 700;
+      font-family: "Manrope", sans-serif;
+      font-size: 0.9rem;
+    }
+
+    #attention .shape {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 36% 64% 48% 52% / 54% 42% 58% 46%;
+      background: linear-gradient(120deg, rgba(25, 162, 143, 0.25), rgba(255, 98, 65, 0.2));
+      top: -60px;
+      right: 10%;
+      filter: blur(2px);
+    }
+
+    #attention .shape.secondary {
+      width: 180px;
+      height: 180px;
+      left: 6%;
+      top: 70px;
+      background: linear-gradient(120deg, rgba(255, 209, 102, 0.35), rgba(255, 98, 65, 0.2));
+    }
+
+    @media (max-width: 720px) {
+      #attention {
+        padding: 80px 0 70px;
+      }
+
+      #attention .hero-card {
+        order: 2;
+      }
+    }
+  </style>
+
+  <div class="shape" aria-hidden="true"></div>
+  <div class="shape secondary" aria-hidden="true"></div>
+
+  <div class="hero-wrap">
+    <h1>
+      Website Rental Mobil Profesional - Jadi Cepat <span class="headline-highlight">Tanpa Ribet</span>
+    </h1>
+
+    <p class="subheadline">
+      Cocok untuk rental mobil di seluruh Indonesia. Template siap pakai, website online dalam 3-5 hari.
+    </p>
+
+    <div class="hero-grid">
+      <ul class="benefits">
+        <li><span>✅</span><span>Sudah termasuk domain <strong>.my.id</strong></span></li>
+        <li><span>✅</span><span>Desain profesional &amp; mobile-friendly</span></li>
+        <li><span>✅</span><span>Tinggal isi data, kami yang kerjakan</span></li>
+      </ul>
+
+      <div class="hero-card">
+        <h3>Landing page otomatis yang siap closing</h3>
+        <p>Form lead, tombol WA, katalog unit, sampai fitur testimonial sudah disusun rapi. Tinggal pakai.</p>
+        <span class="price-tag">Mulai Rp 480rb saja</span>
+      </div>
+    </div>
+
+    <div class="cta-stack">
+      <a class="cta-btn cta-secondary" href="#contoh">🔵 Lihat Contoh Website</a>
+      <a class="cta-btn cta-primary" href="https://wa.me/6281234567890">🟢 Pesan Sekarang (480rb)</a>
+    </div>
+  </div>
+
+  <script>
+    const heroWrap = document.querySelector("#attention .hero-wrap");
+    if (heroWrap) {
+      heroWrap.style.opacity = "0";
+      heroWrap.style.transform = "translateY(20px)";
+      requestAnimationFrame(() => {
+        heroWrap.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        heroWrap.style.opacity = "1";
+        heroWrap.style.transform = "translateY(0)";
+      });
+    }
+  </script>
+</section>

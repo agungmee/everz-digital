@@ -1,0 +1,148 @@
+<section id="growth-path" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&display=swap");
+
+    #growth-path {
+      padding: 90px 0;
+      background: linear-gradient(180deg, #ffffff 0%, #fff6ec 60%, #fffdf9 100%);
+    }
+
+    #growth-path .wrap {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 26px;
+    }
+
+    #growth-path h2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(1.9rem, 2.5vw + 0.8rem, 2.7rem);
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    #growth-path .lead {
+      color: #4f433c;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    #growth-path .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    #growth-path .step {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: 0 14px 30px rgba(26, 18, 12, 0.08);
+      border: 1px solid rgba(30, 26, 23, 0.06);
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    #growth-path .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: #ff6b3d;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    #growth-path .step h3 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    #growth-path .step p {
+      color: #5c4f46;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      #growth-path {
+        padding: 70px 0;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <h2>Roadmap Marketing Digital untuk Agent Properti</h2>
+    <p class="lead">
+      Materinya disusun berurutan supaya kamu fokus ke hal yang menghasilkan leads.
+      Bukan sekadar bikin konten, tapi bikin orang siap survey dan siap bayar.
+    </p>
+
+    <ul class="steps">
+      <li class="step">
+        <div class="step-number">1</div>
+        <div>
+          <h3><strong>Posisikan Listing</strong> Biar Terasa Premium</h3>
+          <p>Kamu akan belajar membuat deskripsi properti yang menonjolkan value dan memancing minat.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-number">2</div>
+        <div>
+          <h3><strong>Harga dan Paket</strong> yang Membantu Closing</h3>
+          <p>Kamu akan belajar menyusun penawaran, cara nego, dan angle cicilan agar prospek tidak kabur.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-number">3</div>
+        <div>
+          <h3><strong>Konten Harian</strong> yang Membangun Trust</h3>
+          <p>Kamu akan belajar format konten singkat yang membuat orang percaya dan mau bertanya lanjut.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-number">4</div>
+        <div>
+          <h3><strong>Iklan Tepat Target</strong> Pembeli</h3>
+          <p>Kamu akan belajar targeting dan copy iklan yang fokus ke pembeli potensial, bukan penonton.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-number">5</div>
+        <div>
+          <h3><strong>Follow Up Chat</strong> Sampai Deal</h3>
+          <p>Kamu akan belajar alur follow up yang rapi agar prospek terus bergerak ke tahap survey.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-number">6</div>
+        <div>
+          <h3><strong>Sistem Referensi</strong> dan Review</h3>
+          <p>Kamu akan belajar cara minta review dan rekomendasi untuk mempercepat closing berikutnya.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const growthSteps = document.querySelectorAll("#growth-path .step");
+    growthSteps.forEach((step, index) => {
+      step.style.opacity = "0";
+      step.style.transform = "translateY(16px)";
+      setTimeout(() => {
+        step.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        step.style.opacity = "1";
+        step.style.transform = "translateY(0)";
+      }, 120 + index * 100);
+    });
+  </script>
+</section>

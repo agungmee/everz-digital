@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mentoring Meta untuk Jasa Interior & Renovasi</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --blue: #0b4bff;
+        --green: #0fb06a;
+        --green-soft: #d7f7e8;
+        --dark: #1e1a17;
+        --cream: #f6fffb;
+        --cream-2: #e2f5ec;
+        --muted: #4f433c;
+        --light: #f5e9df;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+        color: var(--muted);
+        background: radial-gradient(circle at top, #eafff4 0%, var(--cream) 55%, var(--cream-2) 100%);
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        display: grid;
+        gap: 0;
+      }
+
+      .topbar {
+        width: min(980px, 92vw);
+        margin: 28px auto 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 18px;
+        background: #ffffff;
+        border-radius: 18px;
+        box-shadow: 0 18px 36px rgba(30, 26, 23, 0.18);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 14px;
+        background: linear-gradient(120deg, #16c46d, #0e9c60);
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-weight: 800;
+        font-family: "Fraunces", serif;
+      }
+
+      .brand-title {
+        font-family: "Fraunces", serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .badge {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #0e7d57;
+        background: var(--green-soft);
+        padding: 7px 12px;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+
+      .section {
+        padding: 90px 0;
+        text-align: center;
+        background: radial-gradient(circle at top, #eafff4 0%, var(--cream) 55%, var(--cream-2) 100%);
+      }
+
+      .wrap {
+        width: min(980px, 92vw);
+        margin: 0 auto;
+        display: grid;
+        gap: 20px;
+        justify-items: center;
+      }
+
+      h1,
+      h2 {
+        font-family: "Fraunces", serif;
+        color: var(--blue);
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(2.4rem, 3.6vw + 0.8rem, 3.6rem);
+        line-height: 1.05;
+        text-shadow: 0 10px 32px rgba(11, 75, 255, 0.2);
+      }
+
+      h2 {
+        font-size: clamp(2.1rem, 3.1vw + 0.8rem, 3.1rem);
+        line-height: 1.1;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: #ffffff;
+      }
+
+      .headline-2 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(1.7rem, 2.2vw + 0.8rem, 2.5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        color: var(--blue);
+        margin: 0;
+        padding: 10px 18px;
+        background: var(--green-soft);
+        border-radius: 16px;
+        box-shadow: 0 16px 34px rgba(15, 176, 106, 0.25);
+      }
+
+      .lead {
+        max-width: 720px;
+        font-size: 1.08rem;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .cta-row {
+        display: grid;
+        gap: 10px;
+        justify-items: center;
+      }
+
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 34px;
+        border-radius: 999px;
+        font-weight: 800;
+        text-decoration: none;
+        background: var(--green);
+        color: #fff;
+        box-shadow: 0 16px 36px rgba(15, 176, 106, 0.4);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 34px rgba(15, 176, 106, 0.4);
+      }
+
+      .microcopy {
+        font-size: 0.9rem;
+        color: #5c4f46;
+      }
+
+      .trust-list,
+      .list {
+        list-style: none;
+        margin: 0;
+        padding: 20px 22px;
+        display: grid;
+        gap: 12px;
+        background: var(--dark);
+        border-radius: 18px;
+        box-shadow: 0 20px 40px rgba(30, 26, 23, 0.25);
+        width: min(820px, 92vw);
+        text-align: left;
+        color: var(--light);
+      }
+
+      .trust-list li,
+      .list li {
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        gap: 10px;
+        align-items: start;
+        font-size: 1.02rem;
+      }
+
+      .section-note {
+        font-size: 0.95rem;
+        color: #5c4f46;
+        max-width: 720px;
+      }
+
+      .steps,
+      .pricing,
+      .filter-grid,
+      .gallery,
+      .faq {
+        display: grid;
+        gap: 16px;
+        width: min(920px, 92vw);
+      }
+
+      .step-card,
+      .price-card,
+      details,
+      .timeline {
+        background: var(--dark);
+        color: var(--light);
+        border-radius: 18px;
+        padding: 18px 20px;
+        box-shadow: 0 20px 40px rgba(30, 26, 23, 0.25);
+        text-align: left;
+      }
+
+      .step-card strong {
+        color: #ffffff;
+      }
+
+      .deliverable-grid {
+        display: grid;
+        gap: 16px;
+        width: min(920px, 92vw);
+      }
+
+      .timeline strong {
+        color: #ffffff;
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .shot {
+        height: 160px;
+        border-radius: 18px;
+        border: 1px dashed rgba(255, 255, 255, 0.35);
+        background: linear-gradient(135deg, rgba(15, 176, 106, 0.22), rgba(11, 75, 255, 0.18));
+        display: grid;
+        place-items: center;
+        color: #ffffff;
+        font-weight: 700;
+      }
+
+      .price-card {
+        position: relative;
+        display: grid;
+        gap: 12px;
+      }
+
+      .price-card.highlight {
+        border: 2px solid var(--green);
+      }
+
+      .price-badge {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(15, 176, 106, 0.2);
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .price-tag {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .price-card p {
+        margin: 0;
+        color: var(--light);
+      }
+
+      details summary {
+        font-weight: 700;
+        cursor: pointer;
+        color: #ffffff;
+      }
+
+      details p {
+        margin: 10px 0 0;
+      }
+
+      @media (min-width: 760px) {
+        .hero-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 24px;
+          align-items: center;
+          width: min(980px, 92vw);
+        }
+
+        .pricing {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .filter-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .deliverable-grid {
+          grid-template-columns: 1.2fr 0.8fr;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .section {
+          padding: 70px 0;
+        }
+
+        .topbar {
+          margin-top: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">M</div>
+          <div>
+            <div class="brand-title">Mentoring Meta</div>
+            <div class="microcopy">Jasa Interior & Renovasi</div>
+          </div>
+        </div>
+        <div class="badge">1:1 Pendampingan</div>
+      </header>
+
+      <section class="section" id="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <div class="headline-2">Mentoring untuk usaha interior & renovasi</div>
+            <h1>Usaha Interior & Renovasi Kamu Lagi Sepi atau Kurang Stabil?</h1>
+            <p class="lead">
+              Dibantu dari nol sampai iklan tayang dan siap closing klien pertama dari iklan. Pendampingan 1:1 untuk jasa interior &
+              renovasi - tanpa perlu paham teknis iklan.
+            </p>
+            <div class="cta-row" style="margin-top: 16px;">
+              <a class="cta-btn" href="#paket">Mulai dari Sini</a>
+              <div class="microcopy">Slot terbatas tiap minggu agar bisa dibimbing sampai tahap closing.</div>
+            </div>
+          </div>
+          <ul class="trust-list">
+            <li><span>01</span><span>1:1 via Zoom, dibimbing pelan-pelan</span></li>
+            <li><span>02</span><span>Fokus praktik sampai iklan tayang & chat masuk</span></li>
+            <li><span>03</span><span>Ada contoh proses & dashboard (tanpa janji muluk)</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <h2>&quot;Kalau kondisi usaha kamu seperti ini, kamu nggak sendirian&quot;</h2>
+          <ul class="list">
+            <li><span>-</span><span>Order renovasi datangnya nggak konsisten</span></li>
+            <li><span>-</span><span>Selama ini cuma ngandelin referral & kenalan</span></li>
+            <li><span>-</span><span>Pernah dengar iklan bisa bantu, tapi bingung mulai dari mana</span></li>
+            <li><span>-</span><span>Takut salah pasang iklan & uang habis percuma</span></li>
+            <li><span>-</span><span>Chat masuk sering cuma nanya harga, nggak lanjut</span></li>
+          </ul>
+          <p class="section-note">
+            Mentoring ini dibuat supaya kamu punya alur jelas dari iklan sampai closing, bukan sekadar &quot;coba-coba iklan&quot;.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <h2>&quot;Target kita jelas: bukan cuma iklan jalan, tapi kamu siap nutup klien&quot;</h2>
+          <div class="deliverable-grid">
+            <ul class="list">
+              <li><span>-</span><span>Iklan dibuat & ditayangkan dengan benar</span></li>
+              <li><span>-</span><span>Calon klien bisa langsung chat WhatsApp</span></li>
+              <li><span>-</span><span>Kamu punya cara balas & follow-up yang jelas</span></li>
+              <li><span>-</span><span>Kamu siap menghadapi & menutup klien pertama dari iklan</span></li>
+            </ul>
+            <p class="section-note">
+              Hasil tiap usaha bisa berbeda. Fokus pendampingan ini adalah membimbing kamu sampai siap secara sistem & cara eksekusi
+              saat peluang datang.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <h2>&quot;Dari nol sampai siap closing, ini alurnya&quot;</h2>
+          <div class="steps">
+            <div class="step-card">
+              <strong>Step 1 - Kenalin usaha kamu</strong>
+              <span>Jenis jasa (interior, kitchen set, renov kamar mandi), area, harga mulai</span>
+            </div>
+            <div class="step-card">
+              <strong>Step 2 - Siapkan jalur iklan</strong>
+              <span>Dibantu buat & rapihin akun iklan dari nol</span>
+            </div>
+            <div class="step-card">
+              <strong>Step 3 - Susun iklan pertama</strong>
+              <span>Kata-kata & arahan materi iklan yang masuk akal</span>
+            </div>
+            <div class="step-card">
+              <strong>Step 4 - Iklan tayang & chat masuk</strong>
+              <span>Iklan diarahkan ke WhatsApp</span>
+            </div>
+            <div class="step-card">
+              <strong>Step 5 - Follow-up & closing</strong>
+              <span>Dibimbing cara balas chat, follow-up, dan nutup klien</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <h2>&quot;Setelah sesi ini, kamu punya pegangan yang jelas&quot;</h2>
+          <div class="deliverable-grid">
+            <ul class="list">
+              <li><span>-</span><span>Iklan pertama sudah tayang (paket Launch)</span></li>
+              <li><span>-</span><span>Template kata-kata iklan jasa renovasi</span></li>
+              <li><span>-</span><span>Script balas chat WA (awal, lanjutan, follow-up)</span></li>
+              <li><span>-</span><span>Checklist evaluasi hari ke-1, 3, dan 7</span></li>
+              <li><span>-</span><span>Alur sederhana dari chat -> survey -> penawaran</span></li>
+            </ul>
+            <div class="timeline">
+              <strong>Mini timeline visual</strong>
+              <div>Hari ini: setup & launch</div>
+              <div>3 hari: cek respon & perbaikan</div>
+              <div>7 hari: evaluasi & langkah lanjut</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <h2>&quot;Contoh proses & dashboard iklan&quot;</h2>
+          <div class="gallery">
+            <div class="shot">Screenshot 1</div>
+            <div class="shot">Screenshot 2</div>
+            <div class="shot">Screenshot 3</div>
+          </div>
+          <div class="deliverable-grid">
+            <p class="section-note">&quot;Contoh iklan WA untuk jasa renovasi&quot;</p>
+            <p class="section-note">&quot;Contoh biaya & performa&quot;</p>
+            <p class="section-note">&quot;Contoh materi iklan&quot;</p>
+          </div>
+          <p class="section-note">
+            Angka bisa berbeda di tiap usaha. Fokus utama: proses & kesiapan kamu menghadapi klien dari iklan.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="paket">
+        <div class="wrap">
+          <h2>&quot;Pilih cara mulai yang paling nyaman&quot;</h2>
+          <div class="pricing">
+            <div class="price-card">
+              <h3>Paket 1 - Starter (90 Menit)</h3>
+              <div class="price-tag">Rp699.000</div>
+              <ul class="list">
+                <li><span>-</span><span>Dibantu siapin akun iklan</span></li>
+                <li><span>-</span><span>Rencana iklan pertama</span></li>
+                <li><span>-</span><span>Template kata-kata iklan</span></li>
+                <li><span>-</span><span>Rencana eksekusi 7 hari</span></li>
+              </ul>
+              <a class="cta-btn" href="#">Ambil Paket Starter</a>
+            </div>
+            <div class="price-card highlight">
+              <div class="price-badge">Paling Banyak Dipilih</div>
+              <h3>Paket 2 - Launch Bareng (3 Jam)</h3>
+              <div class="price-tag">Rp1.499.000</div>
+              <p>Dari nol sampai siap closing klien pertama dari iklan.</p>
+              <ul class="list">
+                <li><span>-</span><span>Semua di paket Starter</span></li>
+                <li><span>-</span><span>Iklan pertama dibuat & ditayangkan bareng</span></li>
+                <li><span>-</span><span>Set chat WhatsApp</span></li>
+                <li><span>-</span><span>Script & simulasi closing</span></li>
+                <li><span>-</span><span>Checklist optimasi 3 & 7 hari</span></li>
+                <li><span>-</span><span>Bonus: follow-up 30 menit (7 hari)</span></li>
+              </ul>
+              <a class="cta-btn" href="#">Ambil Paket Launch Bareng</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <h2>&quot;Mentoring ini cocok jika kamu...&quot;</h2>
+          <div class="filter-grid">
+            <div class="price-card">
+              <h3>Cocok</h3>
+              <ul class="list">
+                <li><span>-</span><span>Usaha interior/renovasi sudah jalan</span></li>
+                <li><span>-</span><span>Mau order lebih stabil</span></li>
+                <li><span>-</span><span>Siap dipandu sampai tahap closing</span></li>
+              </ul>
+            </div>
+            <div class="price-card">
+              <h3>Kurang cocok</h3>
+              <ul class="list">
+                <li><span>-</span><span>Cari janji &quot;pasti langsung closing&quot;</span></li>
+                <li><span>-</span><span>Tidak mau follow-up calon klien</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <h2>&quot;Pertanyaan yang sering ditanyakan&quot;</h2>
+          <div class="faq">
+            <details>
+              <summary>Saya belum pernah iklan, bisa?</summary>
+              <p>Bisa. Kita mulai dari nol, step-by-step sampai iklan tayang.</p>
+            </details>
+            <details>
+              <summary>Saya gaptek, aman?</summary>
+              <p>Aman. Pendampingan 1:1 pelan-pelan, fokus praktik.</p>
+            </details>
+            <details>
+              <summary>Perlu website?</summary>
+              <p>Tidak wajib. Iklan diarahkan langsung ke WhatsApp.</p>
+            </details>
+            <details>
+              <summary>Budget iklan minimal?</summary>
+              <p>Disesuaikan kapasitas. Kita bahas angka realistis untuk awal.</p>
+            </details>
+            <details>
+              <summary>Kalau belum ada chat?</summary>
+              <p>Kita evaluasi materi iklan, target, dan optimasi sesuai data awal.</p>
+            </details>
+            <details>
+              <summary>Berapa lama sesi?</summary>
+              <p>Paket Starter 90 menit, Paket Launch Bareng 3 jam.</p>
+            </details>
+            <details>
+              <summary>Via apa?</summary>
+              <p>Via Zoom, dibimbing langsung.</p>
+            </details>
+            <details>
+              <summary>Kalau butuh bantuan setelah sesi?</summary>
+              <p>Ada follow-up 30 menit untuk Paket Launch Bareng.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

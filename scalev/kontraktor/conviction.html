@@ -1,0 +1,161 @@
+<section id="testimonials" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&display=swap");
+
+    #testimonials {
+      padding: 90px 0;
+      background: radial-gradient(circle at top, #fff2e0 0%, #fff7ef 55%, #f6f0e9 100%);
+      text-align: center;
+    }
+
+    #testimonials .wrap {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 26px;
+      justify-items: center;
+    }
+
+    #testimonials h2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(2.2rem, 3.1vw + 0.8rem, 3.3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    #testimonials .headline-2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(1.7rem, 2vw + 0.8rem, 2.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #1e1a17;
+      margin: 0;
+      padding: 10px 18px;
+      background: #ffe2cc;
+      border-radius: 16px;
+      box-shadow: 0 16px 34px rgba(255, 107, 61, 0.25);
+    }
+
+    #testimonials .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      justify-items: center;
+    }
+
+    #testimonials .card {
+      background: #1e1a17;
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: 0 20px 40px rgba(30, 26, 23, 0.25);
+      display: grid;
+      gap: 10px;
+      text-align: center;
+    }
+
+    #testimonials .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+      margin: 0 auto;
+    }
+
+    #testimonials .rating {
+      color: #ffb086;
+      letter-spacing: 2px;
+      font-size: 0.95rem;
+    }
+
+    #testimonials .quote {
+      color: #f5e9df;
+      line-height: 1.6;
+    }
+
+    #testimonials .by {
+      color: #f9d9c1;
+      font-weight: 700;
+    }
+
+    #testimonials .result-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      color: #5c4f46;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 700px) {
+      #testimonials {
+        padding: 70px 0;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <h2>Pengalaman Kontraktor yang Sudah Ikut</h2>
+    <div class="headline-2">Lead lebih stabil, chat lebih gampang closing</div>
+    <div class="grid">
+      <article class="card">
+        <img
+          class="avatar"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEycJfgDzrqMKBVO-freXpi-27_iE26GlVyQ&s"
+          alt="Rafi, Kontraktor Bekasi"
+          loading="lazy"
+        />
+        <p class="rating" aria-label="Bintang 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="quote">
+          "Dulu lead naik turun. Setelah ikut langkahnya, request meeting mulai stabil.
+          Rasanya ada harapan baru tiap minggu."
+        </p>
+        <p class="by">— Rafi, Kontraktor Bekasi</p>
+      </article>
+      <article class="card">
+        <img
+          class="avatar"
+          src="https://kaltimtoday.co/wp-content/uploads/2025/08/dwi-hartono-istimewa-68ae70ce02816.jpg"
+          alt="Dimas, Kontraktor Bandung"
+          loading="lazy"
+        />
+        <p class="rating" aria-label="Bintang 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="quote">
+          "Paling kerasa di script chat &amp; follow up. Prospek nggak banyak PHP
+          dan lebih cepat closing."
+        </p>
+        <p class="by">— Dimas, Kontraktor Bandung</p>
+      </article>
+      <article class="card">
+        <img
+          class="avatar"
+          src="https://assets.kompasiana.com/statics/crawl/5564b0cf0423bdd4238b4567.jpeg?t=o&v=300"
+          alt="Arif, Kontraktor Bali"
+          loading="lazy"
+        />
+        <p class="rating" aria-label="Bintang 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="quote">
+          "Kontennya gampang dipraktekin. WA masuk naik, testimoni juga mulai banyak. Closing lebih
+          rapi dari minggu ke minggu."
+        </p>
+        <p class="by">— Nisa, Kontraktor Bali</p>
+      </article>
+    </div>
+  </div>
+
+  <script>
+    const testimonialCards = document.querySelectorAll("#testimonials .card");
+    testimonialCards.forEach((card, index) => {
+      card.style.opacity = "0";
+      card.style.transform = "translateY(16px)";
+      setTimeout(() => {
+        card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        card.style.opacity = "1";
+        card.style.transform = "translateY(0)";
+      }, 120 + index * 120);
+    });
+  </script>
+</section>

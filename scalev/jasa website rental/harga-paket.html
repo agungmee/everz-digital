@@ -1,0 +1,127 @@
+<section id="harga-paket" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;600;700&display=swap");
+
+    #harga-paket {
+      padding: 90px 0;
+      background: linear-gradient(180deg, #f2fbf7 0%, #ffffff 100%);
+    }
+
+    #harga-paket .wrap {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 24px;
+      text-align: center;
+    }
+
+    #harga-paket h2 {
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(1.9rem, 2.2vw + 0.9rem, 2.6rem);
+      margin: 0;
+      color: #121323;
+    }
+
+    #harga-paket .price-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid rgba(16, 24, 40, 0.08);
+      box-shadow: 0 18px 32px rgba(15, 23, 42, 0.08);
+      display: grid;
+      gap: 16px;
+      justify-items: center;
+    }
+
+    #harga-paket .package {
+      font-family: "Unbounded", sans-serif;
+      font-size: 1.1rem;
+      color: #0b7a6b;
+    }
+
+    #harga-paket .price {
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(2rem, 3vw + 1rem, 3rem);
+      color: #121323;
+      margin: 0;
+    }
+
+    #harga-paket .once {
+      font-family: "Manrope", sans-serif;
+      color: #3f445b;
+    }
+
+    #harga-paket .include-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+      font-family: "Manrope", sans-serif;
+      color: #3f445b;
+      text-align: left;
+      width: min(320px, 100%);
+    }
+
+    #harga-paket .include-list li {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    #harga-paket .upgrade {
+      background: rgba(11, 122, 107, 0.08);
+      color: #0b7a6b;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-family: "Manrope", sans-serif;
+      font-weight: 600;
+    }
+
+    #harga-paket .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      background: #0b7a6b;
+      color: #fff;
+      box-shadow: 0 16px 28px rgba(11, 122, 107, 0.32);
+      transition: transform 0.2s ease;
+    }
+
+    #harga-paket .cta:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 720px) {
+      #harga-paket {
+        padding: 70px 0;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <h2>Harga &amp; Paket</h2>
+
+    <div class="price-card">
+      <span class="package">Paket Hemat Website Rental Mobil</span>
+      <p class="price">Rp 480.000</p>
+      <span class="once">Sekali bayar</span>
+
+      <ul class="include-list">
+        <li><span>✔</span><span>Website siap pakai</span></li>
+        <li><span>✔</span><span>Domain <strong>.my.id</strong></span></li>
+        <li><span>✔</span><span>Setup &amp; publish</span></li>
+      </ul>
+
+      <div class="upgrade">Optional upgrade: domain <strong>.com</strong> (+ biaya tambahan)</div>
+
+      <a class="cta" href="https://wa.me/6281234567890">🟢 Pesan Sekarang - Website Siap Online</a>
+    </div>
+  </div>
+</section>

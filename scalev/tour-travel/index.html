@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tour & Travel Mastery</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f2ea;
+        --bg-2: #fff7ef;
+        --ink: #1c1a17;
+        --muted: #5d574f;
+        --accent: #e46f2a;
+        --accent-2: #0f5e58;
+        --gold: #d19b32;
+        --card: #fffaf4;
+        --border: rgba(28, 26, 23, 0.12);
+        --shadow: 0 18px 40px rgba(28, 26, 23, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Work Sans", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: radial-gradient(
+            circle at 10% 10%,
+            rgba(228, 111, 42, 0.18),
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at 90% 0%,
+            rgba(15, 94, 88, 0.2),
+            transparent 48%
+          ),
+          linear-gradient(180deg, var(--bg), var(--bg-2));
+        min-height: 100vh;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .page {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        padding: 20px 16px 80px;
+        max-width: 1040px;
+        margin: 0 auto;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 12px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(6px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .brand-mark {
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--accent), var(--gold));
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-weight: 700;
+      }
+
+      .brand-title {
+        font-family: "Fraunces", serif;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .badge {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+        background: rgba(15, 94, 88, 0.12);
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+
+      .hero {
+        display: grid;
+        gap: 20px;
+        padding: 28px 22px;
+        border-radius: 26px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        right: -40px;
+        top: -30px;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          rgba(228, 111, 42, 0.25),
+          transparent 70%
+        );
+        z-index: 0;
+      }
+
+      .hero h1 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(28px, 6vw, 40px);
+        margin: 0;
+        line-height: 1.15;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-kicker {
+        font-weight: 600;
+        color: var(--accent-2);
+        font-size: 16px;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1;
+        align-items: center;
+        width: 100%;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 18px;
+        border-radius: 14px;
+        border: 1px solid transparent;
+        font-weight: 600;
+        text-decoration: none;
+        text-align: center;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent), #f0a73d);
+        color: #fff;
+        box-shadow: 0 12px 26px rgba(228, 111, 42, 0.35);
+      }
+
+      .btn-secondary {
+        background: #fff;
+        border-color: var(--border);
+        color: var(--accent-2);
+      }
+
+      .btn:active {
+        transform: translateY(2px);
+        box-shadow: none;
+      }
+
+      .btn-full {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .section {
+        display: grid;
+        gap: 18px;
+        padding: 26px 20px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--border);
+      }
+
+      .section-title {
+        font-family: "Fraunces", serif;
+        margin: 0;
+        font-size: 22px;
+      }
+
+      .lead {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .card {
+        padding: 16px;
+        border-radius: 16px;
+        background: var(--card);
+        border: 1px solid var(--border);
+      }
+
+      .card h3 {
+        margin: 0 0 8px;
+        font-size: 16px;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--accent-2);
+        background: #fff;
+      }
+
+      .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(228, 111, 42, 0.15),
+          rgba(15, 94, 88, 0.12)
+        );
+        border-radius: 16px;
+        padding: 16px;
+      }
+
+      .list {
+        display: grid;
+        gap: 8px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .list li {
+        display: grid;
+        gap: 4px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: #fff;
+        border: 1px solid var(--border);
+        font-size: 14px;
+      }
+
+      .price-box {
+        display: grid;
+        gap: 12px;
+        border-radius: 18px;
+        padding: 18px;
+        border: 1px dashed rgba(228, 111, 42, 0.4);
+        background: #fff6ed;
+      }
+
+      .price {
+        font-size: 30px;
+        font-weight: 700;
+        font-family: "Fraunces", serif;
+        margin: 0;
+      }
+
+      .strike {
+        text-decoration: line-through;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .testi {
+        display: grid;
+        gap: 10px;
+      }
+
+      .testi span {
+        font-weight: 600;
+      }
+
+      .faq details {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px 14px;
+        background: #fff;
+      }
+
+      .faq summary {
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        animation: fadeUp 0.8s ease forwards;
+      }
+
+      .reveal-delay-1 {
+        animation-delay: 0.1s;
+      }
+
+      .reveal-delay-2 {
+        animation-delay: 0.2s;
+      }
+
+      .reveal-delay-3 {
+        animation-delay: 0.3s;
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (min-width: 720px) {
+        .page {
+          padding: 28px 24px 96px;
+        }
+
+        .hero {
+          grid-template-columns: 1.2fr 0.8fr;
+          align-items: center;
+        }
+
+        .cta-row {
+          flex-direction: row;
+        }
+
+        .grid.two {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid.three {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero reveal reveal-delay-1">
+        <div>
+          <h1>
+            Usaha Tour & Travel Kamu Sepi Dan Ga Stabil?
+          </h1>
+          <p>
+            Ini cara terbaik supaya bisnis tour & travel kamu naik kelas dan
+            lebih stabil sepanjang tahun.
+          </p>
+          <p class="hero-kicker">
+            Cara ini dipakai banyak pengusaha tour & travel besar yang sudah lama
+            menjalankan bisnisnya dan punya penghasilan stabil setiap tahun.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary btn-full" href="#checkout"
+              >Ambil Paket Pro</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="aidca">
+        <h2 class="section-title">AIDCA: Alur yang bikin calon pelanggan yakin</h2>
+        <p class="lead">
+          Setiap modul disusun supaya menarik perhatian, membangun minat, memicu
+          hasrat beli, memberi keyakinan, dan mendorong aksi.
+        </p>
+        <div class="grid two">
+          <div class="card">
+            <h3>Attention</h3>
+            <p>
+              Susun paket wisata unik + headline yang bikin orang berhenti scroll.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Interest</h3>
+            <p>
+              Bangun konten edukasi yang bikin calon tamu paham value kamu.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Desire</h3>
+            <p>
+              Teknik framing agar paket terlihat eksklusif dan worth it.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Conviction</h3>
+            <p>
+              Bangun kepercayaan via review, proof, dan alur closing yang solid.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Action</h3>
+            <p>
+              CTA, follow up, dan upsell supaya closing maksimal tanpa drama.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="kurikulum">
+        <h2 class="section-title">Isi Paket Utama</h2>
+        <p class="lead">
+          Ini 5 fondasi yang akan mengubah cara kamu mengelola paket, traffic,
+          dan penjualan.
+        </p>
+        <div class="grid">
+          <div class="card">
+            <h3>1. Paket Wisata Menguntungkan</h3>
+            <p>
+              Riset kebutuhan pasar, bikin itinerary bernilai tinggi, dan hitung
+              margin yang aman.
+            </p>
+          </div>
+          <div class="card">
+            <h3>2. Traffic Organik</h3>
+            <p>
+              Sosial media, website, SEO, dan WhatsApp group untuk hasil
+              konsisten.
+            </p>
+          </div>
+          <div class="card">
+            <h3>3. Traffic Berbayar</h3>
+            <p>
+              Google Ads, Instagram Ads, Facebook Ads, Tiktok Ads dengan struktur
+              funnel yang benar.
+            </p>
+          </div>
+          <div class="card">
+            <h3>4. Closing & Upsell</h3>
+            <p>
+              Script balas chat, follow up, dan strategi upsell agar revenue naik.
+            </p>
+          </div>
+          <div class="card">
+            <h3>5. Review yang Menjual</h3>
+            <p>
+              Cara meminta testimoni, merapikan hasil trip, dan publish review
+              yang memancing repeat order.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <h2 class="section-title">Bonus yang bikin eksekusi makin cepat</h2>
+        <div class="grid two">
+          <div class="card">
+            <h3>Template Paket Wisata Premium</h3>
+            <p>Format siap pakai untuk paket inbound, outbound, dan open trip.</p>
+          </div>
+          <div class="card">
+            <h3>Checklist Launching Paket Baru</h3>
+            <p>Langkah harian 14 hari agar paket baru cepat tembus pasar.</p>
+          </div>
+          <div class="card">
+            <h3>Bank Script Follow Up</h3>
+            <p>Script chat WA untuk cold, warm, dan repeat customer.</p>
+          </div>
+          <div class="card">
+            <h3>Flow Review & Referral</h3>
+            <p>Alur minta review agar efek viral tetap terjaga.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <h2 class="section-title">Hasil yang bisa kamu kejar</h2>
+        <div class="grid three">
+          <div class="card">
+            <h3>Omzet Lebih Stabil</h3>
+            <p>Traffic organik dan iklan berjalan seimbang.</p>
+          </div>
+          <div class="card">
+            <h3>Tim Lebih Rapi</h3>
+            <p>Script dan SOP membuat closing tidak bergantung satu orang.</p>
+          </div>
+          <div class="card">
+            <h3>Repeat Order</h3>
+            <p>Review yang kuat mendorong pelanggan balik lagi.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="checkout">
+        <h2 class="section-title">Pilih paket terbaik untuk bisnis kamu</h2>
+        <div class="grid two">
+          <div class="price-box">
+            <span class="pill">Paket Reguler</span>
+            <p class="price">Rp 497.000</p>
+            <p class="strike">Harga normal Rp 1.200.000</p>
+            <ul class="list">
+              <li>5 modul utama Tour & Travel Mastery</li>
+              <li>Bonus template paket wisata</li>
+              <li>Akses selamanya</li>
+            </ul>
+            <a class="btn btn-secondary" href="https://wa.me/" target="_blank"
+              >Konsultasi dulu</a
+            >
+          </div>
+          <div class="price-box">
+            <span class="pill">Paket Pro (Rekomendasi)</span>
+            <p class="price">Rp 997.000</p>
+            <p class="strike">Harga normal Rp 2.500.000</p>
+            <ul class="list">
+              <li>Semua modul utama + semua bonus</li>
+              <li>Template script closing + follow up</li>
+              <li>Audit landing page 1x</li>
+            </ul>
+            <a class="btn btn-primary" href="https://wa.me/" target="_blank"
+              >Saya mau Paket Pro</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <h2 class="section-title">Testimoni cepat dari batch awal</h2>
+        <div class="testi">
+          <div class="card">
+            <span>Rani, Travel Bandung</span>
+            <p>
+              "Akhirnya ngerti cara bikin paket yang bikin orang percaya. Closing
+              naik 2x cuma dari perbaikan chat."
+            </p>
+          </div>
+          <div class="card">
+            <span>Fikri, Owner Open Trip</span>
+            <p>
+              "Template script follow up-nya nyelametin banyak lead lama yang
+              sempat hilang."
+            </p>
+          </div>
+          <div class="card">
+            <span>Mira, Tour Leader</span>
+            <p>
+              "Materinya langsung bisa dipraktekkan. Sekarang tim punya SOP
+              sendiri."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal faq">
+        <h2 class="section-title">FAQ</h2>
+        <details>
+          <summary>Ini cocok untuk travel kecil?</summary>
+          <p>
+            Cocok. Materi dibuat supaya owner dan tim kecil bisa langsung
+            eksekusi.
+          </p>
+        </details>
+        <details>
+          <summary>Butuh skill iklan dulu?</summary>
+          <p>
+            Tidak. Modul iklan dari nol sampai struktur campaign yang rapi.
+          </p>
+        </details>
+        <details>
+          <summary>Berapa lama sampai hasil?</summary>
+          <p>
+            Jika eksekusi, biasanya 2-4 minggu sudah terlihat peningkatan lead.
+          </p>
+        </details>
+      </section>
+
+      <section class="section reveal">
+        <h2 class="section-title">Siap naik kelas?</h2>
+        <p class="lead">
+          Amankan akses Tour & Travel Mastery sekarang. Harga promo terbatas
+          untuk batch awal.
+        </p>
+        <a class="btn btn-primary" href="https://wa.me/" target="_blank"
+          >Ambil Paket Pro Sekarang</a
+        >
+      </section>
+
+      <footer class="footer reveal">
+        <p>2025 Tour & Travel Mastery. All rights reserved.</p>
+      </footer>
+    </main>
+
+    <script>
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationPlayState = "running";
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      reveals.forEach((el) => {
+        el.style.animationPlayState = "paused";
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

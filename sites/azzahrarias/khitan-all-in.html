@@ -232,6 +232,23 @@
   </style>
 </head>
 <body>
+  <audio id="bg-music" src="https://everz-digital.site/wp-content/uploads/2026/02/Banda-Neira-Sampai-Jadi-Debu-Peaceful-Piano-1.mp3" autoplay loop playsinline></audio>
+  <script>
+    (function () {
+      var audio = document.getElementById("bg-music");
+      if (!audio) return;
+      var tryPlay = function () {
+        audio.play().catch(function () {});
+      };
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", tryPlay);
+      } else {
+        tryPlay();
+      }
+      document.addEventListener("click", tryPlay, { once: true });
+      document.addEventListener("touchstart", tryPlay, { once: true });
+    })();
+  </script>
   <main class="page">
     <div class="frame">
       <div class="ornament" aria-hidden="true"></div>

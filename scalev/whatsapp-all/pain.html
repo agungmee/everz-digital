@@ -1,0 +1,114 @@
+<section id="pain" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&display=swap");
+
+    #pain {
+      padding: 90px 0;
+      background: radial-gradient(circle at top, #eafff4 0%, #f6fffb 55%, #e2f5ec 100%);
+      text-align: center;
+    }
+
+    #pain .wrap {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+      justify-items: center;
+    }
+
+    #pain h2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(2.2rem, 3.1vw + 0.8rem, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: #0b4bff;
+    }
+
+    #pain .headline-2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(1.7rem, 2vw + 0.8rem, 2.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #0b4bff;
+      margin: 0;
+      padding: 10px 18px;
+      background: #d7f7e8;
+      border-radius: 16px;
+      box-shadow: 0 16px 34px rgba(15, 176, 106, 0.25);
+    }
+
+    #pain .lead {
+      color: #4f433c;
+      max-width: 720px;
+      line-height: 1.7;
+      margin: 0 auto;
+      font-size: 1.08rem;
+    }
+
+    #pain .issue-card {
+      list-style: none;
+      margin: 0;
+      padding: 20px 22px;
+      display: grid;
+      gap: 12px;
+      background: #1e1a17;
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(30, 26, 23, 0.25);
+      width: min(820px, 92vw);
+      text-align: left;
+    }
+
+    #pain .issue-card li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: #f5e9df;
+      font-size: 1.02rem;
+    }
+
+    #pain .issue-icon {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 700px) {
+      #pain {
+        padding: 70px 0;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <h2>Capek Nunggu Pembeli Datang?</h2>
+    <div class="headline-2">Buat Mereka Langsung Chat ke WhatsApp Kamu</div>
+    <p class="lead">
+      Chat adalah jalur paling cepat untuk booking, konsultasi, dan closing. Tapi tanpa alur yang rapi, chat gampang mandek.
+      Saat alur jelas, chat lebih stabil dan closing lebih konsisten.
+    </p>
+    <ul class="issue-card">
+      <li><span class="issue-icon">😕</span><span>Iklan sudah jalan, tapi chat masuk cuma beberapa orang.</span></li>
+      <li><span class="issue-icon">⏱️</span><span>Admin telat balas, calon pelanggan keburu pindah ke kompetitor.</span></li>
+      <li><span class="issue-icon">📉</span><span>Biaya klik mahal, chat yang masuk belum sesuai target.</span></li>
+      <li><span class="issue-icon">👻</span><span>Calon pembeli tanya harga lalu ghosting setelah 1–2 pesan.</span></li>
+      <li><span class="issue-icon">🌀</span><span>Order ramai di waktu tertentu, hari biasa sepi dan closing naik turun.</span></li>
+      <li><span class="issue-icon">📒</span><span>Data chat berantakan, follow up lupa, status order tidak jelas.</span></li>
+      <li><span class="issue-icon">💸</span><span>Promosi rutin, tapi lead datang dari segmen yang kurang tepat.</span></li>
+    </ul>
+  </div>
+
+  <script>
+    const painCard = document.querySelector("#pain .issue-card");
+    if (painCard) {
+      painCard.style.opacity = "0";
+      painCard.style.transform = "translateY(16px)";
+      setTimeout(() => {
+        painCard.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        painCard.style.opacity = "1";
+        painCard.style.transform = "translateY(0)";
+      }, 120);
+    }
+  </script>
+</section>

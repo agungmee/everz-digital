@@ -1,0 +1,110 @@
+<section id="faq" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;600;700&display=swap");
+
+    #faq {
+      padding: 90px 0;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    }
+
+    #faq .wrap {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 24px;
+    }
+
+    #faq h2 {
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(1.8rem, 2.2vw + 0.9rem, 2.6rem);
+      margin: 0;
+      color: #121323;
+      text-align: center;
+    }
+
+    #faq .lead {
+      font-family: "Manrope", sans-serif;
+      color: #3f445b;
+      max-width: 720px;
+      line-height: 1.7;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    #faq .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    #faq details {
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px 18px;
+      border: 1px solid rgba(16, 24, 40, 0.08);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.06);
+    }
+
+    #faq summary {
+      cursor: pointer;
+      font-family: "Unbounded", sans-serif;
+      font-size: 1rem;
+      color: #121323;
+      list-style: none;
+    }
+
+    #faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    #faq summary::after {
+      content: "+";
+      float: right;
+      font-family: "Manrope", sans-serif;
+      color: #0b7a6b;
+      font-weight: 700;
+    }
+
+    #faq details[open] summary::after {
+      content: "-";
+    }
+
+    #faq .answer {
+      margin-top: 10px;
+      font-family: "Manrope", sans-serif;
+      color: #4a4f67;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 720px) {
+      #faq {
+        padding: 70px 0;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <div>
+      <h2>FAQ</h2>
+      <p class="lead">Jawaban singkat untuk pertanyaan paling sering ditanyakan.</p>
+    </div>
+
+    <div class="faq-list">
+      <details>
+        <summary>Apakah bisa ganti warna / layout?</summary>
+        <div class="answer">Tidak. Paket ini memakai template tetap supaya cepat online.</div>
+      </details>
+      <details>
+        <summary>Berapa lama proses?</summary>
+        <div class="answer">3-5 hari kerja setelah data lengkap.</div>
+      </details>
+      <details>
+        <summary>Apakah bisa tambah fitur?</summary>
+        <div class="answer">Tidak di paket ini.</div>
+      </details>
+      <details>
+        <summary>Apakah bisa upgrade nanti?</summary>
+        <div class="answer">Bisa. Anda dapat upgrade ke paket custom kapan saja.</div>
+      </details>
+    </div>
+  </div>
+</section>

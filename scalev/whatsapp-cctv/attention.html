@@ -1,0 +1,232 @@
+<section id="attention" class="section hero">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&display=swap");
+
+    #attention {
+      padding: 40px 0 90px;
+      text-align: center;
+      background: radial-gradient(circle at top, #eafff4 0%, #f6fffb 55%, #e2f5ec 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #attention::before,
+    #attention::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(15, 176, 106, 0.2), transparent 70%);
+      filter: blur(10px);
+      z-index: 0;
+      animation: floatGlow 16s ease-in-out infinite;
+    }
+
+    #attention::before {
+      top: -120px;
+      left: 12%;
+    }
+
+    #attention::after {
+      bottom: -140px;
+      right: 8%;
+      animation-delay: -6s;
+    }
+
+    @keyframes floatGlow {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translateY(-24px) scale(1.08);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+    }
+
+    #attention .hero-wrap {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 32px;
+      justify-items: center;
+    }
+
+    #attention .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #1f7a74;
+    }
+
+    #attention h1 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(2.4rem, 3.4vw + 0.8rem, 3.6rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 4px 0 12px;
+      color: #0b4bff;
+      text-shadow: 0 10px 32px rgba(11, 75, 255, 0.25);
+    }
+
+    #attention .headline-2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(1.9rem, 2.2vw + 0.8rem, 2.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: #0b4bff;
+      margin: 0;
+      padding: 10px 18px;
+      background: #d7f7e8;
+      border-radius: 16px;
+      box-shadow: 0 16px 34px rgba(15, 176, 106, 0.25);
+    }
+
+    #attention .lead {
+      max-width: 720px;
+      color: #4f433c;
+      font-size: 1.08rem;
+    }
+
+    #attention .upsell-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(120deg, #16c46d, #0e9c60);
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      box-shadow: 0 18px 36px rgba(14, 156, 96, 0.35);
+      max-width: 840px;
+    }
+
+    #attention .upsell-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.15);
+      flex-shrink: 0;
+    }
+
+    #attention .testimonial-img {
+      width: min(760px, 92vw);
+      border-radius: 26px;
+      box-shadow: 0 20px 44px rgba(30, 26, 23, 0.22);
+      border: 1px solid rgba(30, 26, 23, 0.08);
+    }
+
+    #attention .alert-box {
+      background: #1e1a17;
+      color: #fff;
+      padding: 18px 20px;
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(30, 26, 23, 0.25);
+      max-width: 760px;
+      width: min(760px, 92vw);
+      text-align: left;
+    }
+
+    #attention .alert-title {
+      font-size: clamp(1.35rem, 1.4vw + 0.8rem, 1.7rem);
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    #attention .alert-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+      font-size: 1.05rem;
+    }
+
+    #attention .alert-list li::before {
+      content: "✓";
+      color: #93e7c7;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    #attention .glow {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(15, 176, 106, 0.35), transparent 70%);
+      top: -80px;
+      right: 10%;
+      filter: blur(5px);
+      z-index: 0;
+    }
+
+    #attention .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 700px) {
+      #attention {
+        padding: 90px 0 70px;
+      }
+    }
+  </style>
+
+  <div class="glow" aria-hidden="true"></div>
+
+  <div class="hero-wrap content">
+    <h1 aria-label="Usaha Pasang CCTV Anda Sepi?">Usaha Pasang CCTV Anda Sepi?</h1>
+    <div class="headline-2">Ini Cara Dapat 100 Chat Sehari Khusus Untuk Usaha Jasa Pasang CCTV</div>
+
+    <p class="lead">
+      Cukup iklan Meta ➜ klik ke WA, balas cepat, dan follow up rapi. Alur ini dibuat supaya tim pasang CCTV bisa
+      kualifikasi kebutuhan lebih cepat (jumlah titik, area, budget) lalu jadwalkan survey dan pemasangan.
+    </p>
+
+    <div class="upsell-badge">
+      <span class="upsell-dot"></span>
+      <span>Blueprint memuat alur iklan Meta, skrip balas cepat, dan follow up khusus pasang CCTV</span>
+    </div>
+
+    <img
+      class="testimonial-img"
+      src="https://everz-digital.site/wp-content/uploads/2026/01/task_01kfcrys03frwrycxnjz0ydw99_1768881673_img_1.webp"
+      alt="Dashboard chat WhatsApp untuk jasa CCTV"
+      loading="lazy"
+    />
+
+    <div class="alert-box">
+      <div class="alert-title">Siap rapikan chat calon klien CCTV?</div>
+      <ul class="alert-list">
+        <li>Chat lebih terarah sesuai lokasi, jumlah titik, dan kebutuhan monitor</li>
+        <li>Iklan lebih fokus: klik langsung ke WA untuk permintaan survey</li>
+        <li>Skrip balas cepat + follow up rapi biar jadwal survey/pasang jelas</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const attention = document.querySelector("#attention .hero-wrap");
+    if (attention) {
+      attention.style.opacity = "0";
+      attention.style.transform = "translateY(18px)";
+      requestAnimationFrame(() => {
+        attention.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        attention.style.opacity = "1";
+        attention.style.transform = "translateY(0)";
+      });
+    }
+
+  </script>
+</section>

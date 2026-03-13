@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Belavista Art and Tourism & Lamalera Sport Fishing Charter</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/png" href="https://everz-digital.site/wp-content/uploads/2026/01/logo_2-removebg-preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
   <style>
     :root{
       --ink:#0c1f2a;
@@ -97,9 +99,11 @@
     .brand-logo{
       width:48px;
       height:48px;
-      border-radius:50%;
-      border:2px solid rgba(255,255,255,.5);
+      border-radius:50% !important;
+      overflow:hidden;
+      aspect-ratio:1 / 1;
       object-fit:cover;
+      border:2px solid rgba(255,255,255,.5);
       box-shadow:0 10px 26px rgba(0,0,0,.35);
       background:#fff;
     }
@@ -129,6 +133,34 @@
       display:flex;
       align-items:center;
       gap:10px;
+    }
+    .social-links{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .social-link{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      border:1px solid var(--line);
+      color:inherit;
+      background:rgba(255,255,255,.08);
+      transition:transform .2s ease;
+    }
+    .social-link i{ font-size:15px; }
+    .social-link:hover{ transform:translateY(-1px); }
+    .nav .social-link{
+      background:#f3f4f6;
+      color:#0b1220;
+      border:1px solid #e5e7eb;
+    }
+    .nav.is-top .social-link{
+      background:rgba(255,255,255,.08);
+      color:var(--paper);
+      border:1px solid var(--line);
     }
     .btn{
       padding:10px 16px;
@@ -671,6 +703,7 @@
       flex-wrap:wrap;
       margin-top:16px;
     }
+    .contact-actions + .social-links{ margin-top:12px; }
     .map{
       border:1px solid #e5e7eb;
       border-radius:20px;
@@ -720,6 +753,7 @@
       font-size:14px;
     }
     .footer-list span{ color:#fef3c7; font-weight:700; }
+    .footer .social-links{ margin-top:14px; }
 
     .mobile{
       position:fixed;
@@ -753,6 +787,15 @@
       transition:transform .3s ease;
     }
     .mobile.is-open .mobile-panel{ transform:translateX(0); }
+    .mobile-panel .social-links{
+      margin-top:6px;
+      justify-content:flex-start;
+    }
+    .mobile-panel .social-link{
+      background:rgba(255,255,255,.08);
+      color:#f8faf9;
+      border:1px solid rgba(255,255,255,.2);
+    }
     .mobile-head{
       display:flex;
       align-items:center;
@@ -801,9 +844,12 @@
       .hero-title{ font-size:40px; }
       .menu{ display:none; }
       .burger{ display:grid; }
+      .nav .social-links{ display:none; }
     }
     @media (min-width: 901px){
       .burger{ display:none; }
+      .hero-content > div:first-child{ text-align:left; }
+      .hero-actions{ justify-content:flex-start; }
     }
     @media (max-width: 640px){
       .hero{ min-height:96vh; }
@@ -852,7 +898,17 @@
         <a href="#contact" data-i18n="nav_contact">Kontak</a>
       </div>
       <div class="nav-actions">
-        <a class="btn" href="tel:081237144066" data-i18n="nav_phone">Telepon</a>
+        <div class="social-links" aria-label="Media sosial">
+          <a class="social-link" href="https://www.facebook.com/lamalerasport.fishingcharter" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a class="social-link" href="https://www.instagram.com/wisata_fishing" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a class="social-link" href="https://x.com/LamaleraL" target="_blank" rel="noopener" aria-label="X">
+            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+          </a>
+        </div>
         <a class="btn primary" href="https://wa.me/6281237144066?text=Halo%20Belavista%20Art%20and%20Tourism%2C%20saya%20ingin%20info%20paket%20wisata." data-i18n="nav_whatsapp" data-i18n-href="whatsapp_link" target="_blank" rel="noopener">WhatsApp</a>
         <button class="btn lang-toggle" type="button" id="langToggle" data-i18n-aria-label="lang_toggle_aria">ID</button>
         <button class="burger" type="button" aria-label="Buka menu" data-i18n-aria-label="menu_open_aria" aria-expanded="false" aria-controls="mobileMenu">
@@ -872,15 +928,26 @@
           <div class="mobile-title" data-i18n="mobile_menu_title">Menu</div>
           <button class="mobile-close" type="button" data-close="1" aria-label="Tutup menu" data-i18n-aria-label="menu_close_aria">✕</button>
         </div>
-        <div class="mobile-links">
-          <a href="#about" data-i18n="nav_about">Tentang</a>
-          <a href="#packages" data-i18n="nav_packages">Paket Wisata</a>
-          <a href="#tradition" data-i18n="nav_tradition">Tradisi</a>
-          <a href="#why" data-i18n="nav_why">Keunggulan</a>
-          <a href="#contact" data-i18n="nav_contact">Kontak</a>
-        </div>
+      <div class="mobile-links">
+        <a href="#about" data-i18n="nav_about">Tentang</a>
+        <a href="#packages" data-i18n="nav_packages">Paket Wisata</a>
+        <a href="#tradition" data-i18n="nav_tradition">Tradisi</a>
+        <a href="#why" data-i18n="nav_why">Keunggulan</a>
+        <a href="#contact" data-i18n="nav_contact">Kontak</a>
+      </div>
+      <div class="social-links" aria-label="Media sosial">
+        <a class="social-link" href="https://www.facebook.com/lamalerasport.fishingcharter" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a class="social-link" href="https://www.instagram.com/wisata_fishing" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a class="social-link" href="https://x.com/LamaleraL" target="_blank" rel="noopener" aria-label="X">
+          <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
+  </div>
 
     <div class="hero-content">
       <div>
@@ -891,7 +958,7 @@
         </h1>
         <p class="hero-subtitle" data-i18n="hero_subtitle">
           Jelajahi Lamalera dengan pengalaman laut, budaya, dan alam yang autentik. Kami siap membantu
-          perjalanan wisata, kegiatan mancing sport fishing, hingga agenda budaya khas Lamalera.
+          perjalanan wisata, kegiatan mancing sport fishing, hingga agenda budaya khas Lembata dan Lamalera pada khususnya.
         </p>
         <div class="hero-actions">
           <a class="btn primary" href="#packages" data-i18n="hero_cta_packages">Lihat Paket</a>
@@ -922,7 +989,7 @@
     <h2 class="section-title" data-i18n="about_title">Tentang Kami</h2>
     <p class="section-sub" data-i18n="about_sub">
       Belavista Art and Tourism &amp; Lamalera Sport Fishing Charter berfokus pada pengalaman wisata
-      yang hangat, aman, dan penuh cerita di Lamalera.
+      yang hangat, aman, dan penuh cerita Lembata dan Lamalera pada khususnya.
     </p>
     <div class="about-grid">
       <div class="about-copy">
@@ -1183,7 +1250,7 @@
     <div class="contact-grid">
       <div class="contact-card">
         <h3>Belavista Art and Tourism &amp; Lamalera Sport Fishing Charter</h3>
-        <p data-i18n="contact_desc">Kami siap merancang perjalanan terbaik untuk Anda di Lamalera.</p>
+        <p data-i18n="contact_desc">Kami siap merancang perjalanan terbaik untuk Anda Lembata dan Lamalera pada khususnya.</p>
         <ul class="contact-list">
           <li><span data-i18n="label_address">Alamat:</span> Jln. Lasitarda Wangatoa Selatan Timur, RT 003 / RW 002</li>
           <li><span data-i18n="label_kelurahan">Kelurahan:</span> <span data-i18n="value_kelurahan">Selandoro, Kecamatan Nubatukan</span></li>
@@ -1193,7 +1260,17 @@
         </ul>
         <div class="contact-actions">
           <a class="btn primary" href="https://wa.me/6281237144066?text=Halo%20Belavista%20Art%20and%20Tourism%2C%20saya%20ingin%20info%20paket%20wisata." data-i18n="contact_whatsapp" data-i18n-href="whatsapp_link" target="_blank" rel="noopener">Chat WhatsApp</a>
-          <a class="btn" href="tel:081237144066" data-i18n="contact_phone">Telepon</a>
+        </div>
+        <div class="social-links" aria-label="Media sosial">
+          <a class="social-link" href="https://www.facebook.com/lamalerasport.fishingcharter" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a class="social-link" href="https://www.instagram.com/wisata_fishing" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a class="social-link" href="https://x.com/LamaleraL" target="_blank" rel="noopener" aria-label="X">
+            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+          </a>
         </div>
       </div>
       <div class="map" aria-label="Peta lokasi" data-i18n-aria-label="map_aria">
@@ -1207,7 +1284,7 @@
       <div>
         <h3>Belavista Art and Tourism</h3>
         <p data-i18n="footer_official_site">Website resmi: lamaleratourismfishingcharter.com</p>
-        <p data-i18n="footer_tagline">Wisata bahari, budaya, alam, dan sport fishing di Lamalera.</p>
+        <p data-i18n="footer_tagline">Wisata bahari, budaya, alam, dan sport fishing di Lembata dan Lamalera pada khususnya.</p>
       </div>
       <div>
         <h3 data-i18n="footer_contact_title">Kontak</h3>
@@ -1216,6 +1293,17 @@
           <li><span data-i18n="label_email">Email:</span> noel.beding@gmail.com</li>
           <li><span data-i18n="label_address">Alamat:</span> <span data-i18n="footer_address_value">Jln. Lasitarda Wangatoa Selatan Timur, Kel. Selandoro</span></li>
         </ul>
+        <div class="social-links" aria-label="Media sosial">
+          <a class="social-link" href="https://www.facebook.com/lamalerasport.fishingcharter" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a class="social-link" href="https://www.instagram.com/wisata_fishing" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a class="social-link" href="https://x.com/LamaleraL" target="_blank" rel="noopener" aria-label="X">
+            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -1233,11 +1321,10 @@
           nav_tradition: 'Tradisi',
           nav_why: 'Keunggulan',
           nav_contact: 'Kontak',
-          nav_phone: 'Telepon',
           nav_whatsapp: 'WhatsApp',
           hero_kicker: 'Petualangan Laut & Budaya Lamalera',
           hero_title: 'Belavista Art and Tourism<br>Lamalera Sport Fishing Charter',
-          hero_subtitle: 'Jelajahi Lamalera dengan pengalaman laut, budaya, dan alam yang autentik. Kami siap membantu perjalanan wisata, kegiatan mancing sport fishing, hingga agenda budaya khas Lamalera.',
+          hero_subtitle: 'Jelajahi Lamalera dengan pengalaman laut, budaya, dan alam yang autentik. Kami siap membantu perjalanan wisata, kegiatan mancing sport fishing, hingga budaya khas Lembata dan Lamalera pada khususnya.',
           hero_cta_packages: 'Lihat Paket',
           hero_cta_email: 'Email Kami',
           quick_contact_title: 'Kontak Cepat',
@@ -1250,7 +1337,7 @@
           value_kabupaten: 'Lembata, Nusa Tenggara Timur',
           slide_indicator_aria: 'Indikator slide',
           about_title: 'Tentang Kami',
-          about_sub: 'Belavista Art and Tourism & Lamalera Sport Fishing Charter berfokus pada pengalaman wisata yang hangat, aman, dan penuh cerita di Lamalera.',
+          about_sub: 'Belavista Art and Tourism & Lamalera Sport Fishing Charter berfokus pada pengalaman wisata yang hangat, aman, dan penuh cerita di Lembata dan Lamalera pada khususnya.',
           about_heading: 'Perpaduan Wisata Laut, Alam, dan Budaya',
           about_p1: 'Kami menghadirkan paket wisata yang menonjolkan keindahan laut Lamalera, tradisi lokal, dan petualangan alam. Tim lokal kami siap membantu perjalanan yang fleksibel, mulai dari wisata melihat paus hingga eksplorasi kuliner khas daerah.',
           about_p2: 'Gunakan layanan kami untuk rencana wisata keluarga, rombongan, maupun pengalaman sport fishing yang seru dan berkesan.',
@@ -1326,13 +1413,12 @@
           why_card4_desc: 'Wisata budaya dan kuliner yang memperlihatkan kehidupan asli Lamalera.',
           contact_title: 'Hubungi Kami',
           contact_sub: 'Informasi paket, jadwal, dan kebutuhan khusus bisa langsung kami bantu.',
-          contact_desc: 'Kami siap merancang perjalanan terbaik untuk Anda di Lamalera.',
+          contact_desc: 'Kami siap merancang perjalanan terbaik untuk Anda Lembata dan Lamalera pada khususnya.',
           contact_whatsapp: 'Chat WhatsApp',
-          contact_phone: 'Telepon',
           map_aria: 'Peta lokasi',
           map_title: 'Peta Lamalera',
           footer_official_site: 'Website resmi: lamaleratourismfishingcharter.com',
-          footer_tagline: 'Wisata bahari, budaya, alam, dan sport fishing di Lamalera.',
+          footer_tagline: 'Wisata bahari, budaya, alam, dan sport fishing Lembata dan Lamalera pada khususnya.',
           footer_contact_title: 'Kontak',
           footer_address_value: 'Jln. Lasitarda Wangatoa Selatan Timur, Kel. Selandoro',
           whatsapp_link: 'https://wa.me/6281237144066?text=Halo%20Belavista%20Art%20and%20Tourism%2C%20saya%20ingin%20info%20paket%20wisata.'
@@ -1347,11 +1433,10 @@
           nav_tradition: 'Tradition',
           nav_why: 'Why Us',
           nav_contact: 'Contact',
-          nav_phone: 'Call',
           nav_whatsapp: 'WhatsApp',
           hero_kicker: 'Lamalera Sea & Culture Adventures',
           hero_title: 'Belavista Art and Tourism<br>Lamalera Sport Fishing Charter',
-          hero_subtitle: 'Explore Lamalera with authentic sea, cultural, and nature experiences. We can help with tours, sport fishing trips, and Lamalera cultural agendas.',
+          hero_subtitle: 'Explore Lamalera with authentic sea, cultural, and nature experiences. We can help with tours, sport fishing trips, and the culture of Lembata in general and Lamalera in particular.',
           hero_cta_packages: 'View Packages',
           hero_cta_email: 'Email Us',
           quick_contact_title: 'Quick Contact',
@@ -1364,7 +1449,7 @@
           value_kabupaten: 'Lembata, East Nusa Tenggara',
           slide_indicator_aria: 'Slide indicator',
           about_title: 'About Us',
-          about_sub: 'Belavista Art and Tourism & Lamalera Sport Fishing Charter focuses on warm, safe, story-rich journeys in Lamalera.',
+          about_sub: 'Belavista Art and Tourism & Lamalera Sport Fishing Charter focuses on warm, safe, story-rich journeys in Lembata in general and Lamalera in particular.',
           about_heading: 'A Blend of Sea, Nature, and Culture',
           about_p1: 'We offer packages highlighting Lamalera\'s sea beauty, local traditions, and nature adventures. Our local team supports flexible trips, from whale watching to local culinary exploration.',
           about_p2: 'Use our services for family trips, groups, and exciting sport fishing experiences.',
@@ -1440,13 +1525,12 @@
           why_card4_desc: 'Cultural and culinary tours that reflect real Lamalera life.',
           contact_title: 'Contact Us',
           contact_sub: 'We can help with packages, schedules, and special requests.',
-          contact_desc: 'We are ready to plan the best Lamalera trip for you.',
+          contact_desc: 'We are ready to plan the best trip for you in Lembata in general and Lamalera in particular.',
           contact_whatsapp: 'WhatsApp Chat',
-          contact_phone: 'Call',
           map_aria: 'Location map',
           map_title: 'Lamalera Map',
           footer_official_site: 'Official website: lamaleratourismfishingcharter.com',
-          footer_tagline: 'Marine, cultural, nature, and sport fishing tours in Lamalera.',
+          footer_tagline: 'Marine, cultural, nature, and sport fishing tours in Lembata in general and Lamalera in particular.',
           footer_contact_title: 'Contact',
           footer_address_value: 'Jln. Lasitarda Wangatoa Selatan Timur, Selandoro Village',
           whatsapp_link: 'https://wa.me/6281237144066?text=Hello%20Belavista%20Art%20and%20Tourism%2C%20I%20would%20like%20information%20about%20tour%20packages.'

@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentoring CCTV Leads | Landing Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --blue-900: #163d85;
+      --blue-700: #2f62d9;
+      --blue-600: #4172e8;
+      --blue-500: #5b8cff;
+      --sky-100: #f1f5ff;
+      --ink-900: #0f172a;
+      --ink-600: #475569;
+      --ink-500: #64748b;
+      --bg: #eef2f8;
+      --white: #ffffff;
+      --danger-50: #fff4f4;
+      --danger-500: #d93f3f;
+      --success-50: #eefbf2;
+      --success-500: #1f9d55;
+      --radius-xl: 20px;
+      --radius-lg: 14px;
+      --shadow: 0 20px 55px rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background: var(--bg);
+      color: var(--ink-900);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(100%, 980px);
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.4rem, 2.1vw, 2rem);
+      line-height: 1.3;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--ink-600);
+      max-width: 720px;
+      margin: 0 auto 28px;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding-top: 38px;
+      padding-bottom: 34px;
+      background: linear-gradient(180deg, #f8faff 0%, #eef2f8 100%);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+      line-height: 1.2;
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    .hero .subtitle {
+      max-width: 760px;
+      margin: 0 auto 14px;
+      color: #4c1dff;
+      font-weight: 800;
+      font-size: clamp(1.55rem, 5.4vw, 3.1rem);
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+    }
+
+    .hero-note {
+      margin-top: 8px;
+      color: var(--ink-500);
+      max-width: 620px;
+      margin-inline: auto;
+      font-size: clamp(0.95rem, 2.5vw, 1.12rem);
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .hero-proof {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #0f172a;
+      font-size: clamp(1rem, 1.8vw, 1.3rem);
+      font-weight: 800;
+    }
+
+    .hero-social-lead {
+      margin: 12px auto 0;
+      color: #1e293b;
+      font-size: clamp(0.9rem, 2.1vw, 1rem);
+      font-weight: 800;
+      line-height: 1.35;
+      max-width: 620px;
+      background: #ffffff;
+      border: 1px solid #dbe6ff;
+      border-radius: 999px;
+      padding: 8px 14px;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+    }
+
+    .hero-proof-dot {
+      width: 21px;
+      height: 21px;
+      border-radius: 999px;
+      background: #4c1dff;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 0.72rem;
+      line-height: 1;
+    }
+
+    .hero-image-wrap {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image {
+      width: min(100%, 720px);
+      border-radius: 16px;
+      box-shadow: 0 16px 38px rgba(15, 23, 42, 0.18);
+      display: block;
+    }
+
+    .hero-meta-note {
+      margin: 16px auto 0;
+      max-width: 760px;
+      background: #ffffff;
+      border: 1px solid #dce6fb;
+      border-radius: 14px;
+      padding: 14px 16px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    .hero-meta-note h3 {
+      font-size: 1rem;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      color: var(--ink-900);
+      font-weight: 800;
+    }
+
+    .hero-meta-note p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--ink-600);
+    }
+
+    .story-section {
+      padding-top: 26px;
+    }
+
+    .story-card {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #dce6fb;
+      border-radius: 16px;
+      padding: 18px 16px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .story-tag {
+      display: inline-block;
+      background: #ece8ff;
+      color: #4c1dff;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .story-card p {
+      font-size: 0.94rem;
+      line-height: 1.6;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+
+    .story-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .band-blue {
+      color: var(--white);
+      background: linear-gradient(120deg, #2f62d9 0%, #4f82f5 100%);
+    }
+
+    .band-blue .section-subtitle { color: #e4ecff; }
+
+    .why-fit {
+      background: linear-gradient(180deg, #4a18f2 0%, #6f1fff 100%);
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .why-fit .section-title {
+      font-size: clamp(1.7rem, 3vw, 2.25rem);
+      margin-bottom: 10px;
+    }
+
+    .why-fit .section-subtitle {
+      color: #e8dcff;
+      font-size: clamp(0.95rem, 1.7vw, 1.05rem);
+      max-width: 680px;
+      margin-bottom: 26px;
+      line-height: 1.55;
+    }
+
+    .why-steps {
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .why-step {
+      display: grid;
+      justify-items: center;
+      gap: 8px;
+    }
+
+    .why-step-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: #d8b9ff;
+      color: #4f1fff;
+      font-size: 1.15rem;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.22);
+    }
+
+    .why-step h3 {
+      font-size: 1.08rem;
+      line-height: 1.3;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .why-step p {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      max-width: 620px;
+      color: #e9dcff;
+    }
+
+    .why-proof-card {
+      max-width: 760px;
+      margin: 22px auto 0;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px 14px 12px;
+      color: #0f172a;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.2);
+    }
+
+    .why-proof-quote {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #334155;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .why-proof-quote i {
+      color: #6f1fff;
+      margin-right: 6px;
+    }
+
+    .why-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      text-align: center;
+    }
+
+    .why-stat strong {
+      display: block;
+      font-size: 1.65rem;
+      line-height: 1.1;
+      color: #4f1fff;
+      font-weight: 800;
+    }
+
+    .why-stat span {
+      display: block;
+      font-size: 0.74rem;
+      color: #475569;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .icon-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      margin: 0 0 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.2);
+      font-size: 1rem;
+    }
+
+    .mock-card {
+      margin: 24px auto 0;
+      width: min(100%, 760px);
+      background: var(--white);
+      border-radius: 14px;
+      padding: 18px 20px;
+      color: var(--ink-900);
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
+
+    .mock-card h4 {
+      font-size: 1.02rem;
+      margin-bottom: 10px;
+    }
+    .mock-card ul {
+      padding-left: 18px;
+      color: var(--ink-600);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      display: grid;
+      gap: 6px;
+    }
+
+    .no-join-section .section-title {
+      margin-bottom: 18px;
+    }
+
+    .no-join-visual {
+      width: min(100%, 760px);
+      margin: 0 auto 16px;
+      background: #ffffff;
+      border: 1px solid #e8edf7;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+      display: flex;
+      justify-content: center;
+    }
+
+    .no-join-visual img {
+      width: min(100%, 330px);
+      display: block;
+      border-radius: 10px;
+    }
+
+    .list-card {
+      background: var(--white);
+      border: 1px solid #e8edf7;
+      border-radius: var(--radius-lg);
+      padding: 18px 16px;
+      width: min(100%, 760px);
+      margin: 0 auto;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+    }
+
+    .list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 8px 0;
+      color: #1e293b;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.45;
+      padding: 8px 4px;
+    }
+
+    .list-item .bullet {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: #ffe7e7;
+      color: #ef4444;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      margin-top: 2px;
+    }
+
+    .proof-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .proof-lead {
+      text-align: center;
+      font-size: clamp(1.4rem, 2.3vw, 2rem);
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.25;
+      margin-top: 10px;
+      margin-bottom: 12px;
+    }
+
+    .proof-title {
+      max-width: 640px;
+      margin: 0 auto 10px;
+      text-align: center;
+      line-height: 1.15;
+      font-size: clamp(1.45rem, 2.7vw, 2.1rem);
+      font-weight: 800;
+      color: #0f172a;
+      text-transform: uppercase;
+    }
+
+    .proof-title .accent {
+      color: #4c1dff;
+      display: block;
+    }
+
+    .phone-shot {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 8px;
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.09);
+    }
+
+    .chat-proof-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 6px 6px 8px;
+    }
+
+    .chat-proof-name {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.25;
+    }
+
+    .chat-proof-stars {
+      color: #f59e0b;
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .phone-shot img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .wa-shot {
+      width: min(100%, 280px);
+      margin: 20px auto 0;
+      background: var(--white);
+      border-radius: 14px;
+      padding: 8px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .wa-shot .screen {
+      height: 420px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #1e7d5f 0%, #f8f2e9 50%, #dcf8c6 100%);
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .testi-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 14px;
+      border: 1px solid #e6ebf6;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+      font-size: 0.86rem;
+      color: var(--ink-600);
+    }
+
+    .testi-head {
+      font-weight: 700;
+      color: var(--ink-900);
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .testi-meta {
+      font-size: 0.78rem;
+      color: #64748b;
+      margin-bottom: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .testi-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .testi-badge {
+      font-size: 0.68rem;
+      line-height: 1;
+      font-weight: 800;
+      color: #1e3a8a;
+      background: #eaf0ff;
+      border: 1px solid #d5e1ff;
+      border-radius: 999px;
+      padding: 5px 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+    }
+
+    .testi-metric {
+      border: 1px solid #e7edf8;
+      border-radius: 10px;
+      padding: 8px;
+      margin-bottom: 8px;
+      background: #f8fbff;
+    }
+
+    .testi-metric-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.8rem;
+      line-height: 1.35;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    .testi-metric-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .testi-metric-row strong {
+      color: #0f172a;
+      min-width: 64px;
+      flex-shrink: 0;
+    }
+
+    .testi-item {
+      font-size: 0.84rem;
+      line-height: 1.45;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+
+    .testi-item strong {
+      color: #0f172a;
+    }
+
+    .testi-result {
+      margin-top: 8px;
+      background: #eefbf2;
+      border: 1px solid #b9eacb;
+      border-radius: 10px;
+      padding: 8px;
+      font-size: 0.82rem;
+      color: #166534;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .testi-proof {
+      margin-top: 8px;
+      font-size: 0.78rem;
+      color: #475569;
+      line-height: 1.45;
+    }
+
+    .testi-note {
+      margin: 0 auto 14px;
+      max-width: 760px;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: #64748b;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .fit-item {
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 16px;
+      color: #eef4ff;
+      font-size: clamp(1rem, 1.5vw, 1.08rem);
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .split-box {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .split-panel {
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      border: 1px solid #e7edf8;
+      background: var(--white);
+    }
+
+    .split-panel h4 {
+      margin-bottom: 10px;
+      font-size: clamp(1.12rem, 1.8vw, 1.26rem);
+    }
+
+    .split-panel ul {
+      padding-left: 18px;
+      font-size: clamp(0.98rem, 1.35vw, 1.08rem);
+      line-height: 1.6;
+    }
+
+    .split-panel li { margin: 8px 0; }
+    .danger { background: var(--danger-50); }
+    .danger h4 { color: var(--danger-500); }
+    .success { background: var(--success-50); }
+    .success h4 { color: var(--success-500); }
+
+    .material-box {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #f3f6ff;
+      border: 1px solid #dfe6fb;
+      border-radius: 14px;
+      padding: 16px 14px;
+    }
+
+    .material-list {
+      counter-reset: materi;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .material-list li {
+      position: relative;
+      padding: 0 2px 0 34px;
+    }
+
+    .material-list li::before {
+      counter-increment: materi;
+      content: counter(materi);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #4c1dff;
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+
+    .material-subtitle {
+      text-align: center;
+      color: #64748b;
+      max-width: 680px;
+      margin: 0 auto 16px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .material-title {
+      display: block;
+      color: #0f172a;
+      font-weight: 800;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      margin-bottom: 2px;
+    }
+
+    .material-desc {
+      display: block;
+      color: #475569;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .bonus-wrap {
+      background: #dfe7f4;
+    }
+
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .bonus-card {
+      background: var(--white);
+      border: 1px solid #d7dff0;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .bonus-card .icon-circle {
+      background: #ebf2ff;
+      color: var(--blue-700);
+      margin: 0 auto 10px;
+    }
+
+    .bonus-price {
+      margin-top: 8px;
+      font-size: 0.84rem;
+      color: #1e3a8a;
+      font-weight: 800;
+    }
+
+    .bonus-value-box {
+      margin: 14px auto 0;
+      max-width: 860px;
+      background: #ffffff;
+      border: 1px solid #d7dff0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+
+    .bonus-value-box p {
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: #334155;
+      font-weight: 700;
+    }
+
+    .bonus-value-box strong {
+      color: #0f172a;
+    }
+
+    .bonus-value-box .highlight {
+      color: #4c1dff;
+    }
+
+    .pricing-grid {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .urgency-box {
+      max-width: 860px;
+      margin: 0 auto 14px;
+      background: #fff4f4;
+      border: 1px solid #fecaca;
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+
+    .urgency-title {
+      color: #991b1b;
+      font-size: 0.95rem;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .urgency-subtitle {
+      margin-top: 6px;
+      color: #7f1d1d;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .countdown {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 7px 12px;
+      background: #7f1d1d;
+      color: #ffffff;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .pricing-lead {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 14px;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #1e293b;
+      font-weight: 800;
+    }
+
+    .pricing-lead .accent {
+      color: #4c1dff;
+    }
+
+    .price-card {
+      border: 1px solid #d7def3;
+      border-radius: 14px;
+      padding: 0 14px 14px;
+      background: var(--white);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .price-card.featured {
+      border: 2px solid var(--blue-600);
+    }
+
+    .price-tag {
+      background: linear-gradient(90deg, #4c1dff 0%, #5b35f0 100%);
+      color: #ffffff;
+      text-align: center;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      padding: 7px 10px;
+      margin: 0 -14px 14px;
+      text-transform: uppercase;
+    }
+
+    .price-tag.cheapest {
+      background: linear-gradient(90deg, #c7d2fe 0%, #bfdbfe 100%);
+      color: #1e3a8a;
+    }
+
+    .plan-name {
+      font-size: 1.52rem;
+      line-height: 1.2;
+      font-weight: 800;
+      margin: 0 0 6px;
+      text-align: center;
+      color: #0f172a;
+    }
+
+    .price {
+      text-align: center;
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: #4c1dff;
+      margin-bottom: 12px;
+    }
+
+    .price-compare {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 0 0 6px;
+    }
+
+    .old-price {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #94a3b8;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+    }
+
+    .save-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #166534;
+      background: #dcfce7;
+      border: 1px solid #bbf7d0;
+      border-radius: 999px;
+      padding: 3px 7px;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      animation: saveBadgePulse 1.8s ease-in-out infinite;
+    }
+
+    .save-badge.premium {
+      color: #7c2d12;
+      background: linear-gradient(90deg, #fde68a 0%, #fdba74 100%);
+      border: 1px solid #f59e0b;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+    }
+
+    @keyframes saveBadgePulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(22, 101, 52, 0);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.16);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .save-badge {
+        animation: none;
+      }
+    }
+
+    .price-roi-note {
+      text-align: center;
+      margin: -4px 0 12px;
+      font-size: 0.85rem;
+      color: #334155;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .price-list {
+      list-style: none;
+      color: #334155;
+      display: grid;
+      gap: 7px;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .price-list li {
+      position: relative;
+      padding-left: 20px;
+      line-height: 1.5;
+    }
+
+    .price-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #16a34a;
+      font-weight: 800;
+    }
+
+    .price-list li.off {
+      color: #94a3b8;
+      text-decoration: line-through;
+    }
+
+    .price-list li.off::before {
+      content: "✕";
+      color: #ef4444;
+    }
+
+    .price-compare-note {
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 10px;
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+      color: #1e3a8a;
+      font-size: 0.8rem;
+      line-height: 1.45;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      text-decoration: none !important;
+      background: var(--blue-600);
+      color: #ffffff !important;
+      padding: 12px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn:visited,
+    .btn:hover,
+    .btn:active,
+    .btn:focus {
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+
+    .btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+    .btn.secondary {
+      background: #ecf2ff;
+      color: #0f172a !important;
+    }
+
+    .btn.secondary:visited,
+    .btn.secondary:hover,
+    .btn.secondary:active,
+    .btn.secondary:focus {
+      color: #0f172a !important;
+    }
+
+    .roi-box {
+      margin: 14px auto 0;
+      max-width: 860px;
+      background: #eefbf2;
+      border: 1px solid #b9eacb;
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: #166534;
+      text-align: center;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    .risk-box {
+      margin: 14px auto 0;
+      max-width: 860px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+
+    .risk-box h3 {
+      font-size: 1rem;
+      color: #9a3412;
+      font-weight: 800;
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .risk-box p {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: #7c2d12;
+      font-weight: 700;
+    }
+
+    .faq-list {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-subtitle {
+      text-align: center;
+      color: #64748b;
+      max-width: 620px;
+      margin: 0 auto 18px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .faq-card {
+      background: var(--white);
+      border: 1px solid #e6ebf6;
+      border-radius: 12px;
+      padding: 14px 14px 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .faq-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #ece8ff;
+      color: #4c1dff;
+      display: grid;
+      place-items: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .faq-content h4 {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 0.97rem;
+      line-height: 1.35;
+    }
+
+    .faq-content p {
+      margin-top: 6px;
+      color: #475569;
+      font-size: 0.91rem;
+      line-height: 1.55;
+    }
+
+    .final-cta {
+      text-align: center;
+      color: var(--white);
+      background: linear-gradient(120deg, var(--blue-700), var(--blue-500));
+      padding: 52px 0;
+    }
+
+    .final-cta p {
+      color: #e6eeff;
+      max-width: 680px;
+      margin: 8px auto 18px;
+    }
+
+
+    footer {
+      background: #0f1f3d;
+      color: #c9d7ff;
+      padding: 30px 0;
+      font-size: 0.88rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 14px;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 900px) {
+      .proof-grid,
+      .testi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-grid,
+      .split-box,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fit-grid,
+      .bonus-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      section { padding: 48px 0; }
+      .proof-grid,
+      .testi-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 28px; }
+      .hero .subtitle {
+        font-size: clamp(1.45rem, 8.3vw, 1.95rem);
+        line-height: 1.15;
+      }
+      .hero-note {
+        font-size: 0.95rem;
+      }
+      .hero-social-lead {
+        border-radius: 14px;
+        padding: 8px 10px;
+      }
+      .hero-image-wrap { margin-top: 14px; }
+      .why-proof-card { padding: 14px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="subtitle">Usaha CCTV Sepi? Ini Cara Bikin Chat Masuk Tiap Hari &amp; Closing Tanpa Diskon Murahan</p>
+        <p class="hero-note">Dibimbing dari NOL sampai siap jalanin iklan yang menghasilkan lead pemasangan CCTV</p>
+        <p class="hero-social-lead">Ratusan Owner Jasa CCTV Sudah Pakai Sistem Ini dan Dapet Chat Tiap Hari</p>
+        <p class="hero-proof"><span class="hero-proof-dot">▶</span> Bukti Nyata Hasilnya</p>
+        <div class="hero-image-wrap">
+          <img class="hero-image" src="https://everz-digital.site/wp-content/uploads/2026/02/87e863b1-10ef-4e48-84fa-7c85986d2f5f.png" alt="Contoh hasil chat harian untuk jasa pasang CCTV" loading="eager" />
+        </div>
+        <div class="hero-meta-note">
+          <h3>Apa Itu Meta Ads?</h3>
+          <p>
+            Meta Ads adalah platform iklan berbayar dari Meta (Facebook dan Instagram) untuk membantu bisnis menjangkau calon customer yang tepat,
+            mendapatkan chat masuk lebih konsisten, dan meningkatkan peluang closing.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-section">
+      <div class="container">
+        <div class="story-card">
+          <span class="story-tag">Cerita Salah Satu Client</span>
+          <p>Andi, owner jasa CCTV di Bandung, awalnya cuma dapat 1-2 chat seminggu. Iklan sempat jalan, tapi sering boncos karena setup belum tepat dan audiensnya kurang pas.</p>
+          <p>Setiap ada chat masuk, kebanyakan cuma tanya harga lalu hilang. Sudah capek survey ke lokasi, tapi banyak yang batal di akhir dan akhirnya terpaksa kasih diskon supaya closing.</p>
+          <p>Setelah pakai sistem di mentoring ini, Andi mulai pakai angle iklan yang lebih tepat, script balas chat anti ghosting, dan alur follow up yang rapi. Hasilnya chat naik jadi lebih konsisten dan closing jauh lebih stabil.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-blue why-fit">
+      <div class="container">
+        <h2 class="section-title">Kenapa Memilih Mentoring Kami?</h2>
+        <p class="section-subtitle">Fokus kami bukan sekadar kasih materi, tapi bikin Anda pegang sistem yang langsung kepakai untuk hasil real di lapangan.</p>
+        <div class="why-steps">
+          <article class="why-step">
+            <div class="why-step-icon"><i class="fa-solid fa-list-check" aria-hidden="true"></i></div>
+            <h3>Script Chat Siap Pakai</h3>
+            <p>Kamu akan punya script balasan chat yang bikin calon customer berhenti nanya harga terus dan lanjut minta survey lokasi.</p>
+          </article>
+          <article class="why-step">
+            <div class="why-step-icon"><i class="fa-solid fa-user-tie" aria-hidden="true"></i></div>
+            <h3>Iklan Datengin Calon Pembeli Serius</h3>
+            <p>Diajarkan cara bikin iklan CCTV yang narik orang yang sudah niat pasang, bukan audience yang cuma bandingin harga.</p>
+          </article>
+          <article class="why-step">
+            <div class="why-step-icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></div>
+            <h3>Alur Follow Up Sampai Closing</h3>
+            <p>Kamu dibimbing pakai SOP follow up yang jelas, jadi chat yang sudah masuk tidak dingin dan peluang deal naik tiap minggu.</p>
+          </article>
+        </div>
+        <div class="why-proof-card">
+          <p class="why-proof-quote"><i class="fa-solid fa-quote-left" aria-hidden="true"></i>Kami sudah membantu banyak owner jasa CCTV mendapatkan chat lebih konsisten. Sekarang giliran bisnis Anda.</p>
+          <div class="why-stats">
+            <div class="why-stat">
+              <strong>500+</strong>
+              <span>Peserta Aktif</span>
+            </div>
+            <div class="why-stat">
+              <strong>98%</strong>
+              <span>Kepuasan</span>
+            </div>
+            <div class="why-stat">
+              <strong>4.9/5</strong>
+              <span>Rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="no-join-section">
+      <div class="container">
+        <h2 class="section-title">Jangan Join Program Ini Kalau:</h2>
+        <div class="no-join-visual">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/02/2026-02-24_14-08.png" alt="Preview materi mentoring Meta Ads untuk jasa pasang CCTV" loading="lazy" />
+        </div>
+        <div class="list-card">
+          <div class="list-item"><span class="bullet"><i class="fa-solid fa-ban" aria-hidden="true"></i></span><span>Sudah nyaman di kondisi sekarang dan tidak ada target naik kelas.</span></div>
+          <div class="list-item"><span class="bullet"><i class="fa-solid fa-ban" aria-hidden="true"></i></span><span>Mau hasil instan tapi tidak siap testing iklan secara bertahap.</span></div>
+          <div class="list-item"><span class="bullet"><i class="fa-solid fa-ban" aria-hidden="true"></i></span><span>Takut memulai walau tahu market jasa CCTV terus tumbuh tiap tahun.</span></div>
+          <div class="list-item"><span class="bullet"><i class="fa-solid fa-ban" aria-hidden="true"></i></span><span>Tidak siap belajar follow up cepat saat lead masuk dari iklan.</span></div>
+          <div class="list-item"><span class="bullet"><i class="fa-solid fa-ban" aria-hidden="true"></i></span><span>Cuma ingin lihat materi tanpa praktik harian dan evaluasi data.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="proof-title">Jika Kamu Tidak Mau Melakukannya <span class="accent">Tentu Orang Lain Yang Melakukannya</span></h2>
+        <p class="section-subtitle">Di banyak kota, jasa pasang CCTV sudah rutin testing iklan dan panen chat calon customer setiap hari.</p>
+        <p class="proof-lead">Orang Lain Yang Sudah Membuktikan</p>
+        <div class="proof-grid">
+          <article class="phone-shot">
+            <div class="chat-proof-head">
+              <div class="chat-proof-name">Andi - Vendor CCTV</div>
+              <div class="chat-proof-stars">★★★★★</div>
+            </div>
+            <img src="https://everz-digital.site/wp-content/uploads/2026/02/2026-02-24_12-12_1.png" alt="Bukti chat calon customer CCTV 1" loading="lazy" />
+          </article>
+          <article class="phone-shot">
+            <div class="chat-proof-head">
+              <div class="chat-proof-name">Rian - Jasa CCTV Rumah</div>
+              <div class="chat-proof-stars">★★★★★</div>
+            </div>
+            <img src="https://everz-digital.site/wp-content/uploads/2026/02/2026-02-24_12-12.png" alt="Bukti chat calon customer CCTV 2" loading="lazy" />
+          </article>
+          <article class="phone-shot">
+            <div class="chat-proof-head">
+              <div class="chat-proof-name">Nanda - Instalasi CCTV Toko</div>
+              <div class="chat-proof-stars">★★★★★</div>
+            </div>
+            <img src="https://everz-digital.site/wp-content/uploads/2026/02/2026-02-24_12-11.png" alt="Bukti chat calon customer CCTV 3" loading="lazy" />
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Testimoni Real Owner CCTV: Sebelum vs Sesudah</h2>
+        <p class="section-subtitle">Ini alasan kenapa harga Rp197.000 jadi terasa kecil: hasilnya terukur dari jumlah chat harian sampai nilai closing bulanan.</p>
+        <p class="testi-note">Data diambil dari rekap lead 30 hari + invoice pemasangan yang diverifikasi mentor.</p>
+        <div class="testi-grid">
+          <article class="testi-card">
+            <div class="testi-head">Andi - Vendor CCTV</div>
+            <div class="testi-meta">Bandung</div>
+            <div class="testi-badges">
+              <span class="testi-badge">Data 30 Hari</span>
+              <span class="testi-badge">Terverifikasi Mentor</span>
+            </div>
+            <div class="testi-metric">
+              <p class="testi-metric-row"><strong>Sebelum</strong><span>1-2 chat per minggu, mayoritas berhenti di tanya harga.</span></p>
+              <p class="testi-metric-row"><strong>Sesudah</strong><span>5-8 chat per hari, banyak yang lanjut minta survey lokasi.</span></p>
+            </div>
+            <p class="testi-result">Closing 30 hari pertama: Rp37.000.000</p>
+          </article>
+          <article class="testi-card">
+            <div class="testi-head">Rian - Jasa CCTV Rumah</div>
+            <div class="testi-meta">Bekasi</div>
+            <div class="testi-badges">
+              <span class="testi-badge">Data 30 Hari</span>
+              <span class="testi-badge">Terverifikasi Mentor</span>
+            </div>
+            <div class="testi-metric">
+              <p class="testi-metric-row"><strong>Sebelum</strong><span>Iklan sudah jalan, tapi chat masuk naik turun tanpa pola.</span></p>
+              <p class="testi-metric-row"><strong>Sesudah</strong><span>4-7 chat per hari dengan flow follow up lebih konsisten.</span></p>
+            </div>
+            <p class="testi-result">Closing 1 bulan: Rp28.500.000</p>
+          </article>
+          <article class="testi-card">
+            <div class="testi-head">Nanda - Instalasi CCTV Toko</div>
+            <div class="testi-meta">Surabaya</div>
+            <div class="testi-badges">
+              <span class="testi-badge">Data 30 Hari</span>
+              <span class="testi-badge">Terverifikasi Mentor</span>
+            </div>
+            <div class="testi-metric">
+              <p class="testi-metric-row"><strong>Sebelum</strong><span>Sering survey tapi batal saat tahap penawaran harga.</span></p>
+              <p class="testi-metric-row"><strong>Sesudah</strong><span>6-9 chat per hari, closing lebih cepat tanpa diskon berlebihan.</span></p>
+            </div>
+            <p class="testi-result">Omzet closing bulan pertama: Rp41.200.000</p>
+          </article>
+          <article class="testi-card">
+            <div class="testi-head">Yusuf - Teknisi CCTV</div>
+            <div class="testi-meta">Yogyakarta</div>
+            <div class="testi-badges">
+              <span class="testi-badge">Data 30 Hari</span>
+              <span class="testi-badge">Terverifikasi Mentor</span>
+            </div>
+            <div class="testi-metric">
+              <p class="testi-metric-row"><strong>Sebelum</strong><span>Mengandalkan referensi, hanya 2-3 prospek per minggu.</span></p>
+              <p class="testi-metric-row"><strong>Sesudah</strong><span>5-6 chat per hari dari iklan area lokal yang lebih tepat.</span></p>
+            </div>
+            <p class="testi-result">Closing 30 hari: Rp24.800.000</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-blue">
+      <div class="container">
+        <h2 class="section-title">Siapa yang Cocok untuk Program Ini?</h2>
+        <div class="fit-grid">
+          <article class="fit-item">Owner jasa pasang CCTV yang ingin dapat chat calon customer setiap hari.</article>
+          <article class="fit-item">Tim admin/marketing CCTV yang butuh SOP iklan dan follow up yang rapi.</article>
+          <article class="fit-item">Freelancer yang pegang klien jasa CCTV dan ingin hasil lebih konsisten.</article>
+          <article class="fit-item">Pemula di bisnis CCTV yang ingin belajar iklan dari nol secara terarah.</article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Jika Kamu Masih Mengalami Ini, Wajar Kalau Closing Masih Seret</h2>
+        <p class="section-subtitle">Bagian ini mungkin terasa nyelekit, tapi ini realita yang bikin banyak owner jasa CCTV capek duluan sebelum hasilnya kelihatan.</p>
+        <div class="split-box">
+          <article class="split-panel danger">
+            <h4>Sebelum Ikut Program</h4>
+            <ul>
+              <li>Sudah pasang iklan, tapi tetap sepi chat masuk.</li>
+              <li>Chat masuk cuma tanya harga, lalu hilang tanpa kabar.</li>
+              <li>Capek datang survey, tapi ujung-ujungnya gak jadi pasang.</li>
+              <li>Akhirnya harus kasih diskon cuma supaya bisa closing.</li>
+            </ul>
+          </article>
+          <article class="split-panel success">
+            <h4>Setelah Ikut Program</h4>
+            <ul>
+              <li>Punya alur setup campaign CCTV yang jelas.</li>
+              <li>Tahu indikator kapan scale, stop, atau ganti angle.</li>
+              <li>Punya stok ide konten iklan sesuai masalah pelanggan.</li>
+              <li>Closing lebih rapi dengan script follow up WhatsApp.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Materi yang Akan Anda Pelajari</h2>
+        <p class="material-subtitle">Semua materi dirancang khusus untuk membantu bisnis jasa pasang CCTV mendapatkan chat konsisten dan closing lebih rapi.</p>
+        <div class="material-box">
+          <ul class="material-list">
+            <li><span class="material-title">Fondasi Iklan CCTV yang Benar</span><span class="material-desc">Memahami alur campaign dari nol agar iklan tidak boros sejak awal.</span></li>
+            <li><span class="material-title">Riset Target Area dan Audiens Lokal</span><span class="material-desc">Cara menemukan segmen potensial berdasarkan lokasi, kebutuhan, dan daya beli.</span></li>
+            <li><span class="material-title">Formula Copywriting dan Angle Konten</span><span class="material-desc">Template hook dan penawaran yang relevan untuk kebutuhan keamanan rumah/toko.</span></li>
+            <li><span class="material-title">Setup Campaign: Testing Sampai Scale</span><span class="material-desc">Langkah praktis testing, evaluasi, lalu scaling campaign yang sudah valid.</span></li>
+            <li><span class="material-title">Baca Data Penting Tanpa Overthinking</span><span class="material-desc">Fokus ke metrik inti supaya keputusan optimasi lebih cepat dan tepat.</span></li>
+            <li><span class="material-title">Script Follow Up untuk Naikkan Closing</span><span class="material-desc">Alur chat WhatsApp dari respon awal sampai ajakan survey dan deal.</span></li>
+            <li><span class="material-title">Sistem Tracking Harian</span><span class="material-desc">Template kontrol performa untuk memantau lead, biaya, dan progres penjualan.</span></li>
+            <li><span class="material-title">Studi Kasus Campaign Jasa CCTV</span><span class="material-desc">Pembahasan contoh campaign real agar Anda tahu langkah yang perlu ditiru.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="bonus-wrap">
+      <div class="container">
+        <h2 class="section-title">Bonus Eksklusif (Nilai Bonus Lebih Besar dari Harga Program)</h2>
+        <div class="bonus-grid">
+          <article class="bonus-card">
+            <div class="icon-circle"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></div>
+            <h4>Bonus Script Balas Chat Anti Ghosting</h4>
+            <p>Script siap pakai biar calon customer tidak hilang setelah tanya harga pertama.</p>
+            <p class="bonus-price">Harga Normal Rp297.000</p>
+          </article>
+          <article class="bonus-card">
+            <div class="icon-circle"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></div>
+            <h4>Bonus Template Iklan CCTV Siap Pakai</h4>
+            <p>Template angle + copy iklan yang bisa langsung dipakai untuk area target Anda.</p>
+            <p class="bonus-price">Harga Normal Rp497.000</p>
+          </article>
+          <article class="bonus-card">
+            <div class="icon-circle"><i class="fa-solid fa-comments" aria-hidden="true"></i></div>
+            <h4>Bonus Video Cara Closing Survey</h4>
+            <p>Video praktis cara presentasi saat survey supaya peluang deal jadi lebih tinggi.</p>
+            <p class="bonus-price">Harga Normal Rp297.000</p>
+          </article>
+        </div>
+        <div class="bonus-value-box">
+          <p><strong>Total Nilai Bonus: Rp1.091.000</strong> | Hari ini Anda cukup bayar <strong class="highlight">Rp197.000</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Pilih Paket Sesuai Kebutuhan Bisnis CCTV Anda</h2>
+        <div class="urgency-box">
+          <p class="urgency-title">Harga promo Rp197.000 hanya untuk 10 pendaftar pertama. Setelah itu kembali ke Rp497.000.</p>
+          <p class="urgency-subtitle">Bonus template iklan + script follow up hanya aktif selama promo berlangsung. Lewat dari waktu ini, bonus otomatis hilang.</p>
+          <p class="countdown">Sisa Waktu Promo: <span id="offer-countdown">23:59:59</span></p>
+        </div>
+        <p class="pricing-lead">Harga 1x pasang 2 titik CCTV aja bisa <span class="accent">Rp500.000-Rp1.000.000</span>. Dengan 1 closing saja, modal program ini sudah langsung balik.</p>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <div class="price-tag cheapest">Termurah</div>
+            <div class="plan-name">Paket Course Dapet Chat Setiap Hari Untuk Usaha Jasa Pasang CCTV</div>
+            <div class="price-compare">
+              <span class="old-price">Rp497.000</span>
+              <span class="save-badge">Hemat 60%</span>
+            </div>
+            <div class="price">Rp197.000</div>
+            <p class="price-roi-note">Balik modal cukup dari margin 1 customer pertama.</p>
+            <ul class="price-list">
+              <li>Akses semua materi video course siap praktek.</li>
+              <li>Template iklan CCTV + copywriting siap pakai.</li>
+              <li>Contoh konten iklan yang datengin banyak chat.</li>
+              <li>Script follow up WhatsApp untuk bantu closing.</li>
+              <li>Checklist eksekusi harian biar gak bingung mulai.</li>
+            </ul>
+            <a class="btn scroll-to-final-cta" href="#">Dapatkan Sekarang</a>
+          </article>
+          <article class="price-card featured">
+            <div class="price-tag">Terlaris</div>
+            <div class="plan-name">Private 1on1 Mentoring Sampai Dapat Chat Dari Customer + Garansi 7 Hari</div>
+            <div class="price-compare">
+              <span class="old-price">Rp1.749.000</span>
+              <span class="save-badge premium">Hemat 80%</span>
+            </div>
+            <div class="price">Rp349.000</div>
+            <p class="price-roi-note">Rata-rata balik modal di 1-2 customer pertama.</p>
+            <ul class="price-list">
+              <li>Pendampingan langsung sampai campaign siap jalan.</li>
+              <li>Review setup iklan dan evaluasi performa berkala.</li>
+              <li>Panduan optimasi sampai chat customer mulai masuk.</li>
+              <li>Prioritas sesi tanya jawab selama masa mentoring.</li>
+              <li>Garansi 7 hari: jika setelah praktek selama 7 hari tidak ada chat satupun dari customer, Anda dapat gratis mentoring sampai dapat order.</li>
+            </ul>
+            <a class="btn secondary scroll-to-final-cta" href="#">Dapatkan Sekarang</a>
+          </article>
+          <article class="price-card">
+            <div class="price-tag">Paket Jasa 30 Hari</div>
+            <div class="plan-name">Jasa Setting Iklan 30 Hari</div>
+            <div class="price-compare">
+              <span class="old-price">Rp2.212.500</span>
+              <span class="save-badge">Hemat 60%</span>
+            </div>
+            <div class="price">Rp885.000</div>
+            <p class="price-roi-note">Solusi done-for-you buat yang ingin langsung jalan tanpa repot setup sendiri.</p>
+            <ul class="price-list">
+              <li>Bebas pilih channel: Google Ads, Meta Ads, atau TikTok Ads.</li>
+              <li>Dibuatkan konten iklan (gambar) siap tayang.</li>
+              <li>Dibuatkan copywriting iklan sesuai objektif campaign.</li>
+              <li>Gratis dibuatkan landing page untuk kebutuhan iklan.</li>
+              <li>Report performa setiap minggu.</li>
+              <li>Bisa diskusi 1 minggu 1x.</li>
+              <li><strong>Belum termasuk saldo iklan.</strong></li>
+            </ul>
+            <p class="price-compare-note">Paket ini cuma Rp885.000. Dibanding rekrut karyawan konten + iklan yang bisa sampai Rp10.000.000/bulan, biayanya jauh lebih ringan.</p>
+            <a class="btn scroll-to-final-cta" href="#">Dapatkan Sekarang</a>
+          </article>
+        </div>
+        <div class="roi-box">Simulasi sederhana: jika 1 closing rata-rata Rp1.000.000 dengan margin Rp300.000-Rp500.000, maka biaya program Rp197.000-Rp349.000 umumnya sudah tertutup di 1-2 customer pertama.</div>
+        <div class="risk-box">
+          <h3>Garansi 7 Hari Sampai Dapat Order</h3>
+          <p>Jika setelah praktek selama 7 hari tidak ada chat satupun dari customer, Anda dapat gratis mentoring sampai mendapatkan order.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Masih Ragu? Ini Jawaban untuk Anda</h2>
+        <p class="faq-subtitle">Kami mengerti Anda mungkin memiliki beberapa pertanyaan atau keraguan sebelum mulai.</p>
+        <div class="faq-list">
+          <article class="faq-card">
+            <div class="faq-icon">?</div>
+            <div class="faq-content">
+              <h4>Bagaimana kalau saya belum pernah pasang iklan sama sekali?</h4>
+              <p>Justru ini cocok untuk pemula. Anda dibimbing dari nol: mulai dari setup akun, menentukan target area, sampai iklan pertama jalan tanpa harus nebak-nebak.</p>
+            </div>
+          </article>
+          <article class="faq-card">
+            <div class="faq-icon">?</div>
+            <div class="faq-content">
+              <h4>Bagaimana kalau saya gaptek?</h4>
+              <p>Bisa tetap jalan. Materi disusun langkah demi langkah dengan bahasa sederhana, plus template siap pakai supaya Anda tinggal ikuti alurnya tanpa pusing teknis.</p>
+            </div>
+          </article>
+          <article class="faq-card">
+            <div class="faq-icon">?</div>
+            <div class="faq-content">
+              <h4>Bagaimana kalau di kota saya sudah banyak kompetitor CCTV?</h4>
+              <p>Kompetitor banyak bukan berarti pasar habis. Anda diajarkan angle iklan dan script follow up yang bikin calon customer lebih pilih Anda, bukan perang diskon semata.</p>
+            </div>
+          </article>
+          <article class="faq-card">
+            <div class="faq-icon">?</div>
+            <div class="faq-content">
+              <h4>Bagaimana kalau saya sudah pernah ikut kelas tapi tetap gagal?</h4>
+              <p>Biasanya gagal karena materinya teori dan tidak ada arahan eksekusi. Di sini fokusnya praktik: ada SOP iklan, script chat, dan indikator evaluasi supaya Anda tahu langkah berikutnya dengan jelas.</p>
+            </div>
+          </article>
+          <article class="faq-card">
+            <div class="faq-icon">?</div>
+            <div class="faq-content">
+              <h4>Apakah ini benar-benar bisa menghasilkan chat?</h4>
+              <p>Ya, bisa. Banyak owner CCTV sudah membuktikan peningkatan chat saat sistemnya dijalankan dengan konsisten. Kuncinya ada di eksekusi harian dan follow up yang benar.</p>
+            </div>
+          </article>
+          <article class="faq-card">
+            <div class="faq-icon">?</div>
+            <div class="faq-content">
+              <h4>Bagaimana skema Garansi 7 Hari ini?</h4>
+              <p>Jika setelah praktek selama 7 hari tidak ada chat satupun dari customer, Anda akan mendapatkan gratis mentoring sampai dapat order, selama mengikuti arahan eksekusi dan evaluasi yang diberikan.</p>
+            </div>
+          </article>
+          <article class="faq-card">
+            <div class="faq-icon">?</div>
+            <div class="faq-content">
+              <h4>Berapa lama saya bisa melihat hasil?</h4>
+              <p>Peserta umumnya mulai melihat progres dari jumlah chat dan kualitas lead dalam 1 minggu pertama, tergantung kecepatan eksekusi dan konsistensi follow up.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="final-cta-target">
+      <div class="container">
+        <h2 class="section-title">Mulai Dapat Chat Harian Untuk Jasa Pasang CCTV Anda</h2>
+        <p>Pilih paket yang paling sesuai dengan kondisi bisnis Anda saat ini.</p>
+        
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const ctaButtons = document.querySelectorAll(".scroll-to-final-cta");
+    const finalCtaSection = document.getElementById("final-cta-target");
+    const countdownElement = document.getElementById("offer-countdown");
+
+    ctaButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (!finalCtaSection) return;
+
+        const scrollTarget = finalCtaSection.getBoundingClientRect().top + window.scrollY;
+
+        window.scrollTo({
+          top: scrollTarget,
+          behavior: "smooth",
+        });
+      });
+    });
+
+    if (countdownElement) {
+      const storageKey = "cctv-offer-deadline-4h23m";
+      const now = Date.now();
+      const durationMs = ((4 * 60) + 23) * 60 * 1000;
+      let deadline = Number(localStorage.getItem(storageKey));
+
+      if (!deadline || deadline <= now) {
+        deadline = now + durationMs;
+        localStorage.setItem(storageKey, String(deadline));
+      }
+
+      const formatTime = (value) => String(value).padStart(2, "0");
+
+      const renderCountdown = () => {
+        const distance = deadline - Date.now();
+        if (distance <= 0) {
+          countdownElement.textContent = "00:00:00";
+          return;
+        }
+
+        const hours = Math.floor(distance / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.textContent = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
+      };
+
+      renderCountdown();
+      setInterval(renderCountdown, 1000);
+    }
+  </script>
+</body>
+</html>

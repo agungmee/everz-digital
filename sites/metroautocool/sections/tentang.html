@@ -21,7 +21,7 @@
 
   .mc-about-main h2{
     margin:0 0 12px;
-    font-size:clamp(36px, 6vw, 62px);
+    font-size:clamp(32px, 5vw, 62px);
     line-height:.95;
     text-transform:uppercase;
     letter-spacing:.02em;
@@ -36,7 +36,7 @@
   .mc-about-main p{
     margin:0;
     color:#e7e7e7;
-    font-size:22px;
+    font-size:clamp(18px, 2.5vw, 22px);
     line-height:1.35;
     font-weight:600;
     text-align:justify;
@@ -54,11 +54,18 @@
 
   @media (max-width: 960px){
     .mc-about{
-      padding:58px 16px;
+      padding:48px 16px;
+    }
+
+    .mc-about-main h2{
+      font-size:clamp(28px, 4.5vw, 48px);
+      margin-bottom:16px;
     }
 
     .mc-about-main p{
-      font-size:20px;
+      font-size:clamp(16px, 2vw, 20px);
+      text-align:justify;
+      text-justify:inter-word;
     }
   }
 </style>

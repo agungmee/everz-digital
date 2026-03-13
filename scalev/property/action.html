@@ -1,0 +1,154 @@
+<section id="flash-sale" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&display=swap");
+
+    #flash-sale {
+      padding: 90px 0;
+      background: linear-gradient(180deg, #fff3e6 0%, #fffdf9 100%);
+    }
+
+    #flash-sale .wrap {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+      text-align: center;
+    }
+
+    #flash-sale h2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(2rem, 2.6vw + 0.8rem, 2.9rem);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    #flash-sale .flash-label {
+      display: inline-block;
+      background: #ff6b3d;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin: 0 auto;
+    }
+
+    #flash-sale .price-box {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 16px 32px rgba(26, 18, 12, 0.08);
+      border: 1px solid rgba(30, 26, 23, 0.06);
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+    }
+
+    #flash-sale .old-price {
+      color: #c83c2f;
+      text-decoration: line-through;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    #flash-sale .new-price {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #1e1a17;
+    }
+
+    #flash-sale .note {
+      background: #fff3b0;
+      color: #5b4a00;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 600;
+      box-shadow: 0 10px 24px rgba(90, 72, 0, 0.12);
+    }
+
+    #flash-sale .bonus-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-top: 6px;
+    }
+
+    #flash-sale .bonus-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    #flash-sale .bonus-list li {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 12px 14px;
+      box-shadow: 0 12px 26px rgba(26, 18, 12, 0.08);
+      border: 1px solid rgba(30, 26, 23, 0.06);
+      text-align: left;
+    }
+
+    #flash-sale .bonus-list li::before {
+      content: "✓";
+      color: #ff6b3d;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    #flash-sale .value-tag {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #ffe2cc;
+      color: #c83c2f;
+      font-weight: 700;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 700px) {
+      #flash-sale {
+        padding: 70px 0;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <h2>Siap jadi agent properti yang konsisten closing?</h2>
+    <div class="flash-label">Flash Sale 1 Jam</div>
+
+    <div class="price-box">
+      <div class="old-price">Rp 399.000</div>
+      <div class="new-price">Rp 129.000</div>
+    </div>
+
+    <div class="note">
+      Harga promo hanya untuk pembeli tercepat, setelah itu kembali ke Rp 399.000
+    </div>
+
+    <div class="bonus-title">Bonus gratis khusus pembeli hari ini:</div>
+    <ul class="bonus-list">
+      <li>Template copywriting listing agar properti terasa premium<span class="value-tag">Senilai Rp 499.000</span></li>
+      <li>Checklist follow up 7 hari untuk prospek panas<span class="value-tag">Senilai Rp 399.000</span></li>
+      <li>Script chat WA untuk mengunci jadwal survey<span class="value-tag">Senilai Rp 399.000</span></li>
+      <li>Template iklan Meta Ads khusus lead properti<span class="value-tag">Senilai Rp 499.000</span></li>
+    </ul>
+  </div>
+
+  <script>
+    const flashBox = document.querySelector("#flash-sale .price-box");
+    if (flashBox) {
+      flashBox.style.opacity = "0";
+      flashBox.style.transform = "translateY(16px)";
+      setTimeout(() => {
+        flashBox.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        flashBox.style.opacity = "1";
+        flashBox.style.transform = "translateY(0)";
+      }, 120);
+    }
+  </script>
+</section>

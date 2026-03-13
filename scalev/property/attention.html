@@ -1,0 +1,144 @@
+<section id="attention" class="section hero">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&display=swap");
+
+    #attention {
+      padding: 0 0 90px;
+      text-align: center;
+      background: radial-gradient(circle at top, #fff2e0 0%, #fff7ef 55%, #f6f0e9 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #attention .hero-wrap {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 32px;
+      justify-items: center;
+    }
+
+    #attention h1 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(2.1rem, 3vw + 0.8rem, 3.1rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin: 4px 0 12px;
+    }
+
+    #attention .highlight {
+      color: #ff6b3d;
+      display: inline-block;
+    }
+
+    #attention .lead {
+      max-width: 720px;
+      color: #4f433c;
+      font-size: 1.08rem;
+    }
+
+    #attention .testimonial-image {
+      width: min(540px, 92vw);
+      border-radius: 18px;
+      box-shadow: 0 16px 32px rgba(27, 20, 16, 0.18);
+      display: block;
+    }
+
+    #attention .guarantee {
+      background: #fff3b0;
+      color: #5b4a00;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(90, 72, 0, 0.12);
+      max-width: 760px;
+    }
+
+    #attention .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      background: #ff6b3d;
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(255, 107, 61, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #attention .cta:hover {
+      transform: translateY(-2px);
+    }
+
+    #attention .glow {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(255, 107, 61, 0.35), transparent 70%);
+      top: -80px;
+      right: 10%;
+      filter: blur(5px);
+      z-index: 0;
+    }
+
+    #attention .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 700px) {
+      #attention {
+        padding: 90px 0 70px;
+      }
+    }
+  </style>
+
+  <div class="glow" aria-hidden="true"></div>
+
+  <div class="hero-wrap content">
+    <h1>
+      Listing properti kamu bagus, tapi <span class="highlight">yang chat cuma tanya harga?</span><br />
+      Saatnya jadi agent yang <span class="highlight">rutin closing</span>, bukan nunggu keberuntungan
+    </h1>
+
+    <p class="lead">
+      Sudah upload di marketplace, spam grup, bahkan pasang iklan kecil-kecilan,
+      tapi prospek cuma minta lokasi lalu menghilang?
+    </p>
+
+    <p class="lead">
+      Bayangin kalau kamu punya sistem marketing yang bikin calon pembeli
+      lebih siap diajak survey, lebih percaya, dan lebih cepat deal.
+    </p>
+
+    <img
+      class="testimonial-image"
+      src="https://everz-digital.site/wp-content/uploads/2026/01/2026-01-18_21-21.png"
+      alt="Testimoni WhatsApp pelanggan"
+      loading="lazy"
+    />
+
+    <div class="guarantee">
+      Garansi 30 Hari - Jika kamu sudah praktek penuh tapi belum terasa dampaknya,
+      100% uang kembali.
+    </div>
+
+    <a class="cta" href="#flash-sale">Pelajari Strateginya Sekarang</a>
+  </div>
+
+  <script>
+    const attention = document.querySelector("#attention .hero-wrap");
+    if (attention) {
+      attention.style.opacity = "0";
+      attention.style.transform = "translateY(18px)";
+      requestAnimationFrame(() => {
+        attention.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        attention.style.opacity = "1";
+        attention.style.transform = "translateY(0)";
+      });
+    }
+  </script>
+</section>

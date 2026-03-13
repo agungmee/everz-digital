@@ -12,7 +12,7 @@
 
   .mc-services-head{
     margin:0 0 28px;
-    font-size:clamp(36px, 6vw, 64px);
+    font-size:clamp(32px, 5vw, 62px);
     line-height:0.95;
     text-transform:uppercase;
     letter-spacing:.02em;
@@ -105,12 +105,34 @@
 
   @media (max-width: 960px){
     .mc-services{
-      padding:58px 16px;
+      padding:48px 16px;
+    }
+
+    .mc-services-head{
+      font-size:clamp(28px, 4.5vw, 48px);
+      margin-bottom:24px;
     }
 
     .mc-services-grid{
       grid-template-columns:repeat(2, minmax(0, 1fr));
       gap:12px;
+    }
+
+    .mc-service-card{
+      min-height:280px;
+    }
+
+    .mc-service-card h3{
+      font-size:clamp(20px, 2.8vw, 24px);
+    }
+
+    .mc-service-card p{
+      font-size:clamp(16px, 2vw, 18px);
+    }
+
+    .mc-service-book{
+      font-size:clamp(15px, 2vw, 18px);
+      padding:8px 10px;
     }
   }
 
@@ -120,15 +142,47 @@
     }
 
     .mc-service-card{
-      min-height:280px;
+      min-height:260px;
     }
 
     .mc-service-card h3{
-      font-size:24px;
+      font-size:22px;
     }
 
     .mc-service-card p{
+      font-size:17px;
+    }
+  }
+
+  @media (max-width: 480px){
+    .mc-services{
+      padding:40px 12px;
+    }
+
+    .mc-services-grid{
+      gap:10px;
+    }
+
+    .mc-service-card{
+      min-height:220px;
+    }
+
+    .mc-service-card h3{
       font-size:18px;
+    }
+
+    .mc-service-card p{
+      font-size:15px;
+    }
+
+    .mc-service-body{
+      padding:12px 10px;
+    }
+
+    .mc-service-book{
+      font-size:14px;
+      padding:7px 10px;
+      margin-top:8px;
     }
   }
 </style>

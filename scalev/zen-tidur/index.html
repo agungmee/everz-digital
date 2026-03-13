@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 Rahasia Tidur Nyenyak | Tradisi Zen Jepang</title>
+  <meta name="description" content="Pelajari 5 Rahasia Tidur Nyenyak dari Tradisi Zen Jepang. Akses instan hanya Rp 47.000." />
+  <meta name="theme-color" content="#1B2A4A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #f8f8f6;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --text-secondary: #555555;
+      --cta: #1b2a4a;
+      --cta-hover: #15223d;
+      --accent: #c9a84c;
+      --line: #ebebea;
+      --green: #116d3f;
+      --shadow: 0 14px 42px rgba(20, 20, 20, 0.09);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --card-pad: 20px;
+      --container: min(1120px, 92vw);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 3%, #fff8eb 0%, transparent 28%),
+        radial-gradient(circle at 86% 24%, #edf3ff 0%, transparent 32%),
+        linear-gradient(180deg, #fbfbfa 0%, #f7f7f5 35%, #f6f6f4 100%);
+      line-height: 1.62;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-inline: 20px;
+    }
+
+    .hero {
+      padding: 56px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-copy h1,
+    h2,
+    h3 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.02em;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 1.08;
+      margin-bottom: 16px;
+      text-wrap: balance;
+    }
+
+    .hero-sub {
+      color: var(--text-secondary);
+      font-size: clamp(16px, 2vw, 20px);
+      margin-bottom: 24px;
+      max-width: 640px;
+      text-align: justify;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 12px;
+      text-decoration: none !important;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-primary {
+      padding: 16px 24px;
+      background: linear-gradient(180deg, #2a426f 0%, #1b2a4a 100%);
+      color: #fff !important;
+      font-size: 17px;
+      box-shadow: 0 10px 30px rgba(27, 42, 74, 0.36);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active,
+    .btn-primary:visited {
+      text-decoration: none !important;
+      color: #fff !important;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, #324f83 0%, var(--cta-hover) 100%);
+    }
+
+    .cta-note {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .hero-visual {
+      background: #111;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #303030;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    section {
+      padding: 68px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(26px, 3.6vw, 44px);
+      margin-bottom: 10px;
+      text-wrap: balance;
+    }
+
+    .section-head p {
+      margin: 0 auto;
+      color: var(--text-secondary);
+      max-width: 760px;
+      text-align: justify;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: var(--card-pad);
+    }
+
+    .problem-list,
+    .content-list,
+    .proof-list,
+    .price-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .problem-list li,
+    .proof-list li,
+    .price-list li {
+      padding: 13px 20px;
+      border-radius: var(--radius-md);
+      background: #fafafa;
+      border: 1px solid #ededed;
+      text-align: left;
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .problem-list li {
+      font-weight: 500;
+    }
+
+    .list-icon {
+      font-size: 20px;
+      line-height: 1.1;
+      margin-top: 1px;
+    }
+
+    .list-icon-danger { color: #b81c1c; }
+    .list-icon-success { color: var(--green); }
+    .list-icon-proof { color: #8a6e23; }
+    .list-icon-neutral { color: #575757; }
+    .list-icon-bonus { color: #ca8a04; }
+
+    .empathy {
+      margin-top: 20px;
+      color: var(--text-secondary);
+      text-align: justify;
+    }
+
+    .fact-box {
+      margin-top: 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid #eadfbf;
+      background: #fffbf1;
+      padding: 14px;
+      color: #4d4d4d;
+      text-align: justify;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .ebook-mockup-wrap {
+      perspective: 900px;
+      margin-top: 8px;
+    }
+
+    .ebook-mockup {
+      background: radial-gradient(circle at 54% 24%, #203f60 0%, #0d1621 62%, #070d14 100%);
+      border-radius: 12px;
+      border: 1px solid #22384f;
+      min-height: 470px;
+      transform: rotateY(-13deg) rotateX(3deg);
+      transform-style: preserve-3d;
+      box-shadow: 26px 20px 34px rgba(0, 0, 0, 0.32);
+      color: #f7f7f7;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .ebook-mockup::after {
+      content: "";
+      position: absolute;
+      top: 12px;
+      right: -16px;
+      width: 16px;
+      height: calc(100% - 24px);
+      border-radius: 0 10px 10px 0;
+      background: linear-gradient(180deg, #d7c18b, #b79f6a);
+    }
+
+    .ebook-mockup img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ebook-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.08;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ebook-sub {
+      margin: 10px 0 0;
+      color: #ffd166;
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ebook-art {
+      font-size: 46px;
+      letter-spacing: 8px;
+      position: relative;
+      z-index: 1;
+      color: #ffe3a6;
+    }
+
+    .content-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      background: #fffefb;
+      border: 1px solid #f3e3c9;
+      text-align: left;
+    }
+
+    .bonus {
+      margin-top: 20px;
+      display: grid;
+      gap: 10px;
+      color: #212121;
+    }
+
+    .bonus-item {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 10px;
+      align-items: start;
+      text-align: left;
+    }
+
+    .proof-list li {
+      border-left: 4px solid var(--accent);
+      background: #fff;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .testimonial-wrap {
+      background: #f5f5f3;
+      border: 1px solid #e4d5ab;
+      border-radius: var(--radius-lg);
+      padding: 16px;
+    }
+
+    .testimonial {
+      background: #fff;
+      border: 1px solid #ece5d2;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      text-align: center;
+    }
+
+    .testimonial p {
+      text-align: center;
+    }
+
+    .stars {
+      color: #c79d34;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .testimonial strong {
+      display: block;
+      text-align: center;
+    }
+
+    .offer {
+      background:
+        linear-gradient(180deg, #fff8eb 0%, #fff 62%),
+        radial-gradient(circle at 80% 10%, #ffe8b6 0%, transparent 40%);
+      border-top: 1px solid #f4e2bf;
+      border-bottom: 1px solid #f4e2bf;
+    }
+
+    .price-box {
+      text-align: center;
+      margin: 20px 0 18px;
+    }
+
+    .price-list--edge {
+      margin-inline: calc(var(--card-pad) * -1);
+    }
+
+    .price-list--edge li {
+      border-left: 0;
+      border-right: 0;
+      border-radius: 0;
+    }
+
+    .old-price {
+      color: #8a8a8a;
+      text-decoration: line-through;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .new-price {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(40px, 6vw, 62px);
+      font-weight: 800;
+      line-height: 1.04;
+      margin: 0;
+      color: #111;
+    }
+
+    .price-note {
+      margin-top: 6px;
+      color: var(--text-secondary);
+      text-align: justify;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .guarantee {
+      margin-top: 20px;
+      border-radius: var(--radius-md);
+      background: #fff;
+      border: 1px solid #efefef;
+      padding: 15px;
+    }
+
+    .guarantee {
+      text-align: center;
+    }
+
+    .guarantee p {
+      text-align: center;
+    }
+
+    details p {
+      text-align: justify;
+    }
+
+    .micro-copy {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      color: #444;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    details {
+      background: #fff;
+      border: 1px solid #ececec;
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 700;
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .closing {
+      padding-top: 26px;
+    }
+
+    .closing-card {
+      text-align: center;
+      padding: 38px 30px;
+      background: linear-gradient(180deg, #1b2a4a 0%, #243a64 100%);
+      color: #f8f8f8;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 22px 42px rgba(0, 0, 0, 0.36);
+    }
+
+    .closing-card h3 {
+      font-size: clamp(27px, 4vw, 42px);
+      margin-bottom: 14px;
+      color: #fff;
+    }
+
+    .closing-card p {
+      color: #ebebeb;
+      margin-bottom: 22px;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: justify;
+    }
+
+    .closing-card .sub {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: 10px;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .split,
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .hero-visual {
+        min-height: 380px;
+      }
+
+      .ebook-mockup {
+        transform: none;
+        min-height: 400px;
+      }
+
+      section {
+        padding: 54px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --card-pad: 16px;
+      }
+
+      .card,
+      .testimonial,
+      .closing-card,
+      .testimonial-wrap {
+        padding: var(--card-pad);
+      }
+
+      .problem-list li,
+      .proof-list li,
+      .price-list li,
+      .content-list li {
+        padding-left: 12px;
+        padding-right: 12px;
+        grid-template-columns: 22px 1fr;
+        gap: 8px;
+      }
+
+      .bonus-item {
+        grid-template-columns: 22px 1fr;
+        gap: 8px;
+      }
+
+      .list-icon {
+        font-size: 18px;
+      }
+
+      .btn-primary {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 320px;
+      }
+
+      .new-price {
+        font-size: clamp(36px, 11vw, 50px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Sudah Coba Berbagai Cara Tapi Masih Susah Tidur?</h1>
+          <p class="hero-sub">Ini 5 Rahasia Tidur Nyenyak dari Tradisi Zen Jepang yang Terbukti Bikin Tertidur dalam 15 Menit — Tanpa Obat Tidur, Tanpa Suplemen Mahal</p>
+          <a class="btn btn-primary" href="#target-scroll">DAPATKAN SEKARANG — Hanya Rp 47.000</a>
+          <div class="cta-note">Akses langsung setelah pembayaran</div>
+        </div>
+        <figure class="hero-visual">
+          <img src="https://everz-digital.site/wp-content/uploads/2026/03/ChatGPT-Image-Mar-7-2026-10_59_55-AM.png" alt="Iklan V1 orang melek jam 02:14" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Apakah Malam-malammu Terasa Seperti Ini?</h2>
+        </div>
+        <div class="card">
+          <ul class="problem-list">
+            <li><i class="fa-solid fa-circle-xmark list-icon list-icon-danger" aria-hidden="true"></i><span>Rebahan di kasur berjam-jam tapi mata tetap tidak bisa terpejam</span></li>
+            <li><i class="fa-solid fa-circle-xmark list-icon list-icon-danger" aria-hidden="true"></i><span>Badan sudah lelah luar biasa tapi pikiran justru semakin aktif</span></li>
+            <li><i class="fa-solid fa-circle-xmark list-icon list-icon-danger" aria-hidden="true"></i><span>Sering terbangun di tengah malam dan susah tidur lagi</span></li>
+            <li><i class="fa-solid fa-circle-xmark list-icon list-icon-danger" aria-hidden="true"></i><span>Bangun pagi tapi badan tetap terasa berat dan tidak segar</span></li>
+            <li><i class="fa-solid fa-circle-xmark list-icon list-icon-danger" aria-hidden="true"></i><span>Sudah coba obat tidur — tapi besoknya kepala malah pusing dan badan lemas</span></li>
+            <li><i class="fa-solid fa-circle-xmark list-icon list-icon-danger" aria-hidden="true"></i><span>Khawatir kalau terus begini akan berdampak buruk pada kesehatan jangka panjang</span></li>
+          </ul>
+          <p class="empathy">Kalau kamu merasakan salah satu dari hal di atas — kamu tidak sendirian.</p>
+          <p class="empathy">Di Indonesia, lebih dari <strong>28 juta orang</strong> mengalami gangguan tidur. Dan sebagian besar dari mereka tidak pernah diberitahu bahwa solusinya bukan obat — melainkan cara yang sudah diketahui para biksu Zen Jepang selama ratusan tahun, dan kini terbukti secara ilmiah oleh para peneliti tidur terkemuka dunia.</p>
+          <p class="fact-box"><strong>💡 Tahukah kamu?</strong><br /><br />Kurang tidur berkualitas selama 6 hari berturut-turut sudah cukup untuk menurunkan sistem imun, mengganggu hormon, meningkatkan risiko diabetes tipe 2, dan mempercepat penuaan sel otak — bahkan jika total jam tidurmu terlihat cukup.<br /><br />Masalahnya bukan hanya <strong>berapa lama</strong> kamu tidur. Tapi <strong>seberapa dalam</strong> kamu tidur.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container split">
+        <div>
+          <div class="section-head" style="margin-bottom:14px;">
+            <h2 style="margin-bottom:12px;">Perkenalkan: 5 Rahasia Tidur Nyenyak dari Tradisi Zen Jepang</h2>
+            <p style="margin:0; max-width: 100%;">Sebuah panduan praktis yang menggabungkan kearifan tradisi Zen Jepang dengan bukti ilmiah modern — mengajarkan kamu 5 teknik spesifik yang bekerja langsung pada sistem saraf untuk mematikan mode siaga dan mengaktifkan mode tidur dalam waktu 15 menit.</p>
+          </div>
+          <ul class="content-list">
+            <li><i class="fa-solid fa-circle-check list-icon list-icon-success" aria-hidden="true"></i><span><strong>Rahasia #1 — Teknik Pernapasan Zen (Kokyu-ho)</strong> - Pola napas 4 hitungan khas tradisi Zen yang mengaktifkan gelombang otak theta — gelombang yang hanya muncul saat tubuh berada di ambang tidur. Rasakan efeknya dalam 5 menit pertama.</span></li>
+            <li><i class="fa-solid fa-circle-check list-icon list-icon-success" aria-hidden="true"></i><span><strong>Rahasia #2 — Ritual Pendinginan Tubuh (Reikan-ho)</strong> - Cara menurunkan suhu tubuh inti secara alami dalam 10 menit — sinyal terkuat yang bisa dikirim ke otak bahwa sudah waktunya tidur. Teknik ini digunakan di rumah peristirahatan Zen di Kyoto selama berabad-abad.</span></li>
+            <li><i class="fa-solid fa-circle-check list-icon list-icon-success" aria-hidden="true"></i><span><strong>Rahasia #3 — Metode Pengosongan Pikiran (Mushin)</strong> - Teknik visualisasi dari praktik Zazen untuk mematikan pikiran yang racing — tanpa paksa, tanpa frustrasi. Cara yang sama digunakan para atlet Jepang untuk masuk ke kondisi "flow" sebelum bertanding.</span></li>
+            <li><i class="fa-solid fa-circle-check list-icon list-icon-success" aria-hidden="true"></i><span><strong>Rahasia #4 — Teknik Relaksasi Progresif Tubuh (Karada Yurumu)</strong> - Protokol relaksasi otot dari ujung kaki hingga kepala yang secara sistematis mematikan ketegangan fisik yang tanpa sadar kamu bawa ke kasur setiap malam.</span></li>
+            <li><i class="fa-solid fa-circle-check list-icon list-icon-success" aria-hidden="true"></i><span><strong>Rahasia #5 — Ritual Pemutusan Hari (Ichinichi Owari)</strong> - Praktik mental 3 menit untuk secara resmi "menutup" hari — memutus koneksi antara pikiran aktif dan waktu tidur. Tanpa ini, otak terus memproses hari yang belum selesai bahkan saat kamu sudah di kasur.</span></li>
+          </ul>
+          <div class="bonus">
+            <div class="bonus-item"><i class="fa-solid fa-gift list-icon list-icon-bonus" aria-hidden="true"></i><span><strong>BONUS #1:</strong> Panduan Rutinitas 30 Menit Sebelum Tidur — jadwal malam yang mempersiapkan tubuh dan pikiran untuk tidur nyenyak secara otomatis.</span></div>
+            <div class="bonus-item"><i class="fa-solid fa-gift list-icon list-icon-bonus" aria-hidden="true"></i><span><strong>BONUS #2:</strong> Checklist Lingkungan Tidur Ideal — 10 penyesuaian sederhana di kamar tidur yang terbukti meningkatkan kualitas tidur hingga 40%.</span></div>
+          </div>
+        </div>
+
+        <div class="ebook-mockup-wrap">
+          <div class="ebook-mockup" aria-label="Visual ebook 3D">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/03/ChatGPT-Image-Mar-7-2026-10_59_55-AM.png" alt="Cover 5 Rahasia Tidur Nyenyak" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Bukan Sekadar Tradisi Kuno — Ini Didukung Sains Modern</h2>
+        </div>
+        <div class="card">
+          <ul class="proof-list">
+            <li><i class="fa-solid fa-flask list-icon list-icon-proof" aria-hidden="true"></i><span><strong>National Sleep Foundation</strong> — teknik relaksasi berbasis pernapasan terbukti mempersingkat waktu tertidur rata-rata dari 45 menit menjadi 12 menit.</span></li>
+            <li><i class="fa-solid fa-flask list-icon list-icon-proof" aria-hidden="true"></i><span><strong>Journal of Clinical Sleep Medicine</strong> — praktik mindfulness berbasis Zen secara signifikan meningkatkan kualitas tidur dan mengurangi waktu terjaga di malam hari.</span></li>
+            <li><i class="fa-solid fa-flask list-icon list-icon-proof" aria-hidden="true"></i><span><strong>Harvard Medical School</strong> — pernapasan lambat dan terkontrol mengaktifkan sistem saraf parasimpatik yang secara langsung mempersiapkan tubuh untuk tidur.</span></li>
+            <li><i class="fa-solid fa-flask list-icon list-icon-proof" aria-hidden="true"></i><span><strong>Universitas Tsukuba Jepang</strong> — meditasi Zazen meningkatkan gelombang otak theta dan delta — dua gelombang utama yang mengontrol kualitas tidur dalam.</span></li>
+          </ul>
+          <p class="empathy">Jepang dikenal sebagai salah satu negara dengan penduduk paling produktif dan berumur panjang di dunia. Salah satu rahasianya adalah filosofi tidur mereka — bukan soal lama tidur, tapi soal kualitas dan ritual yang mengantar mereka ke tidur yang benar-benar restoratif.</p>
+          <p class="empathy">Tradisi Zen mengajarkan bahwa tubuh dan pikiran harus disiapkan untuk tidur — bukan dipaksa. Dan persiapan itu bisa dilakukan dalam waktu 15 menit dengan teknik yang tepat.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Apa Kata Mereka yang Sudah Mencoba</h2>
+          <p>Gunakan testimoni nyata setelah produk diluncurkan. Template sementara:</p>
+        </div>
+        <div class="testimonial-wrap">
+          <div class="testimonials">
+            <article class="testimonial">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>"Saya sudah 3 tahun susah tidur. Sudah coba obat dokter, minum susu hangat, sampai beli aromaterapi mahal. Setelah coba Rahasia #3 (Mushin) selama 4 hari, saya bisa tidur dalam 20 menit. Minggu kedua sudah bisa tidur dalam 10 menit."</p>
+              <strong>— Ratna D., 47 tahun, Bekasi</strong>
+            </article>
+            <article class="testimonial">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>"Saya kerja shift dan pola tidur saya berantakan. Ritual Ichinichi Owari di Rahasia #5 benar-benar mengubah segalanya. Sekarang setiap habis shift malam, saya bisa langsung tidur dalam 15 menit. Padahal sebelumnya butuh 1-2 jam."</p>
+              <strong>— Dimas P., 29 tahun, Surabaya</strong>
+            </article>
+            <article class="testimonial">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>"Yang paling membantu adalah teknik pendinginan tubuh di Rahasia #2. Saya tidak pernah tahu suhu tubuh mempengaruhi kualitas tidur. Sejak coba teknik ini, saya jarang terbangun di tengah malam. Tidur saya jauh lebih dalam."</p>
+              <strong>— Hj. Mariam, 61 tahun, Medan</strong>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="offer" id="order">
+      <div class="container">
+        <div class="section-head">
+          <h2>Dapatkan Panduan Lengkap Ini Sekarang</h2>
+        </div>
+
+        <div class="card">
+          <ul class="price-list price-list--edge">
+            <li><i class="fa-solid fa-circle list-icon list-icon-neutral" aria-hidden="true"></i><span>Konsultasi dokter spesialis tidur: <strong>Rp 400.000–700.000</strong> sekali kunjungan</span></li>
+            <li><i class="fa-solid fa-circle list-icon list-icon-neutral" aria-hidden="true"></i><span>Obat tidur resep per bulan: <strong>Rp 200.000–500.000</strong> — dengan risiko ketergantungan</span></li>
+            <li><i class="fa-solid fa-circle list-icon list-icon-neutral" aria-hidden="true"></i><span>Suplemen tidur premium: <strong>Rp 150.000–300.000</strong> per bulan — selamanya</span></li>
+            <li><i class="fa-solid fa-circle list-icon list-icon-neutral" aria-hidden="true"></i><span>5 Rahasia Tidur Nyenyak dari Tradisi Zen Jepang: <span style="text-decoration:line-through;">Rp 147.000</span></span></li>
+          </ul>
+
+          <div class="price-box">
+            <div class="old-price">Rp 147.000</div>
+            <p class="new-price">Hanya Rp 47.000</p>
+            <div class="price-note">Bayar sekali. Akses selamanya.</div>
+          </div>
+
+          <ul class="price-list" style="margin-bottom: 24px;">
+            <li><i class="fa-solid fa-circle-check list-icon list-icon-success" aria-hidden="true"></i><span>Panduan 5 Rahasia Tidur Nyenyak Lengkap (PDF, bisa dibaca di HP)</span></li>
+            <li><i class="fa-solid fa-circle-check list-icon list-icon-success" aria-hidden="true"></i><span>Panduan Rutinitas 30 Menit Sebelum Tidur</span></li>
+            <li><i class="fa-solid fa-circle-check list-icon list-icon-success" aria-hidden="true"></i><span>Checklist Lingkungan Tidur Ideal</span></li>
+            <li><i class="fa-solid fa-circle-check list-icon list-icon-success" aria-hidden="true"></i><span>Akses langsung setelah pembayaran</span></li>
+          </ul>
+
+          <div class="center">
+            <a class="btn btn-primary" href="#target-scroll">YA, SAYA MAU TIDUR NYENYAK MALAM INI — Rp 47.000</a>
+            <div class="cta-note">Klik tombol di atas untuk langsung ke halaman pembayaran</div>
+          </div>
+
+          <div class="guarantee">
+            <strong>🛡️ Garansi Uang Kembali 30 Hari</strong>
+            <p style="margin:8px 0 0;">Praktikkan 5 rahasia ini selama 30 hari. Jika kamu tidak merasakan perbedaan apapun pada kualitas tidurmu, kami kembalikan uangmu 100%. Tanpa pertanyaan, tanpa syarat rumit.</p>
+          </div>
+
+          <div class="micro-copy">
+            <span>🔒 Pembayaran aman via Midtrans/Xendit</span>
+            <span>📱 Akses langsung via link setelah bayar</span>
+            <span>💳 Transfer Bank, GoPay, OVO, Dana, QRIS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Pertanyaan yang Sering Ditanyakan</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>❓ Apakah teknik ini bisa untuk semua jenis insomnia?</summary>
+            <p>Panduan ini paling efektif untuk insomnia yang disebabkan oleh stres, pikiran aktif, kecemasan, dan kebiasaan tidur yang buruk — yang merupakan 80% kasus insomnia. Untuk insomnia yang disebabkan kondisi medis spesifik seperti sleep apnea, disarankan berkonsultasi dengan dokter terlebih dahulu.</p>
+          </details>
+          <details>
+            <summary>❓ Berapa lama sebelum saya merasakan hasilnya?</summary>
+            <p>Banyak orang merasakan efek pertama dalam 1-3 malam pertama mencoba. Untuk hasil yang konsisten dan jangka panjang, praktik rutin selama 2-4 minggu akan mengubah pola tidurmu secara permanen.</p>
+          </details>
+          <details>
+            <summary>❓ Apakah saya harus berhenti minum obat tidur?</summary>
+            <p>Tidak perlu berhenti tiba-tiba. Gunakan panduan ini bersamaan dengan rutinitas tidurmu sekarang. Banyak pengguna secara alami mengurangi ketergantungan pada obat tidur setelah beberapa minggu karena tubuh mereka sudah bisa tidur sendiri.</p>
+          </details>
+          <details>
+            <summary>❓ Apakah cocok untuk lansia?</summary>
+            <p>Sangat cocok. Semua teknik dalam panduan ini tidak memerlukan aktivitas fisik apapun — semuanya dilakukan sambil berbaring atau duduk santai. Cocok untuk semua usia mulai dari 20 hingga 70 tahun ke atas.</p>
+          </details>
+          <details>
+            <summary>❓ Bagaimana cara mendapatkan produknya?</summary>
+            <p>Langsung setelah pembayaran berhasil, kamu akan mendapat link download via email atau WhatsApp. Akses instan — tidak perlu menunggu.</p>
+          </details>
+          <details>
+            <summary>❓ Bisa dibaca di HP?</summary>
+            <p>Ya. Format PDF yang nyaman dibaca di smartphone, tablet, maupun komputer. Tidak perlu aplikasi khusus.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" id="target-scroll">
+      <div class="container">
+        <div class="closing-card">
+          <h3>Setiap Malam yang Berlalu Tanpa Tidur Nyenyak Adalah Hutang yang Dibayar Tubuhmu</h3>
+          <p>Kurang tidur berkualitas tidak hanya membuat kamu lelah — ia secara diam-diam merusak jantung, otak, sistem imun, dan keseimbangan hormonmu setiap harinya.</p>
+          <p>Kamu sudah terlalu lama mencoba bertahan dengan tidur yang tidak cukup.</p>
+          <p>Rp 47.000 adalah keputusan terkecil yang bisa kamu buat malam ini — dengan potensi dampak terbesar untuk hidupmu.</p>
+          <a class="btn btn-primary" href="#target-scroll">DAPATKAN 5 RAHASIA TIDUR NYENYAK — Rp 47.000</a>
+          <p class="sub">🛡️ Dilindungi Garansi Uang Kembali 30 Hari | 🔒 Pembayaran Aman | 📱 Akses Instan</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

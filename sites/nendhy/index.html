@@ -874,6 +874,14 @@
       right:0;
       top:0;
     }
+    .aha-footer-copy{
+      margin:22px 0 0;
+      padding-top:14px;
+      border-top:1px solid rgba(255,255,255,.08);
+      font-size:12.5px;
+      color:#94a3b8;
+      text-align:center;
+    }
 
     .aha-about-grid{
       display:grid;
@@ -968,6 +976,63 @@
       margin:-12px auto 20px;
       letter-spacing:.02em;
     }
+    .aha-gallery{
+      background:linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+      overflow:hidden;
+    }
+    .aha-gallery .aha-section-title{
+      color:#0b1220;
+      text-align:center;
+    }
+    .aha-gallery .aha-section-sub{
+      color:#475569;
+      text-align:center;
+      margin-bottom:20px;
+    }
+    .aha-gallery-carousel{
+      position:relative;
+      width:100%;
+    }
+    .aha-gallery-track{
+      display:flex;
+      gap:14px;
+      overflow:auto;
+      padding:12px 6vw 24px;
+      scroll-snap-type:x mandatory;
+      scroll-padding:0 6vw;
+      -webkit-overflow-scrolling:touch;
+      scroll-behavior:smooth;
+    }
+    .aha-gallery-track::-webkit-scrollbar{ display:none; }
+    .aha-gallery-track{ -ms-overflow-style:none; scrollbar-width:none; }
+    .aha-gallery-item{
+      flex:0 0 clamp(208px, 72vw, 280px);
+      border-radius:18px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e5e7eb;
+      box-shadow:0 14px 30px rgba(15,23,42,.1);
+      scroll-snap-align:center;
+      transform:translateY(0) scale(.92);
+      opacity:.72;
+      transition:transform .35s ease, opacity .35s ease, box-shadow .35s ease;
+    }
+    .aha-gallery-item img{
+      width:100%;
+      height:100%;
+      min-height:260px;
+      display:block;
+      object-fit:cover;
+      aspect-ratio:4/5;
+    }
+    .aha-gallery-item.is-active{
+      transform:translateY(-10px) scale(1.02);
+      opacity:1;
+      box-shadow:0 24px 44px rgba(15,23,42,.2);
+      border-color:#cbd5e1;
+    }
     .aha-wa-float{
       position:fixed;
       right:18px;
@@ -1011,6 +1076,14 @@
         margin-right:auto;
       }
       .aha-why-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .aha-gallery-track{
+        padding-left:5vw;
+        padding-right:5vw;
+        scroll-padding:0 5vw;
+      }
+      .aha-gallery-item{
+        flex-basis:clamp(220px, 34vw, 300px);
+      }
       .aha-activity-track{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
       .aha-testimonial-track{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
       .aha-contact-grid{
@@ -1058,6 +1131,14 @@
         scroll-snap-align:start;
       }
       .aha-swipe-hint{ display:block; }
+      .aha-gallery-track{
+        padding-left:4vw;
+        padding-right:4vw;
+        scroll-padding:0 4vw;
+      }
+      .aha-gallery-item{
+        flex-basis:clamp(210px, 78vw, 270px);
+      }
       .aha-footer-wrap{ grid-template-columns:1fr; }
       .aha-footer-list li{
         grid-template-columns:96px 1fr;
@@ -1640,7 +1721,7 @@
       display:none;
       align-items:center;
       justify-content:center;
-      z-index:10;
+      z-index:3;
       transition:all .2s;
     }
     .bike-nav:hover{
@@ -1843,7 +1924,7 @@
       display:none;
       align-items:center;
       justify-content:center;
-      z-index:10;
+      z-index:3;
       transition:all .2s;
     }
     .tour-activity-nav:hover{
@@ -1988,8 +2069,81 @@
       text-decoration:none;
       box-shadow:0 10px 24px rgba(246,196,83,.18);
     }
+    .aha-service-actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      margin-top:auto;
+    }
+    .aha-service-alt{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+      align-self:stretch;
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid #e5e7eb;
+      background:#ffffff;
+      color:#111827;
+      font-weight:800;
+      font-size:12px;
+      box-shadow:none;
+      cursor:pointer;
+    }
     .aha-service-book:hover{
       filter:brightness(.96);
+    }
+    .aha-price-list-head{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) auto;
+      gap:10px;
+      margin-bottom:10px;
+      padding:0 4px;
+      font-size:13px;
+      color:#111827;
+      font-weight:800;
+    }
+    .aha-price-list-rows{
+      display:grid;
+      gap:8px;
+      max-height:52vh;
+      overflow:auto;
+      padding-right:4px;
+    }
+    .aha-price-row{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) auto auto;
+      gap:8px;
+      align-items:center;
+      padding:8px 10px;
+      border:1px solid #e5e7eb;
+      border-radius:10px;
+      background:#fff;
+      font-size:13px;
+      color:#1f2937;
+    }
+    .aha-price-tag{
+      font-weight:800;
+      color:#0b1220;
+      white-space:nowrap;
+    }
+    .aha-price-book{
+      border:0;
+      border-radius:8px;
+      background:var(--sun);
+      color:#111827;
+      font-weight:800;
+      font-size:12px;
+      padding:8px 12px;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .aha-price-note{
+      margin:12px 2px 2px;
+      font-size:12px;
+      line-height:1.6;
+      color:#475569;
     }
     .aha-services-nav{
       position:absolute;
@@ -2007,7 +2161,7 @@
       display:none;
       align-items:center;
       justify-content:center;
-      z-index:10;
+      z-index:3;
       transition:all .2s;
     }
     .aha-services-nav:hover{
@@ -2039,6 +2193,18 @@
       }
       .aha-services-nav{
         display:flex;
+      }
+      .aha-service-actions{
+        grid-template-columns:1fr;
+      }
+      .aha-price-row{
+        grid-template-columns:minmax(0, 1fr) auto auto;
+        align-items:center;
+      }
+      .aha-price-row > .aha-price-book{
+        width:auto;
+        padding:7px 10px;
+        font-size:11px;
       }
     }
     .aha-chip-grid{
@@ -2150,6 +2316,7 @@
   <div id="about-placeholder"></div>
 
   <div id="why-placeholder"></div>
+  <div id="gallery-placeholder"></div>
 
   <!-- Hidden packages section - can be removed or kept for reference -->
 

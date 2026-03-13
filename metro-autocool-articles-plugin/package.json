@@ -1,0 +1,16 @@
+{
+  "name": "metro-autocool-articles",
+  "version": "1.0.0",
+  "description": "Plugin untuk menampilkan artikel Metro Autocool dengan shortcode dan Elementor widget",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0+",
+  "keywords": [
+    "articles",
+    "metro autocool",
+    "elementor"
+  ],
+  "author": {
+    "name": "Metro Autocool",
+    "url": "https://acmobilsurabaya.com"
+  }
+}

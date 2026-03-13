@@ -1,0 +1,87 @@
+<div class="purchase-pop" id="purchasePop" aria-live="polite" aria-atomic="true">
+  <div class="pop-avatar">🛍️</div>
+  <div class="pop-text">
+    <div class="pop-name" id="popName">Ratna</div>
+    <div class="pop-action" id="popAction">Telah Membeli New WA Mastery 2026</div>
+    <div class="pop-time" id="popTime">Hari Ini</div>
+  </div>
+</div>
+
+<style>
+  .purchase-pop{
+    position:fixed;
+    top:18px;
+    right:18px;
+    background:#ffffff;
+    border:1px solid rgba(0,0,0,0.08);
+    box-shadow:0 18px 40px rgba(24, 38, 80, 0.18);
+    border-radius:14px;
+    padding:12px 14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:260px;
+    z-index:9999;
+    opacity:0;
+    transform:translateY(-8px);
+    transition:opacity .4s ease, transform .4s ease;
+    font-family:"Sora", system-ui, sans-serif;
+  }
+  .purchase-pop.is-show{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  .pop-avatar{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:rgba(51,73,255,0.08);
+    display:grid;
+    place-items:center;
+    font-size:16px;
+  }
+
+  .pop-text{ line-height:1.2; }
+  .pop-name{ font-weight:700; font-size:13px; color:#1f2430; }
+  .pop-action{ font-size:12px; color:#4d5668; margin-top:2px; }
+  .pop-time{ font-size:11px; color:#8892a5; margin-top:4px; }
+
+  @media (max-width: 720px){
+    .purchase-pop{ top:12px; right:12px; min-width:220px; }
+  }
+</style>
+
+<script>
+  const popData = [
+    { name: 'Ratna', time: 'Hari Ini' },
+    { name: 'Budi', time: 'Hari Ini' },
+    { name: 'Sari', time: 'Kemarin' },
+    { name: 'Hendra', time: 'Hari Ini' },
+    { name: 'Nina', time: 'Kemarin' }
+  ];
+
+  const popEl = document.getElementById('purchasePop');
+  const nameEl = document.getElementById('popName');
+  const actionEl = document.getElementById('popAction');
+  const timeEl = document.getElementById('popTime');
+
+  let popIndex = 0;
+
+  function showPop(){
+    const item = popData[popIndex % popData.length];
+    nameEl.textContent = item.name;
+    actionEl.textContent = 'Telah Membeli New WA Mastery 2026';
+    timeEl.textContent = item.time;
+
+    popEl.classList.add('is-show');
+    setTimeout(() => popEl.classList.remove('is-show'), 4200);
+
+    popIndex += 1;
+  }
+
+  setTimeout(() => {
+    showPop();
+    setInterval(showPop, 10000);
+  }, 10000);
+</script>

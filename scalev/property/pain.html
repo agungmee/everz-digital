@@ -1,0 +1,94 @@
+<section id="pain" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&display=swap");
+
+    #pain {
+      padding: 90px 0;
+      background: linear-gradient(180deg, #fff7ef 0%, #ffffff 100%);
+    }
+
+    #pain .wrap {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+    }
+
+    #pain h2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(1.9rem, 2.4vw + 0.8rem, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    #pain .lead {
+      color: #4f433c;
+      max-width: 720px;
+      line-height: 1.7;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #pain .issue-card {
+      list-style: none;
+      margin: 0;
+      padding: 18px 20px;
+      display: grid;
+      gap: 12px;
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 14px 30px rgba(26, 18, 12, 0.08);
+      border: 1px solid rgba(30, 26, 23, 0.06);
+    }
+
+    #pain .issue-card li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: #5c4f46;
+    }
+
+    #pain .issue-icon {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 700px) {
+      #pain {
+        padding: 70px 0;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <h2>Apakah Kamu Mengalami Ini?</h2>
+    <p class="lead">
+      Banyak agent properti ada di fase yang sama. Kalau salah satunya terjadi di kamu,
+      artinya kamu butuh sistem yang lebih rapi.
+    </p>
+    <ul class="issue-card">
+      <li><span class="issue-icon">😕</span><span>Listing sudah banyak, tapi chat masuknya cuma tanya harga.</span></li>
+      <li><span class="issue-icon">🤔</span><span>Ada prospek masuk, tapi bingung follow up biar mau survey.</span></li>
+      <li><span class="issue-icon">📉</span><span>Sudah iklan, tapi leads nggak stabil dan sulit closing.</span></li>
+      <li><span class="issue-icon">💥</span><span>Budget promosi habis, tapi hasilnya tidak sebanding.</span></li>
+      <li><span class="issue-icon">😓</span><span>Konten sudah rutin, tapi pembeli serius jarang bertanya.</span></li>
+      <li><span class="issue-icon">💸</span><span>Harga sering dibanding-bandingkan sampai harus banting harga.</span></li>
+      <li><span class="issue-icon">⏳</span><span>Jadwal survey naik turun, tidak ada closing yang konsisten.</span></li>
+    </ul>
+  </div>
+
+  <script>
+    const painCard = document.querySelector("#pain .issue-card");
+    if (painCard) {
+      painCard.style.opacity = "0";
+      painCard.style.transform = "translateY(16px)";
+      setTimeout(() => {
+        painCard.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        painCard.style.opacity = "1";
+        painCard.style.transform = "translateY(0)";
+      }, 120);
+    }
+  </script>
+</section>

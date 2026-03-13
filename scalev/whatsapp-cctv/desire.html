@@ -1,0 +1,139 @@
+<section id="proof" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&display=swap");
+
+    #proof {
+      padding: 90px 0;
+      background: radial-gradient(circle at top, #eafff4 0%, #f6fffb 55%, #e2f5ec 100%);
+      text-align: center;
+    }
+
+    #proof .wrap {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+      justify-items: center;
+    }
+
+    #proof h2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(2.2rem, 3.1vw + 0.8rem, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: #0b4bff;
+    }
+
+    #proof .headline-2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(1.7rem, 2vw + 0.8rem, 2.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #0b4bff;
+      margin: 0;
+      padding: 10px 18px;
+      background: #d7f7e8;
+      border-radius: 16px;
+      box-shadow: 0 16px 34px rgba(15, 176, 106, 0.25);
+    }
+
+    #proof .lead {
+      color: #4f433c;
+      max-width: 780px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-size: 1.08rem;
+    }
+
+    #proof .alert-box {
+      background: #1e1a17;
+      color: #fff;
+      border-radius: 18px;
+      padding: 20px 22px;
+      box-shadow: 0 20px 40px rgba(30, 26, 23, 0.25);
+      width: min(820px, 92vw);
+      text-align: left;
+      display: grid;
+      gap: 14px;
+    }
+
+    #proof .alert-title {
+      font-size: clamp(1.35rem, 1.4vw + 0.8rem, 1.7rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    #proof .proof-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+      color: #f5e9df;
+      font-size: 1.02rem;
+    }
+
+    #proof .proof-list li::before {
+      content: "✓";
+      color: #93e7c7;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    #proof .testimonial-img {
+      width: min(780px, 92vw);
+      margin: 18px auto 0;
+      border-radius: 16px;
+      box-shadow: 0 18px 36px rgba(30, 26, 23, 0.16);
+      border: 1px solid rgba(30, 26, 23, 0.08);
+      display: block;
+    }
+
+    #proof .note {
+      text-align: center;
+      color: #6b5b52;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 700px) {
+      #proof {
+        padding: 70px 0;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <h2>Gambaran Hasil Dari Alur WA Jasa CCTV</h2>
+    <div class="headline-2">Chat lebih rapi, jadwal survey lebih jelas</div>
+    <p class="lead">
+      Tim CCTV di berbagai kota pakai pola yang sama: tarik chat, kualifikasi cepat, dan jadwalkan survey.
+      Hasilnya percakapan lebih terarah dibanding mengandalkan inquiry acak.
+      Fokus utamanya: jumlah chat harian naik signifikan.
+    </p>
+    <div class="alert-box">
+      <div class="alert-title">Yang biasanya terasa setelah alur rapi:</div>
+      <ul class="proof-list">
+        <li>Lead yang masuk lebih sesuai lokasi, jumlah titik, dan kebutuhan pemasangan</li>
+        <li>Respon admin lebih cepat karena sudah ada alur tanya-jawab</li>
+        <li>Jadwal survey/pasang lebih jelas karena follow up tertata</li>
+        <li>Biaya iklan lebih terkontrol karena kampanye dipantau rutin</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const proofBox = document.querySelector("#proof .alert-box");
+    if (proofBox) {
+      proofBox.style.opacity = "0";
+      proofBox.style.transform = "translateY(16px)";
+      setTimeout(() => {
+        proofBox.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        proofBox.style.opacity = "1";
+        proofBox.style.transform = "translateY(0)";
+      }, 120);
+    }
+  </script>
+</section>

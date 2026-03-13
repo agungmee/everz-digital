@@ -1,0 +1,10 @@
+attention.html
+pain.html
+interest.html
+desire.html
+credibility.html
+value-prep.html
+trust.html
+conviction.html
+action.html
+popup-purchase.html

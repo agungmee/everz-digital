@@ -1,0 +1,113 @@
+<section id="pain" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&display=swap");
+
+    #pain {
+      padding: 90px 0;
+      background: radial-gradient(circle at top, #fff2e0 0%, #fff7ef 55%, #f6f0e9 100%);
+      text-align: center;
+    }
+
+    #pain .wrap {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+      justify-items: center;
+    }
+
+    #pain h2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(2.2rem, 3.1vw + 0.8rem, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    #pain .headline-2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(1.7rem, 2vw + 0.8rem, 2.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #1e1a17;
+      margin: 0;
+      padding: 10px 18px;
+      background: #ffe2cc;
+      border-radius: 16px;
+      box-shadow: 0 16px 34px rgba(255, 107, 61, 0.25);
+    }
+
+    #pain .lead {
+      color: #4f433c;
+      max-width: 720px;
+      line-height: 1.7;
+      margin: 0 auto;
+      font-size: 1.08rem;
+    }
+
+    #pain .issue-card {
+      list-style: none;
+      margin: 0;
+      padding: 20px 22px;
+      display: grid;
+      gap: 12px;
+      background: #1e1a17;
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(30, 26, 23, 0.25);
+      width: min(820px, 92vw);
+      text-align: left;
+    }
+
+    #pain .issue-card li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: #f5e9df;
+      font-size: 1.02rem;
+    }
+
+    #pain .issue-icon {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 700px) {
+      #pain {
+        padding: 70px 0;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <h2>Apakah Closing Mobil Bekas Kamu Lagi Mandek?</h2>
+    <div class="headline-2">Kalau iya, kamu nggak sendiri</div>
+    <p class="lead">
+      Banyak showroom mobil bekas ngalamin hal yang sama. Tapi kabar baiknya, ada alur yang bisa bikin calon pembeli
+      lebih rutin, chat lebih gampang closing, dan stok cepat muter tanpa harus menunggu keberuntungan.
+    </p>
+    <ul class="issue-card">
+      <li><span class="issue-icon">😕</span><span>Sudah upload di marketplace, tapi calon pembeli masih minim.</span></li>
+      <li><span class="issue-icon">🤔</span><span>Ada chat masuk ke WA, tapi bingung jawabnya biar calon pembeli yakin.</span></li>
+      <li><span class="issue-icon">📉</span><span>Promosi sudah jalan, tapi closing naik turun dan nggak stabil tiap minggu.</span></li>
+      <li><span class="issue-icon">💥</span><span>Sudah pasang iklan, tapi boncos karena leads tidak sesuai.</span></li>
+      <li><span class="issue-icon">😓</span><span>Konten udah rutin, tapi yang tanya unit masih sedikit.</span></li>
+      <li><span class="issue-icon">💸</span><span>Harga sering dibanding-bandingin, akhirnya terpaksa banting margin.</span></li>
+      <li><span class="issue-icon">⏳</span><span>Unit numpuk, tapi booking test drive tetap sepi.</span></li>
+    </ul>
+  </div>
+
+  <script>
+    const painCard = document.querySelector("#pain .issue-card");
+    if (painCard) {
+      painCard.style.opacity = "0";
+      painCard.style.transform = "translateY(16px)";
+      setTimeout(() => {
+        painCard.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        painCard.style.opacity = "1";
+        painCard.style.transform = "translateY(0)";
+      }, 120);
+    }
+  </script>
+</section>

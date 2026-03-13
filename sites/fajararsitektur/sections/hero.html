@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fajar Arsitektur - Hero Section</title>
+  <style>
+    :root{--ink:#0f172a;--blue:#2f6ce0;--bg:#f3f6fb}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.55),rgba(15,23,42,.65));z-index:1}
+    .hero-bg{position:absolute;inset:0;background:center/cover no-repeat;transition:opacity 1.4s ease,transform 6s ease;opacity:0;transform:scale(1.03)}
+    .hero-bg.is-active{opacity:1;transform:scale(1)}
+    .hero-center{position:relative;z-index:2;display:grid;gap:16px;padding:20px}
+    .hero-title{font-size:clamp(28px,5vw,46px);font-weight:700}
+    .hero-sub{font-size:clamp(28px,5vw,52px);font-weight:700}
+    .hero-sub span{color:#a7c3ff}
+    .hero-cursor{display:inline-block;width:10px;animation:blink .9s infinite}
+    .hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid transparent;background:var(--blue);color:#fff;text-decoration:none}
+    .hero-stats-mobile{display:flex;background:rgba(12,18,30,.58);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:14px 16px;gap:16px;justify-content:center;text-align:center;width:min(92vw,360px);margin:16px auto 0}
+    .hero-stats-mobile strong{display:block;font-size:22px}
+    .hero-stats-mobile span{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#a7c3ff;margin-top:4px}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+  </style>
+</head>
+<body>
+  <section class="hero" id="home">
+    <div class="hero-bg is-active" id="hero-bg-a"></div>
+    <div class="hero-bg" id="hero-bg-b"></div>
+    <div class="hero-center">
+      <div class="hero-title">CV Fajar Gemilang Plus</div>
+      <div class="hero-sub"><span id="hero-typed">Design Interior & Eksterior</span><span class="hero-cursor">|</span></div>
+      <div class="hero-actions">
+        <a class="btn" href="#">Lihat Layanan</a>
+        <a class="btn" href="#">Konsultasi Gratis</a>
+      </div>
+      <div class="hero-stats-mobile">
+        <div><strong class="count-up" data-count="100" data-suffix="+">0</strong><span>Project Selesai</span></div>
+        <div><strong class="count-up" data-count="99" data-suffix="%">0</strong><span>Client Puas</span></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const typedEl = document.getElementById('hero-typed');
+    const bgA = document.getElementById('hero-bg-a');
+    const bgB = document.getElementById('hero-bg-b');
+
+    if (typedEl && bgA && bgB) {
+      let activeBg = bgA;
+      const slides = [
+        { text: 'Design Interior & Eksterior', image: 'https://i0.wp.com/www.emporioarchitect.com/upload/portofolio/desain-rumah-modern-2-lantai-93100924-64788789100924082643-2.jpg' },
+        { text: 'Perencanaan & Arsitek', image: 'https://www.a4g-llp.co.uk/wp-content/uploads/Architecture-chargeable-time.png' },
+        { text: 'Pembangunan Baru', image: 'https://kaliandra-gardenvilla.com/wp-content/uploads/2024/02/Hindari-Kekecewaan-Teliti-Dulu-Jangka-Waktu-Pembangunan-Rumah-1-jpeg.webp' },
+        { text: 'Renovasi', image: 'https://mcmproperti.id/wp-content/uploads/2023/03/Renovasi-Rumah-Bagian-Depan-jpg.webp' }
+      ];
+
+      let slideIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      function updateSlideBackground() {
+        const nextBg = activeBg === bgA ? bgB : bgA;
+        nextBg.style.backgroundImage = "url('" + slides[slideIndex].image + "')";
+        nextBg.classList.add('is-active');
+        activeBg.classList.remove('is-active');
+        activeBg = nextBg;
+      }
+
+      function typeLoop() {
+        const current = slides[slideIndex].text;
+        if (!deleting) {
+          charIndex += 1;
+          typedEl.textContent = current.slice(0, charIndex);
+          if (charIndex === current.length) {
+            deleting = true;
+            setTimeout(typeLoop, 1200);
+            return;
+          }
+        } else {
+          charIndex -= 1;
+          typedEl.textContent = current.slice(0, charIndex);
+          if (charIndex === 0) {
+            deleting = false;
+            slideIndex = (slideIndex + 1) % slides.length;
+            updateSlideBackground();
+            const nextText = slides[slideIndex].text;
+            charIndex = 1;
+            typedEl.textContent = nextText.slice(0, charIndex);
+            setTimeout(typeLoop, 70);
+            return;
+          }
+        }
+        setTimeout(typeLoop, deleting ? 40 : 70);
+      }
+
+      bgA.style.backgroundImage = "url('" + slides[0].image + "')";
+      updateSlideBackground();
+      typedEl.textContent = slides[0].text;
+      charIndex = slides[0].text.length;
+      deleting = true;
+      setTimeout(typeLoop, 1200);
+    }
+
+    function animateCounters() {
+      const counters = document.querySelectorAll('.count-up');
+      if (!counters.length) return;
+      const duration = 1200;
+      counters.forEach((counter) => {
+        const target = Number(counter.dataset.count || 0);
+        const suffix = counter.dataset.suffix || '';
+        const startTime = performance.now();
+
+        function tick(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const value = Math.floor(progress * target);
+          counter.textContent = value.toLocaleString('id-ID') + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(tick);
+          } else {
+            counter.textContent = target.toLocaleString('id-ID') + suffix;
+          }
+        }
+
+        requestAnimationFrame(tick);
+      });
+    }
+
+    window.addEventListener('load', animateCounters);
+  </script>
+</body>
+</html>

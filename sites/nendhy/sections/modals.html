@@ -1,4 +1,2283 @@
-<!-- Modals -->
+<style>
+    :root{
+      --ink:#0b1b2b;
+      --paper:#f8faf9;
+      --sun:#f6c453;
+      --sea:#0b4d66;
+      --glass:rgba(8,18,30,.52);
+      --line:rgba(255,255,255,.22);
+    }
+    *{ box-sizing:border-box; }
+    html, body{
+      margin:0;
+      padding:0;
+      width:100%;
+      height:100%;
+      overflow-x:hidden;
+      background:#0b1220;
+    }
+    body{
+      font-family:"Manrope", sans-serif;
+      color:var(--paper);
+    }
+    .elementor,
+    .elementor-section,
+    .elementor-section-wrap,
+    .elementor-container,
+    .elementor-top-section,
+    .elementor-column,
+    .elementor-widget-wrap,
+    .elementor-widget-container{
+      margin:0 !important;
+      padding:0 !important;
+      max-width:100% !important;
+      width:100% !important;
+    }
+    .elementor-section,
+    .elementor-top-section,
+    .elementor-section-wrap{
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+    .elementor-section > .elementor-container{
+      padding-left:0 !important;
+      padding-right:0 !important;
+      max-width:100% !important;
+    }
+    body > .elementor{
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+    body > .elementor .elementor-section:first-child,
+    body > .elementor .elementor-top-section:first-child{
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+    body > .elementor .elementor-section:first-child > .elementor-container{
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+    a{ color:inherit; text-decoration:none; }
+
+    .aha-hero{
+      position:relative;
+      min-height:92vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      overflow:hidden;
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+
+    .aha-slider{
+      position:absolute;
+      inset:0;
+      z-index:0;
+    }
+    .aha-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity 1.2s ease, transform 1.2s ease;
+    }
+    .aha-slide.active{
+      opacity:1;
+      transform:scale(1.01);
+    }
+    .aha-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(120deg, rgba(6,12,20,.92), rgba(6,12,20,.62) 45%, rgba(6,12,20,.25)),
+        linear-gradient(0deg, rgba(6,12,20,.55), rgba(6,12,20,.15));
+      z-index:1;
+    }
+
+    .aha-nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:5;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 6vw;
+      background:rgba(10,18,28,.02);
+      box-shadow:none;
+      transition:background .35s ease, box-shadow .35s ease, transform .35s ease;
+    }
+    .aha-nav .aha-menu a{ color:var(--paper); opacity:.85; }
+    .aha-nav .aha-brand-text{ color:var(--paper); }
+    .aha-nav .aha-btn{
+      background:rgba(255,255,255,.06);
+      color:var(--paper);
+      border:1px solid var(--line);
+    }
+    .aha-nav .aha-btn.primary{
+      background:var(--sun);
+      color:#1b1b1b;
+      border:0;
+    }
+    .aha-nav.is-scrolled{
+      background:#ffffff !important;
+      box-shadow:0 18px 40px rgba(15,23,42,.12) !important;
+    }
+    .aha-nav.is-scrolled .aha-menu a{ color:#0b1220; opacity:.8; }
+    .aha-nav.is-scrolled .aha-brand-text{ color:#0b1220; }
+    .aha-nav.is-scrolled .aha-btn{
+      background:#f3f4f6;
+      color:#0b1220;
+      border:1px solid #e5e7eb;
+    }
+    .aha-nav.is-scrolled .aha-btn.primary{
+      background:var(--sun);
+      color:#1b1b1b;
+      border:0;
+    }
+    .aha-brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.06em;
+    }
+    .aha-logo{
+      width:44px;height:44px;
+      border-radius:50% !important;
+      border:2px solid rgba(255,255,255,.5);
+      object-fit:cover;
+      overflow:hidden;
+      box-shadow:0 10px 26px rgba(0,0,0,.35);
+    }
+    .aha-menu{
+      display:flex;
+      gap:18px;
+      font-size:14px;
+      font-weight:600;
+    }
+    .aha-menu a{ opacity:.85; }
+    .aha-menu a:hover{ opacity:1; }
+    .aha-dropdown{
+      position:relative;
+      padding-bottom:6px;
+    }
+    .aha-dropdown > a{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+    .aha-caret{
+      font-size:11px;
+      opacity:.7;
+    }
+    .aha-dropdown-menu{
+      position:absolute;
+      top:calc(100% + 12px);
+      left:0;
+      min-width:200px;
+      background:#ffffff;
+      color:#0b1220;
+      border:1px solid #e5e7eb;
+      border-radius:14px;
+      box-shadow:0 18px 40px rgba(15,23,42,.12);
+      padding:8px;
+      display:grid;
+      gap:4px;
+      opacity:0;
+      pointer-events:none;
+      transform:translateY(8px);
+      transition:opacity .25s ease, transform .25s ease;
+      z-index:999;
+    }
+    .aha-dropdown:hover .aha-dropdown-menu,
+    .aha-dropdown-menu:hover{
+      opacity:1;
+      pointer-events:auto;
+      transform:translateY(0);
+    }
+    .aha-dropdown-menu::before{
+      content:"";
+      position:absolute;
+      top:-12px;
+      left:0;
+      right:0;
+      height:12px;
+    }
+    .aha-dropdown-menu a{
+      color:#0b1220 !important;
+      padding:8px 10px;
+      border-radius:10px;
+      font-weight:600;
+      opacity:1 !important;
+    }
+    .aha-dropdown-menu a:hover{
+      background:#f3f4f6;
+    }
+
+    .aha-nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .aha-cta{
+      display:flex;gap:10px;align-items:center;
+    }
+    .aha-btn{
+      padding:10px 16px;border-radius:999px;
+      border:1px solid var(--line);
+      backdrop-filter: blur(6px);
+      background:rgba(255,255,255,.06);
+      font-weight:700;font-size:13.5px;
+    }
+    .aha-btn.primary{
+      background:var(--sun);
+      color:#1b1b1b;
+      border:0;
+      box-shadow:0 14px 30px rgba(246,196,83,.35);
+    }
+    .aha-burger{
+      display:grid;
+      place-items:center;
+      border:0;
+      background:transparent;
+      color:var(--paper);
+      cursor:pointer;
+      padding:8px;
+    }
+    .aha-burger:hover{
+      transform:none;
+      box-shadow:none;
+    }
+    .aha-burger-lines{
+      position:relative;
+      width:20px;
+      height:14px;
+    }
+    .aha-burger-lines span{
+      position:absolute;
+      left:0;
+      height:2px;
+      background:currentColor;
+      border-radius:999px;
+      transition:transform .3s ease, opacity .2s ease, width .3s ease;
+    }
+    .aha-burger-lines span:nth-child(1){ top:0; width:20px; }
+    .aha-burger-lines span:nth-child(2){ top:6px; width:14px; }
+    .aha-burger-lines span:nth-child(3){ bottom:0; width:18px; }
+    .aha-burger.is-open .aha-burger-lines span:nth-child(1){
+      transform:translateY(6px) rotate(45deg);
+      width:20px;
+    }
+    .aha-burger.is-open .aha-burger-lines span:nth-child(2){
+      opacity:0;
+      transform:translateX(-6px);
+    }
+    .aha-burger.is-open .aha-burger-lines span:nth-child(3){
+      transform:translateY(-6px) rotate(-45deg);
+      width:20px;
+    }
+    .aha-nav.is-scrolled .aha-burger{
+      background:transparent;
+      color:#0b1220;
+      border:0;
+    }
+
+    .aha-content{
+      position:relative;
+      z-index:2;
+      padding:calc(5vh + 56px) 6vw 10vh;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:36px;
+      align-items:center;
+      margin-top:0;
+    }
+    .aha-kicker{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:8px 14px;border-radius:999px;
+      background:var(--glass);
+      border:1px solid var(--line);
+      font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    }
+    .aha-title{
+      font-family:"Playfair Display", serif;
+      font-size:48px;
+      line-height:1.08;
+      margin:16px 0 14px;
+      text-shadow:0 12px 30px rgba(0,0,0,.45);
+    }
+    .aha-subtitle{
+      font-size:15.5px;
+      line-height:1.8;
+      color:#e5e7eb;
+      max-width:520px;
+    }
+    .aha-subtitle .aha-sub-short{ display:none; }
+    .aha-actions{
+      display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;
+    }
+    .aha-actions .aha-btn{ padding:12px 18px; }
+
+    .aha-card{
+      background:rgba(10,20,30,.72);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:20px;
+      padding:20px;
+      box-shadow:0 24px 60px rgba(0,0,0,.35);
+    }
+    .aha-card h3{
+      margin:0 0 12px;font-size:16px;font-weight:800;letter-spacing:.02em;
+    }
+    .aha-card ul{
+      margin:0;padding:0;list-style:none;display:grid;gap:10px;
+      font-size:14px;color:#e5e7eb;
+    }
+    .aha-card li span{ color:#fef3c7; font-weight:700; }
+
+    .aha-slide-indicator{
+      position:absolute;
+      left:50%;
+      bottom:6vh;
+      transform:translateX(-50%);
+      z-index:2;
+      display:flex;gap:8px;align-items:center;
+    }
+    .aha-dot{
+      width:18px;height:4px;border-radius:999px;
+      background:rgba(255,255,255,.35);
+      transition:all .4s ease;
+    }
+    .aha-dot.active{ background:var(--sun); width:32px; }
+
+    @media (max-width: 900px){
+      .aha-hero{ min-height:100vh; }
+      .aha-content{ grid-template-columns:1fr; align-items:flex-start; }
+      .aha-title{ font-size:40px; }
+      .aha-menu{ display:none; }
+      .aha-burger{ display:grid; }
+      .aha-content > div:first-child{
+        text-align:center;
+      }
+      .aha-content > div:first-child .aha-kicker{
+        margin:0 auto;
+      }
+      .aha-content > div:first-child .aha-subtitle{
+        margin-left:auto;
+        margin-right:auto;
+      }
+      .aha-actions{
+        justify-content:center;
+      }
+    }
+    @media (min-width: 901px){
+      .aha-burger{ display:none; }
+    }
+    @media (max-width: 640px){
+      .aha-hero{ min-height:96vh; }
+      .aha-title{ font-size:30px; line-height:1.12; }
+      .aha-subtitle{ font-size:14px; line-height:1.7; }
+      .aha-subtitle .aha-sub-full{ display:none; }
+      .aha-subtitle .aha-sub-short{ display:inline; }
+      .aha-brand-text{
+        display:block;
+      }
+      .aha-card{ padding:16px; }
+      .aha-nav{ padding:16px 5vw; }
+      .aha-content{ padding:calc(3vh + 52px) 5vw 8vh; gap:22px; }
+      .aha-cta .aha-btn{ padding:9px 12px; font-size:12.5px; }
+      .aha-actions{ margin-top:16px; }
+      .aha-actions .aha-btn{ padding:11px 14px; }
+      .aha-slide-indicator{
+        left:50%;
+        bottom:4vh;
+        transform:translateX(-50%);
+      }
+    }
+
+    .aha-section{
+      padding:70px 6vw;
+      background:#fff;
+      color:#0b1220;
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+    }
+    .aha-section-title{
+      font-family:"Playfair Display", serif;
+      text-align:center;
+      font-size:34px;
+      margin:0 0 12px;
+      color:#0b1220;
+    }
+    .aha-section-sub{
+      text-align:center;
+      max-width:720px;
+      margin:0 auto 34px;
+      color:#4b5563;
+      font-size:15px;
+      line-height:1.75;
+    }
+    .aha-activity{
+      background:
+        radial-gradient(circle at 12% 0%, rgba(246,196,83,.22), transparent 45%),
+        radial-gradient(circle at 85% 10%, rgba(11,77,102,.12), transparent 38%),
+        #fff;
+    }
+    .aha-activity-wrap{
+      position:relative;
+    }
+    .aha-activity-track{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:18px;
+    }
+    .aha-activity-card{
+      background:#ffffff;
+      border:1px solid rgba(11,77,102,.12);
+      border-radius:22px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
+    .aha-activity-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 26px 50px rgba(15,23,42,.12);
+    }
+    .aha-activity-media{
+      position:relative;
+      height:190px;
+      background:#0b1220;
+    }
+    .aha-activity-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .aha-activity-price{
+      position:absolute;
+      left:14px;
+      bottom:14px;
+      background:rgba(11,27,43,.9);
+      color:#fff;
+      padding:10px 12px;
+      border-radius:14px;
+      font-size:12.5px;
+      font-weight:800;
+      letter-spacing:.02em;
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+    }
+    .aha-activity-price span{
+      display:block;
+      font-size:11px;
+      font-weight:600;
+      opacity:.8;
+      letter-spacing:.03em;
+    }
+    .aha-activity-body{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      flex:1;
+    }
+    .aha-activity-body h3{
+      margin:0;
+      font-size:17px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-activity-tag{
+      margin:0;
+      font-size:13px;
+      font-weight:700;
+      color:#0b4d66;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+    .aha-activity-list{
+      margin:0;
+      padding-left:18px;
+      color:#4b5563;
+      font-size:13.5px;
+      line-height:1.6;
+      display:grid;
+      gap:6px;
+    }
+    .aha-activity-more{
+      border-top:1px dashed #e5e7eb;
+      padding-top:10px;
+      max-height:0;
+      opacity:0;
+      overflow:hidden;
+      transition:max-height .4s ease, opacity .35s ease;
+    }
+    .aha-activity-card.is-open .aha-activity-more{
+      max-height:220px;
+      opacity:1;
+    }
+    .aha-activity-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:auto;
+    }
+    .aha-activity-actions .aha-btn{
+      font-size:13px;
+      padding:10px 14px;
+    }
+    .aha-bonus{
+      color:#b45309;
+      font-weight:700;
+    }
+    .aha-activity-dots{
+      display:none;
+      justify-content:center;
+      gap:8px;
+      margin-top:18px;
+    }
+    .aha-activity-dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:#d1d5db;
+      transition:all .3s ease;
+    }
+    .aha-activity-dot.active{
+      width:24px;
+      background:var(--sun);
+    }
+
+    .aha-mobile{
+      position:fixed;
+      inset:0;
+      z-index:200;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .3s ease;
+    }
+    .aha-mobile.is-open{
+      opacity:1;
+      pointer-events:auto;
+    }
+    .aha-mobile-backdrop{
+      position:absolute;
+      inset:0;
+      background:rgba(2,6,23,.6);
+      backdrop-filter: blur(4px);
+    }
+    .aha-mobile-panel{
+      position:absolute;
+      top:0;
+      right:0;
+      height:100%;
+      width:min(340px, 86vw);
+      background:linear-gradient(160deg, #0b1220 0%, #0f1a2b 55%, #0b2230 100%);
+      color:#f8faf9;
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      box-shadow:-18px 0 50px rgba(3,10,20,.35);
+      transform:translateX(12px);
+      transition:transform .3s ease;
+    }
+    .aha-mobile.is-open .aha-mobile-panel{
+      transform:translateX(0);
+    }
+    .aha-mobile-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .aha-mobile-title{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:800;
+      opacity:.7;
+    }
+    .aha-mobile-close{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(255,255,255,.08);
+      color:#f8faf9;
+      cursor:pointer;
+      font-size:16px;
+    }
+    .aha-mobile-links{
+      display:grid;
+      gap:10px;
+    }
+    .aha-mobile-links a,
+    .aha-mobile-toggle{
+      color:#f8faf9;
+      font-weight:700;
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      text-align:left;
+      font-family:inherit;
+    }
+    .aha-mobile-toggle{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      cursor:pointer;
+    }
+    .aha-mobile-sub{
+      display:grid;
+      gap:8px;
+      padding-left:10px;
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .3s ease;
+    }
+    .aha-mobile-sub.is-open{
+      max-height:400px;
+    }
+    .aha-mobile-sub a{
+      font-weight:600;
+      background:rgba(255,255,255,.03);
+    }
+
+    .aha-contact{
+      background:linear-gradient(120deg, #ffffff 0%, #f9fafb 55%, #f1f5f9 100%);
+    }
+    .aha-contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1.1fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    .aha-contact-grid > *{
+      min-width:0;
+    }
+    .aha-contact-card{
+      background:#ffffff;
+      border:1px solid #e5e7eb;
+      border-radius:20px;
+      padding:22px;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+    }
+    .aha-contact-card h3{
+      margin:0 0 10px;
+      font-size:20px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-contact-card p{
+      margin:0 0 16px;
+      color:#4b5563;
+      font-size:14.5px;
+      line-height:1.7;
+    }
+    .aha-contact-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:10px;
+      font-size:14px;
+      color:#111827;
+    }
+    .aha-contact-list li{
+      display:grid;
+      grid-template-columns:112px minmax(0, 1fr);
+      column-gap:12px;
+      align-items:start;
+    }
+    .aha-contact-list span{
+      position:relative;
+      color:#6b7280;
+      font-weight:600;
+      padding-right:14px;
+      white-space:nowrap;
+    }
+    .aha-contact-list span::after{
+      content:":";
+      position:absolute;
+      right:0;
+      top:0;
+    }
+    .aha-contact-list a{
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
+    .aha-contact-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+    .aha-map{
+      border:1px solid #e5e7eb;
+      border-radius:20px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+      min-height:320px;
+    }
+    .aha-map iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    .aha-testimonial{
+      background:linear-gradient(135deg, #0b1220 0%, #101b2c 60%, #0c1f2d 100%);
+      color:var(--paper);
+    }
+    .aha-testimonial .aha-section-title{ color:#f8faf9; }
+    .aha-testimonial .aha-section-sub{ color:#dbe4ef; }
+    .aha-testimonial-wrap{
+      position:relative;
+      margin-top:30px;
+    }
+    .aha-testimonial-track{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:18px;
+    }
+    .aha-testimonial-card{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 18px 40px rgba(3,10,20,.35);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:210px;
+    }
+    .aha-testimonial-stars{
+      color:var(--sun);
+      letter-spacing:2px;
+      font-size:14px;
+    }
+    .aha-testimonial-card p{
+      margin:0;
+      color:#e5e7eb;
+      font-size:14px;
+      line-height:1.7;
+    }
+    .aha-testimonial-name{
+      font-weight:800;
+      color:#f8faf9;
+    }
+    .aha-testimonial-meta{
+      font-size:12.5px;
+      color:#c7d2e3;
+    }
+    .aha-testimonial-dots{
+      display:none;
+      margin-top:16px;
+      gap:8px;
+      justify-content:center;
+    }
+    .aha-testimonial-dot{
+      width:18px;height:4px;border-radius:999px;
+      background:rgba(255,255,255,.3);
+      transition:all .4s ease;
+    }
+    .aha-testimonial-dot.active{ background:var(--sun); width:32px; }
+
+    .aha-footer{
+      background:#0b1220;
+      color:#e5e7eb;
+      padding:48px 6vw;
+      border-top:1px solid rgba(255,255,255,.08);
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+    }
+    .aha-footer-wrap{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+      align-items:center;
+    }
+    .aha-footer h3{
+      margin:0 0 8px;
+      font-size:18px;
+      color:#f8faf9;
+    }
+    .aha-footer p{
+      margin:0;
+      font-size:14px;
+      color:#cbd5e1;
+      line-height:1.7;
+    }
+    .aha-footer-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:8px;
+      font-size:14px;
+    }
+    .aha-footer-list li{
+      display:grid;
+      grid-template-columns:112px 1fr;
+      column-gap:12px;
+      align-items:start;
+    }
+    .aha-footer-list span{
+      position:relative;
+      color:#fef3c7;
+      font-weight:700;
+      padding-right:14px;
+      white-space:nowrap;
+    }
+    .aha-footer-list span::after{
+      content:":";
+      position:absolute;
+      right:0;
+      top:0;
+    }
+    .aha-footer-copy{
+      margin:22px 0 0;
+      padding-top:14px;
+      border-top:1px solid rgba(255,255,255,.08);
+      font-size:12.5px;
+      color:#94a3b8;
+      text-align:center;
+    }
+
+    .aha-about-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:32px;
+      align-items:center;
+    }
+    .aha-about-copy{
+      color:#1f2937;
+      font-size:15px;
+      line-height:1.8;
+    }
+    .aha-about-copy h3{
+      margin:0 0 10px;
+      font-size:20px;
+      font-weight:800;
+    }
+    .aha-about-slider{
+      position:relative;
+      border-radius:22px;
+      overflow:hidden;
+      min-height:320px;
+      background:transparent;
+      box-shadow:none;
+    }
+    .aha-about-slide{
+      position:absolute;
+      inset:0;
+      background-size:contain;
+      background-repeat:no-repeat;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity 1s ease, transform 1s ease;
+    }
+    .aha-about-slide.active{ opacity:1; transform:scale(1.01); }
+    .aha-about-overlay{
+      display:none;
+    }
+
+    .aha-why-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:16px;
+    }
+    .aha-why-card{
+      border-radius:18px;
+      border:1px solid rgba(14,116,144,.25);
+      background:linear-gradient(135deg, rgba(14,116,144,.12), rgba(246,196,83,.18));
+      padding:18px;
+      box-shadow:0 14px 28px rgba(15,23,42,.12);
+      position:relative;
+      overflow:hidden;
+    }
+    .aha-why-card::after{
+      content:"";
+      position:absolute;
+      inset:auto 0 0 0;
+      height:4px;
+      background:linear-gradient(90deg, #0b4d66, #f6c453);
+      opacity:.9;
+    }
+    .aha-why-card:nth-child(2){
+      background:linear-gradient(135deg, rgba(246,196,83,.2), rgba(11,77,102,.12));
+    }
+    .aha-why-card:nth-child(3){
+      background:linear-gradient(135deg, rgba(16,185,129,.16), rgba(59,130,246,.14));
+      border-color:rgba(59,130,246,.25);
+    }
+    .aha-why-card:nth-child(4){
+      background:linear-gradient(135deg, rgba(244,114,182,.16), rgba(99,102,241,.14));
+      border-color:rgba(99,102,241,.25);
+    }
+    .aha-why-card h4{
+      margin:0 0 8px;
+      font-size:16px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-why-card p{
+      margin:0;
+      color:#4b5563;
+      font-size:13.5px;
+      line-height:1.7;
+    }
+    .aha-swipe-hint{
+      display:none;
+      text-align:center;
+      font-size:12.5px;
+      font-weight:700;
+      color:#6b7280;
+      margin:-12px auto 20px;
+      letter-spacing:.02em;
+    }
+    .aha-gallery{
+      background:linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+      overflow:hidden;
+    }
+    .aha-gallery .aha-section-title{
+      color:#0b1220;
+      text-align:center;
+    }
+    .aha-gallery .aha-section-sub{
+      color:#475569;
+      text-align:center;
+      margin-bottom:20px;
+    }
+    .aha-gallery-carousel{
+      position:relative;
+      width:100%;
+    }
+    .aha-gallery-track{
+      display:flex;
+      gap:14px;
+      overflow:auto;
+      padding:12px 6vw 24px;
+      scroll-snap-type:x mandatory;
+      scroll-padding:0 6vw;
+      -webkit-overflow-scrolling:touch;
+      scroll-behavior:smooth;
+    }
+    .aha-gallery-track::-webkit-scrollbar{ display:none; }
+    .aha-gallery-track{ -ms-overflow-style:none; scrollbar-width:none; }
+    .aha-gallery-item{
+      flex:0 0 clamp(208px, 72vw, 280px);
+      border-radius:18px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e5e7eb;
+      box-shadow:0 14px 30px rgba(15,23,42,.1);
+      scroll-snap-align:center;
+      transform:translateY(0) scale(.92);
+      opacity:.72;
+      transition:transform .35s ease, opacity .35s ease, box-shadow .35s ease;
+    }
+    .aha-gallery-item img{
+      width:100%;
+      height:100%;
+      min-height:260px;
+      display:block;
+      object-fit:cover;
+      aspect-ratio:4/5;
+    }
+    .aha-gallery-item.is-active{
+      transform:translateY(-10px) scale(1.02);
+      opacity:1;
+      box-shadow:0 24px 44px rgba(15,23,42,.2);
+      border-color:#cbd5e1;
+    }
+    .aha-wa-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:1100;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:11px 14px;
+      border-radius:999px;
+      background:#25d366;
+      color:#ffffff;
+      font-weight:800;
+      font-size:13.5px;
+      box-shadow:0 14px 30px rgba(37,211,102,.35);
+      animation:ahaWaBounce 1.7s infinite;
+    }
+    .aha-wa-float:hover{
+      filter:brightness(.96);
+    }
+    .aha-wa-icon{
+      width:20px;
+      height:20px;
+      display:block;
+      flex:0 0 auto;
+    }
+    @keyframes ahaWaBounce{
+      0%, 20%, 50%, 80%, 100%{ transform:translateY(0); }
+      40%{ transform:translateY(-7px); }
+      60%{ transform:translateY(-4px); }
+    }
+
+    @media (max-width: 980px){
+      .aha-about-grid{ grid-template-columns:1fr; }
+      .aha-about-slider{ min-height:280px; }
+      .aha-about-copy{
+        text-align:center;
+      }
+      .aha-about-copy p{
+        margin-left:auto;
+        margin-right:auto;
+      }
+      .aha-why-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .aha-gallery-track{
+        padding-left:5vw;
+        padding-right:5vw;
+        scroll-padding:0 5vw;
+      }
+      .aha-gallery-item{
+        flex-basis:clamp(220px, 34vw, 300px);
+      }
+      .aha-activity-track{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .aha-testimonial-track{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .aha-contact-grid{
+        grid-template-columns:1fr;
+        justify-items:stretch;
+      }
+      .aha-contact-card,
+      .aha-map{
+        width:100%;
+        max-width:100%;
+        margin:0 auto;
+      }
+      .aha-contact-list li{
+        grid-template-columns:90px minmax(0, 1fr);
+        column-gap:10px;
+      }
+      .aha-transfer-grid{ grid-template-columns:1fr; }
+    }
+    @media (max-width: 680px){
+      .aha-section{ padding:56px 5vw; }
+      .aha-section-title{ font-size:28px; }
+      .aha-wa-float{
+        right:12px;
+        bottom:12px;
+        padding:10px 12px;
+        font-size:12.5px;
+      }
+      .aha-wa-icon{
+        width:18px;
+        height:18px;
+      }
+      .aha-why-grid{
+        grid-template-columns:none;
+        display:flex;
+        gap:14px;
+        overflow-x:auto;
+        padding:4px 4px 12px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+      }
+      .aha-why-grid::-webkit-scrollbar{ display:none; }
+      .aha-why-grid{ scrollbar-width:none; }
+      .aha-why-card{
+        min-width:84%;
+        scroll-snap-align:start;
+      }
+      .aha-swipe-hint{ display:block; }
+      .aha-gallery-track{
+        padding-left:4vw;
+        padding-right:4vw;
+        scroll-padding:0 4vw;
+      }
+      .aha-gallery-item{
+        flex-basis:clamp(210px, 78vw, 270px);
+      }
+      .aha-footer-wrap{ grid-template-columns:1fr; }
+      .aha-footer-list li{
+        grid-template-columns:96px 1fr;
+        column-gap:10px;
+      }
+    }
+    @media (max-width: 760px){
+      .aha-activity-track{
+        display:flex;
+        gap:16px;
+        overflow-x:auto;
+        padding:4px 4px 16px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+      }
+      .aha-activity-track::-webkit-scrollbar{ display:none; }
+      .aha-activity-track{ scrollbar-width:none; }
+      .aha-activity-card{
+        min-width:86%;
+        scroll-snap-align:center;
+      }
+      .aha-activity-dots{ display:flex; }
+      .aha-testimonial-track{
+        display:flex;
+        gap:16px;
+        overflow-x:auto;
+        padding:4px 4px 14px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+      }
+      .aha-testimonial-track::-webkit-scrollbar{ display:none; }
+      .aha-testimonial-track{ scrollbar-width:none; }
+      .aha-testimonial-card{
+        min-width:86%;
+        scroll-snap-align:center;
+      }
+      .aha-testimonial-dots{ display:flex; }
+    }
+
+    .aha-transfer-grid{
+      display:grid;
+      gap:24px;
+      grid-template-columns:minmax(0, 1fr);
+    }
+    .aha-transfer-card{
+      border-radius:20px;
+      border:1px solid #e5e7eb;
+      overflow:hidden;
+      background:#ffffff;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+      display:grid;
+      grid-template-columns:1fr 1.2fr;
+      gap:0;
+      max-width:980px;
+      margin:0 auto;
+    }
+    .aha-transfer-media{
+      min-height:260px;
+      background:#eef2f6;
+      display:grid;
+      place-items:center;
+      padding:16px;
+    }
+    .aha-transfer-media img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+    .aha-transfer-body{
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .aha-transfer-body h4{
+      margin:0;
+      font-size:18px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-transfer-desc{
+      margin:0;
+      color:#4b5563;
+      font-size:14px;
+      line-height:1.7;
+    }
+    .aha-transfer-select{
+      display:grid;
+      gap:8px;
+    }
+    .aha-transfer-select label{
+      font-size:12.5px;
+      font-weight:700;
+      color:#111827;
+    }
+    .aha-select-wrap{
+      position:relative;
+      display:grid;
+    }
+    .aha-select-wrap::after{
+      content:"▾";
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      color:#9ca3af;
+      pointer-events:none;
+      font-size:12px;
+    }
+    .aha-transfer-select select{
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      font-size:14px;
+      outline:none;
+      background:#fff;
+      appearance:none;
+      padding-right:34px;
+    }
+    .aha-vehicle-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:12px;
+    }
+    /* Motor list styling to match provided screenshots */
+    .motor-list-wrapper{
+      background: linear-gradient(90deg,#4b00e8,#2b00ff);
+      padding:28px 6vw;
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+    }
+    .motor-list-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+      max-width:1200px;
+      margin:0 auto;
+    }
+    .motor-card{
+      border-radius:18px;
+      padding:14px 14px 16px;
+      text-align:center;
+      color:#0b1220;
+      align-items:stretch;
+      justify-content:flex-start;
+      min-height:0;
+    }
+    .motor-card h3{
+      margin:6px 0 8px;
+      font-size:17px;
+      font-weight:800;
+      color:#0b1220;
+      line-height:1.2;
+    }
+    .motor-stars{ color:#f6c453; font-size:14px; margin-bottom:10px; letter-spacing:4px; }
+    .motor-underline{ height:2px; background:#0b1220; width:92%; margin-top:8px; opacity:0.9; }
+    .motor-card img{
+      width:100%;
+      height:130px;
+      object-fit:contain;
+      border-radius:10px;
+      margin-bottom:10px;
+    }
+    .motor-price{
+      font-size:14px;
+      font-weight:800;
+      color:#0b1220;
+      margin-bottom:10px;
+    }
+    .motor-book{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      background:var(--sun);
+      color:#111827;
+      font-weight:800;
+      font-size:12px;
+      text-decoration:none;
+      box-shadow:0 10px 24px rgba(246,196,83,.18);
+    }
+    @media (max-width: 900px){
+      .motor-list-grid{ grid-template-columns:repeat(2, 1fr); }
+    }
+    @media (max-width: 640px){
+      .motor-list-grid{ grid-template-columns:1fr; }
+      .motor-list-wrapper{ padding:18px 5vw; }
+    }
+    .aha-vehicle-card{
+      border:1px solid #e5e7eb;
+      border-radius:14px;
+      padding:10px;
+      background:#fff;
+      text-align:center;
+      cursor:pointer;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      display:grid;
+      gap:6px;
+    }
+    .aha-vehicle-card img{
+      width:100%;
+      height:70px;
+      object-fit:contain;
+      display:block;
+    }
+    .aha-vehicle-title{
+      font-size:12.5px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-vehicle-meta{
+      font-size:11.5px;
+      color:#6b7280;
+    }
+    .aha-vehicle-price{
+      font-size:12.5px;
+      font-weight:800;
+      color:#111827;
+    }
+    .aha-vehicle-card.is-active{
+      border-color:var(--sun);
+      box-shadow:0 14px 30px rgba(246,196,83,.25);
+      transform:translateY(-2px);
+    }
+    @media (max-width: 900px){
+      .aha-vehicle-grid{
+        display:flex;
+        gap:12px;
+        overflow-x:auto;
+        padding:4px 4px 10px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+      }
+      .aha-vehicle-grid::-webkit-scrollbar{ display:none; }
+      .aha-vehicle-grid{ scrollbar-width:none; }
+      .aha-vehicle-card{
+        min-width:70%;
+        scroll-snap-align:start;
+      }
+      .aha-vehicle-card img{ height:90px; }
+    }
+    .aha-transfer-price{
+      display:grid;
+      gap:8px;
+      font-size:13px;
+      color:#6b7280;
+    }
+    .aha-transfer-price b{
+      font-size:18px;
+      color:#111827;
+    }
+    .aha-transfer-price span{
+      font-size:11.5px;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      color:#6b7280;
+      font-weight:700;
+    }
+    .aha-transfer-note{
+      font-size:12.5px;
+      color:#6b7280;
+    }
+    .aha-transfer-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .aha-book-tabs{
+      display:flex;
+      gap:8px;
+      margin-top:4px;
+    }
+    .aha-tab{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid #e5e7eb;
+      background:#f3f4f6;
+      color:#111827;
+      font-weight:700;
+      font-size:12.5px;
+      cursor:pointer;
+    }
+    .aha-tab.is-active{
+      background:var(--sun);
+      border-color:transparent;
+      color:#1b1b1b;
+      box-shadow:0 10px 24px rgba(246,196,83,.28);
+    }
+    .aha-vehicle-select{
+      display:grid;
+      gap:8px;
+      margin-top:12px;
+    }
+    .aha-vehicle-select label{
+      font-size:12px;
+      font-weight:700;
+      color:#111827;
+    }
+    .aha-vehicle-select select{
+      padding:9px 10px;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      font-size:12px;
+      outline:none;
+      background:#fff;
+    }
+    @media (max-width: 900px){
+      .aha-transfer-grid{ grid-template-columns:1fr; }
+    }
+
+    .aha-modal{
+      position:fixed;
+      inset:0;
+      z-index:999;
+      display:none;
+    }
+    .aha-modal.is-open{ display:block; }
+    .aha-modal-backdrop{
+      position:absolute;
+      inset:0;
+      background:rgba(2,6,23,.6);
+      backdrop-filter: blur(3px);
+    }
+    .aha-modal-panel{
+      position:relative;
+      margin:8vh auto 0;
+      width:min(560px, 92vw);
+      background:#ffffff;
+      color:#111827;
+      border-radius:18px;
+      box-shadow:0 24px 70px rgba(0,0,0,.35);
+      overflow:hidden;
+      max-height:82vh;
+      display:flex;
+      flex-direction:column;
+    }
+    .aha-modal-head{
+      padding:14px 16px;
+      background:#f8fafc;
+      border-bottom:1px solid #e5e7eb;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .aha-modal-head b{
+      font-size:14.5px;
+      color:#111827;
+    }
+    .aha-modal-close{
+      width:34px;height:34px;border-radius:999px;
+      border:1px solid #e5e7eb;background:#fff;
+      cursor:pointer;font-size:16px;
+      display:grid;place-items:center;
+    }
+    .aha-modal-body{
+      padding:16px;
+      overflow:auto;
+    }
+    .aha-detail-slider{
+      position:relative;
+      height:220px;
+      border-radius:14px;
+      overflow:hidden;
+      margin-bottom:12px;
+      background:#0b1220;
+    }
+    .aha-detail-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity .9s ease, transform .9s ease;
+    }
+    .aha-detail-slide.active{
+      opacity:1;
+      transform:scale(1.01);
+    }
+    .aha-form{
+      display:grid;
+      gap:12px;
+    }
+    #ahaPkgSelectField,
+    #ahaPkgDailyVehicleField{
+      display:none;
+    }
+    .aha-modal.is-daily-package #ahaPkgNameField,
+    .aha-modal.is-daily-package .aha-pkg-unit,
+    .aha-modal.is-daily-package #ahaPkgVehicleField{
+      display:none;
+    }
+    .aha-modal.is-daily-package #ahaPkgSelectField,
+    .aha-modal.is-daily-package #ahaPkgDailyVehicleField{
+      display:grid;
+    }
+    .aha-transfer-fields{
+      display:grid;
+      gap:12px;
+    }
+    .aha-daily-fields{
+      display:none;
+    }
+    .aha-modal.is-daily .aha-transfer-fields{
+      display:none;
+    }
+    .aha-modal.is-daily .aha-daily-fields{
+      display:block;
+    }
+    .aha-field label{
+      display:block;
+      font-size:12.5px;
+      font-weight:700;
+      color:#111827;
+      margin-bottom:6px;
+    }
+    .aha-field-note{
+      font-size:12px;
+      color:#6b7280;
+      margin-top:6px;
+    }
+    .aha-field input,
+    .aha-field textarea,
+    .aha-field select{
+      width:100%;
+      padding:11px 12px;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      font-size:14px;
+      outline:none;
+      font-family:inherit;
+      background:#fff;
+      color:#111827;
+    }
+    .aha-field input::placeholder,
+    .aha-field textarea::placeholder{
+      color:#9ca3af;
+    }
+    .aha-field textarea{ min-height:90px; resize:vertical; }
+    .aha-form-actions{
+      display:flex;
+      gap:10px;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+    .aha-btn.secondary{
+      background:#f3f4f6;
+      color:#111827;
+      border:1px solid #e5e7eb;
+    }
+    .bike-carousel-wrapper{
+      position:relative;
+      width:100%;
+      margin-top:24px;
+    }
+    .bikes-carousel{
+      overflow:hidden;
+      width:100%;
+    }
+    .bikes-track{
+      display:flex;
+      gap:18px;
+      padding:14px 18px;
+      will-change:scroll-position, transform;
+      -webkit-overflow-scrolling:touch;
+      scroll-behavior:smooth;
+      overflow:auto;
+      scroll-snap-type:x mandatory;
+      scroll-padding:0 18px;
+    }
+    .bikes-track::-webkit-scrollbar{ display:none; }
+    .bikes-track{ -ms-overflow-style:none; scrollbar-width:none; }
+    @media(min-width:769px){
+      .bikes-track{
+        gap:24px;
+        padding:18px 8px;
+        scroll-padding:0 8px;
+      }
+    }
+    .bike-card{
+      background:#ffffff;
+      border:1px solid #e5e7eb;
+      border-radius:16px;
+      padding:16px;
+      box-shadow:0 10px 24px rgba(15,23,42,.08);
+      display:flex;
+      flex-direction:column;
+      transition:transform .2s, box-shadow .2s;
+    }
+    @media(max-width:768px){
+      .bike-card{
+        flex:0 0 clamp(208px, 76vw, 248px);
+        scroll-snap-align:center;
+        padding:14px 12px 16px;
+      }
+    }
+    .bike-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 32px rgba(15,23,42,.12);
+    }
+    .bike-card img{
+      width:100%;
+      height:132px;
+      object-fit:contain;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      background:#f8fafc;
+      margin-bottom:10px;
+    }
+    .bike-card h3{
+      font-size:16px;
+      font-weight:800;
+      color:#0b1220;
+      margin:0 0 10px;
+    }
+    .bike-prices{
+      list-style:none;
+      margin:0;
+      padding:0;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      font-size:13px;
+      margin-bottom:12px;
+    }
+    .bike-prices li{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:6px 0;
+      border-bottom:1px solid #f1f5f9;
+    }
+    .bike-prices li:last-child{
+      border-bottom:none;
+    }
+    .bike-prices li span{
+      font-weight:600;
+      color:#475569;
+    }
+    .bike-prices li b{
+      font-weight:800;
+      color:#0b4d66;
+    }
+    .bike-book{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+      padding:12px 16px;
+      border-radius:8px;
+      background:#0b4d66;
+      color:#fff;
+      font-weight:700;
+      font-size:14px;
+      border:0;
+      text-align:center;
+      cursor:pointer;
+      text-decoration:none;
+      transition:background .2s;
+    }
+    .bike-book:hover{
+      background:#084558;
+    }
+    .bike-nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:34px;
+      height:34px;
+      border:1.5px solid #0b1220;
+      background:#fff;
+      border-radius:50%;
+      font-size:20px;
+      font-weight:bold;
+      color:#0b1220;
+      cursor:pointer;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:3;
+      transition:all .2s;
+    }
+    .bike-nav:hover{
+      background:#0b1220;
+      color:#fff;
+    }
+    .bike-prev{
+      left:6px;
+    }
+    .bike-next{
+      right:6px;
+    }
+    @media(max-width:768px){
+      .bike-nav{
+        display:flex;
+      }
+    }
+    .aha-tour-activity{
+      position:relative;
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+      padding:52px 6vw;
+      background-image:url("https://www.king-adventure.com/wp-content/uploads/2025/10/Tempat-Outbound-di-Lombok.webp");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+      isolation:isolate;
+    }
+    .aha-tour-activity::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(4,30,69,.38), rgba(5,53,122,.44));
+      z-index:-1;
+    }
+    .aha-tour-activity .aha-section-title,
+    .aha-tour-activity .aha-section-sub{
+      color:#ffffff;
+      text-align:center;
+    }
+    .aha-tour-activity .aha-section-sub{
+      opacity:.9;
+      margin-bottom:24px;
+    }
+    .tour-activity-carousel-wrapper{
+      position:relative;
+      width:100%;
+      margin-top:24px;
+    }
+    .tour-activity-carousel{
+      overflow:hidden;
+      width:100%;
+    }
+    .tour-activity-track{
+      max-width:1080px;
+      margin:0 auto;
+      display:flex;
+      gap:18px;
+      padding:14px 18px;
+      will-change:scroll-position, transform;
+      -webkit-overflow-scrolling:touch;
+      scroll-behavior:smooth;
+      overflow:auto;
+      scroll-snap-type:x mandatory;
+      scroll-padding:0 18px;
+    }
+    .tour-activity-track::-webkit-scrollbar{ display:none; }
+    .tour-activity-track{ -ms-overflow-style:none; scrollbar-width:none; }
+    @media(min-width:769px){
+      .tour-activity-track{
+        gap:24px;
+        padding:18px 8px;
+        scroll-padding:0 8px;
+      }
+    }
+    .tour-activity-card{
+      flex:0 0 clamp(230px, 30vw, 300px);
+      scroll-snap-align:center;
+      background:#ffffff;
+      border:1px solid #e5e7eb;
+      border-radius:16px;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      padding:14px 12px 16px;
+      box-shadow:0 10px 24px rgba(15,23,42,.08);
+      color:#0b1220;
+      transition:transform .2s, box-shadow .2s;
+    }
+    .tour-activity-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 32px rgba(15,23,42,.12);
+    }
+    .tour-activity-media{
+      width:100%;
+      aspect-ratio:1 / 1;
+      position:relative;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      background:#f8fafc;
+      overflow:hidden;
+      margin-bottom:10px;
+    }
+    .tour-activity-media img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      opacity:0;
+      transition:opacity .55s ease;
+    }
+    .tour-activity-media img.is-active{
+      opacity:1;
+    }
+    .tour-activity-card > img{
+      width:100%;
+      aspect-ratio:1 / 1;
+      height:auto;
+      object-fit:cover;
+      display:block;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      background:#f8fafc;
+      margin-bottom:10px;
+    }
+    .tour-activity-card h3{
+      margin:0 0 8px;
+      color:#0b1220;
+      text-align:center;
+      font-size:19px;
+      font-weight:800;
+      letter-spacing:.02em;
+      line-height:1.2;
+    }
+    .tour-activity-desc{
+      margin:0 0 12px;
+      font-size:13px;
+      line-height:1.5;
+      color:#475569;
+      text-align:center;
+    }
+    .tour-activity-list{
+      margin:0 0 12px;
+      padding:0;
+      list-style:none;
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:6px 10px;
+      font-size:12px;
+      line-height:1.35;
+      color:#334155;
+    }
+    .tour-activity-list li{
+      position:relative;
+      padding-left:12px;
+    }
+    .tour-activity-list li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      top:0;
+      color:#0b4d66;
+      font-weight:800;
+    }
+    .tour-activity-book{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+      align-self:stretch;
+      margin-top:auto;
+      padding:10px 14px;
+      border-radius:10px;
+      background:var(--sun);
+      color:#111827;
+      font-weight:800;
+      font-size:12px;
+      text-decoration:none;
+      box-shadow:0 10px 24px rgba(246,196,83,.18);
+    }
+    .tour-activity-book:hover{
+      filter:brightness(.96);
+    }
+    .tour-activity-nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:34px;
+      height:34px;
+      border:1.5px solid #0b1220;
+      background:#fff;
+      border-radius:50%;
+      font-size:20px;
+      font-weight:bold;
+      color:#0b1220;
+      cursor:pointer;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:3;
+      transition:all .2s;
+    }
+    .tour-activity-nav:hover{
+      background:#0b1220;
+      color:#fff;
+    }
+    .tour-activity-prev{
+      left:6px;
+    }
+    .tour-activity-next{
+      right:6px;
+    }
+    @media (max-width: 900px){
+      .tour-activity-card h3{
+        font-size:17px;
+      }
+    }
+    @media (max-width: 640px){
+      .aha-tour-activity{
+        padding:36px 4vw;
+        background-attachment:scroll;
+      }
+      .tour-activity-track{
+        gap:12px;
+        padding:12px 12px;
+        scroll-padding:0 12px;
+      }
+      .tour-activity-card{
+        flex:0 0 clamp(220px, 82vw, 300px);
+      }
+      .tour-activity-nav{
+        display:flex;
+      }
+      .tour-activity-list{
+        grid-template-columns:1fr;
+      }
+    }
+    .aha-services{
+      background:#f8fafc;
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+      padding:46px 6vw;
+    }
+    .aha-services .aha-section-title{
+      color:#0b1220;
+      text-align:center;
+    }
+    .aha-services .aha-section-sub{
+      color:#475569;
+      text-align:center;
+      margin-bottom:22px;
+    }
+    .aha-services-carousel-wrapper{
+      position:relative;
+      width:100%;
+      margin-top:24px;
+    }
+    .aha-services-carousel{
+      overflow:hidden;
+      width:100%;
+    }
+    .aha-services-track{
+      max-width:980px;
+      margin:0 auto;
+      display:flex;
+      gap:18px;
+      padding:14px 18px;
+      will-change:scroll-position, transform;
+      -webkit-overflow-scrolling:touch;
+      scroll-behavior:smooth;
+      overflow:auto;
+      scroll-snap-type:x mandatory;
+      scroll-padding:0 18px;
+    }
+    .aha-services-track::-webkit-scrollbar{ display:none; }
+    .aha-services-track{ -ms-overflow-style:none; scrollbar-width:none; }
+    @media(min-width:769px){
+      .aha-services-track{
+        gap:24px;
+        padding:18px 8px;
+        scroll-padding:0 8px;
+      }
+    }
+    .aha-service-card{
+      flex:0 0 clamp(230px, 30vw, 300px);
+      scroll-snap-align:center;
+      background:#ffffff;
+      border:1px solid #e5e7eb;
+      border-radius:16px;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      text-align:left;
+      padding:14px 12px 16px;
+      box-shadow:0 10px 24px rgba(15,23,42,.08);
+      color:#0b1220;
+      transition:transform .2s, box-shadow .2s;
+    }
+    .aha-service-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 32px rgba(15,23,42,.12);
+    }
+    .aha-service-card img{
+      width:100%;
+      aspect-ratio:1 / 1;
+      height:auto;
+      object-fit:cover;
+      display:block;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      background:#f8fafc;
+      margin-bottom:10px;
+    }
+    .aha-service-card h3{
+      margin:0 0 8px;
+      color:#0b1220;
+      font-size:19px;
+      line-height:1.2;
+      font-weight:800;
+      text-align:center;
+    }
+    .aha-service-desc{
+      margin:0 0 12px;
+      font-size:13px;
+      line-height:1.5;
+      color:#475569;
+      text-align:center;
+      flex:1;
+    }
+    .aha-service-book{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+      align-self:stretch;
+      padding:10px 14px;
+      border-radius:10px;
+      background:var(--sun);
+      color:#111827;
+      font-weight:800;
+      font-size:12px;
+      text-decoration:none;
+      box-shadow:0 10px 24px rgba(246,196,83,.18);
+    }
+    .aha-service-actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      margin-top:auto;
+    }
+    .aha-service-alt{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+      align-self:stretch;
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid #e5e7eb;
+      background:#ffffff;
+      color:#111827;
+      font-weight:800;
+      font-size:12px;
+      box-shadow:none;
+      cursor:pointer;
+    }
+    .aha-service-book:hover{
+      filter:brightness(.96);
+    }
+    .aha-price-list-head{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) auto;
+      gap:10px;
+      margin-bottom:10px;
+      padding:0 4px;
+      font-size:13px;
+      color:#111827;
+      font-weight:800;
+    }
+    .aha-price-list-rows{
+      display:grid;
+      gap:8px;
+      max-height:52vh;
+      overflow:auto;
+      padding-right:4px;
+    }
+    .aha-price-row{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) auto auto;
+      gap:8px;
+      align-items:center;
+      padding:8px 10px;
+      border:1px solid #e5e7eb;
+      border-radius:10px;
+      background:#fff;
+      font-size:13px;
+      color:#1f2937;
+    }
+    .aha-price-tag{
+      font-weight:800;
+      color:#0b1220;
+      white-space:nowrap;
+    }
+    .aha-price-book{
+      border:0;
+      border-radius:8px;
+      background:var(--sun);
+      color:#111827;
+      font-weight:800;
+      font-size:12px;
+      padding:8px 12px;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .aha-price-note{
+      margin:12px 2px 2px;
+      font-size:12px;
+      line-height:1.6;
+      color:#475569;
+    }
+    .aha-services-nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:34px;
+      height:34px;
+      border:1.5px solid #0b1220;
+      background:#fff;
+      border-radius:50%;
+      font-size:20px;
+      font-weight:bold;
+      color:#0b1220;
+      cursor:pointer;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:3;
+      transition:all .2s;
+    }
+    .aha-services-nav:hover{
+      background:#0b1220;
+      color:#fff;
+    }
+    .aha-services-prev{
+      left:6px;
+    }
+    .aha-services-next{
+      right:6px;
+    }
+    @media (max-width: 900px){
+      .aha-service-card h3{
+        font-size:17px;
+      }
+    }
+    @media (max-width: 640px){
+      .aha-services{
+        padding:34px 4vw;
+      }
+      .aha-services-track{
+        gap:12px;
+        padding:12px 12px;
+        scroll-padding:0 12px;
+      }
+      .aha-service-card{
+        flex:0 0 clamp(220px, 82vw, 300px);
+      }
+      .aha-services-nav{
+        display:flex;
+      }
+      .aha-service-actions{
+        grid-template-columns:1fr;
+      }
+      .aha-price-row{
+        grid-template-columns:minmax(0, 1fr) auto auto;
+        align-items:center;
+      }
+      .aha-price-row > .aha-price-book{
+        width:auto;
+        padding:7px 10px;
+        font-size:11px;
+      }
+    }
+    .aha-chip-grid{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin-top:18px;
+    }
+    .aha-chip-grid span{
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.16);
+      font-size:13px;
+      letter-spacing:.02em;
+    }
+    .aha-category{
+      padding-top:0;
+    }
+    .aha-category-card{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:20px;
+      padding:22px;
+      display:grid;
+      gap:16px;
+      box-shadow:0 16px 30px rgba(0,0,0,.2);
+    }
+    .aha-category-header{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .aha-category-header h3{
+      margin:0;
+      font-size:22px;
+    }
+    .aha-category-header span{
+      font-size:13px;
+      opacity:.8;
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(246,196,83,.16);
+      color:#f6c453;
+      border:1px solid rgba(246,196,83,.35);
+    }
+    .aha-category-body{
+      display:grid;
+      grid-template-columns: minmax(180px, 240px) 1fr;
+      gap:18px;
+      align-items:start;
+    }
+    .aha-category-placeholder{
+      background:linear-gradient(130deg, rgba(246,196,83,.18), rgba(11,77,102,.22));
+      border:1px dashed rgba(255,255,255,.25);
+      border-radius:16px;
+      height:140px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:#f8faf9;
+    }
+    .aha-category-list{
+      margin:0;
+      padding-left:18px;
+      display:grid;
+      gap:6px;
+    }
+    .aha-category-card p{
+      margin:0;
+      color:#e2e8f0;
+      line-height:1.6;
+    }
+    .is-hidden{
+      display:none !important;
+    }
+    @media (max-width: 900px){
+      .bike-track{
+        padding-left:6px;
+        padding-right:6px;
+        scroll-padding:0 10px;
+      }
+      .bike-card{
+        width:clamp(210px, 70vw, 260px);
+      }
+      .aha-category-body{
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 900px){
+      .aha-transfer-card{ grid-template-columns:1fr; }
+      .aha-transfer-media{ min-height:220px; }
+    }
+</style>
+
 <div class="aha-modal" id="ahaPackageModal" aria-hidden="true">
   <div class="aha-modal-backdrop" data-close="1"></div>
   <div class="aha-modal-panel" role="dialog" aria-modal="true" aria-label="Package booking">
@@ -15,11 +2294,11 @@
         <div class="aha-field" id="ahaPkgSelectField">
           <label for="ahaPkgSelect">Select package</label>
           <select id="ahaPkgSelect" name="package-select">
-            <option value="Ubud Tour A">Ubud Tour A</option>
-            <option value="Ubud Tour B">Ubud Tour B</option>
-            <option value="Kintamani Tour">Kintamani Tour</option>
-            <option value="Tanah Lot Temple + Handara Gate">Tanah Lot Temple + Handara Gate</option>
-            <option value="Lempuyang Temple Heaven Gate">Lempuyang Temple Heaven Gate</option>
+            <option value="South Lombok Beach Tour">South Lombok Beach Tour</option>
+            <option value="Rinjani Trekking">Rinjani Trekking</option>
+            <option value="Snorkeling Gili Islands">Snorkeling Gili Islands</option>
+            <option value="East Lombok Waterfall Tour">East Lombok Waterfall Tour</option>
+            <option value="Lombok Culture Tour">Lombok Culture Tour</option>
           </select>
         </div>
         <div class="aha-field aha-pkg-unit">
@@ -31,8 +2310,8 @@
           <select id="ahaPkgVehicle" name="vehicle">
             <option value="New Avanza - 6 Seater - IDR 600.000 / 10 Hours">New Avanza - 6 Seater - IDR 600.000 / 10 Hours</option>
             <option value="Hiace Commuter - 15 Seater - IDR 1.200.000 / 10 Hours">Hiace Commuter - 15 Seater - IDR 1.200.000 / 10 Hours</option>
-            <option value="Innova Reborn - 7 Seater - IDR 1.000.000 / Hours">Innova Reborn - 7 Seater - IDR 1.000.000 / Hours</option>
-            <option value="Elf - 17 Seater - IDR 1.400.000 / Hours">Elf - 17 Seater - IDR 1.400.000 / Hours</option>
+            <option value="Innova Reborn - 7 Seater - IDR 1.000.000 / 10 Hours">Innova Reborn - 7 Seater - IDR 1.000.000 / 10 Hours</option>
+            <option value="Elf - 17 Seater - IDR 1.400.000 / 10 Hours">Elf - 17 Seater - IDR 1.400.000 / 10 Hours</option>
           </select>
         </div>
         <div class="aha-field" id="ahaPkgDailyVehicleField">
@@ -133,7 +2412,7 @@
         <div class="aha-transfer-fields">
           <div class="aha-field">
             <label for="ahaTfFrom">From</label>
-            <input id="ahaTfFrom" name="from" type="text" placeholder="Airport (DPS) or pickup location">
+            <input id="ahaTfFrom" name="from" type="text" placeholder="Lombok Airport (LOP) or pickup location">
           </div>
           <div class="aha-field">
             <label for="ahaTfTo">To</label>
@@ -143,11 +2422,11 @@
         <div class="aha-field aha-daily-fields">
           <label for="ahaTfDailyPackage">Select Daily Tour Package</label>
           <select id="ahaTfDailyPackage" name="daily-package">
-            <option value="Ubud Tour A">Ubud Tour A</option>
-            <option value="Ubud Tour B">Ubud Tour B</option>
-            <option value="Kintamani Tour">Kintamani Tour</option>
-            <option value="Tanah Lot Temple + Handara Gate">Tanah Lot Temple + Handara Gate</option>
-            <option value="Lempuyang Temple Heaven Gate">Lempuyang Temple Heaven Gate</option>
+            <option value="South Lombok Beach Tour">South Lombok Beach Tour</option>
+            <option value="Rinjani Trekking">Rinjani Trekking</option>
+            <option value="Snorkeling Gili Islands">Snorkeling Gili Islands</option>
+            <option value="East Lombok Waterfall Tour">East Lombok Waterfall Tour</option>
+            <option value="Lombok Culture Tour">Lombok Culture Tour</option>
           </select>
         </div>
         <div class="aha-field">
@@ -271,3 +2550,41 @@
     </div>
   </div>
 </div>
+
+<div class="aha-modal" id="ahaPriceListModal" aria-hidden="true">
+  <div class="aha-modal-backdrop" data-close="1"></div>
+  <div class="aha-modal-panel" role="dialog" aria-modal="true" aria-label="Shuttle private car price list">
+    <div class="aha-modal-head">
+      <b>Shuttle Private Car Price List</b>
+      <button class="aha-modal-close" type="button" data-close="1" aria-label="Close">✕</button>
+    </div>
+    <div class="aha-modal-body">
+      <div class="aha-price-list-head">
+        <span>Destination (Drop Only)</span>
+        <span>Price</span>
+      </div>
+      <div class="aha-price-list-rows">
+        <div class="aha-price-row"><span>Airport drop/pick up</span><span class="aha-price-tag">200 K</span><button class="aha-price-book" type="button" data-destination="Airport drop/pick up" data-price="200 K">Book</button></div>
+        <div class="aha-price-row"><span>Tanjung Aan</span><span class="aha-price-tag">250 K</span><button class="aha-price-book" type="button" data-destination="Tanjung Aan" data-price="250 K">Book</button></div>
+        <div class="aha-price-row"><span>Gerupuk</span><span class="aha-price-tag">250 K</span><button class="aha-price-book" type="button" data-destination="Gerupuk" data-price="250 K">Book</button></div>
+        <div class="aha-price-row"><span>Are Guling</span><span class="aha-price-tag">250 K</span><button class="aha-price-book" type="button" data-destination="Are Guling" data-price="250 K">Book</button></div>
+        <div class="aha-price-row"><span>Mawi</span><span class="aha-price-tag">300 K</span><button class="aha-price-book" type="button" data-destination="Mawi" data-price="300 K">Book</button></div>
+        <div class="aha-price-row"><span>Selong Belanak</span><span class="aha-price-tag">300 K</span><button class="aha-price-book" type="button" data-destination="Selong Belanak" data-price="300 K">Book</button></div>
+        <div class="aha-price-row"><span>Serangan</span><span class="aha-price-tag">300 K</span><button class="aha-price-book" type="button" data-destination="Serangan" data-price="300 K">Book</button></div>
+        <div class="aha-price-row"><span>Ekas</span><span class="aha-price-tag">500 K</span><button class="aha-price-book" type="button" data-destination="Ekas" data-price="500 K">Book</button></div>
+        <div class="aha-price-row"><span>Bangsal harbour</span><span class="aha-price-tag">500 K</span><button class="aha-price-book" type="button" data-destination="Bangsal harbour" data-price="500 K">Book</button></div>
+        <div class="aha-price-row"><span>Tete Batu</span><span class="aha-price-tag">500 K</span><button class="aha-price-book" type="button" data-destination="Tete Batu" data-price="500 K">Book</button></div>
+        <div class="aha-price-row"><span>Senggigi</span><span class="aha-price-tag">400 K</span><button class="aha-price-book" type="button" data-destination="Senggigi" data-price="400 K">Book</button></div>
+        <div class="aha-price-row"><span>Lembar harbour</span><span class="aha-price-tag">350 K</span><button class="aha-price-book" type="button" data-destination="Lembar harbour" data-price="350 K">Book</button></div>
+        <div class="aha-price-row"><span>Sembalun</span><span class="aha-price-tag">1.100 K</span><button class="aha-price-book" type="button" data-destination="Sembalun" data-price="1.100 K">Book</button></div>
+        <div class="aha-price-row"><span>Senaru</span><span class="aha-price-tag">950 K</span><button class="aha-price-book" type="button" data-destination="Senaru" data-price="950 K">Book</button></div>
+        <div class="aha-price-row"><span>Gili Asahan</span><span class="aha-price-tag">750 K</span><button class="aha-price-book" type="button" data-destination="Gili Asahan" data-price="750 K">Book</button></div>
+        <div class="aha-price-row"><span>Khayangan</span><span class="aha-price-tag">750 K</span><button class="aha-price-book" type="button" data-destination="Khayangan" data-price="750 K">Book</button></div>
+        <div class="aha-price-row"><span>Sekotong</span><span class="aha-price-tag">700 K</span><button class="aha-price-book" type="button" data-destination="Sekotong" data-price="700 K">Book</button></div>
+      </div>
+      <p class="aha-price-note">Day trips are possible depending on your destination. We can provide a custom package price. (Entrance fees not included)</p>
+    </div>
+  </div>
+</div>
+
+

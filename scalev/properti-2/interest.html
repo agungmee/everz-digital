@@ -1,0 +1,184 @@
+<section id="growth-path" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&display=swap");
+
+    #growth-path {
+      padding: 90px 0;
+      background: radial-gradient(circle at top, #fff2e0 0%, #fff7ef 55%, #f6f0e9 100%);
+      text-align: center;
+    }
+
+    #growth-path .wrap {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 26px;
+      justify-items: center;
+    }
+
+    #growth-path h2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(2.3rem, 3.1vw + 0.8rem, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    #growth-path .headline-2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(1.7rem, 2vw + 0.8rem, 2.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #1e1a17;
+      margin: 0;
+      padding: 10px 18px;
+      background: #ffe2cc;
+      border-radius: 16px;
+      box-shadow: 0 16px 34px rgba(255, 107, 61, 0.25);
+    }
+
+    #growth-path .lead {
+      color: #4f433c;
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-size: 1.08rem;
+    }
+
+    #growth-path .alert-box {
+      background: #1e1a17;
+      color: #fff;
+      padding: 20px 22px;
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(30, 26, 23, 0.25);
+      width: min(820px, 92vw);
+      text-align: left;
+    }
+
+    #growth-path .alert-title {
+      font-size: clamp(1.35rem, 1.4vw + 0.8rem, 1.7rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    #growth-path .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    #growth-path .step {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    #growth-path .step-number {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: #ff6b3d;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    #growth-path .step h3 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    #growth-path .step p {
+      color: #f5e9df;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      #growth-path {
+        padding: 70px 0;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <h2>Ini Langkah Supaya Setiap Hari Dapet Lead Baru</h2>
+    <div class="headline-2">Roadmap yang bikin listing cepat closing</div>
+    <p class="lead">
+      Ikuti alurnya, dan kamu bakal ngerasain perbedaan dari minggu pertama. Bukan lagi nunggu hoki, tapi lead
+      yang mulai konsisten masuk setiap hari.
+    </p>
+
+    <div class="alert-box">
+      <div class="alert-title">6 langkah praktis yang langsung bisa kamu jalanin:</div>
+      <ul class="steps">
+        <li class="step">
+          <div class="step-number">1</div>
+          <div>
+            <h3>Susun Listing yang Gampang Dipahami</h3>
+            <p>Detail properti jelas, harga transparan, dan prospek cepat percaya.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number">2</div>
+          <div>
+            <h3>Posisi Harga yang Aman</h3>
+            <p>Harga tetap menarik tanpa harus banting margin.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number">3</div>
+          <div>
+            <h3>Konten Harian yang Ringan</h3>
+            <p>Konten sederhana bikin listing kamu terus diingat dan dicari calon pembeli.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number">4</div>
+          <div>
+            <h3>Iklan yang Tepat Sasaran</h3>
+            <p>Budget iklan fokus ke segmen yang siap survey, jadi risiko boncos makin kecil.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number">5</div>
+          <div>
+            <h3>Balas Chat Biar Cepat Closing</h3>
+            <p>Skrip chat siap pakai bikin prospek cepat yakin dan mau survey.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number">6</div>
+          <div>
+            <h3>Testimoni yang Menarik Lead Baru</h3>
+            <p>Testimoni jadi bukti sosial yang narik prospek baru tanpa biaya tambahan.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const growthSteps = document.querySelectorAll("#growth-path .step");
+    growthSteps.forEach((step, index) => {
+      step.style.opacity = "0";
+      step.style.transform = "translateY(16px)";
+      setTimeout(() => {
+        step.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        step.style.opacity = "1";
+        step.style.transform = "translateY(0)";
+      }, 120 + index * 100);
+    });
+  </script>
+</section>

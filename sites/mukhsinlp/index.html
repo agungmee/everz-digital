@@ -11,9 +11,9 @@
   <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <meta name="theme-color" content="#6b3b88" />
   <meta name="format-detection" content="telephone=no" />
-  <link rel="canonical" href="https://www.leskakmukhsinprivat.com/les-private-sekolah/" />
-  <link rel="alternate" href="https://www.leskakmukhsinprivat.com/les-private-sekolah/" hreflang="id-ID" />
-  <link rel="alternate" href="https://www.leskakmukhsinprivat.com/les-private-sekolah/" hreflang="x-default" />
+  <link rel="canonical" href="https://www.leskakmukhsinprivat.com/private-les-pelajaran-sekolah-terbaik/" />
+  <link rel="alternate" href="https://www.leskakmukhsinprivat.com/private-les-pelajaran-sekolah-terbaik/" hreflang="id-ID" />
+  <link rel="alternate" href="https://www.leskakmukhsinprivat.com/private-les-pelajaran-sekolah-terbaik/" hreflang="x-default" />
   <link rel="icon" type="image/png" href="https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-logo-1.png" />
   <link rel="apple-touch-icon" href="https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-logo-1.png" />
   <meta property="og:locale" content="id_ID" />
@@ -21,7 +21,7 @@
   <meta property="og:site_name" content="Kak Mukhsin Private" />
   <meta property="og:title" content="Les Private Sekolah TK SD SMP SMA | Kak Mukhsin Private Jakarta" />
   <meta property="og:description" content="Guru les private datang ke rumah untuk TK-SMA, UTBK-SNBT, Cambridge, dan IB. Trial gratis, jadwal fleksibel, promo diskon 40%." />
-  <meta property="og:url" content="https://www.leskakmukhsinprivat.com/les-private-sekolah/" />
+  <meta property="og:url" content="https://www.leskakmukhsinprivat.com/private-les-pelajaran-sekolah-terbaik/" />
   <meta property="og:image" content="https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-les-sekolah-1.jpg" />
   <meta property="og:image:alt" content="Dokumentasi les private Kak Mukhsin Private" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -33,7 +33,7 @@
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
       "name": "Kak Mukhsin Private",
-      "url": "https://www.leskakmukhsinprivat.com/les-private-sekolah/",
+      "url": "https://www.leskakmukhsinprivat.com/private-les-pelajaran-sekolah-terbaik/",
       "logo": "https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-logo-1.png",
       "image": "https://www.leskakmukhsinprivat.com/wp-content/uploads/2022/09/les-private-online-dan-offline-les-sekolah-1.jpg",
       "description": "Layanan les private online dan offline untuk TK, SD, SMP, SMA, UTBK-SNBT, Cambridge, dan IB.",
@@ -1066,37 +1066,68 @@
     const regClose = document.getElementById('reg-close');
     const regForm = document.getElementById('reg-form');
     const regTriggers = document.querySelectorAll('[data-register-trigger]');
+    const waButtons = document.querySelectorAll('.btn[href*="wa.me"], .btn[href*="api.whatsapp.com"]');
     const waNumber = '6282268441822';
+    const pushDataLayer = (eventName, payload = {}) => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: eventName, ...payload });
+    };
 
     const openRegModal = () => {
+      if (!regModal) return false;
       regModal.classList.add('open');
       regModal.setAttribute('aria-hidden', 'false');
+      regModal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
-      document.getElementById('murid_nama').focus();
+      const nameField = document.getElementById('murid_nama');
+      if (nameField) nameField.focus();
+      return true;
     };
 
     const closeRegModal = () => {
+      if (!regModal) return;
       regModal.classList.remove('open');
       regModal.setAttribute('aria-hidden', 'true');
+      regModal.style.display = '';
       document.body.style.overflow = '';
     };
 
     regTriggers.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
+        pushDataLayer('lp_register_click', {
+          click_text: (btn.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
         openRegModal();
       });
     });
 
-    regClose.addEventListener('click', closeRegModal);
-    regModal.addEventListener('click', (e) => {
-      if (e.target === regModal) closeRegModal();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && regModal.classList.contains('open')) closeRegModal();
+    waButtons.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        pushDataLayer('lp_wa_cta_click', {
+          click_text: (btn.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+        const opened = openRegModal();
+        if (!opened) {
+          window.open(btn.href, '_blank', 'noopener');
+        }
+      });
     });
 
-    regForm.addEventListener('submit', (e) => {
+    if (regClose) regClose.addEventListener('click', closeRegModal);
+    if (regModal) {
+      regModal.addEventListener('click', (e) => {
+        if (e.target === regModal) closeRegModal();
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && regModal && regModal.classList.contains('open')) closeRegModal();
+    });
+
+    if (regForm) regForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const data = {
         nama: document.getElementById('murid_nama').value.trim(),
@@ -1119,6 +1150,10 @@
         `*Tutor : Bebas atau laki-laki/Perempuan* = ${data.tutor}`;
 
       const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+      pushDataLayer('lp_wa_form_submit', {
+        channel: 'whatsapp',
+        page_path: window.location.pathname
+      });
       window.open(url, '_blank', 'noopener');
       closeRegModal();
       regForm.reset();

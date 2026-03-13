@@ -1,0 +1,162 @@
+<section id="testimonials" class="section">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&display=swap");
+
+    #testimonials {
+      padding: 90px 0;
+      background: radial-gradient(circle at top, #eafff4 0%, #f6fffb 55%, #e2f5ec 100%);
+      text-align: center;
+    }
+
+    #testimonials .wrap {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 26px;
+      justify-items: center;
+    }
+
+    #testimonials h2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(2.2rem, 3.1vw + 0.8rem, 3.3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: #0b4bff;
+    }
+
+    #testimonials .headline-2 {
+      font-family: "Fraunces", "Unbounded", "Plus Jakarta Sans", serif;
+      font-size: clamp(1.7rem, 2vw + 0.8rem, 2.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #0b4bff;
+      margin: 0;
+      padding: 10px 18px;
+      background: #d7f7e8;
+      border-radius: 16px;
+      box-shadow: 0 16px 34px rgba(15, 176, 106, 0.25);
+    }
+
+    #testimonials .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      justify-items: center;
+    }
+
+    #testimonials .card {
+      background: #1e1a17;
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: 0 20px 40px rgba(30, 26, 23, 0.25);
+      display: grid;
+      gap: 10px;
+      text-align: center;
+    }
+
+    #testimonials .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+      margin: 0 auto;
+    }
+
+    #testimonials .rating {
+      color: #93e7c7;
+      letter-spacing: 2px;
+      font-size: 0.95rem;
+    }
+
+    #testimonials .quote {
+      color: #f5e9df;
+      line-height: 1.6;
+    }
+
+    #testimonials .by {
+      color: #f9d9c1;
+      font-weight: 700;
+    }
+
+    #testimonials .result-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      color: #5c4f46;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 700px) {
+      #testimonials {
+        padding: 70px 0;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <h2>Pengalaman Sales Internet Kabel Setelah Fokus ke WA</h2>
+    <div class="headline-2">Chat lebih rapi, closing lebih konsisten</div>
+    <div class="result-row">
+      <span>Fokus utama: chat masuk stabil dan closing lebih cepat.</span>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <img
+          class="avatar"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlHhPBhIphnYhe7OyD-zX-5NPKRy7RzU3OFg&s"
+          alt="Rina, Sales Internet Kabel Bekasi"
+          loading="lazy"
+        />
+        <p class="rating" aria-label="Bintang 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="quote">
+          "Dulu chat campur aduk. Setelah alur WA dipasang, data coverage & paket jadi jelas."
+        </p>
+        <p class="by">— Rina, Sales Internet Kabel Bekasi</p>
+      </article>
+      <article class="card">
+        <img
+          class="avatar"
+          src="https://investigasintb.com/wp-content/uploads/2025/02/IMG-20250219-WA0033.jpg"
+          alt="Bima, Sales Internet Bandung"
+          loading="lazy"
+        />
+        <p class="rating" aria-label="Bintang 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="quote">
+          "Iklan langsung ke WA bikin chat lebih berkualitas. Skrip kualifikasi bantu admin fokus ke prospek siap pasang."
+        </p>
+        <p class="by">— Bima, Sales Internet Bandung</p>
+      </article>
+      <article class="card">
+        <img
+          class="avatar"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmgAUvcVJoZWiFG9P7RZ4lTHd939sShtWv7Q&s"
+          alt="Salsa, Sales Internet Surabaya"
+          loading="lazy"
+        />
+        <p class="rating" aria-label="Bintang 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="quote">
+          "Auto-reply bantu respon cepat. Jadwal survey dan pemasangan jadi rapi tanpa bolak-balik tanya."
+        </p>
+        <p class="by">— Salsa, Sales Internet Surabaya</p>
+      </article>
+    </div>
+  </div>
+
+  <script>
+    const testimonialCards = document.querySelectorAll("#testimonials .card");
+    testimonialCards.forEach((card, index) => {
+      card.style.opacity = "0";
+      card.style.transform = "translateY(16px)";
+      setTimeout(() => {
+        card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        card.style.opacity = "1";
+        card.style.transform = "translateY(0)";
+      }, 120 + index * 120);
+    });
+  </script>
+</section>
