@@ -846,12 +846,24 @@
       display: none;
     }
 
-    .reveal {
+    .reveal,
+    .scroll-fx {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .75s ease, transform .75s ease;
+      transform: translate3d(0, 22px, 0) scale(0.988);
+      filter: blur(6px);
+      transition:
+        opacity .72s cubic-bezier(.2, .65, .2, 1),
+        transform .78s cubic-bezier(.2, .65, .2, 1),
+        filter .74s cubic-bezier(.2, .65, .2, 1);
+      transition-delay: var(--fx-delay, 0ms);
+      will-change: opacity, transform, filter;
     }
-    .reveal.in { opacity: 1; transform: translateY(0); }
+    .reveal.in,
+    .scroll-fx.in {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+      filter: blur(0);
+    }
 
     @media (max-width: 1024px) {
       .hero-grid { grid-template-columns: 1fr; }
@@ -895,7 +907,8 @@
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-      .reveal { opacity: 1; transform: none; }
+      .reveal,
+      .scroll-fx { opacity: 1; transform: none; filter: none; }
       .proof-track { animation: none; }
     }
   </style>
@@ -1151,7 +1164,28 @@
 
   <script>
     (function () {
-      const nodes = document.querySelectorAll(".reveal");
+      const selectors = [
+        ".reveal",
+        ".svc",
+        ".benefit-stick",
+        ".flow-item",
+        ".article-card",
+        ".articles-action",
+        ".footer-brand",
+        ".footer-col",
+        ".site-footer-bottom",
+        ".assist-card"
+      ];
+
+      const nodes = [...new Set(
+        selectors.flatMap((selector) => Array.from(document.querySelectorAll(selector)))
+      )];
+
+      nodes.forEach((node, index) => {
+        node.classList.add("scroll-fx");
+        node.style.setProperty("--fx-delay", `${(index % 6) * 55}ms`);
+      });
+
       if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         nodes.forEach((node) => node.classList.add("in"));
         return;
@@ -1164,7 +1198,7 @@
             io.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.14, rootMargin: "0px 0px -5% 0px" });
+      }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
 
       nodes.forEach((node) => io.observe(node));
     })();
