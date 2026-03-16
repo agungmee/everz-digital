@@ -1,0 +1,1215 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DPKonsultan | Pendampingan Sertifikasi ISO, SMK3, dan CSMS-HSE</title>
+  <meta name="description" content="DPKonsultan membantu perusahaan menyiapkan sertifikasi ISO, SMK3, dan CSMS-HSE dari gap assessment, penyusunan dokumen, implementasi, hingga pendampingan audit." />
+  <meta name="keywords" content="konsultan iso, jasa sertifikasi iso, konsultan smk3, csms hse, pendampingan audit, jasa dokumen iso" />
+  <meta name="author" content="DPKonsultan" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b1033" />
+  <link rel="canonical" href="https://everz-digital.site/dpkonsultan/" />
+  <link rel="icon" type="image/png" href="https://everz-digital.site/wp-content/uploads/2026/03/2026-03-03_14-36-removebg-preview.png" />
+
+  <meta property="og:site_name" content="DPKonsultan" />
+  <meta property="og:title" content="DPKonsultan | Pendampingan Sertifikasi ISO, SMK3, dan CSMS-HSE" />
+  <meta property="og:description" content="Pendampingan end-to-end untuk sertifikasi ISO, SMK3, dan CSMS-HSE agar perusahaan lebih siap tender, audit, dan ekspansi bisnis." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://everz-digital.site/dpkonsultan/" />
+  <meta property="og:image" content="https://everz-digital.site/wp-content/uploads/2026/03/2026-03-03_22-26_3.png" />
+  <meta property="og:locale" content="id_ID" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --bg: #eef0f6;
+      --bg-soft: #f8f9fc;
+      --ink: #0c1335;
+      --muted: #516080;
+      --navy: #0b1033;
+      --navy-soft: #121946;
+      --lime: #dff24f;
+      --sky: #c4e8ff;
+      --line: #d9deec;
+      --radius: 20px;
+      --shadow: 0 20px 55px rgba(8, 18, 54, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: clip;
+    }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1300px 620px at -12% -6%, #dce1f6 0%, transparent 62%),
+        radial-gradient(1000px 500px at 114% 0%, #e7f9b5 0%, transparent 58%),
+        var(--bg);
+      font: 400 16px/1.65 Manrope, sans-serif;
+      overflow-x: clip;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .wrap {
+      width: min(1120px, 92vw);
+      max-width: 100%;
+      margin-inline: auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(238, 240, 246, 0.9);
+      border-bottom: 1px solid rgba(12, 19, 53, 0.07);
+    }
+
+    .topbar .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 9px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font: 800 22px/1 "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.03em;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      transform: scale(1.3);
+      transform-origin: center;
+    }
+    .brand small { display: block; font: 600 12px/1.3 Manrope, sans-serif; letter-spacing: 0; color: var(--muted); margin-top: 4px; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #233157;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .menu-burger {
+      width: 28px;
+      height: 22px;
+      border: 0;
+      background: transparent;
+      display: none;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      cursor: pointer;
+      transition: opacity .2s ease;
+    }
+
+    .menu-burger span {
+      position: absolute;
+      left: 0;
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: #0b1033;
+      transition: transform .24s ease, opacity .2s ease;
+    }
+
+    .menu-burger .line-1 { transform: translateY(-4px); }
+    .menu-burger .line-2 { transform: translateY(4px); }
+    .menu-burger:hover { opacity: .75; }
+    .menu-burger[aria-expanded="true"] .line-1 { transform: rotate(45deg); }
+    .menu-burger[aria-expanded="true"] .line-2 { transform: rotate(-45deg); }
+
+    .menu-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 11, 33, 0.34);
+      backdrop-filter: blur(1px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .24s ease;
+      z-index: 45;
+    }
+
+    .menu-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(332px, 86vw);
+      height: 100dvh;
+      background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+      border-left: 1px solid #d8deef;
+      box-shadow: -22px 0 48px rgba(9, 17, 50, 0.22);
+      padding: 18px 14px;
+      transform: translateX(104%);
+      opacity: .8;
+      pointer-events: none;
+      transition: transform .28s ease, opacity .2s ease;
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.menu-open .menu-backdrop { opacity: 1; pointer-events: auto; }
+    body.menu-open .menu-panel { transform: translateX(0); opacity: 1; pointer-events: auto; }
+    body.menu-open { overflow: hidden; }
+
+    .menu-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 8px 14px;
+      border-bottom: 1px solid #e4e8f4;
+      margin-bottom: 10px;
+    }
+
+    .menu-title {
+      margin: 0;
+      font: 800 17px/1 "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.02em;
+      color: #11173f;
+    }
+
+    .menu-close {
+      width: 34px;
+      height: 34px;
+      border: 1px solid #d8deef;
+      border-radius: 10px;
+      background: #fff;
+      color: #11173f;
+      font-size: 16px;
+      display: inline-grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .menu-list {
+      list-style: none;
+      margin: 0;
+      padding: 6px 0 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .menu-list a {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      border-radius: 12px;
+      padding: 13px 12px;
+      font: 800 20px/1.2 "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.02em;
+      color: #0f163f;
+      transition: transform .2s ease, background-color .2s ease, color .2s ease;
+    }
+
+    .menu-list a:hover {
+      background: #f0f4ff;
+      color: #0b1033;
+      transform: translateX(3px);
+    }
+
+    .menu-list i {
+      color: #9aa6c7;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity .2s ease, transform .2s ease;
+      transform: translateX(-2px);
+    }
+
+    .menu-list a.has-arrow i { opacity: 1; }
+    .menu-list a:hover i { transform: translateX(0); color: #6373a3; }
+
+    .btn {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform .3s ease, box-shadow .3s ease, background-color .3s ease, color .3s ease;
+      will-change: transform;
+      min-width: 0;
+      white-space: normal;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(7, 14, 47, 0.3);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); background: #090f2a; }
+
+    .btn-ghost {
+      border: 1px solid #b7bfd8;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.65);
+    }
+
+    .hero {
+      padding: clamp(28px, 5vw, 70px) 0 56px;
+      background: #fff;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: 32px; align-items: center; }
+    .hero-grid > * { min-width: 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 8px 12px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font: 800 clamp(32px, 5.6vw, 56px)/1.04 "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+      overflow-wrap: anywhere;
+    }
+
+    .hero p {
+      margin: 16px 0 24px;
+      color: var(--muted);
+      max-width: 630px;
+      font-size: clamp(16px, 2.15vw, 19px);
+      overflow-wrap: anywhere;
+    }
+
+    .hero-grid > div:first-child {
+      text-align: center;
+    }
+
+    .hero-grid > div:first-child .eyebrow,
+    .hero-grid > div:first-child .actions,
+    .hero-grid > div:first-child .proof,
+    .hero-grid > div:first-child .proof-copy {
+      margin-inline: auto;
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+
+    .proof-copy {
+      margin: 2px 0 10px;
+      max-width: 680px;
+      text-align: center;
+    }
+
+    .proof-copy h3 {
+      margin: 0 0 6px;
+      font: 800 clamp(22px, 3.2vw, 40px)/1.12 "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.02em;
+      color: #1b1f34;
+      text-wrap: balance;
+    }
+
+    .proof {
+      max-width: 680px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .proof-track {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: max-content;
+      animation: proofRun 36s linear infinite;
+      padding-inline: 2px;
+    }
+
+    .proof-item {
+      flex: 0 0 auto;
+      width: 272px;
+      height: 124px;
+      object-fit: contain;
+      opacity: .95;
+      filter: saturate(.95);
+    }
+
+    @keyframes proofRun {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .hero-logo {
+      display: block;
+      width: min(88%, 420px);
+      margin-inline: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      filter: none;
+      transform: scale(1);
+      transition: transform .35s ease;
+    }
+
+    .hero-logo:hover { transform: scale(1.03); }
+
+    .section { padding: 62px 0; }
+    .section-dark { background: var(--navy); color: #fff; }
+    .section-dark .muted { color: #b9c2e6; }
+    .section-head { margin-bottom: 24px; }
+    .section-head h2 {
+      margin: 0;
+      font: 800 clamp(30px, 4vw, 46px)/1.06 "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+    .section-head p { margin: 14px 0 0; max-width: 780px; }
+    .muted { color: var(--muted); }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    #layanan .section-head {
+      text-align: center;
+    }
+
+    #layanan .section-head p {
+      margin-inline: auto;
+    }
+
+    .svc {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(202, 209, 245, 0.2);
+      border-radius: 16px;
+      padding: 16px;
+      min-height: 150px;
+      transition: transform .3s ease, background-color .3s ease, border-color .3s ease;
+      text-align: center;
+    }
+
+    .svc:hover { transform: translateY(-4px); background: rgba(223, 242, 79, 0.11); border-color: rgba(223, 242, 79, 0.48); }
+    .svc i {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      background: var(--lime);
+      color: #091136;
+      font-size: 15px;
+      margin: 0 auto 10px;
+    }
+    .svc h3 { margin: 0 0 6px; font: 800 18px/1.2 "Plus Jakarta Sans", sans-serif; letter-spacing: -0.01em; }
+    .svc p { margin: 0; color: #c6cff1; font-size: 14px; line-height: 1.55; }
+
+    .assist {
+      padding-top: 28px;
+      padding-bottom: 18px;
+    }
+
+    .assist-card {
+      position: relative;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid #dce3f2;
+      border-radius: 28px;
+      color: #11173f;
+      padding: 22px;
+      max-width: 460px;
+      margin: 0 auto;
+      box-shadow: 0 18px 40px rgba(9, 17, 50, 0.08);
+    }
+
+    .assist-photo {
+      max-width: none;
+      width: calc(100% + 44px);
+      aspect-ratio: 1.25 / 1;
+      display: block;
+      margin: -22px -22px 16px;
+      border-radius: 28px 28px 0 0;
+      object-fit: cover;
+    }
+
+    .assist-card h3 {
+      margin: 0 0 8px;
+      font: 800 clamp(32px, 5.1vw, 44px)/1.08 "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.03em;
+      max-width: 360px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .assist-card p {
+      margin: 0 0 14px;
+      color: #4a5a83;
+      font-size: 15px;
+      max-width: 360px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .assist-card .btn {
+      position: relative;
+      z-index: 1;
+      background: var(--navy);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(7, 14, 47, 0.2);
+      width: 100%;
+      justify-content: center;
+    }
+
+    .assist-card .btn:hover {
+      background: #090f2a;
+      transform: translateY(-1px);
+    }
+
+    #manfaat {
+      padding-top: 24px;
+    }
+
+    #manfaat .section-head {
+      text-align: center;
+    }
+
+    #manfaat .section-head p {
+      margin-inline: auto;
+    }
+
+    .benefit-sticks {
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .benefit-stick {
+      position: relative;
+      padding: 12px 14px 12px 18px;
+      border-radius: 14px;
+      border: 1px solid #dde4f4;
+      line-height: 1.55;
+      color: #223056;
+      background: #f7f9ff;
+    }
+
+    .benefit-stick::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      bottom: 10px;
+      width: 6px;
+      border-radius: 8px;
+      background: #8fb31f;
+    }
+
+    .benefit-stick:nth-child(2n) { background: #f4f7ff; }
+    .benefit-stick:nth-child(3n) { background: #f8fbf0; }
+    .benefit-stick:nth-child(4n) { background: #f3f9ff; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #d8deed;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .list li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; line-height: 1.55; }
+    .list i { color: #5f7b0f; font-size: 14px; margin-top: 4px; }
+    .flow-solid {
+      counter-reset: flow;
+      display: grid;
+      gap: 10px;
+    }
+
+    .flow-item {
+      counter-increment: flow;
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      border-radius: 14px;
+      background: #10194a;
+      border: 1px solid #24306d;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .flow-item::before {
+      content: counter(flow);
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--lime);
+      color: #11173f;
+      font: 800 18px/1 "Plus Jakarta Sans", sans-serif;
+      display: grid;
+      place-items: center;
+      margin-top: 1px;
+    }
+
+    .flow-item h3 {
+      margin: 0 0 4px;
+      color: #ffffff;
+      font: 800 17px/1.3 "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.01em;
+    }
+
+    .flow-item p {
+      margin: 0;
+      color: #c7d0f4;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .articles {
+      padding-top: 8px;
+    }
+
+    .articles .section-head {
+      text-align: center;
+    }
+
+    .articles .section-head p {
+      margin-inline: auto;
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .article-card {
+      background: #fff;
+      border: 1px solid #d9e0f0;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(13, 22, 62, 0.09);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .article-body {
+      padding: 14px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: 100%;
+    }
+
+    .article-body h3 {
+      margin: 0;
+      font: 800 21px/1.28 "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.02em;
+      color: #131a44;
+      text-wrap: balance;
+    }
+
+    .article-body p {
+      margin: 0;
+      color: #4d5d84;
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 8px 12px;
+      flex-wrap: wrap;
+      color: #5f709c;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .article-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .article-body .btn {
+      margin-top: auto;
+      width: 100%;
+      justify-content: center;
+      border: 1px solid #c9d4ef;
+      color: #132154;
+      background: #f6f8ff;
+      box-shadow: none;
+    }
+
+    .article-body .btn:hover {
+      background: #eef2ff;
+      transform: translateY(-1px);
+    }
+
+    .articles-action {
+      margin-top: 18px;
+      text-align: center;
+    }
+
+    .articles-action .btn {
+      min-width: 220px;
+      justify-content: center;
+    }
+
+    .site-footer {
+      margin-top: 24px;
+      background: #0b1033;
+      color: #d3dbff;
+      border-top: 1px solid rgba(182, 197, 255, 0.2);
+    }
+
+    .site-footer-inner {
+      padding: 34px 0 16px;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 22px;
+      text-align: left;
+    }
+
+    .footer-brand {
+      display: block;
+    }
+
+    .footer-brand img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand h3 {
+      margin: 0 0 6px;
+      color: #fff;
+      font: 800 22px/1 "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-brand p {
+      margin: 0;
+      color: #b8c2ea;
+      max-width: 380px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      margin: 0 0 10px;
+      color: #fff;
+      font: 800 16px/1.2 "Plus Jakarta Sans", sans-serif;
+    }
+
+    .footer-col a,
+    .footer-col p {
+      margin: 0 0 8px;
+      display: block;
+      color: #c7d0f4;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid rgba(197, 209, 250, 0.38);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+      transition: transform .2s ease, background-color .2s ease;
+    }
+
+    .footer-social a:hover {
+      transform: translateY(-1px);
+      background: rgba(223, 242, 79, 0.16);
+    }
+
+    .site-footer-bottom {
+      border-top: 1px solid rgba(182, 197, 255, 0.22);
+      text-align: center;
+      padding: 12px 0 90px;
+      color: #aab5df;
+      font-size: 13px;
+    }
+
+    .wa-float {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 40;
+      border-radius: 999px;
+      padding: 12px 16px;
+      background: #10b958;
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      box-shadow: 0 16px 30px rgba(16, 185, 88, 0.33);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      animation: waBounce 2.2s ease-in-out infinite;
+    }
+
+    @keyframes waBounce {
+      0%, 100% { transform: translateY(0); }
+      8% { transform: translateY(-5px); }
+      16% { transform: translateY(0); }
+      24% { transform: translateY(-3px); }
+      32% { transform: translateY(0); }
+    }
+
+    .wa-hint {
+      position: fixed;
+      right: 16px;
+      bottom: 74px;
+      z-index: 39;
+      max-width: 250px;
+      background: #fff;
+      color: #1c2850;
+      border: 1px solid #d6def2;
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(12, 25, 70, 0.18);
+      padding: 10px 12px 10px 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .wa-hint p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .wa-hint-close {
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+      border: 0;
+      border-radius: 8px;
+      background: #f2f5ff;
+      color: #32426f;
+      display: inline-grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .wa-hint.is-hidden {
+      display: none;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .services { grid-template-columns: repeat(2, 1fr); }
+      .split { grid-template-columns: 1fr; }
+      .article-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 760px) {
+      .nav a:not(.btn) { display: none; }
+      .menu-burger { display: inline-flex; }
+      .menu-list a { font-size: 18px; }
+      h1 { font-size: clamp(30px, 10vw, 42px); }
+      .proof-item { width: 236px; height: 112px; }
+      .hero-logo { width: min(86vw, 350px); }
+      .assist { padding-top: 22px; }
+      .assist-card { border-radius: 22px; padding: 18px; }
+      .assist-photo {
+        width: calc(100% + 36px);
+        margin: -18px -18px 14px;
+        border-radius: 22px 22px 0 0;
+      }
+      #manfaat { padding-top: 10px; }
+      .section { padding: 48px 0; }
+      .actions .btn { width: 100%; justify-content: center; }
+      .services { grid-template-columns: 1fr; }
+      .article-grid { grid-template-columns: 1fr; }
+      .site-footer-inner {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 24px 0 14px;
+      }
+      .site-footer-bottom { padding-bottom: 84px; }
+      .wa-hint {
+        right: 12px;
+        left: 12px;
+        bottom: 74px;
+        max-width: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; }
+      .proof-track { animation: none; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DPKonsultan",
+    "url": "https://everz-digital.site/dpkonsultan/",
+    "telephone": "+62-813-8016-3185",
+    "areaServed": "Indonesia",
+    "serviceType": "Konsultan Sertifikasi ISO, SMK3, dan CSMS-HSE"
+  }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/03/2026-03-03_14-36-removebg-preview.png" alt="Logo DPKonsultan" />
+        <span>DPKonsultan<small>ISO | SMK3 | CSMS-HSE</small></span>
+      </a>
+      <nav class="nav" aria-label="Navigasi utama">
+        <a href="#layanan">Layanan</a>
+        <a href="#manfaat">Manfaat</a>
+        <a href="#kontak">Kontak</a>
+        <button class="menu-burger" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="site-menu">
+          <span class="line-1"></span>
+          <span class="line-2"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="menu-backdrop" data-menu-close></div>
+  <aside class="menu-panel" id="site-menu" aria-hidden="true">
+    <div class="menu-head">
+      <p class="menu-title">Menu</p>
+      <button class="menu-close" type="button" aria-label="Tutup menu" data-menu-close>
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+    <ul class="menu-list">
+      <li><a href="#top">Beranda</a></li>
+      <li><a href="#manfaat">Tentang Kami</a></li>
+      <li><a class="has-arrow" href="#layanan">Layanan Konsultasi <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a></li>
+      <li><a class="has-arrow" href="#layanan">Pelatihan <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a></li>
+      <li><a href="#artikel">Artikel</a></li>
+      <li><a href="#kontak">Kontak Kami</a></li>
+    </ul>
+  </aside>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <span class="eyebrow"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Pendampingan Sampai Lolos Audit</span>
+          <h1>Siap Sertifikasi, Siap Menang Proyek Lebih Besar</h1>
+          <p>Kami dampingi tim Anda sampai benar-benar siap audit ISO, SMK3, dan CSMS-HSE. Proses lebih rapi, keputusan lebih tenang, dan peluang tender naik kelas jadi lebih nyata.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://wa.me/6281380163185?text=Halo%20DPKonsultan%2C%20saya%20ingin%20mulai%20konsultasi" target="_blank" rel="noopener">Hubungi Kami</a>
+            <a class="btn btn-ghost" href="#layanan">Tentang Kami</a>
+          </div>
+          <div class="proof-copy">
+            <h3>Berafiliasi dengan banyak Lembaga Sertifikasi yang terakreditasi</h3>
+          </div>
+          <div class="proof" aria-label="Badan akreditasi">
+            <div class="proof-track">
+              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-4.png" alt="Logo akreditasi 1" loading="lazy" />
+              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-3.png" alt="Logo akreditasi 2" loading="lazy" />
+              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-5.png.webp" alt="Logo akreditasi 3" loading="lazy" />
+              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-2.png.webp" alt="Logo akreditasi 4" loading="lazy" />
+              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-1.png.webp" alt="Logo akreditasi 5" loading="lazy" />
+              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-4.png" alt="" aria-hidden="true" loading="lazy" />
+              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-3.png" alt="" aria-hidden="true" loading="lazy" />
+              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-5.png.webp" alt="" aria-hidden="true" loading="lazy" />
+              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-2.png.webp" alt="" aria-hidden="true" loading="lazy" />
+              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-1.png.webp" alt="" aria-hidden="true" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <img class="hero-logo reveal" src="https://everz-digital.site/wp-content/uploads/2026/03/2026-03-03_14-36-removebg-preview.png" alt="Icon DPKonsultan" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="layanan" class="section section-dark">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Konsultasi Populer</h2>
+          <p class="muted">Layanan utama yang paling sering diminta perusahaan untuk kebutuhan tender, compliance, peningkatan sistem, dan akselerasi readiness audit.</p>
+        </div>
+        <div class="services reveal">
+          <article class="svc"><i class="fa-solid fa-lock"></i><h3>ISO 27001:2022</h3><p>Sistem manajemen keamanan informasi.</p></article>
+          <article class="svc"><i class="fa-solid fa-list-check"></i><h3>ISO 9001:2015</h3><p>Sistem manajemen mutu dan kontrol proses.</p></article>
+          <article class="svc"><i class="fa-solid fa-bowl-food"></i><h3>ISO 22000:2018</h3><p>Sistem manajemen keamanan pangan.</p></article>
+          <article class="svc"><i class="fa-solid fa-shield-virus"></i><h3>FSSC 22000</h3><p>Skema sertifikasi keamanan pangan global.</p></article>
+          <article class="svc"><i class="fa-solid fa-seedling"></i><h3>HACCP</h3><p>Hazard Analysis and Critical Control Point.</p></article>
+          <article class="svc"><i class="fa-solid fa-scale-balanced"></i><h3>ISO 37001:2016</h3><p>Sistem manajemen anti penyuapan.</p></article>
+          <article class="svc"><i class="fa-solid fa-helmet-safety"></i><h3>SMK3</h3><p>Kepatuhan K3 untuk operasional risiko tinggi.</p></article>
+          <article class="svc"><i class="fa-solid fa-users-gear"></i><h3>CSMS-HSE</h3><p>Vendor readiness untuk evaluasi klien/tender.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section assist">
+      <div class="wrap">
+        <article class="assist-card reveal">
+          <img class="assist-photo" src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Diskusi konsultasi sertifikasi bersama klien" loading="lazy" />
+          <h3>Mendampingi Anda hingga lolos sertifikasi</h3>
+          <p>DPKonsultan siap membantu dan mendampingi selama proses persiapan penerapan standar Sistem Manajemen.</p>
+          <a class="btn" href="https://wa.me/6281380163185?text=Halo%20DPKonsultan%2C%20saya%20ingin%20konsultasi%20pendampingan%20sertifikasi" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section id="manfaat" class="section">
+      <div class="wrap split">
+        <article class="card reveal">
+          <div class="section-head">
+            <h2 style="font-size:clamp(28px,4.2vw,40px)">Benefit Konsultasi</h2>
+            <p class="muted">Nilai yang langsung terasa dalam proyek pendampingan bersama DPKonsultan.</p>
+          </div>
+          <div class="benefit-sticks">
+            <div class="benefit-stick">Roadmap implementasi yang jelas dari kondisi aktual perusahaan.</div>
+            <div class="benefit-stick">Penyusunan SOP, WI, form, risk register, dan dokumen wajib sesuai standar.</div>
+            <div class="benefit-stick">Coaching tim internal untuk awareness, implementasi, dan internal audit.</div>
+            <div class="benefit-stick">Simulasi audit/pre-assessment untuk menutup gap sebelum audit resmi.</div>
+            <div class="benefit-stick">Assist tindak lanjut temuan sampai lebih siap menuju sertifikasi.</div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="section-head">
+            <h2 style="font-size:clamp(28px,4.2vw,40px)">Alur Pendampingan</h2>
+            <p class="muted">Proses yang dipakai untuk layanan ISO maupun SMK3/CSMS-HSE.</p>
+          </div>
+          <div class="flow-solid">
+            <article class="flow-item"><div><h3>Konsultasi Awal</h3><p>Scope mapping target sertifikasi, kebutuhan tender, dan prioritas bisnis.</p></div></article>
+            <article class="flow-item"><div><h3>Gap Analysis</h3><p>Identifikasi kesenjangan dokumen, implementasi, dan kompetensi tim.</p></div></article>
+            <article class="flow-item"><div><h3>Pengembangan Sistem</h3><p>Dokumentasi dan implementasi prosedur sesuai standar yang dituju.</p></div></article>
+            <article class="flow-item"><div><h3>Pre-Assessment</h3><p>Simulasi audit dan perbaikan temuan mayor/minor secara terarah.</p></div></article>
+            <article class="flow-item"><div><h3>Pendampingan Audit</h3><p>Assist saat evaluasi hingga tindak lanjut pasca-audit.</p></div></article>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="artikel" class="section articles">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Artikel Terbaru</h2>
+          <p class="muted">Insight praktis seputar sertifikasi, audit readiness, dan strategi implementasi sistem manajemen.</p>
+        </div>
+
+        <div class="article-grid reveal">
+          <article class="article-card">
+            <img class="article-thumb" src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Tim rapat membahas roadmap sertifikasi" loading="lazy" />
+            <div class="article-body">
+              <h3>5 Langkah Menyiapkan Tim Internal Sebelum Audit Sertifikasi</h3>
+              <p>Panduan ringkas agar persiapan audit lebih terstruktur, minim revisi, dan siap menghadapi pertanyaan auditor.</p>
+              <div class="article-meta">
+                <span><i class="fa-regular fa-user"></i> Admin DPK</span>
+                <span><i class="fa-regular fa-calendar"></i> 15 Maret 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 6 menit baca</span>
+              </div>
+              <a class="btn" href="#">Baca Selengkapnya</a>
+            </div>
+          </article>
+
+          <article class="article-card">
+            <img class="article-thumb" src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Dokumen sistem manajemen di meja kerja" loading="lazy" />
+            <div class="article-body">
+              <h3>Kesalahan Umum Penyusunan Dokumen ISO yang Sering Menghambat</h3>
+              <p>Kenali kesalahan paling sering pada SOP, form, dan risk register supaya implementasi lebih cepat jalan di lapangan.</p>
+              <div class="article-meta">
+                <span><i class="fa-regular fa-user"></i> Tim Konsultan</span>
+                <span><i class="fa-regular fa-calendar"></i> 11 Maret 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 7 menit baca</span>
+              </div>
+              <a class="btn" href="#">Baca Selengkapnya</a>
+            </div>
+          </article>
+
+          <article class="article-card">
+            <img class="article-thumb" src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Sesi diskusi strategi proyek dan tender" loading="lazy" />
+            <div class="article-body">
+              <h3>Cara Menyusun Roadmap SMK3 dan CSMS-HSE untuk Target Tender</h3>
+              <p>Strategi menyusun prioritas implementasi agar kesiapan vendor assessment meningkat dan peluang lolos tender lebih besar.</p>
+              <div class="article-meta">
+                <span><i class="fa-regular fa-user"></i> Editorial DPK</span>
+                <span><i class="fa-regular fa-calendar"></i> 8 Maret 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 5 menit baca</span>
+              </div>
+              <a class="btn" href="#">Baca Selengkapnya</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="articles-action reveal">
+          <a class="btn btn-primary" href="#">Lihat Semua Artikel</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="kontak">
+    <div class="wrap site-footer-inner">
+      <div class="footer-brand">
+        <img src="https://everz-digital.site/wp-content/uploads/2026/03/2026-03-03_14-36-removebg-preview.png" alt="Logo DPKonsultan" />
+        <div>
+          <h3>DPKonsultan</h3>
+          <p>Jasa konsultan dan pendampingan sertifikasi ISO, SMK3, dan CSMS-HSE untuk perusahaan yang ingin lebih siap audit, tender, dan ekspansi bisnis.</p>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <a href="https://wa.me/6281380163185" target="_blank" rel="noopener">WhatsApp: 0813-8016-3185</a>
+        <a href="mailto:info@dpkonsultan.id">Email: info@dpkonsultan.id</a>
+        <p>Layanan Online Seluruh Indonesia</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Media Sosial</h4>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/6281380163185" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer-bottom">
+      &#169; 2026 DPKonsultan. All rights reserved.
+    </div>
+  </footer>
+
+  <div class="wa-hint" id="waHint" role="status" aria-live="polite">
+    <p>Untuk informasi layanan, silakan hubungi tim kami melalui WhatsApp.</p>
+    <button class="wa-hint-close" id="waHintClose" type="button" aria-label="Tutup pesan">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <a class="wa-float" href="https://wa.me/6281380163185?text=Halo%20DPKonsultan%2C%20saya%20ingin%20konsultasi" target="_blank" rel="noopener" aria-label="Konsultasi WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Butuh bantuan?
+  </a>
+
+  <script>
+    (function () {
+      const nodes = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        nodes.forEach((node) => node.classList.add("in"));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14, rootMargin: "0px 0px -5% 0px" });
+
+      nodes.forEach((node) => io.observe(node));
+    })();
+
+    (function () {
+      const body = document.body;
+      const menuBtn = document.querySelector(".menu-burger");
+      const menu = document.getElementById("site-menu");
+      if (!menuBtn || !menu) return;
+
+      const closeEls = document.querySelectorAll("[data-menu-close]");
+      const menuLinks = menu.querySelectorAll("a");
+
+      const setMenu = (isOpen) => {
+        body.classList.toggle("menu-open", isOpen);
+        menuBtn.setAttribute("aria-expanded", String(isOpen));
+        menu.setAttribute("aria-hidden", String(!isOpen));
+      };
+
+      menuBtn.addEventListener("click", () => {
+        const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+        setMenu(!isOpen);
+      });
+
+      closeEls.forEach((el) => {
+        el.addEventListener("click", () => setMenu(false));
+      });
+
+      menuLinks.forEach((link) => {
+        link.addEventListener("click", () => setMenu(false));
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") setMenu(false);
+      });
+    })();
+
+    (function () {
+      const hint = document.getElementById("waHint");
+      const close = document.getElementById("waHintClose");
+      if (!hint || !close) return;
+      close.addEventListener("click", () => {
+        hint.classList.add("is-hidden");
+      });
+    })();
+  </script>
+</body>
+</html>
