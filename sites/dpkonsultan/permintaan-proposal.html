@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DPKonsultan | Pendampingan Sertifikasi ISO, SMK3, dan CSMS-HSE</title>
+  <title>DPKonsultan | Permintaan Proposal</title>
   <meta name="description" content="DPKonsultan membantu perusahaan menyiapkan sertifikasi ISO, SMK3, dan CSMS-HSE dari gap assessment, penyusunan dokumen, implementasi, hingga pendampingan audit." />
   <meta name="keywords" content="konsultan iso, jasa sertifikasi iso, konsultan smk3, csms hse, pendampingan audit, jasa dokumen iso" />
   <meta name="author" content="DPKonsultan" />
@@ -358,6 +358,167 @@
       background: rgba(255, 255, 255, 0.65);
     }
 
+    .proposal-page {
+      padding: clamp(34px, 5vw, 72px) 0 64px;
+    }
+
+    .proposal-head {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .proposal-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      border: 1px solid #d7dfef;
+      background: #fff;
+      padding: 8px 13px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #243159;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .proposal-head h1 {
+      margin: 0;
+      font: 800 clamp(32px, 5.2vw, 52px)/1.04 "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+
+    .proposal-head p {
+      margin: 14px auto 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(15px, 2.1vw, 18px);
+    }
+
+    .proposal-card {
+      background: #fff;
+      border: 1px solid #d7dfef;
+      border-radius: 24px;
+      padding: clamp(20px, 3.2vw, 34px);
+      box-shadow: 0 24px 56px rgba(10, 19, 54, 0.12);
+    }
+
+    .proposal-grid {
+      display: grid;
+      grid-template-columns: 1.06fr .94fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .proposal-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 800;
+      color: #233157;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid #ced8ed;
+      border-radius: 12px;
+      background: #f8faff;
+      color: #172347;
+      font: 600 14px/1.5 Manrope, sans-serif;
+      padding: 12px 13px;
+      transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+    }
+
+    .field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: #4f67b1;
+      box-shadow: 0 0 0 4px rgba(79, 103, 177, 0.14);
+      background: #fff;
+    }
+
+    .submit-wrap {
+      margin-top: 4px;
+    }
+
+    .proposal-submit {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 20px;
+      font: 800 14px/1 "Plus Jakarta Sans", sans-serif;
+      color: #fff;
+      background: linear-gradient(135deg, #0b1033 0%, #1b2b67 100%);
+      box-shadow: 0 16px 30px rgba(10, 20, 58, 0.26);
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+
+    .proposal-submit:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+      box-shadow: 0 20px 34px rgba(10, 20, 58, 0.3);
+    }
+
+    .proposal-side {
+      border: 1px solid #dce3f2;
+      border-radius: 18px;
+      padding: 16px;
+      background: linear-gradient(180deg, #f8faff 0%, #f0f4ff 100%);
+    }
+
+    .proposal-side h3 {
+      margin: 0 0 8px;
+      font: 800 24px/1.12 "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.02em;
+      color: #101a44;
+    }
+
+    .proposal-side p {
+      margin: 0 0 12px;
+      color: #4d5d84;
+      font-size: 14px;
+    }
+
+    .proposal-points {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .proposal-points li {
+      display: grid;
+      grid-template-columns: 16px 1fr;
+      gap: 8px;
+      color: #273861;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .proposal-points i {
+      color: #4f67b1;
+      margin-top: 2px;
+      font-size: 12px;
+    }
+
     .hero {
       padding: clamp(28px, 5vw, 70px) 0 56px;
       background: #fff;
@@ -447,40 +608,18 @@
       to { transform: translateX(-50%); }
     }
 
-    .hero-slider {
-      position: relative;
+    .hero-logo {
+      display: block;
       width: min(88%, 420px);
       margin-inline: auto;
       aspect-ratio: 1 / 1;
-      border-radius: 26px;
-      overflow: hidden;
-      background: #e9edf7;
-      box-shadow: 0 18px 38px rgba(9, 18, 53, 0.18);
-    }
-
-    .hero-slide {
-      position: absolute;
-      inset: 0;
-      width: 100% !important;
-      height: 100% !important;
-      min-height: 100% !important;
-      max-width: none !important;
-      object-fit: cover !important;
-      object-position: center;
-      opacity: 0;
-      transform: scale(1.04);
-      transition: opacity .7s ease, transform 3.8s linear;
-      will-change: opacity, transform;
-    }
-
-    .hero-slide.is-active {
-      opacity: 1;
+      object-fit: contain;
+      filter: none;
       transform: scale(1);
+      transition: transform .35s ease;
     }
 
-    .hero-slide[aria-hidden="true"] {
-      pointer-events: none;
-    }
+    .hero-logo:hover { transform: scale(1.03); }
 
     @media (min-width: 1025px) {
       .hero-grid {
@@ -516,7 +655,7 @@
         padding-top: 6px;
       }
 
-      .hero-slider {
+      .hero-logo {
         width: min(100%, 460px);
       }
 
@@ -764,62 +903,6 @@
       padding-top: 8px;
     }
 
-    .clients {
-      background: #fff;
-      padding-top: 26px;
-      padding-bottom: 20px;
-    }
-
-    .clients .section-head {
-      text-align: center;
-    }
-
-    .clients .section-head p {
-      margin-inline: auto;
-    }
-
-    .client-marquee {
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .client-track {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      width: max-content;
-      animation: clientRun 40s linear infinite;
-      padding-inline: 2px;
-    }
-
-    .client-item {
-      flex: 0 0 auto;
-      width: 172px;
-      height: 88px;
-      display: grid;
-      place-items: center;
-      transition: transform .2s ease;
-    }
-
-    .client-item:hover {
-      transform: translateY(-2px);
-    }
-
-    .client-item img {
-      max-width: 100%;
-      max-height: calc(100% - 12px);
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      filter: saturate(.95);
-      transform: translateY(-8px);
-    }
-
-    @keyframes clientRun {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
     .articles .section-head {
       text-align: center;
     }
@@ -914,142 +997,6 @@
       justify-content: center;
     }
 
-    .map-section {
-      padding: 0 0 24px;
-      background: #fff;
-    }
-
-    .map-card {
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid #d9deec;
-      background: #eef1fa;
-      box-shadow: 0 12px 28px rgba(8, 18, 54, 0.12);
-    }
-
-    .map-frame {
-      width: 100%;
-      height: min(46vw, 360px);
-      min-height: 280px;
-      border: 0;
-      display: block;
-    }
-
-    .google-dummy {
-      padding: 0 0 14px;
-      background: #fff;
-    }
-
-    .google-dummy-wrap {
-      max-width: 560px;
-      margin-inline: auto;
-      border: 1px solid #d9deec;
-      border-radius: 16px;
-      background: #f5f6fa;
-      padding: 12px;
-      box-shadow: 0 10px 24px rgba(8, 18, 54, 0.12);
-    }
-
-    .google-dummy-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 10px;
-      color: #1d263f;
-      font: 800 20px/1.2 "Plus Jakarta Sans", sans-serif;
-      letter-spacing: -0.02em;
-    }
-
-    .google-dummy-head small {
-      display: block;
-      height: 8px;
-      width: min(180px, 38%);
-      border-radius: 999px;
-      background: repeating-linear-gradient(90deg, #dadde6 0 4px, #eef0f5 4px 8px);
-    }
-
-    .google-dummy-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .google-dummy-card {
-      border-radius: 14px;
-      background: #ececf0;
-      border: 1px solid #e0e1e8;
-      padding: 14px;
-      color: #12182d;
-    }
-
-    .gd-top {
-      display: grid;
-      grid-template-columns: 44px 1fr auto;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 6px;
-    }
-
-    .gd-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font: 800 22px/1 "Plus Jakarta Sans", sans-serif;
-      background: #0f5f9f;
-    }
-
-    .google-dummy-card:nth-child(2) .gd-avatar {
-      background: #6a9f3c;
-    }
-
-    .gd-author {
-      margin: 0;
-      font: 800 19px/1.2 "Plus Jakarta Sans", sans-serif;
-      letter-spacing: -0.02em;
-    }
-
-    .gd-time {
-      margin: 2px 0 0;
-      color: #616f8e;
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    .gd-stars {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      color: #f4b400;
-      font-size: 18px;
-      margin: 3px 0 7px;
-    }
-
-    .gd-stars .fa-circle-check {
-      color: #2b77d2;
-      font-size: 14px;
-      margin-left: 2px;
-    }
-
-    .gd-text {
-      margin: 0;
-      font-size: 16px;
-      line-height: 1.32;
-      color: #111831;
-      font-weight: 600;
-      text-wrap: pretty;
-    }
-
-    .gd-read {
-      display: inline-block;
-      margin-top: 8px;
-      color: #6c7da5;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
     .site-footer {
       margin-top: 24px;
       background: #0b1033;
@@ -1063,24 +1010,17 @@
       grid-template-columns: 1.3fr 1fr 1fr;
       gap: 22px;
       text-align: left;
-      align-items: start;
     }
 
     .footer-brand {
       display: block;
-      position: relative;
     }
 
     .footer-brand img {
       width: 44px;
       height: 44px;
       object-fit: contain;
-      margin: 0;
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translateY(calc(-100% - 6px));
+      margin-bottom: 10px;
     }
 
     .footer-brand h3 {
@@ -1234,6 +1174,7 @@
     }
 
     @media (max-width: 1024px) {
+      .proposal-grid { grid-template-columns: 1fr; }
       .hero-grid { grid-template-columns: 1fr; }
       .hero-main { text-align: center; }
       .hero-main .eyebrow,
@@ -1257,6 +1198,9 @@
     }
 
     @media (max-width: 760px) {
+      .proposal-card { border-radius: 18px; padding: 16px; }
+      .proposal-side { padding: 14px; }
+      .proposal-side h3 { font-size: 20px; }
       .quick-topbar .wrap {
         flex-direction: row;
         align-items: center;
@@ -1282,12 +1226,7 @@
       .menu-list a { font-size: 18px; }
       h1 { font-size: clamp(30px, 10vw, 42px); }
       .proof-item { width: 236px; height: 112px; }
-      .hero-slider { width: min(86vw, 350px); }
-      .client-item {
-        width: 150px;
-        height: 76px;
-      }
-      .client-track { gap: 10px; }
+      .hero-logo { width: min(86vw, 350px); }
       .assist { padding-top: 22px; }
       .assist-card {
         border-radius: 22px;
@@ -1309,20 +1248,10 @@
       .actions .btn { width: 100%; justify-content: center; }
       .services { grid-template-columns: 1fr; }
       .article-grid { grid-template-columns: 1fr; }
-      .map-frame {
-        height: 58vw;
-        min-height: 250px;
-      }
       .site-footer-inner {
         grid-template-columns: 1fr;
         gap: 16px;
         padding: 24px 0 14px;
-      }
-      .footer-brand {
-        position: static;
-      }
-      .footer-brand img {
-        display: none;
       }
       .site-footer-bottom { padding-bottom: 84px; }
       .wa-hint {
@@ -1373,9 +1302,9 @@
         <span>DPKonsultan<small>ISO | SMK3 | CSMS-HSE</small></span>
       </a>
       <nav class="nav" aria-label="Navigasi utama">
-        <a class="is-active" href="index.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="tentang-kami.html">Tentang Kami</a>
-        <a href="permintaan-proposal.html">Permintaan Proposal</a>
+        <a class="is-active" href="permintaan-proposal.html">Permintaan Proposal</a>
         <a href="hubungi-kami.html">Hubungi Kami</a>
         <a href="gallery.html">Gallery</a>
         <button class="menu-burger" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="site-menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
@@ -1392,287 +1321,76 @@
       </button>
     </div>
     <ul class="menu-list">
-      <li><a class="is-active" href="index.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="tentang-kami.html">Tentang Kami</a></li>
-      <li><a href="permintaan-proposal.html">Permintaan Proposal</a></li>
+      <li><a class="is-active" href="permintaan-proposal.html">Permintaan Proposal</a></li>
       <li><a href="hubungi-kami.html">Hubungi Kami</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="sertifikasi-smk3-csms.html">Sertifikasi SMK3/CSMS</a></li>
       <li><a href="sertifikasi-iso.html">Sertifikasi ISO</a></li>
     </ul>
   </aside>
-
-  <main id="top">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-main reveal">
-          <span class="eyebrow"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Pendampingan Sampai Lolos Audit</span>
-          <h1>Siap Sertifikasi, Siap Menang Proyek Lebih Besar</h1>
-          <p>Kami dampingi tim Anda sampai benar-benar siap audit ISO, SMK3, dan CSMS-HSE. Proses lebih rapi, keputusan lebih tenang, dan peluang tender naik kelas jadi lebih nyata.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://wa.me/6281380163185?text=Halo%20DPKonsultan%2C%20saya%20ingin%20mulai%20konsultasi" target="_blank" rel="noopener">Hubungi Kami</a>
-            <a class="btn btn-ghost" href="#layanan">Tentang Kami</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-slider reveal" aria-label="Dokumentasi klien DPKonsultan">
-            <img class="hero-slide is-active" src="https://www.dpkonsultan.com/wp-content/uploads/2024/05/pt-kai.jpg" alt="Dokumentasi klien DPKonsultan 1" loading="eager" aria-hidden="false" />
-            <img class="hero-slide" src="https://www.dpkonsultan.com/wp-content/uploads/2024/04/pt-mforce.jpg" alt="Dokumentasi klien DPKonsultan 2" loading="lazy" aria-hidden="true" />
-            <img class="hero-slide" src="https://www.dpkonsultan.com/wp-content/uploads/2024/04/pt-induro.jpg" alt="Dokumentasi klien DPKonsultan 3" loading="lazy" aria-hidden="true" />
-            <img class="hero-slide" src="https://www.dpkonsultan.com/wp-content/uploads/2018/06/IMG-20180518-WA0005.jpg" alt="Dokumentasi klien DPKonsultan 4" loading="lazy" aria-hidden="true" />
-            <img class="hero-slide" src="https://www.dpkonsultan.com/wp-content/uploads/2016/07/IMG-20160715-WA0006.jpg" alt="Dokumentasi klien DPKonsultan 5" loading="lazy" aria-hidden="true" />
-          </div>
-        </div>
-        <div class="hero-proof reveal">
-          <div class="proof-copy">
-            <h3>Berafiliasi dengan banyak Lembaga Sertifikasi yang terakreditasi</h3>
-          </div>
-          <div class="proof" aria-label="Badan akreditasi">
-            <div class="proof-track">
-              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-4.png" alt="Logo akreditasi 1" loading="lazy" />
-              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-3.png" alt="Logo akreditasi 2" loading="lazy" />
-              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-5.png.webp" alt="Logo akreditasi 3" loading="lazy" />
-              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-2.png.webp" alt="Logo akreditasi 4" loading="lazy" />
-              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-1.png.webp" alt="Logo akreditasi 5" loading="lazy" />
-              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-4.png" alt="" aria-hidden="true" loading="lazy" />
-              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-3.png" alt="" aria-hidden="true" loading="lazy" />
-              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-5.png.webp" alt="" aria-hidden="true" loading="lazy" />
-              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-2.png.webp" alt="" aria-hidden="true" loading="lazy" />
-              <img class="proof-item" src="https://osikonsultan.com/wp-content/uploads/2023/06/Artboard-1.png.webp" alt="" aria-hidden="true" loading="lazy" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="layanan" class="section section-dark">
+<main id="top">
+    <section class="proposal-page">
       <div class="wrap">
-        <div class="section-head reveal">
-          <h2>Konsultasi Populer</h2>
-          <p class="muted">Layanan utama yang paling sering diminta perusahaan untuk kebutuhan tender, compliance, peningkatan sistem, dan akselerasi readiness audit.</p>
-        </div>
-        <div class="services reveal">
-          <article class="svc"><i class="fa-solid fa-lock"></i><h3>ISO 27001:2022</h3><p>Sistem manajemen keamanan informasi.</p></article>
-          <article class="svc"><i class="fa-solid fa-list-check"></i><h3>ISO 9001:2015</h3><p>Sistem manajemen mutu dan kontrol proses.</p></article>
-          <article class="svc"><i class="fa-solid fa-bowl-food"></i><h3>ISO 22000:2018</h3><p>Sistem manajemen keamanan pangan.</p></article>
-          <article class="svc"><i class="fa-solid fa-shield-virus"></i><h3>FSSC 22000</h3><p>Skema sertifikasi keamanan pangan global.</p></article>
-          <article class="svc"><i class="fa-solid fa-seedling"></i><h3>HACCP</h3><p>Hazard Analysis and Critical Control Point.</p></article>
-          <article class="svc"><i class="fa-solid fa-scale-balanced"></i><h3>ISO 37001:2016</h3><p>Sistem manajemen anti penyuapan.</p></article>
-          <article class="svc"><i class="fa-solid fa-helmet-safety"></i><h3>SMK3</h3><p>Kepatuhan K3 untuk operasional risiko tinggi.</p></article>
-          <article class="svc"><i class="fa-solid fa-users-gear"></i><h3>CSMS-HSE</h3><p>Vendor readiness untuk evaluasi klien/tender.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="client" class="section clients">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <h2>Beberapa Client Kami</h2>
-          <p class="muted">Perusahaan yang telah mempercayakan pendampingan sertifikasi bersama DPKonsultan.</p>
-        </div>
-        <div class="client-marquee reveal" aria-label="Logo client DPKonsultan">
-          <div class="client-track">
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-4.jpg" alt="Logo client 1" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-14.jpg" alt="Logo client 2" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-2.jpg" alt="Logo client 3" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-6.jpg" alt="Logo client 4" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-12.jpg" alt="Logo client 5" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-15.jpg" alt="Logo client 6" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-16.jpg" alt="Logo client 7" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-17.jpg" alt="Logo client 8" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-18.jpg" alt="Logo client 9" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-19.jpg" alt="Logo client 10" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-20.jpg" alt="Logo client 11" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-13-1.jpg" alt="Logo client 12" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-8-1.jpg" alt="Logo client 13" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-1.jpg" alt="Logo client 14" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-9.jpg" alt="Logo client 15" loading="lazy" /></div>
-
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-4.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-14.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-2.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-6.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-12.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-15.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-16.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-17.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-18.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-19.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-20.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-13-1.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-8-1.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-1.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="client-item"><img src="https://www.dpkonsultan.com/wp-content/uploads/2020/06/client-list-logo-9.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section assist">
-      <div class="wrap">
-        <article class="assist-card reveal">
-          <div class="assist-copy">
-            <h3>Mendampingi Anda hingga lolos sertifikasi</h3>
-            <p>DPKonsultan siap membantu dan mendampingi selama proses persiapan penerapan standar Sistem Manajemen.</p>
-            <a class="btn" href="https://wa.me/6281380163185?text=Halo%20DPKonsultan%2C%20saya%20ingin%20konsultasi%20pendampingan%20sertifikasi" target="_blank" rel="noopener">
-              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
-            </a>
-          </div>
-          <img class="assist-photo" src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Diskusi konsultasi sertifikasi bersama klien" loading="lazy" />
-        </article>
-      </div>
-    </section>
-
-    <section id="manfaat" class="section">
-      <div class="wrap split">
-        <article class="card reveal">
-          <div class="section-head">
-            <h2 style="font-size:clamp(28px,4.2vw,40px)">Benefit Konsultasi</h2>
-            <p class="muted">Nilai yang langsung terasa dalam proyek pendampingan bersama DPKonsultan.</p>
-          </div>
-          <div class="benefit-sticks">
-            <div class="benefit-stick">Roadmap implementasi yang jelas dari kondisi aktual perusahaan.</div>
-            <div class="benefit-stick">Penyusunan SOP, WI, form, risk register, dan dokumen wajib sesuai standar.</div>
-            <div class="benefit-stick">Coaching tim internal untuk awareness, implementasi, dan internal audit.</div>
-            <div class="benefit-stick">Simulasi audit/pre-assessment untuk menutup gap sebelum audit resmi.</div>
-            <div class="benefit-stick">Assist tindak lanjut temuan sampai lebih siap menuju sertifikasi.</div>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="section-head">
-            <h2 style="font-size:clamp(28px,4.2vw,40px)">Alur Pendampingan</h2>
-            <p class="muted">Proses yang dipakai untuk layanan ISO maupun SMK3/CSMS-HSE.</p>
-          </div>
-          <div class="flow-solid">
-            <article class="flow-item"><div><h3>Konsultasi Awal</h3><p>Scope mapping target sertifikasi, kebutuhan tender, dan prioritas bisnis.</p></div></article>
-            <article class="flow-item"><div><h3>Gap Analysis</h3><p>Identifikasi kesenjangan dokumen, implementasi, dan kompetensi tim.</p></div></article>
-            <article class="flow-item"><div><h3>Pengembangan Sistem</h3><p>Dokumentasi dan implementasi prosedur sesuai standar yang dituju.</p></div></article>
-            <article class="flow-item"><div><h3>Pre-Assessment</h3><p>Simulasi audit dan perbaikan temuan mayor/minor secara terarah.</p></div></article>
-            <article class="flow-item"><div><h3>Pendampingan Audit</h3><p>Assist saat evaluasi hingga tindak lanjut pasca-audit.</p></div></article>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="artikel" class="section articles">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <h2>Artikel Terbaru</h2>
-          <p class="muted">Insight praktis seputar sertifikasi, audit readiness, dan strategi implementasi sistem manajemen.</p>
+        <div class="proposal-head reveal">
+          <span class="proposal-pill"><i class="fa-solid fa-file-signature" aria-hidden="true"></i> Permintaan Proposal</span>
+          <h1>Kirim Kebutuhan Proposal Perusahaan Anda</h1>
+          <p>Isi data di bawah ini untuk memulai konsultasi. Tim kami akan meninjau kebutuhan Anda dan menghubungi kembali dengan penawaran terbaik.</p>
         </div>
 
-        <div class="article-grid reveal">
-          <article class="article-card">
-            <img class="article-thumb" src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Tim rapat membahas roadmap sertifikasi" loading="lazy" />
-            <div class="article-body">
-              <h3>5 Langkah Menyiapkan Tim Internal Sebelum Audit Sertifikasi</h3>
-              <p>Panduan ringkas agar persiapan audit lebih terstruktur, minim revisi, dan siap menghadapi pertanyaan auditor.</p>
-              <div class="article-meta">
-                <span><i class="fa-regular fa-user"></i> Admin DPK</span>
-                <span><i class="fa-regular fa-calendar"></i> 15 Maret 2026</span>
-                <span><i class="fa-regular fa-clock"></i> 6 menit baca</span>
+        <div class="proposal-card reveal">
+          <div class="proposal-grid">
+            <form class="proposal-form" action="#" method="post">
+              <div class="field">
+                <label for="nama-perusahaan">Nama Perusahaan <span>(required)</span></label>
+                <input id="nama-perusahaan" name="nama_perusahaan" type="text" required />
               </div>
-              <a class="btn" href="single-post-persiapan-tim-audit.html">Baca Selengkapnya</a>
-            </div>
-          </article>
 
-          <article class="article-card">
-            <img class="article-thumb" src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Dokumen sistem manajemen di meja kerja" loading="lazy" />
-            <div class="article-body">
-              <h3>Kesalahan Umum Penyusunan Dokumen ISO yang Sering Menghambat</h3>
-              <p>Kenali kesalahan paling sering pada SOP, form, dan risk register supaya implementasi lebih cepat jalan di lapangan.</p>
-              <div class="article-meta">
-                <span><i class="fa-regular fa-user"></i> Tim Konsultan</span>
-                <span><i class="fa-regular fa-calendar"></i> 11 Maret 2026</span>
-                <span><i class="fa-regular fa-clock"></i> 7 menit baca</span>
+              <div class="field">
+                <label for="alamat-perusahaan">Alamat Perusahaan <span>(required)</span></label>
+                <input id="alamat-perusahaan" name="alamat_perusahaan" type="text" required />
               </div>
-              <a class="btn" href="single-post-kesalahan-dokumen-iso.html">Baca Selengkapnya</a>
-            </div>
-          </article>
 
-          <article class="article-card">
-            <img class="article-thumb" src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Sesi diskusi strategi proyek dan tender" loading="lazy" />
-            <div class="article-body">
-              <h3>Cara Menyusun Roadmap SMK3 dan CSMS-HSE untuk Target Tender</h3>
-              <p>Strategi menyusun prioritas implementasi agar kesiapan vendor assessment meningkat dan peluang lolos tender lebih besar.</p>
-              <div class="article-meta">
-                <span><i class="fa-regular fa-user"></i> Editorial DPK</span>
-                <span><i class="fa-regular fa-calendar"></i> 8 Maret 2026</span>
-                <span><i class="fa-regular fa-clock"></i> 5 menit baca</span>
+              <div class="field">
+                <label for="nomor-hp">Nomor HP atau Telepon <span>(required)</span></label>
+                <input id="nomor-hp" name="nomor_hp" type="tel" required />
               </div>
-              <a class="btn" href="single-post-roadmap-smk3-csms.html">Baca Selengkapnya</a>
-            </div>
-          </article>
-        </div>
 
-        <div class="articles-action reveal">
-          <a class="btn btn-primary" href="#">Lihat Semua Artikel</a>
+              <div class="field">
+                <label for="website">Website <span>(required)</span></label>
+                <input id="website" name="website" type="url" required />
+              </div>
+
+              <div class="field">
+                <label for="email">Email <span>(required)</span></label>
+                <input id="email" name="email" type="email" required />
+              </div>
+
+              <div class="field">
+                <label for="jenis-konsultasi">Jenis Konsultasi <span>(required)</span></label>
+                <textarea id="jenis-konsultasi" name="jenis_konsultasi" required></textarea>
+              </div>
+
+              <div class="submit-wrap">
+                <button class="proposal-submit" type="submit">Send</button>
+              </div>
+            </form>
+
+            <aside class="proposal-side">
+              <h3>Respon Lebih Cepat</h3>
+              <p>Pastikan data kontak aktif agar tim kami dapat segera follow up kebutuhan proposal Anda.</p>
+              <ul class="proposal-points">
+                <li><i class="fa-solid fa-check"></i><span>Detail kebutuhan membantu kami menyiapkan penawaran yang relevan.</span></li>
+                <li><i class="fa-solid fa-check"></i><span>Estimasi awal disiapkan sesuai scope dan target sertifikasi Anda.</span></li>
+                <li><i class="fa-solid fa-check"></i><span>Konsultasi awal gratis melalui telepon atau WhatsApp.</span></li>
+              </ul>
+            </aside>
+          </div>
         </div>
       </div>
     </section>
-
   </main>
-
-  <section class="map-section" aria-label="Lokasi DPKonsultan">
-    <div class="wrap">
-      <div class="map-card reveal">
-        <iframe
-          class="map-frame"
-          src="https://www.google.com/maps?q=DPKonsultan&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen
-          title="Peta Lokasi DPKonsultan"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <section class="google-dummy" aria-label="Review Google DPKonsultan">
-    <div class="wrap">
-      <div class="google-dummy-wrap reveal">
-        <div class="google-dummy-head">
-          <span>Review on google</span>
-          <small aria-hidden="true"></small>
-        </div>
-
-        <div class="google-dummy-list">
-          <article class="google-dummy-card">
-            <div class="gd-top">
-              <div class="gd-avatar">t</div>
-              <div>
-                <p class="gd-author">this red</p>
-                <p class="gd-time">1 month ago</p>
-              </div>
-              <i class="fa-brands fa-google" aria-hidden="true" style="color:#4285f4;font-size:20px"></i>
-            </div>
-            <div class="gd-stars" aria-label="Rating 5 dari 5">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-circle-check"></i>
-            </div>
-            <p class="gd-text">pengalaman menggunakan jasa ini cukup positif. alur kerja jelas dan komunikasi terjaga dengan baik.</p>
-          </article>
-
-          <article class="google-dummy-card">
-            <div class="gd-top">
-              <div class="gd-avatar">C</div>
-              <div>
-                <p class="gd-author">Cheisa Prutisetiawan</p>
-                <p class="gd-time">1 month ago</p>
-              </div>
-              <i class="fa-brands fa-google" aria-hidden="true" style="color:#4285f4;font-size:20px"></i>
-            </div>
-            <div class="gd-stars" aria-label="Rating 5 dari 5">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-circle-check"></i>
-            </div>
-            <p class="gd-text">tim konsultan terlihat berpengalaman dan memahami bidangnya. komunikasi selama proses cukup responsif.</p>
-            <span class="gd-read">Read more</span>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <footer class="site-footer" id="kontak">
     <div class="wrap site-footer-inner">
@@ -1789,59 +1507,6 @@
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") setMenu(false);
       });
-    })();
-
-    (function () {
-      const slides = Array.from(document.querySelectorAll(".hero-slider .hero-slide"));
-      if (slides.length < 2) return;
-
-      let currentIndex = 0;
-      let timer = null;
-      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-      const setSlide = (nextIndex) => {
-        slides[currentIndex].classList.remove("is-active");
-        slides[currentIndex].setAttribute("aria-hidden", "true");
-        slides[nextIndex].classList.add("is-active");
-        slides[nextIndex].setAttribute("aria-hidden", "false");
-        currentIndex = nextIndex;
-      };
-
-      const nextSlide = () => {
-        const nextIndex = (currentIndex + 1) % slides.length;
-        setSlide(nextIndex);
-      };
-
-      const start = () => {
-        if (timer || reducedMotion.matches) return;
-        timer = window.setInterval(nextSlide, 3500);
-      };
-
-      const stop = () => {
-        if (!timer) return;
-        window.clearInterval(timer);
-        timer = null;
-      };
-
-      document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-          stop();
-          return;
-        }
-        start();
-      });
-
-      if (typeof reducedMotion.addEventListener === "function") {
-        reducedMotion.addEventListener("change", (event) => {
-          if (event.matches) {
-            stop();
-            return;
-          }
-          start();
-        });
-      }
-
-      start();
     })();
 
     (function () {
