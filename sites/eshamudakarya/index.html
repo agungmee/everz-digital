@@ -1133,6 +1133,10 @@
       gap: 6px;
     }
 
+    .dokumentasi-viewport {
+      overflow: visible;
+    }
+
     .dokumentasi-item {
       margin: 0;
       overflow: hidden;
@@ -1156,6 +1160,26 @@
       margin-top: 16px;
       display: flex;
       justify-content: center;
+    }
+
+    .dokumentasi-nav {
+      display: none;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .dokumentasi-nav-btn {
+      width: 38px;
+      height: 38px;
+      border: 1px solid #d8e0e8;
+      background: #ffffff;
+      color: #1f2937;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 8px 14px rgba(15, 23, 42, 0.1);
     }
 
     .dokumentasi-more-btn {
@@ -1732,10 +1756,16 @@
 
       .trusted-copy h2 {
         max-width: none;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .trusted-copy p {
         font-size: 1rem;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .trusted-logos {
@@ -1834,10 +1864,14 @@
     }
 
     @media (max-width: 900px) {
+      .dokumentasi-viewport {
+        overflow: hidden;
+      }
+
       .dokumentasi-grid {
         display: flex;
         gap: 0;
-        overflow: hidden;
+        overflow: visible;
         touch-action: pan-y;
         will-change: transform;
       }
@@ -1846,6 +1880,10 @@
         flex: 0 0 100%;
         width: 100%;
         background: #111827;
+        min-height: 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .dokumentasi-item img {
@@ -1858,6 +1896,10 @@
 
       .dokumentasi-more-wrap {
         display: none;
+      }
+
+      .dokumentasi-nav {
+        display: flex;
       }
     }
 
@@ -2240,6 +2282,7 @@
 
     <section class="dokumentasi-section" aria-labelledby="dokumentasi-title">
       <h2 class="dokumentasi-title" id="dokumentasi-title">Dokumentasi Project</h2>
+      <div class="dokumentasi-viewport" id="dokumentasiViewport">
       <div class="dokumentasi-grid" id="dokumentasiCarousel">
         <figure class="dokumentasi-item">
           <img src="https://everz-digital.site/wp-content/uploads/2026/03/12ec720e-2d54-4dcb-99d8-62c1275e2367.jpeg" alt="Dokumentasi proyek ESHA MUDA KARYA 1" loading="lazy" />
@@ -2289,6 +2332,11 @@
         <figure class="dokumentasi-item">
           <img src="https://everz-digital.site/wp-content/uploads/2026/03/1618c1b0-60ab-4f8c-8b87-bb9ac8a0dbb0.jpeg" alt="Dokumentasi proyek ESHA MUDA KARYA 16" loading="lazy" />
         </figure>
+      </div>
+      </div>
+      <div class="dokumentasi-nav" aria-label="Navigasi dokumentasi proyek">
+        <button type="button" class="dokumentasi-nav-btn" id="dokumentasiPrev" aria-label="Slide sebelumnya">‹</button>
+        <button type="button" class="dokumentasi-nav-btn" id="dokumentasiNext" aria-label="Slide berikutnya">›</button>
       </div>
       <div class="dokumentasi-more-wrap">
         <button type="button" class="dokumentasi-more-btn" id="dokumentasiLoadMore">Lihat Lebih Banyak</button>
@@ -2667,8 +2715,11 @@
 
     (function () {
       var carousel = document.getElementById("dokumentasiCarousel");
+      var viewport = document.getElementById("dokumentasiViewport");
       var loadMoreBtn = document.getElementById("dokumentasiLoadMore");
-      if (!carousel || !loadMoreBtn) return;
+      var prevBtn = document.getElementById("dokumentasiPrev");
+      var nextBtn = document.getElementById("dokumentasiNext");
+      if (!carousel || !viewport || !loadMoreBtn) return;
 
       var isMobile = function () {
         return window.innerWidth <= 900;
@@ -2704,7 +2755,8 @@
           var image = document.createElement("img");
           image.src = item.src;
           image.alt = item.alt;
-          image.loading = "lazy";
+          image.loading = isMobile() ? "eager" : "lazy";
+          image.decoding = "async";
 
           figure.appendChild(image);
           carousel.appendChild(figure);
@@ -2733,7 +2785,18 @@
       };
 
       var refreshWidth = function () {
-        slideWidth = carousel.getBoundingClientRect().width;
+        slideWidth = viewport.getBoundingClientRect().width;
+        if (slideWidth < 10) slideWidth = window.innerWidth;
+      };
+
+      var applyMobileSizing = function () {
+        if (!slideWidth) return;
+        var items = carousel.querySelectorAll(".dokumentasi-item");
+        items.forEach(function (item) {
+          item.style.flex = "0 0 " + slideWidth + "px";
+          item.style.width = slideWidth + "px";
+          item.style.minWidth = slideWidth + "px";
+        });
       };
 
       var syncPosition = function (withAnim) {
@@ -2752,6 +2815,16 @@
           currentIndex += 1;
           syncPosition(true);
         }, 2800);
+      };
+
+      var goToPrev = function () {
+        currentIndex -= 1;
+        syncPosition(true);
+      };
+
+      var goToNext = function () {
+        currentIndex += 1;
+        syncPosition(true);
       };
 
       var normalizeIndex = function () {
@@ -2779,7 +2852,13 @@
         carousel.appendChild(firstClone);
         currentIndex = 1;
         refreshWidth();
+        applyMobileSizing();
         syncPosition(false);
+        window.requestAnimationFrame(function () {
+          refreshWidth();
+          applyMobileSizing();
+          syncPosition(false);
+        });
         startAuto();
         loadMoreBtn.style.display = "none";
       };
@@ -2832,12 +2911,30 @@
         dragging = false;
         var threshold = slideWidth * 0.16;
 
-        if (moveX > threshold) currentIndex -= 1;
-        else if (moveX < -threshold) currentIndex += 1;
+        if (moveX > threshold) goToPrev();
+        else if (moveX < -threshold) goToNext();
+        else syncPosition(true);
 
-        syncPosition(true);
         startAuto();
       });
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          if (!isMobile() || !firstClone || !lastClone) return;
+          stopAuto();
+          goToPrev();
+          startAuto();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          if (!isMobile() || !firstClone || !lastClone) return;
+          stopAuto();
+          goToNext();
+          startAuto();
+        });
+      }
 
       var setupByViewport = function () {
         if (isMobile()) {
@@ -2874,6 +2971,7 @@
         setupByViewport();
         if (!isMobile() || !firstClone || !lastClone) return;
         refreshWidth();
+        applyMobileSizing();
         syncPosition(false);
       });
     })();
@@ -2904,7 +3002,7 @@
         ".hero-left, .hero-media, .stats-grid .stat-card, .why-item, .portfolio-card, .portfolio-more-wrap, " +
         ".trusted-copy, .logo-tile, .layanan-card, .trust-copy, .trust-worker, .trust-metrics, " +
         ".why-hero-kicker, .why-hero-title, .why-hero-desc, .why-hero-card, .testimoni-photo, .testimoni-card, " +
-        ".dokumentasi-item, .faq-head, .faq-item, .layanan-detail-title, .layanan-detail-col li, " +
+        ".faq-head, .faq-item, .layanan-detail-title, .layanan-detail-col li, " +
         ".maps-head, .maps-card, .maps-frame, .site-footer-inner > div"
       ));
 
@@ -2921,7 +3019,6 @@
         ".trusted-logos .logo-tile",
         ".layanan-grid .layanan-card",
         ".why-hero-grid .why-hero-card",
-        ".dokumentasi-grid .dokumentasi-item",
         ".faq-list .faq-item",
         ".layanan-detail-col li"
       ];
