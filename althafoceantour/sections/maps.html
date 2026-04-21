@@ -1,36 +1,42 @@
 <section id="location" class="section-padding" style="background-color: var(--white);">
     <div class="container">
-        <div class="about-grid" style="grid-template-columns: 1fr 1fr; gap: 4rem;">
+        <div class="location-grid">
             <div class="location-info">
                 <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Lokasi Kami</h2>
-                <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                <p style="color: var(--text-muted); margin-bottom: 2.5rem;">
                     Kunjungi kantor kami di Labuan Bajo untuk konsultasi rencana perjalanan Anda secara langsung. Tim kami siap menyambut Anda dengan keramahan khas Althaf Ocean Tour.
                 </p>
-                <div class="contact-details" style="list-style: none; padding: 0;">
-                    <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="color: var(--accent); font-size: 1.5rem;">📍</div>
-                        <div>
-                            <h4 style="color: var(--primary); margin-bottom: 0.2rem;">Alamat</h4>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">Jl. Soekarno Hatta, Labuan Bajo, Komodo, Kabupaten Manggarai Barat, Nusa Tenggara Timur.</p>
+                <div class="contact-list">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-location-dot"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Alamat</h4>
+                            <p>Jl. Soekarno Hatta, Labuan Bajo, Komodo, Kabupaten Manggarai Barat, Nusa Tenggara Timur.</p>
                         </div>
                     </div>
-                    <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="color: var(--accent); font-size: 1.5rem;">📞</div>
-                        <div>
-                            <h4 style="color: var(--primary); margin-bottom: 0.2rem;">Telepon / WA</h4>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">0877 1803 1430</p>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Telepon / WA</h4>
+                            <p>0877 1803 1430</p>
                         </div>
                     </div>
-                    <div style="display: flex; align-items: start; gap: 1rem;">
-                        <div style="color: var(--accent); font-size: 1.5rem;">✉️</div>
-                        <div>
-                            <h4 style="color: var(--primary); margin-bottom: 0.2rem;">Email</h4>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">info@althafoceantour.com</p>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>info@althafoceantour.com</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="map-container" style="border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); height: 400px;">
+            <div class="map-wrapper">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15783.336496356499!2d119.8732!3d-8.4907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2db468bc734fb469%3A0x6a053c8c7a840e69!2sLabuan%20Bajo%2C%20Komodo%2C%20West%20Manggarai%20Regency%2C%20East%20Nusa%20Tenggara!5e0!3m2!1sen!2sid!4v1713600000000!5m2!1sen!2sid" 
                     width="100%" 
@@ -40,7 +46,104 @@
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
+                <a href="https://maps.app.goo.gl/yUpD2tLhLhG7S5fF6" target="_blank" class="map-overlay-btn">
+                    Buka di Google Maps <i class="fas fa-external-link-alt"></i>
+                </a>
             </div>
         </div>
     </div>
+
+    <style>
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .contact-card {
+            display: flex;
+            gap: 1.5rem;
+            align-items: start;
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        .contact-card:hover .contact-icon {
+            background: var(--accent);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+        .contact-text h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            font-family: var(--font-heading);
+        }
+        .contact-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .map-wrapper {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 480px;
+        }
+        .map-overlay-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+        }
+        .map-overlay-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        @media (max-width: 900px) {
+            .location-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .map-wrapper {
+                height: 350px;
+            }
+            .location-info {
+                text-align: left;
+            }
+            .location-info .section-title {
+                text-align: left;
+            }
+        }
+    </style>
 </section>

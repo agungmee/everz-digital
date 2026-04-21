@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load all sections
   Promise.all(sections.map(section => 
-    fetch(section.file)
+    fetch(`${section.file}?v=${new Date().getTime()}`)
       .then(response => {
         if (!response.ok) throw new Error(`Failed to load ${section.file}`);
         return response.text();
@@ -28,7 +28,106 @@ document.addEventListener("DOMContentLoaded", () => {
   )).then(() => {
     console.log("All sections loaded.");
     initializeWhatsApp();
+    initializeJetski();
+    initializeDestSlider();
+    initializeGallerySlider();
   });
+
+  // Gallery Slider Logic
+  function initializeGallerySlider() {
+    new Swiper(".gallery-slider", {
+      slidesPerView: 1.2,
+      spaceBetween: 15,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+      },
+    });
+  }
+
+  // Destinations Slider Logic
+  function initializeDestSlider() {
+    new Swiper(".dest-slider", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      centeredSlides: false,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+    });
+  }
+
+  // Jetski Selection Logic
+  function initializeJetski() {
+    const jetskiItems = document.querySelectorAll(".jetski-item");
+    const pesanBtn = document.getElementById("btn-pesan-jetski");
+
+    if (jetskiItems.length > 0 && pesanBtn) {
+      jetskiItems.forEach(item => {
+        item.addEventListener("click", () => {
+          // Remove selected class from all items
+          jetskiItems.forEach(i => i.classList.remove("selected"));
+          
+          // Add selected class to clicked item
+          item.classList.add("selected");
+
+          // Update WhatsApp link
+          const duration = item.getAttribute("data-duration");
+          const baseUrl = "https://wa.me/6287718031430";
+          const message = `Halo Althaf Ocean Tour, saya ingin pesan paket Jetski dengan durasi *${duration}*.`;
+          pesanBtn.href = `${baseUrl}?text=${encodeURIComponent(message)}`;
+          
+          // Smooth scroll to button (optional but helpful on mobile)
+          if (window.innerWidth < 768) {
+              pesanBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
+    }
+  }
 
   // WhatsApp Widget Logic
   function initializeWhatsApp() {
@@ -42,11 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
       waToggle.addEventListener("click", () => {
         waChatBox.classList.toggle("active");
       });
-
-      // Open by default after 2 seconds to attract attention
-      setTimeout(() => {
-        waChatBox.classList.add("active");
-      }, 2000);
     }
 
     if (waClose) {

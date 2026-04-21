@@ -179,9 +179,32 @@ h1, h2, h3, h4, h5, h6 {
 
 #main-nav {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
   transition: var(--transition);
+}
+
+#main-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+#main-nav a i {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+#main-nav a:hover {
+  color: var(--accent);
 }
 
 .burger-menu {
@@ -245,6 +268,51 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--white);
 }
 .dest-info h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+/* Swiper Custom Styles */
+.custom-nav {
+    color: var(--accent) !important;
+    background: rgba(10, 37, 64, 0.5);
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+    transition: var(--transition);
+}
+.custom-nav:after {
+    font-size: 1.2rem !important;
+    font-weight: bold;
+}
+.custom-nav:hover {
+    background: var(--accent);
+    color: var(--primary) !important;
+}
+.custom-dots .swiper-pagination-bullet {
+    background: var(--primary);
+    opacity: 0.3;
+}
+.custom-dots .swiper-pagination-bullet-active {
+    background: var(--accent) !important;
+    opacity: 1;
+    width: 25px;
+    border-radius: 5px;
+}
+
+/* Detail Button Overlay */
+.btn-detail-overlay {
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+.dest-card:hover .btn-detail-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+.btn-sm {
+    padding: 8px 18px !important;
+    font-size: 0.75rem !important;
+}
 
 /* About */
 .about-section {
@@ -755,7 +823,8 @@ footer {
     background-color: var(--primary);
     flex-direction: column;
     justify-content: center;
-    padding: 2rem;
+    align-items: flex-start;
+    padding: 2rem 4rem;
     z-index: 999;
   }
 
@@ -764,8 +833,35 @@ footer {
   }
 
   #main-nav a {
-    font-size: 1.2rem !important;
-    margin-bottom: 1.5rem;
+    font-size: 1.5rem !important;
+    margin-bottom: 2rem;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 1rem;
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  #main-nav.active a {
+    animation: slideInMenu 0.5s forwards;
+  }
+
+  /* Staggered animation */
+  #main-nav.active a:nth-child(1) { animation-delay: 0.1s; }
+  #main-nav.active a:nth-child(2) { animation-delay: 0.2s; }
+  #main-nav.active a:nth-child(3) { animation-delay: 0.3s; }
+  #main-nav.active a:nth-child(4) { animation-delay: 0.4s; }
+  #main-nav.active a:nth-child(5) { animation-delay: 0.5s; }
+  #main-nav.active a:nth-child(6) { animation-delay: 0.6s; }
+  #main-nav.active a:nth-child(7) { animation-delay: 0.7s; }
+
+  #main-nav a i {
+    width: 40px;
+    font-size: 1.4rem;
+  }
+
+  @keyframes slideInMenu {
+    to { opacity: 1; transform: translateX(0); }
   }
 }
 /* Package Detail Page Styles */

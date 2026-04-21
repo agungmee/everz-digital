@@ -2,30 +2,55 @@
   <div class="container text-center">
       <h2 class="section-title">Destinasi Wisata NTT</h2>
       
-      <div class="destinations-grid" style="margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-          <a href="destination.html?id=komodo" class="dest-card" style="text-decoration: none; cursor: pointer; display: block;">
-              <img src="images/komodo.png" alt="Pulau Komodo">
-              <div class="dest-info">
-                  <h3>Pulau Komodo</h3>
-                  <p>Taman Nasional Komodo</p>
+      <div class="dest-slider swiper" style="margin-top: 4rem; padding-bottom: 3rem;">
+          <div class="swiper-wrapper">
+              <!-- Slide 1: Komodo -->
+              <div class="swiper-slide">
+                  <a href="destination.html?id=komodo" class="dest-card" style="text-decoration: none; cursor: pointer; display: block;">
+                      <img src="images/komodo.png" alt="Pulau Komodo">
+                      <div class="dest-info">
+                          <h3>Pulau Komodo</h3>
+                          <p>Taman Nasional Komodo</p>
+                          <div class="btn-detail-overlay">
+                              <span class="btn btn-accent btn-sm">Lihat Detail <i class="fas fa-arrow-right"></i></span>
+                          </div>
+                      </div>
+                  </a>
               </div>
-          </a>
+              
+              <!-- Slide 2: Padar -->
+              <div class="swiper-slide">
+                  <a href="destination.html?id=padar" class="dest-card" style="text-decoration: none; cursor: pointer; display: block;">
+                      <img src="images/pulau_padar.png" alt="Pulau Padar">
+                      <div class="dest-info">
+                          <h3>Pulau Padar</h3>
+                          <p>Sensasi Trekking Puncak Dunia</p>
+                          <div class="btn-detail-overlay">
+                              <span class="btn btn-accent btn-sm">Lihat Detail <i class="fas fa-arrow-right"></i></span>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+              
+              <!-- Slide 3: Pink Beach -->
+              <div class="swiper-slide">
+                  <a href="destination.html?id=pink-beach" class="dest-card" style="text-decoration: none; cursor: pointer; display: block;">
+                      <img src="images/pink_beach.png" alt="Pink Beach">
+                      <div class="dest-info">
+                          <h3>Pink Beach</h3>
+                          <p>Keajaiban Pasir Berwarna Merah Muda</p>
+                          <div class="btn-detail-overlay">
+                              <span class="btn btn-accent btn-sm">Lihat Detail <i class="fas fa-arrow-right"></i></span>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+          </div>
           
-          <a href="destination.html?id=padar" class="dest-card" style="text-decoration: none; cursor: pointer; display: block;">
-              <img src="images/pulau_padar.png" alt="Pulau Padar">
-              <div class="dest-info">
-                  <h3>Pulau Padar</h3>
-                  <p>Sensasi Trekking Puncak Dunia</p>
-              </div>
-          </a>
-          
-          <a href="destination.html?id=pink-beach" class="dest-card" style="text-decoration: none; cursor: pointer; display: block;">
-              <img src="images/pink_beach.png" alt="Pink Beach">
-              <div class="dest-info">
-                  <h3>Pink Beach</h3>
-                  <p>Keajaiban Pasir Berwarna Merah Muda</p>
-              </div>
-          </a>
+          <!-- Navigation -->
+          <div class="swiper-button-next custom-nav"></div>
+          <div class="swiper-button-prev custom-nav"></div>
+          <div class="swiper-pagination custom-dots"></div>
       </div>
   </div>
 </section>
