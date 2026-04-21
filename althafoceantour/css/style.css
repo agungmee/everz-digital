@@ -53,11 +53,11 @@ h4 { font-size: 1.4rem; }
 }
 
 /* Utilities */
-.section-padding { padding: 6rem 0; }
+.section-padding { padding: 5rem 0; }
 .text-center { text-align: center; }
 .section-title { 
   font-size: 2.5rem; 
-  margin-bottom: 3rem; 
+  margin-bottom: 2rem; 
   color: var(--primary);
   position: relative;
   display: inline-block;
@@ -298,7 +298,17 @@ h4 { font-size: 1.4rem; }
   z-index: 2;
   color: var(--white);
 }
-.dest-info h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.dest-info h3 { 
+  font-size: 1.85rem; 
+  margin-bottom: 0.6rem; 
+  color: var(--white);
+  line-height: 1.2;
+}
+.dest-info p {
+  color: rgba(255,255,255,0.95);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
 
 /* Swiper Custom Styles */
 .custom-nav {
@@ -332,17 +342,16 @@ h4 { font-size: 1.4rem; }
 /* Detail Button Overlay */
 .btn-detail-overlay {
     margin-top: 1rem;
-    opacity: 0;
-    transform: translateY(10px);
+    opacity: 1;
+    transform: translateY(0);
     transition: all 0.4s ease;
 }
 .dest-card:hover .btn-detail-overlay {
-    opacity: 1;
-    transform: translateY(0);
+    transform: scale(1.05);
 }
 .btn-sm {
-    padding: 8px 18px !important;
-    font-size: 0.75rem !important;
+    padding: 10px 24px !important;
+    font-size: 0.85rem !important;
 }
 
 /* About */
@@ -379,7 +388,7 @@ h4 { font-size: 1.4rem; }
 /* Packages */
 .packages-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 .pkg-card {
@@ -863,10 +872,11 @@ footer {
     background-color: var(--primary);
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
-    padding: 6rem 3rem 3rem;
+    align-items: center;
+    padding: 6rem 2rem 3rem;
     z-index: 999;
     overflow-y: auto;
+    text-align: center;
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -877,11 +887,13 @@ footer {
   #main-nav a {
     font-size: 1.25rem !important;
     margin-bottom: 1.5rem;
-    width: 100%;
+    width: auto;
+    display: inline-flex;
+    justify-content: center;
     border-bottom: 1px solid rgba(255,255,255,0.05);
     padding-bottom: 0.8rem;
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateY(20px);
   }
 
   #main-nav.active a {
@@ -903,7 +915,7 @@ footer {
   }
 
   @keyframes slideInMenu {
-    to { opacity: 1; transform: translateX(0); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   /* Hero adjustments for performance */
@@ -917,10 +929,8 @@ footer {
     margin-bottom: 1.5rem;
   }
 
-  .section-title {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-  }
+  .section-padding { padding: 2.5rem 0; }
+  .section-title { margin-bottom: 1.5rem; }
 
   .about-text h2 {
     font-size: 1.8rem;
@@ -929,12 +939,27 @@ footer {
   h1 { font-size: 2.2rem; }
   h2 { font-size: 1.8rem; }
   h3 { font-size: 1.5rem; }
+
+  /* Package Detail Specific */
+  .package-header h1 {
+    font-size: 1.5rem !important;
+  }
+  .package-header h2 {
+    font-size: 1.2rem !important;
+  }
+  .package-program h3, 
+  .package-pricing h3, 
+  .suggested-items h3 {
+    font-size: 1.3rem !important;
+  }
 }
 
 /* Specific adjustments for very small screens */
 @media (max-width: 400px) {
+    .container { padding: 0 1.25rem; }
+
     #main-nav {
-        padding: 5rem 2rem 2rem;
+        padding: 5rem 1.5rem 2rem;
     }
     
     #main-nav a {
@@ -943,7 +968,11 @@ footer {
     }
 
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
+    }
+
+    .packages-grid {
+        grid-template-columns: 1fr;
     }
 }
 
