@@ -50,7 +50,7 @@ function renderDestination(data) {
 
             <!-- Content Section -->
             <div class="text-center" style="max-width: 900px; margin: 0 auto 5rem;">
-                <h1 style="color: var(--primary); font-size: 3rem; font-family: var(--font-heading); margin-bottom: 1rem; text-transform: uppercase;">
+                <h1 style="color: var(--primary); font-family: var(--font-heading); margin-bottom: 1rem; text-transform: uppercase;">
                     ${data.title}
                 </h1>
                 <p style="color: var(--accent); font-weight: 600; font-size: 1.1rem; margin-bottom: 2.5rem; letter-spacing: 3px; text-transform: uppercase;">
@@ -85,7 +85,7 @@ function renderDestination(data) {
 
             <!-- Related Packages Section -->
             <div class="related-packages">
-                <h2 style="text-align: center; color: var(--primary); margin-bottom: 3rem; font-size: 2rem;">Pilihan Paket Wisata Menuju Ke Sini</h2>
+                <h2 style="text-align: center; color: var(--primary); margin-bottom: 3rem;">Pilihan Paket Wisata Menuju Ke Sini</h2>
                 <div class="packages-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
                     ${packagesHtml}
                 </div>

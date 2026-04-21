@@ -176,9 +176,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainNav = document.getElementById("main-nav");
 
   if (menuToggle && mainNav) {
+    const waWidget = document.querySelector(".wa-widget-container");
+    
     menuToggle.addEventListener("click", () => {
       menuToggle.classList.toggle("active");
       mainNav.classList.toggle("active");
+      
+      // Hide WhatsApp widget when menu is open
+      if (waWidget) {
+        waWidget.classList.toggle("hide-on-menu");
+      }
       
       // Prevent scrolling when menu is open
       if (mainNav.classList.contains("active")) {
@@ -194,6 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", () => {
         menuToggle.classList.remove("active");
         mainNav.classList.remove("active");
+        if (waWidget) waWidget.classList.remove("hide-on-menu");
         document.body.style.overflow = "auto";
       });
     });

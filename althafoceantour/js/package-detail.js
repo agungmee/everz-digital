@@ -44,10 +44,10 @@ function renderPackage(data) {
         <div class="container">
             <!-- Header Section -->
             <div class="package-header text-center" style="margin-bottom: 4rem;">
-                <h1 style="color: #4A69BD; font-family: var(--font-body); font-weight: 700; font-size: 2.2rem; margin-bottom: 0.5rem; text-transform: uppercase;">
+                <h1 style="color: #4A69BD; font-family: var(--font-body); font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase;">
                     ${data.title}
                 </h1>
-                <h2 style="color: #4A69BD; font-family: var(--font-body); font-weight: 700; font-size: 1.8rem; margin-bottom: 1.5rem; text-transform: uppercase;">
+                <h2 style="color: #4A69BD; font-family: var(--font-body); font-weight: 700; margin-bottom: 1.5rem; text-transform: uppercase;">
                     ${data.subtitle}
                 </h2>
                 <div style="font-size: 1.2rem; margin-bottom: 2rem;">
@@ -63,7 +63,7 @@ function renderPackage(data) {
 
             <!-- Program Section -->
             <div class="package-program" style="margin-bottom: 4rem;">
-                <h3 style="color: #55E6C1; text-align: center; font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; text-transform: uppercase;">
+                <h3 style="color: #55E6C1; text-align: center; font-weight: 700; margin-bottom: 2rem; text-transform: uppercase;">
                     ${data.programTitle}
                 </h3>
                 <h4 style="font-weight: 700; margin-bottom: 1.5rem;">${data.programSubtitle}</h4>
@@ -97,7 +97,7 @@ function renderPackage(data) {
 
             <!-- Pricing Section -->
             <div class="package-pricing text-center" style="margin-bottom: 4rem;">
-                <h3 style="color: #4A69BD; font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; text-transform: uppercase;">
+                <h3 style="color: #4A69BD; font-weight: 700; margin-bottom: 2rem; text-transform: uppercase;">
                     HARGA BERDASARKAN JUMLAH PESERTA
                 </h3>
                 
@@ -135,7 +135,7 @@ function renderPackage(data) {
             
             <!-- Suggested Items Section -->
             <div class="suggested-items" style="margin-bottom: 4rem; text-align: left;">
-                <h3 style="color: #333; font-size: 1.6rem; font-weight: 700; margin-bottom: 2rem; text-transform: uppercase; border-bottom: 2px solid #eee; padding-bottom: 1rem;">
+                <h3 style="color: #333; font-weight: 700; margin-bottom: 2rem; text-transform: uppercase; border-bottom: 2px solid #eee; padding-bottom: 1rem;">
                     BARANG YANG DISARANKAN UNTUK DIBAWA
                 </h3>
                 

@@ -37,7 +37,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.2;
+  color: var(--primary);
 }
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.4rem; }
 
 .container {
   width: 100%;
@@ -103,6 +109,15 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--accent);
   color: var(--white);
 }
+.btn-whatsapp {
+  background-color: #25d366;
+  color: var(--white);
+}
+.btn-whatsapp:hover {
+  background-color: #128c7e;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
 .btn-accent:hover {
   background-color: #b5952f;
   transform: translateY(-2px);
@@ -113,30 +128,45 @@ h1, h2, h3, h4, h5, h6 {
 .hero {
   height: 100vh;
   min-height: 600px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url('../images/hero.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('../images/hero.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: var(--white);
 }
+.hero-content {
+  width: 95%;
+  max-width: 1200px;
+  z-index: 2;
+}
 .hero-content h1 {
   font-size: 5rem;
+  color: var(--white);
   letter-spacing: 2px;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.6);
   animation: fadeInDown 1s ease;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 .hero-content p {
   font-size: 1.2rem;
   font-weight: 300;
   letter-spacing: 4px;
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   animation: fadeInUp 1s ease 0.5s both;
+}
+
+.btn-hero {
+  padding: 16px 48px !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
 }
 
 @keyframes fadeInDown {
@@ -808,6 +838,15 @@ footer {
     text-align: center;
   }
 
+  .draft-header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .draft-header.scrolled,
+  .draft-header.header-solid {
+    padding: 0.8rem 1.5rem;
+  }
+
   .hero-content h1 { font-size: 3rem; }
 
   /* Mobile Nav */
@@ -823,10 +862,12 @@ footer {
     height: 100vh;
     background-color: var(--primary);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
-    padding: 2rem 4rem;
+    padding: 6rem 3rem 3rem;
     z-index: 999;
+    overflow-y: auto;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   #main-nav.active {
@@ -834,11 +875,11 @@ footer {
   }
 
   #main-nav a {
-    font-size: 1.5rem !important;
-    margin-bottom: 2rem;
+    font-size: 1.25rem !important;
+    margin-bottom: 1.5rem;
     width: 100%;
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    padding-bottom: 1rem;
+    padding-bottom: 0.8rem;
     opacity: 0;
     transform: translateX(-20px);
   }
@@ -849,21 +890,66 @@ footer {
 
   /* Staggered animation */
   #main-nav.active a:nth-child(1) { animation-delay: 0.1s; }
-  #main-nav.active a:nth-child(2) { animation-delay: 0.2s; }
-  #main-nav.active a:nth-child(3) { animation-delay: 0.3s; }
-  #main-nav.active a:nth-child(4) { animation-delay: 0.4s; }
-  #main-nav.active a:nth-child(5) { animation-delay: 0.5s; }
-  #main-nav.active a:nth-child(6) { animation-delay: 0.6s; }
-  #main-nav.active a:nth-child(7) { animation-delay: 0.7s; }
+  #main-nav.active a:nth-child(2) { animation-delay: 0.15s; }
+  #main-nav.active a:nth-child(3) { animation-delay: 0.2s; }
+  #main-nav.active a:nth-child(4) { animation-delay: 0.25s; }
+  #main-nav.active a:nth-child(5) { animation-delay: 0.3s; }
+  #main-nav.active a:nth-child(6) { animation-delay: 0.35s; }
+  #main-nav.active a:nth-child(7) { animation-delay: 0.4s; }
 
   #main-nav a i {
-    width: 40px;
-    font-size: 1.4rem;
+    width: 30px;
+    font-size: 1.2rem;
   }
 
   @keyframes slideInMenu {
     to { opacity: 1; transform: translateX(0); }
   }
+
+  /* Hero adjustments for performance */
+  .hero {
+    background-attachment: scroll; /* Disable fixed background on mobile for better performance */
+  }
+
+  .hero-content h1 { 
+    font-size: 2.5rem; 
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.5rem; }
+}
+
+/* Specific adjustments for very small screens */
+@media (max-width: 400px) {
+    #main-nav {
+        padding: 5rem 2rem 2rem;
+    }
+    
+    #main-nav a {
+        font-size: 1.1rem !important;
+        margin-bottom: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* WhatsApp Hide Utility */
+.wa-widget-container.hide-on-menu {
+    display: none !important;
 }
 /* Package Detail Page Styles */
 .price-tab:hover {

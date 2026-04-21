@@ -1,43 +1,45 @@
 const packagesData = {
     "one-day": {
-        title: "PAKET TUR PELAYARAN KOMODO 1 HARI",
+        title: "ONE DAY TRIP SPEEDBOAT",
         subtitle: "KEBERANGKATAN SETIAP HARI",
         stars: 5,
-        description: "Paket Tur Pelayaran Komodo 1 Hari berarti Anda akan menjelajahi Kepulauan Komodo hanya dalam satu hari. Jangan khawatir, kita hanya akan mengunjungi destinasi-destinasi favorit. Selain tur privat, kami juga menawarkan tur bersama/open trip yang berangkat setiap hari TANPA KUOTA MINIMAL dan dapat mendaftar meski hanya satu orang. Untuk reservasi dan konsultasi, klik di sini: >>>tourflores<<<",
-        programTitle: "PROGRAM PERJALANAN DEK TERBUKA 1 HARI",
+        description: "Nikmati pengalaman menjelajahi 6 destinasi ikonik di Taman Nasional Komodo hanya dalam satu hari menggunakan Speedboat. Lebih cepat, lebih nyaman, dan lebih banyak waktu untuk menikmati keindahan alam. Tersedia setiap hari untuk Open Trip maupun Private Trip.",
+        programTitle: "PROGRAM ONE DAY TRIP SPEEDBOAT (6 DESTINASI)",
         programSubtitle: "HARI / PELAYARAN KOMODO FULLDAY (L)",
-        itinerary: "Pukul 06.00 WITA, kita akan berkumpul di meeting point (Pelabuhan Labuan Bajo) untuk bersiap dan naik ke kapal. Perjalanan Anda akan dimulai dengan kunjungan ke Pulau Padar. Setelah itu, kita akan menuju Pink Beach. Setelah puas, Anda akan melanjutkan perjalanan ke salah satu dari 7 Keajaiban Dunia: Pulau Komodo/Pulau Rinca.\n\nSebagai referensi dan informasi: Pulau Komodo dan Pulau Rinca memiliki kesamaan: keduanya dihuni oleh spesies komodo. Meskipun Pulau Komodo lebih dikenal, Pulau Rinca menawarkan peluang lebih baik untuk melihat komodo. Mengapa? Karena Pulau Komodo sangat luas. Meskipun ada banyak komodo, Pulau Rinca yang tidak seluas Komodo adalah tempat yang lebih baik untuk melihat komodo. Jadi, itu bisa menjadi pertimbangan.\n\nSetelah menikmati tur, melihat dan berfoto dengan komodo ditemani Ranger (Pemandu Tur Komodo/Rinca), Anda akan mengarungi lautan lagi untuk mengunjungi Pulau Kelor/Manta Point (tergantung kondisi). Di sini Anda bisa melakukan snorkeling. Setelah itu, Anda akan diantar kembali ke Drop Point (Pelabuhan Labuan Bajo). Tur Jelajah Kepulauan Komodo Anda akan selesai dengan mengesankan bersama kami :).",
+        itinerary: "Pukul 06.00 WITA, Anda akan dijemput di hotel dan diantar menuju Pelabuhan Labuan Bajo. Perjalanan dimulai dengan mengunjungi **Pulau Padar** untuk trekking dan menikmati pemandangan ikonik. Selanjutnya, kita menuju **Pink Beach** untuk bersantai dan berfoto. Perjalanan dilanjutkan ke **Pulau Komodo** untuk melihat habitat asli naga purba. \n\nSetelah makan siang, kita akan menuju **Manta Point** untuk berenang bersama Pari Manta yang megah. Kemudian mengunjungi **Taka Makassar**, pulau pasir putih di tengah laut yang eksotis. Destinasi terakhir adalah **Pulau Siaba** untuk snorkeling menikmati keindahan bawah laut. Sore hari, Anda akan diantar kembali ke hotel. Pengalaman tak terlupakan bersama Althaf Ocean Tour.",
         gallery: [
-            "images/phinisi.png",
+            "images/speedboat.png",
             "images/komodo.png",
             "images/pulau_padar.png",
             "images/pink_beach.png"
         ],
         facilities: [
-            "Kapal 1 hari (Dek Terbuka)",
-            "Kapten Kapal, Mualim dan Kru",
-            "Makan siang selama perjalanan di kapal",
-            "Kopi, Teh, Buah dan Makanan Ringan",
-            "Peralatan Snorkeling",
-            "Air mineral selama tur",
-            "Peralatan keselamatan (life jacket)"
+            "Antar jemput hotel (Pick up & drop off)",
+            "Makan siang (Lunch box)",
+            "Air mineral selama perjalanan",
+            "Minuman ringan (Soft drink)",
+            "Buah-buahan segar",
+            "Peralatan snorkeling (Masker & Fin)",
+            "Pemandu wisata (English speaking guide)"
         ],
         terms: [
-            "Pengeluaran di luar komponen paket tur menjadi tanggung jawab peserta tur.",
-            "Program tur dapat berubah sewaktu-waktu karena cuaca",
-            "Harga tidak termasuk *opt (opsional tur), atau objek tambahan.",
-            "Harga tidak termasuk tiket masuk Taman Nasional Komodo",
-            "Bagi yang membutuhkan layanan antar jemput hotel, kami dapat membantu dengan biaya rendah."
+            "Harga tidak termasuk: Sarapan (Breakfast)",
+            "Harga tidak termasuk: Tiket Masuk Taman Nasional Komodo",
+            "Harga tidak termasuk: Pengeluaran Pribadi (Personal Expenses)",
+            "Harga tidak termasuk: Tipping Guide / Kru",
+            "Harga tidak termasuk: Tiket Pesawat",
+            "Harga tidak termasuk: Akomodasi / Penginapan",
+            "Program tur dapat berubah sewaktu-waktu tergantung kondisi cuaca di laut."
         ],
         pricing: {
             openTrip: {
                 label: "OPEN TRIP (Tur Gabungan)",
-                price: "IDR. 700.000,- /orang",
-                details: "Tanpa jumlah minimal peserta, keberangkatan dijamin SETIAP HARI. Kuota terbatas. PESAN SEKARANG.\nUntuk jadwal keberangkatan dan reservasi, silakan klik DI SINI: >>>tourflores<<<"
+                price: "IDR 1.250.000 / pax",
+                details: "Keberangkatan dijamin SETIAP HARI. Sudah termasuk antar-jemput hotel dan perlengkapan lengkap. Kuota terbatas, segera amankan kursi Anda!"
             },
             private: {
                 label: "PRIVAT (Keluarga/Grup)",
-                details: "Untuk kebutuhan tur privat, lebih ekonomis jika Anda menyewa kapal kami.\nSilakan hubungi kami via WhatsApp untuk penawaran harga terbaik dan pilihan kapal DI SINI: >>>tourflores<<<"
+                details: "Ingin pengalaman yang lebih eksklusif? Kami menyediakan sewa Speedboat Private untuk keluarga atau grup Anda dengan jadwal yang lebih fleksibel. Hubungi kami untuk penawaran terbaik!"
             }
         }
     },
