@@ -161,7 +161,8 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease;
   background-color: transparent;
 }
-.draft-header.scrolled {
+.draft-header.scrolled,
+.draft-header.header-solid {
   background-color: var(--primary);
   padding: 1rem 2rem;
   box-shadow: var(--shadow-md);

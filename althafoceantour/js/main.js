@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (header) {
+  if (header && !header.classList.contains("header-solid")) {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
         header.classList.add("scrolled");
