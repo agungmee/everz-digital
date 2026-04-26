@@ -1137,6 +1137,10 @@
             animation: pulse-shadow 2s infinite;
         }
 
+        .floating-wa.menu-open {
+            display: none !important;
+        }
+
         .floating-wa:hover {
             transform: scale(1.1);
         }
@@ -1223,9 +1227,10 @@
                 height: 100vh;
                 background: var(--primary-dark);
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: 0.5s ease;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 100px 50px;
+                transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
                 box-shadow: -10px 0 30px rgba(0,0,0,0.2);
             }
             .nav-links.active {
@@ -1233,12 +1238,34 @@
             }
             .nav-link {
                 color: var(--white);
-                font-size: 1.3rem;
-                margin-bottom: 25px;
+                font-size: 1.4rem;
+                margin-bottom: 30px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+            .nav-link i {
+                display: block; /* Show on mobile */
+                width: 30px;
+                text-align: center;
+                font-size: 1.5rem;
+                color: var(--accent-color);
             }
             .nav-cta {
                 margin-left: 0;
                 margin-top: 20px;
+                width: 100%;
+            }
+            .nav-cta .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .hamburger.menu-hidden {
+                display: none !important;
+            }
+            .mobile-close {
+                display: block !important;
             }
             .hamburger.active .bar:nth-child(2) { opacity: 0; }
             .hamburger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); background-color: var(--white); }
@@ -1298,11 +1325,14 @@
             <span>Kaizen Travel</span>
         </a>
         <ul class="nav-links" id="nav-links">
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#paket-tour" class="nav-link">Tour</a></li>
-            <li><a href="#rental" class="nav-link">Rental</a></li>
-            <li><a href="#tentang-kami" class="nav-link">Tentang Kami</a></li>
-            <li><a href="#kontak" class="nav-link">Kontak</a></li>
+            <li class="mobile-close" id="mobile-close" style="display: none; position: absolute; top: 30px; right: 30px; font-size: 2rem; color: white; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </li>
+            <li><a href="#home" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#paket-tour" class="nav-link"><i class="fas fa-map-marked-alt"></i> Tour</a></li>
+            <li><a href="#rental" class="nav-link"><i class="fas fa-car"></i> Rental</a></li>
+            <li><a href="#tentang-kami" class="nav-link"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
+            <li><a href="#kontak" class="nav-link"><i class="fas fa-envelope"></i> Kontak</a></li>
             <li class="nav-cta"><a href="https://wa.me/6281250003010" class="btn btn-primary btn-sm">Pesan Sekarang</a></li>
         </ul>
         <div class="hamburger" id="hamburger">
@@ -2022,8 +2052,7 @@
         </div>
     </footer>
 
-    <!-- Floating WA Button -->
-    <a href="https://wa.me/6281250003010" class="floating-wa" target="_blank">
+    <a href="https://wa.me/6281250003010" class="floating-wa" target="_blank" id="floating-wa">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -2081,16 +2110,29 @@
         // Mobile Menu
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
+        const mobileClose = document.getElementById('mobile-close');
+        const floatingWa = document.getElementById('floating-wa');
+
         hamburger.onclick = () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
+            navLinks.classList.add('active');
+            hamburger.classList.add('menu-hidden');
+            if(floatingWa) floatingWa.classList.add('menu-open');
         };
+
+        if(mobileClose) {
+            mobileClose.onclick = () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('menu-hidden');
+                if(floatingWa) floatingWa.classList.remove('menu-open');
+            };
+        }
 
         // Close menu on link click
         document.querySelectorAll('.nav-link').forEach(link => {
             link.onclick = () => {
                 navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
+                hamburger.classList.remove('menu-hidden');
+                if(floatingWa) floatingWa.classList.remove('menu-open');
             }
         });
 
