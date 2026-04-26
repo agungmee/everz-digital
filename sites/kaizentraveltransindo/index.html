@@ -1,0 +1,2196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaizen Traveltrans Indonesia | Jelajahi Nusantara Bersama Kami</title>
+    <meta name="description" content="Paket wisata terbaik, rental kendaraan, dan transportasi wisata untuk seluruh Indonesia. Profesional, aman, dan terpercaya.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #1A5C1A;
+            --primary-dark: #0F3D0F;
+            --primary-light: #E8F5E9;
+            --accent-color: #E8820C;
+            --accent-hover: #CC720A;
+            --bg-page: #FAFAF8;
+            --bg-cream: #F5F3EE;
+            --white: #FFFFFF;
+            --text-primary: #1A1A18;
+            --text-secondary: #6B6B5E;
+            --border-color: #E8E8E0;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --shadow-sm: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-md: 0 8px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 16px 40px rgba(0,0,0,0.14);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.7;
+            background-color: var(--bg-page);
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, .navbar-brand, .cormorant {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        section {
+            padding: 50px 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Typography Utilities */
+        .eyebrow {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .eyebrow::before, .eyebrow::after {
+            content: '';
+            height: 1px;
+            width: 30px;
+            background-color: rgba(26, 92, 26, 0.2);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 20px auto 0;
+            font-size: 1.05rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            text-align: center;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 92, 26, 0.25);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-sm {
+            padding: 10px 24px;
+            font-size: 0.85rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 5%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .navbar.sticky {
+            background: var(--white);
+            padding: 15px 5%;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4rem;
+            color: var(--white);
+        }
+
+        .navbar.sticky .navbar-brand {
+            color: var(--text-primary);
+        }
+
+        .navbar-brand img {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .navbar.sticky .navbar-brand img {
+            mix-blend-mode: normal; /* In case sticky has pure white bg, normal is fine if logo matches */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            position: relative;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .navbar.sticky .nav-link {
+            color: var(--text-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            margin-left: 20px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 2px;
+            margin: 5px auto;
+            transition: var(--transition);
+            background-color: var(--white);
+        }
+
+        .navbar.sticky .bar {
+            background-color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.75) 100%), url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-line {
+            width: 60px;
+            height: 2px;
+            background: var(--accent-color);
+            margin: 0 auto 25px;
+            animation: fadeIn 1s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 45px;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center; /* Center the buttons */
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        /* Stats Bar */
+        .stats-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-bar {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            padding: 45px 30px;
+            margin-top: -40px;
+            width: 90%;
+            max-width: 1100px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .stat-item {
+            border-right: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-item h3 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 8px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .stat-item p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        /* Services */
+        .services {
+            background-color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            text-align: left;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .service-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon-wrapper {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            margin-bottom: 18px;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Regions Filter Slider */
+        .regions {
+            background-color: var(--bg-cream);
+            position: relative;
+        }
+
+        .region-slider-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .region-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0 40px;
+            scrollbar-width: none;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .region-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .region-card {
+            flex: 0 0 calc(20% - 16px); /* 5 cards per view on desktop */
+            width: calc(20% - 16px);
+            aspect-ratio: 4 / 5;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition);
+            flex-shrink: 0;
+            scroll-snap-align: start;
+        }
+
+        .region-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s ease;
+        }
+
+        .region-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
+            display: flex;
+            align-items: flex-end;
+            padding: 25px;
+            color: var(--white);
+        }
+
+        .region-card h4 {
+            font-size: 1.6rem;
+            margin: 0;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .region-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .region-card:hover {
+            transform: translateY(-5px);
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .region-card.active-filter {
+            outline: 3px solid var(--accent-color);
+            outline-offset: -3px;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+        }
+
+        .slider-arrow:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .arrow-left { left: -25px; }
+        .arrow-right { right: -25px; }
+
+        /* Filter Controls */
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: 50px;
+            background: var(--white);
+            border: 1.5px solid #D0D0C8;
+            color: #555;
+            font-weight: 500;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .filter-btn:hover {
+            background: #F0F7F0;
+            border-color: var(--primary-color);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(26, 92, 26, 0.2);
+        }
+
+        /* Tour Packages */
+        .tour-packages {
+            background-color: var(--white);
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .package-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+        }
+
+        .package-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+        }
+
+        .package-card:hover img {
+            filter: brightness(1.05);
+        }
+
+        .package-img {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .package-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            z-index: 1;
+        }
+
+        .package-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package-title {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .package-duration {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .package-duration i {
+            color: var(--accent-color);
+        }
+
+        .package-highlights {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .package-highlights li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            list-style-type: none;
+            position: relative;
+        }
+
+        .package-highlights li::before {
+            content: '✓';
+            position: absolute;
+            left: -20px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .package-footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+        }
+
+        .package-price-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .package-price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .price-value {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.3rem;
+        }
+
+        /* Why Choose Us Split Layout */
+        .why-us {
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .why-us-left {
+            flex: 1;
+            min-width: 45%;
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 50px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .why-us-left .eyebrow {
+            color: var(--accent-color);
+            justify-content: flex-start;
+        }
+
+        .why-us-left .eyebrow::before { display: none; }
+
+        .why-us-left h2 {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            margin-bottom: 25px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .why-us-left p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .why-us-right {
+            flex: 1;
+            min-width: 45%;
+            background-color: var(--white);
+            padding: 50px 8%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+
+        .feature-item h3 {
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--bg-cream);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 60px 45px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            font-size: 6rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--accent-color);
+            opacity: 0.15;
+            line-height: 1;
+        }
+
+        .stars {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .reviewer-info h4 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: 2px;
+        }
+
+        .reviewer-info p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Rental Section */
+        .rental-section {
+            background: var(--white);
+        }
+
+        .rental-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .rental-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 45px 35px;
+            text-align: center;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .rental-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+            transform: translateY(-8px);
+        }
+
+        .rental-card > i {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            background: var(--primary-light);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .rental-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.6rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .rental-desc {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .rental-price {
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        /* Contact & Maps */
+        .contact {
+            background: var(--bg-page);
+            padding-bottom: 0;
+        }
+
+        .contact-top-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            background: var(--white);
+            padding: 60px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: 60px;
+        }
+
+        .contact-info h3 {
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item i {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            margin-top: 4px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .contact-form h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 18px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-page);
+            outline: none;
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--primary-color);
+            background: var(--white);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .full-width-map {
+            width: 100%;
+            height: 450px;
+            filter: grayscale(0.2);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 100px;
+        }
+
+        /* Footer */
+        footer {
+            background: #0F2E0F;
+            color: #C8D5C8;
+            padding: 0;
+            position: relative;
+        }
+
+        .footer-divider {
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+        }
+
+        .footer-divider svg {
+            fill: var(--bg-page);
+            width: 100%;
+            height: 50px;
+        }
+
+        .footer-top {
+            padding: 60px 5% 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 50px;
+        }
+
+        .footer-about img {
+            height: 50px;
+            margin-bottom: 25px;
+            mix-blend-mode: multiply;
+        }
+
+        .footer-about p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            margin-bottom: 30px;
+            font-size: 1.4rem;
+            font-family: 'Cormorant Garamond', serif;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--white);
+            padding-left: 8px;
+        }
+
+        .footer-bottom {
+            padding: 30px 5%;
+            background: #0A1F0A;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-wa-bar {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 15px;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 40px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* Floating WA */
+        .floating-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            z-index: 1000;
+            transition: var(--transition);
+            animation: pulse-shadow 2s infinite;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse-shadow {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Stagger Delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .contact-top-wrapper {
+                grid-template-columns: 1fr;
+                padding: 40px;
+            }
+            .why-us-left, .why-us-right {
+                flex: 100%;
+            }
+            .region-card {
+                flex: 0 0 calc(33.333% - 14px);
+                width: calc(33.333% - 14px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 5%;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .stats-bar {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                padding: 30px 20px;
+            }
+            .stat-item {
+                border-right: none;
+            }
+            .stat-item:nth-child(odd) {
+                border-right: 1px solid rgba(0,0,0,0.05);
+            }
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--primary-dark);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: 0.5s ease;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .nav-link {
+                color: var(--white);
+                font-size: 1.3rem;
+                margin-bottom: 25px;
+            }
+            .nav-cta {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            .hamburger.active .bar:nth-child(2) { opacity: 0; }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); background-color: var(--white); }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--white); }
+            
+            .navbar.sticky .bar { background-color: var(--text-primary); }
+            .hamburger.active .bar { background-color: var(--white) !important; }
+
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .footer-links h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .footer-about img {
+                margin: 0 auto 25px;
+            }
+            .footer-about .social-icons {
+                justify-content: center;
+            }
+            .footer-wa-bar {
+                margin: 20px auto 0;
+                width: fit-content;
+            }
+            .region-card {
+                flex: 0 0 75%;
+                width: 75%;
+            }
+            .slider-arrow {
+                display: none;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="navbar-brand">
+            <img src="https://everz-digital.site/wp-content/uploads/2026/04/a8023e42-3796-49c0-a4c4-b438ffe27ed2__1_-removebg-preview.png" alt="Kaizen Traveltrans Logo">
+            <span>Kaizen Travel</span>
+        </a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#paket-tour" class="nav-link">Tour</a></li>
+            <li><a href="#rental" class="nav-link">Rental</a></li>
+            <li><a href="#tentang-kami" class="nav-link">Tentang Kami</a></li>
+            <li><a href="#kontak" class="nav-link">Kontak</a></li>
+            <li class="nav-cta"><a href="https://wa.me/6281250003010" class="btn btn-primary btn-sm">Pesan Sekarang</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-line"></div>
+            <h1>Jelajahi Nusantara Bersama Kami</h1>
+            <p>Paket wisata terbaik, rental kendaraan, dan transportasi wisata untuk seluruh Indonesia.</p>
+            <div class="hero-btns">
+                <a href="#paket-tour" class="btn btn-primary">Lihat Paket Tour</a>
+                <a href="https://wa.me/6281250003010" target="_blank" class="btn btn-outline">
+                    <i class="fab fa-whatsapp"></i> Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="stats-wrapper">
+        <div class="stats-bar reveal">
+            <div class="stat-item">
+                <h3 class="counter" data-target="500">0</h3>
+                <p>Destinasi</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="counter" data-target="1000">0</h3>
+                <p>Pelanggan Puas</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="counter" data-target="10">0</h3>
+                <p>Tahun Pengalaman</p>
+            </div>
+            <div class="stat-item">
+                <h3>Lengkap</h3>
+                <p>Armada Pilihan</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Layanan Kami -->
+    <section class="services" id="layanan">
+        <div class="section-header reveal-left">
+            <span class="eyebrow">✦ Layanan Kami</span>
+            <h2>Solusi Perjalanan Anda</h2>
+            <p>Kami menghadirkan berbagai solusi perjalanan untuk kebutuhan liburan, bisnis, maupun rombongan Anda dengan layanan standar premium.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal stagger-1">
+                <div class="service-icon-wrapper">🗺️</div>
+                <div class="service-text">
+                    <h3>Paket Tour</h3>
+                    <p>Wisata ke seluruh penjuru Indonesia dengan pemandu berpengalaman dan rute terbaik.</p>
+                </div>
+            </div>
+            <div class="service-card reveal stagger-2">
+                <div class="service-icon-wrapper">🚗</div>
+                <div class="service-text">
+                    <h3>Rental Mobil</h3>
+                    <p>Sewa mobil dengan atau tanpa sopir, armada terawat dan nyaman untuk segala kebutuhan.</p>
+                </div>
+            </div>
+            <div class="service-card reveal stagger-3">
+                <div class="service-icon-wrapper">🚌</div>
+                <div class="service-text">
+                    <h3>Bus Wisata</h3>
+                    <p>Bus kapasitas besar untuk rombongan sekolah, perusahaan, dan komunitas Anda.</p>
+                </div>
+            </div>
+            <div class="service-card reveal stagger-4">
+                <div class="service-icon-wrapper">🚐</div>
+                <div class="service-text">
+                    <h3>Elf & Hiace</h3>
+                    <p>Cocok untuk group kecil, nyaman, ekonomis, dan siap mengantar ke berbagai lokasi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinasi Wisata Slider -->
+    <section class="regions">
+        <div class="section-header reveal-left">
+            <span class="eyebrow">✦ Wilayah Tujuan</span>
+            <h2>Jelajahi Berbagai Destinasi</h2>
+            <p>Pilih wilayah tujuan Anda dan temukan pengalaman tak terlupakan bersama Kaizen Travel.</p>
+        </div>
+        <div class="container region-slider-container">
+            <div class="slider-arrow arrow-left" id="slide-prev"><i class="fas fa-chevron-left"></i></div>
+            <div class="region-scroll" id="region-slider">
+                <div class="region-card reveal" data-region="Bali">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600" alt="Bali">
+                    <div class="region-overlay"><h4>Bali</h4></div>
+                </div>
+                <div class="region-card reveal stagger-1" data-region="Yogyakarta">
+                    <img src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=600" alt="Yogyakarta">
+                    <div class="region-overlay"><h4>Yogyakarta</h4></div>
+                </div>
+                <div class="region-card reveal stagger-2" data-region="Lombok">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Lombok">
+                    <div class="region-overlay"><h4>Lombok</h4></div>
+                </div>
+                <div class="region-card reveal stagger-3" data-region="Labuan Bajo">
+                    <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?w=600" alt="Labuan Bajo">
+                    <div class="region-overlay"><h4>Labuan Bajo</h4></div>
+                </div>
+                <div class="region-card reveal stagger-4" data-region="Medan">
+                    <img src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=600" alt="Medan">
+                    <div class="region-overlay"><h4>Medan & Toba</h4></div>
+                </div>
+                <div class="region-card reveal" data-region="Raja Ampat">
+                    <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=600" alt="Raja Ampat">
+                    <div class="region-overlay"><h4>Raja Ampat</h4></div>
+                </div>
+                <div class="region-card reveal" data-region="Bromo">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600" alt="Bromo">
+                    <div class="region-overlay"><h4>Bromo & Malang</h4></div>
+                </div>
+                <div class="region-card reveal" data-region="Bandung">
+                    <img src="https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?w=600" alt="Bandung">
+                    <div class="region-overlay"><h4>Bandung</h4></div>
+                </div>
+            </div>
+            <div class="slider-arrow arrow-right" id="slide-next"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </section>
+
+    <!-- Paket Tour -->
+    <section class="tour-packages" id="paket-tour">
+        <div class="section-header reveal-left">
+            <span class="eyebrow">✦ Paket Tour Pilihan</span>
+            <h2>Paket Wisata Eksklusif</h2>
+            <p>Kami telah merancang paket tour eksklusif untuk memberikan pengalaman liburan yang berkesan dan tanpa hambatan.</p>
+        </div>
+
+        <div class="filter-controls reveal">
+            <button class="filter-btn active" data-filter="all">Semua Destinasi</button>
+            <button class="filter-btn" data-filter="Bali">Bali</button>
+            <button class="filter-btn" data-filter="Yogyakarta">Jogja</button>
+            <button class="filter-btn" data-filter="Lombok">Lombok</button>
+            <button class="filter-btn" data-filter="Labuan Bajo">Labuan Bajo</button>
+            <button class="filter-btn" data-filter="Bromo">Bromo</button>
+            <button class="filter-btn" data-filter="Medan">Medan</button>
+        </div>
+
+        <div class="package-grid">
+            <!-- BALI -->
+            <div class="package-card reveal stagger-1" data-category="Bali">
+                <div class="package-img">
+                    <img src="https://images.unsplash.com/photo-1537944434965-cf4679d1a598?w=600" alt="Bali Highlights">
+                    <span class="package-badge">Bali</span>
+                </div>
+                <div class="package-body">
+                    <h3 class="package-title">Bali Highlights 3D2N</h3>
+                    <div class="package-duration"><i class="far fa-clock"></i> 3 Hari 2 Malam</div>
+                    <ul class="package-highlights">
+                        <li>Kuta & Seminyak</li>
+                        <li>Tanah Lot & GWK</li>
+                        <li>Pura Uluwatu</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div class="package-price-wrap">
+                            <div class="package-price">
+                                <span class="price-label">Mulai dari</span>
+                                <span class="price-value">Rp 1.450.000</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20tertarik%20dengan%20paket%20Bali%20Highlights%203D2N.%20Bisa%20info%20lebih%20lanjut%3F" class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card reveal stagger-2" data-category="Bali">
+                <div class="package-img">
+                    <img src="https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?w=600" alt="Bali Adventure">
+                    <span class="package-badge">Bali</span>
+                </div>
+                <div class="package-body">
+                    <h3 class="package-title">Bali Adventure 4D3N</h3>
+                    <div class="package-duration"><i class="far fa-clock"></i> 4 Hari 3 Malam</div>
+                    <ul class="package-highlights">
+                        <li>Ubud & Tegalalang</li>
+                        <li>Kintamani Volcano</li>
+                        <li>Snorkeling Sanur</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div class="package-price-wrap">
+                            <div class="package-price">
+                                <span class="price-label">Mulai dari</span>
+                                <span class="price-value">Rp 2.100.000</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20tertarik%20dengan%20paket%20Bali%20Adventure%204D3N.%20Bisa%20info%20lebih%20lanjut%3F" class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOGJA -->
+            <div class="package-card reveal stagger-3" data-category="Yogyakarta">
+                <div class="package-img">
+                    <img src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=600" alt="Jogja Classic">
+                    <span class="package-badge">Jogja</span>
+                </div>
+                <div class="package-body">
+                    <h3 class="package-title">Jogja Classic 2D1N</h3>
+                    <div class="package-duration"><i class="far fa-clock"></i> 2 Hari 1 Malam</div>
+                    <ul class="package-highlights">
+                        <li>Borobudur & Prambanan</li>
+                        <li>Malioboro Street</li>
+                        <li>Kraton Yogyakarta</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div class="package-price-wrap">
+                            <div class="package-price">
+                                <span class="price-label">Mulai dari</span>
+                                <span class="price-value">Rp 850.000</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20tertarik%20dengan%20paket%20Jogja%20Classic%202D1N.%20Bisa%20info%20lebih%20lanjut%3F" class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card reveal stagger-4" data-category="Yogyakarta">
+                <div class="package-img">
+                    <img src="https://images.unsplash.com/photo-1584810359583-96fc3448beaa?w=600" alt="Jogja Explore">
+                    <span class="package-badge">Jogja</span>
+                </div>
+                <div class="package-body">
+                    <h3 class="package-title">Jogja Explore 3D2N</h3>
+                    <div class="package-duration"><i class="far fa-clock"></i> 3 Hari 2 Malam</div>
+                    <ul class="package-highlights">
+                        <li>Gunung Merapi Jeep</li>
+                        <li>Pantai Parangtritis</li>
+                        <li>Candi Borobudur</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div class="package-price-wrap">
+                            <div class="package-price">
+                                <span class="price-label">Mulai dari</span>
+                                <span class="price-value">Rp 1.350.000</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20tertarik%20dengan%20paket%20Jogja%20Explore%203D2N.%20Bisa%20info%20lebih%20lanjut%3F" class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOMBOK -->
+            <div class="package-card reveal stagger-1" data-category="Lombok">
+                <div class="package-img">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Lombok Paradise">
+                    <span class="package-badge">Lombok</span>
+                </div>
+                <div class="package-body">
+                    <h3 class="package-title">Lombok Paradise 3D2N</h3>
+                    <div class="package-duration"><i class="far fa-clock"></i> 3 Hari 2 Malam</div>
+                    <ul class="package-highlights">
+                        <li>Gili Trawangan</li>
+                        <li>Pantai Kuta Lombok</li>
+                        <li>Rinjani Viewpoint</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div class="package-price-wrap">
+                            <div class="package-price">
+                                <span class="price-label">Mulai dari</span>
+                                <span class="price-value">Rp 1.750.000</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20tertarik%20dengan%20paket%20Lombok%20Paradise%203D2N.%20Bisa%20info%20lebih%20lanjut%3F" class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card reveal stagger-2" data-category="Lombok">
+                <div class="package-img">
+                    <img src="https://images.unsplash.com/photo-1570789210967-2cac24afeb00?w=600" alt="Lombok & Gili">
+                    <span class="package-badge">Lombok</span>
+                </div>
+                <div class="package-body">
+                    <h3 class="package-title">Lombok & Gili 4D3N</h3>
+                    <div class="package-duration"><i class="far fa-clock"></i> 4 Hari 3 Malam</div>
+                    <ul class="package-highlights">
+                        <li>Gili Air & Meno</li>
+                        <li>Pink Beach Lombok</li>
+                        <li>Snorkeling Adventure</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div class="package-price-wrap">
+                            <div class="package-price">
+                                <span class="price-label">Mulai dari</span>
+                                <span class="price-value">Rp 2.400.000</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20tertarik%20dengan%20paket%20Lombok%20%26%20Gili%204D3N.%20Bisa%20info%20lebih%20lanjut%3F" class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LABUAN BAJO -->
+            <div class="package-card reveal stagger-3" data-category="Labuan Bajo">
+                <div class="package-img">
+                    <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?w=600" alt="Komodo Island">
+                    <span class="package-badge">Labuan Bajo</span>
+                </div>
+                <div class="package-body">
+                    <h3 class="package-title">Komodo Island 3D2N</h3>
+                    <div class="package-duration"><i class="far fa-clock"></i> 3 Hari 2 Malam</div>
+                    <ul class="package-highlights">
+                        <li>Pulau Komodo & Rinca</li>
+                        <li>Pink Beach</li>
+                        <li>Manta Point</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div class="package-price-wrap">
+                            <div class="package-price">
+                                <span class="price-label">Mulai dari</span>
+                                <span class="price-value">Rp 3.200.000</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20tertarik%20dengan%20paket%20Komodo%20Island%203D2N.%20Bisa%20info%20lebih%20lanjut%3F" class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card reveal stagger-4" data-category="Labuan Bajo">
+                <div class="package-img">
+                    <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600" alt="Labuan Bajo Premium">
+                    <span class="package-badge">Labuan Bajo</span>
+                </div>
+                <div class="package-body">
+                    <h3 class="package-title">Labuan Bajo Premium 4D3N</h3>
+                    <div class="package-duration"><i class="far fa-clock"></i> 4 Hari 3 Malam</div>
+                    <ul class="package-highlights">
+                        <li>Padar Island Trekking</li>
+                        <li>Pulau Kanawa</li>
+                        <li>Sunset Cruise</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div class="package-price-wrap">
+                            <div class="package-price">
+                                <span class="price-label">Mulai dari</span>
+                                <span class="price-value">Rp 4.500.000</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20tertarik%20dengan%20paket%20Labuan%20Bajo%20Premium%204D3N.%20Bisa%20info%20lebih%20lanjut%3F" class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BROMO -->
+            <div class="package-card reveal stagger-1" data-category="Bromo">
+                <div class="package-img">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600" alt="Bromo Sunrise">
+                    <span class="package-badge">Bromo</span>
+                </div>
+                <div class="package-body">
+                    <h3 class="package-title">Bromo Sunrise 2D1N</h3>
+                    <div class="package-duration"><i class="far fa-clock"></i> 2 Hari 1 Malam</div>
+                    <ul class="package-highlights">
+                        <li>Penanjakan Sunrise</li>
+                        <li>Kawah Bromo</li>
+                        <li>Pasir Berbisik & Savana</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div class="package-price-wrap">
+                            <div class="package-price">
+                                <span class="price-label">Mulai dari</span>
+                                <span class="price-value">Rp 750.000</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20tertarik%20dengan%20paket%20Bromo%20Sunrise%202D1N.%20Bisa%20info%20lebih%20lanjut%3F" class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card reveal stagger-2" data-category="Bromo">
+                <div class="package-img">
+                    <img src="https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?w=600" alt="Bromo Ijen">
+                    <span class="package-badge">Bromo</span>
+                </div>
+                <div class="package-body">
+                    <h3 class="package-title">Bromo + Ijen 3D2N</h3>
+                    <div class="package-duration"><i class="far fa-clock"></i> 3 Hari 2 Malam</div>
+                    <ul class="package-highlights">
+                        <li>Gunung Bromo</li>
+                        <li>Kawah Ijen Blue Fire</li>
+                        <li>City Tour Banyuwangi</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div class="package-price-wrap">
+                            <div class="package-price">
+                                <span class="price-label">Mulai dari</span>
+                                <span class="price-value">Rp 1.600.000</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20tertarik%20dengan%20paket%20Bromo%20%2B%20Ijen%203D2N.%20Bisa%20info%20lebih%20lanjut%3F" class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEDAN -->
+            <div class="package-card reveal stagger-3" data-category="Medan">
+                <div class="package-img">
+                    <img src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=600" alt="Danau Toba">
+                    <span class="package-badge">Medan</span>
+                </div>
+                <div class="package-body">
+                    <h3 class="package-title">Danau Toba 3D2N</h3>
+                    <div class="package-duration"><i class="far fa-clock"></i> 3 Hari 2 Malam</div>
+                    <ul class="package-highlights">
+                        <li>Samosir Island</li>
+                        <li>Desa Wisata Tomok</li>
+                        <li>Air Terjun Sipiso-piso</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div class="package-price-wrap">
+                            <div class="package-price">
+                                <span class="price-label">Mulai dari</span>
+                                <span class="price-value">Rp 1.900.000</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20tertarik%20dengan%20paket%20Danau%20Toba%203D2N.%20Bisa%20info%20lebih%20lanjut%3F" class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card reveal stagger-4" data-category="Medan">
+                <div class="package-img">
+                    <img src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=600" alt="Medan Heritage">
+                    <span class="package-badge">Medan</span>
+                </div>
+                <div class="package-body">
+                    <h3 class="package-title">Medan Heritage 2D1N</h3>
+                    <div class="package-duration"><i class="far fa-clock"></i> 2 Hari 1 Malam</div>
+                    <ul class="package-highlights">
+                        <li>Istana Maimun</li>
+                        <li>Tjong A Fie Mansion</li>
+                        <li>Berastagi Highland</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div class="package-price-wrap">
+                            <div class="package-price">
+                                <span class="price-label">Mulai dari</span>
+                                <span class="price-value">Rp 1.100.000</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20tertarik%20dengan%20paket%20Medan%20Heritage%202D1N.%20Bisa%20info%20lebih%20lanjut%3F" class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kenapa Pilih Kami -->
+    <section class="why-us" id="tentang-kami">
+        <div class="why-us-left reveal-left">
+            <span class="eyebrow">✦ Keunggulan Kami</span>
+            <h2>Mengapa Memilih Kaizen Travel?</h2>
+            <p>Kepercayaan pelanggan adalah prioritas utama kami. Kami memberikan yang terbaik untuk setiap detik perjalanan Anda di seluruh penjuru Nusantara.</p>
+            <div style="margin-top: 20px;">
+                <a href="#kontak" class="btn btn-outline">Konsultasi Sekarang</a>
+            </div>
+        </div>
+        <div class="why-us-right">
+            <div class="feature-item reveal stagger-1">
+                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="feature-text">
+                    <h3>Harga Transparan</h3>
+                    <p>Semua biaya sudah termasuk sesuai paket. Tidak ada biaya tersembunyi di akhir perjalanan.</p>
+                </div>
+            </div>
+            <div class="feature-item reveal stagger-2">
+                <div class="feature-icon"><i class="fas fa-car"></i></div>
+                <div class="feature-text">
+                    <h3>Armada Terawat</h3>
+                    <p>Kendaraan kami rutin diservis dan dibersihkan untuk menjamin kenyamanan dan keamanan Anda.</p>
+                </div>
+            </div>
+            <div class="feature-item reveal stagger-3">
+                <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+                <div class="feature-text">
+                    <h3>Guide Profesional</h3>
+                    <p>Pemandu wisata kami berpengalaman, ramah, dan menguasai sejarah serta rute destinasi.</p>
+                </div>
+            </div>
+            <div class="feature-item reveal stagger-4">
+                <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                <div class="feature-text">
+                    <h3>Respon Cepat</h3>
+                    <p>Tim Customer Service kami siap melayani pertanyaan dan reservasi Anda 7 hari seminggu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header reveal-left">
+            <span class="eyebrow">✦ Testimoni</span>
+            <h2>Apa Kata Pelanggan Kami?</h2>
+            <p>Simak pengalaman nyata dari mereka yang telah menjelajahi keindahan Indonesia bersama layanan premium Kaizen Travel.</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card reveal stagger-1">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Sangat puas dengan pelayanan Kaizen Travel saat tour ke Bali kemarin. Driver ramah, hotel bagus, dan jadwal sangat teratur. Terima kasih!"</p>
+                <div class="reviewer">
+                    <div class="reviewer-info">
+                        <h4>Andi Wijaya</h4>
+                        <p>Jakarta</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal stagger-2">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Sewa Hiace untuk rombongan kantor ke Jogja. Mobilnya bersih banget dan AC-nya dingin. Perjalanan jadi tidak terasa melelahkan."</p>
+                <div class="reviewer">
+                    <div class="reviewer-info">
+                        <h4>Santi Rahmawati</h4>
+                        <p>Bandung</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal stagger-3">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Paket Labuan Bajo-nya juara! Guide-nya asik banget dan pinter ambil foto. Recommended banget buat yang mau liburan tanpa ribet."</p>
+                <div class="reviewer">
+                    <div class="reviewer-info">
+                        <h4>Budi Santoso</h4>
+                        <p>Surabaya</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rental Section -->
+    <section class="rental-section" id="rental">
+        <div class="section-header reveal-left">
+            <span class="eyebrow">✦ Transportasi</span>
+            <h2>Layanan Rental Kendaraan</h2>
+            <p>Butuh kendaraan tanpa paket wisata? Kami menyediakan berbagai pilihan unit terbaik dengan kondisi prima.</p>
+        </div>
+        <div class="rental-grid">
+            <div class="rental-card reveal stagger-1">
+                <i class="fas fa-car-side"></i>
+                <h3>Rental Mobil</h3>
+                <p class="rental-desc">Toyota Avanza, Innova Reborn, Fortuner</p>
+                <p class="rental-price">Mulai Rp 350.000 / hari</p>
+                <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20ingin%20tanya%20rental%20mobil%20lepas%20kunci%20/%20dengan%20supir." class="btn btn-primary" style="width: 100%;">
+                    <i class="fab fa-whatsapp"></i> Hubungi via WA
+                </a>
+            </div>
+            <div class="rental-card reveal stagger-2">
+                <i class="fas fa-shuttle-van"></i>
+                <h3>Elf & Hiace</h3>
+                <p class="rental-desc">Kapasitas 8 - 15 orang, Interior Mewah</p>
+                <p class="rental-price">Mulai Rp 700.000 / hari</p>
+                <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20ingin%20tanya%20sewa%20Elf%20/%20Hiace." class="btn btn-primary" style="width: 100%;">
+                    <i class="fab fa-whatsapp"></i> Hubungi via WA
+                </a>
+            </div>
+            <div class="rental-card reveal stagger-3">
+                <i class="fas fa-bus"></i>
+                <h3>Bus Wisata</h3>
+                <p class="rental-desc">Kapasitas 30 - 50 orang, AC, TV, Karaoke</p>
+                <p class="rental-price">Hubungi kami untuk harga</p>
+                <a href="https://wa.me/6281250003010?text=Halo%20Kaizen%20Travel%2C%20saya%20ingin%20tanya%20sewa%20Bus%20Wisata." class="btn btn-primary" style="width: 100%;">
+                    <i class="fab fa-whatsapp"></i> Hubungi via WA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak & Maps -->
+    <section class="contact" id="kontak">
+        <div class="container">
+            <div class="contact-top-wrapper reveal">
+                <div class="contact-info">
+                    <h3>Hubungi Kami</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Komplek PDK2 No. 89 Cirendeu, Ciputat Timur – Tangerang Selatan</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <p>0812 5000 3010</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>kaizentraveltransindo@gmail.com</p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 30px; font-weight: 500; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;">Ikuti Perjalanan Kami:</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Kirim Pesan</h3>
+                    <form id="wa-form">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Nama Lengkap" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Nomor WhatsApp" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder="Pesan Anda (Sebutkan paket atau armada yang diminati)" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Kirim ke WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Full Width Map -->
+            <div class="full-width-map reveal" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; border-radius: 0;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4213.532501015784!2d106.76880457499114!3d-6.306014593683231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMTgnMjEuNyJTIDEwNsKwNDYnMTcuMCJF!5e1!3m2!1sen!2sid!4v1777187002029!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+        <div class="container footer-top">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="https://everz-digital.site/wp-content/uploads/2026/04/a8023e42-3796-49c0-a4c4-b438ffe27ed2__1_-removebg-preview.png" alt="Logo">
+                    <p>Penyedia layanan transportasi dan paket wisata premium di Indonesia. Kami berkomitmen memberikan pengalaman perjalanan yang mewah, aman, dan tak terlupakan.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#paket-tour">Paket Wisata</a></li>
+                        <li><a href="#rental">Rental Kendaraan</a></li>
+                        <li><a href="#tentang-kami">Tentang Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Destinasi</h4>
+                    <ul>
+                        <li><a href="#">Wisata Bali</a></li>
+                        <li><a href="#">Wisata Yogyakarta</a></li>
+                        <li><a href="#">Wisata Labuan Bajo</a></li>
+                        <li><a href="#">Wisata Lombok</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Kontak Kami</h4>
+                    <ul>
+                        <li><i class="fas fa-phone-alt"></i> 0812 5000 3010</li>
+                        <li><i class="fas fa-envelope"></i> kaizentraveltransindo@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Cirendeu, Tangerang Selatan</li>
+                    </ul>
+                    <div class="footer-wa-bar">
+                        <i class="fab fa-whatsapp"></i> Hubungi CS: 0812 5000 3010
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Kaizen Traveltrans Indonesia. Crafted for Excellence.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WA Button -->
+    <a href="https://wa.me/6281250003010" class="floating-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Sticky Navbar & Reveal Logic
+        const navbar = document.getElementById('navbar');
+        const counters = document.querySelectorAll('.counter');
+        let counterActivated = false;
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / 100;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 20);
+                } else {
+                    counter.innerText = target + (target === 10 ? '+' : '+');
+                }
+            });
+        };
+
+        window.onscroll = () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
+            
+            // Scroll Reveal
+            const reveals = document.querySelectorAll('.reveal, .reveal-left');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const revealTop = el.getBoundingClientRect().top;
+                const revealPoint = 100;
+                if (revealTop < windowHeight - revealPoint) {
+                    el.classList.add('active');
+                }
+            });
+            
+            // Stats bar counter activation
+            const statsBar = document.querySelector('.stats-bar');
+            if(statsBar && !counterActivated) {
+                const rect = statsBar.getBoundingClientRect();
+                if(rect.top < window.innerHeight) {
+                    animateCounters();
+                    counterActivated = true;
+                }
+            }
+        };
+
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.onclick = () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        };
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.onclick = () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+
+        // Region Filter & Slider
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const packageCards = document.querySelectorAll('.package-card');
+        const regionCards = document.querySelectorAll('.region-card');
+        const regionSlider = document.getElementById('region-slider');
+        const slideNext = document.getElementById('slide-next');
+        const slidePrev = document.getElementById('slide-prev');
+
+        if(slideNext && slidePrev && regionSlider) {
+            const scrollNext = () => {
+                const card = regionSlider.querySelector('.region-card');
+                const scrollAmount = card ? card.offsetWidth + 20 : 300;
+                // If at the end, loop back to start
+                if (regionSlider.scrollLeft + regionSlider.offsetWidth >= regionSlider.scrollWidth - 10) {
+                    regionSlider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    regionSlider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            };
+
+            slideNext.onclick = scrollNext;
+            
+            slidePrev.onclick = () => {
+                const card = regionSlider.querySelector('.region-card');
+                const scrollAmount = card ? card.offsetWidth + 20 : 300;
+                regionSlider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            };
+
+            // Autoslide logic
+            let autoSlideInterval = setInterval(scrollNext, 4000);
+
+            // Pause on hover
+            regionSlider.onmouseenter = () => clearInterval(autoSlideInterval);
+            regionSlider.onmouseleave = () => autoSlideInterval = setInterval(scrollNext, 4000);
+            
+            // Clear interval on manual click
+            slideNext.addEventListener('click', () => clearInterval(autoSlideInterval));
+            slidePrev.addEventListener('click', () => clearInterval(autoSlideInterval));
+        }
+
+        const filterPackages = (filter) => {
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
+            if(activeBtn) activeBtn.classList.add('active');
+            
+            regionCards.forEach(rc => {
+                rc.classList.remove('active-filter');
+                if(rc.getAttribute('data-region') === filter) rc.classList.add('active-filter');
+            });
+
+            packageCards.forEach(card => {
+                card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => card.style.display = 'none', 400);
+                }
+            });
+        };
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                filterPackages(filter);
+            });
+        });
+
+        regionCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const region = card.getAttribute('data-region');
+                document.getElementById('paket-tour').scrollIntoView({ behavior: 'smooth' });
+                filterPackages(region);
+            });
+        });
+
+        // Contact Form to WhatsApp
+        const waForm = document.getElementById('wa-form');
+        waForm.onsubmit = (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            const waText = `Halo Kaizen Travel, saya ${name} (${phone}). %0A%0A${message}`;
+            const waUrl = `https://wa.me/6281250003010?text=${waText}`;
+            
+            window.open(waUrl, '_blank');
+        };
+
+        // Initialize reveal and scroll state on load
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
